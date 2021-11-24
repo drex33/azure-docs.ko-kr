@@ -6,15 +6,15 @@ author: julieMSFT
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: e00047ee4d77d0ad5464b9802ab15a7af026f493
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 5b75d46cb2481b9509d6f095431f4bd6b91b4366
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111437967"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070900"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Synapse 작업 영역 만들기
 

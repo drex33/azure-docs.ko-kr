@@ -7,13 +7,13 @@ ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: duau
-ms.custom: mvc
-ms.openlocfilehash: a420432e52e584fbcac85d8801d025ac1fee80e0
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: mvc, mode-other
+ms.openlocfilehash: 8759ced601cf5cbf2de0b97dbdeda6e0b156ce48
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131439332"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046752"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>빠른 시작: Azure CDN과 Azure Storage 계정 통합
 

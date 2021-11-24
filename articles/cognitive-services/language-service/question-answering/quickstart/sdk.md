@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering, ignite-fall-2021
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-other
 zone_pivot_groups: custom-qna-quickstart
-ms.openlocfilehash: 665818f6c3b9cab0276a3328a875756eba8e0bb2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 754679926595ee38d9ed71d7cad7b0210b8fe92c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029816"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072341"
 ---
 # <a name="quickstart-question-answering"></a>빠른 시작: 질문 답변
 

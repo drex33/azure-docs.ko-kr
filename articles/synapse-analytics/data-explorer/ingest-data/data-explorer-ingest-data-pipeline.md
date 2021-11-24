@@ -9,12 +9,13 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: 746f37fae42b117853d2f808d9fc5ff9fa9f980b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: mode-other
+ms.openlocfilehash: 55619e48d89bf5b8c5a6eb8ce2ac018c467c33c4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131479763"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063451"
 ---
 # <a name="quickstart-ingest-data-using-azure-synapse-pipelines-preview"></a>빠른 시작: Azure Synapse Pipelines을 사용하여 데이터 수집(미리 보기)
 
@@ -51,7 +52,7 @@ Azure Synapse Analytics에서 연결된 서비스는 다른 서비스에 대한 
 
 1. 새 연결된 서비스 페이지에서 다음 정보를 사용합니다.
 
-    | 설정 | 제안 값 | Description |
+    | 설정 | 제안 값 | 설명 |
     |--|--|--|
     | Name | *contosodataexplorerlinkedservice* | Azure Data Explorer 연결된 서비스의 이름. |
     | 인증 방법 | *관리 ID* | 새 서비스에 대한 인증 방법. |

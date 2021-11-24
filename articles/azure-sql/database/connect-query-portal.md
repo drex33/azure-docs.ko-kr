@@ -6,19 +6,18 @@ keywords: sql 데이터베이스에 연결, sql 데이터베이스 쿼리, Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=1, contperf-fy21q3-portal
-ms.devlang: ''
+ms.custom: sqldbrb=1, contperf-fy21q3-portal, mode-other
 ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: mathoma
 ms.date: 03/01/2021
-ms.openlocfilehash: 88ff2a523bb17af28dce0a45ef73af7da5b9d9e4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 96054e22a519b95ecae7782e88f57188d6472f95
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739720"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060346"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-preview-to-query-an-azure-sql-database"></a>빠른 시작: Azure Portal의 쿼리 편집기(미리 보기)를 사용하여 Azure SQL Database 쿼리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

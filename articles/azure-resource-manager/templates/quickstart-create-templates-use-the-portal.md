@@ -5,13 +5,13 @@ author: mumian
 ms.date: 04/27/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 03ef6ce6dd8b203ebff1da0dba7fc5febd29c329
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: contperf-fy21q3, mode-portal
+ms.openlocfilehash: 58439f6fcd4fd3b168f865c4409eeba44643eceb
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960260"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068803"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 ARM 템플릿 만들기 및 배포
 

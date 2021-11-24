@@ -9,13 +9,13 @@ ms.subservice: development
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 06/26/2020
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 6a24d07e2ccf97727ff0eb7c703aa0a82ee33c4c
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
+ms.openlocfilehash: f2ff3cc4dbd76351ade8aae151ab52b04b078634
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287225"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075820"
 ---
 # <a name="use-java-and-jdbc-with--azure-sql-database"></a>Azure SQL Database에서 Java 및 JDBC 사용
 

@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: rifox
-ms.openlocfilehash: 9f9c85a7674dfee99a3db41fdcf8b14d1ac8b96b
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 0f025972835ec66aa1487c821152cd48feb0d801
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967964"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132949613"
 ---
 ## <a name="sample-code"></a>샘플 코드
 [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add-chat)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
@@ -80,7 +80,7 @@ android {
 ```
 
 
-### <a name="setup-the-placeholders"></a>자리 표시자 설정
+### <a name="set-up-the-placeholders"></a>자리 표시자 설정
 
 `MainActivity.java` 파일을 열고 편집합니다. 이 빠른 시작에서는 `MainActivity`에 코드를 추가하고 콘솔에서 출력을 확인합니다. 이 빠른 시작은 UI 빌드를 다루지 않습니다. 파일 맨 위에서 `Communication common`, `Communication chat` 및 기타 시스템 라이브러리를 가져옵니다.
 
@@ -112,6 +112,7 @@ import java.util.List;
     private static final String APPLICATION_ID = "Chat Quickstart App";
     private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
     private static final String TAG = "Chat Quickstart App";
+    private ChatAsyncClient chatAsyncClient;
 
     private void log(String msg) {
         Log.i(TAG, msg);
@@ -166,7 +167,7 @@ import java.util.List;
 ```java
 import com.azure.android.core.http.policy.UserAgentPolicy;
 
-ChatAsyncClient chatAsyncClient = new ChatClientBuilder()
+chatAsyncClient = new ChatClientBuilder()
     .endpoint(endpoint)
     .credential(new CommunicationTokenCredential(firstUserAccessToken))
     .addPolicy(new UserAgentPolicy(APPLICATION_ID, SDK_NAME, sdkVersion))
@@ -263,6 +264,8 @@ chatMessageId = chatThreadAsyncClient.sendMessage(chatMessageOptions).get().getI
 ```
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>채팅 스레드에서 채팅 메시지 받기
+
+### <a name="real-time-notifications"></a>실시간 알림
 실시간 신호를 통해, 새로 들어오는 메시지를 구독하고 메모리의 현재 메시지를 적절하게 업데이트할 수 있습니다. Azure Communication Services는 [구독할 수 있는 이벤트 목록](../../../concepts/chat/concepts.md#real-time-notifications)을 지원합니다.
 
 `<RECEIVE CHAT MESSAGES>` 주석을 다음 코드로 바꿉니다(파일 맨 위에 import 문 배치).
@@ -294,6 +297,155 @@ chatAsyncClient.addEventHandler(ChatEventType.CHAT_MESSAGE_RECEIVED, (ChatEvent 
 > 
 > 위의 업데이트에서 애플리케이션이 `chatAsyncClient.startRealtimeNotifications()` 또는 `chatAsyncClient.addEventHandler()`과 같은 알림 API를 사용하려고 하면 런타임 오류가 발생합니다.
 
+### <a name="push-notifications"></a>푸시 알림
+
+> [!NOTE]
+> 현재 채팅 푸시 알림은 버전 1.1.0-beta.4의 Android SDK에 대해서만 지원됩니다.
+
+푸시 알림을 통해 모바일 앱이 포그라운드로 실행되고 있지 않은 상황에서 채팅 스레드에서 발생하는 들어오는 메시지 및 기타 작업에 대한 알림을 클라이언트에 알릴 수 있습니다. Azure Communication Services는 [구독할 수 있는 이벤트 목록](../../../concepts/chat/concepts.md#push-notifications)을 지원합니다.
+
+1. ChatQuickstart 프로젝트를 사용하여 Firebase Cloud Messaging을 설정합니다. [Firebase 문서](https://firebase.google.com/docs/cloud-messaging/android/client)의 `Create a Firebase project`, `Register your app with Firebase`, `Add a Firebase configuration file`, `Add Firebase SDKs to your app` 및 `Edit your app manifest` 단계를 완료합니다.
+
+2. Communication Services 리소스와 동일한 구독 내에 Notification Hub를 만들고, 허브에 대한 Firebase Cloud Messaging 설정을 구성하고, Notification Hub를 Communication Services 리소스에 연결합니다. [Notification Hub 프로비저닝](../../../concepts/notifications.md#notification-hub-provisioning)을 참조하세요.
+3. 파일 `MainActivity.java`의 동일한 경로에 새 파일 `MyFirebaseMessagingService.java`를 만듭니다. 다음 코드를 파일 `MyFirebaseMessagingService.java`에 복사합니다. `<your_package_name>`을 `MainActivity.java`에 사용된 패키지 이름으로 바꿔야 합니다. `<your_intent_name>`에 고유한 값을 사용할 수 있습니다. 이 값은 아래의 6단계에서 사용됩니다.
+
+   ```java
+      package <your_package_name>;
+
+      import android.content.Intent;
+      import android.util.Log;
+
+      import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
+      import com.azure.android.communication.chat.models.ChatPushNotification;
+      import com.google.firebase.messaging.FirebaseMessagingService;
+      import com.google.firebase.messaging.RemoteMessage;
+
+      import java.util.concurrent.Semaphore;
+
+      public class MyFirebaseMessagingService extends FirebaseMessagingService {
+          private static final String TAG = "MyFirebaseMsgService";
+          public static Semaphore initCompleted = new Semaphore(1);
+
+          @Override
+          public void onMessageReceived(RemoteMessage remoteMessage) {
+              try {
+                  Log.d(TAG, "Incoming push notification.");
+
+                  initCompleted.acquire();
+
+                  if (remoteMessage.getData().size() > 0) {
+                      ChatPushNotification chatPushNotification =
+                          new ChatPushNotification().setPayload(remoteMessage.getData());
+                      sendPushNotificationToActivity(chatPushNotification);
+                  }
+
+                  initCompleted.release();
+              } catch (InterruptedException e) {
+                  Log.e(TAG, "Error receiving push notification.");
+              }
+          }
+
+          private void sendPushNotificationToActivity(ChatPushNotification chatPushNotification) {
+              Log.d(TAG, "Passing push notification to Activity: " + chatPushNotification.getPayload());
+              Intent intent = new Intent("<your_intent_name>");
+              intent.putExtra("PushNotificationPayload", chatPushNotification);
+              LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+          }
+      }
+
+   ```
+
+4. 파일 `MainActivity.java` 맨 위에 다음 가져오기를 추가합니다.
+
+   ```java
+      import android.content.BroadcastReceiver;
+      import android.content.Context;
+      import android.content.Intent;
+      import android.content.IntentFilter;
+
+      import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+      import com.azure.android.communication.chat.models.ChatPushNotification;
+      import com.google.android.gms.tasks.OnCompleteListener;
+      import com.google.android.gms.tasks.Task;
+      import com.google.firebase.messaging.FirebaseMessaging;
+   ```
+
+5. 다음 코드를 `MainActivity` 클래스에 추가합니다.
+
+   ```java
+      private BroadcastReceiver firebaseMessagingReceiver = new BroadcastReceiver() {
+          @Override
+          public void onReceive(Context context, Intent intent) {
+              ChatPushNotification pushNotification =
+                  (ChatPushNotification) intent.getParcelableExtra("PushNotificationPayload");
+
+              Log.d(TAG, "Push Notification received in MainActivity: " + pushNotification.getPayload());
+
+              boolean isHandled = chatAsyncClient.handlePushNotification(pushNotification);
+              if (!isHandled) {
+                  Log.d(TAG, "No listener registered for incoming push notification!");
+              }
+          }
+      };
+
+
+      private void startFcmPushNotification() {
+          FirebaseMessaging.getInstance().getToken()
+              .addOnCompleteListener(new OnCompleteListener<String>() {
+                  @Override
+                  public void onComplete(@NonNull Task<String> task) {
+                      if (!task.isSuccessful()) {
+                          Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                          return;
+                      }
+
+                      // Get new FCM registration token
+                      String token = task.getResult();
+
+                      // Log and toast
+                      Log.d(TAG, "Fcm push token generated:" + token);
+                      Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+
+                      chatAsyncClient.startPushNotifications(token, new Consumer<Throwable>() {
+                          @Override
+                          public void accept(Throwable throwable) {
+                              Log.w(TAG, "Registration failed for push notifications!", throwable);
+                          }
+                      });
+                  }
+              });
+      }
+
+   ```
+
+6. 클래스 `MainActivity`에서 함수 `onCreate`를 업데이트합니다.
+
+   ```java
+      @Override
+      protected void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+          setContentView(R.layout.activity_main);
+    
+          LocalBroadcastManager
+              .getInstance(this)
+              .registerReceiver(
+                  firebaseMessagingReceiver,
+                  new IntentFilter("<your_intent_name>"));
+      }
+   ```
+
+7. 주석 `<RECEIVE CHAT MESSAGES>` 아래에 다음 코드를 입력합니다.
+
+```java
+   startFcmPushNotification();
+
+   chatAsyncClient.addPushNotificationHandler(CHAT_MESSAGE_RECEIVED, (ChatEvent payload) -> {
+       Log.i(TAG, "Push Notification CHAT_MESSAGE_RECEIVED.");
+       ChatMessageReceivedEvent event = (ChatMessageReceivedEvent) payload;
+       // You code to handle ChatMessageReceived event
+   });
+```
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>채팅 스레드에 사용자를 참가자로 추가
 

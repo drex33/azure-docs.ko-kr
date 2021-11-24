@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 11/24/2021
 ms.author: victorh
-ms.openlocfilehash: 9358852dd8b16f495d5123b59ea3ae0f4c29b00f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: bb4bbe05db857e11cc0af00944446c76206e7476
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114441151"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133097984"
 ---
 # <a name="deploy-and-configure-azure-firewall-premium"></a>Azure Firewall 프리미엄 배포 및 구성
 
@@ -88,7 +88,7 @@ IDPS를 테스트하려면 적절한 서버 인증서를 사용하여 자체 내
    :::image type="content" source="media/premium-deploy/alert-message.png" alt-text="경고 메시지":::
 
    > [!NOTE]
-   > 데이터가 로그에 표시되기 시작하는 데 다소 시간이 걸릴 수 있습니다. 데이터가 로그에 표시되기 시작하는 데 20분 이상 걸릴 수 있습니다.
+   > 데이터가 로그에 표시되기 시작하는 데 다소 시간이 걸릴 수 있습니다. 로그가 데이터를 표시 하기 시작 하는 데 몇 분 정도 걸릴 수 있습니다.
 5. 서명 2008983에 대한 서명 규칙을 추가합니다.
 
    1. **DemoFirewallPolicy** 를 선택하고 **설정** 에서 **IDPS** 를 선택합니다.

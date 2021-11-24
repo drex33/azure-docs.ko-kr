@@ -11,12 +11,13 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
-ms.openlocfilehash: e4d47fccb19504eb8e628963516f64c37362356c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: mode-other
+ms.openlocfilehash: 1a6ae960d8e2f35601d387b5f32cbc34fc36242e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264468"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063950"
 ---
 # <a name="quickstart-use-the-call-automation-apis"></a>빠른 시작: 호출 자동화 API 사용
 

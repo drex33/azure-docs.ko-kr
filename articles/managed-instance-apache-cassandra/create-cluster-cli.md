@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-api
-ms.openlocfilehash: b29e6a5a6944759971fbf3a844f5d6897ed6d497
-ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 19edfb3b97acf31b2d1a1adceda961ca40a74ecf
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133097778"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132938914"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli"></a>빠른 시작: Azure CLI 사용하여 Apache Cassandra 클러스터용 Azure Managed Instance 만들기
 
@@ -159,10 +159,9 @@ sudo apt-get install cassandra
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
 
-# Connect to CQLSH (replace <IP> with the private IP addresses of a node in your Datacenter):
-host=("<IP>")
-initial_admin_password="Password provided when creating the cluster"
-cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
+# Connect to CQLSH (replace <IP> with the private IP addresses of the nodes in your Datacenter):
+host=("<IP>" "<IP>" "<IP>")
+cqlsh $host 9042 -u cassandra -p cassandra --ssl
 ```
 
 ## <a name="troubleshooting"></a>문제 해결

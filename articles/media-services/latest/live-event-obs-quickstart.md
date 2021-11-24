@@ -7,12 +7,13 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 03/20/2021
-ms.openlocfilehash: 43f1602b22a761461f84761ed3a3806397011ae2
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.custom: mode-other
+ms.openlocfilehash: 4d985e2fb39ec8b9460ac547c45ac489be9f3c65
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389517"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071632"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>OBS를 사용하여 Azure Media Services 라이브 스트림 만들기
 

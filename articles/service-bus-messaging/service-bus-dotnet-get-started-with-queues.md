@@ -4,13 +4,13 @@ description: 이 자습서에서는 Service Bus 큐에서 메시지를 보내고
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
-ms.custom: contperf-fy22q2
-ms.openlocfilehash: c7e0ddee8e42f76c034ce79c7200e48fcb8bae04
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.custom: contperf-fy22q2, mode-other
+ms.openlocfilehash: 3d19fc2ac3f9d8d429274c7033aeebc786daec4a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132555910"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073854"
 ---
 # <a name="get-started-with-azure-service-bus-queues-net"></a>Azure Service Bus 큐 시작(.NET)
 이 빠른 시작에서는 다음 단계를 수행합니다.

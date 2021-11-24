@@ -3,14 +3,14 @@ title: Visual Studio Code를 사용하여 Python 함수 만들기 - Azure Functi
 description: Python 함수를 만든 다음, Visual Studio Code의 Azure Functions 확장을 사용하여 Azure Functions의 서버리스 호스팅에 로컬 프로젝트를 게시하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.custom: devx-track-python
+ms.custom: devx-track-python, mode-other
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 42f07b76cefed38aad53caba9ba35c74238540fe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3dcbb033056dd7ab13bc32736a27fa8733013a66
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031738"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076223"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-python-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 통해 Python을 사용하여 Azure에서 함수 만들기
 

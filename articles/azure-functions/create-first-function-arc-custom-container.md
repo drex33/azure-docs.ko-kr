@@ -3,12 +3,13 @@ title: '빠른 시작: 사용자 지정 컨테이너에서 Azure Arc 함수 앱 
 description: 사용자 지정 Linux 컨테이너에서 첫 번째 함수 앱을 배포하여 Azure Arc에서 Azure Functions를 시작합니다.
 ms.topic: quickstart
 ms.date: 05/11/2021
-ms.openlocfilehash: a22907387a647ca46a5784661324d3f6edcc3594
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: mode-other
+ms.openlocfilehash: 169f50ceefa96e36f96a0a0fdca679941930fc24
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706934"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049321"
 ---
 # <a name="create-your-first-function-on-azure-arc-using-a-custom-container-preview"></a>사용자 지정 컨테이너를 사용하여 Azure Arc 첫 번째 함수 만들기(미리 보기)
 

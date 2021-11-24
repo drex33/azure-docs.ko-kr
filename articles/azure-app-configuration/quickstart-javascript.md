@@ -5,15 +5,15 @@ services: azure-app-configuration
 author: drewbatgit
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: quickstart
+ms.custom: quickstart, mode-other
 ms.date: 07/12/2021
 ms.author: drewbat
-ms.openlocfilehash: 30655cab708eb5e850f522d171f623f55c12aff7
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 8abdea698508a0d1f2f27733c9c11a5a0d059b57
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132756385"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047204"
 ---
 # <a name="quickstart-create-a-javascript-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 JavaScript 앱 만들기
 

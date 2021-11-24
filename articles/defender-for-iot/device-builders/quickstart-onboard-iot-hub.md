@@ -3,12 +3,13 @@ title: '빠른 시작: 에이전트 기반 솔루션에 대한 Defender for IoT 
 description: 이 빠른 시작에서는 Azure IoT Hub에서 Defender for IoT 보안 서비스를 등록하고 활성화하는 방법에 대해 알아봅니다.
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.openlocfilehash: 953251215b8cd682e9d882e8ca7a14545a7da9c6
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: mode-other
+ms.openlocfilehash: c5b1d7ffe4b19a499b88a4779aa1d8a90bac090c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132709307"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069917"
 ---
 # <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>빠른 시작: 에이전트 기반 솔루션에 대한 Defender for IoT 등록
 

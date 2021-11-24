@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8607355069bbae5983239ddbd3e8752143f31497
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.custom: mode-other
+ms.openlocfilehash: baa8f5fa0eb9d2bc5afcf58cee43b14c83231ff1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129403210"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076941"
 ---
 # <a name="quickstart-use-serverless-sql-pool"></a>빠른 시작: 서버리스 SQL 풀 사용
 

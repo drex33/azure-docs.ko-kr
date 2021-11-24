@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터�
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: fa846f8d04f883218ba1b67ad3f5fd41f31f83aa
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: d8c019a678917af8571be7c6bd67c8049cf6d993
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643636"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043840"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Go 언어를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 

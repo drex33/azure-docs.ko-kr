@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: dlepow
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.author: danlep
 ms.date: 10/09/2020
-ms.openlocfilehash: a27d1240329802a4a1d7eecd117ef60ce06436fb
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 8522a755e613d659f818cf7c5c1b32621e55448b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891485"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068957"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 

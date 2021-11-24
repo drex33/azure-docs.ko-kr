@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/17/2021
 ms.reviewer: Daya-Patil
-ms.custom: mvc,subject-bicepqs, devx-track-azurepowershell
+ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell, mode-arm
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: d72e48e0bb7116bd1a828a3d772b6f283e6fd0a2
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 21000ce7b11a2dfded70af963b7ffb956e00ced6
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730469"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064648"
 ---
 #  <a name="back-up-a-virtual-machine-in-azure-with-a-bicep-template"></a>Bicep 템플릿을 사용하여 Azure에서 가상 머신 백업
 
@@ -312,5 +312,3 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 - VM을 빠르게 복원하는 방법을 [알아봅니다](tutorial-restore-disk.md).
 - Bicep 템플릿을 만드는 [방법을 알아봅니다](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md?tabs=CLI).
 - ARM 템플릿(Azure Resource Manager 템플릿)을 Bicep 파일로 디컴파일하는 [방법을 알아봅니다](../azure-resource-manager/bicep/decompile.md?tabs=azure-cli).
-
-

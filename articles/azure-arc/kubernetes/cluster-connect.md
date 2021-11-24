@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: 클러스터 커넥트 사용하여 Azure Arc 지원 Kubernetes 클러스터에 안전하게 연결
-ms.openlocfilehash: e585b67495aef1fb094d157c584c6744d993b135
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: 1a9cd7a2ba8179fcac83740a4c7a9f8fb6e315d2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132000814"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073268"
 ---
 # <a name="use-cluster-connect-to-connect-to-azure-arc-enabled-kubernetes-clusters"></a>클러스터 커넥트 사용하여 Azure Arc 지원 Kubernetes 클러스터에 연결
 
@@ -22,11 +22,11 @@ ms.locfileid: "132000814"
 
 이 기능에 대한 개념적 개요는 [클러스터 연결 - Azure Arc 지원 Kubernetes](conceptual-cluster-connect.md) 문서에서 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소   
+## <a name="prerequisites"></a>사전 요구 사항   
 
 - 버전 >= 2.16.0으로 [Azure CLI 설치 또는 업그레이드](/cli/azure/install-azure-cli)
 
-- `connectedk8s` Azure CLI 확장 버전 1.1.0 이상을 설치합니다.
+- 버전 `connectedk8s` >= 1.2.0의 Azure CLI 확장을 설치합니다.
 
     ```console
     az extension add --name connectedk8s
@@ -40,7 +40,7 @@ ms.locfileid: "132000814"
 
 - 기존 Azure Arc 지원 Kubernetes 연결 클러스터.
     - 아직 클러스터를 연결하지 않은 경우 [빠른 시작](quickstart-connect-cluster.md)을 사용하세요.
-    - [에이전트](agent-upgrade.md#manually-upgrade-agents)를 버전 >= 1.1.0으로 업그레이드합니다.
+    - 에이전트를 버전 >= 1.5.3으로 [업그레이드합니다.](agent-upgrade.md#manually-upgrade-agents)
 
 - [Kubernetes 클러스터를 Azure Arc에 연결](quickstart-connect-cluster.md#meet-network-requirements)에서 언급한 것 외에도 아웃바운드 액세스를 위해 아래 엔드포인트를 사용하도록 설정합니다.
 
@@ -84,13 +84,13 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
 
 1. 적절한 권한으로 AAD 엔터티에 권한을 부여합니다.
 
-    - 클러스터에서 권한 부여 검사를 위해 Kubernetes 네이티브 ClusterRoleBinding 또는 RoleBinding을 사용하는 경우 직접 액세스를 위해 클러스터의 를 가리키는 파일을 사용하여 `kubeconfig` `apiserver` 이 클러스터에 액세스해야 하는 Azure AD 엔터티(서비스 주체 또는 사용자)에 매핑된 파일을 만들 수 있습니다. 예:
+    - 클러스터에서 권한 부여 검사를 위해 Kubernetes 네이티브 ClusterRoleBinding 또는 RoleBinding을 사용하는 경우 직접 액세스를 위해 클러스터의 를 가리키는 파일을 사용하여 `kubeconfig` `apiserver` 이 클러스터에 액세스해야 하는 Azure AD 엔터티(서비스 주체 또는 사용자)에 매핑된 파일을 만들 수 있습니다. 예제:
     
         ```console
         kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
         ```
 
-    - 클러스터에서 권한 부여 확인을 위해 Azure RBAC를 사용하는 경우 Azure AD 엔터티에 매핑된 Azure 역할 할당을 만들 수 있습니다. 예:
+    - 클러스터에서 권한 부여 확인을 위해 Azure RBAC를 사용하는 경우 Azure AD 엔터티에 매핑된 Azure 역할 할당을 만들 수 있습니다. 예제:
 
         ```console
         az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
@@ -104,7 +104,7 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
     kubectl create serviceaccount admin-user
     ```
 
-1. ClusterRoleBinding 또는 RoleBinding을 만들어 이 [서비스 계정에 클러스터 에 대한 적절한 권한을 부여합니다.](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding) 예:
+1. ClusterRoleBinding 또는 RoleBinding을 만들어 이 [서비스 계정에 클러스터에 대한 적절한 권한을 부여합니다.](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding) 예제:
 
     ```console
     kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --serviceaccount default:admin-user

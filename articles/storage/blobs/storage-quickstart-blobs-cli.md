@@ -9,13 +9,13 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8f4726088a49bfe5da7fdea088df76da3356162e
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.custom: devx-track-azurecli, mode-api
+ms.openlocfilehash: 43710cb0aa558e150099aa7ee525c76cd713fdca
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616553"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133077294"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열
 

@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Azure Database for MySQL 유연한 서�
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc, devx-track-csharp
+ms.custom: mvc, devx-track-csharp, mode-other
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 01/16/2021
-ms.openlocfilehash: f092a1c2347157561768464c196a3d044b550b43
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5b87ed1d1801723c599647febf820755d9a4f15c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131445676"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047805"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>빠른 시작: .NET(C#)을 사용하여 Azure Database for MySQL - 유연한 서버에서 데이터 연결 및 쿼리
 
@@ -314,5 +314,3 @@ az group delete \
 
 > [!div class="nextstepaction"]
 > [CLI를 사용하여 Azure Database for MySQL 서버 관리](./how-to-manage-server-cli.md)
-
-

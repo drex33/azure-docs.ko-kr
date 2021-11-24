@@ -5,15 +5,15 @@ author: brendanzagaeski
 ms.author: brzaga
 ms.service: cache
 ms.devlang: dotnet
-ms.custom: devx-track-csharp, mvc
+ms.custom: devx-track-csharp, mvc, mode-other
 ms.topic: quickstart
 ms.date: 03/31/2021
-ms.openlocfilehash: 6ddb54ecc1c553fac7a474407882b89d976fad2b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 547a24c987fcdff737d6cc3aafbfb8f499153b58
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470607"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062810"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-core-web-app"></a>빠른 시작: ASP.NET Core 웹앱에서 Azure Cache for Redis 사용 
 

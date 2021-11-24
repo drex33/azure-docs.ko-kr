@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: c9ff33fa1600043aaae8b8ffc6c1f9dc5252bd65
-ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
+ms.custom: mvc, devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 79b1c311eb2dcdb701cb40315ca628d0b9227d64
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111420809"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068505"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 

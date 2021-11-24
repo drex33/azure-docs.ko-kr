@@ -9,12 +9,13 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: d5fef80a72e210e71eea0331b0d6098d5414d78a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: mode-other
+ms.openlocfilehash: 4b1f508d60c779f9e72c9695c6b438e8e9d9cb27
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131479766"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070887"
 ---
 # <a name="quickstart-ingest-data-using-one-click-preview"></a>빠른 시작: 원클릭을 사용하여 데이터 수집(미리 보기)
 

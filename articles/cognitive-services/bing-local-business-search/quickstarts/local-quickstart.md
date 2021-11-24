@@ -10,13 +10,13 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 10/22/2020
 ms.author: aahi
-ms.custom: devx-track-csharp
-ms.openlocfilehash: a4fbde55e8fd774e895b27ec2279b4ea80cfd92a
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: 9dd71016a4779e57a57821de026509eae4232b78
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430176"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068179"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>빠른 시작: C#에서 Bing Local Business Search API에 쿼리 보내기
 

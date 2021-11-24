@@ -10,13 +10,13 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
-ms.custom: seodec2018, devx-track-csharp
-ms.openlocfilehash: 201fcf80e26aaaed78e1f6a78eb0dab5a345ba50
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: seodec2018, devx-track-csharp, mode-other
+ms.openlocfilehash: afb701331e2359eb3a6b0afdafc55ffd72d3a33e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350605"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048603"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>빠른 시작: Bing Web Search REST API 및 C#을 사용하여 웹 검색
 

@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.custom: azure-synapse
-ms.openlocfilehash: e23d2f82da833c4613a243bdef268d3fd44aa92c
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.custom: azure-synapse, mode-other
+ms.openlocfilehash: 311d631728e1c823d512150b259c63c155f57912
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538294"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040936"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>빠른 시작: COPY 문을 사용하여 데이터 대량 로드
 

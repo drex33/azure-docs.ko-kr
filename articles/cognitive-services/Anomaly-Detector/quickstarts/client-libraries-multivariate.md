@@ -12,12 +12,13 @@ ms.topic: quickstart
 ms.date: 04/21/2021
 ms.author: mbullwin
 keywords: 변칙 검색, 알고리즘
-ms.openlocfilehash: c19365719dddb01521010c742ac774762060bed9
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.custom: mode-other
+ms.openlocfilehash: 5e6686b0eb1b1a07f0835fb49e0a436b114016e3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830739"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072887"
 ---
 # <a name="quickstart-use-the-anomaly-detector-multivariate-client-library"></a>빠른 시작: Anomaly Detector 다변량 클라이언트 라이브러리 사용
 

@@ -7,13 +7,13 @@ ms.date: 12/13/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom: devx-track-js, mode-api
-ms.openlocfilehash: 18c7b5a9f5ee4b1a423689852c6aad7ceef775b9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: 10dbe79936922d353b75b33cc7035a4f1db3e18a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131063806"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133077024"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>빠른 시작: JavaScript용 Azure Queue Storage 클라이언트 라이브러리 v12
 

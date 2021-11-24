@@ -7,12 +7,13 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/09/2021
-ms.openlocfilehash: 36e4a46cbe71b39550c1a6c066670be6008ab1c2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: mode-other
+ms.openlocfilehash: 73a942dd33b219c151e7490839a46694769a40d0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130259471"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058738"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-hub"></a>빠른 시작: MXCHIP AZ3166 DevKit를 IoT Hub에 연결
 
@@ -32,7 +33,7 @@ ms.locfileid: "130259471"
 * Azure CLI를 사용하여 MXCHIP DevKit가 안전하게 연결할 Azure IoT Hub를 만들고 관리
 * Azure IoT Explorer를 사용하여 IoT Hub에 디바이스를 등록하고, 디바이스 속성을 보고, 디바이스 원격 분석을 보고, 디바이스에서 직접 명령 호출
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Windows 10을 실행하는 PC
 * Azure 구독이 아직 없는 경우 시작하기 전에 [무료 구독을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -306,7 +307,7 @@ Iot Explorer에서 디바이스에 대한 IoT 플러그 앤 플레이 구성 요
 
     IoT Explorer의 각 탭은 디바이스 모델의 IoT 플러그 앤 플레이 구성 요소 중 하나에 해당합니다.
 
-    | 탭 | Type | Name | Description |
+    | 탭 | Type | 속성 | Description |
     |---|---|---|---|
     | **인터페이스** | 인터페이스 | `MXCHIP Getting Started Guide` | MXCHIP DevKit에 대한 예제 모델 |
     | **속성(읽기 전용)** | 속성 | -- | 이 모델에는 현재 읽기 전용 속성이 없습니다. |

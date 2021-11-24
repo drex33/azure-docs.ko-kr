@@ -2,14 +2,14 @@
 title: Azure CLI를 사용하여 Azure Portal 대시보드 만들기
 description: '빠른 시작: Azure CLI를 사용하여 Azure Portal에서 대시보드를 만드는 방법을 알아봅니다. 대시보드는 클라우드 리소스에 대해 집중적으로 구성된 보기입니다.'
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, mode-api
 ms.date: 12/4/2020
-ms.openlocfilehash: aa9d5f1c7ab20de9a2f815ce5b2639582d5f2bed
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 589f833b807ee526ae98bab9a836a55028daee2d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081608"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073147"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Portal 대시보드 만들기
 

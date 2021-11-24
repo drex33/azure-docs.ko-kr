@@ -5,13 +5,13 @@ author: yelevin
 ms.author: yelevin
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 03ed8e5f616fa94823d261c3bc3a1f2347959f15
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.custom: references_regions, ignite-fall-2021, mode-other
+ms.openlocfilehash: 7b555a1bdf5b3b3199af86ebb7c4817546da066f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132762402"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038173"
 ---
 # <a name="quickstart-on-board-microsoft-sentinel"></a>빠른 시작: Microsoft Sentinel 온보딩
 

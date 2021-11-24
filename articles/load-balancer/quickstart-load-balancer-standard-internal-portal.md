@@ -8,13 +8,13 @@ ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 08/09/2021
 ms.author: allensu
-ms.custom: mvc
-ms.openlocfilehash: 9c8f46bf615b0d0c9fe8289057a8244a1d57185d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mvc, mode-other
+ms.openlocfilehash: 5879d4243732997c4c625438169eaa4ec0024c97
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732799"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074534"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 

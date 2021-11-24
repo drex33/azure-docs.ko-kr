@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: f99dd2b0d540cad6fad605e264df4b6054240e35
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b69e0082d923cc064240b1cf1c27a82a76a2e952
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101517"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132863483"
 ---
 # <a name="accepted-data-formats"></a>허용되는 데이터 서식
 
@@ -39,7 +39,7 @@ ms.locfileid: "131101517"
     ],
     "documents": [
         {
-            "location": "doc1.txt",
+            "location": "file1.txt",
             "language": "en-us",
             "classifiers": [
                 {
@@ -47,6 +47,15 @@ ms.locfileid: "131101517"
                 },
                 {
                     "classifierName": "Class1"
+                }
+            ]
+        },
+        {
+            "location": "file2.txt",
+            "language": "en-us",
+            "classifiers": [
+                {
+                    "classifierName": "Class2"
                 }
             ]
         }
@@ -57,10 +66,10 @@ ms.locfileid: "131101517"
 ### <a name="data-description"></a>데이터 설명
 
 * `classifiers`: 데이터에 대한 분류자의 배열입니다. 각 분류기는 데이터에 태그를 지정하려는 클래스 중 하나를 나타냅니다.
-* `documents`: 태그가 지정된 문서의 배열입니다. 예:
-  * `location`: 태그가 포함된 JSON 파일의 경로입니다. 태그 파일은 스토리지 컨테이너의 루트에 있어야 합니다.
-  * `language`: 문서의 언어입니다. [지원되는 문화권 언어](../language-support.md) 중 하나를 사용합니다.
-  * `classifiers`: 문서에 할당된 분류자 개체의 배열입니다. 단일 분류 프로젝트에서 작업하는 경우 분류기는 하나만 있어야 합니다.
+* `documents`: 태그가 지정된 문서의 배열입니다.
+  * `location`: 파일의 경로입니다. 파일은 스토리지 컨테이너의 루트에 있어야 합니다.
+  * `language`: 파일의 언어입니다. [지원되는 문화권 언어](../language-support.md) 중 하나를 사용합니다.
+  * `classifiers`: 파일에 할당된 분류자 개체의 배열입니다. 단일 분류 프로젝트에서 작업하는 경우 분류기는 파일당 하나만 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

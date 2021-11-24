@@ -1,11 +1,23 @@
 ---
-제목: Media Services 계정 ARM 템플릿 : Azure Media Services 설명: 이 문서에서는 ARM 템플릿을 사용하여 미디어 서비스 계정을 만드는 방법을 보여줍니다.
-services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
-
-ms.service: media-services ms.workload: ms.topic: quickstart ms.date: 03/23/2021 ms.author: inhenkel ms.custom: subject-armqs
-
+title: Media Services 계정 ARM 템플릿
+description: 이 문서에서는 ARM 템플릿을 사용하여 미디어 서비스 계정을 만드는 방법을 보여줍니다.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.topic: quickstart
+ms.date: 03/23/2021
+ms.author: inhenkel
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: e694e3558e8b38342c50be698355ef2f58fa3209
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071402"
 ---
-
 # <a name="quickstart-media-services-account-arm-template"></a>빠른 시작: Media Services 계정 ARM 템플릿
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

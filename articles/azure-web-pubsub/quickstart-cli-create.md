@@ -6,12 +6,13 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/08/2021
-ms.openlocfilehash: 426b77d1e1a79c3a9818e028edcc79bcad5ef2ec
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.custom: mode-api
+ms.openlocfilehash: d39b005b87728f21fa21d05eab15eadd4848f97b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131998085"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068672"
 ---
 # <a name="quickstart-create-a-web-pubsub-instance-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Web PubSub 인스턴스 만들기
 

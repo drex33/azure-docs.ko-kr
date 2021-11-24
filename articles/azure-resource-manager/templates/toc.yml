@@ -314,7 +314,7 @@
           href: template-expressions.md
         - name: 매개 변수
           href: parameters.md
-        - name: variables
+        - name: 변수
           href: variables.md
         - name: 사용자 정의 함수
           href: user-defined-functions.md
@@ -472,9 +472,11 @@
           href: template-functions-object.md
         - name: 리소스 함수
           href: template-functions-resource.md
+        - name: 범위 함수
+          href: template-functions-scope.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources/

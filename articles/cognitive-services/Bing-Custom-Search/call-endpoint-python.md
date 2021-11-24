@@ -10,13 +10,13 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: devx-track-python
-ms.openlocfilehash: 9c0a5b849ff3984c7fccc83a149100b462295da5
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: devx-track-python, mode-other
+ms.openlocfilehash: 0b275e30037a192fedc95eebf8199a1df57a9f09
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352034"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070243"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>빠른 시작: Python을 사용하여 Bing Custom Search 엔드포인트 호출
 

@@ -8,12 +8,12 @@ ms.author: parkerra
 ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0233e58a404721586af0ae2fbdf78dbab6d424ed
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: d0a69f2dc52103366c10a016e357a738cf6c335f
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550393"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132954054"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 새 HoloLens Unity 앱을 만드는 단계별 지침
 
@@ -23,9 +23,11 @@ ms.locfileid: "99550393"
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
-1. **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 이상</a>이 설치된 Windows 머신 및 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>.
-2. Visual Studio용 [C++/WinRT Visual Studio 확장(VSIX)](https://aka.ms/cppwinrt/vsix)은 [Visual Studio Marketplace](https://marketplace.visualstudio.com/)에서 설치합니다.
-3. [개발자 모드](/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스. 이 문서에는 [Windows 10 2020년 5월 업데이트](/windows/mixed-reality/whats-new/release-notes-may-2020)가 있는 HoloLens 디바이스가 필요합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안** 으로 이동한 다음, **업데이트 확인** 단추를 선택합니다.
+1. [개발자 모드](/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스. 이 문서에는 [Windows 10 2020년 5월 업데이트](/windows/mixed-reality/whats-new/release-notes-may-2020)가 있는 HoloLens 디바이스가 필요합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안** 으로 이동한 다음, **업데이트 확인** 단추를 선택합니다.
+2. **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소와 함께 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 이상</a>이 설치된 Windows 머신 및 <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a>.
+3. Visual Studio용 [C++/WinRT Visual Studio 확장(VSIX)](https://aka.ms/cppwinrt/vsix)은 [Visual Studio Marketplace](https://marketplace.visualstudio.com/)에서 설치합니다.
+4. Unity 설치. 지원되는 버전 및 필수 기능은 [Unity 프로젝트 설정 페이지](../how-tos/setup-unity-project.md)를 참조하세요.
+
 
 ## <a name="getting-started"></a>시작
 
@@ -65,6 +67,8 @@ ms.locfileid: "99550393"
 1. **편집** > **프로젝트 설정** > **플레이어** 로 이동합니다(이전 단계에서 **플레이어** 를 열어 두었을 수도 있음).
 2. **플레이어 설정** 의 **검사기 패널** 에서 **Windows 스토어** 아이콘을 선택합니다.
 3. **게시 설정** 구성 섹션에서 **InternetClientServer** 및 **SpatialPerception** 을 선택합니다.
+> [!IMPORTANT]
+> 비공개로 구성된 네트워크를 사용하는 경우 **PrivateNetworkClientServer** 기능도 사용하도록 설정해야 합니다.
 
 **주 가상 카메라 설정**
 1. **계층 구조 패널** 에서 **주 카메라** 를 선택합니다.
@@ -139,6 +143,9 @@ Update() 루프를 사용하여 큐에 대기 중인 작업이 있는지 확인�
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=100-110&highlight=4-10)]
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Azure Spatial Anchors SDK 다운로드
+
+### <a name="choose-asa-version"></a>ASA 버전 선택
+[!INCLUDE [Choose SDK Version](../../../includes/spatial-anchors-unity-choose-sdk-version.md)]
 
 ### <a name="download-packages"></a>패키지를 다운로드합니다.
 [!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]

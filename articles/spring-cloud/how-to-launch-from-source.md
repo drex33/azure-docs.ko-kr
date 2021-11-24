@@ -6,13 +6,13 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/12/2021
 ms.author: karler
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 0815f48fd9b194a84566138b25b4bedc97de1a83
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.custom: devx-track-java, devx-track-azurecli, mode-api
+ms.openlocfilehash: 57cce45c57988131974fca07a28876557c100200
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132490329"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133077429"
 ---
 # <a name="how-to-deploy-spring-boot-applications-from-azure-cli"></a>Azure CLI에서 Spring Boot 애플리케이션을 배포하는 방법
 

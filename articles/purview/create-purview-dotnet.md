@@ -7,12 +7,13 @@ ms.service: purview
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/27/2021
-ms.openlocfilehash: 0bbecc10139616bcf33f1d553536f3bfc674c5a1
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: mode-other
+ms.openlocfilehash: a5a0b5f961ba619c498d9bd4f5a7f4ea39c04b76
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215817"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041254"
 ---
 # <a name="quickstart-create-a-purview-account-using-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 Purview 계정 만들기
 

@@ -7,13 +7,13 @@ ms.reviewer: minewiskan
 ms.date: 10/12/2021
 ms.topic: quickstart
 ms.service: azure-analysis-services
-ms.custom: mode-portal
-ms.openlocfilehash: 6a5c6f105b15d65cb13ef61e2416fa27f06fac34
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mode-other
+ms.openlocfilehash: b9acf3aea9cf71acb6ed1b73c146f8713b9ee23d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131060120"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070733"
 ---
 # <a name="quickstart-create-a-server---portal"></a>빠른 시작: 서버 만들기 - 포털
 

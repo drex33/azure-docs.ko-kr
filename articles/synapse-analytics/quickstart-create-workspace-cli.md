@@ -9,12 +9,13 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: jroth
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4856142a7c075405930969a3e1f6da5804ef8c6c
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.custom: mode-api
+ms.openlocfilehash: d370c23df65910dcd8249861d6da7f3fe6aebd58
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093158"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038375"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Synapse 작업 영역 만들기
 

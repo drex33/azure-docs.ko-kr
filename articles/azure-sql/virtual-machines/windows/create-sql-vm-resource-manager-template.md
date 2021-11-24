@@ -3,18 +3,18 @@ title: ARM 템플릿을 사용하여 SQL Server VM 만들기
 description: Azure VM(Virtual Machine)에서 Azure Resource Manager 템플릿(ARM 템플릿)을 사용하여 SQL Server를 만드는 방법에 대해 알아봅니다.
 author: bluefooted
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: pamela
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
 ms.subservice: deployment
 ms.reviewer: mathoma
-ms.openlocfilehash: 211dfa97c8eb437c0d7cc933935d8fa4a125a61f
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: ad3449b8fdcfbdde6922b9c31a1265e3ee92ec23
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163446"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056584"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 SQL Server VM 만들기
 

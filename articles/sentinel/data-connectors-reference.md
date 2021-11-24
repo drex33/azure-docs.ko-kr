@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: eccf9af799968de95dffa4eefdf651470afa83c3
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 04e6e9f2791f126faa1d082e856e1b354508083c
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132938820"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133098155"
 ---
 # <a name="find-your-microsoft-sentinel-data-connector"></a>Microsoft Sentinel 데이터 커넥터 찾기
 
@@ -188,16 +188,16 @@ Vectra 인터페이스에서 설정 > 알림으로 이동하고 Syslog 구성 �
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | **Azure 서비스 대 서비스 통합: <br> [MICROSOFT Sentinel을 커넥트 AWS 서비스 로그 데이터를 수집하도록 Amazon Web Services(상위](connect-aws.md?tabs=ct)** 커넥터 문서) |
+| **데이터 수집 방법** | **Azure 서비스 대 서비스 통합: <br> [MICROSOFT Sentinel을 커넥트 AWS 서비스 로그 데이터를 수집하도록 Amazon Web Services(최상위](connect-aws.md?tabs=ct)** 커넥터 문서) |
 | **Log Analytics 테이블** | AWSCloudTrail |
 | **지원 요소** | Microsoft |
 | | |
 
-## <a name="amazon-web-services-s3-preview"></a>Amazon Web Services S3(미리 보기)
+## <a name="amazon-web-services-s3-preview"></a>Amazon Web Services S3 (미리 보기)
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | **Azure 서비스 대 서비스 통합: <br> [MICROSOFT Sentinel을 커넥트 AWS 서비스 로그 데이터를 수집하도록 Amazon Web Services(상위](connect-aws.md?tabs=s3)** 커넥터 문서) |
+| **데이터 수집 방법** | **Azure 서비스 간 통합: <br> [Microsoft Amazon Web Services 센티널을 커넥트 하 여 AWS service 로그 데이터 수집](connect-aws.md?tabs=s3)** (최상위 커넥터 문서) |
 | **Log Analytics 테이블** | AWSCloudTrail<br>AWSGuardDuty<br>AWSVPCFlow |
 | **지원 요소** | Microsoft |
 | | |
@@ -272,7 +272,7 @@ Vectra 인터페이스에서 설정 > 알림으로 이동하고 Syslog 구성 �
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | **Azure 서비스-서비스 통합: <br> [Microsoft Sentinel에 데이터 커넥트 Azure Active Directory(최상위](connect-azure-active-directory.md)** 커넥터 문서) |
+| **데이터 수집 방법** | **Azure 서비스 간 통합: <br> [Microsoft 센티널에 Azure Active Directory 데이터 커넥트](connect-azure-active-directory.md)** (최상위 커넥터 문서) |
 | **라이선스 필수 조건/<br>비용 정보** | <li>로그인 로그용 Azure Active Directory P1 또는 P2 라이선스<li>기타 로그 유형에 대한 모든 Azure AD 라이선스(무료/O365/P1/P2)<br>다른 요금이 부과될 수 있습니다. |
 | **Log Analytics 테이블** | SigninLogs<br>AuditLogs<br>AADNonInteractiveUserSignInLogs<br>AADServicePrincipalSignInLogs<br>AADManagedIdentitySignInLogs<br>AADProvisioningLogs<br>ADFSSignInLogs |
 | **지원 요소** | Microsoft |
@@ -318,7 +318,7 @@ Vectra 인터페이스에서 설정 > 알림으로 이동하고 Syslog 구성 �
 
 새 Azure 활동 로그 커넥터를 설정하기 전에 레거시 메서드에서 기존 구독의 연결을 끊어야 합니다.
 
-1. Microsoft Sentinel 탐색 메뉴에서 **데이터 커넥터를 선택합니다.** 커넥터 목록에서 **Azure 활동** 을 선택한 다음, 오른쪽 아래에서 커넥터 **페이지 열기** 단추를 선택합니다.
+1. Microsoft 센티널 탐색 메뉴에서 **데이터 커넥터** 를 선택 합니다. 커넥터 목록에서 **Azure 활동** 을 선택 하 고 오른쪽 아래에서 **커넥터 페이지 열기** 단추를 선택 합니다.
 
 1. **지침** 탭 아래 **구성** 섹션의 1단계에서 레거시 메서드에 연결된 기존 구독 목록을 검토하여 새 메서드에 추가할 구독을 확인한 다음, 아래의 **모두 연결 끊기** 단추를 클릭하여 한 번에 모두 연결을 끊습니다.
 
@@ -339,7 +339,7 @@ Vectra 인터페이스에서 설정 > 알림으로 이동하고 Syslog 구성 �
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | **Azure 서비스-서비스 통합: <br> [Microsoft Defender for Cloud의 보안 경고 커넥트(상위](connect-defender-for-cloud.md)** 커넥터 문서) |
+| **데이터 수집 방법** | **Azure 서비스 간 통합: <br> [클라우드에 대 한 Microsoft Defender의 보안 경고를 커넥트](connect-defender-for-cloud.md)** (최상위 커넥터 문서) |
 | **Log Analytics 테이블** | SecurityAlert |
 | **지원 요소** | Microsoft |
 | | |
@@ -506,7 +506,7 @@ Vectra 인터페이스에서 설정 > 알림으로 이동하고 Syslog 구성 �
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | Syslog를 통한 **[CEF(Common Event Format)](connect-common-event-format.md)** <br><br>[Check Point 솔루션](sentinel-solutions-catalog.md#check-point) 에서 사용할 수 있습니다.|
+| **데이터 수집 방법** | Syslog를 통한 **[CEF(Common Event Format)](connect-common-event-format.md)** <br><br>[Check Point 솔루션에서](sentinel-solutions-catalog.md#check-point) 사용 가능|
 | **Log Analytics 테이블** | CommonSecurityLog |
 | **공급업체 문서/<br>설치 지침** | [로그 내보내기 - Check Point 로그 내보내기](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323) |
 | **지원 요소** | [Check Point](https://www.checkpoint.com/support-services/contact-support/) |
@@ -517,7 +517,7 @@ Vectra 인터페이스에서 설정 > 알림으로 이동하고 Syslog 구성 �
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | Syslog를 통한 **[CEF(Common Event Format)](connect-common-event-format.md)** <br><br>[CISCO global.asa 솔루션](sentinel-solutions-catalog.md#cisco) 에서 사용 가능|
+| **데이터 수집 방법** | Syslog를 통한 **[CEF(Common Event Format)](connect-common-event-format.md)** <br><br>[Cisco ASA 솔루션에서](sentinel-solutions-catalog.md#cisco) 사용 가능|
 | **Log Analytics 테이블** | CommonSecurityLog |
 | **공급업체 문서/<br>설치 지침** | [Cisco ASA 시리즈 CLI 구성 가이드](https://www.cisco.com/c/en/us/support/docs/security/pix-500-series-security-appliances/63884-config-asa-00.html) |
 | **지원 요소** | Microsoft |
@@ -537,10 +537,10 @@ Vectra 인터페이스에서 설정 > 알림으로 이동하고 Syslog 구성 �
 ### <a name="extra-configuration-for-cisco-firepower-estreamer"></a>Cisco Firepower eStreamer에 대한 추가 구성
 
 1. **Firepower eNcore 클라이언트 설치**  
-Firepower eNcore eStreamer 클라이언트를 설치하고 구성합니다. 자세한 내용은 [전체 Cisco 설치 가이드](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html)를 참조 하세요.
+Firepower eNcore eStreamer 클라이언트를 설치하고 구성합니다. 자세한 내용은 전체 [Cisco 설치 가이드를 참조하세요.](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html)
 
 1. **GitHub에서 Firepower Connector 다운로드**  
-[Cisco GitHub 리포지토리에서](https://github.com/CiscoSecurity/fp-05-microsoft-sentinel-connector)Microsoft 센티널 용 Firepower eNcore 커넥터의 최신 버전을 다운로드 합니다. Python3 사용을 계획 하는 경우 [Python3 eStreamer 커넥터](https://github.com/CiscoSecurity/fp-05-microsoft-sentinel-connector/tree/python3)를 사용 합니다.
+[Cisco GitHub 리포지토리에서](https://github.com/CiscoSecurity/fp-05-microsoft-sentinel-connector)최신 버전의 Microsoft Sentinel용 Firepower eNcore 커넥터를 다운로드합니다. python3을 사용하려는 경우 [python3 eStreamer 커넥터](https://github.com/CiscoSecurity/fp-05-microsoft-sentinel-connector/tree/python3)를 사용합니다.
 
 1. **Azure/VM IP 주소를 사용하여 pkcs12 파일 만들기**  
 **시스템 > 통합 > eStreamer** 아래 Firepower에서 VM 인스턴스의 공용 IP를 사용하여 pkcs12 인증서를 만듭니다. 자세한 내용은 [설치 가이드](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html#_Toc527049443)를 참조하세요.
@@ -549,14 +549,14 @@ Firepower eNcore eStreamer 클라이언트를 설치하고 구성합니다. 자�
 FMC에서 Azure/VM 인스턴스로 pkcs12 파일을 복사하고 테스트 유틸리티(./encore.sh 테스트)를 실행하여 연결을 설정할 수 있는지 확인합니다. 자세한 내용은 [설치 가이드](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html#_Toc527049430)를 참조하세요.
 
 1. **에이전트에 데이터를 스트림하도록 eNcore 구성**  
-TCP를 통해 Log Analytics 에이전트로 데이터를 스트림하도록 eNcore를 구성합니다. 이 구성은 기본적으로 사용 하도록 설정 되어야 하지만, 네트워크 보안 상태에 따라 추가 포트 및 스트리밍 프로토콜을 구성할 수 있습니다. 파일 시스템에 데이터를 저장할 수도 있습니다. 자세한 내용은 [백업 구성](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html#_Toc527049433)을 참조하세요.
+TCP를 통해 Log Analytics 에이전트로 데이터를 스트림하도록 eNcore를 구성합니다. 이 구성은 기본적으로 사용하도록 설정해야 하지만 네트워크 보안 태세에 따라 추가 포트 및 스트리밍 프로토콜을 구성할 수 있습니다. 파일 시스템에 데이터를 저장할 수도 있습니다. 자세한 내용은 [백업 구성](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html#_Toc527049433)을 참조하세요.
 
 
 ## <a name="cisco-meraki-preview"></a>Cisco Meraki(미리 보기)
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | [**syslog**](connect-syslog.md)<br><br> [CISCO ISE 솔루션](sentinel-solutions-catalog.md#cisco) 에서 사용 가능|
+| **데이터 수집 방법** | [**syslog**](connect-syslog.md)<br><br> [Cisco ISE 솔루션에서](sentinel-solutions-catalog.md#cisco) 사용 가능|
 | **Log Analytics 테이블** | syslog |
 | **Kusto 함수 별칭:** | CiscoMeraki |
 | **Kusto 함수 URL:** | https://aka.ms/Sentinel-ciscomeraki-parser |
@@ -569,7 +569,7 @@ TCP를 통해 Log Analytics 에이전트로 데이터를 스트림하도록 eNco
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | [**Azure Functions 및 REST API**](connect-azure-functions-template.md) <br><br> [Cisco 포괄적인 솔루션](sentinel-solutions-catalog.md#cisco) 에서 사용 가능|
+| **데이터 수집 방법** | [**Azure Functions 및 REST API**](connect-azure-functions-template.md) <br><br> [Cisco Umbrella 솔루션에서](sentinel-solutions-catalog.md#cisco) 사용 가능|
 | **Log Analytics 테이블** | Cisco_Umbrella_dns_CL<br>Cisco_Umbrella_proxy_CL<br>Cisco_Umbrella_ip_CL<br>Cisco_Umbrella_cloudfirewall_CL |
 | **Azure 함수 앱 코드** | https://aka.ms/Sentinel-CiscoUmbrellaConn-functionapp |
 | **API 자격 증명** | <li>AWS 액세스 키 ID<li>AWS 비밀 액세스 키<li>AWS S3 버킷 이름 |
@@ -907,7 +907,7 @@ BSD 스타일 및 JSON 형식을 사용하여 Eset 로그를 구성합니다.
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | Syslog를 통한 **[CEF(Common Event Format)](connect-common-event-format.md)** <br><br>[Fortinet 로그를 로그 전달자 <br에 보냅니다](#send-fortinet-logs-to-the-log-forwarder) .<br>[Fortinet Fortigate 솔루션](sentinel-solutions-catalog.md#fortinet-fortigate) 에서 사용 가능|
+| **데이터 수집 방법** | Syslog를 통한 **[CEF(Common Event Format)](connect-common-event-format.md)** <br><br>[로그 전달자에게 Fortigate 로그 보내기](#send-fortinet-logs-to-the-log-forwarder) <br><br>[Fortinet Fortigate 솔루션](sentinel-solutions-catalog.md#fortinet-fortigate) 에서 사용 가능|
 | **Log Analytics 테이블** | CommonSecurityLog |
 | **공급업체 문서/<br>설치 지침** | [Fortinet 문서 라이브러리](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary)<br>버전을 선택하고 *핸드북* 및 *로그 메시지 참조* 를 사용합니다. |
 | **지원 요소** | [Fortinet](https://support.fortinet.com/) |
@@ -953,7 +953,7 @@ end
 [웹 애플리케이션 자격 증명](https://developers.google.com/workspace/guides/create-credentials#web)을 만드는 동안 **권한 있는 리디렉션 URI** 아래에 http://localhost:8081/ 을 추가합니다.
 
 1. [지침에 따라](https://developers.google.com/admin-sdk/reports/v1/quickstart/python) credentials.json을 가져옵니다.
-1. Google pickle 문자열을 얻으려면 이 python 스크립트(credentials.json과 동일한 경로)를 실행합니다. [](https://aka.ms/sentinel-GWorkspaceReportsAPI-functioncode)
+1. Google pickle 문자열을 가져오려면 [이 python 스크립트](https://aka.ms/sentinel-GWorkspaceReportsAPI-functioncode) (자격 증명과 동일한 경로)를 실행 합니다.
 1. 작은따옴표로 묶인 pickle 문자열 출력을 복사하고 저장합니다. 함수 앱을 배포하는 데 필요합니다.
 
 
@@ -971,9 +971,9 @@ end
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | Syslog를 통한 **[CEF(Common Event Format)](connect-common-event-format.md)** <br><br>[Imperva Cloud WAF 솔루션에서](sentinel-solutions-catalog.md#imperva) 사용 가능|
+| **데이터 수집 방법** | Syslog를 통한 **[CEF(Common Event Format)](connect-common-event-format.md)** <br><br>[Imperva Cloud WAF 솔루션](sentinel-solutions-catalog.md#imperva) 에서 사용 가능|
 | **Log Analytics 테이블** | CommonSecurityLog |
-| **공급업체 문서/<br>설치 지침** | [Microsoft Sentinel에 Imperva WAF 게이트웨이 경고 로깅을 사용하도록 설정하는 단계](https://community.imperva.com/blogs/craig-burlingame1/2020/11/13/steps-for-enabling-imperva-waf-gateway-alert) |
+| **공급업체 문서/<br>설치 지침** | [Microsoft 센티널에 Imperva WAF 게이트웨이 경고 로깅을 사용 하도록 설정 하는 단계](https://community.imperva.com/blogs/craig-burlingame1/2020/11/13/steps-for-enabling-imperva-waf-gateway-alert) |
 | **지원 요소** | [Imperva](https://www.imperva.com/support/technical-support/) |
 | | |
 
@@ -982,7 +982,7 @@ end
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | [**syslog**](connect-syslog.md)<br><br> [InfoBlox Threat Defense 솔루션에서](sentinel-solutions-catalog.md#infoblox) 사용 가능 |
+| **데이터 수집 방법** | [**syslog**](connect-syslog.md)<br><br> [Infoblox 위협 방어 솔루션](sentinel-solutions-catalog.md#infoblox) 에서 사용 가능 |
 | **Log Analytics 테이블** | syslog |
 | **Kusto 함수 별칭:** | InfobloxNIOS |
 | **Kusto 함수 URL:** | https://aka.ms/sentinelgithubparsersinfoblox |
@@ -1005,14 +1005,14 @@ end
 | **지원 요소** | [Juniper Networks](https://support.juniper.net/support/) |
 | | |
 
-## <a name="lookout-mobile-threat-defense-preview"></a>Lookout Mobile Threat Defense(미리 보기)
+## <a name="lookout-mobile-threat-defense-preview"></a>모바일 위협 방어 (미리 보기)
 
 | 커넥터 특성 | Description |
 | --- | --- |
-| **데이터 수집 방법** | [**Azure Functions 및 REST API**](connect-azure-functions-template.md) <br><br>[Lookout Mobile Threat Defense for Microsoft Sentinel](sentinel-solutions-catalog.md#lookout) 솔루션을 설치한 후에만 사용할 수 있습니다. |
+| **데이터 수집 방법** | [**Azure Functions 및 REST API**](connect-azure-functions-template.md) <br><br>[Microsoft 센티널 솔루션에 대 한 망루 모바일 위협 방어](sentinel-solutions-catalog.md#lookout) 를 설치한 후에만 사용할 수 있습니다. |
 | **Log Analytics 테이블** | Lookout_CL |
-| **API 자격 증명** | <li>Lookout 애플리케이션 키 |
-| **공급업체 문서/<br>설치 지침** | <li>[설치 가이드(로그인](https://esupport.lookout.com/s/article/Lookout-with-Azure-Sentinel) 필요)<li>[API 설명서(로그인](https://esupport.lookout.com/s/article/Mobile-Risk-API-Guide) 필요)<li>[Lookout 모바일 엔드포인트 보안](https://www.lookout.com/products/mobile-endpoint-security) |
+| **API 자격 증명** | <li>망루 응용 프로그램 키 |
+| **공급업체 문서/<br>설치 지침** | <li>[설치 가이드](https://esupport.lookout.com/s/article/Lookout-with-Azure-Sentinel) (로그인 필요)<li>[API 설명서](https://esupport.lookout.com/s/article/Mobile-Risk-API-Guide) (로그인 필요)<li>[모바일 끝점 보안을 감시 합니다.](https://www.lookout.com/products/mobile-endpoint-security) |
 | **지원 요소** | [Lookout](https://www.lookout.com/support) |
 | | |
 
@@ -1138,7 +1138,7 @@ end
 | --- | --- |
 | **데이터 수집 방법** | [**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics 테이블** | BSMmacOS_CL |
-| **공급업체 문서/<br>설치 지침** | [NXLog Microsoft 센티널 사용자 가이드](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
+| **공급업체 문서/<br>설치 지침** | [NXLog Microsoft Sentinel 사용자 가이드](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
 | **지원 요소** | [NXLog](https://nxlog.co/community-forum) |
 | | |
 
@@ -1149,7 +1149,7 @@ end
 | --- | --- |
 | **데이터 수집 방법** | [**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics 테이블** | DNS_Logs_CL |
-| **공급업체 문서/<br>설치 지침** | [NXLog Microsoft 센티널 사용자 가이드](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
+| **공급업체 문서/<br>설치 지침** | [NXLog Microsoft Sentinel 사용자 가이드](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
 | **지원 요소** | [NXLog](https://nxlog.co/community-forum) |
 | | |
 
@@ -1160,7 +1160,7 @@ end
 | --- | --- |
 | **데이터 수집 방법** | [**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics 테이블** | LinuxAudit_CL |
-| **공급업체 문서/<br>설치 지침** |  [NXLog Microsoft 센티널 사용자 가이드](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
+| **공급업체 문서/<br>설치 지침** |  [NXLog Microsoft Sentinel 사용자 가이드](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
 | **지원 요소** | [NXLog](https://nxlog.co/community-forum) |
 | | |
 
@@ -1335,7 +1335,7 @@ Log Analytics 에이전트에 대한 로그 전달을 설정하려면 Onapsis �
 1. **새로 만들기** 드롭다운 메뉴를 선택하고 **사용자** 를 선택합니다.
 1. API 계정의 사용자 이름과 암호를 만듭니다.
 1. **사용자 역할** 탭에서 계정 역할이 **관리자** 로 설정되어 있고 **GUI** 및 **API** 에 대한 액세스가 허용되어 있는지 확인합니다.
-1. 관리자 계정에서 로그아웃하고 유효성 검사를 위해 새 API 자격 증명을 사용하여 콘솔에 로그인한 다음, API 계정에서 로그아웃합니다.
+1. 관리자 계정에서 로그 아웃 하 고 유효성 검사를 위한 새 API 자격 증명을 사용 하 여 콘솔에 로그인 한 다음 API 계정에서 로그 아웃 합니다.
 1. 관리자 계정을 사용하여 콘솔에 다시 로그인하고 API 계정 사용자 역할을 수정하여 **GUI** 에 대한 액세스 권한을 제거합니다.
 1. 모든 변경 내용을 저장합니다.
 
@@ -1359,7 +1359,7 @@ Log Analytics 에이전트에 대한 로그 전달을 설정하려면 Onapsis �
 1. **새로 만들기** 드롭다운 메뉴를 선택하고 **사용자** 를 선택합니다.
 1. API 계정의 사용자 이름과 암호를 만듭니다.
 1. **사용자 역할** 탭에서 계정 역할이 **관리자** 로 설정되어 있고 **GUI** 및 **API** 에 대한 액세스가 허용되어 있는지 확인합니다.
-1. 관리자 계정에서 로그아웃하고 유효성 검사를 위해 새 API 자격 증명을 사용하여 콘솔에 로그인한 다음, API 계정에서 로그아웃합니다.
+1. 관리자 계정에서 로그 아웃 하 고 유효성 검사를 위한 새 API 자격 증명을 사용 하 여 콘솔에 로그인 한 다음 API 계정에서 로그 아웃 합니다.
 1. 관리자 계정을 사용하여 콘솔에 다시 로그인하고 API 계정 사용자 역할을 수정하여 **GUI** 에 대한 액세스 권한을 제거합니다.
 1. 모든 변경 내용을 저장합니다.
 
@@ -1367,12 +1367,12 @@ Log Analytics 에이전트에 대한 로그 전달을 설정하려면 Onapsis �
 
 **host.json 파일 구성**
 
-잠재적으로 많은 양의 Qualys 호스트 검색 데이터가 수집되기 때문에 실행 시간이 기본 함수 앱 시간 제한인 5분을 초과할 수 있습니다. 함수 앱이 실행되는 데 더 많은 시간을 허용하려면 기본 시간 제한 기간을 소비 계획에서 최대 10분으로 늘려야 합니다.
+잠재적으로 많은 양의 Qualys 호스트 검색 데이터가 수집 되기 때문에 실행 시간이 기본 함수 앱 제한 시간을 5 분으로 초과할 수 있습니다. 소비 계획에서 기본 시간 제한 기간을 최대 10 분으로 늘려 함수 앱를 실행 하는 데 더 많은 시간을 허용 합니다.
 
-1. 함수 앱에서 함수 앱 이름을 선택하고 **App Service 편집기** 페이지를 선택합니다.
+1. 함수 앱에서 함수 앱 이름을 선택 하 고 **App Service 편집기** 페이지를 선택 합니다.
 1. **이동** 을 선택하여 편집기를 연 다음 **wwwroot** 디렉터리에서 **host.json** 파일을 선택합니다.
 1. `managedDependancy` 줄 위에 `"functionTimeout": "00:10:00",` 줄을 추가합니다.
-1. 편집기의 오른쪽 위 모서리에 **SAVED가** 표시되는지 확인하고 편집기를 종료합니다.
+1. 편집기의 오른쪽 위 모서리에 **저장** 됨이 표시 되는지 확인 하 고 편집기를 종료 합니다.
 
 더 긴 시간 초과 기간이 필요한 경우 [App Service 계획](../azure-functions/functions-scale.md)으로 업그레이드하는 것이 좋습니다.
 
@@ -1484,7 +1484,7 @@ Log Analytics 에이전트에 대한 로그 전달을 설정하려면 Onapsis �
 | --- | --- |
 | **데이터 수집 방법** | [**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics 테이블** | secRMM_CL |
-| **공급업체 문서/<br>설치 지침** | [secRMM Microsoft 센티널 관리자 가이드](https://www.squadratechnologies.com/StaticContent/ProductDownload/secRMM/9.9.0.0/secRMMAzureSentinelAdministratorGuide.pdf) |
+| **공급업체 문서/<br>설치 지침** | [secRMM Microsoft Sentinel 관리자 가이드](https://www.squadratechnologies.com/StaticContent/ProductDownload/secRMM/9.9.0.0/secRMMAzureSentinelAdministratorGuide.pdf) |
 | **지원 요소** | [Squadra Technologies](https://www.squadratechnologies.com/Contact.aspx) |
 | | |
 
@@ -1507,7 +1507,7 @@ Log Analytics 에이전트에 대한 로그 전달을 설정하려면 Onapsis �
 | --- | --- |
 | **데이터 수집 방법** | [**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics 테이블** | SymantecICDx_CL |
-| **공급업체 문서/<br>설치 지침** | [Microsoft 센티널 (Log Analytics) 전달자 구성](https://techdocs.broadcom.com/us/en/symantec-security-software/integrated-cyber-defense/integrated-cyber-defense-exchange/1-4-3/Forwarders/configuring-forwarders-v131944722-d2707e17438.html) |
+| **공급업체 문서/<br>설치 지침** | [Microsoft Sentinel(Log Analytics) 전달자 구성](https://techdocs.broadcom.com/us/en/symantec-security-software/integrated-cyber-defense/integrated-cyber-defense-exchange/1-4-3/Forwarders/configuring-forwarders-v131944722-d2707e17438.html) |
 | **지원 요소** | [Broadcom Symantec](https://support.broadcom.com/security) |
 | | |
 
@@ -1622,7 +1622,7 @@ Log Analytics 에이전트에 대한 로그 전달을 설정하려면 Onapsis �
 | **Log Analytics 테이블** | syslog |
 | **Kusto 함수 별칭:** | WatchGuardFirebox |
 | **Kusto 함수 URL:** | https://aka.ms/Sentinel-watchguardfirebox-parser |
-| **공급업체 문서/<br>설치 지침** | [Microsoft 센티널 통합 가이드](https://www.watchguard.com/help/docs/help-center/en-US/Content/Integration-Guides/General/Microsoft%20Azure%20Sentinel.html) |
+| **공급업체 문서/<br>설치 지침** | [Microsoft Sentinel 통합 가이드](https://www.watchguard.com/help/docs/help-center/en-US/Content/Integration-Guides/General/Microsoft%20Azure%20Sentinel.html) |
 | **지원 요소** | [WatchGuard Technologies](https://www.watchguard.com/wgrd-support/overview) |
 | | |
 
@@ -1637,7 +1637,7 @@ Log Analytics 에이전트에 대한 로그 전달을 설정하려면 Onapsis �
 | | |
 
 
-## <a name="windows-dns-server-preview"></a>Windows DNS 서버 (미리 보기)
+## <a name="windows-dns-server-preview"></a>Windows DNS 서버(미리 보기)
 
 | 커넥터 특성 | Description |
 | --- | --- |

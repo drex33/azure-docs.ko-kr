@@ -9,12 +9,13 @@ ms.reviewer: jrasnick, garye
 ms.date: 10/01/2021
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 7d6b9a81f5e5e948704b4597a7283cd976b124c2
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.custom: mode-other
+ms.openlocfilehash: 8a1c16c2b4a80c35c061ed89693cd5234690e446
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131847203"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041023"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>빠른 시작: Synapse에서 새로운 Azure Machine Learning 연결된 서비스 만들기
 

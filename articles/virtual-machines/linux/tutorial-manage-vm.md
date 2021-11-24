@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4a9eea52f7b58368c17f7edb6f5b217fbf8c777e
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 10364ed0dbfc22d3bd9e0c3d2db65669ace4bd1d
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698960"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132901911"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>자습서: Azure CLI로 Linux VM 만들기 및 관리
 
@@ -149,7 +149,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 다음 표에서는 크기를 사용 사례로 분류합니다.  
 
-| Type                     | 일반적인 크기           |    Description       |
+| Type                     | 일반적인 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
 | [컴퓨팅 최적화](../sizes-compute.md)   | Fsv2          | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |
@@ -302,7 +302,9 @@ az vm stop --resource-group myResourceGroupVM --name myVM
 az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
-### <a name="delete-resource-group"></a>리소스 그룹 삭제
+### <a name="deleting-vm-resources"></a>VM 리소스 삭제
+
+VM을 삭제할 수 있지만 기본적으로 VM에서 사용하는 디스크 및 네트워킹 리소스가 아닌 VM 리소스만 삭제합니다. VM을 삭제할 때 다른 리소스를 삭제하도록 기본 동작을 변경할 수 있습니다. 자세한 내용은 [VM 및 연결된 리소스 삭제](../delete.md)를 참조하세요.
 
 리소스 그룹을 삭제하면 VM, 가상 네트워크 및 디스크와 같이 그 안에 포함된 리소스도 모두 삭제됩니다. `--no-wait` 매개 변수는 작업이 완료될 때까지 대기하지 않고 프롬프트로 제어를 반환합니다. `--yes` 매개 변수는 작업을 수행하는 추가 프롬프트 없이 리소스를 삭제할 것인지 확인합니다.
 

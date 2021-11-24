@@ -8,13 +8,13 @@ ms.date: 08/06/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: 06a4455252feea86e9748ac6acf3080584c318f3
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: 84a2f1703f963f6d1d8171332eba02d65439f388
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132755897"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044103"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>빠른 시작: Azure Portal에서 IoT Hub Device Provisioning Service 설정
 

@@ -8,12 +8,13 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: kinect, azure, 센서, sdk, 신체, 추적, 관철, 애플리케이션, 첫 번째
-ms.openlocfilehash: 7667157e90e9920130084e26c23a7628c7f55b11
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-other
+ms.openlocfilehash: bcc7d0781eae22e1daf9f04983c5fc05d8b3d6d5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755681"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074602"
 ---
 # <a name="quickstart-build-an-azure-kinect-body-tracking-application"></a>빠른 시작: Azure Kinect 신체 추적 애플리케이션
 

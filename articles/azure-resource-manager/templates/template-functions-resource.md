@@ -2,14 +2,14 @@
 title: 템플릿 함수 - 리소스
 description: Azure Resource Manager 템플릿(ARM 템플릿)에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9961ea8cef41ffedaee76faf4f8415f33f347354
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: ed0baec28dc6c543bddb87780b42c7560a7a9b2f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357012"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068767"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -20,13 +20,13 @@ Resource Manager는 Azure Resource Manager 템플릿(ARM 템플릿)에서 리소
 * [pickZones](#pickzones)
 * [공급자(사용되지 않음)](#providers)
 * [reference](#reference)
-* [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
-* [subscription](#subscription)
 * [subscriptionResourceId](#subscriptionresourceid)
 * [tenantResourceId](#tenantresourceid)
 
 매개 변수, 변수 또는 현재 배포에서 값을 가져오려면 [배포 값 함수](template-functions-deployment.md)를 참조하세요.
+
+배포 범위 값을 얻으려면 [범위 함수 를 참조하세요.](template-functions-scope.md)
 
 ## <a name="extensionresourceid"></a>extensionResourceId
 
@@ -382,7 +382,7 @@ Azure 가용성 영역의 범주에는 영역 및 영역 중복이 있습니다.
 
 이전 예제의 출력은 3개의 배열을 반환합니다.
 
-| Name | 유형 | 값 |
+| Name | Type | 값 |
 | ---- | ---- | ----- |
 | 지원됨 | array | [ "1" ] |
 | notSupportedRegion | array | [] |
@@ -598,69 +598,7 @@ reference 함수를 사용하여 복사 루프에서 `count` 속성의 값을 �
 
 ## <a name="resourcegroup"></a>resourceGroup
 
-`resourceGroup()`
-
-현재 리소스 그룹을 나타내는 개체를 반환합니다.
-
-### <a name="return-value"></a>반환 값
-
-반환된 개체는 다음 형식으로 되어 있습니다.
-
-```json
-{
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-  "name": "{resourceGroupName}",
-  "type":"Microsoft.Resources/resourceGroups",
-  "location": "{resourceGroupLocation}",
-  "managedBy": "{identifier-of-managing-resource}",
-  "tags": {
-  },
-  "properties": {
-    "provisioningState": "{status}"
-  }
-}
-```
-
-**managedBy** 속성은 다른 서비스에서 관리하는 리소스를 포함하는 리소스 그룹에 대해서만 반환됩니다. 관리형 애플리케이션, Databricks 및 AKS의 경우 속성 값은 관리하는 리소스의 리소스 ID입니다.
-
-### <a name="remarks"></a>설명
-
-`resourceGroup()` 함수는 [구독 수준에서 배포](deploy-to-subscription.md)된 템플릿에서 사용할 수 없습니다. 리소스 그룹에 배포된 템플릿에서만 사용할 수 있습니다. 부모 템플릿이 구독에 배포되는 경우에도 리소스 그룹을 대상으로 하는 [연결된 템플릿 또는 중첩된 템플릿(내부 범위 포함)](linked-templates.md)에서 `resourceGroup()` 함수를 사용할 수 있습니다. 이 시나리오에서는 연결된 템플릿이나 중첩된 템플릿이 리소스 그룹 수준에서 배포됩니다. 구독 수준 배포에서 리소스 그룹을 대상으로 지정하는 방법에 대한 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](./deploy-to-resource-group.md)를 참조하세요.
-
-resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 리소스를 만드는 데 사용됩니다. 다음 예제에서는 기본 매개 변수 값에 대해 리소스 그룹 위치를 사용합니다.
-
-```json
-"parameters": {
-  "location": {
-    "type": "string",
-    "defaultValue": "[resourceGroup().location]"
-  }
-}
-```
-
-또한 `resourceGroup` 함수를 사용하여 리소스 그룹의 태그를 리소스에 적용할 수 있습니다. 자세한 내용은 [리소스 그룹에서 태그 적용](../management/tag-resources.md#apply-tags-from-resource-group)을 참조하세요.
-
-중첩된 템플릿을 사용하여 여러 리소스 그룹에 배포하는 경우 `resourceGroup` 함수를 평가하는 범위를 지정할 수 있습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](./deploy-to-resource-group.md)를 참조하세요.
-
-### <a name="resource-group-example"></a>리소스 그룹 예제
-
-다음 예제에서는 리소스 그룹의 속성을 반환합니다.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourcegroup.json":::
-
-앞의 예제는 다음과 같은 형식의 개체를 반환합니다.
-
-```json
-{
-  "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
-  "name": "examplegroup",
-  "type":"Microsoft.Resources/resourceGroups",
-  "location": "southcentralus",
-  "properties": {
-    "provisioningState": "Succeeded"
-  }
-}
-```
+[resourceGroup 범위 함수를](template-functions-scope.md#resourcegroup)참조하세요.
 
 ## <a name="resourceid"></a>resourceId
 
@@ -750,7 +688,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -759,32 +697,7 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 
 ## <a name="subscription"></a>subscription
 
-`subscription()`
-
-현재 배포에 대한 구독 관련 세부 정보를 반환합니다.
-
-### <a name="return-value"></a>반환 값
-
-이 함수는 다음 형식을 반환합니다.
-
-```json
-{
-  "id": "/subscriptions/{subscription-id}",
-  "subscriptionId": "{subscription-id}",
-  "tenantId": "{tenant-id}",
-  "displayName": "{name-of-subscription}"
-}
-```
-
-### <a name="remarks"></a>설명
-
-중첩된 템플릿을 사용하여 여러 구독에 배포하는 경우 subscription 함수를 평가하는 범위를 지정할 수 있습니다. 자세한 내용은 [둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](./deploy-to-resource-group.md)를 참조하세요.
-
-### <a name="subscription-example"></a>구독 예제
-
-다음 예에서는 출력 섹션에서 호출되는 구독 함수를 보여 줍니다.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscription.json":::
+구독 [범위 함수](template-functions-scope.md#subscription)를 참조하세요.
 
 ## <a name="subscriptionresourceid"></a>subscriptionResourceId
 

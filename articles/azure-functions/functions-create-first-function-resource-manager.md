@@ -4,13 +4,13 @@ description: Azure Resource Manager 템플릿(ARM 템플릿)을 사용하여 간
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: b46f03dca8b01b1f880fcbfe186f8c58f43e3dc1
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.openlocfilehash: 5ef239e6e8066f39583b330be3dd87d29c9bba6c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111892151"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064993"
 ---
 # <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>빠른 시작: ARM 템플릿에서 Azure Functions 리소스 만들기 및 배포
 

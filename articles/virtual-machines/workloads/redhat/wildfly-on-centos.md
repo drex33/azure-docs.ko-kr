@@ -8,14 +8,14 @@ ms.assetid: 7aa21ef8-9cfb-43e0-bfda-3f10a2a2f3ef
 ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: redhat
-ms.custom: mode-api
+ms.custom: mode-other
 ms.collection: linux
-ms.openlocfilehash: 011be3cd73422c98464708bcf69b231fe3077711
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 50338148bb17b0045d9ed64da535b07f62a18f05
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036678"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056829"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>빠른 시작: CentOS 8 기반 WildFly
 

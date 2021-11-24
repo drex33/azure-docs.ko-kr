@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 889c99fd6d49599072f1c40408370e90feee3246
-ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
+ms.openlocfilehash: 2fcb89ccbebf557a1a4068f6fe08b0d27226b1fa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133030952"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591770"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Azure와 Cloud Foundry 통합
 
@@ -63,7 +63,7 @@ CF 탄력적 런타임에는 두 가지 주요 시스템 데이터베이스가 �
 기본적으로 로컬 시스템 데이터베이스(MySQL)를 사용할 수 있습니다. HA의 크기를 조정하기 위해 Azure 관리되는 MySQL 또는 PostgreSQL 서비스를 활용합니다. [오픈 소스 Cloud Foundry에서 CCDB, UAADB 및 다른 시스템 데이터베이스에 대해 Azure MySQL/PostgreSQL 활성화](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/configure-cf-external-databases-using-azure-mysql-postgres-service) 지침은 다음과 같습니다.
 
 ## <a name="5-open-service-broker"></a>5. Service Broker 열기
-Azure Service Broker는 Azure 서비스에 대한 애플리케이션의 액세스를 관리하기 위해 일관된 인터페이스를 제공합니다. 새 [Azure 프로젝트용 Service Broker 열기](https://github.com/Azure/open-service-broker-azure)에서는 Cloud Foundry, OpenShift 및 Kubernetes의 애플리케이션에 서비스를 제공하는 단일하고 간단한 방법을 제공합니다. PCF에 대한 배포 지침은 [PCF 타일용 Azure 오픈 Service Broker](https://docs.pivotal.io/tiledev/2-2/service-brokers.html)를 참조하세요.
+Azure Service Broker는 Azure 서비스에 대한 애플리케이션의 액세스를 관리하기 위해 일관된 인터페이스를 제공합니다. 새 [Azure 프로젝트용 Service Broker 열기](https://github.com/Azure/open-service-broker-azure)에서는 Cloud Foundry, OpenShift 및 Kubernetes의 애플리케이션에 서비스를 제공하는 단일하고 간단한 방법을 제공합니다. PCF에 대한 배포 지침은 [PCF 타일용 Azure 오픈 Service Broker](https://pivotal.io/platform/services-marketplace/data-management/microsoft-azure)를 참조하세요.
 
 ## <a name="6-metrics-and-logging"></a>6. 메트릭 및 로깅
 Azure Log Analytics Nozzle은 [Cloud Foundry Loggregator Firehose](https://docs.cloudfoundry.org/loggregator/architecture.html)에서 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/)로 메트릭을 전달하는 Cloud Foundry 구성 요소입니다. Nozzle을 사용하면 여러 배포에서 CF 시스템 상태와 성능 메트릭을 수집, 확인 및 분석할 수 있습니다.

@@ -7,12 +7,13 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: fa06b7aa3210afc6ade1167ec86f449cc46ea6ba
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-other
+ms.openlocfilehash: 7a1c07486262d1e6d00647f10634ea3d152e0faa
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132343423"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075259"
 ---
 # <a name="setting-up-access-for-azure-dev-tools"></a>Azure Dev 도구에 대한 액세스 설정
 

@@ -7,12 +7,13 @@ ms.date: 06/22/2021
 ms.service: storage
 ms.subservice: files
 ms.topic: quickstart
-ms.openlocfilehash: 4da02f46ef793ae03a11fa4895471488f78d0db1
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.custom: mode-other
+ms.openlocfilehash: 3c5c7ee12d3f173776536855c112e7914ea153e6
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112894309"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073582"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
 

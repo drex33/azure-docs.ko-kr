@@ -6,12 +6,13 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: dfcbb00ec20797248f41cc1676809f3198d51527
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: mode-other
+ms.openlocfilehash: afbeaeee1a22ba4c65d9550693c205aca0aba67a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107866164"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044846"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>빠른 시작: 콘솔 앱에서 실시간 메시지 브로드캐스트
 

@@ -9,13 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
-ms.custom: ignite-fall-2021, mode-other
-ms.openlocfilehash: 9e7ee45ca119eb3003297603818e1786a1e37efc
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 02c5277e525b60ce7daa63811f9d96e5be2b040c
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133060597"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132955724"
 ---
 # <a name="quickstart-rest-api---preview"></a>빠른 시작: REST API | 미리 보기
 

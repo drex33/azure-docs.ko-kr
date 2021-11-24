@@ -8,12 +8,13 @@ ms.date: 10/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
-ms.openlocfilehash: a8bd62d55dfe4cf85b4af01bb93d9a4ea44a0a40
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.custom: mode-other
+ms.openlocfilehash: 185ccd99ce3553b4be4933c3dd18a07a2b2bc21e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132134029"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064164"
 ---
 # <a name="quickstart-get-started-with-calling-composite"></a>빠른 시작: 복합 호출 시작 
 

@@ -7,12 +7,13 @@ ms.author: crtreasu
 ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 53bcc84fc63666e64ffaf502a4348de87c1ab8c7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-other
+ms.openlocfilehash: 8a6bab0060ac81a85f44bad71a69884001606aae
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796997"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071332"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-unity"></a>빠른 시작: Unity에서 Azure Object Anchors를 사용하여 HoloLens 앱 만들기
 

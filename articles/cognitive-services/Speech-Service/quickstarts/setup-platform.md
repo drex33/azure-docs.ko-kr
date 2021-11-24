@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.author: eur
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other
 zone_pivot_groups: programming-languages-speech-services-one-nomore
-ms.openlocfilehash: 6d9e8b19334e4f95c1bbbf52cb54767c1c419df2
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: a887cd9056bd3087280e9645cfed78ba66955559
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502481"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076138"
 ---
 # <a name="quickstart-setup-development-environment"></a>빠른 시작: 개발 환경 설정
 

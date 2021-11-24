@@ -2,15 +2,15 @@
 title: '빠른 시작: Azure PowerShell을 사용하여 Apache Kafka 만들기 - HDInsight'
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터를 만드는 방법에 대해 알아봅니다. 또한 Kafka 토픽, 구독자 및 소비자에 대해서도 알아봅니다.
 ms.service: hdinsight
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell, mode-api
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 3234c21e9cff55decfc35fd5b6f8d0feee6a3577
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: af99dd599958ff6dae409917be5d50b82caffd10
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280210"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074890"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 

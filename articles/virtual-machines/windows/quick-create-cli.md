@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 08/09/2021
 ms.author: cynthn
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ca4466c307a893ac7058581a5e22aec87b9a71a2
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: mvc, devx-track-azurecli, mode-api
+ms.openlocfilehash: 689d29bd5a921ad2e06784f660f066de661d197e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694687"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038018"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Windows 가상 머신 만들기
 

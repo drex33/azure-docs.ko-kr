@@ -3,13 +3,13 @@ title: '빠른 시작: 스토리지 큐에 사용자 지정 이벤트 보내기 
 description: '빠른 시작: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. 스토리지 큐가 엔드포인트에 사용됩니다.'
 ms.date: 02/02/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6cbc4c582c8359a3cca185be65f8f715a33986f9
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.custom: devx-track-azurecli, mode-other
+ms.openlocfilehash: 092cfc57c22372c4348a8e3a1928644b9808aabb
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897850"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075275"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue storage로 사용자 지정 이벤트 라우팅
 

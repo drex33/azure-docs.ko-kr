@@ -3,13 +3,13 @@ title: '빠른 시작: Node.js용 QnA Maker 클라이언트 라이브러리'
 description: 이 빠른 시작에서는 Node.js용 QnA Maker 클라이언트 라이브러리를 시작하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: devx-track-js, ignite-fall-2021
-ms.openlocfilehash: ec6dc6151a1ad303ab635abd1f88d040aaba623b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-js, ignite-fall-2021, mode-other
+ms.openlocfilehash: 267a3b26bd5043548fc2722a8111d6ff36051a66
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131071310"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039720"
 ---
 Node.js용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
 

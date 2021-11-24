@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: df85583bb90d0b5e0aefb20ca2ab67d4fc8ed754
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: devx-track-dotnet, mode-other
+ms.openlocfilehash: f952373222392bdfb617af54adb2162b636c3b5d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785828"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039528"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용한 .NET Framework 또는 Core 애플리케이션 빌드
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]

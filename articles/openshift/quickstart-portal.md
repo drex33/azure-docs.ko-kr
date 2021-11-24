@@ -6,12 +6,13 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.date: 10/21/2021
-ms.openlocfilehash: 15fe2cc5c9735c28de867510cd5497a892554db8
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: mode-portal
+ms.openlocfilehash: d819c2f7375f75e424b0b7ef9a2e2f595010d3bf
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130271233"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052331"
 ---
 # <a name="quickstart-deploy-an-azure-red-hat-openshift-aro-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 ARO(Azure Red Hat OpenShift) 클러스터 배포
 

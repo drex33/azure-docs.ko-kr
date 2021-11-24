@@ -11,12 +11,13 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: chat
 zone_pivot_groups: acs-js-csharp-java-python-swift-android
-ms.openlocfilehash: fbe7d4dd4c46c90f8a6fe84c7b0b3bea8308533a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: 4eb2410e716ee2f709f0b4b916b318c2570dd165
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128677362"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062131"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>빠른 시작: 앱에 채팅 추가
 

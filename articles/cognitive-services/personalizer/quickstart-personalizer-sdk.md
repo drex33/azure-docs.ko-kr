@@ -8,15 +8,15 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 08/27/2020
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: personalizer, Azure personalizer, 기계 학습
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: f35b20c47c12130423badcac3373be27c01e13c0
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: f00250cc7d4f375b62b8e24f0613da830bd8425b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829864"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062319"
 ---
 # <a name="quickstart-personalizer-client-library"></a>빠른 시작: Personalizer 클라이언트 라이브러리
 

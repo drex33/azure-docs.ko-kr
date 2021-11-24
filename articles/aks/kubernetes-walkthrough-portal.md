@@ -5,13 +5,13 @@ description: Azure Portal을 사용하여 Kubernetes 클러스터를 빠르게 �
 services: container-service
 ms.topic: quickstart
 ms.date: 07/01/2021
-ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3
-ms.openlocfilehash: 165afe5da4177ab95a77e30fe031a78c4674ce94
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-portal
+ms.openlocfilehash: 4c2aa9973ea95f88209a74d5090a3ba2ccdf3112
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121724718"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076522"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 

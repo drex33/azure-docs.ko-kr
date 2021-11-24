@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/14/2021
 ms.author: duau
-ms.openlocfilehash: 16b808200c43324a68bf909b3cf5548f34dbdec4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cce45614b2997a2175f023344c1cf14a587ef1ef
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738056"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132939123"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -154,7 +154,7 @@ Front Door의 프런트 엔드 호스트에 사용자 지정 도메인을 추가
 
 CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name* 은 사용자 지정 도메인 이름이고 *Value* 는 Front Door의 기본 .azurefd.net 호스트 이름입니다.
 
-| 속성            | 유형  | 값                 |
+| 속성            | Type  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
@@ -171,7 +171,7 @@ CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인
 
 엔드포인트에 대한 CNAME 레코드 항목이 더 이상 없거나 afdverify 하위 도메인을 포함하는 경우 이 단계의 나머지 지침을 따르세요.
 
-사용자 지정 도메인에서 HTTPS를 활성화한 후에 DigiCert CA에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 등록자에게 연락하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 6 영업일 이내에 승인되지 않은 요청은 자동으로 취소됩니다. 
+사용자 지정 도메인에서 HTTPS를 활성화한 후에 DigiCert CA에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 등록자에게 연락하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 6 영업일 이내에 승인되지 않은 요청은 자동으로 취소됩니다. DigiCert 도메인 유효성 검사는 하위 도메인 수준에서 작동합니다. 각 하위 도메인의 소유권을 별도로 증명해야 합니다.
 
 ![WHOIS 레코드](./media/front-door-custom-domain-https/whois-record.png)
 
@@ -183,7 +183,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-잠시 후 다음 예제와 비슷한 승인 요청 전자 메일을 받게 됩니다. 스팸 필터를 사용하는 경우 no-reply@digitalcertvalidation.com을 허용 목록에 추가합니다. 24시간 이내에 전자 메일을 받지 못하면 Microsoft 지원에 문의하세요.
+잠시 후 다음 예제와 비슷한 승인 요청 전자 메일을 받게 됩니다. 스팸 필터를 사용하는 경우 no-reply@digitalcertvalidation.com을 허용 목록에 추가합니다. 특정 시나리오에서는 DigiCert가 WHOIS 등록자 정보에서 도메인 연락처를 페치하여 이메일을 보내지 못할 수 있습니다. 24시간 이내에 전자 메일을 받지 못하면 Microsoft 지원에 문의하세요.
 
 승인 링크가 선택되면 온라인 승인 양식으로 이동합니다. 양식의 지침을 따르세요. 다음과 같이 두 가지 확인 옵션이 있습니다.
 

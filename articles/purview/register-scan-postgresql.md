@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 4d87a78c809791f01745f4406b58832258ea4d36
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 330a9ad4f39ff3c7a2ea1e8c0d9eef0c5f2d7c2c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132548542"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038489"
 ---
 # <a name="connect-to-and-manage-postgresql-in-azure-purview-preview"></a>Azure 부서의 범위에서 PostgreSQL에 커넥트 및 관리 (미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "132548542"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| 예|
+| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 아니요| 예|
 
 지원 되는 PostgreSQL 서버 버전은 8.4 ~ 12. x입니다.
 
@@ -35,7 +35,7 @@ PostgreSQL source를 검색 하는 경우 부서의 범위은 다음을 지원 �
 - PostgreSQL 서버, 데이터베이스, 스키마, 테이블, 뷰 및 테이블/뷰 열을 포함 하 여 메타 데이터를 추출 합니다.
 - 테이블 및 뷰 간의 자산 관계에 대 한 계보 가져오기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -131,7 +131,7 @@ PostgreSQL 원본에 대해 지원 되는 인증 유형은 **기본 인증** 입
     1. **사용 가능한 최대 메모리**: 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검색할 PostgreSQL 원본 크기에 따라 달라 집니다.
 
         > [!Note]
-        > 일반적으로 1,000개 테이블당 1GB 메모리를 제공하세요.
+        > 이에 대 한 규칙으로 1000 테이블 마다 1GB 메모리를 제공 하세요.
 
         :::image type="content" source="media/register-scan-postgresql/scan.png" alt-text="PostgreSQL 검사" border="true":::
 

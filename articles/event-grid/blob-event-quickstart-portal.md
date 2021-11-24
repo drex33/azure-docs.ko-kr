@@ -3,12 +3,13 @@ title: Azure Event Grid를 사용하여 Blob 스토리지 이벤트를 웹 엔�
 description: '빠른 시작: Azure Event Grid 및 Azure Portal을 사용하여 Blob Storage 계정을 만들고 해당 이벤트를 구독합니다. 이벤트를 웹후크에 보냅니다.'
 ms.date: 07/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 62ab7d3196b00f1d59038928a01f3ba50614cbe2
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-other
+ms.openlocfilehash: e9acd5729c4e459f402483e25652cdb641d592dd
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132278591"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075356"
 ---
 # <a name="use-azure-event-grid-to-route-blob-storage-events-to-web-endpoint-azure-portal"></a>Azure Event Grid를 사용하여 Blob Storage 이벤트를 웹 엔드포인트로 라우팅(Azure Portal)
 Event Grid는 다양한 Azure 서비스 및 애플리케이션에서 이벤트를 쉽게 관리할 수 있는 완전 관리형 서비스입니다. 이벤트 기반 및 서버리스 애플리케이션 빌드를 간소화합니다. 서비스에 대한 개요는 [Event Grid 개요](overview.md)를 참조하세요.

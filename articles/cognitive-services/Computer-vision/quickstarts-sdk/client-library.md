@@ -10,19 +10,15 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 07/30/2021
 ms.author: pafarley
-ms.custom:
-- devx-track-python
-- devx-track-js
-- devx-track-csharp
-- cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
 zone_pivot_groups: programming-languages-computer-vision
 keywords: 컴퓨터 비전, 컴퓨터 비전 서비스
-ms.openlocfilehash: b11bf5e56ecafc3a5af546dbb71d0c8a89903ae4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2cc394bc83031bbe120d24c6d3e146d2fc014bfb
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750056"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053480"
 ---
 # <a name="quickstart-use-the-read-client-library-or-rest-api"></a>빠른 시작: Read 클라이언트 라이브러리 또는 REST API 사용
 

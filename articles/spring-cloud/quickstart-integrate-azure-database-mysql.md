@@ -6,13 +6,13 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/15/2021
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9f9043b7ff667903ed9d2318e4ec20363cae71f9
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
+ms.openlocfilehash: cc3f5ee61a65c608f3ef11de69339dfde5d54d85
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063662"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133077389"
 ---
 # <a name="quickstart-integrate-azure-spring-cloud-with-azure-database-for-mysql"></a>빠른 시작: Azure Spring Cloud와 Azure Database for MySQL 통합
 

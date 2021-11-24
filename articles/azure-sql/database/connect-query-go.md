@@ -5,19 +5,19 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2 , mode-other
 ms.devlang: go
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
 ms.reviewer: mathoma
 ms.date: 04/14/2021
-ms.openlocfilehash: d8ca06aaf059b4ff9f63b0561d847802ac5a2f4c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 8fad5c92b5ebae66646c8d9856323c0bf322b11a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694622"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075922"
 ---
 # <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Golang을 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -337,4 +337,3 @@ ms.locfileid: "110694622"
 - [Azure SQL Database에서 첫 번째 데이터베이스 디자인](design-first-database-tutorial.md)
 - [SQL Server용 Golang 드라이버](https://github.com/denisenkom/go-mssqldb)
 - [문제 보고 또는 질문(영문)](https://github.com/denisenkom/go-mssqldb/issues)
-

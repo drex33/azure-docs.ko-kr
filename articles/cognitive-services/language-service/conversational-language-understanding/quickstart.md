@@ -10,14 +10,14 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021
+ms.custom: language-service-clu, ignite-fall-2021, mode-other
 zone_pivot_groups: usage-custom-language-features
-ms.openlocfilehash: 35b34edb1fe420d8bb7189f806649d716ab43e98
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: d809c59c3ec892124c5bb3bb30e7381bfe929715
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131100878"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064291"
 ---
 # <a name="quickstart-conversational-language-understanding-preview"></a>빠른 시작: 대화형 Language Understanding(미리 보기)
 

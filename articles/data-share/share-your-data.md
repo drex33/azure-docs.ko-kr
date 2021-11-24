@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 03/24/2021
-ms.openlocfilehash: b8d49e3b3c6f6407fe241e00ada5039bd94fd706
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.date: 11/12/2021
+ms.openlocfilehash: bbf211f560c4f93a8425cce760a79ad712eff4f7
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870880"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132865138"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 공유  
 
@@ -28,13 +28,13 @@ ms.locfileid: "107870880"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* 수신자 Azure 로그인 이메일 주소(이메일 별칭을 사용하면 작동하지 않음).
+* 수신자 Azure 이메일 주소(이메일 별칭을 사용하면 작동하지 않음).
 * 원본 Azure 데이터 저장소가 데이터 공유 리소스를 만드는 데 사용하는 것과 다른 Azure 구독에 있는 경우 Azure 데이터 저장소가 있는 구독에 [Microsoft.DataShare 리소스 공급자](concepts-roles-permissions.md#resource-provider-registration)를 등록합니다. 
 
 ### <a name="share-from-a-storage-account"></a>스토리지 계정에서 공유
 
 * Azure Storage 계정: 아직 없는 경우 [Azure Storage 계정](../storage/common/storage-account-create.md)을 만들 수 있습니다.
-* 스토리지 계정에 쓸 수 있는 권한으로, *Microsoft.Storage/storageAccounts/write* 에 있습니다. 이 권한은 **기여자** 역할에 있습니다.
+* 스토리지 계정에 쓸 수 있는 권한으로, *Microsoft.Storage/storageAccounts/write* 에 있습니다. 이 권한은 **Storage Blob 데이터 기여자** 역할에 있습니다.
 * 스토리지 계정에 역할 할당을 추가할 수 있는 권한입니다. 이 권한은 *Microsoft.Authorization/role assignments/write* 에 있습니다. 이 권한은 **소유자** 역할에 있습니다. 
 
 
@@ -48,9 +48,9 @@ ms.locfileid: "107870880"
 * SQL 서버의 **Azure Active Directory 관리자**
 * SQL Server Firewall 액세스. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. Azure Portal에서 SQL 서버로 이동합니다. 왼쪽 탐색에서 *방화벽 및 가상 네트워크* 를 선택합니다.
-    1. *Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용* 에 대해 **예** 를 클릭합니다.
-    1. **+클라이언트 IP 추가** 를 클릭합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
-    1. **저장** 을 클릭합니다. 
+    1. *Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용* 에 대해 **예** 를 선택합니다.
+    1. **+클라이언트 IP 추가** 를 선택합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
+    1. **저장** 을 선택합니다. 
 
 #### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Azure Synapse Analytics(작업 영역) SQL 풀에서 공유하기 위한 필수 구성 요소
 
@@ -69,9 +69,9 @@ ms.locfileid: "107870880"
 
 * Synapse 작업 영역 Firewall 액세스. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. Azure Portal에서 Synapse 작업 영역으로 이동합니다. 왼쪽 탐색에서 *방화벽* 을 선택합니다.
-    1. **Azure 서비스 및 리소스가 이 작업 영역에 액세스할 수 있도록 허용** 하려면 *켜기* 를 클릭합니다.
-    1. **+클라이언트 IP 추가** 를 클릭합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
-    1. **저장** 을 클릭합니다. 
+    1. *Azure 서비스 및 리소스가 이 작업 영역에 액세스할 수 있도록 허용* 에 대해 **켜기** 를 선택합니다.
+    1. **+클라이언트 IP 추가** 를 선택합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다.
+    1. **저장** 을 선택합니다. 
 
 
 ### <a name="share-from-azure-data-explorer"></a>Azure Data Explorer에서 공유
@@ -148,6 +148,48 @@ Azure CLI에 대한 환경을 준비하는 것으로 시작합니다.
    az datashare account list --resource-group testresourcegroup
    ```
 
+### <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
+
+PowerShell에 대한 환경을 준비하는 것으로 시작합니다. PowerShell 명령을 로컬로 실행하거나 Azure Cloud Shell의 Bash 환경을 사용할 수 있습니다.
+
+[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+
+   [![새 창에서 Cloud Shell 시작](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+
+다음 명령을 사용하여 리소스를 만듭니다.
+
+1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용하여 Azure 계정에 연결합니다.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. 구독이 여러 개인 경우 [Set-AzContext](/powershell/module/az.accounts/set-azcontext) 명령을 실행하여 올바른 구독을 설정합니다.
+
+    ```azurepowershell
+    Set-AzContext [SubscriptionID/SubscriptionName]
+    ```
+
+1. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 실행하여 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다.
+
+    ```azurepowershell
+    New-AzResourceGroup -Name <String> -Location <String>
+    ```
+
+1. [New-AzDataShare](/powershell/module/az.datashare/new-azdatashareaccount) 명령을 실행하여 Data Share 계정을 만듭니다.
+
+   ```azurepowershell
+    New-AzDataShareAccount -ResourceGroupName <String> -Name <String> -Location <String>
+   ```
+
+   [Get-AzDataShareAccount](/powershell/module/az.datashare/get-azdatashareaccount) 명령을 실행하여 Data Share 계정을 확인합니다.
+
+   ```azurecli
+   Get-AzDataShareAccount
+   ```
+
 ---
 
 ## <a name="create-a-share"></a>공유 만들기
@@ -198,13 +240,13 @@ Azure CLI에 대한 환경을 준비하는 것으로 시작합니다.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-1. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 실행하여 Data Share를 만듭니다.
+1. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 실행하여 이 Data Share에 대한 Storage 계정을 만듭니다.
 
    ```azurecli
    az storage account create --resource-group testresourcegroup --name ContosoMarketplaceAccount
    ```
 
-1. [az storage container create](/cli/azure/storage/container#az_storage_container_create) 명령을 사용하여 이전 명령에서 공유에 대한 컨테이너를 만듭니다.
+1. [az storage container create](/cli/azure/storage/container#az_storage_container_create) 명령을 사용하여 이전 명령에서 만든 스토리지 계정 내에 컨테이너를 만듭니다.
 
    ```azurecli
    az storage container create --name ContosoMarketplaceContainer --account-name ContosoMarketplaceAccount
@@ -226,6 +268,53 @@ Azure CLI에 대한 환경을 준비하는 것으로 시작합니다.
      --account-name ContosoMarketplaceAccount --target-email "jacob@fabrikam"
    ```
 
+### <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+1. 공유할 데이터가 아직 없는 경우 다음 단계에 따라 스토리지 계정을 만들 수 있습니다. 스토리지가 이미 있는 경우 2단계로 건너뛸 수 있습니다.
+
+    1. [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) 명령을 실행하여 Azure Storage 계정을 만듭니다.
+
+       ```azurepowershell
+       $storageAccount = New-AzStorageAccount -ResourceGroupName <String> -AccountName <String> -Location <String> -SkuName <String>
+
+       $ctx = $storageAccount.Context
+       ```
+
+    1. [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) 명령을 실행하여 데이터를 보관할 새 Azure Storage 계정에 컨테이너를 만듭니다.
+
+       ```azurepowershell
+       $containerName = <String>
+
+       New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
+       ```
+
+    1. [Set-AzStorageBlobContent](/powershell/module/az.storage/new-azstoragecontainer) 명령을 실행하여 파일을 업로드합니다. 다음 예제에서는 로컬 메모리의 _D:\testFiles_ 폴더에서 만든 컨테이너로 _textfile.csv_ 를 업로드합니다.
+               
+       ```azurepowershell
+       Set-AzStorageBlobContent -File "D:\testFiles\textfile.csv" -Container $containerName -Blob "textfile.csv" -Context $ctx
+       ```
+
+    PowerShell에서 Azure Storage로 작업하는 방법에 대한 자세한 내용은 이 [Azure Storage PowerShell 가이드](../storage/blobs/storage-quickstart-blobs-powershell.md)를 참조하세요.
+
+
+1. [New-AzDataShare](/powershell/module/az.datashare/new-azdatashare) 명령을 실행하여 Data Share를 만듭니다.
+
+   ```azurepowershell
+   New-AzDataShare -ResourceGroupName <String> -AccountName <String> -Name <String> -ShareKind "CopyBased" -Description <String> -TermsOfUse <String>
+   ```
+
+1. [New-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatasharereceivedinvitation) 명령을 사용하여 지정된 주소에 대한 초대를 만듭니다.
+
+   ```azurepowershell
+   New-AzDataShareInvitation -ResourceGroupName <String> -AccountName <String> -ShareName <String> -Name <String> -TargetEmail <String>
+   ```
+
+1. [New-AzDataShareSynchronizationSetting](/powershell/module/az.datashare/new-azdatasharesynchronizationsetting) 명령을 사용하여 공유에 대한 동기화 되풀이를 설정합니다. 이는 매일, 매시간 또는 특정 시간일 수 있습니다.
+
+   ```azurepowershell
+   New-AzDataShareSynchronizationSetting -ResourceGroupName <String> -AccountName <String> -ShareName <String> -Name <String> -RecurrenceInterval <String> -SynchronizationTime <DateTime>
+   ```
+
 ---
 
 이제 Azure Data Share가 생성되었고 Data Share의 받는 사람이 초대를 수락할 준비가 되었습니다.
@@ -236,7 +325,7 @@ Azure CLI에 대한 환경을 준비하는 것으로 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Data Share를 만들고 받는 사람을 초대하는 방법을 알아보았습니다. 데이터 소비자가 데이터 공유를 수락하고 받는 방법을 알아보려면, 데이터 수락 및 받기 자습서를 계속 진행하세요.
+이 자습서에서는 Azure Data Share를 만들고 수신자를 초대하는 방법을 알아보았습니다. 데이터 소비자가 데이터 공유를 수락하고 받는 방법을 알아보려면, 데이터 수락 및 받기 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [자습서: Azure Data Share를 사용하여 데이터 수락 및 받기](subscribe-to-data-share.md)

@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: jgao
 ms.date: 04/26/2021
-ms.openlocfilehash: 85cf5d527e608fc7a5af6728d0443f83d3f33d5c
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: df933cc16306f3b9af2a7292413203355bda122c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005310"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053083"
 ---
 # <a name="quickstart-create-an-azure-ddos-protection-standard-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure DDoS Protection 표준 만들기
 

@@ -7,12 +7,12 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: tutorial
 ms.service: virtual-machines-sap
-ms.openlocfilehash: 4753a2979d39b5a2bcc473a9f4002bdedda5c10d
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 853c13338f2c2e8f7cc967d9b118a700b3eea414
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132806404"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132903464"
 ---
 # <a name="enterprise-scale-for-sap-deployment-automation-framework---hands-on-lab"></a>SAP 배포 자동화 프레임워크를 위한 엔터프라이즈 크기 조정 - 실습 랩
 
@@ -411,16 +411,20 @@ materials:
 
 이 예제 구성의 경우 리소스 그룹은 `MGMT-NOEU-DEP00-INFRASTRUCTURE`입니다. 배포자 키 자격 증명 모음 이름에서는 `MGMTNOEUDEP00user`가 이름에 포함됩니다. 이 정보를 사용하여 배포자의 키 자격 증명 모음 비밀을 구성합니다.
 
-SAP 사용자 계정의 사용자 이름을 통해 비밀을 추가합니다. `<keyvault-name>`을 배포자 자격 증명 모음의 이름으로 바꿉니다. `<sap-username>`도 SAP 사용자 이름으로 바꿉니다.
+SAP 사용자 계정의 사용자 이름을 통해 비밀을 추가합니다. `<vaultID>`을 배포자 자격 증명 모음의 이름으로 바꿉니다. `<sap-username>`도 SAP 사용자 이름으로 바꿉니다.
 
 ```bash
-az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
+export key_vault=<vaultID>
+sap_username=<sap-username>
+
+az keyvault secret set --name "S-Username" --vault-name $key_vault --value "${sap_username}";
 ```
 
-SAP 사용자 계정에 대한 암호를 통해 비밀을 추가합니다. `<keyvault-name>`을 배포자 키 자격 증명 모음 이름으로, `<sap-password>`를 SAP 암호로 바꿉니다.
+SAP 사용자 계정에 대한 암호를 통해 비밀을 추가합니다. `<vaultID>`을 배포자 키 자격 증명 모음 이름으로, `<sap-password>`를 SAP 암호로 바꿉니다.
 
 ```bash
-az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
+sap_user_password="<sap-password>
+az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
 ```
 
 이제 다운로드 프로세스에 대한 SAP 매개 변수 파일을 구성합니다. 그런 다음, Ansible 플레이북을 사용하여 SAP 소프트웨어를 다운로드합니다. 다음 명령을 실행합니다.
@@ -439,13 +443,14 @@ vi sap-parameters.yaml
 
 bom_base_name:                 S41909SPS03_v0006ms
 kv_name:                       MGMTNOEUDEP00user99F 
+check_storage_account:         true
 
 ```
     
-Ansible 플레이북을 실행합니다. 플레이북을 실행할 수 있는 한 가지 방법은 유효성 검사기 테스트 메뉴를 사용하는 것입니다. 유효성 검사기 테스트 메뉴 스크립트를 실행합니다.
+Ansible 플레이북을 실행합니다. 플레이북을 실행할 수 있는 한 가지 방법은 다운로더 메뉴를 사용하는 것입니다. download_menu 스크립트를 실행합니다.
   
 ```bash
-~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/validator_test_menu.sh
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
 ```
   
 실행할 플레이북을 선택합니다.
@@ -499,7 +504,7 @@ git pull
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/
 
-cp -Rp ./sap-automation/training_materials/WORKSPACES ./
+cp -Rp ./sap-automation/training-materials/WORKSPACES ./
 ```
 
 ## <a name="deploy-the-workload-zone"></a>워크로드 영역 배포
@@ -537,7 +542,7 @@ export tenant_id="<tenant>"
 export storage_account="<storageaccountName>"
 export statefile_subscription="<subscriptionID>"
 export region_code="NOEU"
-key_vault=<vaultID>
+export key_vault=<vaultID>
 
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
 
@@ -576,7 +581,7 @@ SAP 시스템을 배포합니다.
 
 export region_code="NOEU"
 
-cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh      \
   --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
@@ -609,9 +614,16 @@ cd ~/Azure_ SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00/
 
 현재 폴더에 `sap-parameters.yaml` 및 `SID_host.yaml` 등의 파일이 있는지 확인합니다.
 
-독립 실행형 SAP S/4HANA 시스템의 경우 순서대로 실행되는 8개의 플레이북이 있습니다. 메뉴 시스템을 사용하여 다음 플레이북을 트리거할 수 있습니다. 
+독립 실행형 SAP S/4HANA 시스템의 경우 순서대로 실행되는 8개의 플레이북이 있습니다. 플레이북을 실행할 수 있는 한 가지 방법은 구성 메뉴를 사용하는 것입니다. 
 
-플레이북의 실행을 트리거합니다.
+configuration_menu 스크립트를 실행합니다.
+  
+```bash
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/configuration_menu.sh
+```
+
+
+실행할 플레이북을 선택합니다.
 
 ### <a name="playbook-os-config"></a>플레이북: OS 구성
 
@@ -674,7 +686,7 @@ cd ~/Azure_ SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00/
 ```bash
 export region_code="NOEU"
 
-cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh        \
   --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \

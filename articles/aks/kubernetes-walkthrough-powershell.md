@@ -4,13 +4,13 @@ description: PowerShell을 사용하여 Kubernetes 클러스터를 빠르게 만
 services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f9556d1169180bd55ac5ff646ee920f630ad96d0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 570a63cc5cf8358d54c5a8bf06c16cf9b3cbd6b8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131058695"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063140"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Kubernetes Service 클러스터 배포
 

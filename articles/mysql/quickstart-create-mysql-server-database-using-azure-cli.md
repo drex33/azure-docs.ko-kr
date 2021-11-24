@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/15/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: acfe14ce24f2730437c684a84089fbaabcd1abdf
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.custom: mvc, devx-track-azurecli, mode-api
+ms.openlocfilehash: b84306cefc5f664a7b4ec8111f156cf8f5d962c2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643585"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052662"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용한 MySQL용 Azure 데이터베이스 서버 만들기
 

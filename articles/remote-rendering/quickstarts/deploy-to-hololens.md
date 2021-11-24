@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: a5a44b9d27901fcd00f8813096de6bbae5f2310d
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.custom: mode-other
+ms.openlocfilehash: 99c54c5a507c6ccc05f46ad9a14a7d7e7483f45d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179948"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038151"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>빠른 시작: HoloLens에 Unity 샘플 배포
 
@@ -24,7 +25,7 @@ ms.locfileid: "98179948"
 >* 디바이스에 샘플 배포
 >* 디바이스에서 샘플 실행
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에서는 [빠른 시작: Unity를 사용하여 모델 렌더링](render-model.md)의 샘플 프로젝트를 배포합니다.
 

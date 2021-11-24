@@ -10,14 +10,14 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-custom-classification, ignite-fall-2021
+ms.custom: language-service-custom-classification, ignite-fall-2021, mode-other
 zone_pivot_groups: usage-custom-language-features
-ms.openlocfilehash: ec0d20343ce106387c40118805e217606e4c340c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c3e66ebfe8b386bfad513fd298e73c2b5619bfb8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101505"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053254"
 ---
 # <a name="quickstart-custom-text-classification-preview"></a>빠른 시작: 사용자 지정 텍스트 분류(미리 보기)
 

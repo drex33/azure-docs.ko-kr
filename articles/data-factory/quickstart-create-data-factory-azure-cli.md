@@ -7,13 +7,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: quickstart
 ms.date: 10/14/2021
-ms.custom: template-quickstart, devx-track-azurecli
-ms.openlocfilehash: 44c76955faf4c0d96c0e6ef502d00b61ff4c99ea
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: template-quickstart, devx-track-azurecli, mode-api
+ms.openlocfilehash: 7bfd081785fb0de4839c8ff7c642c2999089b0a3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232946"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053104"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Data Factory 만들기
 

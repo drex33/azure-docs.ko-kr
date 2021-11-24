@@ -7,13 +7,13 @@ services: iot-hub
 ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: lizross
-ms.custom: mvc, subject-armqs
-ms.openlocfilehash: cf755f26ddd0dd3b6f6453b54e492e410f1f3994
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.custom: mvc, subject-armqs, mode-arm
+ms.openlocfilehash: 17a3af6eb137580793e92d9a5dbb34a0eb075b73
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132547953"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063727"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure IoT Hub 및 스토리지 계정 배포
 

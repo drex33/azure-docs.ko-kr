@@ -9,14 +9,14 @@ manager: nitinme
 ms.subservice: language-understanding
 author: aahill
 keywords: Azure, 인공 지능, ai, 자연어 처리, nlp, LUIS, azure luis, 자연어 이해, ai 챗봇, 챗봇 작성자, 자연어 이해
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021, mode-other
 zone_pivot_groups: programming-languages-set-luis
-ms.openlocfilehash: c98bbd885bb2646ff32c856aecc219cae326d01c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c3877dd1c2c46d81d6ee4120dab215a236534bc3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131043873"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053399"
 ---
 # <a name="quickstart-language-understanding-luis-client-libraries-and-rest-api"></a>빠른 시작: LUIS(Language Understanding) 클라이언트 라이브러리 및 REST API
 

@@ -3,13 +3,13 @@ title: 빠른 시작 - Azure CLI를 사용하여 첫 번째 Batch 작업 실행
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Batch 계정을 만들고 Batch 작업을 실행하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 05/25/2021
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: eba9bf9fd290c4483fc9caa0efa4f05adbeb08ef
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: mvc, devx-track-azurecli, mode-api
+ms.openlocfilehash: e927ab9a6332addae54d9c4930c01bb332f1eb6d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476144"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075953"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Batch 작업 실행
 

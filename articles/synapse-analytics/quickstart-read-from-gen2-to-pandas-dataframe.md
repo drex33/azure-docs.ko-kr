@@ -9,12 +9,13 @@ ms.reviewer: jrasnick, garye, negust
 ms.date: 03/23/2021
 author: garyericson
 ms.author: garye
-ms.openlocfilehash: b7358c522cf12e7856496ad71fda393394e7ceab
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: mode-other
+ms.openlocfilehash: b92ec647b8937d8a92332f717cf682bfc88b217f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105969579"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038081"
 ---
 # <a name="quickstart-read-data-from-adls-gen2-to-pandas-dataframe-in-azure-synapse-analytics"></a>빠른 시작: Azure Synapse Analytics의 ADLS Gen2에서 Pandas 데이터 프레임으로 데이터 읽기
 

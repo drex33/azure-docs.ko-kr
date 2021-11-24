@@ -6,13 +6,13 @@ ms.author: xshi
 ms.service: serviceconnector
 ms.topic: quickstart
 ms.date: 10/29/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7a1b93208dc52466af00095a75366a8f5d078200
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: ignite-fall-2021, mode-api
+ms.openlocfilehash: 82cc69320eb4552aaacdea9ab4f7ddc57c30c2e1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132709616"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052263"
 ---
 # <a name="quickstart-create-a-service-connection-in-spring-cloud-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Spring Cloud에서 서비스 연결 만들기
 

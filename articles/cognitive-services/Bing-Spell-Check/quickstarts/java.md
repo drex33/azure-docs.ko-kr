@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: aahi
-ms.openlocfilehash: cc6ad88b70a1addbbf7df6a53218810de683e5db
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: af737fec3c89dc8006343e558a6a196f151c0e33
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352714"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039910"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>빠른 시작: Bing Spell Check REST API 및 Java로 맞춤법 검사
 

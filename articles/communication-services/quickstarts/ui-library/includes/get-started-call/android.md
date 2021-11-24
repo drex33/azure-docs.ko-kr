@@ -5,12 +5,12 @@ ms.author: pprystinka
 ms.date: 10/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: 72651c757e6c0e33bf799a3b5ae49ebbf507ecdb
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: e3543482e9434b5ab712572082f5436a3baa8de6
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132590689"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132875855"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -20,6 +20,8 @@ ms.locfileid: "132590689"
 - Azure Communication Services 토큰. [예](../../../identity/quick-create-identity.md)를 참조하세요. 
 
 ## <a name="setting-up"></a>설치
+
+### <a name="sample-application-code-can-be-found-here"></a>샘플 애플리케이션 코드는 [여기](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start)에서 찾을 수 있습니다.
 
 ### <a name="creating-an-android-app-with-an-empty-activity"></a>빈 활동을 사용하여 Android 앱 만들기
 
@@ -62,7 +64,7 @@ dependencies {
 }
 ```
 
-프로젝트 gradle 스크립트에서 다음 줄을 `repositories`에 추가합니다. Gradle 버전 `6.7.1`의 경우 `repositories`는 (**앱 폴더**) `settings.gradle`에 있습니다.
+프로젝트 gradle 스크립트에서 다음 줄을 `repositories`에 추가합니다. `Android Studio (2020.*)`의 경우 `repositories`는 `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`에 있습니다. 이전 버전의 `Android Studio (4.*)`를 사용하는 경우 `repositories`는 프로젝트 수준 `build.gradle` `allprojects{}`에 있습니다.
 
 ```groovy
 repositories {
@@ -215,8 +217,6 @@ Android Studio에서 애플리케이션을 빌드하고 시작합니다.
 - `Launch`을 클릭합니다.
 - 오디오 권한을 수락하고 디바이스, 마이크 및 비디오 설정을 선택합니다.
 - `Join Call`을 클릭합니다.
-
-## <a name="sample-application-code-can-be-found-here"></a>샘플 애플리케이션 코드는 [여기에서](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start) 찾을 수 있습니다.
 
 ![Launch](../../media/composite-android.gif)
 

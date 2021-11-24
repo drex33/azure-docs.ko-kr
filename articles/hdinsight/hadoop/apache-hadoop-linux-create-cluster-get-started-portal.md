@@ -4,14 +4,14 @@ description: 이 빠른 시작에서는 Azure Portal을 사용하여 HDInsight H
 keywords: Hadoop 시작, Hadoop Linux, Hadoop 빠른 시작, Hive 시작, Hive 빠른 시작
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
+ms.custom: hdinsightactive, hdiseo17may2017, mvc, seodec18, mode-portal
 ms.date: 02/24/2020
-ms.openlocfilehash: 92520be7e9d2bb83cb61856fe3df38487445ad9a
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 75ffeef1f1e6d60aa568c0eb04988c397d271876
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863890"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050750"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터 만들기
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **기본** 탭에서 다음 정보를 제공합니다.
 
-   |속성  |설명  |
+   |속성  |Description  |
    |---------|---------|
    |Subscription    |  드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다. |
    |Resource group     | 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|
@@ -55,7 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **스토리지** 탭에서 다음 값을 입력합니다.
 
-   |속성  |설명  |
+   |속성  |Description  |
    |---------|---------|
    |기본 스토리지 유형|기본값 **Azure Storage** 를 사용합니다.|
    |선택 방법|기본값 **목록에서 선택** 을 사용합니다.|

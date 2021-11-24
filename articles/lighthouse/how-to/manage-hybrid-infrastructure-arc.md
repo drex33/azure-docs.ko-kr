@@ -3,12 +3,12 @@ title: Azure Arc를 사용하여 대규모 하이브리드 인프라 관리
 description: Azure Lighthouse를 사용하면 Azure 외부에서 고객의 컴퓨터와 Kubernetes 클러스터를 효과적으로 관리할 수 있습니다.
 ms.date: 09/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 5acb9cae08795a9c87db0d6353f4870e92849f24
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: d51ba045ef871b616a502408b2e699d966820559
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132293064"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052589"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Azure Arc를 사용하여 대규모 하이브리드 인프라 관리
 
@@ -37,7 +37,7 @@ azure [Lighthouse](../overview.md) 는 서비스 공급자가 azure Arc를 사�
 
 Azure에서 실행되는 것처럼 [Azure Arc를 사용하여 고객 구독에 연결](../../azure-arc/kubernetes/quickstart-connect-cluster.md)된 Kubernetes 클러스터를 관리할 수 있습니다.
 
-고객이 [Kubernetes 클러스터를 Azure Arc에 등록 하는 서비스 주체 계정을](../../azure-arc/kubernetes/create-onboarding-service-principal.md)만든 경우 클러스터를 등록 하 고 관리할 수 있도록이 계정에 액세스할 수 있습니다. 이렇게 하려면 서비스 주체 계정을 포함 하는 구독이 [Azure Lighthouse로 등록](onboard-customer.md)경우 관리 테 넌 트의 사용자에 게 "Kubernetes Cluster-Azure Arc 온 보 딩" azure 기본 제공 역할이 부여 되어 있어야 합니다.
+고객이 Kubernetes 클러스터를 Azure Arc에 등록 하는 서비스 주체 계정을 만든 경우 클러스터를 등록 하 고 관리할 수 있도록이 계정에 액세스할 수 있습니다. 이렇게 하려면 관리 테 넌 트의 사용자에 게 서비스 주체 계정이 포함 된 구독이 [Azure Lighthouse로 등록](onboard-customer.md)때 [Kubernetes 클러스터-Azure Arc 온 보 딩 기본 제공 역할이](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) 부여 되어 있어야 합니다.
 
 연결된 클러스터에 GitOps를 사용하여 [구성](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) 및 [Helm 차트](../../azure-arc/kubernetes/use-gitops-with-helm.md)를 배포할 수 있습니다.
 

@@ -9,13 +9,13 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: rosouz
 ms.reviewer: jrasnick
-ms.custom: cosmos-db
-ms.openlocfilehash: 2a061e5db3e4a6b6aef193449abcd41d0b8eaf76
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.custom: cosmos-db, mode-other
+ms.openlocfilehash: 65d46309a033d9b3efd67a2bd1085fe85a5e3412
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123097538"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076691"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Apache Spark를 사용하여 Azure Cosmos DB에서 전용 SQL 풀로 데이터 복사
 

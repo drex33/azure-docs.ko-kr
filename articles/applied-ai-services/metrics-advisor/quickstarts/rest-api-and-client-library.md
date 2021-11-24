@@ -11,12 +11,13 @@ ms.topic: quickstart
 ms.date: 07/06/2021
 ms.author: mbullwin
 zone_pivot_groups: programming-languages-metrics-monitor
-ms.openlocfilehash: 7f7f9c69de17779f483ce4e4155a8953f9c9da91
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.custom: mode-other
+ms.openlocfilehash: df37d498ae1ccbf7a18719840cdd1bf2adee1b90
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114342454"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062826"
 ---
 # <a name="quickstart-use-the-client-libraries-or-rest-apis-to-customize-your-solution"></a>빠른 시작: 클라이언트 라이브러리 또는 REST API를 사용하여 솔루션 사용자 지정
 

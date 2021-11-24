@@ -6,12 +6,13 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 1b277dcca381cd621fac6011ad47f30e2744ee68
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.custom: mode-other
+ms.openlocfilehash: ffbbf9b80c75db7e14a8cbba1be4214bf56ff73c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "123078136"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064059"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services 통화 SDK를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 

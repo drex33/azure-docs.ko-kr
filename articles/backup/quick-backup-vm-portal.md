@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 Azure Portal을 사용하여 Recovery Se
 ms.date: 05/12/2020
 ms.topic: quickstart
 ms.devlang: azurecli
-ms.custom: mvc, mode-portal
-ms.openlocfilehash: 8013e3868bc47cfc506b02dfe9f91693b80164c1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mvc, mode-other
+ms.openlocfilehash: f922539cdc0d77ac8e28e8d63e77b81fd0edfa84
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131020470"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051452"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Azure에서 가상 머신 백업
 

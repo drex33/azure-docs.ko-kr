@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: spark
 ms.date: 10/18/2021
 ms.author: nidutta
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 439e8b70c20bc07a431b17afdca84690c3cbd61e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-portal
+ms.openlocfilehash: 280a9200a1cf32bed622210df69f5ad1de8a428d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101641"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063427"
 ---
 # <a name="quickstart-create-an-apache-spark-gpu-enabled-pool-in-azure-synapse-analytics-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Synapse Analytics에서 Apache Spark GPU 지원 풀 만들기
 

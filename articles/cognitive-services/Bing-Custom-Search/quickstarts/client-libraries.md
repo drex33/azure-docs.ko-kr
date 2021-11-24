@@ -11,13 +11,13 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 02/27/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: d87d582a60c55104785958bb9cc3a7ca3c714a4b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: devx-track-python, devx-track-csharp, mode-other
+ms.openlocfilehash: 81922dc5c230e272bb92a44e31a97f3b82187482
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338319"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051301"
 ---
 # <a name="quickstart-use-the-bing-custom-search-client-library"></a>빠른 시작: Bing Custom Search 클라이언트 라이브러리 사용
 

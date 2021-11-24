@@ -6,12 +6,13 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 10/30/2020
-ms.openlocfilehash: 1442720fdf48aaa7da76e181b168a04306ff3e33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mode-portal
+ms.openlocfilehash: 9090ed56fa6d8240a627a7ab9e8a0ba539c488cc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96186459"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075436"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Data Share를 사용하여 데이터 공유
 

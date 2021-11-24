@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 Azure Database for MySQL - 유연한 서
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: 3c49bb5c3e272e792d50c5f8fcadbacd9d6ebbe6
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 0c2ed438e390e244e1efce8078a6d93c791aa21b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131460682"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038641"
 ---
 # <a name="use-php-with-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버와 함께 PHP 사용
 

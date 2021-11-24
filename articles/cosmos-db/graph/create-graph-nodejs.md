@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.date: 06/05/2019
 author: manishmsfte
 ms.author: mansha
-ms.custom: devx-track-js
-ms.openlocfilehash: f5b5cf4eac5755591c5db928d4f77ccbdb3aef08
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: 4e4cc99731d83694887aecee051dbff6fda8325f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787146"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075466"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용하여 Node.js 애플리케이션 빌드
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "121787146"
 
 이 빠른 시작에서는 Azure Portal에서 Azure Cosmos DB Gremlin(그래프) API 계정을 생성 및 관리하고 GitHub에서 복제된 Node.js 앱을 사용하여 데이터를 추가합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 
 - [Node.js 0.10.29 이상](https://nodejs.org/).
 - [Git](https://git-scm.com/downloads)

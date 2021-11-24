@@ -9,12 +9,13 @@ ms.date: 09/28/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 0e813fe3098b71478a88f1a8cf52c523efaaa82f
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.custom: mode-other
+ms.openlocfilehash: 5068dc1897c35d7b2e8236c6f38efda8f22a727a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131893227"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039379"
 ---
 # <a name="quickstart-access-turn-relays"></a>빠른 시작: TURN 릴레이 액세스
 
@@ -44,4 +45,3 @@ ms.locfileid: "131893227"
 ## <a name="clean-up-resources"></a>리소스 정리
 
 Communication Services 리소스를 정리하고 제거하려면 리소스 또는 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. [리소스 정리](./create-communication-resource.md#clean-up-resources)에 대해 자세히 알아보세요.
-

@@ -7,12 +7,13 @@ author: dlepow
 ms.author: danlep
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.openlocfilehash: e8160948c12fd0c9652a409aa4c59e40250f7504
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: 2f32eadba7fd58401b2a4ccccdb5e4ff555f3c56
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625718"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040550"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 새 Azure API Management 서비스 인스턴스 만들기
 

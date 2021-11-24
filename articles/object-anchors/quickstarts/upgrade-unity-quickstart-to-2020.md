@@ -7,12 +7,13 @@ ms.author: rgarcia
 ms.date: 06/23/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: b628aab20e08460ea6d023651098227aa3390d5e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-other
+ms.openlocfilehash: 0e3449954760e83e45b0e21059c2ff019efeed97
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124791995"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041432"
 ---
 # <a name="quickstart-upgrade-quickstart-app-to-unity-2020"></a>빠른 시작: 빠른 시작 앱을 Unity 2020으로 업그레이드
 

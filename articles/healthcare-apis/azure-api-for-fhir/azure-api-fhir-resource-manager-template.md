@@ -5,15 +5,15 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-other
 ms.author: zxue
 ms.date: 08/05/2021
-ms.openlocfilehash: 011ca0ed5e5519b2e00ca7660bf39774f380a93f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 26a4a80faa71755bb610c8883304527a7ec2c37c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787942"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052871"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>빠른 시작: ARM 템플릿을 사용하여 Azure API for FHIR 배포
 
@@ -81,7 +81,7 @@ Azure Portal에서 ARM 템플릿을 사용하여 Azure API for FHIR을 배포하
 
 4. 새 **서비스 이름** 을 입력하고, Azure API for FHIR의 **위치** 를 선택합니다. 위치는 리소스 그룹의 지역과 같거나 다를 수 있습니다.
 
-   [![Azure Portal ARM 템플릿을 사용하여 Azure API for FHIR 배포합니다. ](media/fhir-resource-manager-template/deploy-azure-api-fhir.png) ](media/fhir-resource-manager-template/deploy-azure-api-fhir.png#lightbox)
+   [![Azure Portal에서 ARM 템플릿을 사용 하 여 FHIR 용 AZURE API를 배포 합니다. ](media/fhir-resource-manager-template/deploy-azure-api-fhir.png) ](media/fhir-resource-manager-template/deploy-azure-api-fhir.png#lightbox)
 
 5. **검토 + 만들기** 를 선택합니다.
 

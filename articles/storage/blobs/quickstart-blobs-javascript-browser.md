@@ -7,13 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-js
-ms.openlocfilehash: 4fdcb48783a586baffe9bdeeec74c4d0a055a3e7
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: 8175c6487fcad359acfb29f802cf89109e7c08bc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132060986"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133077310"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 

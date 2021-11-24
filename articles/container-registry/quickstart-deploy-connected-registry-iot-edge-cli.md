@@ -5,13 +5,13 @@ ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: d114b194985f8ca69b83113658d6b34d386acc2b
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 0fee04cddfcde16ec702c8887dc5285ee0b6e983
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132755415"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062020"
 ---
 # <a name="quickstart-deploy-a-connected-registry-to-an-iot-edge-device"></a>빠른 시작: IoT Edge 디바이스에 연결된 레지스트리 배포
 

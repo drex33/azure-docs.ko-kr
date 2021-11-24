@@ -7,13 +7,13 @@ ms.date: 09/30/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
-ms.custom: mvc
-ms.openlocfilehash: e4c4cdeeb032b0d6a6691987cec43c8ac1b2d437
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.custom: mvc, mode-other
+ms.openlocfilehash: 9074b210438c5f79743a9bed1f10f639cc6cf732
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130043380"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062518"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>빠른 시작: Azure Maps를 사용하여 대화형 검색 맵 만들기
 

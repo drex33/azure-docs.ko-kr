@@ -5,15 +5,15 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.date: 09/28/2020
 ms.author: alkemper
-ms.openlocfilehash: 0ff80287971365b1477be319dc7a04760687f6a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b9f17666be7a1a764970ddd142f569c1b497bb25
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98663403"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076205"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>빠른 시작: App Configuration을 사용하여 .NET Core 앱 만들기
 

@@ -11,13 +11,13 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 10/21/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5d49f510011383dd75de721b836b031927557a32
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other
+ms.openlocfilehash: 856d7da9e3ad877b39857e553e366bff5c9299eb
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350095"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064607"
 ---
 # <a name="quickstart-use-the-bing-image-search-client-library"></a>빠른 시작: Bing Image Search 클라이언트 라이브러리 사용
 

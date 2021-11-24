@@ -11,21 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2021
 ms.author: allensu
-ms.openlocfilehash: 576965485de7bd3c193beae219af74139bffb827
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 051b20a92e7a9d7afd4e1a59163bd422ba6c736c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131068325"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074641"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer 구성 요소
 
-Azure Load Balancer에는 몇 가지 주요 구성 요소가 포함되어 있습니다. 이러한 구성 요소는 다음을 통해 구독에서 구성할 수 있습니다.
-
-* Azure portal
-* Azure CLI
-* Azure PowerShell
-* Resource Manager 템플릿
+Azure Load Balancer에는 몇 가지 주요 구성 요소가 포함되어 있습니다. 이러한 구성 요소는 Azure Portal, Azure CLI, Azure PowerShell Resource Manager 템플릿 또는 적절한 대안을 통해 구독에서 구성할 수 있습니다.
 
 ## <a name="frontend-ip-configuration"></a>프런트 엔드 IP 구성 <a name = "frontend-ip-configurations"></a>
 
@@ -52,7 +47,7 @@ IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식** 이 �
 
 부하 분산 장치는 인스턴스의 크기를 확장하거나 축소하는 경우 자동 재구성을 통해 자체적으로 즉시 재구성됩니다. 백 엔드 풀에서 VM을 추가 또는 제거하면 추가 작업 없이 부하 분산 장치가 다시 구성됩니다. 백 엔드 풀의 범위는 단일 가상 네트워크의 임의 가상 머신입니다. 
 
-백 엔드 풀은 [네트워크 인터페이스 또는 IP 주소](backend-pool-management.md)를 통해 인스턴스 추가를 지원 합니다.
+백 엔드 풀은 네트워크 인터페이스 또는 IP 주소를 통해 인스턴스 [추가를 지원합니다.](backend-pool-management.md)
 
 백 엔드 풀을 디자인하는 방법을 고려할 때는 가장 적은 수의 개별 백 엔드 풀 리소스에 맞게 디자인하고, 관리 작업의 길이를 최적화합니다. 데이터 평면 성능 또는 크기 조정에는 차이가 없습니다.
 
@@ -70,11 +65,11 @@ IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식** 이 �
 
 기본 부하 분산 장치는 HTTPS 프로브를 지원하지 않습니다. 기본 부하 분산 장치는 설정된 연결을 포함하여 모든 TCP 연결을 종료합니다.
 
-## <a name="load-balancing-rules"></a>부하 분산 규칙
+## <a name="load-balancer-rules"></a>Load Balancer 규칙
 
-부하 분산 장치 규칙은 들어오는 트래픽이 백 엔드 풀 내의 **모든** 인스턴스에 배포 되는 방식을 정의 하는 데 사용 됩니다. 부하 분산 규칙은 지정된 프런트 엔드 IP 구성 및 포트를 여러 백 엔드 IP 주소 및 포트에 매핑합니다.
+부하 분산기 규칙은 들어오는 트래픽이 백 엔드 풀 내의 **모든** 인스턴스에 분산되는 방법을 정의하는 데 사용됩니다. 부하 분산 규칙은 지정된 프런트 엔드 IP 구성 및 포트를 여러 백 엔드 IP 주소 및 포트에 매핑합니다. Load Balancer 규칙은 인바운드 트래픽에만 해당합니다.
 
-예를 들어 포트 80에 대한 부하 분산 규칙을 사용하여 프런트 엔드 IP에서 백 엔드 인스턴스의 포트 80으로 트래픽을 라우팅합니다.
+예를 들어 포트 80에 대한 부하 분산기 규칙을 사용하여 프런트 엔드 IP에서 백 엔드 인스턴스의 포트 80으로 트래픽을 라우팅합니다.
 
 :::image type="content" source="./media/load-balancer-components/lbrules.png" alt-text="부하 분산 장치 규칙 참조 다이어그램" border="false":::
 
@@ -82,9 +77,7 @@ IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식** 이 �
 
 ## <a name="high-availability-ports"></a>고가용성 포트
 
-**'protocol - all and port - 0'** 으로 구성된 부하 분산 장치 규칙입니다. 
-
-이 규칙을 사용하면 내부 표준 Load Balancer의 모든 포트에 도달하는 모든 TCP 및 UDP 흐름을 단일 규칙으로 부하 분산할 수 있습니다. 
+**'프로토콜 - 모두 및 포트 - 0'으로** 구성된 부하 분산기 규칙을 HA(고가용성) 포트 규칙이라고 합니다. 이 규칙을 사용하면 내부 표준 Load Balancer의 모든 포트에 도달하는 모든 TCP 및 UDP 흐름을 단일 규칙으로 부하 분산할 수 있습니다. 
 
 부하 분산 의사 결정은 흐름 단위로 이루어집니다. 이 작업은 다음과 같은 5개의 튜플 연결을 기반으로 합니다. 
 

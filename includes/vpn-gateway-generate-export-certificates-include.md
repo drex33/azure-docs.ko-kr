@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 77f5a00676dc2809dfa43c0787700731f429bc28
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.openlocfilehash: 3a13277e5a385752ff9e37fc5a9ed3f4b4c4553a
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110574764"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133034834"
 ---
 ## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>자체 서명된 루트 인증서 만들기
 
@@ -69,7 +69,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 
    ```
    Thumbprint                                Subject
-  
+   ----------                                -------
    AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
    ```
@@ -77,7 +77,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 1. 이전 단계의 지문을 사용하여 루트 인증서에 대한 변수를 선언합니다. THUMBPRINT을 자식 인증서를 생성하려는 루트 인증서의 지문으로 바꿉니다.
 
    ```powershell
-   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\<THUMBPRINT>"
    ```
 
    예를 들어 이전 단계의 P2SRootCert에 대한 지문을 사용할 경우 변수는 다음과 같습니다.

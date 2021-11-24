@@ -9,12 +9,13 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: quickstart
-ms.openlocfilehash: fec2ae2f5f06303d48df77a34bcf41e4ab9e83f5
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: mode-other
+ms.openlocfilehash: d440e4f59bee599503c298284f0d6ae2be695ebc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130252234"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039532"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>빠른 시작: 번역을 위한 사용자 지정 모델 빌드, 배포 및 사용
 

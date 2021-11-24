@@ -6,12 +6,13 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: be6dbd899f91df5a19878d0491f14b3eb636f8eb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: 9462fde91169bca858444af1307c95e111fafe41
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671674"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039294"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 

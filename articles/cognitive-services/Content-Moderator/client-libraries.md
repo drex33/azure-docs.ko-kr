@@ -11,14 +11,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 09/28/2021
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
 keywords: 콘텐츠 중재자, azure 콘텐츠 중재자, 온라인 중재자, 콘텐츠 필터링 소프트웨어
-ms.openlocfilehash: f830e29ed49e9516c1951bf8a63f81c5987be9b5
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c233475112dbb0c86154f75fef4c0deec5d89a4f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357038"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062500"
 ---
 # <a name="quickstart-use-the-content-moderator-client-library"></a>빠른 시작: Content Moderator 클라이언트 라이브러리 사용
 

@@ -10,13 +10,13 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: c1393b599b990cce055740c1ae55079168c36a86
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: seodec2018, devx-track-python, mode-other
+ms.openlocfilehash: 25af331f62c00af5c37e71176fedea98333d1071
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479411"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053557"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>빠른 시작: Python을 사용하여 Bing Web Search API 호출  
 

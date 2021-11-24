@@ -8,12 +8,12 @@ ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b353f683a64444a0ad89f062d0b826484260681f
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 9fdbf5bfda21da794b9c65264ed37c144fff2149
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131852050"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074743"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-with-a-tpm-on-linux"></a>Linux에서 TPM을 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전
 
@@ -47,12 +47,12 @@ ms.locfileid: "131852050"
 
 ---
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 <!-- Cloud resources prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
-### <a name="iot-edge-installation"></a>IoT Edge 설치
+### <a name="device-requirements"></a>디바이스 요구 사항
 
 # <a name="physical-device"></a>[물리적 디바이스](#tab/physical-device)
 
@@ -206,9 +206,9 @@ VM을 시작 하 여 설치 프로세스를 완료 합니다.
    # dynamic_reprovisioning: false
    ```
 
-1. 및의 값을 `scope_id` `registration_id` 장치 프로 비전 서비스 및 장치 정보로 업데이트 합니다. `scope_id`값은 장치 프로 비전 서비스 인스턴스의 개요 페이지에서 **ID 범위** 입니다.
+1. 및 값을 `scope_id` `registration_id` 디바이스 프로비저닝 서비스 및 디바이스 정보로 업데이트합니다. `scope_id`값은 디바이스 프로비저닝 서비스 인스턴스의 개요 페이지에서 **ID 범위입니다.**
 
-1. 필요에 따라 `always_reprovision_on_startup` 또는 `dynamic_reprovisioning` 줄을 사용하여 디바이스의 다시 프로비저닝 동작을 구성합니다. 시작 시 장치가 다시 구축로 설정 된 경우 항상 장치 프로 비전 서비스를 사용 하 여 프로 비전을 시도한 후에 실패 하는 경우 프로 비전 백업으로 대체 합니다. 장치를 동적으로 프로 비전 하도록 설정 된 경우에는 IoT Edge가 다시 시작 되 고 다시 프로 비전 이벤트가 감지 되 면 다시 구축 됩니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
+1. 필요에 따라 `always_reprovision_on_startup` 또는 `dynamic_reprovisioning` 줄을 사용하여 디바이스의 다시 프로비저닝 동작을 구성합니다. 디바이스가 시작 시 다시 프로비전하도록 설정된 경우 항상 먼저 디바이스 프로비저닝 서비스를 사용하여 프로비저닝을 시도한 다음, 실패하면 프로비전 백업으로 전환합니다. 디바이스가 자신을 동적으로 프로비전하도록 설정된 경우 다시 프로비전 이벤트가 감지되면 IoT Edge 다시 시작하고 다시 프로비전합니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
 
 1. 파일을 저장하고 닫습니다.
 
@@ -218,9 +218,9 @@ VM을 시작 하 여 설치 프로세스를 완료 합니다.
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-1. 이전에 수집 된 장치 프로 비전 서비스 **Id 범위** 및 장치 **등록 id** 를 확인 합니다.
+1. 이전에 수집된 디바이스 프로비저닝 서비스 **ID 범위** 및 디바이스 **등록 ID를** 알고 있습니다.
 
-1. IoT Edge 설치의 일부로 제공 되는 템플릿 파일을 기반으로 장치에 대 한 구성 파일을 만듭니다.
+1. IoT Edge 설치의 일부로 제공되는 템플릿 파일을 기반으로 디바이스에 대한 구성 파일을 만듭니다.
 
    ```bash
    sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
@@ -246,9 +246,9 @@ VM을 시작 하 여 설치 프로세스를 완료 합니다.
    registration_id = "REGISTRATION_ID_HERE"
    ```
 
-1. 및의 값을 `id_scope` `registration_id` 장치 프로 비전 서비스 및 장치 정보로 업데이트 합니다. `scope_id`값은 장치 프로 비전 서비스 인스턴스의 개요 페이지에서 **ID 범위** 입니다.
+1. 및 값을 `id_scope` `registration_id` 디바이스 프로비저닝 서비스 및 디바이스 정보로 업데이트합니다. `scope_id`값은 디바이스 프로비저닝 서비스 인스턴스의 개요 페이지에서 **ID 범위입니다.**
 
-1. 필요에 따라 파일의 auto 다시 프로 비전 mode 섹션을 찾습니다. `auto_reprovisioning_mode` 매개 변수를 사용하여 디바이스의 다시 프로비저닝 동작을 `Dynamic`, `AlwaysOnStartup` 또는 `OnErrorOnly`로 구성합니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
+1. 필요에 따라 파일의 자동 다시 프로비전 모드 섹션을 찾습니다. `auto_reprovisioning_mode` 매개 변수를 사용하여 디바이스의 다시 프로비저닝 동작을 `Dynamic`, `AlwaysOnStartup` 또는 `OnErrorOnly`로 구성합니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
 
 1. 파일을 저장하고 닫습니다.
 
@@ -264,7 +264,7 @@ IoT Edge 런타임은 디바이스를 자동으로 프로비저닝하려면 TPM�
 
 `iotedge` 서비스에 루트 권한이 있도록 systemd 설정을 재정의하여 IoT Edge 런타임에 TPM 액세스 권한을 부여할 수 있습니다. 서비스 권한을 승격시키지 않으려는 경우 다음 단계를 사용하여 수동으로 TPM 액세스 권한을 제공할 수도 있습니다.
 
-1. 및에 대 한 IoT Edge 런타임 액세스를 제공 하는 새 규칙을 만듭니다 `tpm0` `tpmrm0` .
+1. IoT Edge 런타임에 및 에 대한 액세스 권한을 부여하는 새 규칙을 `tpm0` `tpmrm0` 만듭니다.
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
@@ -276,7 +276,7 @@ IoT Edge 런타임은 디바이스를 자동으로 프로비저닝하려면 TPM�
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-1. 규칙 파일에 다음과 같은 액세스 정보를 복사합니다. `tpmrm0`4.12 이전의 커널을 사용 하는 장치에는 없을 수 있습니다. 가 없는 장치 `tpmrm0` 는 해당 규칙을 안전 하 게 무시 합니다.
+1. 규칙 파일에 다음과 같은 액세스 정보를 복사합니다. `tpmrm0`4.12 이전의 커널을 사용하는 디바이스에는 가 없을 수 있습니다. 없는 `tpmrm0` 디바이스는 해당 규칙을 안전하게 무시합니다.
 
    ```input
    # allow iotedge access to tpm0
@@ -286,7 +286,7 @@ IoT Edge 런타임은 디바이스를 자동으로 프로비저닝하려면 TPM�
 
 1. 파일을 저장하고 종료합니다.
 
-1. 시스템을 트리거하여 `udev` 새 규칙을 평가 합니다.
+1. 시스템을 `udev` 트리거하여 새 규칙을 평가합니다.
 
    ```bash
    /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
@@ -305,7 +305,7 @@ IoT Edge 런타임은 디바이스를 자동으로 프로비저닝하려면 TPM�
    crw------- 1 iotedge root 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
-   올바른 권한이 적용 되어 있지 않으면 컴퓨터를 다시 부팅 하 여 새로 고치십시오 `udev` .
+   올바른 권한이 적용된 것을 볼 수 없으면 컴퓨터를 다시 부팅하여 를 새로 `udev` 고칩니다.
 
 1. 디바이스에서 한 모든 구성 변경을 선택하도록 IoT Edge 런타임을 다시 시작합니다.
 
@@ -319,11 +319,11 @@ IoT Edge 런타임은 디바이스를 자동으로 프로비저닝하려면 TPM�
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-IoT Edge 런타임은 장치의 TPM에 대 한 액세스를 브로커 하는 TPM 서비스에 의존 합니다. 이 서비스에서 디바이스를 자동으로 프로비저닝하려면 TPM에 액세스해야 합니다.
+IoT Edge 런타임은 디바이스의 TPM에 대한 액세스를 조정하는 TPM 서비스에 의존합니다. 이 서비스에서 디바이스를 자동으로 프로비저닝하려면 TPM에 액세스해야 합니다.
 
 `aziottpm` 서비스에 루트 권한이 있도록 systemd 설정을 재정의하여 TPM 액세스 권한을 부여할 수 있습니다. 서비스 권한을 승격시키지 않으려는 경우 다음 단계를 사용하여 수동으로 TPM 액세스 권한을 제공할 수도 있습니다.
 
-1. 및에 대 한 IoT Edge 런타임 액세스를 제공 하는 새 규칙을 만듭니다 `tpm0` `tpmrm0` .
+1. IoT Edge 런타임에 및 에 대한 액세스 권한을 부여하는 새 규칙을 `tpm0` `tpmrm0` 만듭니다.
 
    ```bash
    sudo touch /etc/udev/rules.d/tpmaccess.rules
@@ -335,7 +335,7 @@ IoT Edge 런타임은 장치의 TPM에 대 한 액세스를 브로커 하는 TPM
    sudo nano /etc/udev/rules.d/tpmaccess.rules
    ```
 
-1. 규칙 파일에 다음과 같은 액세스 정보를 복사합니다. `tpmrm0`4.12 이전의 커널을 사용 하는 장치에는 없을 수 있습니다. 가 없는 장치 `tpmrm0` 는 해당 규칙을 안전 하 게 무시 합니다.
+1. 규칙 파일에 다음과 같은 액세스 정보를 복사합니다. `tpmrm0`4.12 이전의 커널을 사용하는 디바이스에는 가 없을 수 있습니다. 없는 `tpmrm0` 디바이스는 해당 규칙을 안전하게 무시합니다.
 
    ```input
    # allow aziottpm access to tpm0 and tpmrm0
@@ -345,7 +345,7 @@ IoT Edge 런타임은 장치의 TPM에 대 한 액세스를 브로커 하는 TPM
 
 1. 파일을 저장하고 종료합니다.
 
-1. 시스템을 트리거하여 `udev` 새 규칙을 평가 합니다.
+1. 시스템을 `udev` 트리거하여 새 규칙을 평가합니다.
 
    ```bash
    /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
@@ -364,7 +364,7 @@ IoT Edge 런타임은 장치의 TPM에 대 한 액세스를 브로커 하는 TPM
    crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
-   올바른 권한이 적용 되어 있지 않으면 컴퓨터를 다시 부팅 하 여 새로 고치십시오 `udev` .
+   올바른 권한이 적용된 것을 볼 수 없으면 컴퓨터를 다시 부팅하여 를 새로 `udev` 고칩니다.
 
 1. 디바이스에서 변경된 구성을 적용합니다.
 
@@ -379,7 +379,7 @@ IoT Edge 런타임은 장치의 TPM에 대 한 액세스를 브로커 하는 TPM
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
-아직 수행 하지 않은 경우 IoT Edge 런타임을 다시 시작 하 여 장치에서 수행 된 모든 구성 변경 내용을 선택 합니다.
+IoT Edge 런타임을 다시 시작하여 디바이스에서 변경한 모든 구성을 선택해야 합니다.
 
    ```bash
    sudo systemctl restart iotedge
@@ -397,19 +397,19 @@ IoT Edge 런타임이 실행되고 있는지 확인합니다.
 journalctl -u iotedge --no-pager --no-full
 ```
 
-프로 비전 오류가 표시 되 면 구성 변경 내용이 아직 적용 되지 않은 것일 수 있습니다. IoT Edge 디먼을 다시 시작합니다.
+프로비저닝 오류가 표시되면 구성 변경 내용이 아직 적용되지 않았을 수 있습니다. IoT Edge 디먼을 다시 시작합니다.
 
    ```bash
    sudo systemctl daemon-reload
    ```
 
-또는 VM을 다시 시작 하 여 변경 내용이 새로 시작 될 때 적용 되는지 확인 합니다.
+또는 VM을 다시 시작하여 변경 내용이 새로운 시작에 적용되는지 확인합니다.
 :::moniker-end
 <!-- end 1.1 -->
 
 <!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
-아직 수행 하지 않은 경우 장치에 대 한 구성 변경 내용을 적용 합니다.
+디바이스에서 구성 변경 내용을 적용하지 않은 경우 적용합니다.
 
    ```bash
    sudo iotedge config apply
@@ -427,17 +427,17 @@ IoT Edge 런타임이 실행되고 있는지 확인합니다.
    sudo iotedge system logs
    ```
 
-프로 비전 오류가 표시 되 면 구성 변경 내용이 아직 적용 되지 않은 것일 수 있습니다. IoT Edge 디먼을 다시 시작합니다.
+프로비저닝 오류가 표시되면 구성 변경 내용이 아직 적용되지 않았을 수 있습니다. IoT Edge 디먼을 다시 시작합니다.
 
    ```bash
    sudo systemctl daemon-reload
    ```
 
-또는 VM을 다시 시작 하 여 변경 내용이 새로 시작 될 때 적용 되는지 확인 합니다.
+또는 VM을 다시 시작하여 변경 내용이 새로운 시작에 적용되는지 확인합니다.
 :::moniker-end
 <!-- end 1.2 -->
 
-런타임이 성공적으로 시작 되 면 IoT hub로 이동 하 여 새 장치가 자동으로 프로 비전 되었는지 확인할 수 있습니다. 이제 디바이스가 IoT Edge 모듈을 실행할 준비가 되었습니다.
+런타임이 성공적으로 시작된 경우 IoT Hub로 이동하여 새 디바이스가 자동으로 프로비전되었는지 확인할 수 있습니다. 이제 디바이스가 IoT Edge 모듈을 실행할 준비가 되었습니다.
 
 실행 중인 모듈을 나열합니다.
 
@@ -445,10 +445,10 @@ IoT Edge 런타임이 실행되고 있는지 확인합니다.
 iotedge list
 ```
 
-장치 프로 비전 서비스에서 만든 개별 등록이 사용 되었는지 확인할 수 있습니다. Azure Portal에서 장치 프로 비전 서비스 인스턴스로 이동 합니다. 만든 개별 등록의 등록 세부 정보를 엽니다. 등록 상태가 **할당됨** 이며 디바이스 ID가 나열된 것을 확인할 수 있습니다.
+디바이스 프로비저닝 서비스에서 만든 개별 등록이 사용되었는지 확인할 수 있습니다. Azure Portal 디바이스 프로비저닝 서비스 인스턴스로 이동합니다. 만든 개별 등록의 등록 세부 정보를 엽니다. 등록 상태가 **할당됨** 이며 디바이스 ID가 나열된 것을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-장치 프로 비전 서비스 등록 프로세스를 통해 새 장치를 프로 비전 하는 동시에 장치 ID 및 장치 쌍 태그를 설정할 수 있습니다. 자동 장치 관리를 사용 하 여 이러한 값을 사용 하 여 개별 장치 또는 장치 그룹을 대상으로 지정할 수 있습니다.
+디바이스 프로비전 서비스 등록 프로세스를 사용하면 새 디바이스를 프로비전하는 동시에 디바이스 ID 및 디바이스 쌍 태그를 설정할 수 있습니다. 이러한 값을 사용하여 자동 디바이스 관리를 통해 개별 디바이스 또는 디바이스 그룹을 대상으로 지정할 수 있습니다.
 
-Azure Portal 또는 [Azure CLI](how-to-deploy-cli-at-scale.md)를 [사용 하 여 규모에 IoT Edge 모듈을 배포 하 고 모니터링](how-to-deploy-at-scale.md) 하는 방법을 알아봅니다.
+Azure Portal 또는 [Azure CLI 사용하여 대규모로 IoT Edge 모듈을 배포하고](how-to-deploy-at-scale.md) [모니터링하는](how-to-deploy-cli-at-scale.md)방법을 알아봅니다.

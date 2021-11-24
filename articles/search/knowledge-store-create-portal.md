@@ -8,12 +8,13 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/28/2021
-ms.openlocfilehash: 6e9c09cb5407747c325b696570cd3eabdeeb4ed7
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: mode-portal
+ms.openlocfilehash: a3f9efa0e3cb0336c4acd07763fb6bc3133db01a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131563723"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041081"
 ---
 # <a name="quickstart-create-a-knowledge-store-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 지식 저장소 만들기
 

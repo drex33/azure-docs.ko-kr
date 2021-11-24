@@ -8,33 +8,33 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bebedbcd2c36203ec122ebf597ac8a0c64fb1ae4
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 5fe3d78dc079e0b6fdf8e6d08b7d730ceb49452b
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129679850"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132876425"
 ---
 |**VPN<br>게이트웨이<br>생성** |**SKU**   | **S2S/VNet 간<br>터널** | **P2S<br> SSTP 연결** | **P2S<br> IKEv2/OpenVPN 연결** | **집계<br>처리량 벤치마크** | **BGP** | **Zone-redundant** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
 |**생성 1**|**기본**   | 최대 10    | 최대 128  | 지원되지 않음  | 100Mbps  | 지원되지 않음| 아니요 |
-|**생성 1**|**VpnGw1**  | 최대 30*   | 최대 128  | 최대 250       | 650Mbps  | 지원됨 | 아니요 |
-|**생성 1**|**VpnGw2**  | 최대 30*   | 최대 128  | 최대 500       | 1Gbps    | 지원됨 | 아니요 |
-|**생성 1**|**VpnGw3**  | 최대 30*   | 최대 128  | 최대 1000      | 1.25Gbps | 지원됨 | 아니요 |
-|**생성 1**|**VpnGw1AZ**| 최대 30*   | 최대 128  | 최대 250       | 650Mbps  | 지원됨 | 예 |
-|**생성 1**|**VpnGw2AZ**| 최대 30*   | 최대 128  | 최대 500       | 1Gbps    | 지원됨 | 예 |
-|**생성 1**|**VpnGw3AZ**| 최대 30*   | 최대 128  | 최대 1000      | 1.25Gbps | 지원됨 | 예 |
+|**생성 1**|**VpnGw1**  | 최대 30   | 최대 128  | 최대 250       | 650Mbps  | 지원됨 | 아니요 |
+|**생성 1**|**VpnGw2**  | 최대 30   | 최대 128  | 최대 500       | 1Gbps    | 지원됨 | 아니요 |
+|**생성 1**|**VpnGw3**  | 최대 30   | 최대 128  | 최대 1000      | 1.25Gbps | 지원됨 | 아니요 |
+|**생성 1**|**VpnGw1AZ**| 최대 30   | 최대 128  | 최대 250       | 650Mbps  | 지원됨 | 예 |
+|**생성 1**|**VpnGw2AZ**| 최대 30   | 최대 128  | 최대 500       | 1Gbps    | 지원됨 | 예 |
+|**생성 1**|**VpnGw3AZ**| 최대 30   | 최대 128  | 최대 1000      | 1.25Gbps | 지원됨 | 예 |
 |        |            |            |           |                |           |           |     |
-|**생성 2**|**VpnGw2**  | 최대 30*   | 최대 128  | 최대 500       | 1.25Gbps | 지원됨 | 아니요 |
-|**생성 2**|**VpnGw3**  | 최대 30*   | 최대 128  | 최대 1000      | 2.5Gbps  | 지원됨 | 아니요 |
-|**생성 2**|**VpnGw4**  | 최대 30*   | 최대 128  | 최대 5,000      | 5Gbps    | 지원됨 | 아니요 |
-|**생성 2**|**VpnGw5**  | 최대 30*   | 최대 128  | 최대 10000      | 10Gbps   | 지원됨 | 아니요 |
-|**생성 2**|**VpnGw2AZ**| 최대 30*   | 최대 128  | 최대 500       | 1.25Gbps | 지원됨 | 예 |
-|**생성 2**|**VpnGw3AZ**| 최대 30*   | 최대 128  | 최대 1000      | 2.5Gbps  | 지원됨 | 예 |
-|**생성 2**|**VpnGw4AZ**| 최대 30*   | 최대 128  | 최대 5,000      | 5Gbps    | 지원됨 | 예 |
-|**생성 2**|**VpnGw5AZ**| 최대 30*   | 최대 128  | 최대 10000      | 10Gbps   | 지원됨 | 예 |
+|**생성 2**|**VpnGw2**  | 최대 30   | 최대 128  | 최대 500       | 1.25Gbps | 지원됨 | 아니요 |
+|**생성 2**|**VpnGw3**  | 최대 30   | 최대 128  | 최대 1000      | 2.5Gbps  | 지원됨 | 아니요 |
+|**생성 2**|**VpnGw4**  | 최대 100*   | 최대 128  | 최대 5,000      | 5Gbps    | 지원됨 | 아니요 |
+|**생성 2**|**VpnGw5**  | 최대 100*   | 최대 128  | 최대 10000      | 10Gbps   | 지원됨 | 아니요 |
+|**생성 2**|**VpnGw2AZ**| 최대 30   | 최대 128  | 최대 500       | 1.25Gbps | 지원됨 | 예 |
+|**생성 2**|**VpnGw3AZ**| 최대 30   | 최대 128  | 최대 1000      | 2.5Gbps  | 지원됨 | 예 |
+|**생성 2**|**VpnGw4AZ**| 최대 100*   | 최대 128  | 최대 5,000      | 5Gbps    | 지원됨 | 예 |
+|**생성 2**|**VpnGw5AZ**| 최대 100*   | 최대 128  | 최대 10000      | 10Gbps   | 지원됨 | 예 |
 
-(*) S2S VPN 터널이 30개 넘게 필요한 경우 [가상 WAN](../articles/virtual-wan/virtual-wan-about.md)을 사용해야 합니다.
+(*) S2S VPN 터널이 100개 넘게 필요한 경우 [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md)을 사용해야 합니다.
 
 * VpnGw SKU 크기 조정은 기본 SKU의 크기 조정을 제외하고, 동일 생성 내에서 허용됩니다. 기본 SKU는 레거시 SKU이며 기능이 제한됩니다. 기본에서 다른 VpnGw SKU로 이동하려면 기본 SKU VPN 게이트웨이를 삭제하고 원하는 생성 및 SKU 크기 조합으로 새 게이트웨이를 만들어야 합니다. 기본 게이트웨이의 크기는 다른 레거시 SKU로만 조정할 수 있습니다([레거시 SKU 작업](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md) 참조).
 

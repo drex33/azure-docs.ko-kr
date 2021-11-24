@@ -7,15 +7,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurepowershell, mode-api
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 170c115e56232b334527d92623c87bacd377f5aa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8513a3fc7ce0daaecf779577d9940192c4023f09
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659851"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038784"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Key Vault에서 인증서 설정 및 검색
 

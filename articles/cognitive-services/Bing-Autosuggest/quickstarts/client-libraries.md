@@ -11,13 +11,13 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: aahi
-ms.custom: devx-track-csharp
-ms.openlocfilehash: d8bc9663b54e88a8fa857f92e8d6927f720150c9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: bf371eb0510975de4f0a1380e7015355c81d989f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352773"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051373"
 ---
 # <a name="quickstart-use-the-bing-autosuggest-client-library"></a>빠른 시작: Bing Autosuggest 클라이언트 라이브러리 사용
 

@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 53e454ba84747c0e5fdeb009bc9f53e51480be9d
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 1fea81e093b2e80def283a837f8ba07fa77a93bb
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132715267"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132941418"
 ---
 # <a name="management-operations-in-azure-managed-instance-for-apache-cassandra"></a>Azure Managed Instance for Apache Cassandra의 관리 작업
 
@@ -44,6 +44,13 @@ Azure Managed Instance for Apache Cassandra는 관리형 오픈 소스 Apache Ca
   * 스토리지 용량을 초과하는 데이터 수집
   * 잘못된 Keyspace 구성 설정
   * 잘못된 데이터 모델 또는 파티션 키 전략
+
+## <a name="backup-and-restore"></a>백업 및 복원
+
+스냅샷 백업은 기본적으로 활성화되어 있으며 4시간마다 수행됩니다. 백업은 내부 Azure Blob Storage 계정에 저장되며 최대 2일(48시간) 동안 유지됩니다. 백업에 대한 비용은 없습니다. 백업에서 복원하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출하세요.
+
+> [!WARNING]
+> 백업은 새 클러스터에만 복원됩니다. 백업은 실수로 삭제되는 시나리오를 위한 것이며 지역 중복이 아닙니다. 따라서 전체 지역 가동 중단 시 DR(재해 복구) 전략으로 사용하지 않는 것이 좋습니다. 지역 전체 중단으로부터 보호하려면 다중 지역 배포를 권장합니다. [여기](create-multi-region-cluster.md)에서 다중 지역 배포에 대한 빠른 시작을 살펴보세요. 
 
 ## <a name="security"></a>보안
 

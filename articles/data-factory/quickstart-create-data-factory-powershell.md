@@ -8,13 +8,13 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: de15d5b8db4dac535b4e4bd66817142ac2be4bcd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: bc56de487b5c83f07bd3c71de7f79a9702084317
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131068875"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050781"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Data Factory 만들기
 

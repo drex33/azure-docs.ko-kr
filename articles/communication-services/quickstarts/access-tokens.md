@@ -6,38 +6,41 @@ author: tomaschladek
 manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
-ms.date: 06/30/2021
+ms.date: 11/17/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 4b83fa7aec50d11c6ec4eac0baf2c15b95e29e6c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: 2b163db12209df247d5a6cbd32b9e76fcc50b7ff
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128677288"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039360"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>빠른 시작: 액세스 토큰 만들기 및 관리
 
-Communication Services ID SDK를 사용하여 Azure Communication Services를 시작하세요. 이를 통해 ID를 만들고 액세스 토큰을 관리할 수 있습니다. ID는 Azure Communication Service(예: 사용자 또는 디바이스)에서 애플리케이션의 엔터티를 나타냅니다. 액세스 토큰을 통해 채팅 및 Calling SDK가 Azure Communication Services에 대해 직접 인증할 수 있습니다. 서버 쪽 서비스에서 액세스 토큰을 생성하는 것이 좋습니다. 그런 다음, 액세스 토큰을 사용하여 클라이언트 디바이스에서 Communication Services SDK를 초기화합니다.
+액세스 토큰을 통해 ACS SDK가 Azure Communication Services에 대해 특정 ID로 직접 [인증](../concepts/authentication.md)할 수 있습니다. 사용자가 애플리케이션 내에서 호출 또는 채팅 스레드에 조인하도록 하려면 일부를 만들어야 합니다. 
+
+ACS SDK를 사용하여 ID를 만들고 액세스 토큰을 관리할 수도 있습니다. 이 빠른 시작에서는 이 작업을 수행하는 방법을 알아봅니다. 프로덕션 사용 사례의 경우 [서버 쪽 서비스](../concepts/client-and-server-architecture.md)에서 액세스 토큰을 생성하는 것이 좋습니다.
 
 이 자습서 전체에서 이미지에 표시되는 모든 가격은 데모용일 뿐입니다.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [.NET](./includes/user-access-token-net.md)]
+[!INCLUDE [.NET](./includes/access-tokens/access-token-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript](./includes/user-access-token-js.md)]
+[!INCLUDE [JavaScript](./includes/access-tokens/access-token-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python](./includes/user-access-token-python.md)]
+[!INCLUDE [Python](./includes/access-tokens/access-token-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java](./includes/user-access-token-java.md)]
+[!INCLUDE [Java](./includes/access-tokens/access-token-java.md)]
 ::: zone-end
 
 앱의 출력은 완료된 각 작업을 설명합니다.

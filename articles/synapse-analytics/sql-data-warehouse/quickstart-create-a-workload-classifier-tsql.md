@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: azure-synapse
-ms.openlocfilehash: e757c8047bf6d634ab6d7cbc8963087c0eccc46a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: azure-synapse, mode-other
+ms.openlocfilehash: 87e18c573d120b5e3a880a01855dbc1c067219e4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98677371"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076844"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 워크로드 분류자 만들기
 

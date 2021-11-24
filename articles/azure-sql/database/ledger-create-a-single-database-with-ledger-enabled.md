@@ -3,18 +3,18 @@ title: 원장을 사용하는 단일 데이터베이스 만들기
 description: Azure Portal을 사용하여 원장이 활성화된 Azure SQL Database에서 단일 데이터베이스를 만듭니다.
 ms.service: sql-database
 ms.subservice: security
-ms.devlang: ''
 ms.topic: quickstart
 author: rothja
 ms.author: jroth
 ms.reviewer: vanto
 ms.date: 09/09/2021
-ms.openlocfilehash: 8538e725583aea6fe765a7afd6e0ac58f176b443
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.custom: mode-other
+ms.openlocfilehash: c390731d0559afcff528dfaf82b18608a93e68a4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132063744"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075979"
 ---
 # <a name="quickstart-create-a-database-in-azure-sql-database-with-ledger-enabled"></a>빠른 시작: 원장이 활성화된 Azure SQL Database에서 데이터베이스 만들기
 

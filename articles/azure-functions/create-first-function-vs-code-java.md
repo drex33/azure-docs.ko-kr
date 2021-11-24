@@ -7,12 +7,13 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
-ms.openlocfilehash: 273b4a0c8396ae2cc9034ea9b634005ba397f08a
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.custom: mode-other
+ms.openlocfilehash: 2c4bd304987c172bc34572f9eb6276a92ebbfdc5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132371907"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076314"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 Java 함수 만들기
 

@@ -11,13 +11,13 @@ ms.service: traffic-manager
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom: mode-portal
-ms.openlocfilehash: be0061fb42a391506adf7c944e60836e14d6cb8b
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mode-other
+ms.openlocfilehash: 171a94fdd235676d9999aee9cba9d9eb444d6df5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131003469"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076734"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Traffic Manager 프로필 만들기
 

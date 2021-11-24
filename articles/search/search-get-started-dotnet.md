@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/11/2021
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 11870ed112f4d342bf6df95185d1005004df3f67
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: e5a4bc856e3840f9cfba9c1ca9b232afa588735b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112029282"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050352"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>빠른 시작: Azure.Search.Documents 클라이언트 라이브러리를 사용하여 검색 인덱스 만들기
 

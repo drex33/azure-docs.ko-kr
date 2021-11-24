@@ -7,12 +7,13 @@ ms.service: purview
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/27/2021
-ms.openlocfilehash: 7a6d13da2ee3138e6dfc5eca4a5b75f454f90457
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: mode-other
+ms.openlocfilehash: 65de2be754172cebbabc38709295cc51cd3caf58
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212490"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041230"
 ---
 # <a name="quickstart-create-a-purview-account-using-python"></a>빠른 시작: Python을 사용하여 Purview 계정 만들기
 

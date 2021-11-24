@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: d96e331727c1c4d306746c35565f759fcd12a4c8
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: e9de31d1902eee0805970524f17a9f85d64c69db
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131861393"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132876309"
 ---
-[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript)
+[![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
 
 이 빠른 시작에서는 기본 Azure IoT 애플리케이션 개발 워크플로에 대해 알아봅니다. Azure CLI 및 IoT Explorer를 사용하여 Azure IoT Hub 및 디바이스를 만듭니다. 그런 다음 Azure IoT 디바이스 SDK 샘플을 사용하여 온도 컨트롤러를 실행하고, 허브에 안전하게 연결하고, 원격 분석을 보냅니다. 온도 컨트롤러 샘플 애플리케이션은 로컬 컴퓨터에서 실행되고 IoT Hub로 보낼 시뮬레이션된 센서 데이터를 생성합니다.
 
@@ -29,7 +29,7 @@ Raspberry Pi에 대해 명시한 경우를 제외하고는 다음 사전 요구 
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [무료 구독을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Git](https://git-scm.com/downloads)
-- [Node.js](https://nodejs.org) 버전 10 이상 노드 버전을 확인하려면 `node --version`을 실행합니다.
+- [Node.js](https://nodejs.org) 버전 12 이상 노드 버전을 확인하려면 `node --version`을 실행합니다.
 - [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Azure IoT를 모니터링하고 관리하는 플랫폼 간 GUI 기반 유틸리티입니다. Raspberry Pi를 개발 플랫폼으로 사용하는 경우 IoT Explorer를 다른 컴퓨터에 설치하는 것이 좋습니다. IoT Explorer를 설치하지 않으려면 Azure CLI를 사용하여 동일한 단계를 수행할 수 있습니다. 
 - Azure CLI. 이 빠른 시작에서 Azure CLI 명령을 실행하기 위한 두 가지 옵션이 있습니다.
     - 브라우저에서 CLI 명령을 실행하는 대화형 셸인 Azure Cloud Shell을 사용합니다. 이 옵션은 아무 것도 설치할 필요가 없으므로 권장됩니다. 처음으로 Cloud Shell을 사용하는 경우 [Azure Portal](https://portal.azure.com)에 로그인합니다. [Cloud Shell 빠른 시작](../articles/cloud-shell/quickstart.md)의 단계를 따라 **Cloud Shell을 시작하고** **Bash 환경을 선택합니다**.
@@ -45,7 +45,7 @@ Raspberry Pi에 대해 명시한 경우를 제외하고는 다음 사전 요구 
     > [!NOTE]
     > Azure CLI의 로컬 설치를 사용하는 경우 이제 두 개의 콘솔 창이 열려 있을 수 있습니다. CLI에 사용한 콘솔이 아니라 방금 연 콘솔에서 이 섹션의 명령을 입력해야 합니다.
 
-1. [Azure IoT Node.js SDK 디바이스 샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)을 로컬 컴퓨터에 복제합니다.
+1. [Azure IoT Node.js SDK 디바이스 샘플](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)을 로컬 컴퓨터에 복제합니다.
 
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-node

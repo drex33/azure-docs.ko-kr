@@ -13,12 +13,12 @@ metadata:
   ms.date: 01/04/2021
   ms.author: damendo
   ms.custom: devx-track-azurepowershell
-  ms.openlocfilehash: 4d2cab88fea02c7ca9e5bcd6265137edcfc42e5c
-  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+  ms.openlocfilehash: 82a224ec6ce078923fd88b6dc6cd1f9638aea502
+  ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/03/2021
-  ms.locfileid: "131433520"
+  ms.lasthandoff: 11/22/2021
+  ms.locfileid: "132902006"
 title: 트래픽 분석 질문과 대답
 summary: >
   이 문서는 Azure Network Watcher의 트래픽 분석에 대한 많은 질문과 대답을 한 곳에서 수집합니다.
@@ -118,4 +118,7 @@ sections:
     answer: "서브네트워크 토폴로지 페이지에는 두 개의 기본 섹션이 있습니다.\n    \n- **배너**: 가상 서브네트워크 토폴로지 위쪽에 있는 배너는 트래픽 분포 필터(예: 활성, 중간 및 게이트웨이 서브넷)를 선택하는 단추를 제공합니다. 단추를 선택하면 각 필터가 토폴로지에 적용됩니다. 예를 들어, [활성] 단추를 선택하면 토폴로지에서 배포의 활성 가상 서브네트워크가 강조 표시됩니다.\n- **토폴로지**: 배너 아래의 토폴로지 섹션에는 가상 서브네트워크 간의 트래픽 분포가 표시됩니다.\n    \n### <a name=\"keyboard-navigation-on-the-banner\"></a>배너에서 키보드 탐색\n    \n- 기본적으로 배너에 대한 가상 서브네트워크 토폴로지 페이지에서 선택할 수 있는 항목은 “서브넷” 필터입니다.\n- 다른 필터로 이동하려면 `Tab` 키를 사용하여 앞으로 이동합니다. 뒤로 이동하려면 `Shift+Tab` 키를 사용합니다. 앞으로 탐색은 왼쪽에서 오른쪽, 위쪽에서 아래쪽 순입니다.\n- `Enter` 키를 누르면 선택한 필터가 적용됩니다. 선택하는 필터와 배포에 따라 토폴로지 섹션 아래에 있는 하나 이상의 노드(서브넷)가 강조 표시됩니다.\n- 배너와 토폴로지 사이를 전환하려면 `Ctrl+F6`을 누릅니다.\n        \n### <a name=\"keyboard-navigation-on-the-topology\"></a>토폴로지에서 키보드 탐색\n    \n- 배너에서 필터를 선택하고 `Ctrl+F6`을 누르면 토폴로지 보기에서 강조 표시된 노드 중 하나(**서브넷**)로 포커스가 이동됩니다.\n- 토폴로지 보기에서 강조 표시된 다른 노드로 이동하려면 `Shift+Right arrow` 키를 사용하여 앞으로 이동합니다. \n- 강조 표시된 노드에서는 노드의 **정보 도구 상자** 로 포커스가 이동됩니다. 기본적으로 포커스는 **정보 도구 상자** 의 **자세한 정보** 단추로 이동합니다. **상자** 보기 내부에서 추가로 이동하려면 `Right arrow` 및 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. `Enter` 키를 누르면 **정보 도구 상자** 에서 포커스가 있는 단추를 선택한 것과 동일한 효과가 적용됩니다.\n- 이러한 노드를 선택할 때 `Shift+Left arrow` 키를 눌러 해당 연결을 모두 하나씩 방문할 수 있습니다. 포커스가 해당 연결의 **정보 도구 상자** 로 이동합니다. 언제든지 `Shift+Right arrow`를 다시 눌러 포커스를 다시 노드로 이동할 수 있습니다.\n"
   - question: >
       클래식 NSG가 지원되나요?
-    answer: 아니요, 트래픽 분석은 클래식 NSG를 지원하지 않습니다. 클래식 리소스가 [사용되지 않으므로](../virtual-machines/classic-vm-deprecation.md) 클래식에서 Azure Resource Manager로 IaaS 리소스를 마이그레이션하는 것이 좋습니다. [마이그레이션 방법](../virtual-machines/migration-classic-resource-manager-overview.md)을 이해하려면 이 문서를 참조하세요.
+    answer: >
+      아니요, 트래픽 분석은 클래식 NSG를 지원하지 않습니다. 클래식 리소스가 [사용되지 않으므로](../virtual-machines/classic-vm-deprecation.md) 클래식에서 Azure Resource Manager로 IaaS 리소스를 마이그레이션하는 것이 좋습니다. [마이그레이션 방법](../virtual-machines/migration-classic-resource-manager-overview.md)을 이해하려면 이 문서를 참조하세요.
+  - question: "트래픽 분석에서 내 트래픽 분석이 사용하도록 설정된 NSG에 대한 데이터가 표시되지 않는 이유는 무엇인가요? \n"
+    answer: 트래픽 분석 대시보드의 리소스 선택 드롭다운에서 가상 머신 또는 네트워크 보안 그룹의 리소스 그룹이 아닌 **Virtual Network** 리소스의 리소스 그룹을 선택해야 합니다.

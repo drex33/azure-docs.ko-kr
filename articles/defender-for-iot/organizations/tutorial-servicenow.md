@@ -4,16 +4,25 @@ description: 이 자습서에서는 Microsoft Defender for IoT와 ServiceNow를 
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 11/09/2021
+ms.date: 11/22/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 9b01aa92848bc69bff37dc75be8e59350bc9f3f3
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 0efdcb780a3050c800c3f955ea3d0742564f5ce8
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132343556"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132903106"
 ---
 # <a name="tutorial-integrate-servicenow-with-microsoft-defender-for-iot"></a>자습서: Microsoft Defender for IoT와 ServiceNow 통합
+
+> [!Note]
+> 이제 ServiceNow 스토어에서 새 [운영 기술 관리자](https://store.servicenow.com/sn_appstore_store.do#!/store/application/31eed0f72337201039e2cb0a56bf65ef/1.1.2?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Doperational%2520technology%2520manager&sl=sh) 통합을 사용할 수 있습니다. 새로운 통합은 ServiceNow의 OT(운영 기술) 데이터 모델에 대한 Microsoft Defender for IoT 센서 어플라이언스, OT 자산, 네트워크 연결 및 취약성을 간소화합니다.
+>
+>ServiceNow의 서비스 약관에 대한 ServiceNow의 지원 링크 및 문서를 읽어보세요.
+>
+>Microsoft Defender for IoT의 현재 통합은 새 통합의 영향을 받지 않으며 Microsoft는 계속 지원합니다.  
+>
+> 자세한 내용은 ServiceNow 스토어에서 Microsoft Defender for IoT와 [SGC(Service Graph Connector)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ddd4bf1b53f130104b5cddeeff7b1229) 및 [VR(취약성 대응)](https://store.servicenow.com/sn_appstore_store.do#!/store/application/463a7907c3313010985a1b2d3640dd7e) 통합을 참조하세요.
 
 이 자습서는 Microsoft Defender for IoT와 ServiceNow를 통합하는 방법을 알아보는 데 도움이 됩니다.
 

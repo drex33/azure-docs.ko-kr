@@ -1,20 +1,20 @@
 ---
-title: 에지에서 연속 비디오 녹화 - Azure Video Analyzer
+title: 에지에서 연속 비디오 녹화
 description: CVR(연속 비디오 녹화)은 라이브 비디오 원본에서 지속적으로 녹화하는 프로세스를 다룹니다. 이 항목에서는 CVR의 내용과 Azure Video Analyzer에서 CVR을 사용하는 방법에 대해 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7d737536cca3e014b0412a00a99ce034f6d28e36
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 89ea5905639c5d2ff24968072ed0eea13041e122
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131556562"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051465"
 ---
 # <a name="continuous-video-recording"></a>연속 비디오 녹화    
 
-연속 비디오 녹화(CVR)는 비디오 원본에서 비디오를 지속적으로 녹화하는 프로세스를 다룹니다. Azure Video Analyzer는 RTSP 원본 노드와 비디오 싱크 노드로 구성된 비디오 처리 [파이프라인 토폴로지](pipeline.md)를 통해 CCTV 카메라에서 연중무휴 연속 비디오 녹화를 지원합니다. 아래 다이어그램은 해당 파이프라인의 그래픽 표현을 보여 줍니다. 토폴로지의 JSON 표현은 이 [문서](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json)에서 찾을 수 있습니다. 이러한 토폴로지는 임의로 긴 녹음(몇 년 분량의 콘텐츠)을 만들 수 있습니다. 녹음에 대한 타임스탬프는 UTC에 저장됩니다.  
+연속 비디오 녹화(CVR)는 비디오 원본에서 비디오를 지속적으로 녹화하는 프로세스를 다룹니다. Azure Video Analyzer는 RTSP 원본 노드와 비디오 싱크 노드로 구성된 비디오 처리 [파이프라인 토폴로지](pipeline.md)를 통해 CCTV 카메라에서 연중무휴 연속 비디오 녹화를 지원합니다. 아래 다이어그램은 해당 파이프라인의 그래픽 표현을 보여 줍니다. 토폴로지의 JSON 표현은 이 [문서](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/cvr-video-sink/topology.json)에서 찾을 수 있습니다. 이러한 토폴로지는 임의로 긴 녹음(몇 년 분량의 콘텐츠)을 만들 수 있습니다. 녹음에 대한 타임스탬프는 UTC로 저장됩니다.  
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="연속 비디오 녹화":::

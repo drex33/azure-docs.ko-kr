@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Hubs의 스키마 레지스트리 �
 ms.topic: overview
 ms.date: 11/02/2021
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 4a934e17e5589565630121f720a5eee535f4a420
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 2cfc3444308cc543f15a415e1e6c5ca622df0302
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132811448"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132864817"
 ---
 # <a name="azure-schema-registry-in-azure-event-hubs"></a>Azure Event Hubs의 Azure 스키마 레지스트리
 많은 이벤트 스트리밍 및 메시징 시나리오에서 이벤트 또는 메시지 페이로드는 구조화된 데이터를 포함합니다. [Apache Avro](https://avro.apache.org/)와 같은 스키마 기반 형식은 이러한 구조화된 데이터를 직렬화하거나 역직렬화하는 데 자주 사용됩니다. 
@@ -31,23 +31,25 @@ Apache Avro와 같은 스키마 기반 serialization 프레임워크를 사용�
 > **기본** 계층에서는 이 기능을 사용할 수 없습니다.
 
 ## <a name="schema-registry-information-flow"></a>스키마 레지스트리 정보 흐름 
+
 스키마 레지스트리를 사용하는 경우 정보 흐름은 Azure Event Hubs에서 이벤트를 게시하거나 소비하는 데 사용하는 모든 프로토콜에 대해 동일합니다. 
 
-다음 다이어그램에서는 사용자 스키마 레지스트리를 나타내는 Kafka 이벤트 생산자 및 소비자 시나리오의 정보 흐름을 보여 줍니다. 
+다음 다이어그램에서는 이벤트 생산자와 소비자가 **Kafka** 프로토콜과 함께 스키마 레지스트리를 사용할 때 정보가 흐르는 방식을 보여줍니다. 
 
 :::image type="content" source="./media/schema-registry-overview/information-flow.svg" lightbox="./media/schema-registry-overview/information-flow.svg" alt-text="스키마 레지스트리 정보 흐름을 보여주는 이미지.":::
 
+### <a name="producer"></a>Producer  
 
-정보 흐름은 스키마 문서를 사용하 여 Kafka 생산자가 데이터를 직렬화하는 생산자 쪽에서 시작 됩니다. 
-- Kafka 생산자 애플리케이션은 ``KafkaAvroSerializer``클라이언트 쪽에서 지정된 스키마를 사용하여 이벤트 데이터를 직렬화하는 데 사용합니다. 
-- 생산자 애플리케이션은 스키마 레지스트리 엔드포인트 및 스키마 유효성 검사에 필요한 기타 선택적 매개 변수의 세부 정보를 제공해야 합니다. 
-- 직렬 변환기는 생산자가 이벤트 데이터를 직렬화하는 데 사용하는 스키마 콘텐츠를 사용하여 스키마 레지스트리에서 조회합니다. 
-- 이러한 스키마가 발견되면 해당 스키마 ID가 반환됩니다. 생산자 애플리케이션을 구성할 수 있습니다. 스키마가 없는 경우 생산자 애플리케이션은 스키마 레지스트리 클라이언트에서 스키마를 자동으로 등록하도록 구성할 수 있습니다. 
-- 그런 다음 직렬 변환기는 해당 스키마 ID를 사용하고 이를 Event Hubs에 게시된 직렬화된 데이터에 앞에 추가할 수 있습니다. 
-- ``KafkaAvroDeserializer``은(는) 소비자 쪽에서 스키마 ID를 사용하여 스키마 레지스트리에서 스키마 콘텐츠를 검색합니다. 
-- 그러면 직렬 변환기에서 스키마 콘텐츠를 사용하여 이벤트 허브에서 읽은 이벤트 데이터를 역직렬화합니다. 
-- 스키마 레지스트리 클라이언트는 캐싱을 사용하여 중복 스키마 레지스트리 조회를 방지합니다.  
+1. Kafka 생산자 애플리케이션은 `KafkaAvroSerializer`를 통해 지정된 스키마를 사용하여 이벤트 데이터를 직렬화합니다. 생산자 애플리케이션은 스키마 레지스트리 엔드포인트 및 스키마 유효성 검사에 필요한 기타 선택적 매개 변수의 세부 정보를 제공합니다. 
+1. 직렬 변환기는 스키마 레지스트리에서 스키마를 검색하여 이벤트 데이터를 직렬화합니다. 스키마를 찾으면 해당 스키마 ID가 반환됩니다. 스키마가 없는 경우 스키마 레지스트리에 스키마를 자동으로 등록하도록 생산자 애플리케이션을 구성할 수 있습니다. 
+1. 그런 다음, 직렬 변환기는 Event Hubs에 게시되는 직렬화된 데이터에 스키마 ID를 추가합니다. 
 
+### <a name="consumer"></a>소비자 
+
+1. Kafka 소비자 애플리케이션은 `KafkaAvroDeserializer`를 사용하여 이벤트 허브에서 받은 데이터를 역직렬화합니다.
+1. 역직렬 변환기는 스키마 ID(생산자가 앞에 추가됨)를 사용하여 스키마 레지스트리에서 스키마를 검색합니다.
+1. 역직렬 변환기는 스키마를 사용하여 이벤트 허브에서 받은 이벤트 데이터를 역직렬화합니다. 
+1. 스키마 레지스트리 클라이언트는 캐싱을 사용하여 향후 중복 스키마 레지스트리 조회를 방지합니다.  
 
 ## <a name="schema-registry-elements"></a>스키마 레지스트리 요소
 
@@ -84,11 +86,11 @@ Event Hubs에 대한 Azure 스키마 레지스트리는 다음과 같은 호환�
 
 
 ### <a name="no-compatibility"></a>호환성 없음
-``None`` 호환성 모드를 사용하면 스키마를 업데이트할 때 스키마 레지스트리가 호환성 검사를 수행 하지 않습니다. 
+``None`` 호환성 모드를 사용하면 스키마를 업데이트할 때 스키마 레지스트리에서 호환성 검사를 수행하지 않습니다. 
 
 ## <a name="client-sdks"></a>클라이언트 SDK
 
-다음 라이브러리 중 하나를 사용하 여 Avro 직렬 변환기를 포함할 수 있습니다. 이는 스키마 레지스트리 스키마 식별자 및 Avro로 인코딩된 데이터를 포함하는 페이로드를 직렬화 및 역직렬화하는 데 사용할 수 있습니다.
+다음 라이브러리 중 하나를 사용하여 Avro 직렬 변환기를 포함할 수 있습니다. 이를 통해 스키마 레지스트리 스키마 식별자 및 Avro 인코딩 데이터가 포함된 페이로드를 직렬화 및 역직렬화할 수 있습니다.
 
 - [.NET - Microsoft.Azure.Data.SchemaRegistry.ApacheAvro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro)
 - [Java - azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro)
@@ -102,7 +104,7 @@ Event Hubs 제한(예: 네임스페이스의 스키마 그룹 수)은 [Event Hub
 ## <a name="azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어
 스키마 레지스트리에 프로그래밍 방식으로 액세스하는 경우 애플리케이션을 Azure AD(Azure Active Directory)에 등록하고 애플리케이션의 보안 주체를 Azure RBAC(Azure 역할 기반 액세스 제어) 역할 중 하나에 추가해야 합니다.
 
-| 역할 | Description | 
+| 역할 | 설명 | 
 | ---- | ----------- | 
 | 소유자 | 스키마 레지스트리 그룹 및 스키마를 읽고, 쓰고, 삭제합니다. |
 | 참가자 | 스키마 레지스트리 그룹 및 스키마를 읽고, 쓰고, 삭제합니다. |

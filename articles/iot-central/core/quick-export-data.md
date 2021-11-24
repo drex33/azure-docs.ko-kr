@@ -7,13 +7,13 @@ ms.date: 11/10/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
-ms.openlocfilehash: 0728eed5a1deeee20554998512edd70f5e983491
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.custom: mvc, mode-other
+ms.openlocfilehash: b8fe83e339e00c7e2a3fa554abf8c126241bda64
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492314"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063750"
 ---
 # <a name="quickstart-export-data-from-an-iot-central-application"></a>빠른 시작 - IoT Central 애플리케이션에서 데이터 내보내기
 

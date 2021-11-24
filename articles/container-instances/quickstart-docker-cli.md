@@ -3,13 +3,13 @@ title: 빠른 시작 - 컨테이너 인스턴스에 Docker 컨테이너 배포 -
 description: 이 빠른 시작에서는 Docker CLI를 사용하여 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 9904fb8c2142816196a1939a16445318bdb245d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: 1218022a6810be44a98ab20eab3e542e5cb659eb
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91262317"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063853"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-docker-cli"></a>빠른 시작: Docker CLI를 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -117,4 +117,3 @@ Docker Compose를 사용하여 다중 컨테이너 애플리케이션을 로컬�
 
 [azure-account]: https://azure.microsoft.com/free/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
-

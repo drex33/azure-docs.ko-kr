@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: eabade94b06d8689026548d6e09d6098e8da9f59
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.custom: mode-other
+ms.openlocfilehash: 6c8be93ae8133aa5011064b8ad5827d0d2775ca4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113666810"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052276"
 ---
 # <a name="quickstart-deploy-native-c-wmr-sample-to-hololens"></a>빠른 시작: HoloLens에 네이티브 C++ WMR 샘플 배포
 

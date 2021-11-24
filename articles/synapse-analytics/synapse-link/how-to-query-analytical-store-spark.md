@@ -9,13 +9,13 @@ ms.subservice: synapse-link
 ms.date: 11/02/2021
 ms.author: rosouz
 ms.reviewer: jrasnick
-ms.custom: cosmos-db
-ms.openlocfilehash: 83f6c3a7e88cf42cbb2a2d36ff07ac79e7eb5894
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: cosmos-db, mode-other
+ms.openlocfilehash: 37560d2617ce111d71e1a918f4c7f2e835dc7e09
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131452208"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063364"
 ---
 # <a name="interact-with-azure-cosmos-db-using-apache-spark-2-in-azure-synapse-link"></a>Azure Synapse Link에서 Apache Spark 2를 사용하여 Azure Cosmos DB와 상호 작용
 

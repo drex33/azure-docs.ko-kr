@@ -9,12 +9,13 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: 188cfe09aa75d79ef4e67b705ada0a1eec549231
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: mode-other
+ms.openlocfilehash: 836b3a38b285d85f55e14f792b3071ed7345cbfc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130229639"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039272"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>빠른 시작: 앱에 음성 통화 추가
 

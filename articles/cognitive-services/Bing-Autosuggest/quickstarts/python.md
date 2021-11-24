@@ -10,13 +10,13 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.custom: devx-track-python
-ms.openlocfilehash: 8fce8fb25634383c478aa843d00b9de273a62d8f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: devx-track-python, mode-other
+ms.openlocfilehash: 1ab1fa99d27c7a3bc4b3447f66856eb7c69bb286
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352085"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051315"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>빠른 시작: Bing Autosuggest REST API 및 Python으로 검색 쿼리 제안
 

@@ -11,14 +11,14 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 09/27/2021
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
 keywords: 이미지, 얼굴 인식 검색, 얼굴 인식, 얼굴 인식 앱으로 얼굴 검색
-ms.openlocfilehash: e0abde121ab87a1bf35f784a3a9635de1515978a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 4073796b933f7c04f07e3162e4843a56d8f04345
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356577"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053374"
 ---
 # <a name="quickstart-use-the-face-client-library"></a>빠른 시작: Face 클라이언트 라이브러리 사용
 

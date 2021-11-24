@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 08/26/2021
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: 5426913dab856e2228d32216798fe6983eb9c013
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: d7b27584e1fa2eaa0df49c15418a979f92c79249
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132750893"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132941836"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>Azure Cosmos DB SQL API: Java SDK v4 예제
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -162,6 +162,7 @@ com.azure.cosmos.examples.sample.synchronicity.MainClass
 | [문서 삭제](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L303-L310) | CosmosContainer.deleteItem |
 | [조건부 ETag 검사로 문서 바꾸기](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L227-L264) | AccessCondition.setType<br>AccessCondition.setCondition |
 | [문서가 변경된 경우에만 문서 읽기](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AccessCondition.setType<br>AccessCondition.setCondition |
+| [부분 문서 업데이트](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/patch/sync/SamplePatchQuickstart.java) | CosmosContainer.patchItem |
 
 ## <a name="indexing-examples"></a>청구 예제
 [컬렉션 CRUD 샘플](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) 파일은 다음 작업을 수행하는 방법을 보여 줍니다. 다음 샘플을 실행하기 전에 Azure Cosmos DB에서 인덱싱에 대해 자세히 알아보려면 [인덱싱 정책](../index-policy.md), [인덱싱 유형](../index-overview.md#index-types) 및 [인덱싱 경로](../index-policy.md#include-exclude-paths) 개념 문서를 참조하세요. 

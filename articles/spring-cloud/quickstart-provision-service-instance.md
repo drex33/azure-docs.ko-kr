@@ -6,14 +6,14 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/12/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: ca7128cf360be3b102e7aa781afa8a270e1c3c9f
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 561bd2e6742496fd821c3204b1ac02c3181c792c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005226"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133077352"
 ---
 # <a name="quickstart-provision-an-azure-spring-cloud-service"></a>빠른 시작: Azure Spring Cloud 서비스 프로비저닝
 

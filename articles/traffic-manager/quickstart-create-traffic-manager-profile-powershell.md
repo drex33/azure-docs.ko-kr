@@ -11,13 +11,13 @@ ms.service: traffic-manager
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom: devx-track-azurepowershell, mode-api
-ms.openlocfilehash: a970013ebffc9ed4249baf34de39d146357742c4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 2950615ac6af0780192496733e56ac35e1e075f1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131074691"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038321"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 고가용성 웹 애플리케이션을 위한 Traffic Manager 프로필 만들기
 

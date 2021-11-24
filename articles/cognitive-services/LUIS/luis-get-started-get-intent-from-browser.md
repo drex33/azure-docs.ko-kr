@@ -5,12 +5,13 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 03/26/2021
-ms.openlocfilehash: 4542f85ab562e65777fb8570873305523c76aee6
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom: mode-other
+ms.openlocfilehash: c34a5df6ea22db138e8626e3b44726e1797f0415
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276827"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039782"
 ---
 # <a name="how-to-query-the-prediction-runtime-with-user-text"></a>사용자 텍스트로 예측 런타임을 쿼리하는 방법
 

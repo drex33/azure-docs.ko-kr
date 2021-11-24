@@ -10,14 +10,14 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.custom: tracking-python, devx-track-js
+ms.custom: tracking-python, devx-track-js, mode-other
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 97f7ba5fc547fb0d0bfa7d40784cf85ddffd9785
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4810f3898a49b6f08cdaba1b4c5cec90f5ace915
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671909"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039143"
 ---
 # <a name="quickstart-send-an-sms-message"></a>빠른 시작: SMS 메시지 보내기
 

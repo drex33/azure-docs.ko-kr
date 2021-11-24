@@ -9,14 +9,14 @@ manager: cnovak
 ms.reviewer: orspodek
 ms.topic: quickstart
 ms.workload: big-data
-ms.custom: mvc seodec18
+ms.custom: mvc seodec18, mode-other
 ms.date: 03/01/2021
-ms.openlocfilehash: b109d363b495712efd96e2fa8e5684ad43980964
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.openlocfilehash: 19e8684850a37e358f4ae0fc741006ab408cced1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112061131"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038184"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>빠른 시작: Azure Time Series Insights Gen2 데모 환경 탐색
 

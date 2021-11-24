@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 공용 IP 주소 접두사 만들기 - PowerShell'
-titlesuffix: Azure Virtual Network
+titleSuffix: Azure Virtual Network
 description: PowerShell을 사용하여 공용 IP 주소 접두사를 만드는 방법을 알아봅니다.
 services: virtual-network
 author: asudbring
@@ -9,12 +9,13 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.openlocfilehash: 24c046aa7aab0932065f87ba3179185e9c5ed2fc
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: mode-api
+ms.openlocfilehash: c76eb36b6a576d69d5f633329986a912432bf478
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369654"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051847"
 ---
 # <a name="quickstart-create-a-public-ip-address-prefix-using-powershell"></a>빠른 시작: PowerShell을 사용하여 공용 IP 주소 접두사 만들기
 

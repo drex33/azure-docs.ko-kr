@@ -7,12 +7,13 @@ ms.topic: quickstart
 ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3cb97d40008a103d9de6d76018f7881764813e3c
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.custom: mode-other
+ms.openlocfilehash: 1bfdbb6d707af42e4080e8ddc6e4c973ea485a6b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114727189"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063659"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-windows-virtual-machines"></a>빠른 시작: Windows 가상 머신에서 Azure Files 공유 만들기 및 관리
 

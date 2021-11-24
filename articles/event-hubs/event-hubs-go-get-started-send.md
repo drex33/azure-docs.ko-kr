@@ -3,12 +3,13 @@ title: '빠른 시작: Go를 사용하여 이벤트 보내기 및 받기 - Azure
 description: '빠른 시작: 이 문서에서는 Azure Event Hubs에서 이벤트를 보내는 Go 애플리케이션을 만드는 연습을 제공합니다.'
 ms.topic: quickstart
 ms.date: 11/11/2021
-ms.openlocfilehash: d70fdf86709257604d9176a760f0892dd9139420
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-other
+ms.openlocfilehash: 01e0fa3647b1d01717e1fd88394d83d0bb6b7a1c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132343347"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052859"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>빠른 시작: Go를 사용하여 Event Hubs에서 이벤트 보내기 또는 받기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.

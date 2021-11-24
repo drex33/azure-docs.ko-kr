@@ -8,12 +8,13 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c96c45869ee1c9c96cd77d0b3eb10c733199666e
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.custom: mode-other
+ms.openlocfilehash: c02c536697b6765dc2189575c709642f6b5d8a0b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95993519"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133077434"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>빠른 시작: C++/WinRT 및 DirectX로 Azure Spatial Anchors를 사용하여 HoloLens 앱 만들기
 

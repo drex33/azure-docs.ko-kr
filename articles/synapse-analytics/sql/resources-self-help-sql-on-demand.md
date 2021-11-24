@@ -10,12 +10,12 @@ ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 5f783ad0ee776d4f07e313595e54dc6661dd8661
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: aa724a14325b52f7c745330157c3d1b137195833
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131556771"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132867046"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
@@ -417,9 +417,9 @@ FROM
 
 ### <a name="inserting-value-to-batch-for-column-type-datetime2-failed"></a>열 형식 DATETIME2에 대한 일괄 처리에 값을 삽입하지 못했습니다.
 
-Parquet/Delta Lake 파일에 저장된 날짜/시간 값은 `DATETIME2` 열로 나타낼 수 없습니다. spark를 사용하여 파일의 최솟값을 검사하고 0001-01-03보다 작은 날짜가 있는지 확인하세요. Parquet(일부 Spark 버전) 형식으로 값을 작성하는 데 사용되는 율리우스력과 서버리스 SQL 풀에서 사용되는 그레고리력 사이에 2일의 차이가 있을 수 있으며, 이로 인해 잘못된(음수) 날짜 값으로 변환될 수 있습니다. 
+Parquet/Delta Lake 파일에 저장된 날짜/시간 값은 `DATETIME2` 열로 나타낼 수 없습니다. spark를 사용하여 파일의 최솟값을 검사하고 0001-01-03보다 작은 날짜가 있는지 확인하세요. Spark 2.4를 사용하여 파일을 저장한 경우 이전 날짜 시간 값은 서버리스 SQL 풀에서 사용되는 그레고리력과 일치하지 않는 율리우스력을 사용하여 작성됩니다. Parquet(일부 Spark 버전) 형식으로 값을 작성하는 데 사용되는 율리우스력과 서버리스 SQL 풀에서 사용되는 그레고리력 사이에 2일의 차이가 있을 수 있으며, 이로 인해 잘못된(음수) 날짜 값으로 변환될 수 있습니다. 
 
-Spark를 사용하여 이러한 값을 업데이트해 보세요. 다음 샘플은 Delta Lake에서 값을 업데이트하는 방법을 보여줍니다.
+이러한 값은 SQL에서 잘못된 날짜 값으로 처리되므로 Spark를 사용하여 업데이트해 보세요. 다음 샘플에서는 Delta Lake에서 SQL 날짜 범위를 벗어난 값을 `NULL`로 업데이트하는 방법을 보여줍니다.
 
 ```spark
 from delta.tables import *
@@ -428,6 +428,14 @@ from pyspark.sql.functions import *
 deltaTable = DeltaTable.forPath(spark, 
              "abfss://my-container@myaccount.dfs.core.windows.net/delta-lake-data-set")
 deltaTable.update(col("MyDateTimeColumn") < '0001-02-02', { "MyDateTimeColumn": null } )
+```
+
+이 변경으로 인해 나타낼 수 없는 값이 제거됩니다. 다른 날짜 값은 제대로 로드되지만 율리우스력과 그레고리력 간에 여전히 차이가 있기 때문에 잘못 표시될 수 있습니다. Spark 3.0 또는 이전 버전을 사용하는 경우 `1900-01-01` 이전 날짜의 대해서도 예기치 않은 날짜 이동이 표시될 수 있습니다.
+서버리스 SQL 풀의 달력과 일치하는 그레고리력을 사용하는 [Spark 3.1 이상](https://spark.apache.org/docs/latest/sql-migration-guide.html)으로 마이그레이션하는 것이 좋습니다.
+더 높은 버전의 Spark를 사용하여 레거시 데이터를 다시 로드하고 다음 설정을 사용하여 날짜를 수정해야 합니다.
+
+```spark
+spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
 ```
 
 ## <a name="configuration"></a>구성

@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3c105fe217834dc9e0e652a42ebf3b526972b228
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.custom: seo-lt-2019, azure-synapse, mode-other
+ms.openlocfilehash: 6f633ac0cab0dc450226b31d4f40f49ce6cbf530
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961373"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076717"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅 능력 확장
 

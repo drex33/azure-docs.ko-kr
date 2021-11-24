@@ -9,13 +9,13 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.custom: references_regions
-ms.openlocfilehash: 611f6b50d1d7ab6cd2578ca7d4e56a97f25b6f51
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: references_regions, mode-other
+ms.openlocfilehash: 97b7b16958d317eaea1a5dad013449b8d676a2b0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128677020"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039334"
 ---
 # <a name="quickstart-port-a-phone-number"></a>빠른 시작: 전화 번호 포트
 

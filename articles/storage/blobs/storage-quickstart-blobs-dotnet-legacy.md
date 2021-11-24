@@ -7,13 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 658a3650e917f3786b84e65b5e976e1ef0263f23
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: b8c7455d1b7b25584e135a0be15b760f05a2b84a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652873"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133077125"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>빠른 시작: .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v11
 

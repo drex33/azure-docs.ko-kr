@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 07/06/2021
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: Translator, Translator 서비스, 텍스트 번역, 텍스트 음역, 언어 감지
-ms.openlocfilehash: 4b3aa5c75f18126f14fb3fae6c3a7a9a93b39710
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: fa72d2340628cd2cbfb29a62aa04ad48b9af8d47
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131011829"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064477"
 ---
 # <a name="quickstart-get-started-with-translator"></a>빠른 시작: Translator 시작
 

@@ -1,21 +1,17 @@
 ---
 title: 수집된 데이터 시각화
 description: Microsoft Sentinel을 사용하여 사용자 환경에서 발생하는 상황을 빠르게 보고 모니터링하는 방법을 알아봅니다.
-services: sentinel
 author: yelevin
-manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: quickstart
-ms.custom: mvc, fasttrack-edit, ignite-fall-2021
+ms.custom: mvc, fasttrack-edit, ignite-fall-2021, mode-other
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.openlocfilehash: 45128b80c6404a44c475d0d329fe65ab0e760375
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 7e6ff18673687baa171ff5b11ff5e32de5343341
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132517770"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052385"
 ---
 # <a name="visualize-collected-data"></a>수집된 데이터 시각화
 

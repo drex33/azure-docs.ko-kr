@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Azure App Configuration 및 C#을 사용
 services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 06/02/2021
 ms.author: alkemper
-ms.openlocfilehash: cf76cdc52ba7b4ebcf99e0b32d9b56e59a9bf837
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 9997a8d615a503a468efbffcd29a2f02df0bec9c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111411668"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076296"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration으로 Azure Functions 앱 만들기
 

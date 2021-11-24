@@ -7,13 +7,13 @@ ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 11/1/2021
 ms.author: amgowda
-ms.custom: contentperf-fy21q3, devx-track-azurecli, ignite-fall-2021
-ms.openlocfilehash: 142f68d332b65bb00e2b9dd4c4ea8785481e9920
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: contentperf-fy21q3, devx-track-azurecli, ignite-fall-2021, mode-api
+ms.openlocfilehash: fac3092187695a3a415d78fa5cc700543042309f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101469"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063871"
 ---
 # <a name="quickstart-deploy-an-aks-cluster-with-confidential-computing-nodes-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 기밀 컴퓨팅 노드가 있는 AKS 클러스터 배포
 

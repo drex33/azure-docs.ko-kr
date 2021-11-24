@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/20/2021
 ms.author: baanders
-ms.openlocfilehash: 3a3e32a0ef85ba870cfe7af9639794632549f614
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 27e043baf67b6f01ab66e7a5aba3d91cf143f815
+ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111350620"
+ms.lasthandoff: 11/17/2021
+ms.locfileid: "132876575"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -25,7 +25,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 >[!NOTE]
 > Visual Studio 2019 설치에 [Azure 개발 워크로드](/dotnet/azure/configure-visual-studio) 가 포함되어 있는지 확인합니다. 이 워크로드를 통해 애플리케이션은 Azure 함수를 게시하고 다른 Azure 개발 작업을 수행할 수 있습니다.
 
-자습서는 [C#으로 작성된 Azure Digital Twins 엔드투엔드 샘플 프로젝트](/samples/azure-samples/digital-twins-samples/digital-twins-samples)를 기반으로 합니다. 샘플 링크로 이동하여 제목 아래에서 *코드 찾아보기* 단추를 선택하여 머신에서 **샘플 프로젝트를 가져옵니다**. 그러면 *코드* 단추와 *ZIP 다운로드* 를 선택하여 .zip으로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다.
+자습서는 [C#으로 작성된 Azure Digital Twins 엔드투엔드 샘플 프로젝트](/samples/azure-samples/digital-twins-samples/digital-twins-samples)를 기반으로 합니다. 샘플 링크로 이동하여 제목 아래에서 **코드 찾아보기** 단추를 선택하여 머신에서 **샘플 프로젝트를 가져옵니다**. 그러면 **코드** 단추를 선택한 다음, **ZIP 다운로드** 를 선택하여 .zip으로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다.
 
 :::image type="content" source="../articles/digital-twins/media/includes/download-repo-zip.png" alt-text="GitHub에 대한 digital-twins-samples 리포지토리의 스크린샷은 zip으로 다운로드하는 단계를 강조 표시합니다." lightbox="../articles/digital-twins/media/includes/download-repo-zip.png":::
 

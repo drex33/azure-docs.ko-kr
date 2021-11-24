@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.date: 11/17/2020
-ms.openlocfilehash: 3efc170ded3d1cf46c0b9e5b82cce986422b5dfb
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 825d29becdcb2bdb9a826e7eae1e078afecce245
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441729"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050360"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Search 배포
 

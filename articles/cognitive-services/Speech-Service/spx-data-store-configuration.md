@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.author: eur
-ms.openlocfilehash: 6b830d9afd3177aaa9efd0effb7fa8d3fd2e46dc
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: mode-other
+ms.openlocfilehash: 9fb4db6c3dc267e57a75e670e19a720dfb1cd106
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132719925"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075632"
 ---
 # <a name="speech-cli-configuration-options"></a>Speech CLI 구성 옵션
 

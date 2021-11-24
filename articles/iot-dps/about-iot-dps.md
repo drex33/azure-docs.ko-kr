@@ -2,8 +2,8 @@
 title: Microsoft Azure IoT Hub Device Provisioning Service 개요
 description: DPS(Device Provisioning Service) 및 IoT Hub를 사용하여 Azure에서 디바이스 프로비저닝 설명
 author: wesmc7777
-ms.author: wesmc
-ms.date: 11/09/2021
+ms.author: v-stharr
+ms.date: 11/22/2021
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
@@ -11,12 +11,12 @@ manager: lizross
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: bc83f94a68e114a1d5a6aea7e4bcf09e5c9f29bb
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: c074d465cdf7ba07ef9a61e169798eefa0766348
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132754079"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940963"
 ---
 # <a name="what-is-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service란?
 
@@ -40,7 +40,6 @@ IoT Hub에 디바이스를 연결하고 구성하는 데 DPS가 탁월한 선택
 >DPS는 모든 프로비저닝 서비스 인스턴스에 대해 동일한 [디바이스 프로비저닝 엔드포인트](concepts-service.md#device-provisioning-endpoint)를 사용하며, 사용 가능한 가장 가까운 서비스 엔드포인트로 트래픽 부하 분산을 수행합니다. 따라서 인증 비밀은 DPS 인스턴스가 처음 만들어진 지역 외부에서 일시적으로 전송될 수 있습니다. 그러나 디바이스가 연결되면 디바이스 데이터가 DPS 인스턴스의 원래 지역으로 직접 흐릅니다.
 >
 >데이터가 DPS 인스턴스가 만들어진 지역을 벗어나지 않도록 하려면 프라이빗 엔드포인트를 사용합니다.  프라이빗 엔드포인트를 설정하는 방법을 알아보려면 [가상 네트워크에 대한 Azure IoT DPS(Device Provisioning Service) 지원](virtual-network-support.md#private-endpoint-limitations)을 참조하세요.
-
 
 ## <a name="behind-the-scenes"></a>배후 상황
 
@@ -127,6 +126,16 @@ DPS는 여러 지역에서 사용할 수 있습니다. 모든 서비스의 기�
 ## <a name="availability"></a>가용성
 
 DPS의 서비스 수준 계약은 99.9%이며, [SLA를 확인](https://azure.microsoft.com/support/legal/sla/iot-hub/)할 수 있습니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
+
+DPS는 [가용성 영역](../availability-zones/az-overview.md)도 지원합니다. 가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 제품입니다. 가용성 영역이 지원되는 지역은 해당 지역을 지원하는 최소 3개의 영역으로 구성됩니다. 각 영역은 독립적인 전원, 냉각 및 네트워킹이 있는 고유한 물리적 위치에 각각 하나 이상의 데이터 센터를 제공합니다. 이를 통해 지역 내에서 복제 및 중복성이 제공됩니다. DPS에 대한 가용성 영역 지원은 다음 Azure 지역의 DPS 리소스에 대해 자동으로 사용하도록 설정됩니다.
+
+* 오스트레일리아 동부
+* 브라질 남부
+* 캐나다 중부
+* 일본 동부
+* 북유럽
+* 서유럽
+* 영국 남부
 
 ## <a name="quotas-and-limits"></a>할당량 및 한도
 

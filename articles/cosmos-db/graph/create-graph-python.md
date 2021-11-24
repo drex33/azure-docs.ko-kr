@@ -9,12 +9,12 @@ ms.date: 03/29/2021
 author: manishmsfte
 ms.author: mansha
 ms.custom: devx-track-python
-ms.openlocfilehash: 0560768db88127586080ee551f08de73bfce8219
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b0229baf281f76ab9a7b7a22eb390bc0ff7858e3
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785923"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934841"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>빠른 시작: Python 및 Azure Portal을 사용하여 Azure Cosmos DB에서 그래프 데이터베이스 만들기
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -30,10 +30,17 @@ ms.locfileid: "121785923"
 
 이 빠른 시작에서는 Azure Portal에서 Azure Cosmos DB Gremlin(그래프) API 계정을 생성 및 관리하고 GitHub에서 복제된 Python 앱을 사용하여 데이터를 추가합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다.
 - [pip](https://pip.pypa.io/en/stable/installing/) 패키지 설치 관리자를 포함한 [Python 3.6 이상](https://www.python.org/downloads/).
 - [Gremlin용 Python 드라이버](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
+
+  `pip` 명령줄을 사용하여 Gremlin용 Python 드라이버를 설치할 수도 있습니다.
+
+   ```bash
+   pip install gremlinpython
+   ```
+
 - [Git](https://git-scm.com/downloads)
 
 > [!NOTE]

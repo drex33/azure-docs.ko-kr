@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
-ms.custom: subject-armqs
-ms.openlocfilehash: cb80d5e6bc6d12dfe51420b25560f83376125a13
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: 3df28ef62e86232a001b2fe7977b04f5f100d69c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693840"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063209"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>빠른 시작: ARM 플랫폼을 사용하여 Windows 가상 머신 만들기
 

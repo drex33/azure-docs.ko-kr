@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: fe2ab4a780e07f8d8325c2881d562a379ec16b97
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 31579971f4371186b5d919b1e1118c7d5c6e7426
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131894396"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132940755"
 ---
 # <a name="quickstart-create-a-multi-region-cluster-with-azure-managed-instance-for-apache-cassandra"></a>빠른 시작: Azure Managed Instance for Apache Cassandra를 사용하여 다중 지역 클러스터 만들기
 
@@ -162,6 +162,8 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
    dataCenterName='dc-eastus'
    dataCenterLocation='eastus'
    delegatedManagementSubnetId='/subscriptions/<SubscriptionID>/resourceGroups/cassandra-mi-multi-region/providers/Microsoft.Network/virtualNetworks/vnetEastUs/subnets/dedicated-subnet'
+   virtualMachineSKU='Standard_D8s_v4'
+   noOfDisksPerNode=4
         
     az managed-cassandra datacenter create \
       --resource-group $resourceGroupName \
@@ -170,7 +172,28 @@ Apache Cassandra용 Azure Managed Instance는 관리형 오픈 소스 Apache Cas
       --data-center-location $dataCenterLocation \
       --delegated-subnet-id $delegatedManagementSubnetId \
       --node-count 3 
+      --sku $virtualMachineSKU \
+      --disk-capacity $noOfDisksPerNode \
+      --availability-zone false
    ```
+
+   > [!NOTE]
+   > `--sku`의 값은 다음과 같은 사용 가능한 SKU에서 선택할 수 있습니다.
+   >
+   > - Standard_E8s_v4
+   > - Standard_E16s_v4 
+   > - Standard_E20s_v4
+   > - Standard_E32s_v4 
+   > - Standard_DS13_v2
+   > - Standard_DS14_v2
+   > - Standard_D8s_v4
+   > - Standard_D16s_v4
+   > - Standard_D32s_v4 
+   > 
+   > 또한 `--availability-zone`은 `false`로 설정됩니다. 가용성 영역을 사용하도록 설정하려면 이를 `true`로 설정합니다. 가용성 영역은 서비스의 가용성 SLA를 늘립니다. 자세한 내용은 [여기](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/)에서 전체 SLA 세부 정보를 검토하세요.
+
+   > [!WARNING]
+   > 모든 하위 지역에서 가용성 영역이 지원되지 않습니다. 가용성 영역이 지원되지 않는 하위 지역을 선택하면 배포에 실패합니다. [여기](../availability-zones/az-overview.md#azure-regions-with-availability-zones)에서 지원되는 지역을 참조하세요. 또한 가용성 영역을 성공적으로 배포하는 경우 지정된 하위 지역의 모든 영역에서 컴퓨팅 리소스를 사용할 수 있습니다. 선택한 SKU 또는 용량을 모든 영역에서 사용할 수 없는 경우 배포가 실패할 수 있습니다. 
 
 1. 두 번째 데이터 센터가 만들어지면 노드 상태를 확인하여 모든 Cassandra 노드가 성공적으로 표시되는지 확인합니다.
 

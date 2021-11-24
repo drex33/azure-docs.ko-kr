@@ -7,13 +7,13 @@ ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: duau
-ms.custom: mvc
-ms.openlocfilehash: de24b2e9676082da6980c59e696781fc6939f29f
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: mvc, mode-other
+ms.openlocfilehash: 37b46337acdc16997483ec5b2a863d93269ebe16
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131423511"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040055"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>빠른 시작: Azure CDN 프로필 및 엔드포인트 만들기
 

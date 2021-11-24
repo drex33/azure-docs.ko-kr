@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3537b126adf082c8b00a02d999789d8a32b3f51d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mode-portal
+ms.openlocfilehash: 5af393263b70bd778ee4b30cfd6d8fcad7d65d4d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462010"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063404"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 만들기
 

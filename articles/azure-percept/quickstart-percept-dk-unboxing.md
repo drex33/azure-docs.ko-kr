@@ -6,13 +6,13 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
-ms.custom: template-quickstart
-ms.openlocfilehash: ce47b2463441fdd44c9db72c2dcbf2f8935b15d6
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: template-quickstart, mode-other
+ms.openlocfilehash: bcc53848997a92aefac1654c743555f36b12c298
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222992"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051567"
 ---
 # <a name="unbox-and-assemble-the-azure-percept-dk-device"></a>Azure Percept DK 디바이스 개봉 및 조립
 

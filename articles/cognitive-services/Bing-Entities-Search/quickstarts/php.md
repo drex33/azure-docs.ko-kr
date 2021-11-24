@@ -10,12 +10,13 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: e3ae224e08911de3fe08096265379c65322b1775
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.custom: mode-other
+ms.openlocfilehash: 0383e4924d65d3657ca4d08ee67bc1b4900ce9b7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615042"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051202"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>빠른 시작: PHP를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 

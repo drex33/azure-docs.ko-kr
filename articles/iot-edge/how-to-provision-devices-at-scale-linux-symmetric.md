@@ -7,12 +7,12 @@ ms.date: 10/29/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e307e8c39bc786a98291226205e785dacf173880
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 1b37d2a9aa556fa7107b4990d6406a0e99200893
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132940793"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041511"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-on-linux-using-symmetric-key"></a>대칭 키를 사용 하 여 Linux에서 대규모로 IoT Edge 장치 만들기 및 프로 비전
 
@@ -37,7 +37,7 @@ ms.locfileid: "132940793"
 <!-- Cloud resources prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
-### <a name="iot-edge-installation"></a>IoT Edge 설치
+### <a name="device-requirements"></a>디바이스 요구 사항
 
 IoT Edge 장치를 사용할 수 있는 물리적 또는 가상 Linux 장치입니다.
 

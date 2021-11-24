@@ -6,19 +6,20 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 7d9c0adfe946dee7f3a634cd2eaf44a92bab83b6
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.custom: mode-other
+ms.openlocfilehash: 47a33ffb126cafd6d717daf5e699587fa094ba19
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "123078390"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064039"
 ---
 이 빠른 시작에서는 Android용 Azure Communication Services 통화 SDK를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 
 ## <a name="sample-code"></a>샘플 코드
 [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/join-call-to-teams-meeting)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 작동하는 [Communication Services 통화 Android 앱](../../getting-started-with-calling.md).
 - [Teams 배포](/deployoffice/teams-install)

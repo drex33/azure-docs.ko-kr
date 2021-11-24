@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 유연�
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-other
 ms.topic: quickstart
 ms.date: 03/06/2021
-ms.openlocfilehash: 99fee3db3c970e71aa4a979113d7508ecad3bd1e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a070878362d60d052ddc57047e5d7c69a40d7d2b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110463709"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038616"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-postgresql---flexible-server"></a>빠른 시작: Azure Database for PostgreSQL - 유연한 서버를 사용하여 Azure CLI로 연결 및 쿼리
 

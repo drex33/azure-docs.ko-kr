@@ -3,12 +3,13 @@ title: Azure Video Analyzer for Media(이전의 Video Analyzer for Media)에 사
 description: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Analyzer for Media)에 사용자를 초대하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 09/14/2021
-ms.openlocfilehash: 791e9e7d3090aaa79cd754135f26e79fae3a9e0a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: af9d00af82ffc3a8e480b7a93c1db4ccfe8486c5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128650774"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040193"
 ---
 # <a name="quickstart-invite-users-to-video-analyzer-for-media"></a>빠른 시작: Video Analyzer for Media에 사용자 초대
 

@@ -7,12 +7,13 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: cf378e0676d39adf8eaddb8a2173d32c2cfda431
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mode-other
+ms.openlocfilehash: 4def0b4e4bfae8be995b52eb82876293908c9347
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87101165"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052890"
 ---
 # <a name="getting-started-with-azure-education-hub"></a>Azure Education Hub 시작
 

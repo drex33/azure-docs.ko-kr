@@ -5,13 +5,13 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.custom: devx-track-js
-ms.openlocfilehash: 2f158064b68de37c68dc0c01d3c6539f8c95736a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: f3ace5fa9dd39d8f5933f79fa376450ce40c411d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752325"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051826"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript로 첫 번째 지속성 함수 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "121752325"
 
 ![Azure에서 지속성 함수 실행](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

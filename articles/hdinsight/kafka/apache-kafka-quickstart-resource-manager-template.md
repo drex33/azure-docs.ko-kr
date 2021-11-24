@@ -3,14 +3,14 @@ title: '빠른 시작: Azure Resource Manager를 사용한 Apache Kafka - HDInsi
 description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터를 만드는 방법을 알아봅니다. 또한 Kafka 토픽, 구독자 및 소비자에 대해서도 알아봅니다.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.date: 03/13/2020
-ms.openlocfilehash: bff4819aa9c70968274df693638fa5cf9f97dbd9
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: dec17e41c28e0dba1691a6cce00f7a42ea0fa540
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559235"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074776"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 

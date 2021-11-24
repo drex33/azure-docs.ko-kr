@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 Terraform을 사용하여 기존 가상 
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: ariel
 ms.date: 11/12/2021
-ms.openlocfilehash: 313967fcadf1dac7ec2451b9dc51da1fac9bc435
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 8374c122e7cde40e84ec1c9e91b133c88f11c1a0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132488756"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133077413"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-terraform"></a>빠른 시작: Terraform을 사용하여 Azure Spring Cloud 프로비저닝
 

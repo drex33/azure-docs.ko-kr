@@ -672,8 +672,8 @@
           tocHref: /azure/media-services/azure-media-player/
           topicHref: /azure/media-services/azure-media-player/
         - name: IoT Edge의 Live Video Analytics
-          tocHref: /azure/media-services/live-video-analytics-edge/
-          topicHref: /azure/media-services/live-video-analytics-edge/
+          tocHref: /shows/internet-of-things-show/deep-dive-live-video-analytics-on-iot-edge
+          topicHref: /shows/internet-of-things-show/deep-dive-live-video-analytics-on-iot-edge
     - name: 메시징 서비스
       tocHref: /azure/messaging-services/
       topicHref: /azure/messaging-services/

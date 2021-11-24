@@ -4,12 +4,12 @@ ms.service: azure-arc
 ms.topic: include
 ms.date: 07/30/2021
 ms.author: mikeray
-ms.openlocfilehash: 3634717f8715540a13167b62a7469939c9aeb84c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: b7d09c61795598307af2316a9211b605a6ca62e1
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528594"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "133022162"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -23,4 +23,4 @@ ms.locfileid: "122528594"
    
    Azure CLI의 경우 확장 `arcdata`를 설치합니다.
 
-- [Azure Arc 데이터 컨트롤러 설치](../articles/azure-arc/data/create-data-controller.md)
+- [Azure Arc 데이터 컨트롤러 설치](../articles/azure-arc/data/plan-azure-arc-data-services.md)

@@ -10,12 +10,13 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: d5a678da127117f6e7af77fed5ad2ef146908cce
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: mode-other
+ms.openlocfilehash: ee331437afa05dbc3aa52964f4bb52a25af332ab
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352850"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070274"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>빠른 시작: Bing Autosuggest REST API 및 PHP로 검색 쿼리 제안
 
@@ -47,8 +48,8 @@ ms.locfileid: "96352850"
 // ;extension=php_openssl.dll
 
 // **********************************************
-// **_ Update or verify the following values. _*_
-// _*********************************************
+// *** Update or verify the following values. ***
+// **********************************************
 
 // Replace the subscriptionKey string value with your valid subscription key.
 $subscriptionKey = 'enter key here';

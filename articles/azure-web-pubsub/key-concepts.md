@@ -6,12 +6,13 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/08/2021
-ms.openlocfilehash: dc05e81228149fbeae647af81f97bc1e3a320c1f
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.custom: mode-other
+ms.openlocfilehash: 8461950974b61a371816e1f9d3b853d9d4a81cc9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997707"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059874"
 ---
 # <a name="azure-web-pubsub-basic-concepts"></a>Azure Web PubSub 기본 개념
 

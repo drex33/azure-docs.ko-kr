@@ -5,21 +5,21 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3fae7fc37b010a754b7fe1dd9b6e7b092ae534e8
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 8ce2494388428eceaca93825ad08edb309b54972
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131576856"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133095993"
 ---
-### <a name="iot-edge-for-linux-on-windows-installation"></a>Windows 설치에서 Linux에 대 한 IoT Edge
+### <a name="device-requirements"></a>디바이스 요구 사항
 
-다음 최소 요구 사항을 충족 하는 Windows 장치:
+다음과 같은 최소 요구 사항이 있는 Windows 디바이스:
 
 * 시스템 요구 사항
-   * Windows 10 ¹/11 (Pro, Enterprise, IoT Enterprise)
-   * Windows 서버 2019 ¹/2022  
-   <sub>¹ Windows 10 및 Windows 현재 누적 업데이트가 모두 설치 된 Server 2019 최소 빌드 17763</sub>
+   * Windows 10<sup>1</sup>/11(Pro, Enterprise, IoT Enterprise)
+   * Windows Server 2019<sup>1</sup>/2022  
+   <sub><sup>1</sup> Windows 10 및 Windows Server 2019 최소 빌드 17763 및 모든 현재 누적 업데이트가 설치되어 있습니다.</sub>
 
 * 하드웨어 요구 사항
   * 사용 가능한 최소 메모리: 1GB
@@ -39,15 +39,17 @@ ms.locfileid: "131576856"
 >
 > GPU 아키텍처에 따라 올바른 드라이버를 설치해야 하며 Windows 참가자 프로그램 빌드에 액세스해야 할 수도 있습니다. 구성 요구 사항을 확인하고 이러한 필수 조건을 충족하려면 [Windows의 Linux용 Azure IoT Edge에 대한 GPU 가속](../articles/iot-edge/gpu-acceleration.md)을 참조하세요.
 >
-> 이제 GPU 가속에 대 한 사전 요구 사항을 충족 해야 합니다. 설치 하는 동안 GPU 가속을 원하는 경우 설치 프로세스를 다시 시작 해야 합니다.
+> 지금 GPU 가속을 위한 필수 구성요약을 충족하는 데 시간을 할애해야 합니다. 설치하는 동안 GPU 가속을 원하는 경우 설치 프로세스를 다시 시작해야 합니다.
 
-**PowerShell** 또는 **Windows 관리 센터** 를 사용 하 여 IoT Edge 장치를 관리할 수 있습니다. 각 유틸리티에는 고유한 필수 구성 요소가 있습니다.
+### <a name="developer-tools"></a>개발자 도구
+
+**PowerShell** 또는 Windows **관리 센터를** 사용하여 IoT Edge 디바이스를 관리할 수 있습니다. 각 유틸리티에는 고유한 필수 구성 조건이 있습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용 하려는 경우 다음 단계를 사용 하 여 linux 가상 컴퓨터의 배포 및 Windows에 linux 용 Azure IoT Edge 설치를 위한 대상 장치를 준비 합니다.
+PowerShell을 사용하려면 다음 단계를 사용하여 Windows Linux용 Azure IoT Edge를 설치하고 Linux 가상 머신을 배포할 대상 디바이스를 준비합니다.
 
-1. 대상 장치에 대 한 실행 정책을로 설정 `AllSigned` 합니다. 다음 명령을 사용 하 여 관리자 권한 PowerShell 프롬프트에서 현재 실행 정책을 확인할 수 있습니다.
+1. 대상 디바이스의 실행 정책을 로 `AllSigned` 설정합니다. 다음 명령을 사용하여 관리자 권한 PowerShell 프롬프트에서 현재 실행 정책을 확인할 수 있습니다.
 
    ```powershell
    Get-ExecutionPolicy -List
@@ -59,11 +61,11 @@ PowerShell을 사용 하려는 경우 다음 단계를 사용 하 여 linux 가�
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
-Windows PowerShell 모듈의 Linux에 대 한 Azure IoT Edge에 대 한 자세한 내용은 [PowerShell 함수 참조](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md)를 참조 하세요.
+Windows PowerShell 모듈의 Linux용 Azure IoT Edge에 대한 자세한 내용은 [PowerShell 함수 참조를 참조하세요.](../articles/iot-edge/reference-iot-edge-for-linux-on-windows-functions.md)
 
 # <a name="windows-admin-center"></a>[Windows Admin Center](#tab/windowsadmincenter)
 
-Windows 관리 센터를 사용 하려는 경우 다음 단계를 사용 하 여 Windows 관리 센터를 다운로드 및 설치 하 고 Windows 관리 센터 Azure IoT Edge 확장을 설치 합니다.
+Windows 관리 센터를 사용하려면 다음 단계를 사용하여 Windows 관리 센터를 다운로드 및 설치하고 Windows 관리 센터 Azure IoT Edge 확장을 설치합니다.
 
    1. [Windows Admin Center 설치 관리자](https://aka.ms/wacdownload)를 다운로드 및 실행합니다. 설치 마법사의 프롬프트에 따라 Windows Admin Center를 설치합니다.
 
@@ -73,7 +75,7 @@ Windows 관리 센터를 사용 하려는 경우 다음 단계를 사용 하 여
 
    1. Azure IoT Edge 확장을 설치합니다. Windows Admin Center 대시보드의 오른쪽 위에서 기어 아이콘을 선택합니다.
 
-      ![대시보드의 오른쪽 위에 있는 기어 아이콘을 선택 하 여 PNG 설정에 액세스 합니다.](../articles/iot-edge/media/how-to-provision-devices-at-scale-linux-on-windows-x509/select-gear-icon.png)
+      ![대시보드의 오른쪽 위에 있는 기어 아이콘을 선택하여 PNG 설정에 액세스합니다.](../articles/iot-edge/media/how-to-provision-devices-at-scale-linux-on-windows-x509/select-gear-icon.png)
 
    1. **설정** 메뉴의 **게이트웨이** 아래에서 **확장** 을 선택합니다.
 

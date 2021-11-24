@@ -4,12 +4,13 @@ description: Java 함수를 만든 다음, Visual Studio Code의 Azure Functions
 ms.topic: quickstart
 ms.date: 11/03/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 27268e53f86dd5cc25baac11a11f903f0d4c47eb
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.custom: mode-other
+ms.openlocfilehash: bb0d88fc372b0b49878e2ab2be37ff830ba68c0d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287758"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047125"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 Java 함수 만들기
 

@@ -8,14 +8,14 @@ ms.subservice: connect
 ms.topic: quickstart
 ms.author: jukullam
 ms.date: 05/05/2021
-ms.custom: github-actions-azure
+ms.custom: github-actions-azure, mode-other
 ms.reviewer: mathoma
-ms.openlocfilehash: 5da39e966165dea12934d0e2da6077a135feb554
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b0743a6305e11f55fc271cf6a616f06c59348f01
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087289"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073100"
 ---
 # <a name="use-github-actions-to-connect-to-azure-sql-database"></a>GitHub Actions를 사용하여 Azure SQL Database에 연결
 

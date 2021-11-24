@@ -4,19 +4,19 @@ description: 이 빠른 시작에서는 Azure Portal을 사용하여 액세스�
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: ''
+ms.custom: mode-other
 ms.devlang: ''
 ms.topic: quickstart
 author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 1/29/2021
-ms.openlocfilehash: 77b43cfe781499c408f1952aed532ddb12c621e5
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 74c21d4897cbf93f52da620679cc16e15770e9cc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112082346"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064787"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance"></a>빠른 시작: Azure SQL Managed Instance 만들기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
    아래 표를 사용하여 이 탭에 필요한 정보를 참조합니다.
 
-   | 설정| 제안 값 | Description |
+   | 설정| 제안 값 | 설명 |
    | ------ | --------------- | ----------- |
    | **구독** | 사용자의 구독. | 새 리소스를 만들 권한을 제공하는 구독입니다. |
    | **리소스 그룹** | 새 또는 기존 리소스 그룹입니다.|유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|

@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
-ms.custom: cog-serv-seo-may-2021, ignite-fall-2021
+ms.custom: cog-serv-seo-may-2021, ignite-fall-2021, mode-other
 keywords: 문서 처리
-ms.openlocfilehash: 88bc19e245c3272c0ef7bdf958a29da36d668f7c
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: ca58c2e2b80202fd2399a8a238453379c8f55d24
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132710713"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045127"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->

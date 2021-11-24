@@ -3,14 +3,14 @@ title: Azure Video Analyzer 시작 - Azure
 description: 이 빠른 시작에서는 Azure Video Analyzer를 시작하는 단계를 안내합니다. Azure VM을 IoT Edge 디바이스와 시뮬레이션된 라이브 비디오 스트림으로 사용합니다.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 06/01/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2dcb4ef9717cbd754bf963015e0054b0c307738d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/04/2021
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 7b58e5ec2f86d9e8b24bb15f903178ac8f459da7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131030698"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060155"
 ---
 # <a name="quickstart-get-started-with-azure-video-analyzer"></a>빠른 시작: Azure Video Analyzer 시작
 

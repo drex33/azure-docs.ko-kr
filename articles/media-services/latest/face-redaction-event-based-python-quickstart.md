@@ -9,12 +9,13 @@ ms.workload: ''
 ms.topic: quickstart
 ms.date: 5/21/2021
 ms.author: inhenkel
-ms.openlocfilehash: 198009abab7e1c5f663a454eb23debc55c81d7f3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-other
+ms.openlocfilehash: 13c3cd9057aeb82164f16efd207f502f70fd84dd
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124730806"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055929"
 ---
 # <a name="event-based-face-redaction"></a>이벤트 기반 얼굴 편집
 

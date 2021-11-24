@@ -7,12 +7,13 @@ ms.date: 05/27/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 4e40c079c50ccb7f83a4e03d47cf3e9b419870ef
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.custom: mode-other
+ms.openlocfilehash: d81500a622ceb72422f1536af9e8b0e0ecf334bf
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112288532"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058770"
 ---
 # <a name="quickstart---create-an-azure-iot-central-application-and-use-your-smartphone-to-send-telemetry"></a>빠른 시작 - Azure IoT Central 애플리케이션 만들기 및 스마트폰을 사용하여 원격 분석 전송
 

@@ -6,12 +6,13 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/08/2021
-ms.openlocfilehash: 21a92c0e53a54450f82691a1e81a75a83e6d74ad
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.custom: mode-portal
+ms.openlocfilehash: 35ffc0647b22811631af5f9e1c73150f352c2164
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131998003"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059951"
 ---
 # <a name="quickstart-create-a-web-pubsub-instance-from-azure-portal"></a>빠른 시작: Azure Portal에서 Web PubSub 인스턴스 만들기
 

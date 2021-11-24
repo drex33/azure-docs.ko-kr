@@ -4,15 +4,15 @@ description: 이 문서에서는 프라이빗 액세스 또는 Azure Portal을 �
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 07/29/2021
-ms.openlocfilehash: 772cd5c647c3e03773bd6c3e7f57616093b4c7ce
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: b4a9c51a86ed6ce352108cee002a464f8ec853ff
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694149"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066155"
 ---
 # <a name="connect-azure-database-for-postgresql-flexible-server-with-the-private-access-connectivity-method"></a>프라이빗 액세스 연결 방법을 사용하여 Azure Database for PostgreSQL 유연한 서버 연결
 

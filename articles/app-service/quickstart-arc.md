@@ -3,12 +3,13 @@ title: '빠른 시작: Azure Arc에서 웹 앱 만들기'
 description: Azure Arc의 App Service를 사용하여 첫 번째 웹 앱을 배포하세요.
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.openlocfilehash: 356e1b5f13d2a4b7e00c3e1c11b5dcbf295d6fd3
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: mode-other
+ms.openlocfilehash: ed7b240ca0163637ec7876a7d01f81a1c4b2433a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131455869"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133065302"
 ---
 # <a name="create-an-app-service-app-on-azure-arc-preview"></a>Azure Arc의 App Service 앱 만들기(미리 보기)
 

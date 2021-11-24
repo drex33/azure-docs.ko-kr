@@ -6,13 +6,13 @@ ms.service: postgresql
 ms.topic: quickstart
 ms.author: sumuth
 ms.date: 10/12/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: acfed042be582475f3d186b5bcfbb6754d621b28
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: github-actions-azure, mode-other
+ms.openlocfilehash: 8a31c8a50db92db353ce3b4287f29321f9d70731
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124766894"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057752"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-postgresql"></a>빠른 시작: GitHub Actions를 사용하여 Azure PostgreSQL에 연결
 

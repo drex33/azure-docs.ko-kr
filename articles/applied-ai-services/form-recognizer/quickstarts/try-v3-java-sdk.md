@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 29cb08ef3933d63906c658da20cb7e00a20b7d32
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 13bdabee1ae9d2f69fc21debfff5dc2865ee56c2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132717826"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042457"
 ---
 # <a name="quickstart-java-client-library-sdk-v30--preview"></a>빠른 시작: Java 클라이언트 라이브러리 SDK v3.0 | 미리 보기
 
@@ -280,7 +280,7 @@ public class FormRecognizer {
 > [!div class="checklist"]
 >
 > * 이 예제에서는 **URI에 있는 양식 문서 파일** 이 필요합니다. 이 빠른 시작에는 [샘플 양식 문서](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf)를 사용할 수 있습니다.
-> * URI에서 지정된 파일을 분석하려면 `beginAnalyzeDocumentFromUrl` 메서드를 사용하고 `prebuilt-layout`을 모델 ID로 전달합니다. 반환된 값은 제출된 문서에 대한 데이터를 포함하는 `AnalyzeResult` 개체입니다.
+> * URI에서 지정된 파일을 분석하려면 `beginAnalyzeDocumentFromUrl` 메서드를 사용하고 `prebuilt-layout`를 모델 ID로 전달합니다. 반환된 값은 제출된 문서에 대한 데이터를 포함하는 `AnalyzeResult` 개체입니다.
 > * 기본 메서드의 `documentUrl` 변수에 파일 URI 값을 추가했습니다.
 
 다음 코드를 사용하여 애플리케이션의 **FormRecognizer** 클래스를 업데이트합니다(Azure Portal에서 Form Recognizer 인스턴스의 값으로 키 및 엔드포인트 변수를 업데이트해야 함).

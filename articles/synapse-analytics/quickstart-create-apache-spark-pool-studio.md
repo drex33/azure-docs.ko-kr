@@ -9,12 +9,13 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 14d604a5e15d7ca33cb9b73a41f867016599087d
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.custom: mode-other
+ms.openlocfilehash: 77d7b817377514a320d706c5653522a02f8e2eb4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132401532"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045317"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 서버리스 Apache Spark 풀 만들기
 
@@ -27,7 +28,7 @@ Azure Synapse Analytics는 데이터를 수집, 변환, 모델링, 분석 및 �
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Synapse 작업 영역](./quickstart-create-workspace.md)

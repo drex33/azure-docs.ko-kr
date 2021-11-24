@@ -11,14 +11,15 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - devx-track-azurecli
+- mode-other
 ms.date: 07/26/2021
 zone_pivot_groups: iot-hub-set1
-ms.openlocfilehash: cae4b2c1b23acc56468d3c7ebe30cf8316842003
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: dacae545e64aefe548cb5f4a9ca820f08882cb01
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132550252"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058405"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub"></a>빠른 시작: IoT 허브에 연결된 디바이스 제어
 

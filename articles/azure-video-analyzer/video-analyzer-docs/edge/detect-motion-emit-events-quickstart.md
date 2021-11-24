@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 프로그래밍 방식으로 직접 메�
 ms.topic: quickstart
 ms.date: 11/04/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1682dc1bedc5fa6cbc076ad500c30e48ded7d5bf
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 73f725032a57c08cf7b6004c2a2527db59ba4b01
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131554605"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073043"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>빠른 시작: 동작 감지 및 이벤트 내보내기
 

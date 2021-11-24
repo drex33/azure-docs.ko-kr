@@ -8,17 +8,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: rosouz
-ms.custom:
-- seodec18
-- seo-javascript-september2019
-- seo-python-october2019
-- devx-track-python
-ms.openlocfilehash: f034cb5f3773920f78e484e9bb078a316ebbe05d
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-other
+ms.openlocfilehash: 04d5bc0ddbe30964fc9f4fe46c16c26fbf267e00
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132761175"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059298"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Python 애플리케이션 빌드
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]

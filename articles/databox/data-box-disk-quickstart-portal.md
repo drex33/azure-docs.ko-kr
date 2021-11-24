@@ -9,12 +9,13 @@ ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 241b7c0c07d1fbaa6a43c6be4b264424612f538a
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: mode-other
+ms.openlocfilehash: 11a870c3461758c6310a5253a2d9efcccdca4c74
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107869044"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061902"
 ---
 ::: zone target="docs"
 

@@ -1,57 +1,57 @@
 ---
-title: IoT 커넥터용 관련 GitHub 프로젝트-Azure 의료 api
-description: IoT 커넥터용 모든 오픈 소스 (GitHub) 리포지토리 나열
+title: IoT 커넥터에 대한 관련 GitHub 프로젝트 - Azure Healthcare API
+description: IoT 커넥터에는 인기 있는 GitHub 디바이스에서 디바이스 메시지를 수신하기 위한 강력한 오픈 소스(GitHub) 라이브러리가 있습니다.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/28/2021
+ms.date: 11/23/2021
 ms.author: jasteppe
-ms.openlocfilehash: 76bf145ea76ea44d65e2c5dc3873cb51707840a5
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c7b80efbb032315bfca36511cf07e1f5a1f3b8a4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132309850"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061468"
 ---
 # <a name="open-source-projects"></a>오픈 소스 프로젝트
 
-원본 코드와 IoT 커넥터를 사용 하 여 다양 한 용도로 서비스를 배포 하는 지침을 제공 하는 GitHub에서 오픈 소스 프로젝트를 확인 하세요. 
+IoT 커넥터를 사용하여 다양한 용도로 서비스를 배포하기 위한 소스 코드와 지침을 제공하는 GitHub 오픈 소스 프로젝트를 확인하세요. 
 
 ## <a name="iot-connector-github-projects"></a>IoT 커넥터 GitHub 프로젝트
 
-#### <a name="fhir-integration"></a>FHIR 통합
+### <a name="fhir-integration"></a>FHIR 통합
 
-* [microsoft/iomt r](https://github.com/microsoft/iomt-fhir): 오픈 소스 버전의 Azure 의료 api IoT 커넥터 관리 서비스입니다. [Fhir R7](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491) 를 지 원하는 모든 신속한 의료 상호 운용성 리소스 (fhir&#174;) 서비스와 함께 사용할 수 있습니다&#174;
+* [microsoft/iomt-fhir:](https://github.com/microsoft/iomt-fhir)Azure Healthcare API IoT 커넥터 관리형 서비스의 오픈 소스 버전입니다. FHIR R4&#174;지원하는 모든 [전자 의료 기록 교환(FHIR&#174;)](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491) 서비스와 함께 사용할 수 있습니다.
 
-#### <a name="device-and-fhir-destination-mappings"></a>장치 및 FHIR 대상 매핑
+### <a name="device-and-fhir-destination-mappings"></a>디바이스 및 FHIR 대상 매핑
 
-* [IoMT 커넥터 데이터 매퍼](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): IoT 커넥터 장치 및 FHIR 대상 매핑의 편집, 테스트 및 문제 해결을 위한 도구입니다. Azure Portal에서 IoT connector로 업로드 하거나 오픈 소스 버전과 함께 사용 하기 위한 매핑을 내보냅니다.
+* [IoMT 커넥터 데이터 매퍼:](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper)IoT 커넥터 디바이스 및 FHIR 대상 매핑을 편집, 테스트 및 문제 해결을 위한 도구입니다. Azure Portal IoT 커넥터에 업로드하기 위한 매핑을 내보내거나 오픈 소스 버전과 함께 사용합니다.
 
-#### <a name="wearables-integration"></a>착용 식 장치용 통합
+### <a name="wearables-integration"></a>웨어러블 통합
 
 Fitbit
 
-* [microsoft/fitbit](https://github.com/microsoft/FitbitOnFHIR)&#174; 데이터를 fhir 서비스로 가져옵니다.
+* [microsoft/fitbit-on-fhir:](https://github.com/microsoft/FitbitOnFHIR)Fitbit&#174; 데이터를 FHIR 서비스로 가져옵니다.
 
 HealthKit
 
-* [microsoft/healthkit r](https://github.com/microsoft/healthkit-on-fhir): Apple&#174; healthkit&#174; 데이터를 fhir 서비스로 가져옵니다.
+* [microsoft/healthkit-on-fhir:](https://github.com/microsoft/healthkit-on-fhir)Apple&#174; HealthKit&#174; 데이터를 FHIR 서비스로 가져옵니다.
 
-* [microsoft/healthkit-](https://github.com/microsoft/healthkit-to-fhir)HKOBJECTS에서 Fhir 리소스를 만드는 간단한 방법을 제공 합니다.
+* [microsoft/healthkit-to-fhir:](https://github.com/microsoft/healthkit-to-fhir)HKObjects에서 FHIR 리소스를 만드는 간단한 방법을 제공합니다.
 
 FHIR에서 Google 피트니스
 
-* [microsoft/googlefit r](https://github.com/microsoft/googlefit-on-fhir): 데이터를 Google 피트니스&#174; 데이터를 fhir 서비스로 가져옵니다.
+* [microsoft/googlefit-on-fhir:](https://github.com/microsoft/googlefit-on-fhir)Google 피트니스&#174; 데이터를 FHIR 서비스로 가져옵니다.
 
 상태 데이터 동기화
 
-* [microsoft/health-데이터 동기화](https://github.com/microsoft/health-data-sync): 외부 저장소로 HealthKit 데이터 내보내기를 간소화 하 고 자동화 하는 Swift&#174; 라이브러리입니다.
+* [microsoft/health-data-sync:](https://github.com/microsoft/health-data-sync)HealthKit 데이터를 외부 저장소로 내보내기를 간소화하고 자동화하는 Swift&#174; 라이브러리입니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Portal에서 IoT connector를 배포 하는 방법을 알아봅니다.
+Azure Portal IoT 커넥터를 배포하는 방법을 알아봅니다.
 
 >[!div class="nextstepaction"]
->[IoT connector 관리 서비스 배포](deploy-iot-connector-in-azure.md)
+>[IoT 커넥터 관리 서비스 배포](deploy-iot-connector-in-azure.md)
 
-(FHIR&#174;)는 [HL7](https://hl7.org/fhir/) 의 등록 상표 이며 HL7의 사용 권한과 함께 사용 됩니다.
+(FHIR&#174;)는 HL7의 등록 상표이며 [HL7의](https://hl7.org/fhir/) 사용 권한으로 사용됩니다.

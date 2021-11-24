@@ -1,15 +1,15 @@
 ---
-title: 기록 없이 라이브 비디오 분석 - Azure
+title: 녹화 하지 않고 라이브 비디오 분석
 description: 파이프라인 토폴로지를 사용하여 에지 또는 클라우드에 기록하지 않고도 라이브 비디오 스트림에서 분석을 추출할 수 있습니다. 이 문서에서는 이러한 개념에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6230c565e7f193264c0640a3a278b2812f20ad7d
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 8989cea76098938fd7c2173459efacfef28145f2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131847074"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072965"
 ---
 # <a name="analyzing-live-videos-without-recording"></a>녹화하지 않고 라이브 비디오 분석
 
@@ -25,7 +25,7 @@ ms.locfileid: "131847074"
 파이프라인 토폴로지를 사용하여 비디오의 일부를 파일 또는 자산에 기록하지 않고도 라이브 비디오를 분석할 수 있습니다. 아래에 표시된 파이프라인 토폴로지는 이 문서에서 다루는 [이벤트 기반 비디오 녹화](event-based-video-recording-concept.md)에 대한 그래프와 유사하지만 비디오 싱크 노드 또는 파일 싱크 노드는 포함하지 않습니다.
 
 > [!NOTE]
-> 라이브 비디오 분석은 현재 에지 모듈에만 사용할 수 있으며 클라우드에는 사용할 수 없습니다.
+> 라이브 비디오 분석은 현재 edge 모듈에만 사용할 수 있으며 클라우드가 아닙니다.
 
 ### <a name="motion-detection"></a>동작 감지
 

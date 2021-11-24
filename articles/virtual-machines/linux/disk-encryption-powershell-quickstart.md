@@ -8,13 +8,13 @@ ms.subservice: disks
 ms.collection: linux
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b8286ca8cac5ec2a16015d2171f224a60a58fb3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 4d5a28615a0c28cb6fe1ae5ddae6777df6656ab6
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596812"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043144"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure에서 Linux VM 만들기 및 암호화
 

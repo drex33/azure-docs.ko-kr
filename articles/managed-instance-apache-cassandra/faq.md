@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1c76bc9693e6b19097494bfbf709d0a9de074f6d
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: e358422e4331bb83d3eda74a75d9132d48c06de0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132937947"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066506"
 ---
 # <a name="frequently-asked-questions-about-azure-managed-instance-for-apache-cassandra"></a>Azure Managed Instance for Apache Cassandra에 대한 질문과 대답
 

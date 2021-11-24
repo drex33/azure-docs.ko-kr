@@ -9,12 +9,13 @@ ms.topic: quickstart
 ms.date: 07/22/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b87af97dd99fa88dc5aaa0cd5bdd8a2a23032104
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.custom: mode-other
+ms.openlocfilehash: 8a73853aea6bf4f29500e4f846f9b970ab32137e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114690430"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059016"
 ---
 # <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Azure로 데이터를 가져오는 Azure Data Box 시작
 

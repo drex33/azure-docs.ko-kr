@@ -11,13 +11,13 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 13812fe8590a1046e510c936208258145878adf6
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: seodec2018, mode-other
+ms.openlocfilehash: 80c5ee252ad4b68969d7074c280a22da54bd3a5b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96341634"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059665"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>빠른 시작: Bing Image Search REST API 및 Ruby를 사용하여 이미지 검색
 

@@ -6,13 +6,13 @@ ms.author: spelluru
 ms.date: 09/28/2021
 ms.topic: quickstart
 ms.devlang: dotnet
-ms.custom: devx-track-azurepowershell, mode-api
-ms.openlocfilehash: a0237c478530268e9e0e66c02fd8548169a77487
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 7acaf1cc70eb7cccc1de5b7a46cffb1bfe7f8d2b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083520"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069727"
 ---
 # <a name="use-azure-powershell-to-create-a-service-bus-namespace-and-a-queue"></a>Azure PowerShell을 사용하여 Service Bus 네임스페이스 및 큐 만들기
 이 빠른 시작에서는 Azure PowerShell을 사용하여 Service Bus 네임스페이스 및 큐를 만드는 방법을 보여줍니다. 또한 클라이언트 애플리케이션이 큐에 메시지를 보내고 받는 데 사용할 수 있는 권한 부여 자격 증명을 가져오는 방법을 보여줍니다. 

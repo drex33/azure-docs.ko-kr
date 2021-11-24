@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.date: 03/29/2021
 author: manishmsfte
 ms.author: mansha
-ms.custom: devx-track-python
-ms.openlocfilehash: b0229baf281f76ab9a7b7a22eb390bc0ff7858e3
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.custom: devx-track-python, mode-portal
+ms.openlocfilehash: ec0aa37c52ec50b4c6a3ccbc9638376db5d49f05
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132934841"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072256"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>빠른 시작: Python 및 Azure Portal을 사용하여 Azure Cosmos DB에서 그래프 데이터베이스 만들기
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -253,4 +253,3 @@ ms.locfileid: "132934841"
 
 > [!div class="nextstepaction"]
 > [Gremlin을 사용하여 쿼리](tutorial-query-graph.md)
-

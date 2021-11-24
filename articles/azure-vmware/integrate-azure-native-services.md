@@ -3,12 +3,12 @@ title: Azure 네이티브 서비스를 사용하여 VM 모니터링 및 보호
 description: Azure VMware Solution 워크로드를 모니터링하고 관리하기 위해 Microsoft Azure 네이티브 도구를 통합 및 배포하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 08/15/2021
-ms.openlocfilehash: 8c95a74df7608aafbec09da9af94b0f82eb2ced3
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 51741a06988776e0d36f0159e383dba89999096f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132315827"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046746"
 ---
 # <a name="monitor-and-protect-vms-with-azure-native-services"></a>Azure 네이티브 서비스를 사용하여 VM 모니터링 및 보호
 
@@ -16,13 +16,13 @@ Microsoft Azure 네이티브 서비스를 사용하면 하이브리드 환경(Az
 
 Azure VMware Solution과 통합할 수 있는 Azure 네이티브 서비스는 다음과 같습니다.
 
-- **Azure Arc** 는 Azure 관리를 Azure VMware Solution, 온-프레미스 또는 기타 클라우드 플랫폼을 비롯한 모든 인프라로 확장합니다. [azure Arc 사용 서버](../azure-arc/servers/overview.md) 를 사용 하면 azure *외부* , 회사 네트워크 또는 다른 클라우드 공급자에서 호스트 되는 Windows 및 Linux 물리적 서버와 가상 컴퓨터를 관리할 수 있습니다. [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md)를 사용하여 Azure VMware Solution 환경에서 호스트되는 Kubernetes 클러스터를 연결할 수 있습니다. 
+- **Azure Arc** 는 Azure 관리를 Azure VMware Solution, 온-프레미스 또는 기타 클라우드 플랫폼을 비롯한 모든 인프라로 확장합니다. [Azure Arc 지원 서버를](../azure-arc/servers/overview.md) 사용하면 Azure 외부, 회사 네트워크 또는 다른 클라우드 *공급자에서* 호스트되는 Windows 및 Linux 물리적 서버와 가상 머신을 관리할 수 있습니다. [Azure Arc 지원 Kubernetes](../azure-arc/kubernetes/overview.md)를 사용하여 Azure VMware Solution 환경에서 호스트되는 Kubernetes 클러스터를 연결할 수 있습니다. 
 
 - **Azure Monitor** 는 클라우드 및 온-프레미스 환경에서 원격 분석을 수집, 분석 및 작동합니다. Azure Monitor는 배포가 필요하지 않습니다.  게스트 운영 체제 성능을 모니터링하여 Azure VMware Solution 또는 온-프레미스 VM에 대한 애플리케이션 종속성을 검색하고 매핑할 수 있습니다. Azure Monitor의 Log Analytics 작업 영역에서는 Log Analytics 에이전트 또는 확장을 사용하여 로그 및 성능 카운터를 수집할 수 있습니다. 
 
    Azure Monitor를 사용하여 [모니터링 및 분석할 다양한 원본](../azure-monitor/agents/data-sources.md)의 데이터와 [분석, 시각화 및 경고를 위한 다양한 유형의 데이터](../azure-monitor/data-platform.md)를 수집할 수 있습니다. 리소스의 많은 사용, 누락된 패치, 디스크 공간 부족, VM의 하트비트와 같은 사용자 환경 문제를 식별하는 경고 규칙을 만들 수도 있습니다. ITSM(IT 서비스 관리) 도구에 경고를 전송하여 검색된 이벤트에 대한 자동화된 응답을 설정할 수 있습니다. 메일을 통해 경고 검색 알림을 보낼 수도 있습니다.
 
-- **클라우드 용 Microsoft Defender** 는 데이터 센터의 보안을 강화 하 고 클라우드 또는 온-프레미스의 하이브리드 워크 로드에 대 한 고급 위협 방지 기능을 제공 합니다. Azure VMware Solution VM의 취약성을 평가하고, 필요에 따라 경고를 발생시킨 다음, 해결을 위해 Azure Monitor에 전달합니다. 예를 들어 누락된 운영 체제 패치, 잘못된 보안 구성과 [엔드포인트 보호](../security-center/security-center-services.md)를 평가합니다. 또한 [Microsoft Defender For Cloud](azure-security-integration.md)에서 보안 정책을 정의할 수 있습니다.
+- **Microsoft Defender for Cloud는** 데이터 센터의 보안을 강화하고 클라우드 또는 온-프레미스의 하이브리드 워크로드에서 고급 위협 방지 기능을 제공합니다. Azure VMware Solution VM의 취약성을 평가하고, 필요에 따라 경고를 발생시킨 다음, 해결을 위해 Azure Monitor에 전달합니다. 예를 들어 누락된 운영 체제 패치, 잘못된 보안 구성과 [엔드포인트 보호](../security-center/security-center-services.md)를 평가합니다. [Microsoft Defender for Cloud에서](azure-security-integration.md)보안 정책을 정의할 수도 있습니다.
 
 - **Azure 업데이트 관리** 는 Azure Automation의 하이브리드 환경에서 Windows 및 Linux 머신의 운영 체제 업데이트를 관리합니다. 패치 준수를 모니터링하고 패치 편차 경고를 수정하기 위해 Azure Monitor로 전달합니다. 저장된 데이터를 사용하여 VM에 대한 업데이트 상태를 평가하기 위해 Azure 업데이트 관리를 Log Analytics 작업 영역에 연결해야 합니다.
 
@@ -33,7 +33,7 @@ Azure VMware Solution과 통합할 수 있는 Azure 네이티브 서비스는 �
 - 하이브리드 환경(Azure, Azure VMware Solution 및 온-프레미스)에서 VM을 관리하는 데 Azure 네이티브 서비스를 사용할 수 있습니다.
 - Azure, Azure VMware Solution 및 온-프레미스 VM의 통합 모니터링 및 가시성.
 - Azure Automation에서 Azure 업데이트 관리를 사용하여 Windows 및 Linux 머신의 운영 체제 업데이트를 관리할 수 있습니다.
-- Microsoft Defender for Cloud는 다음과 같은 고급 위협 방지 기능을 제공 합니다.
+- 클라우드용 Microsoft Defender는 다음을 비롯한 고급 위협 방지 기능을 제공합니다.
   - 파일 무결성 모니터링
   - 파일리스 보안 경고
   - 운영 체제 패치 평가
@@ -56,9 +56,9 @@ Azure VMware Solution과 통합할 수 있는 Azure 네이티브 서비스는 �
 
 Log Analytics 에이전트는 Azure, Azure VMware Solution 및 온-프레미스 VM에서 로그 데이터를 수집할 수 있도록 합니다. 로그 데이터는 Azure Monitor 로그에 전송되고 Log Analytics 작업 영역에 저장됩니다. 새로운 및 기존의 VM에 대한 Arc 사용 서버 [VM 확장 지원](../azure-arc/servers/manage-vm-extensions.md)을 사용하여 Log Analytics 에이전트를 배포할 수 있습니다.
 
-Log Analytics 작업 영역에서 로그를 수집 하면 클라우드 용 Defender를 사용 하 여 Log Analytics 작업 영역을 구성 하 여 Azure VMware 솔루션 Vm의 취약성 상태를 평가 하 고 위험 취약성에 대 한 경고를 발생 시킬 수 있습니다.  예를 들어 누락된 운영 체제 패치, 잘못된 보안 구성과 [엔드포인트 보호](../security-center/security-center-services.md)를 평가합니다.
+Log Analytics 작업 영역에서 로그를 수집하면 Defender for Cloud에서 Log Analytics 작업 영역을 구성하여 Azure VMware Solution VM의 취약성 상태를 평가하고 중요한 취약성에 대한 경고를 발생할 수 있습니다.  예를 들어 누락된 운영 체제 패치, 잘못된 보안 구성과 [엔드포인트 보호](../security-center/security-center-services.md)를 평가합니다.
 
-경고 검색, 위협 표시 유형, 검색 및 위협 응답을 위해 Microsoft 센티널을 사용 하 여 Log Analytics 작업 영역을 구성할 수 있습니다. 위의 다이어그램에서 Cloud for Cloud는 Defender for Cloud connector를 사용 하 여 Microsoft 센티널에 연결 됩니다. 클라우드 용 Defender는 환경 취약성을 Microsoft 센티널로 전달 하 여 인시던트를 만들고 다른 위협에 매핑합니다. 또한 예약된 규칙 쿼리를 만들어서 원치 않는 활동을 검색하고 이를 인시던트로 변환할 수 있습니다.
+경고 검색, 위협 가시성, 헌팅 및 위협 대응을 위해 Microsoft Sentinel을 사용하여 Log Analytics 작업 영역을 구성할 수 있습니다. 위의 다이어그램에서 Defender for Cloud는 Defender for Cloud 커넥터를 사용하여 Microsoft Sentinel에 연결됩니다. Defender for Cloud는 환경 취약성을 Microsoft Sentinel에 전달하여 인시던트 만들기 및 다른 위협과 매핑합니다. 또한 예약된 규칙 쿼리를 만들어서 원치 않는 활동을 검색하고 이를 인시던트로 변환할 수 있습니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -66,7 +66,7 @@ Azure를 처음 접하는 경우 앞에서 언급한 서비스를 잘 모른다�
 
 - [Automation 계정 인증 개요](../automation/automation-security-overview.md)
 - [Azure Monitor 로그 배포 디자인](../azure-monitor/logs/design-logs-deployment.md) 및 [Azure Monitor](../azure-monitor/overview.md)
-- Microsoft Defender for Cloud에 대 한 [계획](../security-center/security-center-planning-and-operations-guide.md) 및 [지원 플랫폼](../security-center/security-center-os-coverage.md)
+- Microsoft Defender for Cloud에 대한 [계획](../security-center/security-center-planning-and-operations-guide.md) 및 [지원되는 플랫폼](../security-center/security-center-os-coverage.md)
 - [VM용 Azure Monitor 사용 개요](../azure-monitor/vm/vminsights-enable-overview.md)
 - [Azure Arc 사용 서버란 무엇인가요?](../azure-arc/servers/overview.md) 및 [Azure Arc 사용 Kubernetes란 무엇인가요?](../azure-arc/kubernetes/overview.md)
 - [업데이트 관리 개요](../automation/update-management/overview.md)
@@ -88,11 +88,11 @@ Azure Automation의 [Azure 업데이트 관리](../automation/update-management/
  
 1. 업데이트 관리를 사용하도록 설정했으면 [VM에 업데이트를 배포하고 결과를 검토](../automation/update-management/deploy-updates.md)할 수 있습니다. 
 
-## <a name="enable-microsoft-defender-for-cloud"></a>클라우드 용 Microsoft Defender 사용
+## <a name="enable-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender 사용
 
 Azure VMware Solution VM의 취약성을 평가하고 필요에 따라 경고를 발생시킵니다. 해당 보안 경고를 Azure Monitor에 전달하여 해결할 수 있습니다. 자세한 내용은 [VM에 지원되는 기능](../security-center/security-center-services.md)을 참조하세요.
 
-클라우드 용 Defender는 다음을 비롯 한 다양 한 기능을 제공 합니다.
+Defender for Cloud는 다음을 비롯한 다양한 기능을 제공합니다.
 
 - 파일 무결성 모니터링
 - 파일리스 공격 탐지
@@ -101,15 +101,15 @@ Azure VMware Solution VM의 취약성을 평가하고 필요에 따라 경고를
 - Endpoint Protection 평가
 
 >[!NOTE]
->Microsoft Defender for Cloud는 배포가 필요 하지 않은 미리 구성 된 도구 이지만 Azure Portal에서 사용 하도록 설정 해야 합니다.
+>Microsoft Defender for Cloud는 배포가 필요하지 않은 미리 구성된 도구이지만 Azure Portal 사용하도록 설정해야 합니다.
 
-1. [클라우드 용 Defender에 Azure VMware 솔루션 vm을 추가](azure-security-integration.md#add-azure-vmware-solution-vms-to-defender-for-cloud)합니다.
+1. [Azure VMware Solution VM을 Defender for Cloud에 추가합니다.](azure-security-integration.md#add-azure-vmware-solution-vms-to-defender-for-cloud)
 
-2. [클라우드 용 Microsoft Defender를 사용 하도록 설정](../security-center/enable-azure-defender.md)합니다. 클라우드의 Defender는 잠재적인 보안 문제를 해결 하기 위해 Vm을 평가 합니다. 또한 개요 탭에서 [보안 권장 사항](../security-center/security-center-recommendations.md)을 제공합니다.
+2. [Microsoft Defender for Cloud를 사용하도록 설정합니다.](../security-center/enable-azure-defender.md) Defender for Cloud는 잠재적인 보안 문제에 대해 VM을 평가합니다. 또한 개요 탭에서 [보안 권장 사항](../security-center/security-center-recommendations.md)을 제공합니다.
 
-3. 클라우드에 대 한 Defender에서 [보안 정책을 정의](../security-center/tutorial-security-policy.md) 합니다.
+3. Defender for Cloud에서 [보안 정책을 정의합니다.](../security-center/tutorial-security-policy.md)
 
-자세한 내용은 [Azure VMware 솔루션과 함께 클라우드 용 Microsoft Defender 통합](azure-security-integration.md)을 참조 하세요.
+자세한 내용은 [Microsoft Defender for Cloud와 Azure VMware Solution 통합을](azure-security-integration.md)참조하세요.
 
 ## <a name="onboard-vms-to-azure-arc-enabled-servers"></a>VM을 Azure Arc 사용 서버에 온보딩
 
@@ -117,16 +117,16 @@ Azure 관리를 Azure VMware Solution, 온-프레미스 또는 기타 클라우�
 
 
 
-## <a name="onboard-hybrid-kubernetes-clusters-with-azure-arc-enabled-kubernetes"></a>Azure Arc를 사용 하는 하이브리드 Kubernetes 클러스터 등록 Kubernetes
+## <a name="onboard-hybrid-kubernetes-clusters-with-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes를 사용하여 하이브리드 Kubernetes 클러스터 온보딩
 
-Azure Arc 사용 Kubernetes를 사용하여 Azure VMware Solution 환경에서 호스트되는 Kubernetes 클러스터를 연결합니다. 자세한 내용은 [Azure Arc 사용 온보딩 서비스 주체 만들기](../azure-arc/kubernetes/create-onboarding-service-principal.md)를 참조하세요.
+Azure Arc 사용 Kubernetes를 사용하여 Azure VMware Solution 환경에서 호스트되는 Kubernetes 클러스터를 연결합니다. 자세한 내용은 [Azure Arc 지원 Kubernetes 클러스터 만들기를 참조하세요.](../azure-arc/kubernetes/quickstart-connect-cluster.md)
 
 
 ## <a name="deploy-the-log-analytics-agent"></a>Log Analytics 에이전트 배포
 
 Log Analytics 에이전트를 통해 Azure VMware Solution VM을 모니터링합니다. Log Analytics 작업 영역에 연결된 가상 머신은 설치된 소프트웨어, Microsoft 서비스, Windows 레지스트리와 파일, 모니터링되는 서버의 Linux 디먼에 대한 변경 내용의 데이터를 수집하기 위해 [Log Analytics 에이전트](../azure-monitor/agents/log-analytics-agent.md)를 사용합니다. 데이터를 사용할 수 있는 경우 에이전트는 처리를 위해 Azure Monitor 로그에 데이터를 보냅니다. Azure Monitor 로그는 수신한 데이터에 논리를 적용하고, 데이터를 기록하고, 분석에 사용할 수 있게 만듭니다.
 
-[Azure Arc 사용 서버 VM 확장 지원을](../azure-arc/servers/manage-vm-extensions.md)사용 하 여 Log Analytics 에이전트를 배포 합니다.
+Azure Arc 지원 서버 VM 확장 지원을 사용하여 Log Analytics [에이전트를 배포합니다.](../azure-arc/servers/manage-vm-extensions.md)
 
 
 
@@ -157,4 +157,4 @@ Log Analytics 에이전트를 통해 Azure VMware Solution VM을 모니터링합
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure VMware 솔루션 네트워크 및 상호 연결과 개념을 살펴보았습니다. [Azure Vmware 솔루션과 함께 클라우드 용 Microsoft Defender를 통합](azure-security-integration.md)하는 방법을 알아볼 수 있습니다.
+네트워크 및 상호 연결 Azure VMware Solution 개념을 살펴보셨으므로 이제 [Microsoft Defender for Cloud를 Azure VMware Solution 통합하는](azure-security-integration.md)방법에 대해 알아볼 수 있습니다.

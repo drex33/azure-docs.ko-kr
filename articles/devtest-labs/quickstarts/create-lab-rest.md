@@ -3,12 +3,13 @@ title: '빠른 시작: REST API를 사용하여 랩 만들기'
 description: 이 빠른 시작에서는 Azure REST API를 사용하여 Azure DevTest Labs에서 랩을 만듭니다.
 ms.topic: quickstart
 ms.date: 10/27/2021
-ms.openlocfilehash: e618003bf4ddd254fe37168a5388cec08526be97
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.custom: mode-other
+ms.openlocfilehash: fd36951e2b45b825981f8dfc52663437685f9d65
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132938517"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067683"
 ---
 # <a name="quickstart-create-a-lab-in-azure-devtest-labs-using-azure-rest-api"></a>빠른 시작: Azure REST API를 사용하여 Azure DevTest Labs에서 랩 만들기
 

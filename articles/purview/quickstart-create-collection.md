@@ -7,13 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: template-quickstart
-ms.openlocfilehash: 5dff616c6fa7ee8e72a932da281935f77db19010
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.custom: template-quickstart, mode-other
+ms.openlocfilehash: 5b534cbf7bba8a83e70890ddd9375f101147717f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131853703"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057618"
 ---
 # <a name="quickstart-create-a-collection-and-assign-permissions-in-purview"></a>빠른 시작: Purview에서 컬렉션 만들기 및 권한 할당
 

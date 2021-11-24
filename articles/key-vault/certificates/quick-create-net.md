@@ -7,13 +7,13 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 5c59e7b2cc1e3f10ec322ebfd65ebad2d536ed86
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: 733ac6ea62a3a246da2b4013cb5f948d90771980
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232720"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067543"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>빠른 시작: .NET용 Azure Key Vault 인증서 클라이언트 라이브러리(SDK v4)
 

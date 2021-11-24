@@ -10,12 +10,13 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 726a60d611abc392bc1a4629c5088ca4c6b703d9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: mode-other
+ms.openlocfilehash: c023e6226b17d51014921920dedf36cb3b85b520
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338336"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064658"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>빠른 시작: 첫 번째 Bing Custom Search 인스턴스 만들기
 

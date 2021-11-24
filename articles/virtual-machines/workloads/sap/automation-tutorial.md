@@ -7,12 +7,12 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: tutorial
 ms.service: virtual-machines-sap
-ms.openlocfilehash: 853c13338f2c2e8f7cc967d9b118a700b3eea414
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.openlocfilehash: 42157c6a4fb07d0f9982540f12c4605760597f6b
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132903464"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132934141"
 ---
 # <a name="enterprise-scale-for-sap-deployment-automation-framework---hands-on-lab"></a>SAP 배포 자동화 프레임워크를 위한 엔터프라이즈 크기 조정 - 실습 랩
 
@@ -84,9 +84,6 @@ SAP 애플리케이션에는 일반적으로 여러 배포 계층이 있습니�
 ### <a name="prerequisites"></a>사전 요구 사항
 
 [SAP 배포 자동화 프레임워크 리포지토리](https://github.com/Azure/sap-automation)는 GitHub에서 사용할 수 있습니다.
-
-> [!IMPORTANT]
-> 시작하기 전에 기본 분기를 **sap-level-up** 으로 변경해야 합니다.
 
 배포자에 연결하려면 SSH 클라이언트가 필요합니다. 익숙한 SSH 클라이언트를 사용합니다.
 

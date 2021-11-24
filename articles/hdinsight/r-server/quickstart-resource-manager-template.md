@@ -3,15 +3,15 @@ title: '빠른 시작: 템플릿을 사용하여 ML Services 클러스터 만들
 description: 이 빠른 시작에서는 Resource Manager 템플릿을 사용하여 Azure HDInsight에서 ML Services 클러스터를 만드는 방법을 보여줍니다.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.date: 03/13/2020
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86d43a09e4c739cc588848429dcaf6276f68dbf2
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 266b98c06b42987098892775c24417872ebddf46
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112299396"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069830"
 ---
 # <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: Azure HDInsight에서 ARM 템플릿을 사용하여 ML Services 클러스터 만들기
 

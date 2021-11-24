@@ -6,12 +6,13 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/08/2021
-ms.openlocfilehash: 99045ab4675527f4f0a821025bf6f870d63bb296
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.custom: mode-other
+ms.openlocfilehash: f91640b383b889c0e200d60969282593e3bd452e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131998071"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054445"
 ---
 # <a name="quickstart-connect-to-the-azure-web-pubsub-instance-from-cli"></a>빠른 시작: CLI에서 Azure Web PubSub 인스턴스에 연결
 

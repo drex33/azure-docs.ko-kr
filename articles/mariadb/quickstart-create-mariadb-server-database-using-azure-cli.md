@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 042c70fdd08a6de2b97c4560eb2b6a24eec0bb34
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: mvc, devx-track-azurecli, mode-api
+ms.openlocfilehash: dc7f4f6a733d7dc9c175433ec0bdd10d02bb20b4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107789990"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057913"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for MariaDB 서버 만들기
 

@@ -3,13 +3,13 @@ title: Azure Video Analyzer를 사용하여 라이브 비디오의 개체 추적
 description: 이 빠른 시작에서는 Azure Video Analyzer를 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드에 있는 개체를 추적하는 방법을 보여줍니다. 컴퓨터 비전 모델을 적용하여 라이브 비디오 피드의 프레임에 있는 개체를 감지하는 방법을 알아봅니다. 그런 다음, 개체 추적기 노드를 사용하여 다른 프레임에서 해당 개체를 추적할 수 있습니다.
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2b9286dc6dba80de841969af285ab57e587f560a
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 3ea05be1e148526ef73dddea6fb5348bfd5dd6e3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132319266"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060181"
 ---
 # <a name="quickstart-track-objects-in-a-live-video"></a>빠른 시작: 라이브 비디오의 개체 추적
 

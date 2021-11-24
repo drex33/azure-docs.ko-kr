@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 Azure Video Analyzer 서비스의 라이
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: beceb3eda59b9377a9d4cafa7bbe70d255c0c825
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.custom: ignite-fall-2021, mode-portal
+ms.openlocfilehash: d34243919a2a973318a4e9af881f230a259b077e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132399677"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060132"
 ---
 # <a name="quickstart-get-started-with-video-analyzer-live-pipelines-in-the-azure-portal"></a>빠른 시작: Azure Portal Video Analyzer 라이브 파이프라인 시작
 
@@ -65,7 +65,7 @@ Azure Portal을 사용하여 Video Analyzer 계정 및 해당 리소스를 만�
 
     ```
     cd localmedia
-    wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv
+    wget https://avamedia.blob.core.windows.net/public/camera-1800s.mkv
     ```
 1. 다음과 같이 미리 빌드된 컨테이너 이미지를 사용하여 VM에서 RTSP 서버를 시작합니다.
 

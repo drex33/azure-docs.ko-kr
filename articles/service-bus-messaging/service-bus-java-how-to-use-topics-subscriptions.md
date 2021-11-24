@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 
 ms.date: 02/13/2021
 ms.topic: quickstart
 ms.devlang: Java
-ms.custom: mode-api
-ms.openlocfilehash: ec2374a2881eb8888b40158848bf024c1292fa1d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mode-other
+ms.openlocfilehash: cbe068414269912f6db919bdf8d442ee8deee7ff
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083615"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057543"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(Java)
 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 통해 Java 코드를 작성하여 Azure Service Bus 토픽에 메시지를 보낸 다음, 해당 토픽에 대한 구독에서 메시지를 받습니다.

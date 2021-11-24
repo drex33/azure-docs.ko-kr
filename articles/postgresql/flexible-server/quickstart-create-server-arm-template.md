@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 ARM 템플릿을 사용하여 Azure Data
 author: mksuni
 ms.service: postgresql
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-other
 ms.author: sumuth
 ms.date: 2/11/2021
-ms.openlocfilehash: 35b64c3998180b6a051d5ed4dd8c27f36b213131
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 6667c77a3bcc16b27f52e658797d6ecfc07fef95
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693648"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066082"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---flexible-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for PostgreSQL - 유연한 서버 만들기
 

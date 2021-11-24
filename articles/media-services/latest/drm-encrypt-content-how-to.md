@@ -3,12 +3,13 @@ title: Azure Portal을 통한 콘텐츠 암호화
 description: 이 빠른 시작에서는 Azure Portal에서 Azure Media Services를 사용하여 콘텐츠에 대한 암호화를 구성하는 방법을 보여 줍니다.
 ms.topic: quickstart
 ms.date: 08/31/2020
-ms.openlocfilehash: 5ce942447f6d143116350940bda0e01a8b532d24
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom: mode-other
+ms.openlocfilehash: 4e671d66f938644e57352d9d23214c8392258084
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277681"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071489"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>빠른 시작: 포털을 사용한 콘텐츠 암호화
 
@@ -91,6 +92,10 @@ Microsoft PlayReady 및/또는 Google Widevine 또는 Apple FairPlay를 사용�
 ## <a name="cleanup-resources"></a>리소스 정리
 
 다른 빠른 시작을 시도하려면 생성된 리소스를 유지해야 합니다. 그렇지 않으면 Azure Portal로 이동하여 리소스 그룹을 찾고 이 빠른 시작을 실행한 리소스 그룹을 선택한 후 모든 리소스를 삭제합니다.
+
+
+[!INCLUDE [Warning on captions and encryption](./includes/warning-captions-encryption.md)]
+
 
 ## <a name="next-steps"></a>다음 단계
 

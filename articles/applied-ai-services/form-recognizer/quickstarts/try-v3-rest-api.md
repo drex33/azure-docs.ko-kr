@@ -9,13 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 828e1fe9b0a910fc81d5ce5f26855a6346e15988
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 9e7ee45ca119eb3003297603818e1786a1e37efc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132938118"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060597"
 ---
 # <a name="quickstart-rest-api---preview"></a>빠른 시작: REST API | 미리 보기
 
@@ -118,7 +118,7 @@ curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-docum
 
 **Operation-Location** 헤더를 포함하는 `202 (Success)` 응답을 받게 됩니다. 이 헤더 값에는 비동기 작업 상태를 쿼리하고 결과를 가져오는 데 사용할 수 있는 결과 ID가 포함되어 있습니다.
 
-https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview
+https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-09-30-preview
 
 ### <a name="get-general-document-results"></a>일반 문서 결과 가져오기
 
@@ -376,7 +376,7 @@ curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-layou
 
 **Operation-Location** 헤더를 포함하는 `202 (Success)` 응답을 받게 됩니다. 이 헤더 값에는 비동기 작업 상태를 쿼리하고 결과를 가져오는 데 사용할 수 있는 결과 ID가 포함되어 있습니다.
 
-`https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview`
+`https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-09-30-preview`
 
 ### <a name="get-layout-results"></a>레이아웃 결과 가져오기
 
@@ -434,7 +434,7 @@ curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoi
 
 **Operation-Location** 헤더를 포함하는 `202 (Success)` 응답을 받게 됩니다. 이 헤더 값에는 비동기 작업 상태를 쿼리하고 결과를 가져오는 데 사용할 수 있는 결과 ID가 포함되어 있습니다.
 
-https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview
+https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-09-30-preview
 
 ### <a name="get-invoice-results"></a>청구서 결과 가져오기
 
@@ -466,7 +466,7 @@ JSON 출력이 포함된 `200 (Success)` 응답을 받게 됩니다. 작업의 �
 미리 보기 v3.0   [목록 모델](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels) 요청은 사용자 지정 모델 외에도 미리 빌드된 모델의 페이지 단위 목록을 반환합니다. 성공 상태의 모델만 포함됩니다. [목록 작업](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations) 요청을 통해 진행 중이거나 실패한 모델을 열거할 수 있습니다. nextLink 속성을 사용하여 모델의 다음 페이지(있는 경우)에 액세스합니다. 지원되는 문서 및 해당 필드의 목록을 포함하여 반환된 각 모델에 대한 자세한 정보를 보려면 modelId를  [모델 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations) 요청에 전달합니다.
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels?api-version=2021-07-30-preview"
+curl -v -X GET "https://{endpoint}/formrecognizer/documentModels?api-version=2021-09-30-preview"
 ```
 
 ### <a name="get-a-specific-model"></a>특정 모델 가져오기
@@ -474,7 +474,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels?api-version=202
 미리 보기 v3.0 [모델 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModel)는 상태가 succeeded인 특정 모델에 대한 정보를 검색합니다. 실패한 상태 및 진행 중인 모델의 경우 [작업 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperation)를 사용하여 모델 생성 작업 및 모든 결과 오류의 상태를 추적합니다.
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-07-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-09-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 ### <a name="delete-a-model"></a>모델 삭제
@@ -482,7 +482,7 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-v
 미리 보기 v3.0 [모델 삭제](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/DeleteModel) 요청은 사용자 지정 모델을 제거하고 이후 작업에서 modelId에 더 이상 액세스할 수 없습니다.  충돌 없이 동일한 modelId를 사용하여 새 모델을 만들 수 있습니다.
 
 ```bash
-curl -v -X DELETE "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-07-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
+curl -v -X DELETE "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-09-30-preview" -H "Ocp-Apim-Subscription-Key: {subscription key}"
 ```
 
 ## <a name="next-steps"></a>다음 단계

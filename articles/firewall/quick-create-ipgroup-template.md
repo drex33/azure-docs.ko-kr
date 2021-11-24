@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 05/10/2021
 ms.author: victorh
-ms.openlocfilehash: f74340192cc79db8cf238ea4776dee42edbe51e6
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: e4c0b03f422dce50fdb0afd4dbcffa8415ad2b07
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967992"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044278"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>빠른 시작: Azure Firewall 및 IP 그룹 만들기 - ARM 템플릿
 

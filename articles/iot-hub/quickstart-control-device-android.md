@@ -6,19 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom:
-- mvc
-- mqtt
-- devx-track-java
-- devx-track-azurecli
+ms.custom: mvc, mqtt, devx-track-java, devx-track-azurecli, mode-other
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 929f402a2beb9de7e9537647542199ff68f0d32f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fbd5f11a2a306f75ff1fece3f554df7c02817daf
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747281"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058393"
 ---
 # <a name="control-a-device-connected-to-an-iot-hub-android"></a>IoT 허브(Android)에 연결된 디바이스 제어
 

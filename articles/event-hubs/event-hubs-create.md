@@ -3,13 +3,13 @@ title: Azure 빠른 시작 - Azure Portal을 사용하여 이벤트 허브 만�
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure 이벤트 허브를 만드는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 10/20/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: b08ea54d7f408f35c9a584d9608848638dead827
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-portal
+ms.openlocfilehash: f6384716e3f4823053f35175417d66d754953585
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131081337"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071938"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.

@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.date: 06/07/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 9d2326d330dca9111a68edcc81c8c45f7525c1b0
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.custom: mode-portal
+ms.openlocfilehash: 3c3b4a946ec8dba0444794fb60bc324413e4d11f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112521041"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057783"
 ---
 # <a name="quickstart-get-started-with-apache-kafka-for-confluent-cloud---azure-portal"></a>빠른 시작: Apache Kafka for Confluent Cloud 시작 - Azure Portal
 

@@ -11,12 +11,13 @@ ms.topic: quickstart
 ms.date: 06/04/2021
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 8f27b0e0bd94d2432c73039b75e28f839989dfde
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.custom: mode-other
+ms.openlocfilehash: df88752aa5b61837c660a95dea01137d744229a3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111539581"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046534"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-management-client-library"></a>빠른 시작: Azure Management 클라이언트 라이브러리를 사용하여 Cognitive Services 리소스 만들기
 

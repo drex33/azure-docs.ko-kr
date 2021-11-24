@@ -10,12 +10,13 @@ ms.topic: quickstart
 ms.date: 06/30/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
-ms.openlocfilehash: 5ef0e56dd353d1c307537eadc5be87672956b060
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.custom: mode-other
+ms.openlocfilehash: d22cb9d1f1aaa086c2c6cf74a7b5120377095d51
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132864134"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046274"
 ---
 # <a name="quickstart-authenticate-using-azure-active-directory-azure-cli"></a>빠른 시작: Azure Active Directory(Azure CLI)를 사용하여 인증
 

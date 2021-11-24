@@ -6,14 +6,14 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/12/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2966f77bb070269e11a01303204362d3b6950207
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 64ac3a5504652b71bee74855adbfbd36aee723f6
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005865"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045597"
 ---
 # <a name="introduction-to-the-sample-app"></a>샘플 앱 소개
 

@@ -3,12 +3,13 @@ title: Visual Studio Code를 사용하여 PowerShell 함수 만들기 - Azure Fu
 description: PowerShell 함수를 만든 다음, Visual Studio Code의 Azure Functions 확장을 사용하여 Azure Functions의 서버리스 호스팅에 로컬 프로젝트를 게시하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 928174e1b40319ed26156f37a297547ebd938f76
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.custom: mode-other
+ms.openlocfilehash: cab168aeb395d1b33ad5cf200ccb950e394f48d7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028644"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070618"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 PowerShell 함수 만들기
 

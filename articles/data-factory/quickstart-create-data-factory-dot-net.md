@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/27/2021
 ms.author: jingwang
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4cce29b6c3603dd8c44f1c415a56640510fb9be3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: e4dbbea154e83a36ae136a504355d4d8ff25bfac
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750982"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061889"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 

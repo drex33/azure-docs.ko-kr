@@ -5,14 +5,14 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 06/30/2021
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 077e090a95de15256f531c216a3051fdbcc35bc1
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 9050c9eb57118e18c361711120a2184ffece573d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132134204"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042986"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Azure에서 사용자 지정 컨테이너 실행
 

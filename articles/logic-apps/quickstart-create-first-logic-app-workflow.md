@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
-ms.custom: contperf-fy21q4
+ms.custom: contperf-fy21q4, mode-portal
 ms.date: 08/24/2021
-ms.openlocfilehash: 2c84bdfc2a3e7a93123d67c4532a9b255a0f989d
-ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
+ms.openlocfilehash: df4909c6ca0c257329273d830f97d390609fffec
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132813837"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058012"
 ---
 # <a name="quickstart-create-an-integration-workflow-with-multi-tenant-azure-logic-apps-and-the-azure-portal"></a>빠른 시작: Azure Portal에서 다중 테넌트 Azure Logic Apps를 사용하여 통합 워크플로 만들기
 
@@ -69,7 +69,7 @@ ms.locfileid: "132813837"
 
 1. **논리 앱 만들기** 창에서 사용할 Azure 구독을 선택하고 논리 앱 리소스에 대해 새 [리소스 그룹](../azure-resource-manager/management/overview.md#terminology)을 만들고 논리 앱 리소스에 대해 기본 세부 정보를 제공합니다.
 
-   | 속성 | 값 | Description |
+   | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | Azure 구독의 이름입니다. |
    | **리소스 그룹** | <*Azure-resource-group-name*> | [Azure 리소스 그룹](../azure-resource-manager/management/overview.md#terminology) 이름으로, 지역에서 고유해야 합니다. 이 예제에서는 “My-First-LA-RG”를 사용합니다. |

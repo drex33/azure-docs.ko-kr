@@ -7,12 +7,13 @@ ms.date: 11/09/2021
 ms.topic: quickstart
 ms.service: defender-for-cloud
 manager: rkarlin
-ms.openlocfilehash: da578e8d691a26d17a7aab329ce8263cf5066335
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.custom: mode-other
+ms.openlocfilehash: 78b77d13b1c18c872cff46669f74ce46e10b464f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132526822"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072155"
 ---
 #  <a name="connect-your-gcp-accounts-to-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender에 GCP 계정 연결
 

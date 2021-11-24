@@ -3,12 +3,13 @@ title: '빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 �
 description: 이 빠른 시작에서는 Defender for IoT 마이크로 에이전트를 설치하고 인증하는 방법을 알아봅니다.
 ms.date: 11/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: 30b8630cacdec1eebcb4b2984154a9869ce816ff
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: mode-other
+ms.openlocfilehash: db364db98f37f464859da2bb1a78283408f09c94
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132707351"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072111"
 ---
 # <a name="quickstart-install-defender-for-iot-micro-agent-preview"></a>빠른 시작: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 8430ccc747ad0c3f6fdafd9fcf35ebb58ab6b4e1
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 70e31149f4fb39f412b4c2860cf26aa7100b6890
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132863438"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070208"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스의 Kubernetes 클러스터에 Azure Arc 사용
 
@@ -97,11 +97,11 @@ Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정하기 전에 �
     ```azurecli
     PS /home/user> az ad sp create-for-rbac --name "https://azure-arc-for-ase-k8s"
     {
-      "appId": "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b",
+      "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "displayName": "azure-arc-for-ase-k8s",
       "name": "https://azure-arc-for-ase-k8s",
       "password": "<password>",
-      "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+      "tenant": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     }
     PS /home/user>
     ```
@@ -115,21 +115,20 @@ Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정하기 전에 �
     다음은 예제입니다.
     
     ```azurecli
-    PS /home/user> az role assignment create --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 --assignee aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b --scope /subscriptions/062c67a6-019b-40af-a775-c4dc1abe56ed/resourceGroups/myaserg1
+    PS /home/user> az role assignment create --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 --assignee xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myaserg1
     {
       "canDelegate": null,
-      "id": "/subscriptions/062c67a6-019b-40af-a775-c4dc1abe56ed/resourceGroups/myaserg1/providers/Microsoft.Authorization/roleAssignments/59272f92-e5ce-4aeb-9c0c-62532d8caf25",
-      "name": "59272f92-e5ce-4aeb-9c0c-62532d8caf25",
-      "principalId": "b045b3fe-8745-4097-9674-91cb0afaad91",
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myaserg1/providers/Microsoft.Authorization/roleAssignments/59272f92-e5ce-4aeb-9c0c-62532d8caf25",
+      "name": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "principalType": "ServicePrincipal",
       "resourceGroup": "myaserg1",
-      "roleDefinitionId": "/subscriptions/062c67a6-019b-40af-a775-c4dc1abe56ed/providers/Microsoft.Authorization/roleDefinitions/34e09817-6cbe-4d01-b1a2-e0eac5743d41",
-      "scope": "/subscriptions/062c67a6-019b-40af-a775-c4dc1abe56ed/resourceGroups/myaserg1",
+      "roleDefinitionId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleDefinitions/34e09817-6cbe-4d01-b1a2-e0eac5743d41",
+      "scope": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myaserg1",
       "type": "Microsoft.Authorization/roleAssignments"
     }
     PS /home/user>
     ```
-    서비스 주체를 만들고 역할 할당을 수행하는 방법에 대한 자세한 내용은 [Azure Arc 지원 온보딩 서비스 주체 만들기](../azure-arc/kubernetes/create-onboarding-service-principal.md)의 단계를 참조하세요.
 
 
 ## <a name="enable-arc-on-kubernetes-cluster"></a>Kubernetes 클러스터에서 Arc 사용
@@ -154,7 +153,7 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성하려면 다음 단
     예를 들면 다음과 같습니다.
    
     ```powershell
-    [10.100.10.10]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed&quot; -ResourceGroupName &quot;myaserg1&quot; -ResourceName &quot;myasetestresarc&quot; -Location &quot;westeurope&quot; -TenantId &quot;72f988bf-86f1-41af-91ab-2d7cd011db47&quot; -ClientId &quot;aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b"
+    [10.100.10.10]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot; -ResourceGroupName &quot;myaserg1&quot; -ResourceName &quot;myasetestresarc&quot; -Location &quot;westeurope&quot; -TenantId &quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot; -ClientId &quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     
     WARNING: A script or application on the remote computer 10.126.76.0 is sending a prompt request. When you are prompted,
     enter sensitive information, such as credentials or passwords, only if you trust the remote computer and the
@@ -173,60 +172,39 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성하려면 다음 단
 
 1. Azure Arc가 사용하도록 설정되었는지 확인하려면 PowerShell 인터페이스에서 다음 명령을 실행합니다.
 
-    `kubectl get deployments -n azure-arc`
-
-    이 명령은 Azure Arc에 해당하는 `azure-arc` 네임스페이스에 배포된 모든 애플리케이션을 찾습니다.
+    `kubectl get deployments,pods -n azure-arc`
 
     다음은 `azure-arc` 네임스페이스의 Kubernetes 클러스터에 배포된 Azure Arc 에이전트를 보여 주는 샘플 출력입니다. 
 
-
     ```powershell
-    [10.128.44.240]: PS>kubectl get deployments -n azure-arc
-    NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
-    cluster-metadata-operator   1/1     1            1           45m
-    clusteridentityoperator     1/1     1            1           45m
-    config-agent                1/1     1            1           45m
-    connect-agent               1/1     1            1           45m
-    controller-manager          1/1     1            1           45m
-    flux-logs-agent             1/1     1            1           45m
-    metrics-agent               1/1     1            1           45m
-    resource-sync-agent         1/1     1            1           45m
+    [10.128.44.240]: PS>kubectl get deployments,pods -n azure-arc
+    NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
+    deployment.apps/cluster-metadata-operator   1/1     1            1           13d
+    deployment.apps/clusterconnect-agent        1/1     1            1           13d
+    deployment.apps/clusteridentityoperator     1/1     1            1           13d
+    deployment.apps/config-agent                1/1     1            1           13d
+    deployment.apps/controller-manager          1/1     1            1           13d
+    deployment.apps/extension-manager           1/1     1            1           13d
+    deployment.apps/flux-logs-agent             1/1     1            1           13d
+    deployment.apps/kube-aad-proxy              1/1     1            1           13d
+    deployment.apps/metrics-agent               1/1     1            1           13d
+    deployment.apps/resource-sync-agent         1/1     1            1           13d
+
+    NAME                                            READY   STATUS    RESTARTS   AGE
+    pod/cluster-metadata-operator-9568b899c-2stjn   2/2     Running   0          13d
+    pod/clusterconnect-agent-576758886d-vggmv       3/3     Running   0          13d
+    pod/clusteridentityoperator-6f59466c87-mm96j    2/2     Running   0          13d
+    pod/config-agent-7cbd6cb89f-9fdnt               2/2     Running   0          13d
+    pod/controller-manager-df6d56db5-kxmfj          2/2     Running   0          13d
+    pod/extension-manager-58c94c5b89-c6q72          2/2     Running   0          13d
+    pod/flux-logs-agent-6db9687fcb-rmxww            1/1     Running   0          13d
+    pod/kube-aad-proxy-67b87b9f55-bthqv             2/2     Running   0          13d
+    pod/metrics-agent-575c565fd9-k5j2t              2/2     Running   0          13d
+    pod/resource-sync-agent-6bbd8bcd86-x5bk5        2/2     Running   0          13d
     [10.128.44.240]: PS>
     ```
 
-    `azure-arc` 네임스페이스의 Kubernetes 클러스터에서 실행되는 pod 목록을 가져올 수도 있습니다. Pod는 Kubernetes 클러스터에서 실행되는 애플리케이션 컨테이너 또는 프로세스입니다. 
-
-    다음 명령을 사용합니다.
-    
-    `kubectl get pods -n azure-arc`
-    
-    샘플 출력은 다음과 같습니다.
-    
-    ```powershell
-    [10.128.44.240]: PS>kubectl get pods -n azure-arc
-    NAME                                         READY   STATUS    RESTARTS   AGE
-    cluster-metadata-operator-64cbdf95b4-s2q52   2/2     Running   0          16m
-    clusteridentityoperator-6f6dbccf7-nwnxg      3/3     Running   0          16m
-    config-agent-7df5bf497b-mjm8k                3/3     Running   0          16m
-    connect-agent-5d4c766764-m7h46               1/1     Running   0          16m
-    controller-manager-777555fb57-t7tdp          3/3     Running   0          16m
-    flux-logs-agent-845476c899-zcmtj             2/2     Running   0          16m
-    metrics-agent-84d6fc8f4d-g9jkm               2/2     Running   0          16m
-    resource-sync-agent-8f88dbf96-zgxjj          3/3     Running   0          16m
-    [10.128.44.240]: PS>
-    ```
-
-
-위의 출력에서 볼 수 있듯이 Azure Arc 사용 Kubernetes는 네임 스페이스에 배포 된 클러스터에서 실행 되는 몇 개의 에이전트 (운영자)로 구성 됩니다 `azure-arc` .
-
-- `config-agent`: 클러스터에 적용된 원본 제어 구성 리소스에 대해 연결된 클러스터를 감시하고 호환성 상태를 업데이트합니다.
-- `controller-manager`: 연산자의 연산자이며 Azure Arc 구성 요소 간의 상호 작용을 조정합니다.
-- `metrics-agent`: 다른 Arc 에이전트의 메트릭을 수집하여 이러한 에이전트가 최적의 성능을 발휘하는지 확인합니다.
-- `cluster-metadata-operator`: 클러스터 메타데이터 - 클러스터 버전, 노드 수 및 Azure Arc 에이전트 버전을 수집합니다.
-- `resource-sync-agent`: 위에서 언급한 클러스터 메타데이터를 Azure에 동기화합니다.
-- `clusteridentityoperator`: Azure Arc 사용 Kubernetes 현재 시스템 할당 id를 지원 합니다. 다른 에이전트가 Azure와 통신하기 위해 사용하는 MSI(관리 서비스 ID) 인증서를 유지 관리합니다.
-- `flux-logs-agent`: 원본 제어 구성의 일부로 배포된 Flux 연산자에서 로그를 수집합니다.
-- `connect-agent`: Azure Arc 리소스와 통신합니다.
+이러한 에이전트에 대 한 개념적인 개요는 [여기](../azure-arc/kubernetes/conceptual-agent-overview.md)에서 확인할 수 있습니다.
 
 ### <a name="remove-arc-from-the-kubernetes-cluster"></a>Kubernetes 클러스터에서 Arc 제거
 

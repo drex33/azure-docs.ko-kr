@@ -7,12 +7,13 @@ ms.date: 06/21/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 34a232990f037e72cee97c6f185b567056cc394e
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.custom: mode-other
+ms.openlocfilehash: 5271acf46973fa517eb48a55c9949f9ed38109e1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470601"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069549"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-c"></a>빠른 시작: C++용 Azure Blob Storage 클라이언트 라이브러리 v12
 

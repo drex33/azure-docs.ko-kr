@@ -10,15 +10,15 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/04/2021
 ms.author: eur
-ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
 zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
 keywords: 의도 인식
-ms.openlocfilehash: 6627a8758aba4575abf3a977076a3e781807552a
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: a3072451f12923cd7971230ce98a81878efdfdcc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131507425"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059749"
 ---
 # <a name="get-started-with-intent-recognition"></a>의도 인식 시작
 

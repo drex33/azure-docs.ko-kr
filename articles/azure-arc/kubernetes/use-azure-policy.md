@@ -1,19 +1,19 @@
 ---
-title: Azure Policy를 사용하여 대규모로 클러스터 구성 적용
+title: Azure Policy를 사용 하 여 규모에 맞게 구성 적용
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/03/2021
+ms.date: 11/23/2021
 ms.topic: article
-description: Azure Policy를 사용하여 대규모로 클러스터 구성 적용
+description: Azure Policy를 사용 하 여 규모에 맞게 구성 적용
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: 9713f57207942c9fed5613b298ea83865ef685bd
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 90054662ab3ec39f39871cf7ffb29b6562d9de7a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132059434"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047052"
 ---
-# <a name="use-azure-policy-to-apply-gitops-configurations-at-scale"></a>Azure Policy를 사용한 대규모 GitOps 구성 적용
+# <a name="apply-configurations-at-scale-using-azure-policy"></a>Azure Policy를 사용 하 여 규모에 맞게 구성 적용
 
 Azure Policy를 사용 하 여 `Microsoft.KubernetesConfiguration/sourceControlConfigurations` Azure Arc 사용 Kubernetes 클러스터 ()에서 대규모로 구성 (리소스 유형)을 적용할 수 있습니다 `Microsoft.Kubernetes/connectedclusters` .
 

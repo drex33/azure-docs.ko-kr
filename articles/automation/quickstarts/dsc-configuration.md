@@ -6,13 +6,13 @@ ms.subservice: dsc
 keywords: DSC, 구성, 자동화
 ms.date: 09/01/2021
 ms.topic: quickstart
-ms.custom: mvc
-ms.openlocfilehash: 717c65fef046fbc005f59d9b5ff790a7cc8d821f
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.custom: mvc, mode-other
+ms.openlocfilehash: 7031eb20349656b9e212a2168b7fd5fa9ba69d5b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441670"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062789"
 ---
 # <a name="configure-a-vm-with-desired-state-configuration"></a>Desired State Configuration을 사용하여 VM 구성
 

@@ -11,12 +11,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2021
 ms.author: duau
-ms.openlocfilehash: 8c6fe355621b4f096814268dea8fd2fc8e1166a7
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.custom: mode-other
+ms.openlocfilehash: d15120cb22c68d7e576cfc9a6483ed9573b95150
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552872"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041704"
 ---
 # <a name="quickstart-create-an-azure-front-door-standardpremium-profile---azure-portal"></a>빠른 시작: Azure Front Door 표준/프리미엄 프로필 만들기 - Azure Portal
 

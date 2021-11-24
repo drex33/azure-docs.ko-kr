@@ -10,13 +10,13 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: devx-track-js
-ms.openlocfilehash: e2e423bd149c0d213872d00b10800dec5a8e96e9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: aff10eaf262a18397d7352fa673d9700901ad162
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353870"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044610"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>빠른 시작: Bing Video Search REST API 및 Node.js를 사용하여 비디오 검색
 

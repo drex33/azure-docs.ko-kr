@@ -9,13 +9,13 @@ ms.author: mijacobs
 ms.workload: web
 ms.topic: quickstart
 ms.date: 03/24/2020
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: d6d8a10dffa3801fe343b3b479265fac5612b021
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-js, mode-other
+ms.openlocfilehash: f219e721e6bc381b76d587a142084f962f751817
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556562"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059052"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Node.js용 Azure Pipelines에서 CI/CD 파이프라인 만들기
 

@@ -8,13 +8,13 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom: devx-track-csharp
-ms.openlocfilehash: a86d77252bd7618faf9e94a69e4b0d6ef1e56b08
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: 325bd2f4575d54b1d83e3b4f33abccac6c3d62a8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128651525"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061273"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>빠른 시작: .NET용 Azure Storage SDK v11을 사용하여 큐 관리
 

@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: anfeldma
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 3982a5a190200e40afcbeb7068f1571da0a182eb
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
+ms.openlocfilehash: c383d54d1c862a167ce642cc25f300f22770f089
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132757505"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059224"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>빠른 시작: Azure Cosmos DB SQL API 데이터를 관리하는 Spring Data Azure Cosmos DB v3 앱을 빌드
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]

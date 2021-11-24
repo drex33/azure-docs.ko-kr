@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 Azure Service Fabric에서 첫 번째 Wi
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
-ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 34144cf26c92dc8401f7e12526faa838784f119a
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.custom: mvc, devx-track-azurepowershell, mode-other
+ms.openlocfilehash: a6de3e8f7de40e0da51fdec45e5e908de513793c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110677355"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043466"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>빠른 시작: Windows 컨테이너를 Service Fabric에 배포
 

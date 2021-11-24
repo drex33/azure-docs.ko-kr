@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: pamela
 ms.reviewer: mathoma
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b063badd26207b7bda9f959476c2e93f71a16b9e
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: d7add8e11eb10f9d1257b0e3a79d8192b20cf9d9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130165985"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054436"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Windows 가상 머신에서 SQL Server 만들기
 

@@ -10,12 +10,13 @@ ms.topic: quickstart
 ms.date: 09/16/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 051e218b8c0bce8249c6fbe3dd785d797130b61f
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.custom: mode-other
+ms.openlocfilehash: a35aa09e277fdf173960b3eb951e63c7eb92e1ca
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130062731"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072518"
 ---
 # <a name="get-started-with-document-translation"></a>문서 번역 시작
 

@@ -4,16 +4,16 @@ description: Azure Database for MySQL 데이터베이스에서 Java 및 JDBC를 
 author: jdubois
 ms.author: judubois
 ms.service: mysql
-ms.custom: mvc, devcenter, devx-track-azurecli
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-other
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: c1e7cbcdbaeb375e733a3e05ebd4998c1d2160a6
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: afb74f20cbb5449f47ea1141c1b835ad24520777
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113285815"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057798"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-mysql"></a>빠른 시작: Azure Database for MySQL에서 Java 및 JDBC 사용
 

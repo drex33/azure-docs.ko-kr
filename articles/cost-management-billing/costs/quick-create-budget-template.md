@@ -8,13 +8,13 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 10/07/2021
-ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: ac32afdf2197c32f43c94c6b0126688ed363902f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.openlocfilehash: 57e80293c7b3e40ec37c75839479470c25944bb2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711384"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059037"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 예산 만들기
 

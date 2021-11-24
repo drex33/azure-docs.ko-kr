@@ -3,12 +3,13 @@ title: Azure Portal을 사용하여 Event Hubs 전용 클러스터 만들기
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Event Hubs 클러스터를 만드는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 09/28/2021
-ms.openlocfilehash: 758110a0dcffc8f9ea8a802ac5cbac2c6ffb39b8
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.custom: mode-portal
+ms.openlocfilehash: 020ff97c2be6ae0e349bdc6546dfdf39cae9e12e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231214"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071876"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 Event Hubs 클러스터 만들기 
 Event Hubs 클러스터는 스트리밍 요구 사항이 가장 까다로운 고객을 위한 단일 테넌트 배포를 제공합니다. 이 제품은 99.99% SLA를 보장하며 Dedicated 가격 책정 계층에서만 사용할 수 있습니다. 용량을 보장하고 대기 시간이 1초 미만에 불과한 [Event Hubs 클러스터](event-hubs-dedicated-overview.md)는 초당 수백만 개의 이벤트를 수신할 수 있습니다. 클러스터 내부에 생성되는 네임스페이스 및 이벤트 허브는 프리미엄 제품의 모든 기능을 포함하고 있으며, 수신 제한도 없습니다. Dedicated 제품은 인기 있는 [Event Hubs 캡처](event-hubs-capture-overview.md) 기능을 추가 비용 없이 사용할 수 있으므로, 자동으로 데이터 스트림을 일괄 처리하여 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 또는 [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)에 기록할 수 있습니다.

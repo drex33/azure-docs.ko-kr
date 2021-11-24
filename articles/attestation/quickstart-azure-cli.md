@@ -7,22 +7,23 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 648317c6e534d7f6af84704e9dd2b2fb603806ee
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.custom: mode-api
+ms.openlocfilehash: 933f8b4ac0fbbeb26bdb9e0e65fc4050175dd41f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016314"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042401"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Attestation 설정
 
 [Azure CLI를 사용하여 Azure Attestation](/cli/azure/attestation)을 시작합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 1. 아래 CLI 명령을 사용하여 이 확장을 설치합니다.
 

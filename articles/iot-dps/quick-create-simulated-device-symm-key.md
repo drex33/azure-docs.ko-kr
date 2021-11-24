@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.custom: mvc
+ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set1
-ms.openlocfilehash: 5e559ef1f61e5ed56676ddc98e5e8b6eabba68cc
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 7a3c3273e7ae5d6f179311da9cfd1ce9e7aaee5f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132763946"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058601"
 ---
 # <a name="quickstart-provision-a-simulated-symmetric-key-device"></a>빠른 시작: 시뮬레이션된 대칭 키 디바이스 프로비저닝
 

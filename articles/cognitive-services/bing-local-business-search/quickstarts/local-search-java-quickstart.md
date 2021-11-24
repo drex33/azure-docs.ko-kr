@@ -10,13 +10,13 @@ ms.date: 05/12/2020
 ms.topic: quickstart
 ms.service: cognitive-services
 ms.subservice: bing-local-business
-ms.custom: devx-track-java, mode-api
-ms.openlocfilehash: 5c575f2a8789620ae2acd73e4fc879a550d28307
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-java, mode-other
+ms.openlocfilehash: eb5456f8a7aac6d08bb7f75045c7cdeb5ba09d5a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131051233"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072426"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>빠른 시작: Java를 사용하여 Bing Local Business Search API에 쿼리 보내기
 

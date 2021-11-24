@@ -3,13 +3,13 @@ title: ARM 템플릿 배포 문제 해결을 참조하세요.
 description: ARM 템플릿(Azure Resource Manager 템플릿) 배포 오류 문제를 해결하는 방법에 대해 알아봅니다.
 ms.date: 11/08/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ce9bf9ee097a41b3e3ecbc0cd515dd58cf30ea82
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 08d6e9bc31779a98c41c766eaf0f6a7599814df9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062061"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064754"
 ---
 # <a name="quickstart-troubleshoot-arm-template-deployments"></a>빠른 시작: ARM 템플릿 배포 문제 해결
 

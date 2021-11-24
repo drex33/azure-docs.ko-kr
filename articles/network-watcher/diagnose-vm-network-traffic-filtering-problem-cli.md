@@ -16,13 +16,13 @@ ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: kumud
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 701df4353e8d2e36baf0496bd6944c4a95395414
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: mvc, devx-track-azurecli, mode-other
+ms.openlocfilehash: 9b4a69abdef6cb6931867097cbacd6cea5b41640
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763272"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071305"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>빠른 시작: 가상 머신 네트워크 트래픽 필터 문제 진단 - Azure CLI
 

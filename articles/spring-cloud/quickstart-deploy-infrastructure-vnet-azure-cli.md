@@ -5,15 +5,15 @@ services: azure-cli
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, devx-track-java
+ms.custom: devx-track-azurecli, devx-track-java, mode-api
 ms.author: vramasubbu
 ms.date: 11/12/2021
-ms.openlocfilehash: 967303cc675ebc6537630f08e6871f5b32cf6af4
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: d28e21ee7d4e601002fc54a9e06fa7ed27493f63
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132488833"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061395"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Spring Cloud 프로비저닝
 

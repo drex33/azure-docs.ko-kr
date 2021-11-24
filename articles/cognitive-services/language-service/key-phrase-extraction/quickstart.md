@@ -10,15 +10,15 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-key-phrase, ignite-fall-2021
+ms.custom: language-service-key-phrase, ignite-fall-2021, mode-other
 keywords: 텍스트 마이닝, 핵심 구
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 487c2d44ff8e17e9cca54b1b2b60a04f59accd33
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: b652b8045a9fe6ac8a35d33e03fe73a6ca076daa
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131100897"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072384"
 ---
 # <a name="quickstart-using-the-key-phrase-extraction-client-library-and-rest-api"></a>빠른 시작: 핵심 구 추출 클라이언트 라이브러리 및 REST API 사용
 

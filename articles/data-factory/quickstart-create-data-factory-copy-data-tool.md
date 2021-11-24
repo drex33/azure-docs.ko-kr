@@ -7,12 +7,13 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: quickstart
 ms.date: 07/05/2021
-ms.openlocfilehash: 2bde0d03c901808e277044db035dc738bb555bb0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-other
+ms.openlocfilehash: e6f5140bfe11898018e3e5f491ed9c6785345227
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750352"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070350"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>빠른 시작: 데이터 복사 도구를 사용하여 데이터 복사
 

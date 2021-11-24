@@ -6,14 +6,14 @@ ms.author: pariks
 ms.service: mysql
 ms.devlang: ruby
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.date: 5/26/2020
-ms.openlocfilehash: b250d7895e878cb1d422903517337a0eed160757
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 533b2c761b2024d0d511cef7228dff592b022958
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643624"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055775"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Ruby를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 

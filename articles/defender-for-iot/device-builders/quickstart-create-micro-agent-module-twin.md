@@ -3,12 +3,13 @@ title: '빠른 시작: Defender for IoT 마이크로 에이전트 모듈 쌍 생
 description: 이 빠른 시작에서는 새 디바이스의 개별 DefenderIotMicroAgent 모듈 쌍을 만드는 방법에 대해 알아봅니다.
 ms.date: 11/09/2021
 ms.topic: quickstart
-ms.openlocfilehash: 3d2829b1d779ab4db711ab590c0da4760a44aefe
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: mode-other
+ms.openlocfilehash: 5926e7e84df3abd508e420258ead6caaf0f23d0e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132709270"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069998"
 ---
 # <a name="quickstart-create-a-defender-for-iot-micro-agent-module-twin-preview"></a>빠른 시작: Defender for IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
 

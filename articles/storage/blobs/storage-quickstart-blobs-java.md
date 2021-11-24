@@ -2,18 +2,18 @@
 title: '빠른 시작: Azure Blob Storage 라이브러리 v12 - Java'
 description: 이 빠른 시작에서는 Java용 Azure Blob Storage 클라이언트 라이브러리 버전 12를 사용하여 Blob(개체) 스토리지에서 컨테이너 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 컨테이너의 모든 Blob을 나열하는 방법을 알아봅니다.
 author: normesta
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: normesta
 ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 74fd04281b27c66861de686a03d2dd26031f0349
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4c7fed047b69808b713d8e9934dcf27479a6eeb3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128562572"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069543"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>빠른 시작: Java v12 SDK로 Blob 관리
 

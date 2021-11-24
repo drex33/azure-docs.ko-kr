@@ -3,14 +3,14 @@ title: '빠른 시작: Azure Portal을 사용하여 HDInsight에서 Spark 클러
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure HDInsight에서 Apache Spark 클러스터를 만들고 Spark SQL 쿼리를 실행하는 방법을 보여줍니다.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.date: 02/25/2020
-ms.openlocfilehash: 145dffea50040c86a4af9d77ba8f68cccc8d2958
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 2198ad50fac42174ff78f4fc05851bf36b019621
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104866049"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058815"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Spark 클러스터 만들기
 
@@ -41,7 +41,7 @@ Azure Portal을 사용하여 Azure Storage Blob을 클러스터 스토리지로 
 
 1. **기본** 탭에서 다음 정보를 제공합니다.
 
-    |속성  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |Subscription  | 드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다. |
     |Resource group | 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|
@@ -59,7 +59,7 @@ Azure Portal을 사용하여 Azure Storage Blob을 클러스터 스토리지로 
 
 1. **스토리지** 에서 다음 값을 입력합니다.
 
-    |속성  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |기본 스토리지 유형|기본값 **Azure Storage** 를 사용합니다.|
     |선택 방법|기본값 **목록에서 선택** 을 사용합니다.|

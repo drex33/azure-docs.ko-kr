@@ -10,14 +10,14 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-summarization, ignite-fall-2021
+ms.custom: language-service-summarization, ignite-fall-2021, mode-other
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 11c8f5034237e5159834144d4184e2e3a637d265
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bf7581560573b381dfa3ec7e705c60e9b3883beb
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029518"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072326"
 ---
 # <a name="quickstart-using-the-text-summarization-client-library-and-rest-api-preview"></a>빠른 시작: 텍스트 요약 클라이언트 라이브러리 및 REST API 사용(미리 보기)
 

@@ -2,13 +2,13 @@
 title: 템플릿 함수
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 값을 검색하고 문자열과 숫자로 작업하며 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
 ms.topic: conceptual
-ms.date: 08/31/2021
-ms.openlocfilehash: a094bfca418cfb2ab28fd0c80b19e580cab76024
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
-ms.translationtype: HT
+ms.date: 11/23/2021
+ms.openlocfilehash: 7d9e2f5ed8d08fa83a0cb7b4536a9261839dc4c0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310366"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060444"
 ---
 # <a name="arm-template-functions"></a>ARM 템플릿 함수
 
@@ -160,9 +160,7 @@ Resource Manager는 개체 작업을 위한 여러 함수를 제공합니다.
 <a id="list" aria-hidden="true"></a>
 <a id="providers" aria-hidden="true"></a>
 <a id="reference" aria-hidden="true"></a>
-<a id="resourcegroup" aria-hidden="true"></a>
 <a id="resourceid" aria-hidden="true"></a>
-<a id="subscription" aria-hidden="true"></a>
 <a id="subscriptionResourceId" aria-hidden="true"></a>
 <a id="tenantResourceId" aria-hidden="true"></a>
 
@@ -178,11 +176,23 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 * [pickZones](template-functions-resource.md#pickzones)
 * [공급자(사용되지 않음)](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup) - 리소스 그룹에 대한 배포에서만 사용할 수 있습니다.
 * [resourceId](template-functions-resource.md#resourceid) - 모든 범위에서 사용할 수 있지만 유효한 매개 변수는 범위에 따라 변경됩니다.
-* [구독](template-functions-resource.md#subscription) - 리소스 그룹 또는 구독에 대한 배포에서만 사용할 수 있습니다.
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
+
+<a id="managementgroup" aria-hidden="true"></a>
+<a id="resourcegroup" aria-hidden="true"></a>
+<a id="subscription" aria-hidden="true"></a>
+<a id="tenant" aria-hidden="true"></a>
+
+## <a name="scope-functions"></a>범위 함수
+
+리소스 관리자에서는 배포 범위 값을 가져오기 위한 다음 함수를 제공 합니다.
+
+* [managementGroup](template-functions-scope.md#managementgroup) -관리 그룹에 대 한 배포에만 사용할 수 있습니다.
+* [resourceGroup](template-functions-scope.md#resourcegroup) - 리소스 그룹에 대한 배포에서만 사용할 수 있습니다.
+* [구독](template-functions-scope.md#subscription) - 리소스 그룹 또는 구독에 대한 배포에서만 사용할 수 있습니다.
+* [테 넌 트](template-functions-scope.md#tenant) -모든 범위에서 배포에 사용할 수 있습니다.
 
 <a id="base64" aria-hidden="true"></a>
 <a id="base64tojson" aria-hidden="true"></a>

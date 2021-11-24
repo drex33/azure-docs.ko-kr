@@ -8,15 +8,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc,subject-armqs, devx-track-azurepowershell
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 04/27/2021
 ms.author: jgao
-ms.openlocfilehash: 0a323b8cb0d305a0ac4fc3608748027c075f0238
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: f49c06654700112fc3e69a848f76d46a8c28e23c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007466"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067052"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Key Vault에서 비밀 설정 및 검색
 

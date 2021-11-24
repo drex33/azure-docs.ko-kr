@@ -7,17 +7,17 @@ ms.reviewer: ''
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.openlocfilehash: 916013d7bde10e63985324d736a755183200bf3e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/22/2021
+ms.openlocfilehash: c643ca2b1f7c6f1c30218d5dd75553822323f948
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131079361"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071608"
 ---
 # <a name="create-a-power-bi-visual-offer"></a>Power BI 시각적 개체 제안 만들기
 
-이 문서에서는 파트너 센터 사용하여 다른 사람들이 검색하고 사용할 수 있도록 Microsoft AppSource [Power BI](https://appsource.microsoft.com) 시각적 개체 제안을 제출하는 방법을 설명합니다.
+이 문서에서는 파트너 센터 사용하여 다른 사람들이 검색하고 사용할 수 있도록 Microsoft AppSource [Power BI](https://appsource.microsoft.com) 시각적 제안을 제출하는 방법을 설명합니다.
 
 시작하기 전에 [파트너 센터](./create-account.md)에서 상업용 Marketplace 계정을 만들고 상업용 Marketplace 프로그램에 해당 계정이 등록되어 있는지 확인합니다.
 
@@ -27,29 +27,15 @@ ms.locfileid: "131079361"
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
-
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 
 1. 홈페이지에서 **Marketplace 상품** 타일을 선택합니다.
 
     [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-1. Marketplace 제안 페이지에서 **+ 새 제안** Power BI 시각적  >  **개체를** 선택합니다.
+1. Marketplace 제안 페이지에서 **+ 새 제안** Power BI  >  **시각적** 개체를 선택합니다.
 
     [![왼쪽 창 메뉴 옵션과 '새 제안' 단추를 표시합니다. ](media/power-bi-visual/new-offer-power-bi-visual-workspaces.png) ](media/power-bi-visual/new-offer-power-bi-visual-workspaces.png#lightbox)
-
-#### <a name="current-view"></a>[현재 보기](#tab/current-view)
-
-1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
-1. 개요 페이지에서 + **새 제안**  >  **Power BI 시각적 개체를** 선택합니다.
-
-    :::image type="content" source="media/power-bi-visual/new-offer-power-bi-visual.png" alt-text="왼쪽 창 메뉴 옵션과 '새 제안' 단추를 표시합니다.":::
-
----
 
 > [!IMPORTANT]
 > 제안이 게시되면 파트너 센터 편집한 내용은 제안을 다시 게시한 후에만 AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.

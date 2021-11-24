@@ -9,12 +9,13 @@ ms.topic: quickstart
 author: dphansen
 ms.author: davidph
 ms.date: 05/06/2021
-ms.openlocfilehash: 91732c44833b23f01295e2f5ca1718bbcb5dd2aa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mode-other
+ms.openlocfilehash: 7658a2431d672c218acb9d4ea4bf106a3884d877
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739747"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056633"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>ONNX 모델 및 SQL 기계 학습을 통해 배포 및 예측
 

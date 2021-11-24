@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: e6b17fd09f310cf7b2e78b85efef79baed08662a
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: dedc2e8d587d7c7baecb5b7c26ff887b9df6aa57
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132942064"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066833"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra"></a>빠른 시작 - Azure Managed Instance for Apache Cassandra를 사용하여 하이브리드 클러스터 구성
 

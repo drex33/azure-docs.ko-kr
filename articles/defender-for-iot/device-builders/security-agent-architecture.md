@@ -3,12 +3,13 @@ title: '빠른 시작: 보안 에이전트 개요'
 description: 이 빠른 시작에서는 Microsoft Defender for IoT 서비스에서 사용되는 에이전트의 보안 에이전트 아키텍처를 이해하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.openlocfilehash: 0fba4f592bdfa0ca055fcccb4808bb8d5dbd37b5
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-other
+ms.openlocfilehash: ac1ab556544622636dfda767dbf7e892e9d6628a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132281763"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072100"
 ---
 # <a name="quickstart-security-agent-reference-architecture"></a>빠른 시작: 보안 에이전트 참조 아키텍처
 

@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: anfeldma
-ms.custom: devx-track-js
-ms.openlocfilehash: f346c7d59aebe3dd5aed95ea29a835bc78cb0e0d
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: d34d154ad063b2da9805135b27cd1ab097cf5af2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132761191"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059256"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>빠른 시작: Node.js를 사용하여 Azure Cosmos DB SQL API 계정에 연결하고 데이터 쿼리
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]

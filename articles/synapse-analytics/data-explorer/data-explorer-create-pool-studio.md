@@ -9,13 +9,13 @@ ms.reviewer: shsagir
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 59a22c976650ea0f7aed7ca3eb2da72702aef5bf
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 6ec7cb18f50222c17fb7b3c4223d74cb0c982b6a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131424782"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071243"
 ---
 # <a name="quickstart-create-a-data-explorer-pool-using-synapse-studio-preview"></a>빠른 시작: Synapse Studio를 사용하여 Data Explorer 풀 만들기(미리 보기)
 

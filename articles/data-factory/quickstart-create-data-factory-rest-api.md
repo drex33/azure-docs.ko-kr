@@ -8,13 +8,13 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 05/31/2021
 ms.author: jingwang
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1fb0686d975c2342bcd562e75f739d83ee0a51f6
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: b70091032c6801894099e366dea53c7d13177d12
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681538"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070262"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>빠른 시작: REST API를 사용하여 Azure Data Factory 및 파이프라인 만들기
 

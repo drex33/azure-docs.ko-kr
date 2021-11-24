@@ -7,12 +7,12 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: d8dd4379b77e0a565d03d526d8cd987c9e39cb3c
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 84d3d72acf178b95e41a79bbdb7614cb33de76e2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132759006"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066015"
 ---
 # <a name="connect-to-azure-blob-storage-in-azure-purview"></a>Azure 부서의 범위에서 Azure Blob storage로 커넥트
 
@@ -22,9 +22,9 @@ ms.locfileid: "132759006"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register) | [예](#scan)|[예](#scan) | [예](#scan)|[예](#scan)| 예 | 제한 됨 * * |
+| [예](#register) | [예](#scan)|[예](#scan) | [예](#scan)|[예](#scan)| [예](#access-policy) | 제한 됨 * * |
 
-\**데이터 세트가 [데이터 팩터리 복사 작업](how-to-link-azure-data-factory.md)에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다. 
+\**데이터 세트가 [데이터 팩터리 복사 작업에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다](how-to-link-azure-data-factory.md). 
 
 csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때 스키마가 추출됩니다.
 
@@ -58,7 +58,7 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sources.png" alt-text="데이터 맵의 원본 링크로 이동하는 스크린샷":::
 
-1. **컬렉션 메뉴를** 사용 하 여 [컬렉션 계층 구조](./quickstart-create-collection.md) 를 만들고 필요에 따라 개별 하위 컬렉션에 사용 권한을 할당 합니다.
+1. **컬렉션** 메뉴를 사용하여 [컬렉션 계층 구조](./quickstart-create-collection.md)를 만들고, 필요에 따라 권한을 개별 하위 컬렉션에 할당합니다.
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-collections.png" alt-text="컬렉션 계층 구조를 만드는 컬렉션 메뉴를 보여 주는 스크린샷":::
 
@@ -89,7 +89,7 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 > [!Note]
 > 저장소 계정에 대해 방화벽을 사용 하도록 설정한 경우에는 검색을 설정할 때 관리 id 인증 방법을 사용 해야 합니다.
 
-- **시스템 할당 관리 id (권장)** -Azure 부서의 범위 계정이 생성 되 면 azure AD 테 넌 트에서 시스템 할당 관리 ID (SAMI)가 자동으로 만들어집니다. 리소스 유형에 따라 검색을 수행 하는 데 Azure 부서의 범위 SAMI에 특정 RBAC 역할 할당이 필요 합니다.
+- **시스템 할당 관리 id (권장)** -Azure 부서의 범위 계정이 생성 되 면 azure AD 테 넌 트에서 시스템 할당 관리 ID (SAMI)가 자동으로 만들어집니다. 리소스 종류에 따라 Azure Purview SAMI에서 검사를 수행하려면 특정 RBAC 역할 할당이 필요합니다.
 
 - **사용자 할당 관리 id** (미리 보기)-시스템 관리 Id와 마찬가지로 UAMI (사용자 할당 관리 id)는 Azure 부서의 범위가 Azure Active Directory에 대해 인증 하도록 허용 하는 데 사용할 수 있는 자격 증명 리소스입니다. 자세한 내용은 [사용자 할당 관리 id 가이드](manage-credentials.md#create-a-user-assigned-managed-identity)를 참조 하세요.
 
@@ -100,7 +100,7 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 
 - **서비스 주체** - 이 방법에서는 Azure Active Directory 테넌트에서 새 서비스 주체를 만들거나 기존 서비스 주체를 사용할 수 있습니다.
 
-#### <a name="using-a-system-or-user-assigned-managed-identity-for-scanning"></a>검색에 시스템 또는 사용자 할당 관리 id 사용
+#### <a name="using-a-system-or-user-assigned-managed-identity-for-scanning"></a>검색에 시스템 또는 사용자 할당 관리 ID 사용
 
 부서의 범위 계정에 Azure Blob 데이터 원본을 검색할 수 있는 권한을 부여 하는 것이 중요 합니다. 필요한 수준 스캔 권한에 따라 구독, 리소스 그룹 또는 리소스 수준에서 SAMI 또는 UAMI에 대 한 액세스를 추가할 수 있습니다.
 
@@ -183,7 +183,7 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 > [!Note]
 > Azure 리소스에 서비스 주체를 추가할 수 있으려면 구독의 소유자이어야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)카탈로그에서 검색할 수 있도록 허용할 구독, 리소스 그룹 또는 리소스(예: Azure Blob Storage 스토리지 계정)를 찾습니다.
+1. [Azure Portal](https://portal.azure.com)에서 카탈로그가 검색할 수 있도록 허용할 구독, 리소스 그룹 또는 리소스(예: Azure Blob Storage 스토리지 계정)를 찾습니다.
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-storage-acct.png" alt-text="스토리지 계정을 보여 주는 스크린샷":::
 
@@ -191,7 +191,7 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-access-control.png" alt-text="스토리지 계정에 대한 액세스 제어를 보여 주는 스크린샷":::
 
-1. **역할을** **Blob 데이터 읽기 Storage** 설정하고 입력 **선택** 상자에 _서비스 주체를_ 입력합니다. 그런 다음, **저장** 을 선택하여 Purview 계정에 이 역할을 할당합니다.
+1. **역할을** **Blob 데이터 판독기를 Storage** 입력 **선택** 상자에 _서비스 주체를_ 입력합니다. 그런 다음, **저장** 을 선택하여 Purview 계정에 이 역할을 할당합니다.
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sp-permission.png" alt-text="서비스 주체에 스토리지 계정 권한을 제공하는 세부 정보를 보여 주는 스크린샷":::
 
@@ -265,7 +265,7 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-scan-details.png" alt-text="검사 세부 정보 보기":::
 
-1. 전체 검색이 성공적으로 실행되면 **마지막 실행 상태가** 진행 **중으로** 업데이트된 다음 **완료됨으로** 업데이트됩니다.
+1. 전체 검사가 성공적으로 실행되면 **마지막 실행 상태** 가 **진행 중** 으로 업데이트된 다음, **완료됨** 으로 업데이트됩니다.
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-scan-in-progress.png" alt-text="진행 중인 검사 보기":::
 
@@ -286,6 +286,12 @@ csv, tsv, psv, ssv와 같은 파일 형식의 경우 다음 논리가 있을 때
 1. _증분 검사_ 또는 _전체 검사_ 를 다시 실행할 수 있습니다. 
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-full-inc-scan.png" alt-text="전체 또는 증분 검사":::
+
+## <a name="access-policy"></a>액세스 정책
+[!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
+[!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
+
+이 구성 가이드에 따라 [Azure Storage 계정에서 액세스 정책을 사용하도록 설정합니다.](./how-to-access-policies-storage.md)
 
 ## <a name="next-steps"></a>다음 단계
 

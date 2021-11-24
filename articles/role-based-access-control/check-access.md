@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5e4f3314ba580dddbd995855bc0f0512b7597107
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: contperf-fy21q2, mode-other
+ms.openlocfilehash: d4460d21173890e7169c4a67a6eeabd57191ec64
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98115741"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057671"
 ---
 # <a name="quickstart-check-access-for-a-user-to-azure-resources"></a>빠른 시작: Azure 리소스에 대한 사용자 액세스 확인
 

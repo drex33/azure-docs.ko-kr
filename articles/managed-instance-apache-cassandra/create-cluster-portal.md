@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021, mode-portal
-ms.openlocfilehash: 54a7fd497b95e8c526c0717de60de6f31f12a666
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 88c2d21472efda6cb96d64173a891cc0ef48c57a
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/24/2021
-ms.locfileid: "133066736"
+ms.locfileid: "133096944"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Managed Instance for Apache Cassandra 클러스터 만들기
 
@@ -149,8 +149,8 @@ sudo apt-get install cassandra
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
 
-# Connect to CQLSH (replace <IP> with the private IP addresses of the nodes in your Datacenter):
-host=("<IP>" "<IP>" "<IP>")
+# Connect to CQLSH (replace <IP> with the private IP addresses of a node in your Datacenter):
+host=("<IP>")
 initial_admin_password="Password provided when creating the cluster"
 cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 ```

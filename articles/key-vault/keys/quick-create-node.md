@@ -7,13 +7,13 @@ ms.date: 12/6/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-js
-ms.openlocfilehash: 82cca0492aba30b8bf04a8d3fe4c9c4c7d5be5a1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: b7fdc002dd9ca928bec860f8e5eb6610a6f84d75
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124775166"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058082"
 ---
 # <a name="quickstart-azure-key-vault-key-client-library-for-javascript-version-4"></a>빠른 시작: JavaScript용 Azure Key Vault 클라이언트 라이브러리(버전 4)
 

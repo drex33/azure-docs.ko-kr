@@ -8,19 +8,18 @@ documentationcenter: vs-devops-build
 author: georgewallace
 manager: gwallace
 editor: ''
-ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/23/2021
 ms.author: gwallace
-ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 4138ad215ed1e9cef9d2f0e4965d1b97d802a845
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.custom: devx-track-csharp, mvc, mode-other
+ms.openlocfilehash: 2cfcec769c6b4c148924fcf19670e04f2ad1928c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132053957"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069940"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 .NET용 CI/CD 파이프라인 만들기
 

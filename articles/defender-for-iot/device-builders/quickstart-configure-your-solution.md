@@ -3,12 +3,13 @@ title: '빠른 시작: IoT 솔루션에 Azure 리소스 추가'
 description: 이 빠른 시작에서는 Microsoft Defender for IoT를 사용하여 엔드투엔드 IoT 솔루션을 구성하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.openlocfilehash: 2ac4a91870f9a8ed0a0df2d9b4f8e904806eb482
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-other
+ms.openlocfilehash: 1829d7ef152880c36f83a63c421b9ccc38fe462c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132283907"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069960"
 ---
 # <a name="quickstart-configure-your-microsoft-defender-for-iot-solution"></a>빠른 시작: Microsoft Defender for IoT 솔루션 구성
 

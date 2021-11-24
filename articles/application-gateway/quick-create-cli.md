@@ -8,13 +8,13 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 06/14/2021
 ms.author: victorh
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9c0b3f488ac71473e9fbec1a2482deda25bed555
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
+ms.openlocfilehash: d916c8271c97dbee2704163554c34fb720272d92
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779555"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054712"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure CLI
 
@@ -198,4 +198,3 @@ az group delete --name myResourceGroupAG
 
 > [!div class="nextstepaction"]
 > [Azure CLI를 사용하여 애플리케이션 게이트웨이로 웹 트래픽 관리](./tutorial-manage-web-traffic-cli.md)
-

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: 320f9ef1285f16a3f7b38b3b4be3e5c51eff269f
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
-ms.translationtype: HT
+ms.openlocfilehash: 6d526155c87397668df2e501091b342740ad4894
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113729807"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964710"
 ---
 # <a name="system-requirements"></a>시스템 요구 사항
 
@@ -19,7 +19,7 @@ ms.locfileid: "113729807"
 
 ## <a name="development-pc"></a>개발 PC
 
-* Windows 10 버전 1903 이상
+* Windows 10 버전 1903 이상 또는 Windows 11.
 * 최신 그래픽 드라이버
 * 선택 사항: [H265 하드웨어 비디오 디코더](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7)(예: Unity에서 원격으로 렌더링된 콘텐츠의 로컬 미리 보기를 사용하려는 경우)
 
@@ -43,6 +43,8 @@ ms.locfileid: "113729807"
 ## <a name="devices"></a>디바이스
 
 Azure Remote Rendering은 현재 대상 디바이스로 **HoloLens 2** 및 Windows 데스크톱만 지원합니다. [플랫폼 제한 사항](../reference/limits.md#platform-limitations) 섹션을 참조하세요.
+
+데스크톱에서 Azure Remote Rendering 애플리케이션을 실행할 수 있으려면 최신 [Microsoft Visual C++ 재배포 가능 패키지를](https://aka.ms/vs/17/release/vc_redist.x64.exe) 설치해야 합니다.
 
 최신 버전의 HEVC 코덱은 대기 시간을 크게 단축시킬 수 있으므로 최신 HEVC 코덱을 사용하는 것이 중요합니다. 디바이스에 설치된 버전을 확인하려면 다음을 수행합니다.
 

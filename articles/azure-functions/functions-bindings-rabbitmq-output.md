@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: de6c5528bb62cecb130667b2e80a8884c7608a58
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e399d4ff1f9d49b12df3aa533bc81f082a9f43c2
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807087"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964190"
 ---
 # <a name="rabbitmq-output-binding-for-azure-functions-overview"></a>Azure Functions에 대한 RabbitMQ 출력 바인딩 개요
 
@@ -153,7 +153,7 @@ JavaScript 코드는 다음과 같습니다.
 
 ```javascript
 module.exports = function (context, input) {
-    context.bindings.myQueueItem = input.body;
+    context.bindings.outputMessage = input.body;
     context.done();
 };
 ```

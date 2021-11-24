@@ -3,12 +3,12 @@ title: 게스트 구성에 대한 PowerShell Desired State Configuration의 동�
 description: 이 문서에서는 Azure Policy를 통해 컴퓨터에 구성 변경 내용을 제공하는 데 사용되는 플랫폼의 개요를 제공합니다.
 ms.date: 05/31/2021
 ms.topic: how-to
-ms.openlocfilehash: 6118ec0ce0bb8b0296153d32dbad559a6b53ebb8
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 74b9264a0cd8ceb2203bd236c70ffd3ef1685e28
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130261865"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964247"
 ---
 # <a name="changes-to-behavior-in-powershell-desired-state-configuration-for-guest-configuration"></a>게스트 구성에 대한 PowerShell Desired State Configuration의 동작 변경 사항
 
@@ -190,14 +190,14 @@ class Example {
 
 ## <a name="known-compatibility-issues-with-supported-modules"></a>지원되는 모듈의 알려진 호환성 문제
 
-`PsDscResources`PowerShell 갤러리 모듈 및 `PSDesiredStateConfiguration` Windows 함께 사용되는 모듈은 Microsoft에서 지원되며 DSC에 일반적으로 사용되는 리소스 집합입니다. DSCv3용 `PSDscResources` 모듈이 업데이트될 때까지, 다음과 같은 알려진 호환성 문제에 유의해야 합니다.
+`PsDscResources`PowerShell 갤러리 모듈 및 `PSDesiredStateConfiguration` Windows와 함께 제공 되는 모듈은 Microsoft에서 지원 되며 DSC에 일반적으로 사용 되는 리소스 집합입니다. DSCv3용 `PSDscResources` 모듈이 업데이트될 때까지, 다음과 같은 알려진 호환성 문제에 유의해야 합니다.
 
-- `PSDesiredStateConfiguration`Windows 함께 있는 모듈의 리소스를 사용하지 마세요. 대신 `PSDscResources`로 전환합니다.
-- 에서 및 리소스를 사용하지 `WindowsFeature` `WindowsFeatureSet` `PsDscResources` 마세요. 대신 `WindowsOptionalFeature` 및 `WindowsOptionalFeatureSet` 리소스로 전환합니다.
+- `PSDesiredStateConfiguration`Windows와 함께 제공 되는 모듈의 리소스를 사용 하지 마세요. 대신 `PSDscResources`로 전환합니다.
+- `WindowsFeature`에서,, `WindowsFeatureSet` `WindowsOptionalFeature` 및 `WindowsOptionalFeatureSet` 리소스를 사용 하지 마세요 `PsDscResources` . Windows Server의 PowerShell 7.1.3에서 모듈을 로드 하는 데 알려진 문제가 있습니다 .이 문제는 `DISM` 업데이트가 필요 합니다.
   
-Linux용 DSC 리포지션에 포함된 [Linux용](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers) "nx" 리소스는 C 및 Python 언어의 조합으로 작성되었습니다. Linux에서 DSC에 대한 경로는 PowerShell을 사용하는 것이므로 기존 "nx" 리소스는 DSCv3과 호환되지 않습니다. Linux에 대해 지원되는 리소스를 포함하는 새 모듈을 사용할 수 있게 될 때까지 사용자 지정 리소스를 작성해야 합니다.
+[Linux 용 DSC](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers) 리포지토리에 포함 된 linux 용 "nx" 리소스는 언어 C와 Python을 조합 하 여 작성 되었습니다. Linux에서 DSC에 대 한 경로 앞에서 PowerShell을 사용 하기 때문에 기존 "nx" 리소스는 DSCv3와 호환 되지 않습니다. Linux에 대해 지원 되는 리소스를 포함 하는 새 모듈을 사용할 수 있을 때까지 사용자 지정 리소스를 작성 해야 합니다.
 
-## <a name="coexistence-with-dsc-version-3-and-previous-versions"></a>DSC 버전 3 및 이전 버전과 공존
+## <a name="coexistence-with-dsc-version-3-and-previous-versions"></a>DSC 버전 3 및 이전 버전과 함께 사용
 
 게스트 구성의 DSC 버전 3은 [Windows](/powershell/scripting/dsc/getting-started/wingettingstarted) 및 [Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted)에 설치된 이전 버전과 공존할 수 있습니다.
 구현은 별개입니다. 그러나 DSC 버전 간에 충돌 검색이 없으므로 동일한 설정을 관리하지 마세요.

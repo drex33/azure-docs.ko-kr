@@ -8,12 +8,12 @@ ms.date: 07/13/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 3d78ba06112fce8dff64f2091e434d8f502634d2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 32fd80d20a105771c1c88461b621422834899ff5
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662745"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964076"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2-by-using-the-azure-portal-preview"></a>Azure Portal(미리 보기)를 사용하여 Azure Data Lake Storage Gen1에서 Gen2로 마이그레이션합니다.
 
@@ -66,6 +66,9 @@ Azure Data Lake Storage Gen2는 전용 서비스 또는 스토리지 계정 유�
 > [!NOTE]
 > Azure Portal 마이그레이션 도구는 계정 설정을 이동하지 않습니다. 따라서 계정을 만든 후에는 암호화, 네트워크 방화벽, 데이터 보호와 같은 설정을 수동으로 구성해야 합니다.
 
+> [!IMPORTANT]
+> 비어 있는 새로 만든 Gen2 계정을 사용해야 합니다. 이전에 사용한 Gen2 계정으로 마이그레이션하지 않는 것이 중요합니다.
+
 ## <a name="verify-rbac-role-assignments"></a>RBAC 역할 할당 확인
 
 Gen2의 경우 [스토리지 Blob 데이터 소유자](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) 역할이 스토리지 계정, 상위 리소스 그룹 또는 구독 범위에서 Azure AD(Azure Active Directory) 사용자 ID에 할당되었는지 확인합니다.
@@ -104,7 +107,8 @@ Gen1의 경우 Gen1 계정, 상위 리소스 그룹 또는 구독 범위에서 A
    > [!div class="mx-imgBorder"]
    > ![동의를 제공하는 확인란](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   데이터가 마이그레이션되는 동안 Gen1 계정은 읽기 전용이 되고 Gen2 사용 계정은 비활성화됩니다. 마이그레이션이 완료되면 두 계정 모두에 읽고 쓸 수 있습니다.
+   > [!IMPORTANT] 
+   > 데이터가 마이그레이션되는 동안 Gen1 계정이 읽기 전용이 되고 Gen2 사용 계정이 비활성화됩니다. 마이그레이션이 완료되면 두 계정을 읽고 쓸 수 있습니다.
 
    **마이그레이션 중지** 버튼을 선택하여 언제든지 마이그레이션을 중지할 수 있습니다.
 
@@ -132,9 +136,12 @@ Gen1의 경우 Gen1 계정, 상위 리소스 그룹 또는 구독 범위에서 A
    > [!div class="mx-imgBorder"]
    > ![동의 확인란](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
-   - 데이터가 마이그레이션되는 동안 Gen1 계정은 읽기 전용이 되고 Gen2 사용 계정은 비활성화됩니다.
-   - Gen1 URI가 리디렉션되는 동안 두 계정은 모두 비활성화됩니다.
-   - 마이그레이션이 완료되면 Gen1 계정이 비활성화되고 Gen2 사용 계정을 읽고 쓸 수 있습니다.
+   > [!IMPORTANT] 
+   > 데이터가 마이그레이션되는 동안 Gen1 계정은 읽기 전용이 되고 Gen2 사용 계정은 사용하지 않도록 설정됩니다.
+   > 
+   > 또한 Gen1 URI가 리디렉션되는 동안에는 두 계정이 모두 비활성화됩니다.
+   > 
+   > 마이그레이션이 완료되면 Gen1 계정이 비활성화되고 Gen2 사용 계정에 읽고 쓸 수 있습니다.
 
    **마이그레이션 중지** 버튼을 선택하여 URI가 리디렉션되기 전에 언제든지 마이그레이션을 중지할 수 있습니다.
 
@@ -204,6 +211,10 @@ Microsoft는 응용 프로그램이 Gen1 API를 계속 사용하여 Gen2 사용 
 #### <a name="gen1-doesnt-have-containers-and-gen2-has-them---what-should-i-expect"></a>Gen1에는 컨테이너가 없고 Gen2에는 어떤 것이 있나요?
 
 Gen2 지원 계정으로 데이터를 복사하면 `Gen1`이라는 컨테이너가 자동으로 생성됩니다. 데이터만 복사하도록 선택한 경우 데이터 복사가 완료된 후 해당 컨테이너의 이름을 변경할 수 있습니다. 전체 마이그레이션을 수행하고 응용 프로그램 호환성 계층을 사용할 계획이라면 컨테이너 이름을 변경하지 않아야 합니다. 더 이상 호환성 계층을 사용하지 않으려면 컨테이너 이름을 변경할 수 있습니다.
+
+#### <a name="what-should-i-consider-in-terms-of-migration-performance"></a>마이그레이션 성능 측면에서 고려해 야 할 사항은 무엇 인가요?
+
+Gen2 사용 계정에 데이터를 복사 하는 경우 성능에 영향을 줄 수 있는 두 가지 요소는 파일 수와 사용자가 보유 한 메타 데이터의 크기입니다. 예를 들어 많은 작은 파일이 마이그레이션의 성능에 영향을 줄 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

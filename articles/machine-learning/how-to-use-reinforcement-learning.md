@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 126293b2416637b9775b9203144c3bc22b96758b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 15747fba9846e57a508b096ec3bfe9197153f4e7
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131557398"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964266"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Azure Machine Learning을 사용하는 보충 학습(미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "131557398"
 > [!NOTE]
 > Azure Machine Learning 보충 Learning은 현재 미리 보기 기능입니다. 현재 Ray 및 RLlib 프레임워크만 지원됩니다.
 
-이 문서에서는 Pong 비디오 게임을 재생하도록 RL(보충 학습) 에이전트를 학습시키는 방법에 대해 알아봅니다. Azure Machine Learning에서 오픈 소스 Python 라이브러리인 [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html)를 사용하여 분산된 RL의 복잡성을 관리합니다.
+이 문서에서는 Pong 비디오 게임을 재생하도록 RL(보충 학습) 에이전트를 학습시키는 방법에 대해 알아봅니다. Azure Machine Learning에서 오픈 소스 Python 라이브러리인 [Ray RLlib](https://docs.ray.io/en/master/rllib/)를 사용하여 분산된 RL의 복잡성을 관리합니다.
 
 이 문서에서는 다음 방법을 알아봅니다.
 > [!div class="checklist"]

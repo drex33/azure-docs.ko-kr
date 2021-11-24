@@ -2,37 +2,35 @@
 title: Bicep 함수 - 범위
 description: Bicep 파일에서 배포 범위에 대한 값을 검색하는 데 사용할 함수를 설명합니다.
 ms.topic: conceptual
-ms.date: 10/18/2021
-ms.openlocfilehash: 809d3b2097e530f92370374be5f15c39bbd70734
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.date: 11/23/2021
+ms.openlocfilehash: 0f0f6543341a51830c95bbac4a7a0dd0fa82791b
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178344"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964000"
 ---
 # <a name="scope-functions-for-bicep"></a>Bicep의 범위 함수
 
-이 문서에서는 범위 값을 가져오는 Bicep 함수에 대해 설명 합니다.
+이 문서에서는 범위 값을 얻기 위한 Bicep 함수에 대해 설명합니다.
 
 ## <a name="managementgroup"></a>managementGroup
 
 `managementGroup()`
 
+현재 배포의 관리 그룹에서 속성을 가진 개체를 반환합니다.
+
 `managementGroup(identifier)`
 
 범위를 관리 그룹으로 설정하는 데 사용되는 개체를 반환합니다.
 
-또는
-
-현재 배포의 관리 그룹에 있는 속성을 사용 하 여 개체를 반환 합니다.
-
-네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
-`managementGroup()`은 [관리 그룹 배포](deploy-to-management-group.md)에만 사용될 수 있습니다. 배포 작업에 대한 현재 관리 그룹을 반환합니다. 범위 개체를 가져오거나 현재 관리 그룹에 대 한 속성을 가져올 때 사용 합니다.
+`managementGroup()`은 [관리 그룹 배포](deploy-to-management-group.md)에만 사용될 수 있습니다. 배포 작업에 대한 현재 관리 그룹을 반환합니다. 범위 개체를 얻거나 현재 관리 그룹에 대한 속성을 얻을 때 사용합니다.
 
-`managementGroup(identifier)` 는 범위 개체를 가져올 때만 모든 배포 범위에 사용할 수 있습니다. 관리 그룹에 대 한 속성을 검색 하려면 관리 그룹 식별자를 전달할 수 없습니다.
+`managementGroup(identifier)` 는 모든 배포 범위에 사용할 수 있지만 범위 개체를 얻을 때만 사용할 수 있습니다. 관리 그룹의 속성을 검색하려면 관리 그룹 식별자를 전달할 수 없습니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -42,7 +40,7 @@ ms.locfileid: "130178344"
 
 ### <a name="return-value"></a>반환 값
 
-[모듈](modules.md#set-module-scope) 또는 [확장 리소스 종류](scope-extension-resources.md)의 `scope` 속성을 설정하는 데 사용되는 개체입니다. 또는 현재 관리 그룹에 대 한 속성을 포함 하는 개체입니다.
+[모듈](modules.md#set-module-scope) 또는 [확장 리소스 종류](scope-extension-resources.md)의 `scope` 속성을 설정하는 데 사용되는 개체입니다. 또는 현재 관리 그룹의 속성이 있는 개체입니다.
 
 ### <a name="management-group-example"></a>관리 그룹의 예
 
@@ -51,13 +49,13 @@ ms.locfileid: "130178344"
 ```bicep
 param managementGroupIdentifier string
 
-module  'module.bicep' = {
+module  'mgModule.bicep' = {
   name: 'deployToMG'
   scope: managementGroup(managementGroupIdentifier)
 }
 ```
 
-다음 예에서는 현재 관리 그룹에 대 한 속성을 반환 합니다.
+다음 예제는 현재 관리 그룹에 대한 속성을 반환합니다.
 
 ```bicep
 targetScope = 'managementGroup'
@@ -94,7 +92,7 @@ output mgResult object = mgInfo
 }
 ```
 
-다음 예에서는 새 관리 그룹을 만들고이 함수를 사용 하 여 부모 관리 그룹을 설정 합니다.
+다음 예제에서는 새 관리 그룹을 만들고 이 함수를 사용하여 부모 관리 그룹을 설정합니다.
 
 ```bicep
 targetScope = 'managementGroup'
@@ -120,17 +118,17 @@ output newManagementGroup string = mgName
 
 `resourceGroup()`
 
+현재 리소스 그룹을 나타내는 개체를 반환합니다.
+
 `resourceGroup(resourceGroupName)`
+
+And
 
 `resourceGroup(subscriptionId, resourceGroupName)`
 
-리소스 그룹에 대한 범위를 설정하는 데 사용되는 개체를 반환합니다.
+범위를 리소스 그룹으로 설정하는 데 사용되는 개체를 반환합니다.
 
-또는
-
-현재 리소스 그룹을 나타내는 개체를 반환합니다.
-
-네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
@@ -177,7 +175,7 @@ resourceGroup 함수에는 두 가지 고유한 용도가 있습니다. 한 가�
 ```bicep
 param resourceGroupName string
 
-module exampleModule 'module.bicep' = {
+module exampleModule 'rgModule.bicep' = {
   name: 'exampleModule'
   scope: resourceGroup(resourceGroupName)
 }
@@ -215,15 +213,13 @@ param location string = resourceGroup().location
 
 `subscription()`
 
+현재 배포에 대한 구독 관련 세부 정보를 반환합니다.
+
 `subscription(subscriptionId)`
 
 범위를 구독으로 설정하는 데 사용되는 개체를 반환합니다.
 
-또는
-
-현재 배포에 대한 구독 관련 세부 정보를 반환합니다.
-
-네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>설명
 
@@ -259,7 +255,7 @@ subscription 함수에는 두 가지 고유한 용도가 있습니다. 한 가�
 다음 예제에서는 구독으로 모듈의 범위를 지정합니다.
 
 ```bicep
-module exampleModule 'module.bicep' = {
+module exampleModule 'subModule.bicep' = {
   name: 'deployToSub'
   scope: subscription()
 }
@@ -296,7 +292,7 @@ output subscriptionOutput object = subscription()
 다음 예제에는 테넌트에 배포된 모듈이 나와 있습니다.
 
 ```bicep
-module exampleModule 'module.bicep' = {
+module exampleModule 'tenantModule.bicep' = {
   name: 'deployToTenant'
   scope: tenant()
 }

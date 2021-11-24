@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 3cc76043d65a489f30b2f05169c90af22807e75e
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: d352811cb8cf911434cede1c7110beb1d529ddf1
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/23/2021
-ms.locfileid: "132941798"
+ms.locfileid: "132964948"
 ---
 # <a name="powershell-functions-for-iot-edge-for-linux-on-windows"></a>IoT Edge for Linux on Windows용 PowerShell 함수
 
@@ -115,6 +115,7 @@ PowerShell 디렉터리에 **AzureEflow** 폴더가 없는 경우 다음 단계�
 **Get-EflowVm** 명령은 가상 머신의 현재 구성을 반환합니다. 이 명령은 매개 변수를 사용하지 않습니다. 네 가지 속성이 포함된 개체를 반환합니다.
 
 * VmConfiguration
+* VmPowerState
 * EdgeRuntimeVersion
 * EdgeRuntimeStatus
 * SystemStatistics

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 2d0a74b5674bba6850cbe38f1811c1204acb5e69
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 4f5e76dbf73e57be1e01e2ea9026aba32375dcad
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848214"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964095"
 ---
 # <a name="connect-to-your-azure-purview-and-scan-data-sources-privately-and-securely"></a>Azure Purview에 연결하고 비공개로 안전하게 데이터 원본 검색
 
@@ -173,14 +173,14 @@ Azure Purview에 대한 수집 프라이빗 엔드포인트를 배포한 후에�
 
 - Microsoft SQL Server, Oracle, SAP 등의 모든 온-프레미스 원본 유형은 현재 자체 호스팅 IR 기반 검사를 통해서만 지원됩니다. 자체 호스팅 IR은 개인 네트워크 내에서 실행된 다음, Azure에서 가상 네트워크와 피어링되어야 합니다. 
    
-- Azure Blob Storage 및 Azure SQL Database와 같은 모든 Azure 원본 유형의 경우 Azure Purview 수집 프라이빗 엔드포인트와 동일한 VNet에 배포되는 자체 호스팅 통합 런타임을 사용하여 검사를 실행하도록 명시적으로 선택해야 합니다. 
+- Azure Blob Storage 및 Azure SQL Database와 같은 모든 azure 원본 유형의 경우 azure 부서의 범위 계정 및 수집 전용 엔드포인트와 동일한 VNet에 배포 되는 자체 호스팅 통합 런타임을 사용 하 여 검색을 실행 하도록 명시적으로 선택 해야 합니다. 
 
 자체 호스팅 IR을 설정하려면 [자체 호스팅 통합 런타임 만들기 및 관리](manage-integration-runtimes.md)의 단계를 수행합니다. 그런 다음, **Integration Runtime을 통해 연결** 드롭다운 목록에서 자체 호스트 IR을 선택하여 네트워크 격리를 보장하도록 Azure 원본에 대해 검사를 설정합니다.
     
    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="자체 호스팅 IR을 사용하여 Azure 검사를 실행하는 것을 보여 주는 스크린샷":::
 
 > [!IMPORTANT]
-> Microsoft 다운로드 센터에서 최신 버전의 자체 호스팅 통합 런타임을 [다운로드하여](https://www.microsoft.com/download/details.aspx?id=39717)설치해야 합니다.
+> [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 자체 호스팅 integration runtime의 최신 버전을 다운로드 하 여 설치 해야 합니다.
 
 ## <a name="firewalls-to-restrict-public-access"></a>퍼블릭 액세스를 제한하는 방화벽
 

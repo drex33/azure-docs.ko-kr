@@ -1,5 +1,5 @@
 ---
-title: RHEL/CentOS 7 구성 방법 - 음성 서비스
+title: RHEL/CentOS for c + +-Speech service를 구성 하는 방법
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용할 수 있도록 RHEL/CentOS 7을 구성하는 방법을 알아봅니다.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
-ms.openlocfilehash: 8c7b9a6f8bb74bd8c66eac976bf9d17a3fd798d5
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 01c8dfaf935ac6d2c7fcb3255768e7633aaaba0b
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132155967"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964874"
 ---
-# <a name="configure-rhelcentos-7-for-speech-sdk"></a>Speech SDK용 RHEL/CentOS 7 구성
+# <a name="configure-rhelcentos-for-c"></a>RHEL/CentOS for c + + 구성
 
-RHEL(Red Hat Enterprise Linux) 8 x64 및 CentOS 8 x64에서 C++ 개발에 Speech SDK를 사용하려면 시스템에서 C++ 컴파일러 및 공유 C++ 런타임 라이브러리를 업데이트합니다.
+Red Hat Enterprise Linux (RHEL) 8 x 64와 CentOS 8 x 64에서 c + + 개발용 Speech SDK를 사용 하려면 시스템에서 c + + 컴파일러 및 공유 c + + 런타임 라이브러리를 업데이트 합니다.
 
-### <a name="1-general-setup"></a>1. 일반 설치
+## <a name="install-dependencies"></a>종속성 설치
 
 먼저 모든 일반 종속성을 설치합니다.
 
@@ -35,7 +35,7 @@ sudo yum install -y alsa-lib dotnet-sdk-2.1 java-1.8.0-openjdk-devel openssl
 sudo yum install -y gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-ugly-free
 ```
 
-### <a name="2-cc-compiler-and-runtime-libraries"></a>2. C/C++ 컴파일러 및 런타임 라이브러리
+## <a name="cc-compiler-and-runtime-libraries"></a>C/c + + 컴파일러 및 런타임 라이브러리
 
 다음 명령을 사용하여 필수 구성 요소 패키지를 설치합니다.
 
@@ -57,7 +57,7 @@ sudo make install-strip
 
 업데이트된 컴파일러 및 라이브러리를 여러 컴퓨터에 배포해야 하는 경우에는 `/usr/local`에서 다른 컴퓨터로 복사할 수 있습니다. 런타임 라이브러리만 필요한 경우 `/usr/local/lib64`의 파일이면 충분합니다.
 
-### <a name="3-environment-settings"></a>3. 환경 설정
+## <a name="environment-settings"></a>환경 설정
 
 다음 명령을 실행하여 구성을 완료합니다.
 
@@ -74,7 +74,6 @@ export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
 export PATH=/usr/local/bin:$PATH
 hash -r # reset cached paths in the current shell session just in case
 export LD_LIBRARY_PATH=/path/to/extracted/SpeechSDK-Linux-<version>/lib/x64:$LD_LIBRARY_PATH
-
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: srijangupta
-ms.openlocfilehash: a7855a263050c42443c585dbc46221e857d409be
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 63821abd7c17465286650fd61d552ba80d290099
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132755284"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964228"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 머신 준비
 
@@ -209,7 +209,7 @@ ms.locfileid: "132755284"
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
     GRUB_TERMINAL_OUTPUT="serial console"
-    GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1
+    GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
     ```
    
     이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되고 직렬 콘솔과 상호 작용할 수 있으므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 이 구성은 NIC에 대한 새 RHEL 7 명명 규칙도 해제합니다.

@@ -172,7 +172,7 @@ items:
             href: conversational-language-understanding/concepts/evaluation-metrics.md
           - name: 여러 언어 사용
             href: conversational-language-understanding/concepts/multiple-languages.md
-      - name: 참고
+      - name: 참조
         items:
           - name: 미리 빌드된 구성 요소 참조
             href: conversational-language-understanding/prebuilt-component-reference.md
@@ -601,7 +601,7 @@ items:
           - name: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
             href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
           - name: 'Flask를 사용하여 텍스트 번역, 감정 분석 및 음성 합성'
-            href: ../translator/tutorial-build-flask-app-translation-synthesis.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
+            href: /azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
       - name: 참조
         items:
           - name: REST API

@@ -8,12 +8,12 @@ ms.date: 07/13/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 16102dde6c354922f7347a33069c953724d1f3df
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: dc7594fc9aef70f1269e2917ee35ac4f1efee081
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131022553"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964057"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션
 
@@ -58,6 +58,8 @@ Gen2로 마이그레이션하려면 다음 방법을 사용하는 것이 좋습�
 1. 마이그레이션할 데이터 세트를 식별합니다.
 
    이 기회를 통해 더 이상 사용하지 않는 데이터 세트를 정리합니다. 데이터를 한 번에 모두 마이그레이션하지 않으려는 경우 이 기회를 통해 단계별로 마이그레이션할 수 있는 데이터의 논리적 그룹을 식별합니다.
+
+   Gen1 계정에서 [오래된 분석(또는](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Utilities/Ageing%20Analysis) 이와 유사)을 수행하여 오랫동안 인벤토리에 유지되거나 사용되지 않는 파일 또는 폴더를 식별합니다.
 
 2. 마이그레이션이 비즈니스에 미치는 영향을 확인합니다.
 
@@ -113,7 +115,7 @@ Gen2로 마이그레이션하려면 다음 방법을 사용하는 것이 좋습�
 |암호화 - 미사용 데이터|서버 쪽 - [Microsoft 관리형](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리형](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 사용|서버 쪽 - [Microsoft 관리형](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 또는 [고객 관리형](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 키 사용|
 |VNET 지원|[VNET 통합](../../data-lake-store/data-lake-store-network-security.md)|[서비스 엔드포인트](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [프라이빗 엔드포인트](../common/storage-private-endpoints.md)|
 |개발자 환경|[REST](../../data-lake-store/data-lake-store-data-operations-rest-api.md), [.NET](../../data-lake-store/data-lake-store-data-operations-net-sdk.md), [Java](../../data-lake-store/data-lake-store-get-started-java-sdk.md), [Python](../../data-lake-store/data-lake-store-data-operations-python.md), [PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), [Azure CLI](../../data-lake-store/data-lake-store-get-started-cli-2.0.md)|일반 공급 - [REST](/rest/api/storageservices/data-lake-storage-gen2), [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md)<br>공개 미리 보기 - [JavaScript](data-lake-storage-directory-file-acl-javascript.md), [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md)|
-|리소스 로그|클래식 로그<br>[Azure Monitor 통합](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[클래식 로그](../common/storage-analytics-logging.md) - 일반 공급<br>[Azure Monitor 통합](monitor-blob-storage.md) -미리 보기|
+|리소스 로그|클래식 로그<br>[Azure Monitor 통합](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[클래식 로그](../common/storage-analytics-logging.md) - 일반 공급<br>[Azure Monitor 통합](monitor-blob-storage.md) - 미리 보기|
 |에코시스템|[HDInsight(3.6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks(3.1 이상)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight(3.6, 4.0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks(5.1 이상)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [Azure Synapse Analytics](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 <a id="migration-patterns"></a>
@@ -226,6 +228,11 @@ Gen2로 마이그레이션하려면 다음 방법을 사용하는 것이 좋습�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 스토리지 계정에 대한 보안 설정의 다양한 부분에 대해 알아봅니다. 자세한 내용은 [Azure Storage 보안 가이드](./security-recommendations.md)를 참조 하세요.
+- 스토리지 계정에 대한 보안 설정의 다양한 부분에 대해 알아봅니다. 자세한 내용은 [Azure Storage 보안 가이드를 참조하세요.](./security-recommendations.md)
 - Data Lake Store의 성능을 최적화합니다. [Azure Data Lake Storage Gen2의 성능 최적화](./data-lake-storage-best-practices.md) 참조
 - Data Lake Store 관리에 대한 모범 사례를 검토합니다. [Azure Data Lake Storage Gen2 사용에 대한 모범 사례](data-lake-storage-best-practices.md) 참조
+
+## <a name="see-also"></a>참조
+
+- [Data Lake에 대한 Hitchhiker 가이드](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)
+- [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control-model.md)

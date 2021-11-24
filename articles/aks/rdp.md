@@ -5,12 +5,12 @@ description: 문제 해결 및 유지 관리 작업을 위해 AKS(Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: 4b6ccc05d1cb49a77a2867dfc1c5fe5f45134dd6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2aa7b947b547a5cfa10afac7b29bce342d49fe0e
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104951915"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964171"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 AKS(Azure Kubernetes Service) 클러스터 Windows Server 노드와 RDP와 연결
 
@@ -20,7 +20,15 @@ AKS(Azure Kubernetes Service) 클러스터의 수명 주기 내내 AKS Windows S
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 Windows Server 노드가 포함된 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용하여 Windows 컨테이너가 있는 AKS 클러스터 만들기][aks-windows-cli] 문서를 참조하세요. 문제를 해결하려는 Windows Server 노드에 대한 Windows 관리자 사용자 이름과 암호가 필요합니다. 사용자 이름과 암호를 모르는 경우 [Windows VM에서 원격 데스크톱 서비스 또는 관리자 암호 다시 설정](/troubleshoot/azure/virtual-machines/reset-rdp)을 따라 다시 설정할 수 있습니다. 또한 [Microsoft 원격 데스크톱][rdp-mac]과 같은 RDP 클라이언트가 필요합니다.
+이 문서에서는 Windows Server 노드가 포함된 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용하여 Windows 컨테이너가 있는 AKS 클러스터 만들기][aks-windows-cli] 문서를 참조하세요. 문제를 해결하려는 Windows Server 노드에 대한 Windows 관리자 사용자 이름과 암호가 필요합니다. 또한 [Microsoft 원격 데스크톱][rdp-mac]과 같은 RDP 클라이언트가 필요합니다.
+
+암호를 재설정해야 하는 경우 를 사용하여 암호를 변경할 수 `az aks update` 있습니다.
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myAKSCluster --windows-admin-password $WINDOWS_ADMIN_PASSWORD
+```
+
+사용자 이름과 암호를 모두 다시 설정해야 하는 경우 [Windows VM에서 원격 데스크톱 서비스 또는 관리자 암호 재설정을 참조하세요. ](/troubleshoot/azure/virtual-machines/reset-rdp)
 
 또한 Azure CLI 버전 2.0.61 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
@@ -158,9 +166,9 @@ az network nsg rule delete --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --n
 
 <!-- INTERNAL LINKS -->
 [aks-windows-cli]: windows-container-cli.md
-[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-vm-delete]: /cli/azure/vm#az-vm-delete
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az-vm-delete]: /cli/azure/vm#az_vm_delete
 [azure-monitor-containers]: ../azure-monitor/containers/container-insights-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [ssh-steps]: ssh.md

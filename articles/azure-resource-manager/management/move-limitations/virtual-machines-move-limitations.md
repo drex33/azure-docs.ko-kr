@@ -4,12 +4,12 @@ description: Azure Resource Manager를 사용하여 Virtual Machines를 새 리�
 ms.topic: conceptual
 ms.date: 04/23/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f57b09900a955a3988c27f8f6990ff18db41c97c
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
-ms.translationtype: HT
+ms.openlocfilehash: 028536e541d8129490ccc07be0e6f67e51234a45
+ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751746"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132964019"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Virtual Machines 이동 지침
 
@@ -30,11 +30,11 @@ ms.locfileid: "109751746"
 키 자격 증명 모음과 통합된 가상 머신을 이동하여 [Linux VM용 Azure Disk Encryption](../../../virtual-machines/linux/disk-encryption-overview.md) 또는 [Windows VM용 Azure Disk Encryption](../../../virtual-machines/windows/disk-encryption-overview.md)을 구현할 수 없습니다. VM을 이동하려면 암호화를 사용하지 않도록 설정해야 합니다.
 
 ```azurecli-interactive
-az vm encryption disable --resource-group demoRG --name myVm1
+az vm encryption disable --resource-group demoRG --name myVm1 --volume-type all
 ```
 
 ```azurepowershell-interactive
-Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
+Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1 -VolumeType all
 ```
 
 ## <a name="virtual-machines-with-marketplace-plans"></a>Marketplace 플랜을 사용하는 Virtual Machines

@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터 노드 유형 구성 또는 수정
 description: 이 문서에서는 관리되는 클러스터 노드 유형을 수정하는 방법을 안내합니다.
 ms.topic: how-to
 ms.date: 10/25/2021
-ms.openlocfilehash: 2f32b67ce20f0b8abc19eb1a68445817976d38e3
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: f01e157b8080113c3813ddb2511d8a31197b7fa0
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132936322"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031995"
 ---
 # <a name="service-fabric-managed-cluster-node-types"></a>관리형 클러스터 노드 유형 Service Fabric
 
@@ -291,7 +291,7 @@ Service Fabric 관리형 클러스터는 기본적으로 하나의 관리 디스
      }
 ```
 
-[사용 가능한 매개 변수의 전체 목록을](/azure/templates/microsoft.servicefabric/managedclusters) 참조하세요.
+[사용 가능한 매개 변수의 전체 목록을](/azure/templates/microsoft.servicefabric/2021-11-01-preview/managedclusters) 참조하세요.
 
 ## <a name="configure-the-service-fabric-data-disk-drive-letter-preview"></a>Service Fabric 데이터 디스크 드라이브 문자 구성(미리 보기)
 Service Fabric 관리형 클러스터는 기본적으로 Service Fabric 데이터 디스크를 구성하고 노드 유형의 모든 노드에서 드라이브 문자를 자동으로 구성합니다. 이 선택적 속성 및 값을 구성하여 드라이브 문자 매핑에 대한 특정 요구 사항이 있는 경우 Service Fabric 데이터 디스크 문자를 지정하고 검색할 수 있습니다.

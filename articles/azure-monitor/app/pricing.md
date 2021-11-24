@@ -5,19 +5,19 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 8/23/2021
+ms.date: 11/23/2021
 ms.reviewer: lagayhar
-ms.openlocfilehash: d1f89faa1633561837c10665226c64da3433db5e
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 0ce5165ca6387b6a0b1ab886ab86de742090eec4
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132940679"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133030461"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
 > [!NOTE]
-> 이 문서에서는 Application Insights의 비용을 이해하고 관리하는 방법을 설명합니다.  관련 문서인 [사용량 및 예상 비용 모니터링](..//usage-estimated-costs.md)에서는 다른 가격 책정 모델에 대해 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명합니다.
+> 이 문서에서는 Application Insights의 비용을 이해하고 관리하는 방법을 설명합니다.  관련 문서, [사용량 및 예상 비용 모니터링](..//usage-estimated-costs.md) 은 Azure Cost Management + 청구를 사용 하 여 여러 Azure 모니터링 기능에서 사용량 및 예상 비용을 보는 방법을 설명 합니다.
 
 Application Insights는 Azure와 온-프레미스에 호스트된 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링하는 데 필요한 모든 것을 제공하도록 설계되어 있습니다. Application Insights는 .NET, Java, Node.js와 같이 널리 사용되는 언어 및 프레임워크를 지원하며, Azure DevOps, Jira, PagerDuty와 같은 DevOps 프로세스 및 도구와 통합됩니다. 애플리케이션 모니터링 비용을 결정하는 요소가 무엇인지 이해하는 것이 중요합니다. 이 문서에서는 애플리케이션 모니터링 비용을 결정하는 요소가 무엇인지 알아보고 비용을 선제적으로 모니터링하고 제어하는 방법을 살펴봅니다.
 
@@ -25,7 +25,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 ## <a name="pricing-model"></a>가격 책정 모델
 
-[Azure Application Insights][start]의 기본 가격은 수집된 데이터 볼륨을 기반으로 하며 필요에 따라 데이터를 더 오래 보존하기 위한 **종량제** 모델에 속합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다. 데이터 볼륨은 애플리케이션의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다. 데이터 볼륨은 GB(10^9바이트)로 측정됩니다. [라이브 메트릭 스트림](./live-stream.md) 사용에 대한 데이터 볼륨 요금은 없습니다.
+[Azure Application Insights][start]의 기본 가격은 수집된 데이터 볼륨을 기반으로 하며 필요에 따라 데이터를 더 오래 보존하기 위한 **종량제** 모델에 속합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다. 데이터 볼륨은 애플리케이션의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다. 데이터 볼륨은 GB(10^9바이트)로 측정됩니다. [라이브 메트릭 스트림](./live-stream.md) 사용에 대한 데이터 볼륨 요금은 없습니다. Azure 청구서에서 클래식 Application Insights 리소스에 대 한 데이터 보존 및 데이터 보존은 미터 범주 **Log Analytics** 로 보고 됩니다.  
 
 [다중 단계 웹 테스트](./availability-multistep.md)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다. 단일 페이지의 *ping 테스트* 에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트의 원격 분석은 앱의 다른 원격 분석과 동일하게 청구됩니다.
 

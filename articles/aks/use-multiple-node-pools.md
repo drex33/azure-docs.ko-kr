@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 �
 services: container-service
 ms.topic: article
 ms.date: 02/11/2021
-ms.openlocfilehash: 6d378b9380f2aa70b88bca0c1f0aaa58f03c26ff
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 9a736d07247d7623da2ab73fb8cba0b4fd371b71
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130236697"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133030341"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터에 대한 여러 노드 풀 만들기 및 관리
 
@@ -33,6 +33,7 @@ Azure CLI 2.2.0 이상 버전을 설치하고 구성해야 합니다. `az --vers
 * 시스템 풀에 하나 이상의 노드가 포함되어야 하고, 사용자 노드 풀에는 0개 이상의 노드가 포함될 수 있습니다.
 * AKS 클러스터는 표준 SKU 부하 분산 장치를 사용하여 여러 노드 풀을 사용해야 합니다. 이 기능은 기본 SKU 부하 분산 장치에서는 지원되지 않습니다.
 * AKS 클러스터는 노드에 대한 가상 머신 확장 집합을 사용해야 합니다.
+* 노드 풀을 만든 후에는 VM 크기를 변경할 수 없습니다.
 * 노드 풀의 이름은 영숫자 소문자만 포함할 수 있고 소문자 문자로 시작해야 합니다. Linux 노드 풀의 길이는 1~12자여야 하고, Windows 노드 풀의 길이는 1~6자여야 합니다.
 * 모든 노드 풀은 동일한 가상 네트워크에 있어야 합니다.
 * 클러스터를 만들 때 여러 노드 풀을 만드는 경우 노드 풀에서 사용하는 모든 Kubernetes 버전은 컨트롤 플레인에 대해 설정된 버전과 일치해야 합니다. 이는 클러스터를 프로비전한 후 노드별 풀 작업을 사용하여 업데이트할 수 있습니다.

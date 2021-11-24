@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 6c080e89dab3193f373b0a1e194cb18661132bbd
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: e516888d1a94d7e49d572f5934dd8ee1d2df3fc6
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131559621"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031311"
 ---
 # <a name="tutorial-train-a-classification-model-with-no-code-automl-in-the-azure-machine-learning-studio"></a>자습서: Azure Machine Learning 스튜디오에서 코드가 없는 AutoML을 사용하여 분류 모델 학습
 
@@ -144,7 +144,7 @@ Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, �
             ----|---|---
             컴퓨팅 이름 |  컴퓨팅 컨텍스트를 식별하는 고유한 이름입니다. | automl-compute
             최소 / 최대 노드| 데이터를 프로파일링하려면 하나 이상의 노드를 지정해야 합니다.|최소 노드: 1<br>최대 노드: 6
-            규모 축소 전 유휴 시간(초) | 클러스터가 최소 노드 수까지 자동으로 축소되기 전의 유휴 시간입니다.|1800(기본값)
+            규모 축소 전 유휴 시간(초) | 클러스터가 최소 노드 수까지 자동으로 축소되기 전의 유휴 시간입니다.|120(기본값)
             고급 설정 | 실험에 사용할 가상 네트워크를 구성하고 권한을 부여하는 설정입니다.| None               
 
         1. **만들기** 를 선택하여 컴퓨팅 대상을 만듭니다. 

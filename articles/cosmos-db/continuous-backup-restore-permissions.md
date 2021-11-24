@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 735979dc33631b8a99befaef88f3319213604111
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 0d572e706c70a82544acbbe0416370ce3bc55485
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132938099"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133030280"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정을 복원하는 권한 관리
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -130,7 +130,7 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli) 또는 [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template)를 사용하여 지속적인 백업을 프로비저닝합니다.
-* SQL 및 MongoDB 계정에 대 한 [최신 복원 타임 스탬프를 가져옵니다](get-latest-restore-timestamp.md) .
+* SQL 및 MongoDB 계정에 대한 [복원 가능한 최신 타임스탬프를](get-latest-restore-timestamp.md) 얻습니다.
 * [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli) 또는 [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template)를 사용하여 계정을 복원합니다.
 * [정기적 백업에서 지속적인 백업으로 계정에 마이그레이션](migrate-continuous-backup.md)합니다.
 * [지속적인 백업 모드의 리소스 모델](continuous-backup-restore-resource-model.md)

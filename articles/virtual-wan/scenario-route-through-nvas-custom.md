@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 11/23/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1602207c83f8ff4a632428c0308b514c6d552058
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 6e7e5957de431dd2e075c6bfeb958a2bae27378a
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428257"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031811"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>시나리오: 사용자 지정 설정을 사용하여 NVA를 통해 트래픽 라우팅
 
@@ -175,12 +175,16 @@ NVA를 통해 라우팅을 설정하려면 다음 단계를 고려하세요.
 
    * **전파 위치:**  분기 **(VPN/ER/P2S)** 에 대한 옵션을 선택했는지 확인합니다. 이렇게 하면 온-프레미스 연결이 경로를 기본 경로 테이블에 전파합니다. 모든 VPN, ExpressRoute, 사용자 VPN 연결은 경로를 ‘동일한 경로 테이블 집합’으로 전파합니다.
 
-   >[!Note]
-   >
-   > * 포털 사용자가 연결(VPN/ER/P2S/VNet)에 ‘기본 경로로 전파’를 사용하도록 설정해야 0.0.0.0/0 경로가 적용됩니다.
-   > * PS/CLI/REST 사용자가 ‘enableinternetsecurity’ 플래그를 true로 설정해야 0.0.0.0/0 경로가 적용됩니다.
-   > * 다음 홉 IP를 사용하는 경로 중 하나가 공용 IP 주소 또는 0.0.0.0/0(인터넷)으로 표시되는 ‘경우’ 가상 네트워크 연결은 스포크 VNet의 ‘동일한’ 네트워크 가상 어플라이언스에 대한 ‘여러/고유한’ 다음 홉 IP를 지원하지 않습니다.
-   > * 0\.0.0.0/0이 Virtual Network 연결에서 정적 경로로 구성된 경우 해당 경로는 스포크 자체 내의 리소스를 포함하여 모든 트래픽에 적용됩니다. 즉, 모든 트래픽이 정적 경로(NVA 개인 IP)의 다음 홉 IP 주소로 전달됩니다. 따라서 다음 홉 NVA IP 주소가 스포크 Virtual Network 연결에 구성된 0.0.0.0/0 경로를 통한 배포에서 NVA와 동일한 Virtual Network 워크로드에 직접 액세스하려면(즉, 트래픽이 NVA를 통과하지 않도록) 스포크 Virtual Network 연결에 /32 경로를 지정하세요. 예를 들어, 10.1.3.1에 직접 액세스하려면 스포크 Virtual Network 연결에서 10.1.3.1/32 다음 홉 10.1.3.1을 지정하세요.
+**고려 사항**
+
+* 포털 사용자는 0.0.0.0/0 경로를 적용하려면 연결(VPN/ER/P2S/VNet)에서 '기본 경로로 전파'를 사용하도록 설정해야 합니다.
+* PS/CLI/REST 사용자는 0.0.0.0/0 경로가 적용되도록 플래그 'enableinternetsecurity'를 true로 설정해야 합니다.
+* 가상 네트워크 연결은 스포크 VNet의 '동일한' 네트워크 가상 어플라이언스 'if'에 대한 '다중/고유' 다음 홉 IP를 지원하지 않습니다. 다음 홉 IP가 있는 경로 중 하나는 공용 IP 주소 또는 0.0.0.0/0(인터넷)으로 표시됩니다.
+* 0.0.0.0/0이 가상 네트워크 연결에서 정적 경로로 구성된 경우 해당 경로는 스포크 자체 내의 리소스를 포함하여 모든 트래픽에 적용됩니다. 즉, 모든 트래픽이 정적 경로(NVA 개인 IP)의 다음 홉 IP 주소로 전달됩니다. 따라서 스포크 가상 네트워크 연결에 구성된 다음 홉 NVA IP 주소가 있는 0.0.0.0/0 경로가 있는 배포에서 NVA와 동일한 가상 네트워크의 워크로드에 직접 액세스하려면(즉, 트래픽이 NVA를 통과하지 않도록) 스포크 가상 네트워크 연결에서 /32 경로를 지정합니다. 예를 들어 10.1.3.1에 직접 액세스하려면 스포크 가상 네트워크 연결에서 10.1.3.1/32 다음 홉 10.1.3.1을 지정합니다.
+* 라우팅을 간소화하고 Virtual WAN 허브 경로 테이블의 변경 내용을 줄이려면 새로운 "Virtual WAN 허브를 사용한 BGP 피어링" 옵션을 사용하는 것이 좋습니다.
+
+  * [시나리오: 가상 허브를 통해 BGP 피어링](scenario-bgp-peering-hub.md)
+  * [가상 허브를 사용하여 BGP 피어링을 만드는 방법 - Azure Portal](create-bgp-peering-hub-portal.md)
 
 ## <a name="next-steps"></a>다음 단계
 

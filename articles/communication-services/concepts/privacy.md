@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 06817450cb0957e845b5b9fecde21d94080183ac
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 9f4c87e489f060c6f875a2ca1b970ccecc2d8214
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060994"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031402"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
 
@@ -63,7 +63,7 @@ Azure Communication Services는 Communication Services 리소스와 연결된 �
 
 ### <a name="chat"></a>채팅
 
-채팅 스레드 및 메시지는 명시적으로 삭제될 때까지 유지됩니다. 참가자가 없는 완전히 유휴 상태인 스레드는 30일 후에 자동으로 삭제됩니다. [채팅 API](/rest/api/communication/chat/chatthread)를 사용하여 메시지를 가져오고, 나열하고, 업데이트하고, 삭제합니다.
+채팅 스레드 및 메시지는 명시적으로 삭제될 때까지 유지됩니다. [채팅 API](/rest/api/communication/chat/chatthread)를 사용하여 메시지를 가져오고, 나열하고, 업데이트하고, 삭제합니다.
 
 - `Get Thread`
 - `Get Message`

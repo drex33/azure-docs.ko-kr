@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 53c719bb451b6bc8239fbd0f68bb6ad423b37b11
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
-ms.translationtype: HT
+ms.openlocfilehash: 1a55ee40779c6e16a21f9b2f9b7aad11ed5561c3
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607141"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133030422"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Azure Front Door 표준/프리미엄(미리 보기)에서 Private Link를 사용하여 원본 보호
 
@@ -43,7 +43,7 @@ Azure Front Door 프리미엄 구성에서 원본에 대한 Private Link를 사�
 
 ## <a name="limitations"></a>제한 사항
 
-Azure Front Door 프라이빗 엔드포인트는 공개 미리 보기 동안 미국 동부, 미국 서부 2, 미국, 미국 중남부 및 영국 남부 지역에서 사용할 수 있습니다.
+Azure 전면 도어 개인 끝점은 공개 미리 보기 중 미국 동부, 미국 서 부, 미국 중 남부, 영국 남부 및 일본 동부에서 사용할 수 있습니다.
 
 가장 적절한 대기 시간을 위해 Front Door 프라이빗 엔드포인트를 사용하도록 선택할 때 항상 원본에 가장 가까운 Azure 지역을 선택해야 합니다.
 

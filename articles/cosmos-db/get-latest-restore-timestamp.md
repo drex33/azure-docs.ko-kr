@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 연속 백업 계정에 대한 복원 가능한 최신 타임스탬프 얻기
-description: 연속 백업 모드로 설정된 계정에 대해 복원 가능한 최신 타임스탬프를 얻는 방법을 알아봅니다. Azure PowerShell 및 Azure CLI 사용하여 SQL 컨테이너 및 MongoDB 컬렉션에 대해 복원 가능한 최신 시간을 얻는 방법을 설명합니다.
+title: 연속 백업 모드를 사용 하 여 Azure Cosmos DB 계정에 대 한 최신 복원 가능한 타임 스탬프 가져오기
+description: 연속 백업 모드로 설정 된 계정에 대 한 최신 복원 가능한 타임 스탬프를 가져오는 방법에 대해 알아봅니다. Azure PowerShell 및 Azure CLI를 사용 하 여 SQL 컨테이너 및 MongoDB 컬렉션에 대 한 최신 복원 가능한 시간을 가져오는 방법을 설명 합니다.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,17 +8,17 @@ ms.date: 11/18/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
-ms.openlocfilehash: fdebe0032bb90c5170239eefaf813d2a864c430b
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 3c9197a67be42393c766fc7e26165e11b24995cf
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132943452"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031749"
 ---
-# <a name="get-the-latest-restorable-timestamp-for-continuous-backup-accounts"></a>연속 백업 계정에 대한 복원 가능한 최신 타임스탬프 받기
+# <a name="get-the-latest-restorable-timestamp-for-continuous-backup-accounts"></a>연속 백업 계정에 대 한 최신 복원 가능한 타임 스탬프 가져오기
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-이 문서에서는 연속 백업 모드로 설정된 계정에 대해 [복원 가능한 최신 타임스탬프를](latest-restore-timestamp-continuous-backup.md) 얻는 방법을 설명합니다. Azure PowerShell 및 Azure CLI 사용하여 SQL 컨테이너 및 MongoDB 컬렉션에 대해 복원 가능한 최신 시간을 얻는 방법을 설명합니다. PowerShell 및 CLI 명령에 대한 요청 및 응답 형식을 볼 수 있습니다.
+이 문서에서는 연속 백업 모드를 사용 하 여 계정에 대 한 [최신 복원 가능한 타임 스탬프](latest-restore-timestamp-continuous-backup.md) 를 가져오는 방법을 설명 합니다. Azure PowerShell 및 Azure CLI를 사용 하 여 SQL 컨테이너 및 MongoDB 컬렉션에 대 한 최신 복원 가능한 시간을 가져오는 방법을 설명 합니다. PowerShell 및 CLI 명령에 대 한 요청 및 응답 형식을 확인할 수 있습니다.
 
 ## <a name="sql-container"></a>SQL 컨테이너
 
@@ -43,7 +43,7 @@ Get-AzCosmosDBSqlContainerBackupInformation -ResourceGroupName "rg" `
   -Location "eastus"
 ```
 
-**샘플 응답(UTC 형식):**
+**샘플 응답 (UTC 형식):**
 
 ```console
 LatestRestorableTimestamp
@@ -71,7 +71,7 @@ az cosmosdb sql retrieve-latest-backup-time -g "rg" \
   -l "eastus"
 ```
 
-**샘플 응답(UTC 형식):**
+**샘플 응답 (UTC 형식):**
 
 ```console
 {
@@ -83,7 +83,7 @@ az cosmosdb sql retrieve-latest-backup-time -g "rg" \
 
 ## <a name="sql-database"></a>SQL Database
 
-다음 스크립트를 사용하여 데이터베이스에 대해 복원 가능한 최신 타임스탬프를 가져옵니다. 이 스크립트는 지정된 데이터베이스 내의 모든 컨테이너를 반복하고 모든 컨테이너의 복원 가능한 최소 타임스탬프를 반환합니다.
+다음 스크립트를 사용 하 여 데이터베이스에 대 한 최신 복원 가능한 타임 스탬프를 가져옵니다. 이 스크립트는 지정 된 데이터베이스 내의 모든 컨테이너를 반복 하 고 모든 컨테이너의 최신 복원 가능한 타임 스탬프를 반환 합니다.
 
 ```powershell
 Function Get-LatestRestorableTimestampForSqlDatabase {
@@ -161,7 +161,7 @@ Get-LatestRestorableTimestampForSqlDatabase `
   -Location eastus
 ```
 
-**샘플 응답(UTC 형식):**
+**샘플 응답 (UTC 형식):**
 
 ```console
 Latest restorable timestamp for a database is minimum of restorable timestamps of all the underlying containers
@@ -170,7 +170,7 @@ Wednesday, November 3, 2021 8:02:44 PM
 
 ## <a name="sql-account"></a>SQL 계정
 
-다음 스크립트를 사용하여 데이터베이스에 대해 복원 가능한 최신 타임스탬프를 가져옵니다. 이 스크립트는 이 데이터베이스 내의 모든 컨테이너를 반복하고 모든 컨테이너의 복원 가능한 최신 타임스탬프의 최소값을 반환합니다.
+다음 스크립트를 사용 하 여 SQL 계정의 최신 복원 가능한 타임 스탬프를 가져옵니다. 이 스크립트는이 계정 내의 모든 컨테이너를 반복 하 고 모든 컨테이너의 최신 복원 가능한 타임 스탬프를 반환 합니다.
 
 ```powershell
 Function Get-LatestRestorableTimestampForSqlAccount {
@@ -253,7 +253,7 @@ Get-LatestRestorableTimestampForSqlAccount `
   -location eastus
 ```
 
-**샘플 응답(UTC 형식):**
+**샘플 응답 (UTC 형식):**
 
 ```console
 Latest restorable timestamp for an account is minimum of restorable timestamps of all the underlying containers
@@ -285,7 +285,7 @@ Get-AzCosmosDBMongoDBCollectionBackupInformation `
   -Location "eastus"
 ```
 
-**샘플 응답(UTC 형식):**
+**샘플 응답 (UTC 형식):**
 
 ```console
 LatestRestorableTimestamp
@@ -327,7 +327,7 @@ az cosmosdb mongodb retrieve-latest-backup-time \
 
 ## <a name="mongodb-database"></a>MongoDB 데이터베이스
 
-다음 스크립트를 사용하여 데이터베이스에 대해 복원 가능한 최신 타임스탬프를 가져옵니다. 이 스크립트는 이 데이터베이스 내의 모든 컨테이너를 반복하고 모든 컨테이너의 복원 가능한 최소 타임스탬프를 반환합니다.
+다음 스크립트를 사용 하 여 데이터베이스에 대 한 최신 복원 가능한 타임 스탬프를 가져옵니다. 이 스크립트는이 데이터베이스 내의 모든 컬렉션을 반복 하 고 모든 컬렉션의 최신 복원 가능한 타임 스탬프를 반환 합니다.
 
 ```powershell
 Function Get-LatestRestorableTimestampForMongoDBDatabase {
@@ -401,7 +401,7 @@ Import-Module .\LatestRestorableTimestampForMongoDBDatabase.ps1
 Get-LatestRestorableTimestampForMongoDBDatabase -ResourceGroupName rg -accountName mongopitracc -databaseName db1 -location eastus
 ```
 
-**샘플 응답(UTC 형식):**
+**샘플 응답 (UTC 형식):**
 
 ```console
 Latest restorable timestamp for a database is minimum of restorable timestamps of all the underlying collections
@@ -410,7 +410,7 @@ Wednesday, November 3, 2021 8:31:27 PM
 
 ## <a name="mongodb-account"></a>MongoDB 계정
 
-에서는 다음 스크립트를 사용하여 데이터베이스에 대해 복원 가능한 최신 타임스탬프를 얻을 수 있습니다. 이 스크립트는 이 데이터베이스 내의 모든 컨테이너를 반복하고 모든 컨테이너의 복원 가능한 최소 타임스탬프를 반환합니다.
+다음 스크립트를 사용 하 여 MongoDB 계정에 대 한 최신 복원 가능한 타임 스탬프를 가져올 수 있습니다. 이 스크립트는이 계정 내의 모든 컬렉션을 반복 하 고 모든 컬렉션의 최신 복원 가능한 타임 스탬프를 반환 합니다.
 
 ```powershell
 Function Get-LatestRestorableTimestampForMongoDBAccount {
@@ -492,7 +492,7 @@ Get-LatestRestorableTimestampForMongoDBAccount `
   -Location eastus
 ```
 
-**샘플 응답(UTC 형식):**
+**샘플 응답 (UTC 형식):**
 
 ```console
 Latest restorable timestamp for an account is minimum of restorable timestamps of all the underlying collections
@@ -505,4 +505,4 @@ Wednesday, November 3, 2021 8:33:49 PM
 
 * [지속적인 백업 모드 리소스 모델](continuous-backup-restore-resource-model.md)
 
-* Azure Portal 사용하여 [연속 백업 모드를 구성하고 관리합니다.](continuous-backup-restore-portal.md)
+* Azure Portal를 사용 하 여 [연속 백업 모드를 구성 및 관리](continuous-backup-restore-portal.md) 합니다.

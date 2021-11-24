@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/12/2021
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 71a86e1440d96a37fd72afc67aaaaa7d122c6d4f
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c4d141639bf9a377a684161ff47a49d8e5bd0187
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131426680"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133030135"
 ---
 # <a name="about-bastion-configuration-settings"></a>Bastion 구성 설정 정보
 
@@ -32,7 +32,7 @@ SKU는 계층이라고도 합니다. Azure Bastion은 기본 및 표준의 두 �
 
 ### <a name="configuration-methods"></a>구성 방법
 
-현재 표준 SKU를 지정하려면 Azure Portal 사용해야 합니다. Azure CLI 또는 Azure PowerShell을 사용하여 Bastion을 구성하는 경우에는 SKU를 지정할 수 없으며 기본 SKU가 기본값입니다.
+현재 표준 SKU를 지정 하려면 Azure Portal를 사용 해야 합니다. Azure CLI 또는 Azure PowerShell을 사용하여 Bastion을 구성하는 경우에는 SKU를 지정할 수 없으며 기본 SKU가 기본값입니다.
 
 | 메서드 | 값 | 링크 |
 | --- | --- | --- |
@@ -62,7 +62,7 @@ Azure Bastion은 기본 SKU에서 표준 SKU로의 업그레이드를 지원합�
 
 각 인스턴스는 10~12개의 동시 RDP/SSH 연결을 지원할 수 있습니다. 인스턴스당 연결 수는 클라이언트 VM에 연결할 때 수행하는 작업에 따라 다릅니다. 예를 들어 데이터 집약적인 작업을 수행하는 경우 인스턴스가 처리할 더 큰 로드가 생성됩니다. 동시 세션을 초과하면 추가 배율 단위(인스턴스)가 필요합니다. 
 
-인스턴스는 AzureBastionSubnet에서 생성됩니다. 호스트 크기 조정의 경우 AzureBastionSubnet은 26 이상이어야 합니다. 더 작은 서브넷을 사용하면 생성할 수 있는 인스턴스 수가 제한됩니다. AzureBastionSubnet에 대한 자세한 내용은 이 문서의 [서브넷](#subnet) 섹션을 참조하세요.
+인스턴스는 AzureBastionSubnet에서 생성됩니다. 호스트 크기 조정을 허용 하려면 AzureBastionSubnet는/26 이상 이어야 합니다. 더 작은 서브넷을 사용하면 생성할 수 있는 인스턴스 수가 제한됩니다. AzureBastionSubnet에 대한 자세한 내용은 이 문서의 [서브넷](#subnet) 섹션을 참조하세요.
 
 ### <a name="configuration-methods"></a>구성 방법
 
@@ -75,10 +75,14 @@ Azure Bastion은 기본 SKU에서 표준 SKU로의 업그레이드를 지원합�
 
 ## <a name="azure-bastion-subnet"></a><a name="subnet"></a>Azure Bastion 서브넷
 
+ >[!IMPORTANT]
+ >2021 년 11 월 2 일 이후에 배포 되는 Azure 방호 리소스의 경우 최소 AzureBastionSubnet 크기는/26 이상 (/25,/24 등)입니다. 이 날짜 이전에 크기/27의 서브넷에 배포 된 모든 Azure 방호 리소스는이 변경의 영향을 받지 않으며 계속 작동 하지만, 나중에 [호스트 크기 조정을](./configure-host-scaling.md) 사용 하도록 선택 하는 경우 기존 AzureBastionSubnet의 크기를/26으로 늘릴 것을 권장 합니다.
+ >
+
 Azure Bastion에는 전용 서브넷 **AzureBastionSubnet** 이 필요합니다. 이 서브넷은 Azure Bastion이 배포된 동일한 가상 네트워크에서 만들어야 합니다. 서브넷에는 다음 구성이 있어야 합니다.
 
 * 서브넷 이름은 *AzureBastionSubnet* 이어야 합니다.
-* 서브넷 크기는 /26 이상(/25, /24 등)이어야 합니다.
+* 서브넷 크기는/26 이상 (/25,/24 등) 이어야 합니다.
 * 호스트 크기 조정을 위해 26 이상의 서브넷이 권장됩니다. 더 작은 서브넷 공간을 사용하면 배율 단위 수가 제한됩니다. 자세한 내용은 이 문서의 [호스트 크기 조정](#instance) 섹션을 참조하세요.
 * 서브넷은 베스천 호스트와 동일한 VNet 및 리소스 그룹에 있어야 합니다.
 * 서브넷은 추가 리소스를 포함할 수 없습니다.

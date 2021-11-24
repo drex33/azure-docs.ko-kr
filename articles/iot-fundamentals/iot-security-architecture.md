@@ -5,14 +5,14 @@ author: eross-msft
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 11/23/2021
 ms.author: lizross
-ms.openlocfilehash: f655141a35f7208d2036ef7928d1752710c5afc3
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 8f7c13935a02bb6ccbbeb9dc6cc88b6747fd4bcb
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132555359"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031352"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>IoT(사물 인터넷) 보안 아키텍처
 

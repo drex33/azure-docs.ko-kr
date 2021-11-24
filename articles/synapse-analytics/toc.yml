@@ -1064,7 +1064,7 @@ items:
                 href: ../data-factory/connector-presto.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: QuickBooks Online
                 href: ../data-factory/connector-quickbooks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-              - name: REST (영문)
+              - name: REST
                 href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&tabs=synapse-analytics
               - name: Salesforce
                 href: ../data-factory/connector-salesforce.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
@@ -1459,6 +1459,8 @@ items:
         href: /rest/api/synapse/
       - name: Microsoft Spark 유틸리티
         href: ./spark/microsoft-spark-utilities.md
+      - name: Synapse의 파일 탑재/탑재 해제 API
+        href: ./spark/synapse-file-mount-api.md
       - name: 샘플
         href: 'https://github.com/Azure-Samples/Synapse'
       - name: 시스템 뷰

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.openlocfilehash: f6ac69d8bd3049efc55844ddd562e18a2950ef2b
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 0f229799c2fbbd34a793a0c1e7bff1600b1e4609
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131560875"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031762"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebook 실행
 
@@ -72,6 +72,16 @@ VS Code에서 Notebook을 열 때 이러한 동일한 코드 조각을 사용할
 코드 조각 패널에서 새 코드 조각을 추가하도록 요청을 제출할 수도 있습니다.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="코드 조각 패널에서 새 코드 조각 제안 가능":::
+
+## <a name="share-a-notebook"></a>노트 공유
+
+Notebook은 작업 영역의 스토리지 계정에 저장되며 작업 영역에 대한 [액세스 수준에](how-to-assign-roles.md) 따라 다른 사용자와 공유할 수 있습니다.  적절한 액세스 권한이 있는 경우 Notebook을 열고 편집할 수 있습니다. 예를 들어 참가자는 Notebook을 편집할 수 있지만 독자는 Notebook만 볼 수 있습니다.
+
+작업 영역의 다른 사용자는 Azure ML Studio의 **Notebooks**, **사용자 파일** 섹션에서 Notebook을 찾을 수 있습니다. 기본적으로 Notebook은 사용자 이름이 있는 폴더에 있고 다른 사용자가 액세스할 수 있습니다.
+
+Notebook을 열 때 브라우저에서 URL을 복사한 다음 다른 사람에게 보낼 수도 있습니다.  작업 영역에 대한 적절한 액세스 권한이 있는 한 Notebook을 열 수 있습니다.
+
+컴퓨팅 인스턴스를 공유하지 않으므로 Notebook을 실행하는 다른 사용자는 자신의 컴퓨팅 인스턴스에서 공유합니다.  
 
 ## <a name="collaborate-with-notebook-comments-preview"></a>Notebook 주석을 사용하여 공동 작업(미리 보기)
 
@@ -151,7 +161,7 @@ Notebook 또는 Python 스크립트를 실행하려면 먼저 실행 중인 [컴
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/start-compute.png" alt-text="컴퓨팅 인스턴스 시작":::
     
-컴퓨팅 인스턴스에 연결되면 도구 모음을 사용하여 Notebook의 모든 셀을 실행하거나 Control + Enter를 사용하여 선택한 단일 셀을 실행합니다. 
+계산 인스턴스에 연결 되 면 도구 모음을 사용 하 여 노트북의 모든 셀을 실행 하거나 ctrl + Enter를 사용 하 여 선택한 단일 셀을 실행 합니다. 
 
 사용자가 만든 컴퓨팅 인스턴스만 보고 사용할 수 있습니다.  **사용자 파일** 은 VM과 별도로 저장되고 작업 영역의 모든 컴퓨팅 인스턴스 간에 공유됩니다.
 
@@ -313,9 +323,9 @@ Jupyter Notebook과 마찬가지로 Azure Machine Learning Studio Notebook에는
 
 ## <a name="troubleshooting"></a>문제 해결
 
-* Notebook에 연결할 수 없으면 WebSocket 통신이 사용하지 않도록 설정되지 **않았는지** 확인합니다. 컴퓨팅 인스턴스 Jupyter 기능이 작동하기 위해서는 WebSocket 통신이 사용하도록 설정되어 있어야 합니다. 네트워크에서 *. instances.azureml.net 및 *. instances.azureml.ms에 대 한 [websocket 연결을 허용](how-to-access-azureml-behind-firewall.md?tabs=ipaddress#microsoft-hosts) 하는지 확인 합니다. 
+* Notebook에 연결할 수 없으면 WebSocket 통신이 사용하지 않도록 설정되지 **않았는지** 확인합니다. 컴퓨팅 인스턴스 Jupyter 기능이 작동하기 위해서는 WebSocket 통신이 사용하도록 설정되어 있어야 합니다. 네트워크에서 *.instances.azureml.net 및 *.instances.azureml.ms [대한 websocket 연결을 허용하는지 확인합니다.](how-to-access-azureml-behind-firewall.md?tabs=ipaddress#microsoft-hosts) 
 
-* 계산 인스턴스가 개인 끝점을 사용 하는 작업 영역에 배포 된 경우 [가상 네트워크 내 에서만 액세스할](./how-to-secure-training-vnet.md)수 있습니다. 사용자 지정 DNS 또는 호스트 파일을 사용 하는 경우 < 인스턴스 이름 >에 대 한 항목을 작업 영역 개인 끝점의 개인 IP 주소를 사용 하 여 < 지역 >에 추가 합니다. 자세한 내용은 [사용자 지정 DNS](./how-to-custom-dns.md?tabs=azure-cli) 문서를 참조하세요.
+* 컴퓨팅 인스턴스가 프라이빗 엔드포인트를 사용하여 작업 영역에 배포된 경우 [가상 네트워크 내에서만 액세스](./how-to-secure-training-vnet.md)할 수 있습니다. 사용자 지정 DNS 또는 호스트 파일을 사용하는 경우 작업 영역 프라이빗 엔드포인트의 개인 IP 주소로 < 인스턴스 이름 >.< 지역 >.instances.azureml.ms 항목을 추가합니다. 자세한 내용은 [사용자 지정 DNS](./how-to-custom-dns.md?tabs=azure-cli) 문서를 참조하세요.
 
 * 커널이 충돌하여 다시 시작된 경우 `sudo journalctl -u jupyter` 명령을 실행하여 jupyter 로그를 확인하고 자세한 정보를 확인할 수 있습니다. 커널 문제가 지속되면 더 많은 메모리가 있는 컴퓨팅 인스턴스를 사용하는 것이 좋습니다.
 

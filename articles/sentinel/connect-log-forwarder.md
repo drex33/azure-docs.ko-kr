@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: fb39a839bb50089f86f2f2e6f4166fe6604e03a7
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 67d52c1c964a47dc23da52223e46667d6f605111
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132757885"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133030619"
 ---
 # <a name="deploy-a-log-forwarder-to-ingest-syslog-and-cef-logs-to-microsoft-sentinel"></a>Microsoft 센티널에 Syslog 및 CEF 로그를 수집 하는 로그 전달자 배포
 
@@ -52,7 +52,7 @@ ms.locfileid: "132757885"
     - Oracle Linux 7(64비트/32비트)
     - RHEL(Red Hat Enterprise Linux) Server 7 및 8(6 아님), 부 버전(64비트/32비트) 포함
     - Debian GNU/Linux 8, 9(64비트/32비트)
-    - Ubuntu Linux 14.04 LTS, 16.04 LTS(64비트/32비트), 18.04 LTS(64비트만)
+    - Ubuntu Linux 14.04 LTS 및 16.04 LTS (64 비트/32 비트), 18.04 LTS (64 비트 전용) 및 20.04 LTS (64 비트만 해당)
     - SUSE Linux Enterprise Server 12, 15(64비트만)
 
 - **디먼 버전**
@@ -251,8 +251,8 @@ Syslog 디먼을 선택하여 적절한 설명을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Log Analytics 에이전트를 배포하여 CEF 어플라이언스를 Microsoft Sentinel에 연결하는 방법을 배웠습니다. Microsoft Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 CEF 어플라이언스를 Microsoft 센티널에 연결 하는 Log Analytics 에이전트를 배포 하는 방법을 알아보았습니다. Microsoft 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
 - [CEF 및 CommonSecurityLog 필드 매핑](cef-name-mapping.md)에 대해 알아봅니다.
 - [데이터에 대한 가시성을 얻고 재적 위협을 확인](get-visibility.md)하는 방법을 알아봅니다.
-- [Microsoft Sentinel을 사용하여 위협 검색을](./detect-threats-built-in.md)시작합니다.
+- [Microsoft 센티널을 사용 하 여 위협 검색을](./detect-threats-built-in.md)시작 하세요.

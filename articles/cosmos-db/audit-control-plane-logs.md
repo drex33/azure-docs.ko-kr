@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/13/2021
 ms.author: sngun
-ms.openlocfilehash: 3ce2d934c335099d07bbe5621a8aa363bf97583c
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: 7f307978ba100389a6aae119d20e51d7814037f2
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122530070"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031261"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Azure Cosmos DB 컨트롤 플레인 작업을 감사하는 방법
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -36,7 +36,7 @@ Azure Cosmos DB에서 컨트롤 플레인 작업을 감사하기 전에 계정�
 
 * SDK 또는 계정 키를 사용하여 위 리소스(예: 컬렉션 만들기, 처리량 업데이트 등)를 변경하는 메타데이터 호출이 애플리케이션에서 수행되지 않는지 평가하고 확인합니다.
 
-* 현재까지 Azure Portal은 메타데이터 작업에 계정 키를 사용하므로, 이러한 작업이 차단됩니다. 또는 Azure CLI, SDK 또는 Resource Manager 템플릿 배포를 사용하여 이러한 작업을 수행합니다.
+* `disableKeyBasedMetadataWriteAccess`를 true로 설정하면 SDK에서 발급한 메타데이터 작업이 차단됩니다. 또는 Azure Portal, Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿 배포를 사용하여 이러한 작업을 수행할 수 있습니다.
 
 ## <a name="enable-diagnostic-logs-for-control-plane-operations"></a>컨트롤 플레인 작업에 진단 로그 사용
 

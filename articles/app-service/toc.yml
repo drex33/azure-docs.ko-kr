@@ -235,7 +235,7 @@
               href: configure-authentication-provider-google.md
             - name: Twitter를 사용하여 인증
               href: configure-authentication-provider-twitter.md
-            - name: OpenID Connect 공급자를 사용하여 인증(미리 보기)
+            - name: OpenID Connect 공급자를 사용하여 인증
               href: configure-authentication-provider-openid-connect.md
             - name: Apple에서 로그인을 사용하여 인증(미리 보기)
               href: configure-authentication-provider-apple.md
@@ -385,7 +385,7 @@
         - name: 참조 아키텍처
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: 배포 스크립트
-          href: 'https://azure.microsoft.com/documentation/scripts/'
+          href: /azure/automation/automation-runbook-gallery
     - name: 문제 해결
       items:
         - name: 일시적인 아웃바운드 연결 오류 문제 해결

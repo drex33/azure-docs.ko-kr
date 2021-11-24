@@ -7,12 +7,12 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: virtual-machines-sap
-ms.openlocfilehash: 6feea5875859b21f0822c5a48c9ea1a593b0b1dc
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 8f4e77f1f9688a5c5c9e2875c409df8d7e927eb8
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132759748"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031925"
 ---
 # <a name="workload-zone-deployment-in-sap-automation-framework"></a>SAP 자동화 프레임워크의 워크로드 영역 배포
 
@@ -85,7 +85,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 서비스 주체에 올바른 권한을 할당합니다. 
 
-```azurecli-interactive
+```azurecli
 az role assignment create --assignee <appId> --role "User Access Administrator"
 ```
 
@@ -99,6 +99,16 @@ az role assignment create --assignee <appId> --role "User Access Administrator"
 
 > [!TIP]
 > 배포자에서 이 작업을 수행합니다.
+
+샘플 구성 파일을 복사하여 배포 자동화 프레임워크 테스트를 시작할 수 있습니다.
+
+```bash
+cd ~/Azure_SAP_Automated_Deployment
+
+cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+
+```
+
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
@@ -121,6 +131,17 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
         --tenant_id $tenant_id
 ```
 # <a name="windows"></a>[Windows](#tab/windows)
+
+샘플 구성 파일을 복사하여 배포 자동화 프레임워크 테스트를 시작할 수 있습니다.
+
+```powershell
+
+cd C:\Azure_SAP_Automated_Deployment
+
+xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+
+```
+
 
 ```powershell
 $subscription="<subscriptionID>"

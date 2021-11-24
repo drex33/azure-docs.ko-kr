@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: iot-develop
 services: iot-develop
 ms.custom: mvc
-ms.openlocfilehash: 213af02dfdfd67c63dc9470218bb08dd07a1aad9
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: d9c24c1d794c09bdf81449b1e0eff4b4feed7bf9
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132810143"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133030011"
 ---
 # <a name="microsoft-sdks-for-iot-plug-and-play"></a>IoT 플러그 앤 플레이용 Microsoft SDK
 
@@ -27,7 +27,7 @@ IoT 플러그 앤 플레이 라이브러리 및 SDK를 통해 개발자는 여�
 | .NET - 디바이스 | [NuGet 1.31.0](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/) | [샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/iot-hub/Samples/device/PnpDeviceSamples) | [IoT Hub에 연결](tutorial-connect-device.md) | [참조](/dotnet/api/microsoft.azure.devices.client) |
 | Java - 디바이스 | [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client) | [GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/main/) | [샘플](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample) | [IoT Hub에 연결](tutorial-connect-device.md) | [참조](/java/api/com.microsoft.azure.sdk.iot.device) |
 | Python - 디바이스 | [pip 2.3.0](https://pypi.org/project/azure-iot-device/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python) | [샘플](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/pnp) | [IoT Hub에 연결](tutorial-connect-device.md) | [참조](/python/api/azure-iot-device/azure.iot.device) |
-| Node - 디바이스 | [npm 1.17.2](https://www.npmjs.com/package/azure-iot-device)  | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples/javascript/pnp) | [IoT Hub에 연결](tutorial-connect-device.md) | [참조](/javascript/api/azure-iot-device/) |
+| Node - 디바이스 | [npm 1.17.2](https://www.npmjs.com/package/azure-iot-device)  | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [샘플](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples/javascript/) | [IoT Hub에 연결](tutorial-connect-device.md) | [참조](/javascript/api/azure-iot-device/) |
 | 임베디드 C - 디바이스 | 해당 없음 | [GitHub](https://github.com/Azure/azure-sdk-for-c/)| [샘플](tutorial-connect-device.md?pivots=programming-language-embedded-c#samples) | [임베디드 C를 사용하는 방법](tutorial-connect-device.md?pivots=programming-language-embedded-c) | 해당 없음
 
 ## <a name="service-sdks"></a>서비스 SDK

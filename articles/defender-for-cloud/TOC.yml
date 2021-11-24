@@ -335,7 +335,7 @@
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policy'
       href: policy-reference.md
-    - name: Azure 로드맵 블로그
+    - name: Azure 업데이트 블로그
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: 엔드포인트 보호 평가 및 권장 사항
       href: endpoint-protection-recommendations-technical.md
@@ -350,21 +350,19 @@
     - name: 사용자 데이터 관리
       href: privacy.md
     - name: IoT용 Microsoft Defender 설명서
-      href: /azure/asc-for-iot/
+      href: /azure/defender-for-iot/
     - name: Azure 보안 설명서
       href: ../security/index.yml
-    - name: Azure 업데이트
-      href: 'https://azure.microsoft.com/updates/?category=security-identity'
     - name: 준비 로드맵
       href: security-center-readiness-roadmap.md
     - name: 클라우드용 Microsoft Defender 기술 커뮤니티 블로그
-      href: 'https://techcommunity.microsoft.com/t5/azure-security-center/bg-p/AzureSecurityCenterBlog'
+      href: 'https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog'
     - name: Stack Overflow의 클라우드용 Microsoft Defender
-      href: 'https://stackoverflow.com/search?q=azure-security-center'
-    - name: ASCinTheField YouTube 동영상
-      href: 'https://www.youtube.com/results?search_query=%23ASCInTheField'
+      href: 'https://stackoverflow.com/search?q=microsoft+defender+for+cloud'
+    - name: MDfCinTheField YouTube 동영상
+      href: 'https://www.youtube.com/hashtag/mdfcinthefield'
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+      href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 문제 해결 가이드

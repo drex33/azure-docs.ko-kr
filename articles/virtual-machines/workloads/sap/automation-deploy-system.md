@@ -7,12 +7,12 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: conceptual
 ms.service: virtual-machines-sap
-ms.openlocfilehash: a1f79dcd7f68f426a9c9d515d96048c7e7bc0123
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 1167014bcbfd46fb92e95e6db4abab78fc9f1c1f
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730453"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031387"
 ---
 # <a name="sap-system-deployment-for-the-automation-framework"></a>자동화 프레임워크에 대한 SAP 시스템 배포
 
@@ -27,14 +27,14 @@ SAP 시스템은 다음을 배포합니다.
 
 ## <a name="application-tier"></a>애플리케이션 계층
 
-애플리케이션 계층은 고객이 정의한 수의 VM을 배포합니다. 이러한 VM은 **30GB** OS(운영 체제) 디스크와 512GB 데이터 디스크를 Standard_D4s_v3 크기입니다.
+애플리케이션 계층은 고객이 정의한 수의 VM을 배포합니다. 이러한 VM은  30GB OS(운영 체제) 디스크와 512GB 데이터 디스크를 Standard_D4s_v3 크기입니다.
 
 애플리케이션 서버 수를 설정하려면 매개 변수 `application_server_count` 파일에서 이 계층에 대한 매개 변수를 정의합니다. 예들 들어 `application_server_count= 3`입니다.
 
 
 ## <a name="central-services-tier"></a>중앙 서비스 계층
 
-SAP SCS(중앙 서비스) 계층은 고객이 정의한 수의 VM을 배포합니다. 이러한 VM은 **30GB** OS 디스크와 512GB 데이터 디스크를 Standard_D4s_v3 크기입니다. 또한 이 계층은 [Azure 표준 Load Balancer](../../../load-balancer/load-balancer-overview.md)배포합니다.
+SAP SCS(중앙 서비스) 계층은 고객이 정의한 수의 VM을 배포합니다. 이러한 VM은 **30GB** OS 디스크 및 512GB 데이터 디스크를 Standard_D4s_v3 크기입니다. 또한 이 계층은 [Azure 표준 Load Balancer](../../../load-balancer/load-balancer-overview.md)배포합니다.
 
 SCS 서버 수를 설정하려면 매개 변수 `scs_server_count` 파일에서 이 계층에 대한 매개 변수를 정의합니다. 예들 들어 `scs_server_count=1`입니다.
 
@@ -106,7 +106,7 @@ application_server_image= {
 scs_server_count=1
 
 # scs_instance_number
-scs_instance_number="01"
+scs_instance_number="00"
 
 # ers_instance_number
 ers_instance_number="02"
@@ -128,6 +128,16 @@ webdispatcher_server_count=0
 > [!TIP]
 > 배포자에서 이 작업을 수행합니다.
 
+샘플 구성 파일을 복사하여 배포 자동화 프레임워크 테스트를 시작할 수 있습니다.
+
+```bash
+cd ~/Azure_SAP_Automated_Deployment
+
+cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+
+```
+
+
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X01
 
@@ -136,6 +146,17 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh          \
         --type sap_system
 ```
 # <a name="windows"></a>[Windows](#tab/windows)
+
+샘플 구성 파일을 복사하여 배포 자동화 프레임워크 테스트를 시작할 수 있습니다.
+
+```powershell
+
+cd C:\Azure_SAP_Automated_Deployment
+
+xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+
+```
+
 
 ```powershell
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 10/21/2021
 ms.custom: automl
-ms.openlocfilehash: b5b917e76e9dd36451d63934bfbb9d0332f4b571
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: e00b762af53e22a954f5ccb0a03bef173533cf59
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132863768"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133030547"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습으로 수요 예측
 
@@ -129,7 +129,7 @@ Azure Machine Learning 스튜디오에서 자동화된 기계 학습을 사용�
             ----|---|---
             컴퓨팅 이름 |  컴퓨팅 컨텍스트를 식별하는 고유한 이름입니다. | bike-compute
             최소 / 최대 노드| 데이터를 프로파일링하려면 하나 이상의 노드를 지정해야 합니다.|최소 노드: 1<br>최대 노드: 6
-            규모 축소 전 유휴 시간(초) | 클러스터가 최소 노드 수까지 자동으로 축소되기 전의 유휴 시간입니다.|1800(기본값)
+            규모 축소 전 유휴 시간(초) | 클러스터가 최소 노드 수까지 자동으로 축소되기 전의 유휴 시간입니다.|120(기본값)
             고급 설정 | 실험에 사용할 가상 네트워크를 구성하고 권한을 부여하는 설정입니다.| None 
   
         1. **만들기** 를 선택하여 컴퓨팅 대상을 가져옵니다. 

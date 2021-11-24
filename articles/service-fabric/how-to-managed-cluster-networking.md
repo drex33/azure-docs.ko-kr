@@ -3,12 +3,12 @@ title: Service Fabric 관리형 클러스터에 대한 네트워크 설정 구�
 description: NSG 규칙, RDP 포트 액세스, 부하 분산 규칙 등에 대해 Service Fabric 관리형 클러스터를 구성하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 11/10/2021
-ms.openlocfilehash: 9fb71d7c6e88ffca76bd67bdd65216ba3de8106a
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: e8b8d3f421dfaea73cde95f7678a0c330c1924da
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132941399"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031731"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터에 대한 네트워크 설정 구성
 
@@ -552,7 +552,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
    
    `outboundRules`아웃 바운드 연결을 제공 하도록 공용 부하 분산 장치를 구성 하려면 [부하 분산 장치 만들기 및 역할 할당 샘플 AZURE RESOURCE MANAGER (ARM) 템플릿](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/master/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role.json) 을 참조 하세요.
    
-   OR
+   또는
    
    기본 부하 분산 장치를 사용 하도록 노드 유형을 구성 하려면 템플릿에서 다음을 설정 합니다. 
    
@@ -641,7 +641,7 @@ Service Fabric 관리형 클러스터는 관리형 클러스터 속성의 `loadB
                 ]              
 ```
 
-[사용할 수 있는 전체 매개 변수 목록](/azure/templates/microsoft.servicefabric/managedclusters) 보기 
+[사용할 수 있는 전체 매개 변수 목록](/azure/templates/microsoft.servicefabric/2021-11-01-preview/managedclusters) 보기
 
 ## <a name="next-steps"></a>다음 단계
 [Service Fabric 관리형 클러스터 구성 옵션](how-to-managed-cluster-configuration.md)

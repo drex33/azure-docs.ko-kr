@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 11/22/2021
 ms.author: yushwang
-ms.openlocfilehash: b8d089fb42f9f8a8340c72023ea6fc598eda0e6f
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 101aa2e244d9087330723caba831b0563e430012
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132940698"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133030503"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보
 
@@ -39,7 +39,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 |**공급업체**          |**디바이스 패밀리**     |**최소 OS 버전** |**정책 기반 구성 지침** |**경로 기반 구성 지침** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |호환되지 않음  |[구성 가이드](https://www.a10networks.com/wp-content/uploads/A10-DG-16161-EN.pdf)|
-| Ahnlab | TrusGuard | TG 2.7.6<br>TG 3.5.x | - | [구성 가이드](https://help.ahnlab.com/trusguard/cloud/azure/install/en_us/start.htm)
+| Ahnlab | TrusGuard | TG 2.7.6<br>TG 3.5. x | 테스트되지 않음 | [구성 가이드](https://help.ahnlab.com/trusguard/cloud/azure/install/en_us/start.htm)
 | Allied Telesis     |AR 시리즈 VPN 라우터 |AR 시리즈 5.4.7 이상               | [구성 가이드](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router) |[구성 가이드](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Arista | CloudEOS Router | vEOS 4.24.0FX | 테스트되지 않음 | [구성 가이드](https://www.arista.com/en/cg-veos-router/veos-router-cloudeos-ipsec-connectivity-to-azure-virtual-network-gateway) |
 | Barracuda Networks, Inc. |Barracuda CloudGen Firewall |정책 기반: 5.4.3<br>경로 기반: 6.2.0 |[구성 가이드](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462887/how-to-configure-an-ikev1-ipsec-site-to-site-vpn-to-the-static-microsoft-azure-vpn-gateway/) |[구성 가이드](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462889/how-to-configure-bgp-over-ikev2-ipsec-site-to-site-vpn-to-an-azure-vpn-gateway/) |
@@ -116,7 +116,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 
 ## <a name="default-ipsecike-parameters"></a><a name="ipsec"></a>기본 IPsec/IKE 매개 변수
 
-아래 표에는 알고리즘의 조합 및 기본 구성(**기본 정책**)에서 Azure VPN 게이트웨이가 사용하는 매개 변수를 포함합니다. Azure Resource Management 배포 모델을 사용하여 만든 경로 기반 VPN Gateway의 경우 각 개별 연결에 사용자 지정 정책을 지정할 수 있습니다. 자세한 지침은 [IPsec/IKE 정책 구성을](vpn-gateway-ipsecikepolicy-rm-powershell.md) 참조합니다.
+아래 표에는 알고리즘의 조합 및 기본 구성(**기본 정책**)에서 Azure VPN 게이트웨이가 사용하는 매개 변수를 포함합니다. Azure Resource Management 배포 모델을 사용하여 만든 경로 기반 VPN Gateway의 경우 각 개별 연결에 사용자 지정 정책을 지정할 수 있습니다. 자세한 지침은 [IPsec/IKE 정책 구성](vpn-gateway-ipsecikepolicy-rm-powershell.md) 을 참조 하세요.
 
 또한 TCP **MSS** 를 **1350** 에 고정해야 합니다. 또는 VPN 디바이스가 MSS 고정을 지원하지 않는 경우 대신 터널 인터페이스의 **MTU** 를 **1400** 바이트로 설정할 수 있습니다.
 

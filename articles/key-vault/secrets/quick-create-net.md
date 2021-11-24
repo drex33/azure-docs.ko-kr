@@ -7,13 +7,13 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-csharp
-ms.openlocfilehash: e639a096032d0f5c7688bf739317abbeb31d8856
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: 320e5f60249577abbb1da8b942d7bf21703b4ccb
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124730705"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067170"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>빠른 시작: .NET용 Azure Key Vault 비밀 클라이언트 라이브러리(SDK v4)
 
@@ -27,7 +27,7 @@ Key Vault 및 비밀에 대한 자세한 내용은 다음을 참조하세요.
 - [Key Vault 개요](../general/overview.md)
 - [비밀 개요](about-secrets.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/dotnet)
 * [.NET Core 3.1 SDK 이상](https://dotnet.microsoft.com/download/dotnet-core)

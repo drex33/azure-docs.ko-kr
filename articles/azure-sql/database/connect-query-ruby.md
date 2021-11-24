@@ -5,19 +5,19 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2 , mode-other
 ms.devlang: ruby
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
 ms.reviewer: mathoma
 ms.date: 05/29/2020
-ms.openlocfilehash: 160324421c4fb548baff547b3c8d41d98e1f4a1f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 7d0562c683eb5879d0475a16e9dd7460029a35ea
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704511"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060367"
 ---
 # <a name="quickstart-use-ruby-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Ruby를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

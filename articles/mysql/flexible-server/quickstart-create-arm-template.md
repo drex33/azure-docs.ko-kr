@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 ARM 템플릿을 사용하여 Azure Data
 author: mksuni
 ms.service: mysql
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-other
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: a53c532d4f95edfea9aaa4ae96a9d0a92d9c9b10
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 1aa4863c74934fbb35f77ce7d81b5f49a0f987c4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425390"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045814"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server"></a>빠른 시작 - ARM 템플릿을 사용하여 Azure Database for MySQL - 유연한 서버 만들기
 

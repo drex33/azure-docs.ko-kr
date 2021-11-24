@@ -3,13 +3,13 @@ title: Visual Studio를 사용하여 Azure Storage에 함수 연결
 description: Visual Studio를 사용하여 C# 클래스 라이브러리 함수를 Azure Storage 큐에 연결하도록 출력 바인딩을 추가하는 방법을 알아봅니다.
 ms.date: 05/30/2021
 ms.topic: quickstart
-ms.custom: mvc
-ms.openlocfilehash: 9b5d6e4919db9fcf41eea8704878d10606833658
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.custom: mvc, mode-other
+ms.openlocfilehash: e7a9ec15ab317c86a141fd13c246778b864f7068
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829555"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049002"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Visual Studio를 사용하여 Azure Storage에 함수 연결
 

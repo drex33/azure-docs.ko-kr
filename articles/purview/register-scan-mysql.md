@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 8f7d2dbdab590d2236032d3dd96a2008e2aa79c0
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 805fc2a1bee7ca02f1d70948172e9a26a4526413
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132553841"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057579"
 ---
 # <a name="connect-to-and-manage-mysql-in-azure-purview-preview"></a>Azure Purview에서 MySQL 커넥트 및 관리(미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "132553841"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| 예|
+| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 아니요| 예|
 
 지원되는 MySQL 서버 버전은 5.7~8.x입니다.
 
@@ -35,7 +35,7 @@ MySQL 원본을 검색할 때 Purview는 다음을 지원합니다.
 - MySQL 서버, 데이터베이스, 테이블, 뷰 및 테이블/뷰 열을 포함한 메타데이터 추출
 - 테이블과 뷰 간의 자산 관계에 대한 계보 가져오기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -129,7 +129,7 @@ MySQL 원본에 대해 지원되는 인증 유형은 **기본 인증** 입니다
     1. **사용 가능한 최대 메모리**: 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검색할 MySQL 원본의 크기에 따라 달라집니다.
 
         > [!Note]
-        > 일반적으로 1,000개 테이블당 1GB 메모리를 제공하세요.
+        > 일반적으로 1000개 테이블마다 1GB 메모리를 제공하세요.
 
         :::image type="content" source="media/register-scan-mysql/scan.png" alt-text="MySQL 검사" border="true":::
 

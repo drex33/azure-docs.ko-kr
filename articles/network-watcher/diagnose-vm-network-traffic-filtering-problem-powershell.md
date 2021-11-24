@@ -15,13 +15,13 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: network-watcher
 ms.devlang: na
 tags: azure-resource-manager
-ms.custom: devx-track-azurepowershell, mvc, mode-api
-ms.openlocfilehash: 46255bc9edf05140b68caf1a4cee08f5d5755855
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-azurepowershell, mvc, mode-other
+ms.openlocfilehash: c7f505216201e17fd6c6a6b287614654fd96d771
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131020182"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074086"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>빠른 시작: 가상 머신 네트워크 트래픽 필터 문제 진단 - Azure PowerShell
 

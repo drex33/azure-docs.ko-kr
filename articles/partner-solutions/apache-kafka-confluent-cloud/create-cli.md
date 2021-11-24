@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.date: 06/07/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: a9c49b1a19cbed080255492b90554ce0b138c3bd
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.custom: mode-api
+ms.openlocfilehash: cd42839f3efd4764448dfbce7f04e017f6313f07
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112535029"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071259"
 ---
 # <a name="quickstart-get-started-with-apache-kafka-for-confluent-cloud---azure-cli"></a>빠른 시작: Apache Kafka for Confluent Cloud 시작 - Azure CLI
 

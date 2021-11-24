@@ -2,14 +2,14 @@
 title: Azure Resource Manager 템플릿을 사용하여 Azure Portal 대시보드 만들기
 description: Azure Resource Manager 템플릿을 사용하여 Azure Portal 대시보드를 만드는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.date: 03/15/2021
-ms.openlocfilehash: 0a1da860c4263f25e04e68253d0eed96254bed3a
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 935a96c1f4ebf12120ac80fdcd60719c7c4394df
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077721"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073220"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Portal에서 대시보드 만들기
 

@@ -7,13 +7,13 @@ ms.author: duau
 ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: expressroute
-ms.custom: mode-portal
-ms.openlocfilehash: 449925c1588ad05fccf2d5d5509ad621b6041956
-ms.sourcegitcommit: 1a0fe16ad7befc51c6a8dc5ea1fe9987f33611a1
+ms.custom: mode-other
+ms.openlocfilehash: c37a9906ce6b716d924140fdc4fb7a424bf06948
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131867136"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056109"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>빠른 시작: ExpressRoute 회로 만들기 및 수정
 

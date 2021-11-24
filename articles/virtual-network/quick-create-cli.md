@@ -1,19 +1,19 @@
 ---
 title: 가상 네트워크 만들기 - 빠른 시작 - Azure CLI
-titlesuffix: Azure Virtual Network
+titleSuffix: Azure Virtual Network
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 가상 네트워크를 만드는 방법을 알아봅니다. 가상 네트워크를 통해 Azure 리소스가 서로 통신하고 인터넷과 통신할 수 있습니다.
 author: KumudD
 ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 03/06/2021
 ms.author: kumud
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 407207c0dcb6270f08fb511a01e6e4e835b9fab9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurecli, mode-other
+ms.openlocfilehash: 34169a20d364d2f14d9350c2c6ece28ea2ec820f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776756"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076790"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 가상 네트워크 만들기
 

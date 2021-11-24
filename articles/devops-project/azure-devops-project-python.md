@@ -12,13 +12,13 @@ ms.technology: devops-cicd
 ms.topic: quickstart
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.custom: mvc, devx-track-python, mode-api
-ms.openlocfilehash: 3f6fda9367ba27acbd47fcb316541d1b3d50aafc
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.custom: mvc, devx-track-python, mode-other
+ms.openlocfilehash: 3a32a120cad51bd856c632454eb3ced59404a057
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132061647"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058965"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 Python용 CI/CD 파이프라인 만들기
 

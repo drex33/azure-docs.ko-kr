@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: key-vault
 ms.devlang: azurecli
 ms.date: 01/06/2021
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 80d5bbb54715c5a1a5102f8991f366e273145edc
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: devx-track-azurecli, mode-api
+ms.openlocfilehash: 341a0d9f76194ff92bc481efd96f4a2cb2bd86f9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868954"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050657"
 ---
 # <a name="quickstart-create-an-azure-dedicated-hsm-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Dedicated HSM 만들기
 

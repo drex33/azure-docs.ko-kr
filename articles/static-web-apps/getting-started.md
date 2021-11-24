@@ -7,12 +7,13 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 06/16/2021
 ms.author: cshoe
-ms.openlocfilehash: a7b7504a99be6784e2767abe0daf9ba64066d0c1
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.custom: mode-other
+ms.openlocfilehash: 1e2366c4a021f11038c7960e6b8729b9573c7b8d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132134619"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133077364"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>빠른 시작: Azure Static Web Apps를 사용하여 첫 번째 정적 사이트 빌드
 
@@ -20,7 +21,7 @@ Azure Static Web Apps는 코드 리포지토리에서 앱을 빌드하여 웹 �
 
 Azure 구독이 아직 없는 경우 [평가판 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [GitHub](https://github.com) 계정
 - [Azure](https://portal.azure.com) 계정

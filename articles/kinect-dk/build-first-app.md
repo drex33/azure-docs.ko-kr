@@ -7,12 +7,13 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: kinect, azure, 센서, sdk, 마이크, 마이크 액세스, 마이크 데이터
-ms.openlocfilehash: 3632145b3f3b63023e0c66e3cf99903231802edf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mode-other
+ms.openlocfilehash: c280f8b06167888f8cd5795535c399436b1c6924
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85277824"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074618"
 ---
 # <a name="quickstart-build-your-first-azure-kinect-application"></a>빠른 시작: 첫 번째 Azure Kinect 애플리케이션 빌드
 

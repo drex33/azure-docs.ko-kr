@@ -3,14 +3,14 @@ title: '빠른 시작: Azure Portal을 사용하여 HDInsight에 Apache Kafka �
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터를 만드는 방법에 대해 알아봅니다. 또한 Kafka 토픽, 구독자 및 소비자에 대해서도 알아봅니다.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.date: 04/29/2020
-ms.openlocfilehash: 3d5d33375fe28be4de67153b41027d82d71d072c
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 6651c350abe8be037934b66fae2aba7d370d435a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112299594"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048378"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -42,7 +42,7 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
 
 1. **기본** 탭에서 다음 정보를 제공합니다.
 
-    |속성  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |Subscription    |  드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다. |
     |Resource group     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
@@ -64,7 +64,7 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
 
 1. **스토리지** 탭에서 다음 값을 입력합니다.
 
-    |속성  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |기본 스토리지 유형|기본값 **Azure Storage** 를 사용합니다.|
     |선택 방법|기본값 **목록에서 선택** 을 사용합니다.|

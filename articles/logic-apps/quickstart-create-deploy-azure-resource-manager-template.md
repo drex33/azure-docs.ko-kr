@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-other
 ms.date: 04/01/2021
-ms.openlocfilehash: e141a33be0433e8d40af41c4624b4921321a6aae
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 140316ebcb85416460fa9eb91f3623873f5be62f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971607"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057941"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 논리 앱 워크플로 만들기 및 배포
 
@@ -64,7 +64,7 @@ Azure Logic Apps용 빠른 시작 템플릿을 추가로 찾으려면 갤러리�
 
 1. 포털의 **템플릿을 사용하여 논리 앱 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
 
-   | 속성 | 값 | Description |
+   | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | 사용할 Azure 구독의 이름입니다. |
    | **리소스 그룹** | <*Azure-resource-group-name*> | 신규 또는 기존 Azure 리소스 그룹의 이름입니다. 이 예에서는 `Check-Azure-Status-RG`를 사용합니다. |

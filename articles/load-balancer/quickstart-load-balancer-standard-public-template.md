@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/09/2020
 ms.author: allensu
-ms.custom: mvc,subject-armqs
-ms.openlocfilehash: a5cb80924daf3328da6a3a9fd7fc1c7c7212bed6
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.custom: mvc, subject-armqs, mode-other
+ms.openlocfilehash: be14c81c45ed88363301ab0cb3af095f5d61026a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129090935"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074292"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 

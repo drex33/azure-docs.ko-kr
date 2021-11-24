@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 기본, 표준 또는 프리미엄 계�
 author: curib
 ms.author: cauribeg
 ms.service: cache
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: c7f58eafda0a08d0ddd4aabc93528836a66dde63
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: b334786e95b2005fbf303ff7ecbc83d07248086f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534298"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133065158"
 ---
 # <a name="quickstart-create-an-open-source-redis-cache"></a>빠른 시작: 오픈 소스 Redis 캐시 만들기
 

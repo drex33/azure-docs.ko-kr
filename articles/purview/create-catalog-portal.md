@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.date: 11/15/2021
 ms.topic: quickstart
 ms.service: purview
-ms.custom: mode-portal
-ms.openlocfilehash: 1113d657b6f60ff58e6d3450403833ccf5dd1c95
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.custom: mode-other
+ms.openlocfilehash: 2ce7bac4e0cd92366287d7571933696079adbc8e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132758246"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055586"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Purview 계정 만들기
 
@@ -81,5 +81,3 @@ Purview Studio를 탐색하고, 컬렉션을 만들고, Purview에 대해 액세
 * [Purview Studio 사용](use-purview-studio.md)
 * [컬렉션 만들기](quickstart-create-collection.md)
 * [Azure Purview 계정에 사용자 추가](catalog-permissions.md)
-
-

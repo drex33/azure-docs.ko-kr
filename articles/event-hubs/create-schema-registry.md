@@ -3,13 +3,13 @@ title: Azure Event Hubs 스키마 레지스트리 만들기
 description: 이 문서에서는 Azure Event Hubs 네임스페이스에서 스키마 레지스트리를 만드는 방법을 보여 줍니다.
 ms.topic: quickstart
 ms.date: 06/01/2021
-ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: f15327c6e5f35dcdd37ee45222f351257c846f5f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: references_regions, ignite-fall-2021, mode-other
+ms.openlocfilehash: 38c769fa2c9c59bae0c3019250b1bc9897be816c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131070848"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071965"
 ---
 # <a name="create-an-azure-event-hubs-schema-registry"></a>Azure Event Hubs 스키마 레지스트리 만들기
 이 문서에서는 Azure Event Hubs에서 호스트하는 스키마 레지스트리에서 스키마를 사용하여 스키마 그룹을 만드는 방법을 보여 줍니다. Azure Event Hubs의 스키마 레지스트리 기능에 대한 개요는 [Event Hubs의 Azure 스키마 레지스트리](schema-registry-overview.md)를 참조하세요.

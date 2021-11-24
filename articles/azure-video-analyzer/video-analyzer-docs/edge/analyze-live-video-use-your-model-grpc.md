@@ -5,13 +5,13 @@ ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 3f71efb14d70a63c8f7884ac010dd248aa72223b
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 4e18d3502eb4c7eac4f908bee7da0728d335477d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132494618"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072999"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---grpc"></a>빠른 시작: 자체 모델로 라이브 비디오 분석 - gRPC
 

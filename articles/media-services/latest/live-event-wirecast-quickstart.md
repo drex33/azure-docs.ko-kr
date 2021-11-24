@@ -7,12 +7,13 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 08/31/2020
-ms.openlocfilehash: de3b3f4b9e871ab95e60f4bb2393e86770069544
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.custom: mode-other
+ms.openlocfilehash: b763e95fe7c7f565bb19ae7e01af69c808bc5efa
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123197"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071515"
 ---
 # <a name="create-an-azure-media-services-live-stream"></a>Azure Media Services 라이브 스트림 만들기
 

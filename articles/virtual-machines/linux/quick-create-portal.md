@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/25/2020
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 6daa33669490e2b63c918860bec752542e35e5bb
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: 42dcd2d7cf5a37516fa4847cdf3523bc0b6472e1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691061"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061306"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Linux 가상 머신 만들기
 

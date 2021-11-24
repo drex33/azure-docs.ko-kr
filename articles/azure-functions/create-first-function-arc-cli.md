@@ -3,12 +3,13 @@ title: '빠른 시작: Azure Arc에서 함수 앱 만들기'
 description: 첫 번째 함수 앱을 배포하여 Azure Arc에서 Azure Functions를 시작합니다.
 ms.topic: quickstart
 ms.date: 05/10/2021
-ms.openlocfilehash: 4fd5a7a2792e6e90748c60336d92d5ed80388267
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: mode-other
+ms.openlocfilehash: 704767ba601c16735bb4df97210836039e7fb9e1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706995"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049335"
 ---
 # <a name="create-your-first-function-on-azure-arc-preview"></a>Azure Arc에서 첫 번째 함수 만들기(미리 보기)
 

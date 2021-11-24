@@ -6,12 +6,13 @@ ms.topic: quickstart
 ms.date: 03/18/2020
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
-ms.openlocfilehash: cbbe782260852194352ae2db508ce3dbaa1867ae
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mode-other
+ms.openlocfilehash: ae05723e1f24945990ea2c6716b6614c848ca0d9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739879"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060612"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>C\#으로 첫 번째 지속성 함수 만들기
 

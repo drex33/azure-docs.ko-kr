@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/27/2021
-ms.openlocfilehash: 85352f2cb1b2a0fe042b36fbe795435250385f65
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/22/2021
+ms.openlocfilehash: 2ce6a075a5a1dc761ee9ae918b02618dd11b7201
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130246345"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071714"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 주문 대시보드
 
@@ -38,10 +38,6 @@ ms.locfileid: "130246345"
 
 ## <a name="access-the-orders-dashboard"></a>주문 대시보드에 액세스
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
-
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 홈 페이지에서 **Insights** 타일을 선택 합니다.
 
@@ -49,32 +45,15 @@ ms.locfileid: "130246345"
 
 1. 왼쪽 메뉴에서 **Orders** 를 선택 합니다.
 
-#### <a name="current-view"></a>[현재 보기](#tab/current-view)
-
-1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 왼쪽 탐색 창에서 **상업적 Marketplace**  >    >  **주문** 분석을 선택 합니다.
-
----
-
 ## <a name="elements-of-the-orders-dashboard"></a>주문 대시보드의 요소
 
 다음 섹션에서는 주문 대시보드를 사용하는 방법과 데이터를 읽는 방법을 설명합니다.
 
 ### <a name="month-range"></a>월 범위
 
-#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
-
 각 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6 또는 12개월을 기준으로 월 범위를 선택하거나 최대 기간이 12개월인 사용자 지정 월 범위를 선택하여 **주문** 페이지 그래프의 출력을 사용자 지정합니다. 기본 월 범위(계산 기간)는 6개월입니다.
 
 [![주문 대시보드의 월 필터를 보여 줍니다. ](./media/orders-dashboard/order-workspace-filters.png) ](./media/orders-dashboard/order-workspace-filters.png#lightbox)
-
-#### <a name="current-view"></a>[현재 보기](#tab/current-view)
-
-각 페이지의 오른쪽 위 모서리에서 월 범위 선택 항목을 찾을 수 있습니다. 지난 6 또는 12개월을 기준으로 월 범위를 선택하거나 최대 기간이 12개월인 사용자 지정 월 범위를 선택하여 **주문** 페이지 그래프의 출력을 사용자 지정합니다. 기본 월 범위(계산 기간)는 6개월입니다.
-
-:::image type="content" source="./media/orders-dashboard/month-filters.png" alt-text="주문 대시보드의 월 필터를 보여 줍니다.":::
-
----
 
 > [!NOTE]
 > 시각화 위젯 및 내보내기 보고서의 모든 메트릭은 사용자가 선택한 계산 기간을 사용합니다.
@@ -148,7 +127,7 @@ SaaS 제품은 각 계획에 대한 두 가지 가격 책정 모델 중 하나�
 | MonthStartDate | 월 시작 날짜 | 월 시작 날짜는 구매 월을 나타냅니다. yyyy-mm-dd 형식입니다. | MonthStartDate |
 | 제품 유형 | 제품 유형 | 상업용 Marketplace 제품의 유형입니다. | OfferType |
 | Azure 라이선스 유형 | Azure 라이선스 유형 | Azure 구매 고객이 체결하는 라이선싱 계약 유형입니다. 채널이라고도 합니다. 가능한 값은 다음과 같습니다.<ul><li>[클라우드 솔루션 공급자](cloud-solution-providers.md)</li><li>Enterprise</li><li>재판매인을 통한 Enterprise</li><li>종량제</li><li>GTM</li></ul> | AzureLicenseType |
-| Marketplace 라이선스 유형 | Marketplace 라이선스 유형 | 상업용 Marketplace 제품의 청구 방법입니다. 다른 값은 다음과 같습니다.<ul><li>[클라우드 솔루션 공급자](cloud-solution-providers.md) (CSP)</li><li>Enterprise (EA)</li><li>대리점을 통해 Enterprise</li><li>종량제</li><li>[시장으로 이동](co-sell-overview.md) (GTM)</li></ul> | MarketplaceLicenseType |
+| Marketplace 라이선스 유형 | Marketplace 라이선스 유형 | 상업용 Marketplace 제품의 청구 방법입니다. 다른 값은 다음과 같습니다.<ul><li>[CSP(클라우드 솔루션 공급자)](cloud-solution-providers.md)</li><li>EA(Enterprise)</li><li>대리점을 통한 Enterprise</li><li>종량제</li><li>[GTM(시장 진출)](co-sell-overview.md)</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | 제품에 연결된 플랜 | SKU |
 | 고객 국가 | 고객 국가/지역 | 고객이 입력한 국가/지역 이름. 국가/지역은 고객의 Azure 구독에서 국가/지역과 다를 수 있습니다. | CustomerCountry |
 | 미리 보기 SKU | 미리 보기 SKU | 이 값은 SKU를 "미리 보기"로 태그 지정한 경우를 알려 줍니다. 이에 따라 SKU가 태그 지정된 경우 값은 "예"이며, 사용자가 승인한 Azure 구독만 이 이미지를 배포하고 사용할 수 있습니다. SKU가 "미리 보기"로 식별되지 않은 경우 값은 "아니요"입니다. | IsPreviewSKU |

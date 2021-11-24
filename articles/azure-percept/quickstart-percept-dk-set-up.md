@@ -6,13 +6,13 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.custom: template-quickstart
-ms.openlocfilehash: 4e37be9e121d634e0d4a83fdd5f786805dedf132
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.custom: template-quickstart, mode-other
+ms.openlocfilehash: 0e0ab8669efcb6a140c80174e284a2ec48c3fe9b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427213"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070552"
 ---
 # <a name="set-up-the-azure-percept-dk-device"></a>Azure Percept DK 디바이스 설정
 

@@ -5,13 +5,13 @@ ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 11/04/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: c7770c61ce6d768f3fdd3216da94c87466310e74
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 7c3e469d86fa61967a7ba547911814d5fff90467
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132484233"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044706"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-model---http"></a>빠른 시작: 자체 모델로 라이브 비디오 분석l - HTTP
 

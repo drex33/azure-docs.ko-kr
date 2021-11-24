@@ -1,16 +1,16 @@
 ---
 title: Visual Studio Code를 사용하여 C# 함수 만들기 - Azure Functions
-description: C# 함수를 만든 다음, Visual Studio Code의 Azure Functions 확장을 사용하여 Azure Functions의 서버리스 호스팅에 로컬 프로젝트를 게시하는 방법을 알아봅니다.
+description: 'C# 함수를 만든 다음, Visual Studio Code의 Azure Functions 확장을 사용하여 Azure Functions의 서버리스 호스팅에 로컬 프로젝트를 게시하는 방법을 알아봅니다. '
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 2848ce6214d59ba2732dcfc148ccaf9936497f17
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d70890efde4d0970a79c2209943f36474a1620f9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121034"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049080"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure에서 C# 함수 만들기
 

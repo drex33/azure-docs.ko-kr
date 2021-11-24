@@ -3,13 +3,13 @@ title: Bicep 파일 배포 문제 해결
 description: Bicep 파일 배포를 모니터링하고 문제를 해결하는 방법을 알아봅니다. 활동 로그 및 배포 기록을 표시합니다.
 ms.date: 11/04/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31d212ef608b5fbabb4430b5320ae033ae2be325
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: fc5349484adc98bdda58c9182f646773791b50b3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131849447"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064729"
 ---
 # <a name="quickstart-troubleshoot-bicep-file-deployments"></a>빠른 시작: Bicep 파일 배포 문제 해결
 

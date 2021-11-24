@@ -9,13 +9,13 @@ ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 03/04/2021
-ms.custom: devx-track-java
-ms.openlocfilehash: f52aaa0636c453c0def7cb97c203f17f0b11a221
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-java, mode-other
+ms.openlocfilehash: 54213c717af33784a4f66c90b2ffa6da17bc356f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104955298"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050299"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java"></a>빠른 시작: Java에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]

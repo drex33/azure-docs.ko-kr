@@ -5,12 +5,13 @@ author: mumian
 ms.topic: quickstart
 ms.author: jgao
 ms.date: 11/16/2021
-ms.openlocfilehash: dbca9d692c96d65fa172e9d810e224427c9f5bfc
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: mode-other
+ms.openlocfilehash: 9de29d13e4ac487e1c833d135883913e10329355
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132717021"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054335"
 ---
 # <a name="quickstart-integrate-bicep-with-azure-pipelines"></a>빠른 시작: Azure Pipelines와 Bicep 통합
 

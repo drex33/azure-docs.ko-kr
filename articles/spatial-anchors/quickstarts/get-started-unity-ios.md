@@ -8,12 +8,13 @@ ms.author: parkerra
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 05d9c4472c153e6398b2d139c46499458614bc2f
-ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.custom: mode-other
+ms.openlocfilehash: bdffd3b955e123225552ff04e0ef89fbbd2c8367
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132956573"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050026"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Unity iOS 앱 만들기
 

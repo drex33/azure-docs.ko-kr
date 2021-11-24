@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 엔터프라이즈 계층에서 Azure Ca
 author: curib
 ms.author: cauribeg
 ms.service: cache
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 7733f9df7f314dfdc0369075b96477e301825ce6
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: f76da58e01c98f656bcc745dcd48dbaccdf7acac
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537322"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060519"
 ---
 # <a name="quickstart-create-a-redis-enterprise-cache"></a>빠른 시작: Redis Enterprise 캐시 만들기
 

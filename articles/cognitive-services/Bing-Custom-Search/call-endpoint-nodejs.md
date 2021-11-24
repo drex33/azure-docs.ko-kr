@@ -10,13 +10,13 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: devx-track-js
-ms.openlocfilehash: 5a5f020b313029e84eae388bec3bb626a0331cb0
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: 99b7fa29265b9c4fa2559f01a8888d0905d7aac0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352051"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051259"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Bing Custom Search 엔드포인트 호출
 

@@ -3,13 +3,13 @@ title: Azure의 Service Fabric에서 Linux 컨테이너 앱 만들기
 description: 이 빠른 시작에서 애플리케이션을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 클러스터에 컨테이너를 배포합니다.
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: c81d1caf4a52bc09276949e139d7e5c43916f925
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.custom: mvc, devx-track-azurecli, mode-other
+ms.openlocfilehash: 90d5242f2d4d905190b0717eb4903e32a425c9e4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111410768"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073636"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>빠른 시작: Linux 컨테이너를 Service Fabric에 배포
 

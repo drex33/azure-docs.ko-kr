@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: chat
-ms.openlocfilehash: f9b5ab547171af33d459cd0a52b1cbb2dfc2511c
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: bc344aa8df27661f8b381a40de2cf77d561d513c
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132308468"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133031144"
 ---
 # <a name="chat-concepts"></a>채팅 개념
 
@@ -37,7 +37,7 @@ Azure Communication Services 채팅 SDK를 사용하여 실시간 텍스트 채�
 일반적으로 스레드 작성자와 참여자는 스레드 접근 권한이 동일하며, 스레드 삭제를 포함하여 SDK에서 사용 가능한 모든 관련 작업을 실행할 수 있습니다. 참가자는 다른 참가자가 보낸 메시지에 대한 쓰기 권한이 없으므로, 메시지를 보낸 사람만 보낸 메시지를 업데이트하거나 삭제할 수 있습니다. 다른 참가자가 이 작업을 시도하면 오류가 발생합니다. 
 
 ### <a name="chat-data"></a>채팅 데이터 
-Communication Services는 명시적으로 삭제될 때까지 채팅 기록을 저장합니다. 채팅 스레드 참가자는 `ListMessages`를 사용하여 특정 스레드에 대한 메시지 기록을 볼 수 있습니다. 채팅 스레드에서 제거된 사용자는 이전 메시지 기록을 볼 수 있지만, 해당 채팅 스레드의 일부로 새 메시지를 보내거나 받을 수는 없습니다. 참가자가 없는 완전히 유휴 상태인 스레드는 30일 후에 자동으로 삭제됩니다. Communication Services에 의해 저장되는 데이터에 대한 자세한 내용은 [개인 정보](../privacy.md)에 대한 문서를 참조하세요.  
+Communication Services는 명시적으로 삭제될 때까지 채팅 기록을 저장합니다. 채팅 스레드 참가자는 `ListMessages`를 사용하여 특정 스레드에 대한 메시지 기록을 볼 수 있습니다. 채팅 스레드에서 제거된 사용자는 이전 메시지 기록을 볼 수 있지만, 해당 채팅 스레드의 일부로 새 메시지를 보내거나 받을 수는 없습니다. Communication Services에 의해 저장되는 데이터에 대한 자세한 내용은 [개인 정보](../privacy.md)에 대한 문서를 참조하세요.  
 
 ### <a name="service-limits"></a>서비스 제한
 - 채팅 스레드에 허용되는 최대 참가자 수는 250명입니다.
@@ -81,8 +81,23 @@ Communication Services는 명시적으로 삭제될 때까지 채팅 기록을 �
  - `participantsAdded` - 사용자가 채팅 스레드 참가자로 추가될 때.
  - `participantsRemoved` - 기존 참가자가 채팅 스레드에서 제거될 때.
 
-실시간 알림을 사용하여 사용자에게 실시간 채팅 경험을 제공할 수 있습니다. 사용자가 자리를 비운 동안 놓친 메시지에 대한 푸시 알림을 보내기 위해 Communication Services는 Azure Event Grid와 통합하여 사용자 지정 앱 알림 서비스에 연결할 수 있는 채팅 관련 이벤트(사후 작업)를 게시합니다. 자세한 내용은 [서버 이벤트](../../../event-grid/event-schema-communication-services.md?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fcommunication-services%2ftoc.json)를 참조하세요.
+## <a name="push-notifications"></a>푸시 알림   
+사용자가 부재 중일 때 누락한 메시지에 대한 푸시 알림을 보내기 위해 Communication Services는 두 가지 서로 다른 통합 방법을 제공합니다. 
+ - Event Grid 리소스를 사용하여 사용자 지정 앱 알림 서비스에 연결할 수 있는 채팅 관련 이벤트(후속 작업)를 구독합니다. 자세한 내용은 [서버 이벤트](../../../event-grid/event-schema-communication-services.md?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fcommunication-services%2ftoc.json)를 참조하세요.
+ - Notification Hub 리소스를 Communication Services 리소스와 연결하여 푸시 알림을 보내고 모바일 앱이 포그라운드에서 실행되고 있지 않을 때 들어오는 채팅 및 메시지에 대해 애플리케이션 사용자에게 알립니다. 클라이언트 앱은 다음 채팅 이벤트를 구독할 수 있습니다.
+   - `chatMessageReceived` - 참가자가 새 메시지를 채팅 스레드로 전송할 때.
+   - `chatMessageEdited` - 채팅 스레드에서 메시지가 편집될 때.   
+   - `chatMessageDeleted` - 채팅 스레드에서 메시지가 삭제될 때. 
+   - `chatThreadCreated` - Communication Services 사용자가 채팅 스레드를 만들 때.  
+   - `chatThreadDeleted` - Communication Services 사용자가 채팅 스레드를 삭제할 때.  
+   - `chatThreadPropertiesUpdated` - 채팅 스레드 속성이 업데이트될 때, 현재 스레드에 대한 토픽 업데이트만 지원됩니다.   
+   - `participantsAdded` - 사용자가 채팅 스레드 참가자로 추가될 때.   
+   - `participantsRemoved` - 기존 참가자가 채팅 스레드에서 제거될 때.
 
+자세한 내용은 [푸시 알림](../notifications.md)을 참조하세요.
+
+> [!NOTE]
+> 현재 Notification Hub로 채팅 푸시 알림을 보내는 것은 버전 1.1.0-beta.4의 Android SDK에서만 지원됩니다.
 
 ## <a name="build-intelligent-ai-powered-chat-experiences"></a>지능형 AI 기반 채팅 환경 빌드
 

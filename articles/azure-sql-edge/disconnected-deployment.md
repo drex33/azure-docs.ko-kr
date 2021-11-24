@@ -9,12 +9,13 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 548593a3b3c4548fbf1f037cd15c302a68df9845
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.custom: mode-other
+ms.openlocfilehash: 3fe3070316c48eb8e75d7bcf0880b3d22e767aac
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129235082"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056598"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Docker를 사용하여 Azure SQL Edge 배포
 

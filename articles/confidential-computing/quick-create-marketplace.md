@@ -8,13 +8,13 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/01/2021
 ms.author: stempesta
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: b46bae979d3045d1f301f68841cadcfe46448733
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 773d1900e3ab3a6c9be5696dde761ede479266c2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132290270"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059580"
 ---
 # <a name="quickstart-create-intel-sgx-vm-in-the-azure-marketplace"></a>빠른 시작: Azure Marketplace에서 Intel SGX VM 만들기
 

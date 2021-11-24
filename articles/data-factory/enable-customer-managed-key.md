@@ -8,12 +8,13 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/22/2021
 ms.reviewer: mariozi
-ms.openlocfilehash: b2af772d4f61f933fc6801827233038f8c8919ad
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.custom: mode-other
+ms.openlocfilehash: 25f7c6daac6aa2a24c36b9de256d5c2f41357f4c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131849338"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050815"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>고객 관리형 키를 사용하여 Azure Data Factory 암호화
 

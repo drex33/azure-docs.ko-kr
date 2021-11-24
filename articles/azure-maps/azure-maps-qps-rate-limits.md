@@ -8,12 +8,13 @@ ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: eriklind
-ms.openlocfilehash: 0015eeccd2ea4ed12eb0435cac72db8e86f9119a
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.custom: mode-other
+ms.openlocfilehash: e5e4c0c61018e36592b40d666172f70c889c67a3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131846448"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062535"
 ---
 # <a name="azure-maps-qps-rate-limits"></a>Azure Maps QPS 속도 제한
 

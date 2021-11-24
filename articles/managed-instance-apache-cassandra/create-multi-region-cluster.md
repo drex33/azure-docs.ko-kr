@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 31579971f4371186b5d919b1e1118c7d5c6e7426
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 286ab3af2511ef75a07cd13fc67386bb2c98f6c9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132940755"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066678"
 ---
 # <a name="quickstart-create-a-multi-region-cluster-with-azure-managed-instance-for-apache-cassandra"></a>빠른 시작: Azure Managed Instance for Apache Cassandra를 사용하여 다중 지역 클러스터 만들기
 

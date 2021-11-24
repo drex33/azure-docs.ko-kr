@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/18/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a2ed550d36dca7e9a7043dfca91e468527982164
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: a1301410e14be72812b983d26958a3ce503d0192
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138092"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133096792"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Application Gateway에 대한 백 엔드 상태, 진단 로그
 
@@ -176,7 +176,7 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |sentBytes| 보낸 패킷의 크기(바이트)|
 |timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(밀리초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
 |sslEnabled| 백 엔드 풀에 대한 통신에서 TLS/SSL을 사용했는지 여부입니다. 유효한 값은 on과 off입니다.|
-|host| 요청이 백 엔드 서버로 전송된 호스트 이름입니다. 백 엔드 호스트 이름이 재정의되는 경우 이 이름에 반영됩니다.|
+|호스트| 요청이 백 엔드 서버로 전송된 호스트 이름입니다. 백 엔드 호스트 이름이 재정의되는 경우 이 이름에 반영됩니다.|
 |originalHost| 클라이언트로부터 Application Gateway가 요청을 받은 호스트 이름입니다.|
 
 ```json
@@ -217,7 +217,11 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
 |httpVersion     | 요청의 HTTP 버전        |
 |receivedBytes     | 받은 패킷의 크기(바이트)        |
 |sentBytes| 보낸 패킷의 크기(바이트)|
-|timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(**초**)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
+|clientResponseTime| 클라이언트 요청의 첫 번째 바이트가 처리되고 첫 번째 바이트가 클라이언트에 응답하여 전송되는 데 걸리는 시간(초)입니다. |
+|timeTaken| 클라이언트 요청의 첫 번째 바이트가 처리되고 클라이언트에 대한 응답으로 마지막 바이트가 전송되는 데 걸리는 시간(초)입니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
+|WAFEvaluationTime| WAF에서 요청을 처리하는 데 걸리는 시간(초)입니다. |
+|WAFMode| 값은 검색 또는 방지일 수 있습니다. |
+|transactionId| 클라이언트에서 받은 요청의 상관 관계를 지정하는 고유 식별자 |
 |sslEnabled| 백 엔드 풀에 대한 통신에서 TLS를 사용했는지 여부입니다. 유효한 값은 on과 off입니다.|
 |sslCipher| TLS 통신에 사용되는 암호화 도구 모음입니다(TLS가 사용 설정된 경우).|
 |sslProtocol| 사용되는 SSL/TLS 프로토콜입니다(TLS가 사용 설정된 경우).|
@@ -251,7 +255,10 @@ Azure에서는 기본적으로 활동 로그를 생성합니다. 이러한 로�
         "httpVersion": "HTTP\/1.1",
         "receivedBytes": 184,
         "sentBytes": 466,
+        "clientResponseTime": 0,
         "timeTaken": 0.034,
+        "WAFEvaluationTime": "0.000",
+        "WAFMode": "Detection",
         "transactionId": "592d1649f75a8d480a3c4dc6a975309d",
         "sslEnabled": "on",
         "sslCipher": "ECDHE-RSA-AES256-GCM-SHA384",

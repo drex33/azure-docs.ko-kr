@@ -3,13 +3,13 @@ title: Azure의 Service Fabric에서 .NET 앱을 신속하게 만들기
 description: 이 빠른 시작에서는 Service Fabric 안정적인 서비스 애플리케이션 예제를 사용하여 Azure용 .NET 애플리케이션을 만듭니다.
 ms.topic: quickstart
 ms.date: 06/26/2019
-ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 665376a7616e146dbbf86caf0b4a2b62de7e5506
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: mvc, devcenter, vs-azure, mode-other
+ms.openlocfilehash: dbda7681852f7afae7c7f75aa34b6f910dd95825
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136898"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073558"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 .NET 안정적인 서비스 애플리케이션 배포
 

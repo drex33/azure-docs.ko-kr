@@ -9,14 +9,14 @@ ms.date: 06/18/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-other
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: a12bc8a4f41ec4ad30722d3f4489be01f1267381
-ms.sourcegitcommit: 96deccc7988fca3218378a92b3ab685a5123fb73
+ms.openlocfilehash: 9fb6b366e0bd117bd135a1ceb562dca5cf6896d2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131578969"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048235"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device"></a>빠른 시작: Windows 디바이스에 첫 번째 IoT Edge 모듈 배포
 

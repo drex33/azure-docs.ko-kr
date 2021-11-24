@@ -5,13 +5,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2469e2ece44242e95b02ebdba36c8d28953c1fd2
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 443c7029fc8b99acae232df153c12285ea6a541c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131043835"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039849"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 만들기, 학습 및 게시
 

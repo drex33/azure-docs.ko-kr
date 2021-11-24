@@ -15,13 +15,13 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: network-watcher
 ms.devlang: na
 tags: azure-resource-manager
-ms.custom: mvc, mode-portal
-ms.openlocfilehash: c95beb02c88f74546cc549cf1607d9717232bd85
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mvc, mode-other
+ms.openlocfilehash: d70955b770a8d5f639db5aa43687b58dc409ae5f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084524"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073860"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 머신 네트워크 트래픽 필터 문제 진단
 

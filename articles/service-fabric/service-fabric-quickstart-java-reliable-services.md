@@ -3,13 +3,13 @@ title: '빠른 시작: Azure Service Fabric에서 Java 앱 만들기'
 description: 이 빠른 시작에서는 Service Fabric 안정적인 서비스 애플리케이션 예제를 사용하여 Azure용 Java 애플리케이션을 만듭니다.
 ms.date: 01/29/2019
 ms.topic: quickstart
-ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
-ms.openlocfilehash: e1c4fe08c0d1a5ace5fec0c1a2330c111a5122ed
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
+ms.openlocfilehash: 2230d697ac743813a31e40412e8f422d38e4ba48
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083501"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073518"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>빠른 시작: Linux에서 Azure Service Fabric에 Java 앱 배포
 

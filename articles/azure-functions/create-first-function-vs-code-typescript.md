@@ -2,13 +2,13 @@
 title: Visual Studio Code를 사용하여 TypeScript 함수 만들기 - Azure Functions
 description: TypeScript 함수를 만든 다음, Visual Studio Code의 Azure Functions 확장을 사용하여 Azure Functions의 서버리스 호스팅에 로컬 Node.js 프로젝트를 게시하는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.date: 11/04/2020
-ms.openlocfilehash: 4470741c8c7f2f6c9832ea73aa9c6207764bc903
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 11/18/2021
+ms.openlocfilehash: a5b738e41f580f776d50c05c847bcd5ecab64031
+ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99493541"
+ms.lasthandoff: 11/22/2021
+ms.locfileid: "132903049"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-typescript-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 통해 TypeScript를 사용하여 Azure에서 함수 만들기
 
@@ -26,11 +26,13 @@ ms.locfileid: "99493541"
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Node.js](https://nodejs.org/), 활성 LTS 및 유지 관리 LTS 버전(10.14.1 권장). `node --version` 명령을 사용하여 버전을 확인합니다.  
++ [Node.js 14.x](https://nodejs.org/en/download/releases/) 또는 [Node.js 16.x](https://nodejs.org/en/download/releases/)(미리 보기). `node --version` 명령을 사용하여 버전을 확인합니다.  
 
 + [지원되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms) 중 하나인 [Visual Studio Code](https://code.visualstudio.com/).
 
 + Visual Studio Code용 [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
+
++ [Azure Functions Core Tools 4.x](functions-run-local.md#install-the-azure-functions-core-tools).
 
 ## <a name="create-your-local-project"></a><a name="create-an-azure-functions-project"></a>로컬 프로젝트 만들기
 

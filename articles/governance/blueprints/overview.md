@@ -3,12 +3,12 @@ title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
 ms.date: 06/21/2021
 ms.topic: overview
-ms.openlocfilehash: be0f512d4aaad922bb91e64ded9c8a5e4a5af88e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: ccf328cc286bff00e38dcf18b3ee460d4fca7291
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131081242"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132941095"
 ---
 # <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
@@ -113,7 +113,7 @@ Blueprints에서는 정책/이니셔티브 또는 ARM 템플릿에 매개 변수
 
 |Azure 역할 | Description |
 |-|-|
-|[소유자](../../role-based-access-control/built-in-roles.md#owner) | 다른 권한 외에도 모든 Azure Blueprint 관련 권한이 포함됩니다. |
+|[소유자](../../role-based-access-control/built-in-roles.md#owner) | 다른 권한 외에도 모든 Azure Blueprints 관련 권한이 포함됩니다. |
 |[기여자](../../role-based-access-control/built-in-roles.md#contributor) | 다른 권한 외에도 청사진 정의를 만들고 삭제할 수 있지만 청사진 할당 권한은 없습니다. |
 |[청사진 기여자](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | 청사진 정의를 관리할 수 있지만 할당할 수는 없습니다. |
 |[청사진 연산자](../../role-based-access-control/built-in-roles.md#blueprint-operator) | 게시된 기존 청사진을 할당할 수 있지만 새 청사진 정의를 만들 수는 없습니다. 청사진 할당은 할당이 사용자 할당 관리 ID로 수행되는 경우에만 작동합니다. |

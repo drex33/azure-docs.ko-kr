@@ -10,12 +10,13 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 11/17/2020
-ms.openlocfilehash: b701a80c3c3b7e5a558d875aca2fb34aea89edff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mode-other
+ms.openlocfilehash: 7bec5609f5a4e81de67aa0a6fea007be8ba0c150
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98119631"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050139"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Azure Cognitive Search 인덱스 만들기
 

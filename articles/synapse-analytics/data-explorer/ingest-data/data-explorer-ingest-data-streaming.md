@@ -9,12 +9,13 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.openlocfilehash: d7fdc238adda294a570b7656d62368a5d4feae9b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: mode-other
+ms.openlocfilehash: 3b7c261328741b6594f2ca768bd2eb5035eebfb0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131479747"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055336"
 ---
 # <a name="configure-streaming-ingestion-on-your-azure-synapse-data-explorer-pool-preview"></a>Azure Synapse Data Explorer 풀에서 스트리밍 수집 구성(미리 보기)
 

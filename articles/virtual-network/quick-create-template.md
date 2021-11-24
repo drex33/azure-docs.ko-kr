@@ -8,13 +8,13 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 06/09/2021
 ms.author: kumud
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a686eacf8e3caa162cfca765e60d2268fe2066e7
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 181e9f41e0162a97211aae95cfb9e8e458abea36
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078081"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049402"
 ---
 # <a name="quickstart-create-a-virtual-network---resource-manager-template"></a>빠른 시작: 가상 네트워크 만들기 - Resource Manager 템플릿
 

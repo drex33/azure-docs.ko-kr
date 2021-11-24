@@ -6,19 +6,19 @@ ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: template-quickstart, ignite-fall-2021
-ms.openlocfilehash: 134f8b28d6505963cde1f44f0b6850643dae3436
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: template-quickstart, ignite-fall-2021, mode-portal
+ms.openlocfilehash: 13164ec568b93613390ed435d25be79c66e342a8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131421757"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049560"
 ---
 # <a name="quickstart-create-a-mesh-network-topology-with-azure-virtual-network-manager-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Virtual Network Manager에서 메시 네트워크 토폴로지 만들기
 
 모든 가상 네트워크 연결을 관리하기 위해 Azure Portal을 사용하여 Azure Virtual Network Manager를 시작합니다.
 
-이 빠른 시작에서는 세 개의 가상 네트워크를 배포하고 Azure Virtual Network Manager를 사용하여 메시 네트워크 토폴로지 만듭니다. 그런 다음 연결 구성이 적용되었는지 확인합니다.
+이 빠른 시작에서는 세 개의 가상 네트워크를 배포하고 Azure Virtual Network Manager를 사용하여 메시 네트워크 토폴로지를 만듭니다. 그런 다음 연결 구성이 적용되었는지 확인합니다.
 
 > [!IMPORTANT]
 > Azure Virtual Network Manager는 현재 공개 미리 보기로 제공됩니다.
@@ -53,15 +53,15 @@ ms.locfileid: "131421757"
     | Resource group | Azure Virtual Network Manager를 저장할 리소스 그룹을 선택하거나 만듭니다. 이 예제에서는 이전에 만든 **myAVNMResourceGroup** 을 사용합니다.
     | 이름 | 이 Azure Virtual Network Manager 인스턴스의 이름을 입력합니다. 이 예제에서는 **myAVNM** 이라는 이름을 사용합니다. |
     | 지역 | 이 배포의 지역을 선택합니다. Azure Virtual Network Manager는 모든 지역의 가상 네트워크를 관리할 수 있습니다. 선택한 지역은 Virtual Network Manager 인스턴스를 배포할 위치입니다. |
-    | 설명 | *(선택 사항)* 이 Virtual Network Manager 인스턴스 및 관리 대상 작업에 대한 설명을 제공합니다. |
+    | 설명 | (선택 사항) 이 Virtual Network Manager 인스턴스 및 관리 대상 작업에 대한 설명을 제공합니다. |
     | [범위](concept-network-manager-scope.md#scope) | Azure Virtual Network Manager에서 관리할 수 있는 범위를 정의합니다.
-    | [기능](concept-network-manager-scope.md#features) | Azure Virtual Network Manager에서 사용하도록 설정할 기능을 선택합니다. 사용 가능한 기능은 *연결*, *SecurityAdmin* 또는 *모두 선택* 입니다. </br> 연결 - 범위 내의 가상 네트워크 간에 전체 메시 또는 허브 및 스포크 네트워크 토폴로지 만들기 기능을 사용하도록 설정합니다. </br> SecurityAdmin - 글로벌 네트워크 보안 규칙을 만드는 기능을 사용하도록 설정합니다. |
+    | [기능](concept-network-manager-scope.md#features) | Azure Virtual Network Manager에서 사용하도록 설정할 기능을 선택합니다. 사용 가능한 기능은 연결, SecurityAdmin 또는 모두 선택입니다. </br> 연결 - 범위 내의 가상 네트워크 간에 전체 메시 또는 허브 및 스포크 네트워크 토폴로지 만들기 기능을 사용하도록 설정합니다. </br> SecurityAdmin - 글로벌 네트워크 보안 규칙을 만드는 기능을 사용하도록 설정합니다. |
 
 1. **검토 + 만들기** 를 선택하고 유효성 검사를 통과하면 **만들기** 를 선택합니다.
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/network-manager-validation.png" alt-text="네트워크 관리자 리소스 만들기에 대한 유효성 검사 페이지의 스크린샷.":::
 
-## <a name="create-three-virtual-networks"></a>세 개의 가상 네트워크 만들기
+## <a name="create-three-virtual-networks"></a>가상 네트워크 3개 만들기
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "131421757"
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 구독 | 이 가상 네트워크를 배포할 구독을 선택합니다. |
+    | Subscription | 이 가상 네트워크를 배포할 구독을 선택합니다. |
     | Resource group | 가상 네트워크를 저장할 새 리소스 그룹을 선택하거나 만듭니다. 이 빠른 시작에서는 **myAVNMResourceGroup** 이라는 새 리소스 그룹을 사용합니다.
     | 이름 | 가상 네트워크 이름으로 **VNetA** 를 입력합니다. |
     | 지역 | **미국 서부** 를 선택합니다. |

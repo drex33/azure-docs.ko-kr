@@ -3,12 +3,13 @@ title: Event Hubs - Azure Portal을 사용하여 스트리밍 이벤트 캡처
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정하는 방법을 설명합니다.
 ms.topic: quickstart
 ms.date: 09/16/2021
-ms.openlocfilehash: e11eb8aedce9d0ae447e7b6908d17e4c70671f7d
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: mode-other
+ms.openlocfilehash: d7922832449213b2baac4e79735de3edafd8fe7c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273057"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046030"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Azure Event Hubs를 통해 이벤트 스트리밍을 캡처하도록 설정
 

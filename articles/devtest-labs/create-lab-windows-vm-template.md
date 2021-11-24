@@ -2,14 +2,14 @@
 title: Azure Resource Manager 템플릿을 사용하여 Azure DevTest Labs에서 랩 만들기
 description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure DevTest Labs에서 랩을 만듭니다. 랩 관리자는 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다.
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-other
 ms.date: 10/29/2021
-ms.openlocfilehash: 7d6a1390c935d68b978146d9eb06e8d2681e50c2
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: a21f49838af7c8a25851e2d4dac41b496a1a4c7b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131847538"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039212"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-a-lab-in-devtest-labs"></a>빠른 시작: ARM 템플릿을 사용하여 DevTest Labs에서 랩 만들기
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 값을 입력하거나 선택합니다.
 
-    |속성 | Description |
+    |속성 | 설명 |
     |---|---|
     |Subscription| 드롭다운 목록에서 랩에 사용할 Azure 구독을 선택합니다.|
     |Resource group| 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|

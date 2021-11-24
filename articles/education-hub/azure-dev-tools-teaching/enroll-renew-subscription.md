@@ -7,12 +7,13 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 01/07/2021
-ms.openlocfilehash: ad81703bfddccb87915d139d242d0d3c416fc075
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-other
+ms.openlocfilehash: bf90adf315f77f231125c6d784f72cdbc2d89fc6
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132312517"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050688"
 ---
 # <a name="enroll-or-renew-an-azure-dev-tools-for-teaching-subscription"></a>Azure Dev Tools for Teaching 구독 등록 또는 갱신
 

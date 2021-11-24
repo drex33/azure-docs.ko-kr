@@ -3,12 +3,13 @@ title: '빠른 시작: Azure Portal에서 랩 만들기'
 description: 이 빠른 시작에서는 Azure Portal 및 Azure DevTest Labs를 사용하여 랩을 만듭니다.
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.openlocfilehash: 5f86c09c4f2d6fab4ad590d7e0bf62194c666e10
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-portal
+ms.openlocfilehash: 6a3ef333358f45859bee7c391489854c2ed20b5d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132286396"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046062"
 ---
 # <a name="quickstart-create-a-lab-in-azure-devtest-labs-in-azure-portal"></a>빠른 시작: Azure Portal의 Azure DevTest Labs에서 랩 만들기
 
@@ -37,7 +38,7 @@ Azure Portal을 사용하여 랩을 만들어 Azure DevTest Labs를 시작합니
 
 |속성 | 설명 |
 |---|---|
-|구독| 드롭다운 목록에서 랩에 사용할 Azure 구독을 선택합니다.|
+|Subscription| 드롭다운 목록에서 랩에 사용할 Azure 구독을 선택합니다.|
 |Resource&nbsp;group| 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|
 |랩 이름| 랩에 대해 구독 내에서 고유한 이름을 입력합니다.|
 |위치| 드롭다운 목록에서 랩에 사용되는 위치를 선택합니다.|
@@ -52,7 +53,7 @@ Azure Portal을 사용하여 랩을 만들어 Azure DevTest Labs를 시작합니
 
 다음 정보를 지정합니다.
 
-|속성 | 설명 |
+|속성 | Description |
 |---|---|
 |사용| 이 정책을 사용하도록 설정하려면 **켜기** 를 선택하고, 사용하지 않도록 설정하려면 **끄기** 를 선택합니다.|
 |예약된&nbsp;종료| 현재 랩의 모든 VM을 종료할 시간을 입력합니다.|
@@ -82,7 +83,7 @@ Azure Portal을 사용하여 랩을 만들어 Azure DevTest Labs를 시작합니
 
 다음 정보를 지정합니다.
 
-|속성 | 설명 |
+|속성 | Description |
 |---|---|
 |이름| 태그 이름은 대/소문자를 구분하지 않으며, 512자로 제한됩니다.|
 |값| 태그 값은 대/소문자를 구분하며, 256자로 제한됩니다.|

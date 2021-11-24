@@ -7,12 +7,13 @@ ms.author: jgao
 ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: azure-resource-manager
-ms.openlocfilehash: a945540dc44b0ed5fd19b721424cfacee4fb924d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: mode-other
+ms.openlocfilehash: 3c50c9c4e06fbd16b0abb01d8f21783c5bb3e57f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131430603"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048615"
 ---
 # <a name="quickstart-create-a-container-registry-by-using-a-bicep-file"></a>빠른 시작: Bicep 파일을 사용하여 컨테이너 레지스트리 만들기
 

@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.reviewer: jukullam
 ms.service: azure
 ms.date: 05/20/2021
-ms.custom: github-actions-azure
-ms.openlocfilehash: a16c858008ce2233d0382e8a8f2a8e6224bbb6b8
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: github-actions-azure, mode-other
+ms.openlocfilehash: 47ed7c012de24181f9fcdb7a434ee20c3a3e1159
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132315808"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061996"
 ---
 # <a name="scan-container-images-using-github-actions"></a>GitHub Actions를 사용하여 컨테이너 이미지 검사
 

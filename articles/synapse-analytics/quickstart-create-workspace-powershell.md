@@ -9,13 +9,13 @@ ms.subservice: workspace
 ms.date: 10/19/2020
 ms.author: jroth
 ms.reviewer: jrasnick
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ee02f650ad20eb9f6673875823090ea3d242b7cd
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: f3b04761630dae5f3f336ff4493985665789a7a4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093006"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073451"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Synapse 작업 영역 만들기
 
@@ -25,7 +25,7 @@ Azure PowerShell은 PowerShell에서 직접 Azure 리소스를 관리하기 위�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Data Lake Storage Gen2 스토리지 계정](../storage/common/storage-account-create.md)
 

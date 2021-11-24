@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 4211cd69cddfea77ccd3f6e2a095ced6ce5effc3
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 7077c67546636e6d34a33f896abda815e272d1eb
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131853874"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043864"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-with-a-tpm-on-windows"></a>Windows의 TPM을 사용 하 여 대규모로 IoT Edge 장치 만들기 및 프로 비전
 
@@ -51,14 +51,14 @@ ms.locfileid: "131853874"
 
 ---
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 실제 TPM 및 가상 TPM 솔루션에 대 한 필수 구성 요소는 동일 합니다.
 
 <!-- Cloud resources prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
-### <a name="iot-edge-installation"></a>IoT Edge 설치
+### <a name="device-requirements"></a>디바이스 요구 사항
 
 Windows 개발 컴퓨터. 이 문서에서는 Windows 10을 사용합니다.
 

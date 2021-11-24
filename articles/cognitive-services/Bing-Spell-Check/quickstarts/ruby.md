@@ -10,12 +10,13 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 46b62b5721eca622fcf2795a395653071bb88c95
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: mode-other
+ms.openlocfilehash: e06623ba72c3b6a4303495261358eecf82f5ec3c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352646"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072695"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>빠른 시작: Bing Spell Check REST API 및 Ruby로 맞춤법 검사
 

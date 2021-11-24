@@ -3,16 +3,14 @@ title: 명령줄에서 Java 함수 만들기 - Azure Functions
 description: 명령줄에서 Java 함수를 만든 다음, 로컬 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom:
-- devx-track-java
-- devx-track-azurepowershell
+ms.custom: devx-track-java, devx-track-azurepowershell, mode-other
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1605bcc3a596276e8de99c45f290368691703c4f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7325ace504c6cb1e387f3d0e9bd321a3bf43dec5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752336"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049106"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 Java 함수 만들기
 

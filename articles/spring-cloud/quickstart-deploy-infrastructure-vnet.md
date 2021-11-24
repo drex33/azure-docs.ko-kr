@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-java
+ms.custom: subject-armqs, devx-track-java, mode-arm
 ms.author: rhudson
 ms.date: 11/12/2021
-ms.openlocfilehash: c34d2d9f88f97b80892b4329def4ca84f5f7b70c
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 3b552f3629a12c081f3df03dee029d1d884dc321
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132488870"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040996"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Spring Cloud 프로비저닝
 

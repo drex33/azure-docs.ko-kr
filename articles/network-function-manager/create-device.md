@@ -6,13 +6,13 @@ ms.service: network-function-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: prmitt
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2ab440166ba7e5b27f07880c5ac0cb7fef27466a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 99ee9c6e6c80cdf06742c5342ce5f390ca3c351b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131070257"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073962"
 ---
 # <a name="quickstart-create-a-network-function-manager-device-resource"></a>빠른 시작: 네트워크 함수 관리자 디바이스 리소스 만들기
 

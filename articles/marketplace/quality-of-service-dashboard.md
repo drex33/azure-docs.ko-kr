@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: emuench
 ms.author: smannepalle
-ms.date: 09/27/2021
-ms.openlocfilehash: c7df2a30d3de65966d289c0caad7bc6afaca6afd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/22/2021
+ms.openlocfilehash: d2b6454ee77c374ad805c4d9a3191c564e67a72f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131088030"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056057"
 ---
 # <a name="quality-of-service-qos-dashboard"></a>QoS (서비스 품질) 대시보드
 
@@ -37,10 +37,6 @@ ms.locfileid: "131088030"
 
 ## <a name="access-the-quality-of-service-dashboard"></a>서비스 품질 대시보드 액세스
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
-
-#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
-
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home) 에 로그인
 
 1. 홈 페이지에서 **Insights** 타일을 선택 합니다.
@@ -51,31 +47,15 @@ ms.locfileid: "131088030"
 
     [![Insights 대시보드의 왼쪽 탐색을 보여 줍니다. ](./media/quality-of-service/insights-overview-workspaces.png) ](./media/quality-of-service/insights-overview-workspaces.png#lightbox)
 
-#### <a name="current-view"></a>[현재 보기](#tab/current-view)
-
-1. [파트너 센터](https://partner.microsoft.com/dashboard/home) 에 로그인
-
-1. 왼쪽 탐색 창에서 **상업적 Marketplace**  >  [](https://partner.microsoft.com/dashboard/commercial-marketplace/quality-of-service/summary)  >  **서비스 품질** 분석을 선택 합니다.
-
----
-
 ## <a name="elements-of-the-quality-of-service-dashboard"></a>서비스 품질 대시보드의 요소
 
 다음 섹션에서는 QoS (서비스 품질) 대시보드를 사용 하는 방법 및 데이터를 읽는 방법을 설명 합니다.
 
 ### <a name="month-range"></a>월 범위
 
-#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
-
 각 페이지의 오른쪽 위 모서리에는 월 범위를 선택할 수 있습니다. 지난 6 개월 또는 12 개월을 기준으로 월 범위를 선택 하거나 최대 기간이 12 개월 인 사용자 지정 월 범위를 선택 하 여 **서비스 품질** 페이지 그래프의 출력을 사용자 지정 합니다. 기본 월 범위 (선택 기간)는 6 개월입니다.
 
 [![서비스 품질 대시보드의 필터를 보여 줍니다. ](./media/quality-of-service/qos-filters-workspaces.png) ](./media/quality-of-service/qos-filters-workspaces.png#lightbox)
-
-#### <a name="current-view"></a>[현재 보기](#tab/current-view)
-
-각 페이지의 오른쪽 위 모서리에는 월 범위를 선택할 수 있습니다. 지난 6 개월 또는 12 개월을 기준으로 월 범위를 선택 하거나 최대 기간이 12 개월 인 사용자 지정 월 범위를 선택 하 여 **서비스 품질** 페이지 그래프의 출력을 사용자 지정 합니다. 기본 월 범위 (선택 기간)는 6 개월입니다.
-
----
 
 ### <a name="quality-by-offers"></a>제품 품질
 
@@ -164,66 +144,66 @@ ms.locfileid: "131088030"
 - 오류 코드나 리소스 별로 월 단위 추세를 볼 때 테이블에서 최대 3 개의 항목을 선택 합니다.
 - 테이블에서 오류 수를 기준으로 배포 오류에 대 한 오류 코드 및 리소스를 정렬 합니다.
 
-### <a name="deployment-errors-by-offer-plan"></a>제공 요금제 배포 오류
+### <a name="deployment-errors-by-offer-plan"></a>제안 계획별 배포 오류
 
-이 그래프에서 Y 축은 배포 오류 수를 나타내고 X 축은 상위 제안 계획의 백분위 수를 나타냅니다 (오류 수 기준).
+이 그래프에서 Y축은 배포 오류 수를 나타내고 X축은 상위 제안 계획의 백분위수(오류 수)를 나타냅니다.
 
-:::image type="content" source="media/quality-of-service/deployment-error-by-offer-plan.png" alt-text="제안 계획 그래프 별로 배포 오류를 표시 합니다.":::
+:::image type="content" source="media/quality-of-service/deployment-error-by-offer-plan.png" alt-text="제안 계획 그래프별로 배포 오류를 표시합니다.":::
 
 이 그래프 정보:
 
-- 가로 막대형 차트는 선택한 월 범위의 배포 오류 횟수를 나타냅니다.
-- 꺾은선형 차트의 값은 제품 요금제의 누적 오차 비율을 나타냅니다.
+- 막대형 차트는 선택한 월 범위에 대한 배포 오류 수를 나타냅니다.
+- 선형 차트의 값은 제안 계획별 누적 오류 백분율을 나타냅니다.
 
 ### <a name="deployment-reliability-by-location"></a>위치별 배포 안정성
 
-이 그래프에는 선택한 월 범위의 성공한 배포 수에 대 한 열 지도가 표시 됩니다. 또한 각 지역에 대해 실패 비율을 보여 줍니다. 녹색에서 빨강 색 눈금은 낮은 실패율의 낮은 값을 나타냅니다. 테이블에서 배포 영역을 확대할 레코드를 선택 합니다.
+이 그래프는 선택한 월 범위에 대한 성공적인 배포 및 실패한 배포 수에 대한 열 지도를 보여 제공합니다. 또한 각 지역에 대한 실패 백분율을 표시합니다. 녹색에서 빨간색으로의 색 배율은 낮음에서 높은 실패율 값을 나타냅니다. 테이블에서 레코드를 선택하여 배포 지역을 확대합니다.
 
-:::image type="content" source="media/quality-of-service/deployment-reliability.png" alt-text="위치 그래프의 배포 안정성을 보여 줍니다.":::
+:::image type="content" source="media/quality-of-service/deployment-reliability.png" alt-text="위치 그래프별 배포 안정성을 보여 줍니다.":::
 
 이 그래프 정보:
 
-- 정확한 위치를 보려면 지도를 이동 합니다.
-- 특정 위치를 확대 합니다.
-- 열 지도에는 특정 위치에서 성공한 개수, 실패 횟수 및 실패 비율의 배포 세부 정보를 볼 수 있는 보조 표가 있습니다.
-- 빨간색 영역은 더 높은 실패율을 나타내며 녹색은 더 낮습니다.
-- 표에서 국가/지역을 검색 하 고 선택 하 여 지도의 위치를 확대/축소 합니다. **홈** 아이콘을 사용 하 여 원래 뷰로 되돌립니다.
+- 맵을 이동하여 정확한 위치를 확인합니다.
+- 특정 위치를 확대합니다.
+- 열 지도에는 특정 위치에서 성공 횟수, 실패 횟수 및 실패 비율의 배포 세부 정보를 볼 수 있는 보조 그리드가 있습니다.
+- 빨간색 지역은 실패율이 높고 녹색은 더 낮음을 나타냅니다.
+- 그리드에서 국가/지역을 검색하여 선택하여 지도의 위치를 확대/축소합니다. **홈** 아이콘을 사용하여 원래 보기로 되돌려야 합니다.
 
-## <a name="offer-deployment-details"></a>배포 세부 정보 제공
+## <a name="offer-deployment-details"></a>제안 배포 세부 정보
 
-이 표에는 사용 가능한 모든 제품 배포 세부 정보가 표시 됩니다. 제품 배포에 대 한 원시 데이터를 보려면 보고서를 다운로드 합니다.
+이 표에는 사용 가능한 모든 제안 배포 세부 정보가 표시됩니다. 보고서를 다운로드하여 제품 배포의 원시 데이터를 봅니다.
 
-:::image type="content" source="media/quality-of-service/deployment-details.png" alt-text="배포 세부 정보 테이블을 표시 합니다.":::
+:::image type="content" source="media/quality-of-service/deployment-details.png" alt-text="배포 세부 정보 테이블을 표시합니다.":::
 
 이 테이블 정보:
 
-- 배포 날짜별로 정렬 된 1000 상위 배포 목록을 표시 합니다.
+- 배포 날짜를 기준으로 정렬된 상위 1000개 배포의 번호가 매겨진 목록을 표시합니다.
 - 그리드의 각 열을 정렬할 수 있습니다.
-- 컨트롤을 확장 하 고 테이블을 내보냅니다.
-- 세부 정보 보기의 페이지가 매겨집니다. 맨 아래에 있는 다른 페이지를 선택 합니다.
+- 컨트롤을 확장하고 테이블을 내보냅니다.
+- 세부 정보 보기의 페이지가 페이지가 돼 있습니다. 맨 아래에서 다른 페이지를 선택합니다.
 
 ### <a name="dictionary-of-data-terms"></a>데이터 용어 사전
 
 | 열 이름 | 특성 이름 | 정의 |
 | --- | --- | --- |
-| 제품 ID | 제품 ID | 배포 된 제품의 이름 |
-| SKU | SKU | 배포 된 제안 계획/SKU의 이름 |
-| 배포 상태 | 배포 상태 | **성공** 또는 **실패** 로 표시 된 제품 배포 상태 |
+| 제품 ID | 제품 ID | 배포된 제안의 이름 |
+| SKU | SKU | 배포된 제안 계획/SKU의 이름 |
+| 배포 상태 | 배포 상태 | **성공** 또는 **실패로** 표시된 제안 배포 상태 |
 | 구독 ID | 구독 ID | 고객의 구독 ID |
-| 고객 테넌트 ID | 고객 테넌트 ID | 고객의 테 넌 트 ID입니다. |
-| 고객 이름 | 고객 이름 | 고객 이름 |
-| 템플릿 유형 | 템플릿 유형 | 배포 된 Azure 앱의 유형입니다. 이는 관리 되는 앱 또는 솔루션 템플릿이 될 수 있으며, 전용 일 수 없습니다. |
-| 배포 시작 시간 | 배포 시작 시간 | 배포의 시작 시간입니다. |
-| 배포 종료 시간 | 배포 종료 시간 | 배포의 종료 시간 |
-| 배포 기간: | 배포 기간: | 제품 배포의 총 기간 (밀리초)입니다. 그래프에서 분 단위로 표시 됩니다. |
+| 고객 테넌트 ID | 고객 테넌트 ID | 고객의 테넌트 ID |
+| 고객 이름 | 고객 이름 | 고객의 이름 |
+| 템플릿 유형 | 템플릿 유형 | 배포된 Azure 앱 유형입니다. 관리되는 앱 또는 솔루션 템플릿일 수 있으며 프라이빗일 수 없습니다. |
+| 배포 시작 시간 | 배포 시작 시간 | 배포 시작 시간 |
+| 배포 종료 시간 | 배포 종료 시간 | 배포 종료 시간 |
+| 배포 기간: | 배포 기간: | 제안 배포의 총 기간(밀리초)입니다. 그래프에 몇 분 안에 표시됩니다. |
 | 배포 지역 | 배포 지역 | Azure 앱 배포의 위치 |
-| 리소스 공급자 | 리소스 공급자 | 배포 된 특정 리소스의 리소스 공급자입니다. |
-| 리소스 URI | 리소스 URI | 배포 된 리소스의 URI입니다. |
-| 리소스 그룹 | 리소스 그룹 | 리소스가 배포 되는 리소스 그룹입니다. |
-| 리소스 종류 | 리소스 종류 | 배포 된 리소스의 유형입니다. |
-| 리소스 이름 | 리소스 이름 | 배포 된 리소스의 이름입니다. |
-| 오류 코드 | 오류 코드 | 배포 실패에 대 한 오류 코드 |
-| 오류 이름 | 오류 이름 | 배포 실패에 대 한 오류 이름 |
+| 리소스 공급자 | 리소스 공급자 | 배포된 특정 리소스에 대한 리소스 공급자 |
+| 리소스 URI | 리소스 URI | 배포된 리소스의 URI |
+| 리소스 그룹 | 리소스 그룹 | 리소스가 배포되는 리소스 그룹 |
+| 리소스 종류 | 리소스 종류 | 배포된 리소스의 유형 |
+| 리소스 이름 | 리소스 이름 | 배포된 리소스의 이름 |
+| 오류 코드 | 오류 코드 | 배포 실패에 대한 오류 코드 |
+| 오류 이름 | 오류 이름 | 배포 실패에 대한 오류 이름 |
 | 오류 메시지 | 오류 메시지 | 배포 실패에 대한 오류 메시지 |
 | 심도 있는 오류 코드 | 심도 있는 오류 코드 | 있는 경우 오류 코드에 대한 추가 정보를 포함합니다. |
 | 심도 있는 메시지 코드 | 심도 있는 메시지 코드 | 있는 경우 오류 메시지에 대한 추가 정보를 포함합니다. |

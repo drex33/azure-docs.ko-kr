@@ -8,13 +8,13 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/01/2020
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 60b60a0dcd8e7578f9adbde1e6a509516815e8c6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-dotnet, mode-other
+ms.openlocfilehash: 763ff62881bcd1ed4faa253b529552a771cd580d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131045257"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048511"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>빠른 시작: .NET Core 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]

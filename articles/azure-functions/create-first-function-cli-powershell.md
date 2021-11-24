@@ -3,16 +3,13 @@ title: 명령줄에서 PowerShell 함수 만들기 - Azure Functions
 description: 명령줄에서 PowerShell 함수를 만든 다음, 로컬 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.custom:
-- devx-track-powershell
-- devx-track-azurecli
-- devx-track-azurepowershell
-ms.openlocfilehash: 2b39b1214454d630079cb8e87bfb366c9d2c8685
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.custom: devx-track-powershell, devx-track-azurecli, devx-track-azurepowershell, mode-other
+ms.openlocfilehash: f6d13215e13e320dc7b66a31b400081d55b84225
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132026557"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049171"
 ---
 # <a name="quickstart-create-a-powershell-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 PowerShell 함수 만들기
 

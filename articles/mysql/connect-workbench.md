@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터�
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 23de5ae774d00c3fc87a78886abf19f6f17f06ee
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 6aef349b5e30d4fd58056180dafc50a5e023fb5e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643621"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074150"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: MySQL Workbench를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 

@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 02/10/2021
-ms.custom: devx-track-js
-ms.openlocfilehash: eaba92b91e68279a5920ca272264a8a3d93f8484
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: 3b634ea6fec223efeec93c74291f9319d7ccbf77
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786331"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042220"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>빠른 시작: Node.js SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]

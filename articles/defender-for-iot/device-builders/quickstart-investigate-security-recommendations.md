@@ -3,12 +3,13 @@ title: 보안 권장 사항 조사
 description: Defender for IoT 보안 서비스를 통해 보안 권장 사항을 조사합니다.
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.openlocfilehash: 7f4dab5ed0590d0e2658145f17d657beb5af1177
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-other
+ms.openlocfilehash: 1e138d10d6bb2bcfbc637a5e61fa79333c8fdac2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132306133"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052908"
 ---
 # <a name="quickstart-investigate-security-recommendations"></a>빠른 시작: 보안 권장 사항 조사
 

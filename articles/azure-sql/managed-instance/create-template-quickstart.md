@@ -4,19 +4,18 @@ description: Azure Resource Manager 템플릿을 사용하여 Azure SQL Managed 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: subject-armqs, devx-track-azurepowershell
-ms.devlang: ''
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma
 ms.date: 06/22/2020
-ms.openlocfilehash: 882613ef5b27b7021c61cabfabe3f37c3c842bd6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dc0fd57a23a9bb6d6f1102d7f5b8606c444037ac
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722824"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068573"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SQL Managed Instance 만들기
 

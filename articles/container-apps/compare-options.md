@@ -7,13 +7,13 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 11/03/2021
 ms.author: jehollan
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 0ac05794b42e91060e604a9d6921547150eb6706
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 5bbd7a318fbeef6229856e98c01b2764cfb28075
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132309999"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051039"
 ---
 # <a name="comparing-container-apps-with-other-azure-container-options"></a>다른 Azure 컨테이너 옵션과 Container Apps 비교
 

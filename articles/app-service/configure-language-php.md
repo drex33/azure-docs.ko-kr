@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 5857ba3543cabd2dc80831b51b256a139f43e8b6
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: 2ed210e176f9b46df13ea711609ce0d164e686e2
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221128"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133097591"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Azure App Service용 PHP 앱 구성
 
@@ -479,7 +479,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
     - *composer.json* 에 따라, 프로덕션 모드에서 다른 패키지가 설치될 수 있습니다(`require` vs. `require-dev`).
     - 특정 웹 프레임워크는 프로덕션 모드에서 다른 고정 파일을 배포할 수 있습니다.
     - 특정 웹 프레임워크는 프로덕션 모드에서 실행될 때 사용자 지정 시작 스크립트를 사용합니다.
-- 디버그 모드에서 App Service의 앱을 실행합니다. 예를 들어 [Laravel](https://meanjs.org/)에서는 [앱 설정`APP_DEBUG`을 `true`](configure-common.md#configure-app-settings)으로 설정하여 프로덕션 모드에서 디버그 메시지를 출력하도록 앱을 구성할 수 있습니다.
+- 디버그 모드에서 App Service의 앱을 실행합니다. 예를 들어 [Laravel](https://laravel.com/)에서는 [앱 설정`APP_DEBUG`을 `true`](configure-common.md#configure-app-settings)으로 설정하여 프로덕션 모드에서 디버그 메시지를 출력하도록 앱을 구성할 수 있습니다.
 
 ::: zone pivot="platform-linux"
 

@@ -3,13 +3,13 @@ title: '빠른 시작: cURL 및 REST를 사용하여 기술 자료 관리 - QnA 
 description: 이 빠른 시작에서는 REST API를 사용하여 기술 자료를 만들고, 게시하고, 쿼리하는 방법을 보여 줍니다.
 ms.date: 1/22/2021
 ms.topic: quickstart
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: ef86f747a4c729e5617eafb6acd20e7cebfe1f0e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: dabdfc693e0590bfcdaed0a3ce858c69f2ac0600
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131071297"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039722"
 ---
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 

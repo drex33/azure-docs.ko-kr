@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: 02d9ca3ba6a16e06c4357a46a050f8803147aaaf
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.custom: mode-other
+ms.openlocfilehash: eb9aff63425b4edcf46399c8e3b3f40d229fee09
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "114292890"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047788"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Private Endpoint 만들기
 

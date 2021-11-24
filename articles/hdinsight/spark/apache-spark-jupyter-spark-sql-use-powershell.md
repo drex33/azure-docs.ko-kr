@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Azure H
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 0d4a8df4cb6ba47b7772e2ab3b3247d36622dcb6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: mvc, devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 54b2a2b1eb0cbbaf4a889a11737aad8f1f4c2ab2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865964"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058829"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure HDInsight에서 Apache Spark 클러스터 만들기
 

@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-js
 - devx-track-azurecli
 ms.date: 06/21/2019
-ms.openlocfilehash: 3ffcfdb156f222cf1eb7134b271550eac4c9fcb3
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: f8844ac1a4481a9268e1d938a5322921ef7ba687
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114732230"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132876406"
 ---
 이 빠른 시작에서는 백 엔드 애플리케이션에서 호출된 직접 메서드에 응답하는 시뮬레이션된 디바이스 애플리케이션과 시뮬레이션된 디바이스에서 직접 메서드를 호출하는 백 엔드 애플리케이션인 두 개의 Node.js 애플리케이션을 사용합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "114732230"
 
 * 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-* [Node.js 10 이상](https://nodejs.org).
+* [Node.js 12 이상](https://nodejs.org).
 
     다음 명령을 사용하여 개발 컴퓨터에서 Node.js의 현재 버전을 확인할 수 있습니다.
 

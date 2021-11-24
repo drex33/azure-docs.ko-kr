@@ -10,14 +10,14 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/19/2021
 ms.author: aahi
-ms.custom: language-service-pii, ignite-fall-2021
+ms.custom: language-service-pii, ignite-fall-2021, mode-other
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 7aa06b4e65abffee6b0cd4396b219bcbd312c557
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.openlocfilehash: a72e9328102b2b135f6d0a658622ae3bfb193f53
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132903438"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046391"
 ---
 # <a name="quickstart-detect-personally-identifiable-information-pii"></a>빠른 시작: PII(개인 식별 정보) 검색 
 

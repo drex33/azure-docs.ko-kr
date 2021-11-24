@@ -9,12 +9,13 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 05/24/2021
-ms.openlocfilehash: 38e94b4e7527fa32b24773e5120d60d6d039f169
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.custom: mode-other
+ms.openlocfilehash: 3db9477172bfc3aa4b2bd8fa6676838be9911918
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829432"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064247"
 ---
 # <a name="multi-slot-personalization-preview"></a>다중 슬롯 개인 설정(미리 보기)
 

@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: b2383b52184d4cdd66aaeebe2ec34c1ed4b62a1d
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 4826bb457ee7c9dc2cdd1c75c6cf461be660a37c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132371698"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051752"
 ---
 # <a name="quickstart-python-client-library-sdk-v30--preview"></a>빠른 시작: Python 클라이언트 라이브러리 SDK v3.0 | 미리 보기
 

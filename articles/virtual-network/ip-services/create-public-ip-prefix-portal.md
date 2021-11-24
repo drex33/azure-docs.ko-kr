@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 공용 IP 주소 접두사 만들기 - Azure Portal'
-titlesuffix: Azure Virtual Network
+titleSuffix: Azure Virtual Network
 description: Azure Portal을 사용하여 공용 IP 주소 접두사를 만드는 방법을 알아봅니다.
 services: virtual-network
 author: asudbring
@@ -9,12 +9,13 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.openlocfilehash: 0d792a6e2fc83c16575fab59a52010b29d3d1282
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: mode-portal
+ms.openlocfilehash: dc984fd9b996e8f62fd73c658cafc4ae2034f7f3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369378"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051934"
 ---
 # <a name="quickstart-create-a-public-ip-address-prefix-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 공용 IP 주소 접두사 만들기
 
@@ -45,7 +46,7 @@ ms.locfileid: "129369378"
     | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 세부 정보** |   |
-    | 구독 | 구독 선택 |
+    | Subscription | 구독 선택 |
     | Resource group | **새로 만들기** 를 선택합니다. </br> **QuickStartCreateIPPrefix-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | **인스턴스 세부 정보** |   |
     | 이름 | **myPublicIPPrefix** 를 입력합니다. |

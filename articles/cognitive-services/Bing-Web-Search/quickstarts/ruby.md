@@ -10,13 +10,13 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: d4db5843d9cd3bd42780636c43aa96ce9192bf73
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: seodec2018, mode-other
+ms.openlocfilehash: d46bf3ee84268f78da7590438e13ed8a3890fb7d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350503"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039815"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>빠른 시작: Ruby를 사용하여 Bing Web Search API 호출  
 

@@ -3,12 +3,13 @@ title: '빠른 시작: Apache Storm을 사용하여 이벤트 수신 - Azure Eve
 description: '빠른 시작: 이 문서에서는 Apache Storm을 사용하여 Azure Event Hubs에서 이벤트를 수신하는 방법에 대한 정보를 제공합니다.'
 ms.topic: quickstart
 ms.date: 09/28/2021
-ms.openlocfilehash: e0672de9b4811f02a2ac15abea5e4915e25cfaf8
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.custom: mode-other
+ms.openlocfilehash: c3729d2478d1bb28f142e78b68fc47f7b0eed3bd
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233980"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041792"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>빠른 시작: Apache Storm을 사용하여 Event Hubs에서 이벤트 수신
 

@@ -5,13 +5,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9f7d1c7238e742ab8d04cf349bd8560db861b801
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 162055dbc435f9eff7f11aa27a78b1983059d83e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080710"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039809"
 ---
 # <a name="add-questions-and-answer-with-qna-maker-portal"></a>QnA Maker 포털을 사용하여 질문 및 답변 추가
 

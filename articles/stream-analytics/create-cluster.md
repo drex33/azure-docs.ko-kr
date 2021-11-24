@@ -5,14 +5,14 @@ ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.date: 04/09/2021
-ms.openlocfilehash: 7298862d29c02709afe737558421b4a8743ca5b0
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 5ca46fed3bac9107622608a0e8f6acc644c3bd67
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305494"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055364"
 ---
 # <a name="quickstart-create-a-dedicated-azure-stream-analytics-cluster-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 Azure Stream Analytics 클러스터 만들기
 
@@ -35,7 +35,7 @@ Azure Portal을 사용하여 Azure Stream Analytics 클러스터를 만듭니다
 
 1. **Stream Analytics 클러스터 만들기** 페이지에서 새 클러스터에 대한 기본 설정을 입력합니다.
 
-   |설정|값|Description |
+   |설정|값|설명 |
    |---|---|---|
    |Subscription|구독 이름|이 Stream Analytics 클러스터에 사용하려는 Azure 구독을 선택합니다. |
    |리소스 그룹|리소스 그룹 이름|리소스 그룹을 선택하거나 **새로 만들기** 를 선택한 후, 새 리소스 그룹에 고유한 이름을 입력합니다. |

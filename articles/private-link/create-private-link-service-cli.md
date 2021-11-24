@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-ms.openlocfilehash: c8e32a56148326104c3514b8a2fdb5d6bbd3f00a
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: mode-api
+ms.openlocfilehash: a772f434325eb7d5625eea52136a107ee45306cc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778484"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055690"
 ---
 # <a name="quickstart-create-a-private-link-service-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Private Link 서비스 만들기
 

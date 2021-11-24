@@ -11,13 +11,13 @@ ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: d7a46f41aecf4b53fed309ef9d1eaaaeadb819fc
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.custom: devx-track-azurecli, mode-other
+ms.openlocfilehash: ba48ff2493341dbaccb4ea65ab939f6b27d0c80b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770310"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047968"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>빠른 시작: 알림 허브에서 푸시 알림 설정
 

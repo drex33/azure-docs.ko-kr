@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1927911563775711d6f0ec969ada82f1be286650
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 60ff711771e1ca5fb106af6122b02c87522f8fa5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131032494"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066800"
 ---
 # <a name="differences-between-azure-managed-instance-for-apache-cassandra-and-azure-cosmos-db-cassandra-api"></a>Apache Cassandra용 Azure Managed Instance와 Azure Cosmos DB Cassandra API 간의 차이점 
 

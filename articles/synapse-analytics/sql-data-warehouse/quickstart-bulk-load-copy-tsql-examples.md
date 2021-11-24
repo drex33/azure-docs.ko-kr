@@ -9,13 +9,13 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.custom: subject-rbac-steps
-ms.openlocfilehash: 3873ae1dd4ab230e5e0c3424341722e76aeb48fb
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.custom: subject-rbac-steps, mode-other
+ms.openlocfilehash: c5e875831c8e73bf00849a730c3c8ef986342ca9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113216228"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055239"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Synapse SQL을 사용하여 안전하게 데이터 로드
 
@@ -73,7 +73,7 @@ WITH (
 
 스토리지 계정이 VNet에 연결되었을 때는 관리 ID 인증이 필요합니다. 
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 1. [이 가이드](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 Azure PowerShell을 설치합니다.
 2. 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 범용 v2로 업그레이드해야 합니다.

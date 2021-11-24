@@ -6,13 +6,13 @@ ms.author: pariks
 ms.date: 05/14/2020
 ms.topic: quickstart
 ms.service: mariadb
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
-ms.openlocfilehash: 750ca6fa66cb69cbb1e9e0dd59966b5a4897cd57
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-other
+ms.openlocfilehash: 0ca3d147255fe0571bc50cf9075118267388b718
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131032471"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057880"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MariaDB 서버 만들기
 

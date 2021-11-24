@@ -7,13 +7,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
 ms.date: 10/04/2021
-ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: bd8821c898c4fa94963bb240658aa8118a104905
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.custom: devx-track-azurecli, subject-armqs, mode-other
+ms.openlocfilehash: 547d1dc111e41227c92a429baa3584ebf7800c87
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407896"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076401"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기
 

@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: msmbaldwin
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: mbaldwin
 ms.date: 04/15/2021
-ms.openlocfilehash: 0b393c39940e0912a2497b6efba9ca920ce71fe7
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 5f7cedf255b0206048db0f099f1c4dbe4d53f1af
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131438838"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059548"
 ---
 # <a name="quickstart-create-an-microsoft-azure-confidential-ledger-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Microsoft Azure 기밀 원장 만들기
 

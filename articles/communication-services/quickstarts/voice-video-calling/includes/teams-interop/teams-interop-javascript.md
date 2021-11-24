@@ -6,19 +6,20 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 2f828583f8c1a51f97ffffe98c9345bd79eb7c68
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.custom: mode-other
+ms.openlocfilehash: 7f62190fb9d357e46b64d9c829a79c2ee104a0db
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "123078549"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064047"
 ---
 이 빠른 시작에서는 JavaScript용 Azure Communication Services 통화 SDK를 사용하여 Teams 모임에 조인하는 방법을 알아봅니다.
 
 ## <a name="sample-code"></a>샘플 코드
 [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-calling-to-teams-meeting)에서 이 빠른 시작에 대한 최종 코드를 찾습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 작동하는 [Communication Services 통화 웹앱](../../getting-started-with-calling.md).
 - [Teams 배포](/deployoffice/teams-install)

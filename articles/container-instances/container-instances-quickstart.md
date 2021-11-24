@@ -3,18 +3,13 @@ title: 빠른 시작 - 컨테이너 인스턴스에 Docker 컨테이너 배포 -
 description: 이 빠른 시작에서는 Azure CLI를 사용하여, 격리된 Azure 컨테이너 인스턴스에서 실행하는 컨테이너화된 웹앱을 신속하게 배포합니다.
 ms.topic: quickstart
 ms.date: 03/21/2019
-ms.custom:
-- seo-python-october2019
-- seodec18
-- mvc
-- devx-track-js
-- devx-track-azurecli
-ms.openlocfilehash: 2027bdc4e77fefe2219b22671494b6d4f4b0ccb8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: seo-python-october2019, seodec18, mvc, devx-track-js, devx-track-azurecli, mode-api
+ms.openlocfilehash: 288087db751d62ca2b51d882ebf7b22f9aad01a5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763978"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053322"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure에서 컨테이너 인스턴스 배포
 

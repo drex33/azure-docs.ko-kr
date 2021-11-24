@@ -7,13 +7,13 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.author: rabhaiya
 ms.date: 09/10/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 611d43d7b34b729beee162d6bf9db5d099095ade
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 332b7aeaa9368dbdd0c4c863dfbaf174b2037331
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748821"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061515"
 ---
 # <a name="quickstart-use-an-azure-resource-manager-arm-template-to-deploy-azure-iot-connector-for-fhir-preview"></a>빠른 시작: ARM(Azure Resource Manager) 템플릿을 사용하여 Azure IoT Connector for FHIR(미리 보기) 배포
 
@@ -259,7 +259,7 @@ IoT Central 애플리케이션을 배포한 후에는 두 개의 기본 시뮬�
 
 ## <a name="view-device-data-in-azure-api-for-fhir"></a>Azure API for FHIR에서 디바이스 데이터 보기
 
-Postman을 사용하여 FHIR 서비스에서 Azure IoT Connector for FHIR에서 만든 FHIR 기반 관찰 리소스를 볼 수 있습니다. 자세한 내용은 [Postman을 사용하여 FHIR 서비스에 액세스하고](./../use-postman.md) `GET` `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` 심박수 값이 있는 관찰 FHIR 리소스를 확인하도록 요청을 참조하세요.
+postman을 사용 하 여 fhir 서비스에 대 한 Azure IoT 커넥터에서 만든 fhir 기반 관찰 리소스를 볼 수 있습니다. 자세한 내용은 [Postman을 사용 하 여 fhir 서비스에 액세스](./../use-postman.md) 를 참조 하 고 `GET` 를 요청 하 여 `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` 심장 rate value로 관찰 된 리소스를 확인 합니다.
 
 > [!TIP]
 > 사용자에게 Azure API for FHIR 데이터 평면에 액세스할 수 있는 적절한 권한이 있어야 합니다. [Azure RBAC(Azure 역할 기반 액세스 제어)](configure-azure-rbac.md)를 사용하여 필요한 데이터 평면 역할을 할당합니다.

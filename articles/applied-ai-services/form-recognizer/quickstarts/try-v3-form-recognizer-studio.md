@@ -9,13 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: dc4f54a6ab42089068c3db8b7fe64bfada59adf5
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: ba220ad97011394b2f374b130b2f9f667c0a7ae7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132290688"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040340"
 ---
 # <a name="get-started-form-recognizer-studio--preview"></a>시작: Form Recognizer Studio | 미리 보기
 

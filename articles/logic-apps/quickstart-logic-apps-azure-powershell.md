@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurepowershell, contperf-fy21q2
+ms.custom: mvc, devx-track-azurepowershell, contperf-fy21q2, mode-other
 ms.date: 07/26/2021
-ms.openlocfilehash: 42f6ac6ce06f1b852af2027e6ef79f347d8050a4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e9d3fc228dc1038e59a86372bcd563d067e63894
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787389"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066859"
 ---
 # <a name="quickstart-create-and-manage-workflows-using-azure-powershell-in-multi-tenant-azure-logic-apps"></a>빠른 시작 - 다중 테넌트 Azure Logic Apps에서 Azure PowerShell으로 워크플로 만들기 및 관리
 

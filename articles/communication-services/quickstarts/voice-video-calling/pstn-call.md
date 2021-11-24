@@ -9,12 +9,13 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 649af9f6dc166cd18c1adb726bf169547db8b2f1
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: mode-other
+ms.openlocfilehash: 1d36c6a4841d05aafbf63578a166d6c7e8ff79bd
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130226757"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062097"
 ---
 # <a name="quickstart-call-to-phone"></a>빠른 시작: 휴대폰에 전화 걸기
 

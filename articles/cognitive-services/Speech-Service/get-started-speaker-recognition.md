@@ -10,15 +10,15 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/02/2020
 ms.author: eur
-ms.custom: devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021, mode-other
 zone_pivot_groups: programming-languages-set-twenty-five
 keywords: 스피커 인식, 음성 생체 측정
-ms.openlocfilehash: 65326a1159c06d217c404af5ad1abf52d035dab2
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 6b6ef91f8ca41fad202387d1d8c1b5573a975a8a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131501787"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039563"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Speaker Recognition 시작
 

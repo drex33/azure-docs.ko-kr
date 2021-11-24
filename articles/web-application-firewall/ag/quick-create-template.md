@@ -8,13 +8,13 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: victorh
-ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: d3eacb194681a992b95d98ad287bc5bc175173a2
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.openlocfilehash: 3994e6dcb8f16bf616bf889e8bb71fe687d48379
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111809347"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061297"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Application Gateway에서 Azure WAF v2 만들기
 

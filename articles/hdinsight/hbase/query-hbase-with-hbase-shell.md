@@ -3,15 +3,15 @@ title: '빠른 시작: Azure HDInsight에서 Apache HBase 쿼리 - HBase Shell'
 description: 이 빠른 시작에서는 Apache HBase 셸을 사용하여 Apache HBase 쿼리를 실행하는 방법을 알아봅니다.
 keywords: hdinsight,hadoop,HBase
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, mode-other
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 98844a7dab673fb98dcdb639fbc48c0f6035fbba
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d413f74fcd9aea0e1d6ed6a8669418e404d4a3d3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865114"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050404"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>빠른 시작: Azure HDInsight에서 HBase Shell을 사용하여 Apache HBase 쿼리
 

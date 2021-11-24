@@ -10,13 +10,13 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: 0d0f3e3578f1fe40794ec5697291d35e3d277419
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: seodec2018, devx-track-python, mode-other
+ms.openlocfilehash: 23aab3faccaaed04579258e108f32b41e5bdf248
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96341736"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051213"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>빠른 시작: Bing Image Search REST API 및 Python을 사용하여 이미지 검색
 

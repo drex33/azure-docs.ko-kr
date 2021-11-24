@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Portal을 사용하여 약 5분 안에 Az
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: 6e1e76d9afad049d79c68db93c08c935d190fbb6
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 7a7714bb2c99720f7d4dfe843898083760959670
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643582"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052693"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기
 

@@ -7,13 +7,13 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.author: v-bcatherine
-ms.custom: ''
-ms.openlocfilehash: e2f2bf2cafc60bca637bee3309f4b721965f30fd
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: mode-portal
+ms.openlocfilehash: 8dcd98b5b2c088d63a6ed10dc4b7ac3675dcfdc1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132710283"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044463"
 ---
 # <a name="quickstart-deploy-your-first-container-app-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 첫 번째 컨테이너 앱 배포
 
@@ -25,7 +25,7 @@ Azure Container Apps Preview를 사용하면 서버리스 플랫폼에서 마이
 
 활성 구독이 있는 Azure 계정이 필요합니다. 계정이 아직 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 먼저 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 <!--

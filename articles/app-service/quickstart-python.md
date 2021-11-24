@@ -3,18 +3,18 @@ title: '빠른 시작: Python 앱 만들기'
 description: 첫 번째 Python 앱을 App Service의 Linux 컨테이너에 배포하여 Azure App Service를 시작하세요.
 ms.topic: quickstart
 ms.date: 11/10/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, mode-other
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
 adobe-target-activity: DocsExp–393165–A/B–Docs/PythonQuickstart–CLIvsPortal–FY21Q4
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-portal
-ms.openlocfilehash: a148cf813ff2a3fcf5e9815dff01ef836d725ef9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b12ceb770d1cb6e0079cfb7ad5cdabfa87b2017a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577333"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060731"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 

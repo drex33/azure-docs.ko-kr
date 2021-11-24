@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: fb33196d95f21041cf2657bdd27f203ad3f860ea
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: aea2a483cf625ff93a818318042283c0776d6a37
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131084940"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066618"
 ---
 # <a name="quickstart-deploy-a-managed-apache-spark-cluster-with-azure-databricks"></a>빠른 시작: Azure Databricks를 사용하여 관리형 Apache Spark 클러스터 배포
 

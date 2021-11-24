@@ -1,38 +1,38 @@
 ---
-title: 지원되는 공간 분석 작업 - Azure
-description: 이 참조 문서에서는 Azure Video Analyzer에서 지원하는 공간 분석 작업의 다양한 속성을 자세히 설명합니다.
+title: 지원 되는 공간 분석 작업
+description: 이 참조 문서에서는 Azure Video Analyzer에서 지 원하는 공간 분석 작업의 다양 한 속성에 대해 자세히 설명 합니다.
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 11062ebbe48e8c7e2451ff448770055073d7e792
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 9ff15a47f3b6748c474c15c2a1e90bb9e70838ca
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131560151"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062392"
 ---
-# <a name="supported-spatial-analysis-operations"></a>지원되는 공간 분석 작업
+# <a name="supported-spatial-analysis-operations"></a>지원 되는 공간 분석 작업
 
-공간 분석을 사용하면 카메라 디바이스에서 실시간 스트리밍 비디오를 분석할 수 있습니다. 구성하는 각 카메라 디바이스에 대해 작업은 Azure Video Analyzer로 전송된 JSON 메시지의 출력 스트림을 생성합니다. 
+공간 분석을 사용하면 카메라 디바이스에서 실시간 스트리밍 비디오를 분석할 수 있습니다. 구성 하는 각 카메라 장치에 대해 작업은 Azure Video Analyzer로 전송 되는 JSON 메시지의 출력 스트림을 생성 합니다. 
 
-Video Analyzer는 다음과 같은 공간 분석 작업을 구현합니다. 
+Video Analyzer는 다음과 같은 공간 분석 작업을 구현 합니다. 
 
 | 작업 식별자| 설명|
 |---------|---------|
-| Microsoft.VideoAnalyzer.SpatialAnalysisPersonZoneCrossingOperation | 사람이 영역에 들어오거나 나갈 때 _personZoneEnterExitEvent_ 이벤트를 내보내고, 교차된 영역의 번호가 매겨진 변이 포함된 방향 정보를 제공합니다. 사용자가 영역을 나갈 때 _personZoneDwellTimeEvent_ 를 내보내고, 방향 정보와 사람이 영역 내에서 머문 시간(밀리초)을 제공합니다. |
-| Microsoft.VideoAnalyzer.SpatialAnalysisPersonLineCrossingOperation | 카메라의 시야에서 사람이 지정된 선을 벗어나는 경우를 추적합니다.  |
-| Microsoft.VideoAnalyzer.SpatialAnalysisPersonDistanceOperation | 거리 규칙을 위반하는 경우를 추적합니다.  |
-| Microsoft.VideoAnalyzer.SpatialAnalysisPersonCountOperation | 카메라 시야의 지정된 영역에 있는 사람을 계산합니다. PersonCount에서 정확한 합계를 기록하려면 단일 카메라에서 영역 전체를 완전히 포함해야 합니다.  |
-| Microsoft.VideoAnalyzer.SpatialAnalysisCustomOperation | 위에서 언급한 모든 시나리오를 실행하는 데 사용할 수 있는 일반 작업입니다. 이 옵션은 동일한 카메라에서 여러 시나리오를 실행하거나 시스템 리소스(예: GPU)를 더 효율적으로 사용하려는 경우에 유용합니다. |
+| SpatialAnalysisPersonZoneCrossingOperation | 사람이 영역에 들어오거나 나갈 때 _personZoneEnterExitEvent_ 이벤트를 내보내고, 교차된 영역의 번호가 매겨진 변이 포함된 방향 정보를 제공합니다. 사용자가 영역을 나갈 때 _personZoneDwellTimeEvent_ 를 내보내고, 방향 정보와 사람이 영역 내에서 머문 시간(밀리초)을 제공합니다. |
+| SpatialAnalysisPersonLineCrossingOperation | 카메라의 시야에서 사람이 지정된 선을 벗어나는 경우를 추적합니다.  |
+| SpatialAnalysisPersonDistanceOperation | 거리 규칙을 위반하는 경우를 추적합니다.  |
+| SpatialAnalysisPersonCountOperation | 카메라 시야의 지정된 영역에 있는 사람을 계산합니다. PersonCount에서 정확한 합계를 기록하려면 단일 카메라에서 영역 전체를 완전히 포함해야 합니다.  |
+| SpatialAnalysisCustomOperation | 위에서 언급한 모든 시나리오를 실행하는 데 사용할 수 있는 일반 작업입니다. 이 옵션은 동일한 카메라에서 여러 시나리오를 실행하거나 시스템 리소스(예: GPU)를 더 효율적으로 사용하려는 경우에 유용합니다. |
 
 
 
 ## <a name="person-zone-crossing"></a>사람 영역 교차
 
-**작업 식별자:**`Microsoft.VideoAnalyzer.SpatialAnalysisPersonZoneCrossingOperation`
+**작업 식별자**: `Microsoft.VideoAnalyzer.SpatialAnalysisPersonZoneCrossingOperation`
 
-GitHub 샘플에서 [Person Zone 교차 작업의](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json) 예를 참조하세요.
+GitHub 샘플에서 [사람의 영역 교차 작업](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json) 의 예를 참조 하세요.
 
 #### <a name="parameters"></a>매개 변수
 
@@ -47,7 +47,7 @@ GitHub 샘플에서 [Person Zone 교차 작업의](https://raw.githubusercontent
 | `threshold`                 | float   | 이벤트는 사람이 영역 내의 이 픽셀 수보다 클 때 송신됩니다. 기본값은 16입니다. 이는 최대 정확도를 얻기 위해 권장되는 값입니다.                                                                                                |
 | `enableFaceMaskClassifier`  | boolean | 비디오 스트림에서 얼굴 마스크를 착용한 사람을 감지하려면 true, 감지하지 않으려면 false로 설정합니다. 기본적으로 사용하지 않도록 설정됩니다. 얼굴 마스크 감지를 사용하려면 입력 비디오 너비 매개 변수가 1920 "INPUT_VIDEO_WIDTH": 1920이어야 합니다. 얼굴 마스크 특성은 반환되지 않습니다.                                                                                                                                                                                                                                                                                                        |
 | `detectorNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대한 DETECTOR_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `trackerNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대한 TRACKER_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `trackerNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대 한 TRACKER_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 ### <a name="orientation-parameter-settings"></a>방향 매개 변수 설정
 
@@ -58,9 +58,9 @@ DETECTOR_NODE_CONFIG 매개 변수 설정을 통해 방향 계산을 구성할 �
 }
 
 ```
-| Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 이름                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enable_orientation`                     | bool    | 검색된 사람의 방향을 계산할지 여부를 나타냅니다. `enable_orientation` 는 기본적으로 True로 설정됩니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `enable_orientation`                     | bool    | 검색된 사람의 방향을 계산할지 여부를 나타냅니다. `enable_orientation` 기본적으로 True로 설정 됩니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 ### <a name="speed-parameter-settings"></a>속도 매개 변수 설정
 
 TRACKER_NODE_CONFIG 매개 변수 설정을 통해 속도 계산을 구성할 수 있습니다.
@@ -70,9 +70,9 @@ TRACKER_NODE_CONFIG 매개 변수 설정을 통해 속도 계산을 구성할 �
 }
 
 ```
-| Name                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| 이름                      | Type    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | ------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enable_speed`                     | bool    | 검색된 사람의 속도를 계산할지 여부를 나타냅니다. `enable_speed` 는 기본적으로 True로 설정됩니다. 속도와 방향이 모두 최상의 예상 값을 가질 수 있도록 하는 것이 좋습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `enable_speed`                     | bool    | 검색된 사람의 속도를 계산할지 여부를 나타냅니다. `enable_speed` 는 기본적으로 True로 설정 됩니다. 속도와 방향을 모두 최고 예상 값으로 설정 하는 것이 좋습니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 #### <a name="output"></a>출력:
 ```json
@@ -168,9 +168,9 @@ TRACKER_NODE_CONFIG 매개 변수 설정을 통해 속도 계산을 구성할 �
 
 ## <a name="person-line-crossing"></a>사람 줄 교차
 
-**작업 식별자:**`Microsoft.VideoAnalyzer.SpatialAnalysisPersonLineCrossingOperation`
+**작업 식별자**: `Microsoft.VideoAnalyzer.SpatialAnalysisPersonLineCrossingOperation`
 
-GitHub 샘플에서 [사람 선 교차 작업의](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json) 예를 참조하세요.
+GitHub 샘플에서 [사람 줄 교차 작업](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json) 의 예를 참조 하세요.
 
 #### <a name="parameters"></a>매개 변수
 
@@ -181,14 +181,14 @@ GitHub 샘플에서 [사람 선 교차 작업의](https://raw.githubusercontent.
 | `line`                      | 문자열  | 각 값 쌍은 선의 시작 지점과 끝 지점을 나타냅니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다.                            |
 | `start`                      | 값 쌍  | 선의 시작 지점에 대한 x, y 좌표입니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다.                            |
 | `end`                      | 값 쌍  | 선의 끝 지점에 대한 x, y 좌표입니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다.                            |
-| `type`                     | 문자열  | 여야 `linecrossing` 합니다. |
+| `type`                     | 문자열  | 이는 여야 `linecrossing` 합니다. |
 | `trigger`                     | 문자열  | 이벤트를 보내는 트리거의 형식입니다. 지원되는 값: "event": 누군가가 선을 벗어날 때 발생합니다.|
-| `outputFrequency`           | int     | 이벤트가 송신되는 속도입니다. outputFrequency = X이면 모든 X 이벤트가 송신됩니다. 예: outputFrequency = 2는 다른 모든 이벤트가 출력임을 의미합니다. outputFrequency는 이벤트와 간격 모두에 적용할 수 있습니다.                                                       |
+| `outputFrequency`           | int     | 이벤트가 송신되는 속도입니다. OutputFrequency = X 인 경우 X 이벤트는 모두 egressed (예: outputFrequency = 2는 다른 모든 이벤트가 출력 됨을 의미 합니다. OutputFrequency는 이벤트와 간격에 모두 적용 됩니다.                                                       |
 | `focus`                     | 문자열  | 이벤트를 계산하는 데 사용되는 사람의 경계 상자 내의 지점 위치입니다. focus의 값은 footprint(사람의 공간), bottom_center(사람의 경계 상자의 아래쪽 가운데) 또는 center(사람의 경계 상자의 중심)입니다. 기본값은 footprint입니다. |
 | `threshold`                 | float   | 이벤트는 사람이 영역 내의 이 픽셀 수보다 클 때 송신됩니다. 기본값은 16입니다. 이는 최대 정확도를 얻기 위해 권장되는 값입니다.                                                                                                |
 | `enableFaceMaskClassifier`  | boolean | 비디오 스트림에서 얼굴 마스크를 착용한 사람을 감지하려면 true, 감지하지 않으려면 false로 설정합니다. 기본적으로 사용하지 않도록 설정됩니다. 얼굴 마스크 감지를 사용하려면 입력 비디오 너비 매개 변수가 1920 "INPUT_VIDEO_WIDTH": 1920이어야 합니다. 얼굴 마스크 특성은 반환되지 않습니다.          |
 | `detectorNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대한 DETECTOR_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                      |
-| `trackerNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대한 TRACKER_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `trackerNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대 한 TRACKER_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 #### <a name="output"></a>출력:
 
 ```json
@@ -237,9 +237,9 @@ GitHub 샘플에서 [사람 선 교차 작업의](https://raw.githubusercontent.
 
 ## <a name="person-distance"></a>사람 거리
 
-**작업 식별자:**`Microsoft.VideoAnalyzer.SpatialAnalysisPersonDistanceOperation`
+**작업 식별자**: `Microsoft.VideoAnalyzer.SpatialAnalysisPersonDistanceOperation`
 
-GitHub 샘플에서 [Person Distance Operation의](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-operation-topology.json) 예를 참조하세요.
+GitHub 샘플에서 [사람 거리 작업](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-operation-topology.json) 의 예를 참조 하세요.
 
 #### <a name="parameters"></a>매개 변수
 
@@ -251,13 +251,13 @@ GitHub 샘플에서 [Person Distance Operation의](https://raw.githubusercontent
 | `trigger`           | 문자열     | 이벤트를 보내는 트리거의 형식입니다. 지원되는 값은 개수가 변경되면 이벤트를 보내는 event 또는 개수가 변경되었는지 여부에 관계없이 정기적으로 이벤트를 보내는 interval입니다.                                                                                                                                                                                                                                                                                                                                                     |
 | `focus`                     | 문자열  | 이벤트를 계산하는 데 사용되는 사람의 경계 상자 내의 지점 위치입니다. focus의 값은 footprint(사람의 공간), bottom_center(사람의 경계 상자의 아래쪽 가운데) 또는 center(사람의 경계 상자의 중심)입니다. 기본값은 footprint입니다.                                                                                                                                                                                                                                                                                               |
 | `threshold`                | float   | 이벤트는 사람이 영역 내의 이 픽셀 수보다 클 때 송신됩니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `outputFrequency`           | int     | 이벤트가 송신되는 속도입니다. outputFrequency = X이면 모든 X 이벤트가 송신됩니다. 예: outputFrequency = 2는 다른 모든 이벤트가 출력임을 의미합니다. outputFrequency는 이벤트와 간격 모두에 적용할 수 있습니다.                                                                                                                                                                                                                                                                                                                                                     |
+| `outputFrequency`           | int     | 이벤트가 송신되는 속도입니다. OutputFrequency = X 인 경우 X 이벤트는 모두 egressed (예: outputFrequency = 2는 다른 모든 이벤트가 출력 됨을 의미 합니다. OutputFrequency는 이벤트와 간격에 모두 적용 됩니다.                                                                                                                                                                                                                                                                                                                                                     |
 | `minimumDistanceThreshold`  | float   | 사람이 이 거리보다 덜 떨어져 있을 때 "TooClose" 이벤트를 트리거하는 거리(피트)입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `maximumDistanceThreshold`  | float   | 사람이 이 거리보다 더 떨어져 있을 때 "TooFar"이벤트를 트리거하는 거리(피트)입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `aggregationMethod`         | 문자열  | 집계된 persondistance 결과에 대한 메서드입니다. aggregationMethod는 모드와 평균에 모두 적용됩니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `enableFaceMaskClassifier`  | boolean | 비디오 스트림에서 얼굴 마스크를 착용한 사람을 감지하려면 true, 감지하지 않으려면 false로 설정합니다. 기본적으로 사용하지 않도록 설정됩니다. 얼굴 마스크 감지를 사용하려면 입력 비디오 너비 매개 변수가 1920 "INPUT_VIDEO_WIDTH": 1920이어야 합니다. 얼굴 마스크 특성은 반환되지 않습니다.                                                                                                                                                                                                                                                                                                        |
 | `detectorNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대한 DETECTOR_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `trackerNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대한 TRACKER_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `trackerNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대 한 TRACKER_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 #### <a name="output"></a>출력:
 
 ```json
@@ -286,9 +286,9 @@ GitHub 샘플에서 [Person Distance Operation의](https://raw.githubusercontent
 
 ## <a name="person-count"></a>사람 수
 
-**작업 식별자:**`Microsoft.VideoAnalyzer.SpatialAnalysisPersonCountOperation`
+**작업 식별자**: `Microsoft.VideoAnalyzer.SpatialAnalysisPersonCountOperation`
 
-GitHub 샘플에서 [Person Count Operation의](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json) 예를 참조하세요.
+GitHub 샘플의 [Person Count 작업](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json) 예를 참조 하세요.
 
 #### <a name="parameters"></a>매개 변수
 
@@ -297,13 +297,13 @@ GitHub 샘플에서 [Person Count Operation의](https://raw.githubusercontent.co
 | `zones`                     | list    | 영역 목록입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `name`                      | 문자열  | 이 영역에 대한 식별 이름입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `polygon`                   | 문자열  | 각 값 쌍은 다각형의 꼭짓점에 대한 x,y를 나타냅니다. 다각형은 사람이 추적되거나 계산되는 영역을 나타냅니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다. threshold float 이벤트는 사람이 영역 내의 이 픽셀 수보다 클 때 송신됩니다. 기본값은 type이 zonecrossing인 경우 48이고, time이 DwellTime인 경우 16입니다. 이러한 값은 최대 정확도를 얻기 위해 권장되는 값입니다. |
-| `outputFrequency`           | int     | 이벤트가 송신되는 속도입니다. OutputFrequency = X 인 경우 X 이벤트는 모두 egressed (예: outputFrequency = 2는 다른 모든 이벤트가 출력 됨을 의미 합니다. OutputFrequency는 이벤트와 간격에 모두 적용 됩니다.                                                                                                                                                                                                                                                                                                                                                     |
+| `outputFrequency`           | int     | 이벤트가 송신되는 속도입니다. outputFrequency = X이면 모든 X 이벤트가 송신됩니다. 예: outputFrequency = 2는 다른 모든 이벤트가 출력임을 의미합니다. outputFrequency는 이벤트와 간격 모두에 적용할 수 있습니다.                                                                                                                                                                                                                                                                                                                                                     |
 | `trigger`                   | 문자열  | 이벤트를 보내는 트리거의 형식입니다. 지원되는 값은 개수가 변경되면 이벤트를 보내는 event 또는 개수가 변경되었는지 여부에 관계없이 정기적으로 이벤트를 보내는 interval입니다.                                                                                                                                                                                                                                                                                                                                                           |
 | `focus`                     | 문자열  | 이벤트를 계산하는 데 사용되는 사람의 경계 상자 내의 지점 위치입니다. focus의 값은 footprint(사람의 공간), bottom_center(사람의 경계 상자의 아래쪽 가운데) 또는 center(사람의 경계 상자의 중심)입니다. 기본값은 footprint입니다.                                                                                                                                                                                                                                                                                               |
 | `threshold`                 | float   | 이벤트는 사람이 영역 내의 이 픽셀 수보다 클 때 송신됩니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `enableFaceMaskClassifier`  | boolean | 비디오 스트림에서 얼굴 마스크를 착용한 사람을 감지하려면 true, 감지하지 않으려면 false로 설정합니다. 기본적으로 사용하지 않도록 설정됩니다. 얼굴 마스크 감지를 사용하려면 입력 비디오 너비 매개 변수가 1920 "INPUT_VIDEO_WIDTH": 1920이어야 합니다. 얼굴 마스크 특성은 반환되지 않습니다.                                                                                                                                                                                                                                                                                                        |
 | `detectorNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대한 DETECTOR_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `trackerNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대 한 TRACKER_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `trackerNodeConfiguration` | 문자열  | 모든 공간 분석 작업에 대한 TRACKER_NODE_CONFIG 매개 변수입니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 #### <a name="output"></a>출력:
 
 ```json
@@ -350,9 +350,9 @@ GitHub 샘플에서 [Person Count Operation의](https://raw.githubusercontent.co
 
 ## <a name="custom-operation"></a>사용자 지정 작업
 
-**작업 식별자**: `Microsoft.VideoAnalyzer.SpatialAnalysisCustomOperation`
+**작업 식별자:**`Microsoft.VideoAnalyzer.SpatialAnalysisCustomOperation`
 
-GitHub 샘플에서 [사용자 지정 작업](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json) 의 예제를 참조 하세요.
+GitHub 샘플에서 [사용자 지정 작업의](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json) 예제를 참조하세요.
 
 #### <a name="parameters"></a>매개 변수
 

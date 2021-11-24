@@ -11,12 +11,13 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: ba36a1cc58b4f244517b74996aa6f29c2d9bc04a
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: mode-other
+ms.openlocfilehash: 9b27448b8e8c2a4108e34aa80abbac06f33e7b5b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131461181"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064136"
 ---
 # <a name="quickstart-set-up-and-manage-teams-access-tokens"></a>빠른 시작: Teams 액세스 토큰 설정 및 관리
 

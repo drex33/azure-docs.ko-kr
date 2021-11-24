@@ -10,19 +10,15 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 07/30/2021
 ms.author: pafarley
-ms.custom:
-- devx-track-python
-- devx-track-js
-- devx-track-csharp
-- cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
 zone_pivot_groups: programming-languages-computer-vision
 keywords: 컴퓨터 비전, 컴퓨터 비전 서비스
-ms.openlocfilehash: cd3e5eb167c146dadf3a24fedea96ea236878020
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5fc493d4d6dbb4a4fd2151dbfbcea6168e9cba5a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750043"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064415"
 ---
 # <a name="quickstart-use-the-image-analysis-client-library-or-rest-api"></a>빠른 시작: 이미지 분석 클라이언트 라이브러리 또는 REST API 사용
 

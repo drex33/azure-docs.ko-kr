@@ -7,15 +7,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1a5088ded7b047a56878e49a94655e75e44c767b
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 19c7371cfbf662a58a51b6e97d6f599971ecffb8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132938952"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048089"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 키 자격 증명 모음 만들기
 

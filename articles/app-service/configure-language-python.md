@@ -4,13 +4,13 @@ description: Azure Portal 및 Azure CLI를 사용하여 웹앱이 실행되는 P
 ms.topic: quickstart
 ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 6023ea4178e451a0b5807c4561ea9810e7bbbc66
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli, mode-other
+ms.openlocfilehash: 75985ff306be35631047eca47f15175a625af53e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225792"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076459"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 

@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: a58462910a3f673a050bdb252d65369ef6fb3b45
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mimckitt, mode-portal
+ms.openlocfilehash: 0ff2b7540b53693aeffb2ca006440fb619f72afd
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131003431"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043228"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
 

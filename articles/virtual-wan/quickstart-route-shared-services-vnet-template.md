@@ -8,13 +8,13 @@ ms.service: virtual-wan
 ms.topic: quickstart
 ms.date: 03/05/2021
 ms.author: cherylmc
-ms.custom: subject-armqs
-ms.openlocfilehash: ff23bf626fe252547d3449cfe318c073e9cc9b6c
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: 7a0efac43b3508d134642252bf28bf46dbb6250a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112026312"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049467"
 ---
 # <a name="quickstart-route-to-shared-services-vnets-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 공유 서비스 VNet으로 라우팅
 

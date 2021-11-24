@@ -7,12 +7,13 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: cf08f1baf2a2fb32e22cf07ae27c5122d6459294
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.custom: mode-other
+ms.openlocfilehash: bd3d3fb36a97fe924392d8fe06d7dd0882ff8556
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114285349"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071776"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>빠른 시작: Linux(Ubuntu)용 Data Science Virtual Machine 설정
 

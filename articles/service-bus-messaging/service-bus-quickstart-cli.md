@@ -5,12 +5,13 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 09/28/2021
 ms.author: spelluru
-ms.openlocfilehash: 381d4d32d87391c0914d55690a0f4119b95a3488
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: mode-other
+ms.openlocfilehash: f1897aae6701422592ede35c83abcf8589d29a77
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129211832"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057072"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Azure CLI를 사용하여 Service Bus 네임스페이스 및 큐 만들기
 이 빠른 시작에서는 Azure CLI를 사용하여 Service Bus 네임스페이스 및 큐를 만드는 방법을 보여줍니다. 또한 클라이언트 애플리케이션이 큐에 메시지를 보내고 받는 데 사용할 수 있는 권한 부여 자격 증명을 가져오는 방법을 보여줍니다. 
@@ -61,4 +62,3 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][free ac
 - [PHP](service-bus-php-how-to-use-queues.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-

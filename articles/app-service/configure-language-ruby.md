@@ -4,13 +4,13 @@ description: 앱에 대해 미리 빌드된 Ruby 컨테이너를 구성하는 �
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 58e4fb69f5c2567c6d4b4ddc5329d83dd37ee878
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: mvc, seodec18, devx-track-azurecli, mode-other
+ms.openlocfilehash: c332de23e9bd40d4f89509ae10e13d81ae9a9ad7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225818"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040520"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Azure App Service용 Linux Ruby 앱 구성
 

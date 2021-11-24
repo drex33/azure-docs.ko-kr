@@ -9,12 +9,13 @@ ms.subservice: general
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: cc6d9ca2621a56242d7472a088e55651f5502c9c
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.custom: mode-api
+ms.openlocfilehash: bb7764f0e7cb50188a2f4f5443ddfbbbbc5ce074
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814805"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047994"
 ---
 # <a name="quickstart-create-a-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 키 자격 증명 모음 만들기
 
@@ -49,4 +50,3 @@ Login-AzAccount
 - [Azure Key Vault 개요](overview.md) 참조
 - [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)에 대한 참조를 참조하세요.
 - [Azure Key Vault 보안 개요](security-features.md)를 검토하세요.
-

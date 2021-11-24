@@ -5,13 +5,13 @@ services: automation
 ms.date: 10/26/2021
 ms.topic: quickstart
 ms.subservice: process-automation
-ms.custom: mvc
-ms.openlocfilehash: 7497362ccd71e6efabc873015796855bd989d33c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: mvc, mode-other
+ms.openlocfilehash: 996e1f0d2e8913849cae11de55dff39c30e73ea6
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470688"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062862"
 ---
 # <a name="quickstart-create-an-automation-account-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Automation 계정 만들기
 

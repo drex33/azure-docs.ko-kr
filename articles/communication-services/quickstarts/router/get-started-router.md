@@ -9,12 +9,13 @@ ms.author: jassha
 ms.date: 10/18/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ffad9a33c932300dbf52989536663215f8abb8f9
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.custom: mode-other
+ms.openlocfilehash: 583475f25b5743c20a46a30466c7350fd6fc4108
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164753"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072203"
 ---
 # <a name="quickstart-submit-a-job-for-queuing-and-routing"></a>빠른 시작: 큐 및 라우팅을 위한 작업 제출
 

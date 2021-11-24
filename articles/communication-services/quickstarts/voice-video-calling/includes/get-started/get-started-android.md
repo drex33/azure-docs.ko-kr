@@ -6,12 +6,13 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 3953bdeaed6a20417b321ce89cd6b72ee052058a
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.custom: mode-other
+ms.openlocfilehash: cfa6348e1a0906fd20bf4d15da24fcd3aaa1705c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122970271"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039297"
 ---
 이 빠른 시작에서는 Android용 Azure Communication Services Calling SDK를 사용하여 통화를 시작하는 방법에 대해 알아봅니다.
 
@@ -19,7 +20,7 @@ ms.locfileid: "122970271"
 
 샘플 앱은 [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)에서 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android 스튜디오](https://developer.android.com/studio)(Android 애플리케이션 만들기용)

@@ -3,16 +3,16 @@ title: DMS의 인스턴스 만들기(Azure Resource Manager 템플릿)
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Database Migration Service를 만드는 방법을 알아봅니다.
 author: MashaMSFT
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: fad7f93e4ccaa31f17df79f4d512647607427f1c
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: ee917a414d7c4d36e5a4e31582022c503acb9531
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006800"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072039"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database Migration Service의 인스턴스 만들기
 

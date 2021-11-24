@@ -5,13 +5,13 @@ author: KarlErickson
 ms.author: karler
 ms.date: 02/26/2020
 ms.topic: quickstart
-ms.custom: devx-track-java, devx-track-azurecli, mode-api
-ms.openlocfilehash: eccbad4964dc34c33fd00873d92e58302e9bf2cf
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
+ms.openlocfilehash: 1cab74ead9f13f6ed6150f43c775ad1a8967a7d9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080197"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048446"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>빠른 시작: Java 컨테이너 이미지를 빌드하고 Azure Container Registry로 푸시
 

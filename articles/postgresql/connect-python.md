@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 �
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc, devcenter, devx-track-python
+ms.custom: mvc, devcenter, devx-track-python, mode-other
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: fc02862b6d980854d20e90724d9192e33693b5db
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 836ec96bc1eebec3814b78a5282cde8fa0dd13a3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132137130"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066305"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
 

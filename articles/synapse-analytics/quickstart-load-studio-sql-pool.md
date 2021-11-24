@@ -9,12 +9,13 @@ ms.topic: quickstart
 ms.date: 12/11/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 838138fb6ca6f64b4296b54a81bc2764c3f1399c
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.custom: mode-other
+ms.openlocfilehash: 8b7c35382a4f17997f1cd8b32545de342249f055
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567913"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073471"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 대량 로드
 

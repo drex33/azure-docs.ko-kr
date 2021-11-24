@@ -5,15 +5,15 @@ services: azure-app-configuration
 author: drewbatgit
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: devx-track-python
+ms.custom: devx-track-python, mode-other
 ms.date: 9/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 046f845906845dbf1bf01a1a24de6e65da8a2a7c
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 0adf8e460fe918c5ef652a6d6fedb8c0df335d3a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233184"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051768"
 ---
 # <a name="quickstart-create-a-python-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 Python 앱 만들기
 

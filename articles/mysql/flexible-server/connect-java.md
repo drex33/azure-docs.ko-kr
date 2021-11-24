@@ -4,16 +4,16 @@ description: Azure Database for MySQL 유연한 서버 데이터베이스에서 
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc, devcenter, devx-track-azurecli
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-other
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 01/16/2021
-ms.openlocfilehash: fa7d76b1abcef11155ee81be687d8135ea6aecc1
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: d792f7bd6bb8e224a3c4e92ec7c17455892ff774
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131445657"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073999"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버에서 Java 및 JDBC 사용
 

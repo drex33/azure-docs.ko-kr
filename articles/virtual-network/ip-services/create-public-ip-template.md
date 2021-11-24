@@ -9,12 +9,13 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.openlocfilehash: cb90b716351802271a12fc72c1ead9e4fac2968e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: mode-other
+ms.openlocfilehash: 61175bcd669984573b84650abe375ba80094f3ff
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456426"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051862"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-a-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 공용 IP 주소 만들기
 

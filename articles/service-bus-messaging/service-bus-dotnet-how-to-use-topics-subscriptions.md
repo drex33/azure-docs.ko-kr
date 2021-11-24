@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
-ms.custom: contperf-fy22q2
-ms.openlocfilehash: 05efcd742b4b5a70925cdd6bd8fad62a61ba4a53
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.custom: contperf-fy22q2, mode-other
+ms.openlocfilehash: 6beabe18f4e3b268f5b26d95ea713d07c454e219
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129807475"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057717"
 ---
 # <a name="get-started-with-azure-service-bus-topics-and-subscriptions"></a>Azure Service Bus 토픽 및 구독 시작
 이 빠른 시작에서는 [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) .NET 라이브러리를 사용하여 Service 버스 토픽에 메시지를 보내고 해당 토픽에 대한 구독에서 메시지를 수신하는 방법을 보여 줍니다.

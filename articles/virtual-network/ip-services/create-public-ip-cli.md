@@ -8,12 +8,13 @@ ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.openlocfilehash: 8d8b1525c910592cb9cc35ae1e08da7e9e24e30b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: mode-api
+ms.openlocfilehash: 8efb3297a4e974450efcf9322547b1387a9d738f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369401"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052137"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 공용 IP 주소 만들기
 

@@ -9,12 +9,13 @@ ms.workload: ''
 ms.topic: quickstart
 ms.date: 7/2/2021
 ms.author: inhenkel
-ms.openlocfilehash: a0534bc562d20f96cc1c12a8b4dbe0adfc8f9282
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.custom: mode-other
+ms.openlocfilehash: 12c7628efe56b02544c3feadd6d0dfdf4d456da5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284412"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071458"
 ---
 # <a name="media-services-basic-encoding-with-python"></a>Python을 사용한 Media Services 기본 인코딩
 

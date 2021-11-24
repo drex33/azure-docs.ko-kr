@@ -8,13 +8,13 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 689a871a656aa03eea50faee5bbc48a3786f87f4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 9dc1ac9361069ecc4064ee86a0230611a4261e20
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692594"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069046"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Windows 가상 머신 만들기 및 암호화
 

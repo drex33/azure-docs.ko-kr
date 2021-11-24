@@ -11,14 +11,14 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 03/08/2021
 ms.author: nitinme
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: 사진 표시, 음성 부분, 선택한 텍스트 읽기, 단어 번역, 독해력
-ms.openlocfilehash: 1c0fa771212fd0ea734ef92285edfea785e78781
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9eff847865fdac89943dd68f36f3ca07f2434f64
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786663"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073538"
 ---
 # <a name="quickstart-get-started-with-immersive-reader"></a>빠른 시작: 몰입형 리더 시작
 

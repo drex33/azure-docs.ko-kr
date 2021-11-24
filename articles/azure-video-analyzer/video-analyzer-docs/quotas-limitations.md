@@ -1,16 +1,16 @@
 ---
-title: Azure Video Analyzer 할당량 및 제한 사항 - Azure
+title: Azure Video Analyzer 할당량 및 제한 사항
 description: 이 문서에서는 Azure Video Analyzer 할당량 및 제한 사항을 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: cad4ed3ffac3d9b8617150070579bd9bee5ad6b3
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 5ea4a1df70b33964b0ee7676850a52a6276bbfc0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131563134"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060017"
 ---
 # <a name="video-analyzer-quotas-and-limitations"></a>Video Analyzer 할당량 및 제한 사항
 
@@ -115,27 +115,27 @@ Video Analyzer 계정당 최대 5개 파이프라인 토폴로지만 지원됩�
      | 오디오 인코더 비트 전송률 kbps  | 원본과 동일        | 허용되는 값: 96, 112, 128, 160, 192, 224, 256 |
      
 * 비디오 싱크 
-   *  파이프라인 토폴로지에서는 하나의 비디오 싱크로만 허용 됩니다.
-   *  RTSP 원본 또는 인코더 프로세서 노드에서 즉시 다운스트림 이어야 합니다. 
-   *  일괄 처리 종류의 파이프라인 토폴로지에서 사용 되는 경우 MP4 파일을 출력으로 생성 합니다.
+   *  파이프라인 토폴로지당 하나의 비디오 싱크만 허용됩니다.
+   *  RTSP 원본 또는 인코더 프로세서 노드에서 즉시 다운스트림이어야 합니다. 
+   *  일괄 처리 종류의 파이프라인 토폴로지에서 사용되는 경우 출력으로 MP4 파일을 생성합니다.
 
-### <a name="support-for-batch-video-export"></a>Batch 비디오 내보내기 지원 
+### <a name="support-for-batch-video-export"></a>일괄 처리 비디오 내보내기 지원 
 
 * 세그먼트 선택 
-   * 내보낼 보관 된 비디오 부분의 시작 및 종료 타임 스탬프 인 시간 순서는 UTC 시간으로 지정 해야 합니다. 
-   * 시간 시퀀스의 최대 범위 (종료 타임 스탬프-시작 타임 스탬프)는 24 시간 보다 작거나 같아야 합니다. 
+   * 내보낼 보관된 비디오 부분의 시작 및 끝 타임스탬프인 시간 순서는 UTC 시간으로 지정해야 합니다. 
+   * 시간 시퀀스의 최대 범위(종료 타임스탬프 - 시작 타임스탬프)는 24시간 미만이거나 같아야 합니다. 
 
 ### <a name="supported-cameras"></a>지원되는 카메라
 
 RTSP 프로토콜을 지원하는 IP 카메라만 사용할 수 있습니다. [ONVIF 규격 제품](https://www.onvif.org/conformant-products) 페이지에서 RTSP를 지원하는 IP 카메라를 찾을 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다. 
 
-H.264 비디오와 AAC 오디오를 사용하도록 카메라를 구성해야 합니다. 다른 코덱은 현재 지원되지 않습니다. 비디오 인코딩 비트 전송률은 500에서 3000 Kbps 사이 여야 합니다.True 수집 비트 전송률이이 임계값을 초과 하면 수집의 연결이 끊어지고 지 수 백오프를 사용 하 여 다시 연결 됩니다.
+H.264 비디오와 AAC 오디오를 사용하도록 카메라를 구성해야 합니다. 다른 코덱은 현재 지원되지 않습니다. 비디오 인코딩 비트 전송 속도는 500~3000Kbps 사이여야 합니다.true ingestion bitrate가 이 임계값을 초과하면, 지수 백오프로 다시 연결되고 연결이 끊어집니다.
 
 Video Analyzer는 [인터리브된 RTP 스트림](https://datatracker.ietf.org/doc/html/rfc2326#section-10.12)을 사용하는 RTSP만 지원합니다. 이 모드에서 RTP 트래픽은 RTSP TCP 연결을 통해 터널링됩니다. UDP를 통한 RTP 트래픽은 지원되지 않습니다. 
 
 ### <a name="support-for-video-ai"></a>비디오 AI 지원 
 
-라이브 또는 기록 된 비디오에 대 한 분석은 현재 지원 되지 않습니다.
+라이브 또는 녹화된 비디오 분석은 현재 지원되지 않습니다.
 
 ## <a name="quotas-and-limitations---service"></a>할당량 및 제한 사항 - 서비스
 

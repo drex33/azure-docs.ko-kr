@@ -1,6 +1,6 @@
 ---
-title: Azure Files에서 NFS를 사용 하는 RHEL on SAP NW의 Azure Vm 고가용성 Microsoft Docs
-description: Azure Files에서 NFS를 사용 하는 Azure Vm (가상 머신) RHEL의 SAP NW에 대해 고가용성을 설정 합니다.
+title: Azure Files의 NFS를 사용하는 RHEL의 SAP NW에 대한 Azure VM 고가용성 | Microsoft Docs
+description: Azure Files를 사용하는 Azure VM(가상 머신) RHEL에서 SAP NW에 대한 고가용성을 설정합니다.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -10,16 +10,16 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: radeltch
-ms.openlocfilehash: badc6696936b3cdf99b91a5abf0d95217ec9b2e7
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: b30b8034a139d6430e444c7aa90b9d8e549d0790
+ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132556960"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132936190"
 ---
-# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-with-nfs-on-azure-files"></a>Azure Files에서 NFS를 사용 하는 Red Hat Enterprise Linux에서 Azure vm의 SAP NetWeaver에 대 한 고가용성
+# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-with-nfs-on-azure-files"></a>Azure Files의 NFS를 사용하는 Red Hat Enterprise Linux의 Azure VM에서 SAP NetWeaver에 대한 고가용성
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -46,9 +46,9 @@ ms.locfileid: "132556960"
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 
 
-이 문서에서는 [Azure Files에서 NFS](../../../storage/files/files-nfs-protocol.md)를 사용 하 여 vm을 배포 및 구성 하 고, 클러스터 프레임 워크를 설치 하 고, HA SAP NetWeaver 시스템을 설치 하는 방법을 설명 합니다. 예제 구성은 Red Hat Enterprise Linux (RHEL)에서 실행 되는 vm을 사용 합니다.  
+이 문서에서는 [Azure Files의 NFS](../../../storage/files/files-nfs-protocol.md)를 사용하여 VM을 배포 및 구성하고, 클러스터 프레임워크를 설치하고, HA SAP NetWeaver 시스템을 설치하는 방법을 설명합니다. 예제 구성은 RHEL(Red Hat Enterprise Linux)에서 실행되는 VM을 사용합니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Files 설명서][afs-azure-doc] 
 * SAP Note [1928533], 다음 항목을 포함합니다.
@@ -57,8 +57,8 @@ ms.locfileid: "132556960"
   * 지원되는 SAP 소프트웨어 및 운영 체제(OS)와 데이터베이스 조합
   * Microsoft Azure에서 Windows 및 Linux에 필요한 SAP 커널 버전
 * SAP Note [2015553]는 Azure에서 SAP을 지원하는 SAP 소프트웨어 배포에 대한 필수 구성 요소를 나열합니다.
-* SAP Note [2002167] 에는 Red Hat Enterprise Linux 8.x에 대해 권장 되는 OS 설정이 있습니다.
-* SAP Note [2772999] 에 Red Hat Enterprise Linux .x에 대 한 권장 OS 설정이 있습니다.
+* SAP Note [2002167]은 Red Hat Enterprise Linux 7.x용 OS 설정을 권고합니다.
+* SAP Note [2772999]는 Red Hat Enterprise Linux 8.x용 OS 설정을 권고합니다.
 * SAP Note [2009879]에는 Red Hat Enterprise Linux용 SAP HANA 지침이 있습니다.
 * SAP Note [2178632]는 Azure에서 SAP에 대해 보고된 모든 모니터링 메트릭에 대한 자세한 정보를 포함하고 있습니다.
 * SAP Note [2191498]는 Azure에서 Linux에 필요한 SAP Host Agent 버전을 포함하고 있습니다.
@@ -81,157 +81,157 @@ ms.locfileid: "132556960"
 
 ## <a name="overview"></a>개요
 
-SAP NetWeaver 응용 프로그램 계층을 배포 하려면 및와 같은 공유 디렉터리가 `/sapmnt/SID` `/usr/sap/trans` 환경에 있어야 합니다. 또한 HA SAP 시스템을 배포할 때 및와 같은 항상 사용 가능한 파일 시스템을 보호 하 고 사용 하도록 설정 해야 `/sapmnt/SID` `/usr/sap/SID/ASCS` 합니다.
+SAP NetWeaver 애플리케이션 계층을 배포하려면 환경에 `/sapmnt/SID` 및 `/usr/sap/trans`와 같은 공유 디렉터리가 필요합니다. 또한 HA SAP 시스템을 배포할 때 `/sapmnt/SID` 및 `/usr/sap/SID/ASCS`와 같은 고가용성 파일 시스템을 보호하고 만들어야 합니다.
 
-이제 [Azure Files에서 NFS](../../../storage/files/files-nfs-protocol.md)에 이러한 파일 시스템을 저장할 수 있습니다. Azure Files의 NFS는 HA 저장소 솔루션입니다. 이 솔루션은 ZRS (동기 영역 중복 저장소)를 제공 하며 가용성 영역에 배포 된 SAP ASCS/ERS 인스턴스에 적합 합니다.  Netweaver 중앙 서비스 (ASCS/SCS)와 같은 단일 실패 지점 구성 요소를 보호 하려면 여전히 Pacemaker 클러스터가 필요 합니다.  
+이제 [Azure Files의 NFS](../../../storage/files/files-nfs-protocol.md)에 이러한 파일 시스템을 배치할 수 있습니다. Azure Files의 NFS는 HA 스토리지 솔루션입니다. 이 솔루션은 동기 ZRS(영역 중복 스토리지)를 제공하며 가용성 영역에 배포된 SAP ASCS/ERS 인스턴스에 적합합니다.  SAP Netweaver 중앙 서비스(ASCS/SCS)와 같은 단일 실패 지점 구성 요소를 보호하려면 Pacemaker 클러스터가 여전히 필요합니다.  
 
-구성 및 설치 명령 예제에는 다음 인스턴스 번호가 사용 됩니다.
+예제 구성 및 설치 명령은 다음 인스턴스 번호를 사용합니다.
 
 | 인스턴스 이름 | 인스턴스 번호 |
 | ---------------- | ------------------ |
-| ABAP SAP Central Services (ascs) | 00 |
+| ASCS(ABAP SAP Central Services) | 00 |
 | ERS | 01 |
-| PAS (기본 응용 프로그램 서버) | 02 |
-| 추가 응용 프로그램 서버 (.AAS) | 03 |
-| SAP 시스템 식별자 | N W 1 |
+| PAS(기본 애플리케이션 서버) | 02 |
+| AAS(추가 애플리케이션 서버) | 03 |
+| SAP 시스템 식별자 | NW1 |
 
-:::image type="complex" source="./media/high-availability-guide-rhel/high-availability-guide-rhel-nfs-azure-files.png" alt-text="Azure Files에서 NFS를 사용 하는 SAP NetWeaver 고가용성":::
-   이 다이어그램은 일반적인 SAP Netweaver HA 아키텍처를 보여 줍니다. "Sapmnt" 및 "saptrans" 파일 시스템은 Azure Files에서 NFS 공유에 배포 됩니다. SAP central services는 Pacemaker 클러스터에 의해 보호 됩니다. 클러스터 된 Vm은 Azure 부하 분산 장치 뒤에 있습니다. NFS 공유는 전용 끝점을 통해 탑재 됩니다.
+:::image type="complex" source="./media/high-availability-guide-rhel/high-availability-guide-rhel-nfs-azure-files.png" alt-text="Azure Files의 NFS를 사용하는 SAP NetWeaver 고가용성":::
+   이 다이어그램은 일반적인 SAP Netweaver HA 아키텍처를 보여줍니다. "sapmnt" 및 "saptrans" 파일 시스템은 Azure Files의 NFS 공유에 배포됩니다. SAP 중앙 서비스는 Pacemaker 클러스터로 보호됩니다. 클러스터형 VM은 Azure 부하 분산 장치 뒤에 있습니다. NFS 공유는 프라이빗 엔드포인트를 통해 탑재됩니다.
 :::image-end:::
 
 ## <a name="prepare-infrastructure"></a>인프라 준비
 
-이 문서에서는 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md), 서브넷 및 리소스 그룹을 이미 배포 했다고 가정 합니다.
+이 문서에서는 [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md), 서브넷 및 리소스 그룹을 이미 배포했다고 가정합니다.
 
-1. Vm을 배포 합니다. Azure 지역에서 이러한 옵션을 지 원하는 경우 가용성 집합 또는 가용성 영역에서 Vm을 배포할 수 있습니다. Vm에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 및 연결 합니다. 주 NIC에 보조 IP 주소를 추가 하지 마세요. [Azure Load Balancer 부동 IP는이 시나리오를 지원 하지 않습니다](../../../load-balancer/load-balancer-multivip-overview.md#limitations).  
+1. VM을 배포합니다. Azure 지역에서 이러한 옵션을 지원하는 경우 가용성 집합 또는 가용성 영역에 VM을 배포할 수 있습니다. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포하고 연결합니다. 기본 NIC에 보조 IP 주소를 추가하지 마세요. [Azure Load Balancer 부동 IP는 이 시나리오를 지원하지 않습니다.](../../../load-balancer/load-balancer-multivip-overview.md#limitations)  
  
-2. 가상 Ip의 경우 Azure [부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 배포 하 고 구성 합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용 하는 것이 좋습니다. 
+2. 가상 IP의 경우 Azure [부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 배포 및 구성합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용하는 것이 좋습니다. 
 
-    1. 두 개의 프런트 엔드 Ip를 구성 합니다. 하나는 ASCS ( `10.90.90.10` )이 고 다른 하나는 ERS ()입니다. `10.90.90.9`
-    2. 백 엔드 풀을 만들고 클러스터에 포함 될 두 Vm을 추가 합니다.
-    3. ASCS에 대 한 상태 프로브를 만듭니다. 프로브 포트는 `62000` 입니다. ERS에 대 한 프로브 포트를 만듭니다. ERS 프로브 포트는 `62101` 입니다. 나중에 Pacemaker 리소스를 구성 하는 경우 일치 하는 프로브 포트를 사용 해야 합니다.
-    4. ASCS 및 ERS에 대 한 부하 분산 규칙을 구성 합니다. 해당 하는 프런트 Ip, 상태 프로브 및 백 엔드 풀을 선택 합니다. HA 포트를 선택 하 고 유휴 시간 제한을 30 분으로 늘리고 부동 IP를 사용 하도록 설정 합니다.
+    1. 두 개의 프런트 엔드 IP를 구성합니다. 하나는 ASCS(`10.90.90.10`)용이고 다른 하나는 ERS(`10.90.90.9`)용입니다.
+    2. 백 엔드 풀을 만들고 클러스터의 일부가 될 두 VM을 추가합니다.
+    3. ASCS용 상태 프로브를 만듭니다. 프로브 포트는 `62000`입니다. ERS용 프로브 포트를 만듭니다. ERS 프로브 포트는 `62101`입니다. 나중에 Pacemaker 리소스를 구성할 때 일치하는 프로브 포트를 사용해야 합니다.
+    4. ASCS 및 ERS에 대한 부하 분산 규칙을 구성합니다. 해당 프런트 IP, 상태 프로브 및 백 엔드 풀을 선택합니다. HA 포트를 선택하고, 유휴 시간 제한을 30분으로 늘리고, 부동 IP를 사용하도록 설정합니다.
 
-### <a name="deploy-azure-files-storage-account-and-nfs-shares"></a>저장소 계정 및 NFS 공유 Azure Files 배포 
+### <a name="deploy-azure-files-storage-account-and-nfs-shares"></a>Azure Files 스토리지 계정 및 NFS 공유 배포 
 
-Azure Files의 NFS는 [Azure Files Premium 저장소][afs-azure-doc]를 기반으로 실행 됩니다. Azure Files에서 NFS를 설정 하기 전에 [nfs 공유를 만드는 방법](../../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal)을 참조 하세요.    
+Azure Files의 NFS는 [Azure Files 프리미엄 스토리지][afs-azure-doc] 위에서 실행됩니다. Azure Files의 NFS를 설정하기 전에 [NFS 공유를 만드는 방법](../../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal)을 참조하세요.    
 
-Azure 지역 내에서 중복성을 위한 두 가지 옵션이 있습니다.
+Azure 지역 내에는 중복성에 대한 두 가지 옵션이 있습니다.
 
-- 로컬 [중복 저장소 (LRS)](../../../storage/common/storage-redundancy.md#locally-redundant-storage)-로컬 영역 동기 데이터 복제를 제공 합니다.
-- 영역 [중복 저장소 (ZRS)](../../../storage/common/storage-redundancy.md#zone-redundant-storage)-지역의 3 개 [가용성 영역](../../../availability-zones/az-overview.md) 에서 데이터를 동기적으로 복제 합니다.
+- [LRS(로컬 중복 스토리지)](../../../storage/common/storage-redundancy.md#locally-redundant-storage)는 로컬, 영역 내 동기 데이터 복제를 제공합니다.
+- [ZRS(영역 중복 스토리지)](../../../storage/common/storage-redundancy.md#zone-redundant-storage)는 지역에 있는 세 개의 [가용성 영역](../../../availability-zones/az-overview.md)에서 데이터를 동기적으로 복제합니다.
 
-선택한 Azure 지역에서 적절 한 중복성을 사용 하 여 Azure Files에 NFS 4.1을 제공 하는지 확인 합니다. **Premium 파일 Storage** 에서 [Azure 지역별 Azure Files 가용성][afs-avail-matrix] 을 검토 합니다. 시나리오에서 ZRS을 활용 하 [Premium는 경우 ZRS와 파일 공유가 Azure 지역에서 지원 되는지 확인](../../../storage/common/storage-redundancy.md#zone-redundant-storage)합니다.
+선택한 Azure 지역이 적절한 중복성으로 Azure Files의 NFS 4.1을 제공하는지 확인합니다. **Premium Files Storage** 에서 [Azure 지역별 Azure Files의 가용성][afs-avail-matrix]을 검토합니다. 시나리오가 ZRS를 활용하는 경우 [ZRS를 사용하는 프리미엄 파일 공유가 Azure 지역에서 지원되는지 확인](../../../storage/common/storage-redundancy.md#zone-redundant-storage)합니다.
 
-[Azure 개인 끝점](../../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal)을 통해 Azure Storage 계정에 액세스 하는 것이 좋습니다. 동일한 Azure VNet 또는 피어 링 Azure Vnet에서 NFS 공유를 탑재 해야 하는 Azure Files storage 계정 끝점 및 Vm을 배포 해야 합니다.
+[Azure 프라이빗 엔드포인트](../../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal)를 통해 Azure Storage 계정에 액세스하는 것이 좋습니다. NFS 공유를 동일한 Azure VNet 또는 피어링된 Azure VNet에 탑재해야 하는 Azure Files 스토리지 계정 엔드포인트 및 VM을 배포해야 합니다.
 
-1. 이라는 File Storage 계정을 배포 `sapafsnfs` 합니다. 이 예제에서는 ZRS를 사용 합니다. 프로세스에 익숙하지 않은 경우 Azure Portal [저장소 계정 만들기](../../../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account) 를 참조 하세요.
-1. **기본 사항** 탭에서 다음 설정을 사용 합니다.
+1. `sapafsnfs`라는 File Storage 계정을 배포합니다. 이 예제에서는 ZRS를 사용합니다. 프로세스에 익숙하지 않은 경우 Azure Portal에 대한 [스토리지 계정 만들기](../../../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account)를 참조하세요.
+1. **기본 사항** 탭에서 다음 설정을 사용합니다.
 
-    1. **Storage 계정 이름** 에을 입력 `sapafsnfs` 합니다.
+    1. **스토리지 계정 이름** 에 `sapafsnfs`를 입력합니다.
     
-    1. **성능을** 위해 **Premium** 를 선택 합니다.
+    1. **성능** 에 대해 **프리미엄** 을 선택합니다.
     
-    1. **계정 유형 Premium** **FileStorage** 를 선택 합니다.
+    1. **프리미엄 계정 유형** 에 대해 **FileStorage** 를 선택합니다.
     
-    1. **복제** 에 대해 영역 중복 (ZRS)을 선택 합니다.
+    1. **복제** 에 대해 ZRS(영역 중복)를 선택합니다.
 
-1. **다음** 을 선택합니다.
+1. **새로 만들기** 를 선택합니다.
 
-1. **고급** 탭에서 **REST API 작업에 대 한 보안 전송 필요** 를 선택 취소 합니다. 이 옵션의 선택을 취소 하지 않으면 NFS 공유를 VM에 탑재할 수 없습니다. 탑재 작업은 시간 초과 됩니다.
+1. **고급** 탭에서 **REST API 작업을 위한 보안 전송 필요** 를 선택 취소합니다. 이 옵션을 선택 취소하지 않으면 VM에 NFS 공유를 탑재할 수 없습니다. 탑재 작업 시간이 초과됩니다.
 
-1. **다음** 을 선택합니다.
+1. **새로 만들기** 를 선택합니다.
 
-1. **네트워킹** 섹션에서 다음 설정을 구성 합니다. 
+1. **네트워킹** 섹션에서 다음 설정을 구성합니다. 
 
-    1. **네트워킹 연결** 아래에서 **연결 방법** 으로 **개인 끝점** 을 선택 합니다.  
+    1. **네트워킹 연결** 에서 **연결 방법** 으로 **프라이빗 엔드포인트** 를 선택합니다.  
     
-    1. **개인 끝점** 에서 **추가 개인 끝점** 을 선택 합니다.
+    1. **프라이빗 엔드포인트** 에서 **프라이빗 엔드포인트 추가** 를 선택합니다.
     
-1. **개인 끝점 만들기** 창에서 **구독**, **리소스 그룹** 및 **위치** 를 선택 합니다. 
+1. **프라이빗 엔드포인트 만들기** 창에서 **구독**, **리소스 그룹** 및 **위치** 를 선택합니다. 
     
     **이름** 에 `sapafsnfs_pe`를 입력합니다.
         
-    **Storage 하위 리소스** 에 대해 **파일** 을 선택 합니다.
+    **스토리지 하위 리소스** 에 대해 **파일** 을 선택합니다.
         
-    **네트워킹** 에서 **가상 네트워크** 에 대해 사용할 VNet 및 서브넷을 선택 합니다. 다시, SAP Vm이 있는 VNet 또는 피어 링 VNet을 사용할 수 있습니다.
+    **네트워킹** 에서 **가상 네트워크** 에 대해 사용할 VNet 및 서브넷을 선택합니다. 다시 말해, SAP VM이 있는 VNet 또는 피어링된 VNet을 사용할 수 있습니다.
        
-    **사설 DNS 통합** 에서 **개인 DNS 영역과 통합** 에 대해 기본 옵션인 **예** 를 그대로 사용 합니다. **사설 DNS 영역** 을 선택 해야 합니다.
+    **프라이빗 DNS 통합** 에서 **프라이빗 DNS 영역과 통합** 에 대해 기본 옵션인 **예** 를 적용합니다. **프라이빗 DNS 영역** 을 선택해야 합니다.
         
     **확인** 을 선택합니다.
         
-1. **네트워킹** 탭에서 **다음** 을 선택 합니다.
+1. **네트워킹** 탭에서 다시 **다음** 을 선택합니다.
 
-1. **데이터 보호** 탭에서 모든 기본 설정을 그대로 유지 합니다. 
+1. **데이터 보호** 탭에서 모든 기본 설정을 유지합니다. 
 
-1. **검토 + 만들기** 를 선택 하 여 구성의 유효성을 검사 합니다.
+1. **검토 + 만들기** 를 선택하여 구성의 유효성을 검사합니다.
 
-1. 유효성 검사가 완료 될 때까지 기다립니다. 계속 하기 전에 문제를 해결 하십시오.
+1. 유효성 검사가 완료될 때까지 기다립니다. 계속하기 전에 문제를 해결합니다.
 
 1. **검토 + 만들기** 탭에서 **만들기** 를 선택합니다.
 
 
-그런 다음 만든 저장소 계정에 NFS 공유를 배포 합니다. 이 예제에는 및 라는 두 개의 NFS 공유가 `sapnw1` 있습니다 `saptrans` .    
+다음으로, 사용자가 만든 스토리지 계정에 NFS 공유를 배포합니다. 이 예제에는 두 개의 NFS 공유인 `sapnw1` 및 `saptrans`가 있습니다.    
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. **Storage 계정을** 선택 하거나 검색 합니다. 
+1. **스토리지 계정** 을 선택하거나 검색합니다. 
 
-1. **Storage 계정** 페이지에서 **sapafsnfs** 를 선택 합니다.
+1. **스토리지 계정** 페이지에서 **sapafsnfs** 를 선택합니다.
 
-1.  **Sapafsnfs** 의 리소스 메뉴에서 **데이터 저장소** 아래에 있는 **파일 공유** 를 선택 합니다.
+1.  **sapafsnfs** 의 리소스 메뉴에 있는 **데이터 스토리지** 에서 **파일 공유** 를 선택합니다.
 
-1. **파일 공유** 페이지에서 **파일 공유** 를 선택 합니다.
+1. **파일 공유** 페이지에서 **파일 공유** 를 선택합니다.
 
-   1. **이름** 에 `sapnw1` ,를 입력 `saptrans` 합니다.
-   1.  적절 한 공유 크기를 선택 합니다. 예를 들면 **128 GB** 입니다.  공유, IOPs 및 처리량 요구 사항에 저장 된 데이터의 크기를 고려 합니다.  자세한 내용은 [Azure 파일 공유 대상](../../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets)을 참조 하세요.
-   1. 프로토콜로 **NFS** 를 선택 합니다.
-   1. **Root Squash 안 함** 을 선택 합니다.  그렇지 않으면 Vm에 공유를 탑재할 때 파일 소유자 또는 그룹을 볼 수 없습니다.
+   1. **이름** 에 `sapnw1`, `saptrans`를 입력합니다.
+   1.  적절한 공유 크기를 선택합니다. 예를 들어 **128GB** 입니다.  공유, IOP 및 처리량 요구 사항에 저장된 데이터의 크기를 고려합니다.  자세한 내용은 [Azure 파일 공유 대상](../../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets)을 참조하세요.
+   1. 프로토콜로 **NFS** 를 선택합니다.
+   1. **루트 Squash 없음** 을 선택합니다.  그렇지 않으면 VM에 공유를 탑재할 때 파일 소유자 또는 그룹을 볼 수 없습니다.
 
    > [!IMPORTANT]
-   > 위의 공유 크기는 한 가지 예입니다. 공유의 크기를 적절 하 게 조정 해야 합니다. 크기는 공유에 저장 된 데이터의 크기 뿐만 아니라 IOPS 및 처리량에 대 한 요구 사항에 따라 달라 집니다. 자세한 내용은 [Azure 파일 공유 대상](../../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets)을 참조 하세요.  
+   > 위의 공유 크기는 예제일 뿐입니다. 공유 크기를 적절하게 조정해야 합니다. 크기는 공유에 저장된 데이터의 크기뿐만 아니라 IOPS 및 처리량에 대한 요구 사항을 기반으로 합니다. 자세한 내용은 [Azure 파일 공유 대상](../../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets)을 참조하세요.  
 
-   NFS를 통해 탑재 하지 않아도 되는 SAP 파일 시스템을 [Azure disk storage](../../disks-types.md#premium-ssds)에 배포할 수도 있습니다. 이 예제에서는 `/usr/sap/NW1/D02` `/usr/sap/NW1/D03` Azure 디스크 저장소에 및을 배포할 수 있습니다. 
+   NFS를 통해 탑재할 필요가 없는 SAP 파일 시스템은 [Azure 디스크 스토리지](../../disks-types.md#premium-ssds)에 배포할 수도 있습니다. 이 예제에서는 Azure 디스크 스토리지에 `/usr/sap/NW1/D02` 및 `/usr/sap/NW1/D03`을 배포할 수 있습니다. 
 
-### <a name="important-considerations-for-nfs-on-azure-files-shares"></a>Azure Files 공유의 NFS에 대 한 중요 고려 사항
+### <a name="important-considerations-for-nfs-on-azure-files-shares"></a>Azure Files 공유의 NFS에 대한 중요한 고려 사항
 
-Azure Files에서 NFS를 사용 하 여 배포를 계획 하는 경우 다음과 같은 중요 한 사항을 고려해 야 합니다.  
+Azure Files의 NFS를 통해 배포를 계획할 때는 다음과 같은 중요한 사항을 고려하세요.  
 
-- 최소 공유 크기는 100 GiB입니다. [프로 비전 된 공유의 용량](../../../storage/files/understanding-billing.md#provisioned-model) 에 대해서만 비용을 지불 합니다. 
-- 용량 요구 사항 뿐만 아니라 IOPS 및 처리량 요구 사항에 따라 NFS 공유의 크기를 조정 합니다. 자세한 내용은 [Azure 파일 공유 대상](../../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets) 을 참조 하세요.
-- 워크 로드를 테스트 하 여 크기 조정의 유효성을 검사 하 고 성능 목표를 충족 하는지 확인 합니다. Azure Files에서 NFS를 사용 하 여 성능 문제를 해결 하는 방법을 알아보려면 [Azure 파일 공유 성능 문제 해결](../../../storage/files/storage-troubleshooting-files-performance.md) 을 참조 하세요.
-- SAP J2EE 시스템의 경우 Azure Files에 NFS를 사용할 수 없습니다 `/usr/sap/<SID>` .
-- SAP 시스템에 많은 일괄 작업 부하가 있는 경우 수백만 개의 작업 로그가 있을 수 있습니다. SAP batch 작업 로그가 파일 시스템에 저장 된 경우 공유 크기 조정에 특히 주의 해야 합니다 `sapmnt` . SAP_BASIS 7.52에서 일괄 처리 작업 로그의 기본 동작은 데이터베이스에 저장 됩니다. 자세한 내용은 [데이터베이스의 작업 로그][2360818]를 참조 하세요.     
-- `sapmnt`각 SAP 시스템에 대해 별도의 공유 배포
-- `sapmnt`인터페이스와 같은 다른 작업에는 공유를 사용 하지 마세요.`saptrans`
-- `saptrans`인터페이스와 같은 다른 작업에는 공유를 사용 하지 마세요.`sapmnt`
-- 단일 저장소 계정에 너무 많은 SAP 시스템에 대 한 공유를 통합 하지 마십시오. [계정 성능 확장 대상도 Storage](../../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets)있습니다. 저장소 계정에 대 한 한도를 초과 하지 않도록 주의 해야 합니다.
-- 일반적으로는 단일 저장소 계정에 5 개 이상의 SAP 시스템에 대 한 공유를 통합 하지 마세요. 이 지침은 저장소 계정 제한을 초과 하는 것을 방지 하 고 성능 분석을 간소화 합니다.   
-- 일반적으로 동일한 저장소 계정에서 비프로덕션 및 프로덕션 SAP 시스템에 대 한 공유를 혼합 하지 마세요.
-- [NFS 클라이언트 향상 기능](../../../storage/files/storage-troubleshooting-files-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels)을 활용 하기 위해 RHEL 8.4 이상에를 배포 하는 것이 좋습니다.   
-- 개인 끝점을 사용 합니다. 영역 오류가 발생할 경우에는 NFS 세션이 자동으로 정상 영역으로 리디렉션됩니다. Vm에서 NFS 공유를 다시 탑재할 필요가 없습니다.
-- 가용성 영역에서 vm을 배포 하는 경우 ZRS를 지 원하는 Azure 지역에서 [ZRS와 함께 Storage 계정을](../../../storage/common/storage-redundancy.md#zone-redundant-storage) 사용 합니다. 
-- Azure Files는 현재 재해 복구 시나리오에 대 한 자동 지역 간 복제를 지원 하지 않습니다.
+- 최소 공유 크기는 100GiB입니다. [프로비전된 공유의 용량](../../../storage/files/understanding-billing.md#provisioned-model)에 대해서만 비용을 지불합니다. 
+- 용량 요구 사항뿐만 아니라 IOPS 및 처리량 요구 사항에 따라 NFS 공유 크기를 정합니다. 자세한 내용은 [Azure 파일 공유 대상](../../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets)을 참조하세요.
+- 워크로드를 테스트하여 크기 조정의 유효성을 검사하고 성능 목표를 충족하는지 확인합니다. Azure Files의 NFS 관련 성능 문제를 해결하는 방법을 알아보려면 [Azure 파일 공유 성능 문제 해결](../../../storage/files/storage-troubleshooting-files-performance.md)을 참조하세요.
+- SAP J2EE 시스템의 경우 Azure Files의 NFS에 `/usr/sap/<SID>/J<nr>`를 배치할 수 없습니다.
+- SAP 시스템에 대량의 일괄 처리 작업 부하가 있는 경우 수백만 개의 작업 로그가 있을 수 있습니다. SAP 일괄 처리 작업 로그가 파일 시스템에 저장되어 있는 경우 `sapmnt` 공유의 크기 조정에 특히 주의해야 합니다. SAP_BASIS 7.52부터 일괄 처리 작업 로그의 기본 동작은 데이터베이스에 저장됩니다. 자세한 내용은 [데이터베이스의 작업 로그][2360818]를 참조하세요.     
+- 각 SAP 시스템에 대해 별도의 `sapmnt` 공유 배포
+- 인터페이스 또는 `saptrans`와 같은 다른 활동에 `sapmnt` 공유를 사용하지 마세요.
+- 인터페이스 또는 `sapmnt`와 같은 다른 활동에 `saptrans` 공유를 사용하지 마세요.
+- 단일 스토리지 계정에 너무 많은 SAP 시스템의 공유를 통합하지 않도록 합니다. [Storage 계정 성능 크기 조정 목표](../../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets)도 있습니다. 스토리지 계정에 대한 제한을 초과하지 않도록 주의해야 합니다.
+- 일반적으로 단일 스토리지 계정에 5개를 초과하는 SAP 시스템에 대한 공유를 통합하지 마세요. 이 지침은 스토리지 계정 제한을 초과하지 않도록 방지하고 성능 분석을 간소화하는 데 도움이 됩니다.   
+- 일반적으로 동일한 스토리지 계정의 비프로덕션 및 프로덕션 SAP 시스템에 대해 `sapmnt`와 같은 공유를 혼합하지 않도록 합니다.
+- [NFS 클라이언트 개선 사항](../../../storage/files/storage-troubleshooting-files-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels)을 활용하려면 RHEL 8.4 이상에 배포하는 것이 좋습니다.   
+- 프라이빗 엔드포인트를 사용합니다. 영역 오류가 발생할 가능성이 낮으면 NFS 세션이 자동으로 정상 영역으로 리디렉션됩니다. VM에서 NFS 공유를 다시 탑재할 필요가 없습니다.
+- 가용성 영역에 VM을 배포하는 경우 ZRS를 지원하는 Azure 지역의 [ZRS에서 Storage 계정](../../../storage/common/storage-redundancy.md#zone-redundant-storage)을 사용합니다. 
+- Azure Files는 현재 재해 복구 시나리오에 대해 지역 간 자동 복제를 지원하지 않습니다.
 
 ## <a name="setting-up-ascs"></a>(A)SCS 설정
 
-이 예제에서는 [Azure Portal](https://portal.azure.com/#home)를 통해 리소스를 수동으로 배포 합니다.
+이 예제에서는 [Azure Portal](https://portal.azure.com/#home)을 통해 리소스를 수동으로 배포합니다.
 
-### <a name="deploy-azure-load-balancer-via-azure-portal"></a>Azure Portal를 통해 Azure Load Balancer 배포
+### <a name="deploy-azure-load-balancer-via-azure-portal"></a>Azure Portal을 통해 Azure Load Balancer 배포
 
-SAP 시스템용 Vm을 배포한 후에 부하 분산 장치를 만듭니다. 그런 다음 백 엔드 풀의 Vm을 사용 합니다.
+SAP 시스템용 VM을 배포한 후 부하 분산 장치를 만듭니다. 그런 다음, 백 엔드 풀의 VM을 사용합니다.
 
 1. 내부 표준 부하 분산 장치를 만듭니다.
    1. 프런트 엔드 IP 주소 만들기
-      1. ASCS에 대 한 IP 주소 10.90.90.10
+      1. ASCS용 IP 주소 10.90.90.10
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
-         1. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **프런트 엔드). N w 1. ASCS**)
-         1. 할당을 정적으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.90.90.10**).
-         1. 확인을 클릭합니다.
-      1. ASCS ERS에 대 한 IP 주소 10.90.90.9
-         * "A"에서 위의 단계를 반복 하 여 **10.90.90.9** 및 프런트 엔드와 같은 사람에 대 한 IP 주소를 만듭니다 **. N w 1. ERS**)
+         1. 새 프런트 엔드 IP 풀의 이름 입력(예: **frontend.NW1.ASCS**)
+         1. 할당을 고정으로 설정하고 IP 주소(예: **10.90.90.10**)를 입력합니다.
+         1. 확인 클릭
+      1. ASCS ERS용 IP 주소 10.90.90.9
+         * 위의 "a" 단계를 반복하여 ERS에 대한 IP 주소 만들기(예: **10.90.90.9** 및 **frontend.NW1.ERS**)
    1. 백 엔드 풀 만들기
       1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-      1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). N W 1**)
+      1. 새 백 엔드 풀의 이름 입력(예: **backend.NW1**)
       1. 가상 머신 추가 클릭
       1. 가상 머신 선택
       1. (A)SCS 클러스터의 가상 머신 및 해당 IP 주소 선택
@@ -240,32 +240,32 @@ SAP 시스템용 Vm을 배포한 후에 부하 분산 장치를 만듭니다. �
    1. 상태 프로브 만들기
       1. 포트: 620 **00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
-         1. 새 상태 프로브 (예: 상태)의 이름을 입력 합니다 **. N w 1. ASCS**)
+         1. 새 상태 프로브의 이름 입력(예: **health.NW1.ASCS**)
          1. 프로토콜로 TCP를 선택하고, 620 **00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
          1. 확인 클릭
       1. ASCS ERS용 포트 621 **01**
-            * "C"에서 위의 단계를 반복 하 여 해당 ERS에 대 한 상태 프로브를 만듭니다 (예: 621 **01** 및 **health). N w 1. ERS**)
+            * 위의 "c" 단계를 반복하여 ERS에 대한 상태 프로브 만들기(예: 621 **01** 및 **health.NW1.ERS**)
    1. 부하 분산 규칙
       1. ASCS에 대한 백 엔드 풀 만들기
          1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정하고, 추가 클릭
-         1. 새 부하 분산 장치 규칙의 이름 (예: lb)을 입력 합니다 **. N w 1. ASCS**)
-         1. 이전에 만든 ASCS, 백 엔드 풀 및 상태 프로브에 대 한 프런트 엔드 IP 주소를 선택 합니다 (예: **프런트 엔드). N w 1. ASCS**, **백 엔드. N W 1** 및 **상태. N w 1. ASCS**)
+         1. 새 부하 분산 장치 규칙의 이름 입력(예: **lb.NW1.ASCS**)
+         1. 이전에 만든 ASCS의 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **frontend.NW1.ASCS**, **backend.NW1** 및 **health.NW1.ASCS**)
          1. **HA 포트** 선택
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
-         * 위의 단계를 반복 하 여 ERS에 대 한 부하 분산 규칙을 만듭니다 (예: **lb. N w 1. ERS**)
+         * 위의 단계를 반복하여 ERS에 대한 부하 분산 규칙 만들기(예: **lb.NW1.ERS**)
 1. 또는 시나리오에 기본 부하 분산 장치(내부)가 필요한 경우 다음 단계를 수행합니다.  
    1. 프런트 엔드 IP 주소 만들기
-      1. ASCS에 대 한 IP 주소 10.90.90.10
+      1. ASCS용 IP 주소 10.90.90.10
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
-         1. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **프런트 엔드). N w 1. ASCS**)
-         1. 할당을 정적으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.90.90.10**).
-         1. 확인을 클릭합니다.
-      1. ASCS ERS에 대 한 IP 주소 10.90.90.9
-         * "A"에서 위의 단계를 반복 하 여 **10.90.90.9** 및 프런트 엔드와 같은 사람에 대 한 IP 주소를 만듭니다 **. N w 1. ERS**)
+         1. 새 프런트 엔드 IP 풀의 이름 입력(예: **frontend.NW1.ASCS**)
+         1. 할당을 고정으로 설정하고 IP 주소(예: **10.90.90.10**)를 입력합니다.
+         1. 확인 클릭
+      1. ASCS ERS용 IP 주소 10.90.90.9
+         * 위의 "a" 단계를 반복하여 ERS에 대한 IP 주소 만들기(예: **10.90.90.9** 및 **frontend.NW1.ERS**)
    1. 백 엔드 풀 만들기
       1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-      1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). N W 1**)
+      1. 새 백 엔드 풀의 이름 입력(예: **backend.NW1**)
       1. 가상 머신 추가 클릭
       1. ASCS에 대해 이전에 만든 가용성 집합 선택 
       1. (A)SCS 클러스터의 가상 머신 선택
@@ -273,16 +273,16 @@ SAP 시스템용 Vm을 배포한 후에 부하 분산 장치를 만듭니다. �
    1. 상태 프로브 만들기
       1. 포트: 620 **00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
-         1. 새 상태 프로브 (예: 상태)의 이름을 입력 합니다 **. N w 1. ASCS**)
+         1. 새 상태 프로브의 이름 입력(예: **health.NW1.ASCS**)
          1. 프로토콜로 TCP를 선택하고, 620 **00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
          1. 확인 클릭
       1. ASCS ERS용 포트 621 **01**
-            * "C"에서 위의 단계를 반복 하 여 해당 ERS에 대 한 상태 프로브를 만듭니다 (예: 621 **01** 및 **health). N w 1. ERS**)
+            * 위의 "c" 단계를 반복하여 ERS에 대한 상태 프로브 만들기(예: 621 **01** 및 **health.NW1.ERS**)
    1. 부하 분산 규칙
       1. TCP: 32 **00**(ASCS용)
          1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정하고, 추가 클릭
-         1. 새 부하 분산 장치 규칙의 이름 (예: lb)을 입력 합니다 **. N w 1. ASCS. 3200**)
-         1. 이전에 만든 ASCS, 백 엔드 풀 및 상태 프로브에 대 한 프런트 엔드 IP 주소를 선택 합니다 (예: **프런트 엔드). N w 1. ASCS**)
+         1. 새 부하 분산 장치 규칙의 이름 입력(예: **lb.NW1.ASCS.3200**)
+         1. 이전에 만든 ASCS의 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 선택(예: **frontend.NW1.ASCS**)
          1. 프로토콜로 **TCP** 를 유지하고. 포트로 **3200** 입력
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
@@ -340,7 +340,7 @@ SAP 시스템용 Vm을 배포한 후에 부하 분산 장치를 만듭니다. �
     ```
 
 3. **[1]** NFS 공유에 SAP 디렉터리를 만듭니다.  
-   일시적으로 NFS 공유를 탑재 하 여 Vm 중 하나를 **sapnw1** 중첩 된 탑재 점으로 사용할 SAP 디렉터리를 만듭니다.  
+   VM 중 하나의 NFS 공유 **sapnw1** 을 임시로 탑재하고 중첩된 탑재 지점으로 사용할 SAP 디렉터리를 만듭니다.  
 
     ```bash
     # mount temporarily the volume
@@ -418,7 +418,7 @@ SAP 시스템용 Vm을 배포한 후에 부하 분산 장치를 만듭니다. �
 
 8. **[A]** RHEL 구성
 
-   RHEL 2002167에 대 한 SAP Note [] 또는 RHEL 8.X 용 sap note [2772999] 에 설명 된 대로 RHEL를 구성 합니다.  
+   SAP Note [2002167](RHEL 7.x용) 또는 SAP Note [2772999](RHEL 8.x용)의 설명에 따라 RHEL을 구성합니다.  
 
 ### <a name="installing-sap-netweaver-ascsers"></a>SAP NetWeaver ASCS/ERS 설치
 
@@ -470,7 +470,7 @@ SAP 시스템용 Vm을 배포한 후에 부하 분산 장치를 만듭니다. �
 
 1. **[1]** SAP NetWeaver ASCS 설치  
 
-   ASCS에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소 (예: **sapascs**, **10.90.90.10** 및 부하 분산 장치의 프로브에 사용한 인스턴스 번호 (예: **00**)에 매핑되는 가상 호스트 이름을 사용 하 여 첫 번째 노드에 SAP NetWeaver ascs를 설치 합니다.
+   ASCS에 대한 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름(예: **sapascs**, **10.90.90.10**) 및 부하 분산 장치의 프로브에 사용한 인스턴스 번호(예: **00**)를 사용하여 첫 번째 노드에 SAP NetWeaver ASCS를 루트로 설치합니다.
 
    sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다.
 
@@ -530,7 +530,7 @@ SAP 시스템용 Vm을 배포한 후에 부하 분산 장치를 만듭니다. �
 
 1. **[2]** SAP NetWeaver ERS 설치  
 
-   사용자에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름 (예: **sapers**, **10.90.90.9** 및 부하 분산 장치의 프로브에 사용한 인스턴스 번호 (예: **01**)를 사용 하 여 두 번째 노드에 SAP NetWeaver ERS를 루트로 설치 합니다.
+   ERS용 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름(예: **sapers**, **10.90.90.9**)과 부하 분산 장치의 프로브에 사용했던 인스턴스 번호(예: **01**)를 사용하여 두 번째 노드에 루트로 SAP NetWeaver ERS를 설치합니다.
 
    sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다.
 
@@ -541,7 +541,7 @@ SAP 시스템용 Vm을 배포한 후에 부하 분산 장치를 만듭니다. �
     sudo <swpm>/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=<virtual_hostname>
     ```
 
-   /Usr/sap/**n w 1**/ers **01** 에 하위 폴더를 만들지 못한 경우에는 ers **01** 폴더의 소유자와 그룹을 설정 하 고 다시 시도 하세요.
+   설치에서 /usr/sap/**NW1**/ERS **01** 에 하위 폴더를 만들지 못하면 ERS **01** 폴더의 소유자와 그룹을 설정하고 다시 시도합니다.
 
     ```
     sudo chown qaadm /usr/sap/NW1/ERS01
@@ -580,7 +580,7 @@ SAP 시스템용 Vm을 배포한 후에 부하 분산 장치를 만듭니다. �
 
 1. **[A]** 연결 유지 구성
 
-   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이를 방지하려면 ENSA1을 사용하는 경우 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정해야 합니다. `keepalive`ENSA1/ENSA2 모두에 대한 모든 SAP 서버에서 Linux 시스템 설정을 변경합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
+   SAP NetWeaver 애플리케이션 서버와 ASCS/SCS 간의 통신은 소프트웨어 부하 분산 장치를 통해 라우팅됩니다. 부하 분산 장치는 구성 가능한 시간 제한이 지나면 비활성 연결을 끊습니다. 이를 방지하려면 ENSA1을 사용하는 경우 SAP NetWeaver ASCS/SCS 프로필에서 매개 변수를 설정해야 합니다. ENSA1/ENSA2에 대해 모든 SAP 서버에서 Linux 시스템 `keepalive` 설정을 변경합니다. 자세한 내용은 [SAP Note 1410736][1410736]을 참조하세요.
 
     ```bash
     # Change the Linux system configuration
@@ -839,7 +839,7 @@ sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한�
 
    설치한 SAP HANA System Replication의 가상 이름을 가리키도록 SAP HANA 보안 저장소를 업데이트합니다.
 
-   다음 명령을 실행하여 항목을 로 나열합니다. `<sapsid>adm`
+   다음 명령을 실행하여 항목을 `<sapsid>adm`으로 나열합니다.
 
     ```bash
     hdbuserstore List
@@ -856,7 +856,7 @@ sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한�
       DATABASE: NW1
     ```
 
-   이 예제에서 기본 진입점의 IP 주소는 부하 분산제가 아닌 VM을 가리킵니다. 부하 분산 프로그램의 가상 호스트 이름을 가리키도록 항목을 변경합니다. 동일한 포트 및 데이터베이스 이름을 사용해야 합니다. 예를 들어 `30313` `NW1` 샘플 출력의 및 입니다.
+   이 예제에서 기본 진입점의 IP 주소는 부하 분산 장치가 아니라 VM을 가리킵니다. 항목을 부하 분산 장치의 가상 호스트 이름을 가리키도록 변경합니다. 동일한 포트와 데이터베이스 이름을 사용해야 합니다. 예를 들어 샘플 출력의 `30313` 및 `NW1`이 있습니다.
 
 
     ```bash
@@ -866,7 +866,7 @@ sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한�
 
 ## <a name="test-cluster-setup"></a>클러스터 설정 테스트
 
-Pacemaker 클러스터를 철저히 테스트합니다. [일반적인 장애 조치(failover) 테스트를 실행합니다.](./high-availability-guide-rhel.md#test-the-cluster-setup)
+Pacemaker 클러스터를 철저히 테스트합니다. [일반적인 장애 조치(failover) 테스트를 실행](./high-availability-guide-rhel.md#test-the-cluster-setup)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

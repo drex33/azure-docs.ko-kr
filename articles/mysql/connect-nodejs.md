@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터�
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-other
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 12/11/2020
-ms.openlocfilehash: f6300324951316260d83443b3681ce6bd404a818
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: e5f3abce9b2cb681adc2ac37133bd70dfdca3d5a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643633"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071143"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Node.js를 사용하여 MySQL용 Azure Database에서 데이터 연결 및 쿼리
 

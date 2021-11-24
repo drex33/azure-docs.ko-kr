@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터�
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 9f0254738c18415ea34045249569216b7235b2d1
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 365eefde413088998f7de5066dc8bf93c54909fe
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122643642"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038696"
 ---
 # <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Connector/C++를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 

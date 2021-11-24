@@ -4,21 +4,13 @@ description: Azure CLI를 사용하여 Kubernetes 클러스터를 빠르게 만�
 services: container-service
 ms.topic: quickstart
 ms.date: 02/26/2021
-ms.custom:
-- H1Hack27Feb2017
-- mvc
-- devcenter
-- seo-javascript-september2019
-- seo-javascript-october2019
-- seo-python-october2019
-- devx-track-azurecli
-- contperf-fy21q1
-ms.openlocfilehash: cda15b8d0dfd5074fca75283589c3ea173310b4e
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, contperf-fy21q1, mode-api
+ms.openlocfilehash: dba2a8ede1d51388193d5bbac35b917bd3fae6d6
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769953"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063006"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Kubernetes Service 클러스터 배포
 

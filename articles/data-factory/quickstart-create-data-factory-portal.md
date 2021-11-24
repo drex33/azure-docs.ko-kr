@@ -7,12 +7,13 @@ ms.subservice: tutorials
 ms.topic: quickstart
 ms.date: 07/05/2021
 ms.author: jianleishen
-ms.openlocfilehash: ad2e2edf916b5b2c4309ed18c5a3349e67adfc33
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mode-other
+ms.openlocfilehash: 58e60c1cb61adab6076e147eb7ba89ca971051ed
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749891"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048962"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기 
 

@@ -3,13 +3,13 @@ title: '빠른 시작: .NET용 QnA Maker 클라이언트 라이브러리'
 description: 이 빠른 시작에서는 .NET용 QnA Maker 클라이언트 라이브러리를 시작하는 방법을 보여줍니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.  QnA Maker를 사용하면 FAQ 문서, URL 및 제품 설명서와 같은 반구조적 내용에서 질문과 대답 서비스를 사용할 수 있습니다.
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 018e39e2a203ca22bbd5e4d0a51276412c18d5c6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: ba303633ce57f216749aa4fcd9779b231a2e7ffc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131071311"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039704"
 ---
 .NET 용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
 

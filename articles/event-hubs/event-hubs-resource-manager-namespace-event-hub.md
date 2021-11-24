@@ -2,14 +2,14 @@
 title: '빠른 시작: 소비자 그룹을 사용하여 이벤트 허브 만들기 - Azure Event Hubs'
 description: '빠른 시작: Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 Event Hubs 네임스페이스 만들기'
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 06/08/2021
-ms.openlocfilehash: f4c34b268726f72183928754b9691be53b6adb33
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: fb880a5f6d5a64dd54f76ef4b2c6ac9c48f1342b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112296122"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063775"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 이벤트 허브 만들기
 

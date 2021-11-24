@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 10/4/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 174efb47f8770496fbac8fa781b26b93c1b6b601
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.custom: mode-other
+ms.openlocfilehash: 10b33056c318b1346e868e57e47f4faaf7aaf5fe
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133028"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061832"
 ---
 # <a name="quickstart---get-started-with-a-sample-scenario-in-azure-digital-twins-explorer"></a>빠른 시작 - Azure Digital Twins Explorer에서 샘플 시나리오 시작
 

@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: gwallace
-ms.custom: mvc
-ms.openlocfilehash: 12da3030342fffa985f885e579e6750790e44840
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.custom: mvc, mode-other
+ms.openlocfilehash: d2c73aac30d1e2c86ce9e27f14be95cebc0956f5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062551"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069877"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-starter"></a>Azure DevOps Starter를 사용하여 PHP용 CI/CD 파이프라인 만들기
 

@@ -10,12 +10,13 @@ keywords: 인지 서비스, 인지 인텔리전스, 인지 솔루션, AI 서비�
 ms.topic: quickstart
 ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: 1c838a9b805eed20fec9f9feabf4aa24c58b1cd5
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.custom: mode-other
+ms.openlocfilehash: 6c277b8917dca99f833833a845bfcc77dc50cadf
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429943"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056305"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>빠른 시작: Azure CLI(명령줄 인터페이스)를 사용하여 Cognitive Services 리소스 만들기
 

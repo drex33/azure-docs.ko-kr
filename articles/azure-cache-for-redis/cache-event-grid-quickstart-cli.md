@@ -6,12 +6,13 @@ ms.author: cauribeg
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
-ms.openlocfilehash: 7f33ca0043400962054fabb1aadb1da612fe5426
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mode-api
+ms.openlocfilehash: 70dbf0227234460a896ba60023b399097ccf08bd
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99806429"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068998"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅
 

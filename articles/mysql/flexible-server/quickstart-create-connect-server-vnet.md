@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Portal을 사용하여 프라이빗 액�
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 04/18/2021
-ms.openlocfilehash: f8d32c97014e9e38f2ad5a3c6d6a1b96d4e190f5
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 544c756d0d943d8b18c0bf2dbc063857f8f7558f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131425478"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074057"
 ---
 # <a name="connect-azure-database-for-mysql-flexible-server-with-private-access-connectivity-method"></a>프라이빗 액세스 연결 방법을 사용하는 Azure Database for MySQL 유연한 서버에 연결
 

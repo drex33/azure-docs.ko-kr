@@ -10,15 +10,15 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: eur
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
 zone_pivot_groups: programming-languages-set-twenty-three
 keywords: 음성 텍스트 변환, 음성 텍스트 변환 소프트웨어
-ms.openlocfilehash: 0c6c20b7176c9ae2a143942506c35ac5833a2558
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: e418ec835a1b77b0822cb3a82938932247120407
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131501904"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059654"
 ---
 # <a name="get-started-with-speech-to-text"></a>음성 텍스트 변환 시작
 

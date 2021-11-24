@@ -10,13 +10,13 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.author: aahi
-ms.custom: devx-track-js
-ms.openlocfilehash: 35d6aa7d606248796b3405d8fe1dabd64e0996d5
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: 5556b894e05bd727512c1321ece52fbbe99cb145
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430108"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053270"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Bing Local Business Search API에 쿼리 보내기
 

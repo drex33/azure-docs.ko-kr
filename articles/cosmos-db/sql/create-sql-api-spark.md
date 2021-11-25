@@ -28,6 +28,3 @@ ms.locfileid: "132760965"
 > * [Node.JS](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 
-[!INCLUDE[Quickstart](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/quick-start.md)]
-
-[!INCLUDE[Generic configuration](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md)]

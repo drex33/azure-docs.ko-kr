@@ -61,9 +61,9 @@ IP 주소의 특성에 따라 생성된 부하 분산 장치의 **형식** 이 �
 - 유휴 제한 시간 발생
 - VM이 종료
 
-부하 분산 장치는 다음에 대한 다양한 상태 프로브 유형을 제공합니다. TCP, HTTP 및 HTTPS [Azure Load Balancer 상태 프로브에 대해 자세히 알아보세요](load-balancer-custom-probe-overview.md).
+Load Balancer는 다음에 대한 다양한 상태 프로브 유형을 제공합니다. TCP, HTTP 및 HTTPS [Azure Load Balancer 상태 프로브에 대해 자세히 알아보세요](load-balancer-custom-probe-overview.md).
 
-기본 부하 분산 장치는 HTTPS 프로브를 지원하지 않습니다. 기본 부하 분산 장치는 설정된 연결을 포함하여 모든 TCP 연결을 종료합니다.
+기본 Load balancer는 HTTPS 프로브를 지원하지 않습니다. 기본 Load balancer는 설정된 연결을 포함하여 모든 TCP 연결을 종료합니다.
 
 ## <a name="load-balancer-rules"></a>Load Balancer 규칙
 
@@ -113,7 +113,7 @@ Virtual Machine Scale Sets 컨텍스트의 인바운드 NAT 규칙은 인바운�
 
 [아웃바운드 연결 및 규칙](load-balancer-outbound-connections.md)에 대해 자세히 알아봅니다.
 
-기본 부하 분산 장치는 아웃바운드 규칙을 지원하지 않습니다.
+기본 Load Balancer는 아웃바운드 규칙을 지원하지 않습니다.
 
 :::image type="content" source="./media/load-balancer-components/outbound-rules.png" alt-text="인바운드 규칙 참조 다이어그램" border="false":::
 
@@ -121,8 +121,8 @@ Virtual Machine Scale Sets 컨텍스트의 인바운드 NAT 규칙은 인바운�
 
 ## <a name="limitations"></a>제한 사항
 
-- 부하 분산 장치 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md)에 대해 알아보기 
-- 부하 분산 장치는 특정 TCP 또는 UDP 프로토콜에 대한 부하 분산 및 포트 전달을 제공합니다. 부하 분산 규칙 및 인바운드 NAT 규칙은 TCP 및 UDP를 지원하지만 ICMP를 비롯한 다른 IP 프로토콜은 지원하지 않습니다.
+- Load Balancer [제한](../azure-resource-manager/management/azure-subscription-service-limits.md)에 대해 알아보기 
+- Load Balancer는 특정 TCP 또는 UDP 프로토콜에 대한 부하 분산 및 포트 전달을 제공합니다. 부하 분산 규칙 및 인바운드 NAT 규칙은 TCP 및 UDP를 지원하지만 ICMP를 비롯한 다른 IP 프로토콜은 지원하지 않습니다.
 - 백 엔드 VM에서 내부 Load Balancer의 프런트 엔드로의 아웃바운드 흐름이 실패합니다.
 - 부하 분산 장치 규칙은 두 가상 네트워크에 걸쳐 있을 수 없습니다. 모든 부하 분산 장치 프런트 엔드 및 해당 백 엔드 인스턴스는 단일 가상 네트워크에 있어야 합니다.  
 - 부하 분산 규칙에서는 IP 조각 전달이 지원되지 않습니다. UDP 및 TCP 패킷의 IP 조각화는 부하 분산 규칙에서 지원되지 않습니다. HA 포트 부하 분산 규칙을 사용하여 기존 IP 조각을 전달할 수 있습니다. 자세한 내용은 [고가용성 포트 개요](load-balancer-ha-ports-overview.md)를 참조하세요.
@@ -134,10 +134,10 @@ Virtual Machine Scale Sets 컨텍스트의 인바운드 NAT 규칙은 인바운�
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).
 - [공용 IP 주소](../virtual-network/ip-services/virtual-network-public-ip-address.md)에 대한 자세한 정보
 - [개인 IP 주소](../virtual-network/ip-services/private-ip-addresses.md)에 대한 자세한 정보
-- [표준 부하 분산 장치 및 가용성 영역](load-balancer-standard-availability-zones.md) 사용에 대해 자세히 알아보세요.
-- [표준 부하 분산 장치 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
+- [표준 Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md) 사용에 대해 자세히 알아보세요.
+- [표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
 - [유휴 상태의 TCP 재설정](load-balancer-tcp-reset.md)에 대해 알아보세요.
-- [HA 포트 부하 분산 규칙을 사용하는 표준 부하 분산 장치](load-balancer-ha-ports-overview.md)에 대해 자세히 알아보세요.
+- [HA 포트 부하 분산 규칙을 사용하는 표준 Load Balancer](load-balancer-ha-ports-overview.md)에 대해 자세히 알아보세요.
 - [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)에 대해 자세히 알아보세요.
 - [부사 분산 장치 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)에 대해 자세히 알아봅니다.
 - [포트 전달](./tutorial-load-balancer-port-forwarding-portal.md) 사용에 대해 알아봅니다.

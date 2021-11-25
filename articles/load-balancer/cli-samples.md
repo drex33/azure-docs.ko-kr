@@ -15,7 +15,7 @@ ms.date: 06/14/2018
 ms.author: allensu
 ms.openlocfilehash: fcc2a579f2fe9048dd58cd8b52c8c704c894936b
 ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2021
 ms.locfileid: "87499350"
@@ -38,4 +38,4 @@ ms.locfileid: "87499350"
 
 * [VM에서 여러 웹 사이트에 부하 분산](./scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md)
 
-  Azure 가용성 집합에 연결되고 Azure 부하 분산 장치를 통해 액세스할 수 있는 2개의 VM을 여러 IP 구성을 사용해서 만듭니다.
+  Azure 가용성 집합에 연결되고 Azure Load Balancer를 통해 액세스할 수 있는 2개의 VM을 여러 IP 구성을 사용해서 만듭니다.

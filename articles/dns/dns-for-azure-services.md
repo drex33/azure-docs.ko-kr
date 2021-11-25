@@ -17,7 +17,7 @@ ms.date: 05/03/2021
 ms.author: rohink
 ms.openlocfilehash: c9360555ff108937b51f9b9b491b6eec006b4f2e
 ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/06/2021
 ms.locfileid: "108745058"
@@ -34,7 +34,7 @@ Azure DNS는 호스팅된 DNS 관리 및 이름 확인 서비스입니다. Azure
 | Azure 서비스 | Linux | Description |
 | --- | --- | --- |
 | Azure Application Gateway |[프런트 엔드 공용 IP](dns-custom-domain.md#public-ip-address) |DNS A 또는 CNAME 레코드를 만들 수 있습니다. |
-| Azure Load Balancer |[프런트 엔드 공용 IP](dns-custom-domain.md#public-ip-address) |DNS A 또는 CNAME 레코드를 만들 수 있습니다. 부하 분산 장치는 동적으로 할당된 IPv6 공용 IP 주소를 가질 수 있습니다. IPv6 주소에 대한 CNAME 레코드를 만듭니다. |
+| Azure Load Balancer |[프런트 엔드 공용 IP](dns-custom-domain.md#public-ip-address) |DNS A 또는 CNAME 레코드를 만들 수 있습니다.  Load Balancer는 동적으로 할당된 IPv6 공용 IP 주소를 가질 수 있습니다. IPv6 주소에 대한 CNAME 레코드를 만듭니다. |
 | Azure Traffic Manager |공용 이름 |Traffic Manager 프로필에 할당된 trafficmanager.net 이름에 매핑되는 별칭 레코드를 만들 수 있습니다. 자세한 내용은 [자습서: Traffic Manager를 사용하여 apex 도메인 이름을 지원하도록 별칭 레코드 구성](tutorial-alias-tm.md)을 참조하세요. |
 | Azure Cloud Services |[공용 IP](dns-custom-domain.md#public-ip-address) |정적으로 할당된 IP 주소의 경우 DNS A 레코드를 만들 수 있습니다. 동적으로 할당된 IP 주소의 경우 *cloudapp.net* 이름에 매핑하는 CNAME 레코드를 만들어야 합니다.|
 | Azure App Service | [외부 IP](dns-custom-domain.md#app-service-web-apps) |외부 IP 주소의 경우 DNS A 레코드를 만들 수 있습니다. 그렇지 않으면 azurewebsites.net 이름에 매핑하는 CNAME 레코드를 만들어야 합니다. 자세한 내용은 [Azure 앱에 사용자 지정 도메인 이름 매핑](../app-service/app-service-web-tutorial-custom-domain.md)을 참조하세요. |

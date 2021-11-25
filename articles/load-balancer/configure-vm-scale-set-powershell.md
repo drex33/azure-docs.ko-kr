@@ -9,7 +9,7 @@ ms.date: 03/26/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 210bf1c01b31acca1cd68e518a5c765fcd5cc50a
 ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/29/2021
 ms.locfileid: "110695742"
@@ -59,7 +59,7 @@ New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualN
 아래 예제에서는 다음을 사용하여 가상 머신 확장 집합을 배포합니다:
 
 - 이름이 **myVMSS** 인 가상 머신 확장 집합
-- 이름이 **myLoadBalancer** 인 Azure Load Balancer
+- 이름이 **myLoadBalancer** 인 부하 분산 장치
 - 이름이 **myBackendPool** 인 부하 분산 장치 백 엔드 풀
 - 이름이 **myVnet** 인 Azure Virtual Network
 - 이름이 **mySubnet** 인 서브넷

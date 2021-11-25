@@ -22,7 +22,7 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: 부하 분산 장치란?
+    - text: Load Balancer란?
       url: load-balancer-overview.md
     - text: Load Balancer 알고리즘
       url: concepts.md

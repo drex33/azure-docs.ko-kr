@@ -607,7 +607,7 @@ Azure Resource Graph는 [Azure Resource Manager](../../../azure-resource-manager
 - Microsoft.Network/FrontDoorWebApplicationFirewallPolicies(웹 애플리케이션 방화벽 정책(WAF))
 - microsoft.network/ipallocations
 - Microsoft.Network/ipGroups(IP 그룹)
-- Microsoft.Network/LoadBalancers(부하 분산 장치)
+- Microsoft.Network/LoadBalancers(Load Balancer)
 - Microsoft.Network/localnetworkgateways(로컬 네트워크 게이트웨이)
 - microsoft.network/mastercustomipprefixes
 - Microsoft.Network/natGateways(NAT 게이트웨이)

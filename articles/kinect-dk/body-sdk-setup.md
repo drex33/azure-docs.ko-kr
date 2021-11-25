@@ -7,12 +7,13 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: kinect, azure, sensor, access, depth, sdk, body, tracking, joint, setup, cuda, nvidia
-ms.openlocfilehash: 2cf4c1097730f88fc4bd66c28e1bdddd7fea8640
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mode-other
+ms.openlocfilehash: 675f0d349af1c4b1192d9638d68a507b377b3bc7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85277849"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074725"
 ---
 # <a name="quickstart-set-up-azure-kinect-body-tracking"></a>빠른 시작: Azure Kinect 본문 추적 설정
 
@@ -62,4 +63,3 @@ Visual Studio 2015용 Visual C++ 재배포 가능 패키지를 다운로드하�
 
 > [!div class="nextstepaction"]
 >[첫 번째 본문 추적 애플리케이션 빌드](build-first-body-app.md)
-

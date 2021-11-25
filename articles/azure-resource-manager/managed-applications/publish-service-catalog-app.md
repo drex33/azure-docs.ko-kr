@@ -3,15 +3,15 @@ title: 서비스 카탈로그 관리형 앱 게시
 description: 조직의 구성원을 위한 Azure 관리형 애플리케이션을 만드는 방법이 나와 있습니다.
 author: tfitzmac
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-other
 ms.date: 08/16/2021
 ms.author: tomfitz
-ms.openlocfilehash: 7722017e2cbe9c0f195ce24ee5452674ad0fd344
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: bef824c5136a175c8a93392dcc3ab8f287945c11
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122253750"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040203"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>빠른 시작: 관리되는 애플리케이션 정의 만들기 및 게시
 

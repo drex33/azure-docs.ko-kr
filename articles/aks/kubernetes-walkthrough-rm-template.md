@@ -4,13 +4,13 @@ description: Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러�
 services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.custom: mvc,subject-armqs, devx-track-azurecli
-ms.openlocfilehash: b6c5371baba93470f76a99e0e37cd61870ee108f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
+ms.openlocfilehash: f313ed868cf86ab648db8d9a21095b951d7a7859
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733589"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060946"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 

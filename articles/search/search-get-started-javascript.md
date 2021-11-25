@@ -8,13 +8,13 @@ ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/08/2021
-ms.custom: devx-track-js
-ms.openlocfilehash: 38a901535f044e98fb274871accd779d0118eec9
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: a05fcecdb79623f5c78ad6dfad9e6fb2706a16c8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122179418"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050239"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>빠른 시작: JavaScript SDK를 사용하여 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]

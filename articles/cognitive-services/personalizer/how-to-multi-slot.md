@@ -10,12 +10,13 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 05/24/2021
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: ea1f244b43becd65b3bc85f2e40dc2c029ccbf43
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.custom: mode-other
+ms.openlocfilehash: 0ae079816585ef88f56426ec88086f366765a8a3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829273"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062338"
 ---
 # <a name="get-started-with-multi-slot-for-azure-personalizer"></a>Azure Personalizer에 대한 다중 슬롯 시작
 

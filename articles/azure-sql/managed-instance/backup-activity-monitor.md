@@ -5,19 +5,19 @@ description: 확장 이벤트를 사용하여 Azure SQL Managed Instance 백업 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: backup-restore
-ms.custom: ''
+ms.custom: mode-other
 ms.devlang: ''
 ms.topic: quickstart
 author: Misliplavo
 ms.author: mlazic
 ms.reviewer: mathoma
 ms.date: 12/14/2018
-ms.openlocfilehash: 8c38b9d77baee05fe14c07dc5e6bc185bcb46538
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 86bf5b7db5a5c28e74b87d2d626b0299943586c9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111897266"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044765"
 ---
 # <a name="monitor-backup-activity-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대한 백업 작업 모니터링 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

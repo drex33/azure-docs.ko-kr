@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 35f8b3482eff16197f9851ab849d9bdd370ad314
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: f6c814a3eb4e3c6581f4bb28342ee49ecfc2029c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131850815"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043903"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-on-linux-using-x509-certificates"></a>X.509 인증서를 사용하여 Linux에서 대규모로 IoT Edge 디바이스 만들기 및 프로비전
 
 [!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
-이 문서에서는 X.509 인증서를 사용하여 하나 이상의 Linux IoT Edge 디바이스를 자동 프로비전하는 엔드투엔드 지침을 제공합니다. Azure IoT Hub DPS(디바이스 프로비저닝 서비스)를 Azure IoT Edge 디바이스를 자동으로 [프로비전할](../iot-dps/index.yml) 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비전 개요를](../iot-dps/about-iot-dps.md#provisioning-process) 검토하세요.
+이 문서에서는 X.509 인증서를 사용하여 하나 이상의 Linux IoT Edge 디바이스를 자동 프로비전하는 엔드투엔드 지침을 제공합니다. Azure IoT Hub DPS(디바이스 [프로비저닝 서비스)를 Azure IoT Edge 디바이스를 자동으로 프로비전할](../iot-dps/index.yml) 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비전 개요를](../iot-dps/about-iot-dps.md#provisioning-process) 검토하세요.
 
 작업은 다음과 같습니다.
 
@@ -34,7 +34,7 @@ X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기
 <!-- Cloud resources prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
-### <a name="iot-edge-installation"></a>IoT Edge 설치
+### <a name="device-requirements"></a>디바이스 요구 사항
 
 IoT Edge 디바이스가 될 물리적 또는 가상 Linux 디바이스입니다.
 
@@ -258,4 +258,4 @@ sudo iotedge list
 
 ## <a name="next-steps"></a>다음 단계
 
-디바이스 프로비전 서비스 등록 프로세스를 사용하면 새 디바이스를 프로비전하는 동시에 디바이스 ID 및 디바이스 쌍 태그를 설정할 수 있습니다. 자동 디바이스 관리를 사용하여 개별 디바이스 또는 디바이스 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-cli-at-scale.md)하거나 [Azure Portal을 사용하여 대규모로 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-at-scale.md)하는 방법을 알아봅니다.
+장치 프로 비전 서비스 등록 프로세스를 통해 새 장치를 프로 비전 하는 동시에 장치 ID 및 장치 쌍 태그를 설정할 수 있습니다. 자동 디바이스 관리를 사용하여 개별 디바이스 또는 디바이스 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-cli-at-scale.md)하거나 [Azure Portal을 사용하여 대규모로 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-at-scale.md)하는 방법을 알아봅니다.

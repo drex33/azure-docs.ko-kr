@@ -10,12 +10,13 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: abd0c842985bbfe957f8d6bec344209d52ce6b12
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: mode-other
+ms.openlocfilehash: d92b536fc2d8be75cd2cc3849aff033a31669497
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338693"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053631"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>빠른 시작: Bing Autosuggest REST API 및 Ruby로 검색 쿼리 제안
 

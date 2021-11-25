@@ -7,13 +7,13 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: cache
 ms.devlang: python
-ms.custom: mvc, seo-python-october2019, devx-track-python, mode-api
-ms.openlocfilehash: 27e5b103acf4cd4b445364e1c9d538faacd57a4a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mvc, seo-python-october2019, devx-track-python, mode-other
+ms.openlocfilehash: 803d4ee476a221d356e9dcb66c86427d2f8e01f7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131048839"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049412"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-python"></a>빠른 시작: Python에서 Azure Cache for Redis 사용
 

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: aahi
-ms.openlocfilehash: 0ebc348ba7838338b08d135d44059e756ec8be43
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 57aef5d9ec2e4c61ff0236602ca9221dfc6665d3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615060"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072811"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>빠른 시작: Java를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 

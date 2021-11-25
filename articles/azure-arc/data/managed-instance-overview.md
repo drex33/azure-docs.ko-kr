@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: overview
-ms.openlocfilehash: 42ad3481d9732d8ddef37624de87f465ae41d297
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dba1e396ffd2eca2524cbb0eca215ee55cb5f870
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733514"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132954221"
 ---
 # <a name="azure-arc-enabled-sql-managed-instance-overview"></a>Azure Arc 지원 SQL Managed Instance
 
@@ -41,6 +41,6 @@ Azure Arc 지원 SQL Managed Instance는 최신 SQL Server 데이터베이스 �
 
 [Azure Arc 지원 Managed Instance 고가용성](managed-instance-high-availability.md)
 
-[데이터 컨트롤러를 생성하여 시작](create-data-controller.md)
+[데이터 컨트롤러를 생성하여 시작](create-data-controller-indirect-cli.md)
 
 데이터 컨트롤러를 이미 만들었나요? [Azure Arc 지원 SQL Managed Instance 만들기](create-sql-managed-instance.md)

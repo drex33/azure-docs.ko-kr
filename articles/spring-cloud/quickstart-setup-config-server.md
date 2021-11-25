@@ -6,14 +6,14 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/12/2021
-ms.custom: devx-track-java, fasttrack-edit
+ms.custom: devx-track-java, fasttrack-edit, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f4b4eeaac6e32335937f42e1b35abe3929f6e972
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: fa22d1a4ae2622594328fc0ece7751efab390133
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005264"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043289"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-config-server"></a>빠른 시작: Azure Spring Cloud Config Server 설정
 

@@ -7,13 +7,13 @@ ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: java
-ms.custom: devx-track-java, mode-api
-ms.openlocfilehash: 5cea13b3f6410df1d5a63efe4acdd080b21f2f5c
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-java, mode-other
+ms.openlocfilehash: e69b35a3b42b201abe3d90ea11aa9a2eecb50de4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131069581"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048871"
 ---
 # <a name="quickstart-use-java-to-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service"></a>빠른 시작: Java를 사용하여 SignalR Service와 Azure Functions로 GitHub 별모양 개수를 표시하는 앱 만들기
 

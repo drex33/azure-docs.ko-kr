@@ -5,14 +5,14 @@ author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 08/19/2020
-ms.openlocfilehash: 97f902b31b4beb45017c7a93c3c0397ae409b3af
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: eaf618d345fb682c7faae71062025847ab9b1bcc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112377605"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048349"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>빠른 시작: Azure Data Share 및 ARM 템플릿을 사용하여 데이터 공유
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-data-share-share-storage-account/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/data-share-share-storage-account/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datashare/data-share-share-storage-account/azuredeploy.json":::
 

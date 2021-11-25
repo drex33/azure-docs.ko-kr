@@ -10,13 +10,13 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 3129ffdb1eaa1802e2521927f32f0fbf03c9ae0f
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: seodec2018, mode-other
+ms.openlocfilehash: 45aa241032562cc5ecef9ffb9c104a4f3695dc38
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351285"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075807"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>빠른 시작: PHP 및 Bing News Search REST API를 사용하여 뉴스 검색 수행
 
@@ -55,8 +55,8 @@ ms.locfileid: "96351285"
 // ;extension=php_openssl.dll
 
 // **********************************************
-// **_ Update or verify the following values. _*_
-// _*********************************************
+// *** Update or verify the following values. ***
+// **********************************************
 
 // Replace the accessKey string value with your valid access key.
 $accessKey = 'enter key here';

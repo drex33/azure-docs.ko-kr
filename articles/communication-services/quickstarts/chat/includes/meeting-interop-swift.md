@@ -5,12 +5,13 @@ ms.author: askaur
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 1bee7ed16bae65b227bdb099565d9bbdc5ff6008
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: mode-other
+ms.openlocfilehash: 84fcd74c0aa705d9a6de63de1786bb4561439f6f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129377813"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046453"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services 채팅 SDK를 사용하여 Teams 모임에서 채팅하는 방법을 알아봅니다.
 
@@ -274,9 +275,9 @@ func leaveMeeting() {
 
 ## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Communication Services 사용자를 위한 Teams 미팅 채팅 스레드 가져오기
 
-Teams 모임 세부 정보는 [그래프 문서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에 자세히 설명된 Graph API를 사용하여 검색할 수 있습니다. Communication Services Calling SDK는 전체 Teams 모임 링크 또는 모임 ID를 수락합니다. [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다.
+Teams 모임 링크 및 채팅은 [그래프 설명서](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)에 자세히 설명된 Graph API를 사용하여 검색할 수 있습니다. Communication Services Calling SDK는 전체 Teams 모임 링크를 수락합니다. 이 링크는 [`joinWebUrl` 속성](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)에서 액세스할 수 있는 `onlineMeeting` 리소스의 일부로 반환됩니다.
 
-[Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)를 사용하여 `threadID`를 얻을 수도 있습니다. 응답에는 `threadID`를 포함하는 `chatInfo` 개체가 포함됩니다.
+[Graph API](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true)를 사용하면 `threadID`도 가져올 수 있습니다. 응답에는 `threadID`를 포함하는 `chatInfo` 개체가 포함됩니다.
 
 또한 Teams 모임 초대 자체의 **모임 참가** URL에서 필요한 모임 정보 및 스레드 ID를 가져올 수 있습니다.
 Teams 미팅 링크는 `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`와 같습니다. `threadID`는 링크의 `meeting_chat_thread_id` 위치에 있습니다. 사용하기 전에 `meeting_chat_thread_id`가 이스케이프되지 않았는지 확인합니다. `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2` 형식이어야 합니다.

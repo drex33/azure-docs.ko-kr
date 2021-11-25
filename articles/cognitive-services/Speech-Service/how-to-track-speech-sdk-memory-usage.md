@@ -13,12 +13,12 @@ ms.author: rhurey
 ms.custom: devx-track-csharp, ignite-fall-2021
 zone_pivot_groups: programming-languages-set-two
 ROBOTS: NOINDEX
-ms.openlocfilehash: bfbbb3d58dfc78c44ddc027811397f55f4382edb
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 21161b9121708c805818210561f8a3ba546b354c
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132756574"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133097908"
 ---
 # <a name="how-to-track-speech-sdk-memory-usage"></a>Speech SDK 메모리 사용량을 추적하는 방법
 
@@ -96,7 +96,6 @@ Speech SDK를 사용하여 지정된 시간에 허용되는 최대 개체 수를
 ```terminal
 Runtime error: The maximum object count of 500 has been exceeded.
 The threshold can be adjusted by setting the SPEECH-ObjectCountErrorThreshold property on the SpeechConfig object.
-See https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-object-tracking-speech-sdk for more detailed information.
 Handle table dump by object type:
 class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognitionResult 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognizer 0

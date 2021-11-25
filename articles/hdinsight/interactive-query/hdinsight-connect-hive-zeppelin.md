@@ -3,14 +3,14 @@ title: '빠른 시작: Apache Zeppelin을 사용한 Azure HDInsight의 Apache Hi
 description: 이 빠른 시작에서는 Apache Zeppelin을 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, mode-other
 ms.date: 12/03/2019
-ms.openlocfilehash: 75f758054f867c58dd4180fe5e728e66785e3b11
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 6990243a692f265318eff3f88038ffb7fc01f81b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869772"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074911"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>빠른 시작: Apache Zeppelin을 사용하여 Azure HDInsight에서 Apache Hive 쿼리 실행
 

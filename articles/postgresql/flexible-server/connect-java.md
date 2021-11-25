@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Azure Database for PostgreSQL 유연한 
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc, devcenter, devx-track-azurecli
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-other
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 01/16/2021
-ms.openlocfilehash: 1bb5cb11928b31356dc61d27cc0847e6c575050d
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: b8c64d610408f8be4e3e706879cec6e157d5efb7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113288107"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038402"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql-flexible-server"></a>빠른 시작: Azure Database for PostgreSQL 유연한 서버에서 Java 및 JDBC 사용
 

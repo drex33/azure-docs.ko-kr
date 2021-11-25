@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod
-ms.custom: seodec2018
-ms.openlocfilehash: b15542db12ea260f6cf3e1af6627867887f038d4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: seodec2018, mode-other
+ms.openlocfilehash: 9422c4e9c9c3fde2d3ed0df668ee0af8b9954ab7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131039053"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133039870"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>빠른 시작: Bing Web Search REST API 및 Go를 사용하여 웹 검색
 

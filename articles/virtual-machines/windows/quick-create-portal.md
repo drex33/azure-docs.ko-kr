@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 03/15/2021
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 87d3518b59bd5297bed4af25b11d7a47b7021a58
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: 284c99d1f34ade6108c7850fe1e14cf1b90170e9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692464"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052160"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure 포털에서 Windows 가상 머신 만들기
 

@@ -5,14 +5,14 @@ author: dlepow
 ms.topic: quickstart
 ms.date: 10/05/2021
 ms.author: danlep
-ms.custom: ''
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 6af32e7bd841960cdf1fd3aef6af50171cc1e594
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.custom: mode-other
+ms.openlocfilehash: c288f8e18a8d9ab7c326de2ebdc1d585b9161c14
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007665"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075512"
 ---
 # <a name="quickstart-use-the-azure-container-registry-client-libraries"></a>빠른 시작: Azure Container Registry 클라이언트 라이브러리 사용
 

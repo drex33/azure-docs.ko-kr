@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/26/2021
-ms.custom: devx-track-dotnet, devx-track-azurecli
-ms.openlocfilehash: b7c26c06cf6bf6be837db88a3a2d0e51c8fffad4
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.custom: devx-track-dotnet, devx-track-azurecli, mode-other
+ms.openlocfilehash: 7ce3f147e13ab336c6e10cecbbb17fe3756be65d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132761279"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059143"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>빠른 시작: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 리소스 관리
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]

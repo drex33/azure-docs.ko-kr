@@ -10,12 +10,13 @@ ms.date: 07/19/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
-ms.openlocfilehash: 63a08ba4d117160177124d1951720f6d9a4fedcc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: 92196f6f443231640263a460d071f8c9fb8703be
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671928"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046314"
 ---
 # <a name="quickstart-quickly-create-azure-communication-services-access-tokens-for-testing"></a>빠른 시작: 테스트를 위해 신속하게 Azure Communication Services 액세스 토큰 만들기
 

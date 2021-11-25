@@ -8,13 +8,13 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 873b218c4186978225b9a8b5db5ef0c80e61bb28
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.custom: devx-track-azurecli, mode-api
+ms.openlocfilehash: 99212b68d6c957ea366c9436dd6b20c95e26d689
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949959"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050720"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure DNS 영역 및 레코드 만들기
 

@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9ce2abfc013374a74247d8daaa7d76f570699960
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: mvc, devx-track-azurecli, mode-api
+ms.openlocfilehash: 067feb0139bb50e50f7abef1a67c659da4dc86c0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111969932"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066077"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for PostgreSQL 유연한 서버 만들기
 

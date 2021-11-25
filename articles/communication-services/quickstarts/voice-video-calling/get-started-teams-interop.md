@@ -9,12 +9,13 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: 4ab25d1105f8dcad40599a8096ea114c31dfa61a
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.custom: mode-other
+ms.openlocfilehash: 0a335c3c373ee05e99fee80e5e5143f96adda1d7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132488334"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064101"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>빠른 시작: 통화 앱으로 Teams 미팅 참가
 

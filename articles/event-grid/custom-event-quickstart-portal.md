@@ -3,12 +3,13 @@ title: 웹 엔드포인트에 사용자 지정 이벤트 보내기 - Event Grid,
 description: '빠른 시작: Azure Event Grid 및 Azure Portal을 사용하여 사용자 지정 토픽을 게시하고 해당 토픽에 대한 이벤트를 구독합니다. 이벤트는 웹 애플리케이션에서 처리합니다.'
 ms.date: 07/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 461d43e2a0210dfd5844beb844c7ae2a48e936f3
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-other
+ms.openlocfilehash: 360b5b1bead7fd1a75cc35b28d22fe3fa509cbf5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132310075"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044486"
 ---
 # <a name="route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
 Event Grid는 다양한 Azure 서비스 및 애플리케이션에서 이벤트를 쉽게 관리할 수 있는 완전 관리형 서비스입니다. 이벤트 기반 및 서버리스 애플리케이션 빌드를 간소화합니다. 서비스에 대한 개요는 [Event Grid 개요](overview.md)를 참조하세요.

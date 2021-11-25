@@ -4,12 +4,12 @@ description: 모든 사용자 및 역할에 대해 잠금을 적용하여 사용
 ms.topic: conceptual
 ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 324aed15446e83e0853f4b590c7d679a7f598abe
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: f3c382e28fab72f77f2769da5411c1086f0e63b8
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132491396"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133096412"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>예기치 않은 변경을 방지하기 위해 리소스 잠그기
 
@@ -55,6 +55,8 @@ ms.locfileid: "132491396"
 
 - **가상 머신** 을 포함하는 **리소스 그룹** 에 대한 읽기 전용 잠금은 모든 사용자가 가상 머신을 시작하거나 다시 시작하지 못하게 합니다. 이러한 작업에는 POST 요청이 필요합니다.
 
+- **자동화 계정이** 포함된 **리소스 그룹에** 대한 읽기 전용 잠금을 통해 모든 Runbook이 시작되지 않습니다. 이러한 작업에는 POST 요청이 필요합니다.
+
 - **리소스 그룹** 에 대한 삭제 불가 잠금을 설정하면 Azure Resource Manager가 기록에서 [배포를 자동으로 삭제](../templates/deployment-history-deletions.md)할 수 없습니다. 기록에서 800개의 배포에 도달하는 경우 배포에 실패합니다.
 
 - **Azure Backup 서비스** 가 생성한 **리소스 그룹** 에 대해 잠금을 삭제할 수 없으므로 백업이 실패합니다. 이 서비스는 최대 18개의 복원 지점을 지원합니다. 잠겨 있으면 백업 서비스에서 복원 지점이 정리할 수 없습니다. 자세한 내용은 [질문과 대답-Azure VM 백업](../../backup/backup-azure-vm-backup-faq.yml)을 참조하세요.
@@ -99,7 +101,7 @@ Azure Databricks와 같은 일부 Azure 서비스는 [관리형 애플리케이�
 
 ### <a name="template"></a>템플릿
 
-Azure Resource Manager 템플릿 (ARM 템플릿) 또는 Bicep 파일을 사용 하 여 잠금을 배포할 때 잠금의 범위와 배포 범위를 알고 있어야 합니다. 리소스 그룹 또는 구독 잠금과 같은 배포 범위에서 잠금을 적용하려면 범위 속성을 설정하지 마세요. 배포 범위 내에서 리소스를 잠그면 범위 속성을 설정합니다.
+ARM 템플릿(Azure Resource Manager 템플릿) 또는 Bicep 파일을 사용하여 잠금을 배포하는 경우 잠금의 범위와 배포 범위를 알고 있어야 합니다. 리소스 그룹 또는 구독 잠금과 같은 배포 범위에서 잠금을 적용하려면 범위 속성을 설정하지 마세요. 배포 범위 내에서 리소스를 잠그면 범위 속성을 설정합니다.
 
 다음 템플릿은 배포되는 리소스 그룹에 잠금을 적용합니다. 잠금 범위가 배포 범위와 일치하기 때문에 잠금 리소스에 범위 속성이 없습니다. 이 템플릿은 리소스 그룹 수준에서 배포됩니다.
 

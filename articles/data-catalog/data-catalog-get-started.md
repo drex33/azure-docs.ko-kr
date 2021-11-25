@@ -6,12 +6,13 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: a56e5a4cae7c5a8e931b074f08a7152e53a8eb31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mode-other
+ms.openlocfilehash: 6dce12675cbe05b68696a86c3c24f756330bf177
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104674736"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061964"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>빠른 시작: Azure Data Catalog 만들기
 

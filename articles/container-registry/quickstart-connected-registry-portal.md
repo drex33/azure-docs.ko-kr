@@ -5,13 +5,13 @@ ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6181f0fbdea8c03741f28dc9023a6761971cf2e9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-portal
+ms.openlocfilehash: e21b076691fc6249a7169d525695fd6fd852fdfc
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131029704"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059521"
 ---
 # <a name="quickstart-create-a-connected-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 연결된 레지스트리 만들기
 

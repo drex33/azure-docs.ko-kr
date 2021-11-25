@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 6b58b73235bba53bb174ebb17a63ad76cf71bcf1
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.openlocfilehash: a89d4356e6ea0a2f471d741f0223e1ade1100a9d
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787804"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133096152"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대한 TLS 상호 인증 구성
 
@@ -42,7 +42,7 @@ az webapp update --set clientCertEnabled=true --name <app-name> --resource-group
 
 1. 앱 관리 페이지의 왼쪽 탐색 영역에서 **구성** > **일반 설정** 을 선택하세요.
 
-1. **클라이언트 제외 경로** 옆의 편집 아이콘을 클릭하세요.
+1. 인증서 **제외 경로** 옆에 있는 편집 아이콘을 클릭합니다.
 
 1. **새 경로** 를 클릭하고, 경로를 지정하거나 `,` 또는 `;`으로 구분된 경로 목록을 지정한 다음, **확인** 을 클릭합니다.
 

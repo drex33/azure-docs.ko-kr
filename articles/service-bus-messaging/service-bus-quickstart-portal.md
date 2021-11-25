@@ -5,13 +5,13 @@ author: spelluru
 ms.author: spelluru
 ms.date: 09/10/2021
 ms.topic: quickstart
-ms.custom: mode-portal
-ms.openlocfilehash: c6726e3717029b427c2cf15a974edf4d4871d588
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mode-other
+ms.openlocfilehash: 6fd6cc84b79ac9cc1e0573432305061a1bb2201e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083672"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073699"
 ---
 # <a name="use-azure-portal-to-create-a-service-bus-namespace-and-a-queue"></a>Azure Portal을 사용하여 Service Bus 네임스페이스 및 큐 만들기
 이 빠른 시작에서는 [Azure Portal][Azure portal]을 사용하여 Service Bus 네임스페이스 및 큐를 만드는 방법을 보여줍니다. 또한 클라이언트 애플리케이션이 큐에 메시지를 보내고 받는 데 사용할 수 있는 권한 부여 자격 증명을 가져오는 방법을 보여줍니다. 

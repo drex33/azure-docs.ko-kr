@@ -7,14 +7,14 @@ author: sidramadoss
 ms.author: sidram
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 05/28/2020
-ms.openlocfilehash: 9d0e26f8ef5507c408567fc318efe5be565d7e6b
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 2d9ccd1230ee9d906061c95563db254f3ca7c173
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111904052"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055345"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Stream Analytics 작업 만들기
 

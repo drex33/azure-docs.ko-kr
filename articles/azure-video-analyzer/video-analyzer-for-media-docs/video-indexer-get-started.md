@@ -5,12 +5,13 @@ ms.topic: quickstart
 ms.subservice: azure-video-analyzer-media
 ms.date: 01/25/2021
 ms.author: juliako
-ms.openlocfilehash: bf8b8f640fbcb6155092a50fdbd6e1af66060e07
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: 0d08666f4dd7a76cda87a08314ef5d8fd52d41d9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636157"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059973"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>빠른 시작: 가입하고 첫 번째 비디오를 업로드하는 방법
 
@@ -70,4 +71,3 @@ Video Analyzer for Media와 함께 사용할 수 있는 파일 형식 목록은 
 자세한 소개는 [소개 랩](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md)을 방문하세요. 
 
 워크숍을 마치면 비디오 및 오디오 콘텐츠에서 추출할 수 있는 정보의 종류를 잘 이해할 수 있을 것이며, 콘텐츠 인텔리전스와 관련된 기회를 식별하고, Azure에서 비디오 AI를 피치하고, Video Analyzer for Media에 대한 여러 시나리오를 시연할 준비가 되어 있을 것입니다.
-

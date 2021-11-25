@@ -10,12 +10,13 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.openlocfilehash: 3a4be7c8df8865650de93fc70d16de9df25ef8ef
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: b37130f925e2fa1f22c373ce2b10c291bb2b1aea
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635568"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056342"
 ---
 # <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>빠른 시작: 배달 보고서 및 인바운드 메시지에 대한 SMS 이벤트 처리
 

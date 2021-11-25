@@ -7,13 +7,13 @@ ms.date: 04/07/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: dcefed148b8def1b40d824554852c230fcbdaaad
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: mvc, devx-track-azurecli, mode-other
+ms.openlocfilehash: f6951759661fbd69af6f9b119a7dc90f102d64c3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130242258"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048221"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>빠른 시작: 가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포
 

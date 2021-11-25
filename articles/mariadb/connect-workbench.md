@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 Azure Database for MariaDB에서 데이�
 author: savjani
 ms.author: pariks
 ms.service: mariadb
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.openlocfilehash: 209c793903f1f706fc27102a783aa76e65382fcd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e590d221b09f1e500b9a086508e61dad798bcaa1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664387"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057858"
 ---
 # <a name="quickstart-azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>빠른 시작: Azure Database for MariaDB: MySQL Workbench를 사용하여 데이터 연결 및 쿼리
 

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
+ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set2
-ms.openlocfilehash: a4fee2d212b79d6bd4efe8d6bfc1eb6c0c6cb429
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 50f04a18c194fef94c9137f8773c9d019067cd6f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132755700"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058469"
 ---
 # <a name="quickstart-enroll-individual-device-to-iot-hub-device-provisioning-service-using-tpm-attestation"></a>빠른 시작: TPM 증명을 사용하여 IoT Hub Device Provisioning Service에 개별 디바이스 등록
 

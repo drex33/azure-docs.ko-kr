@@ -7,13 +7,13 @@ ms.date: 12/01/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom: devx-track-java, mode-api
-ms.openlocfilehash: 68ae380756a9de651b8c238e091fe426e417bd96
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-java, mode-other
+ms.openlocfilehash: 4d78442492edc3c2c92f92d1c7bf29aed99bc7c9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036811"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063570"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>빠른 시작: Java용 Azure Queue Storage 클라이언트 라이브러리 v12
 

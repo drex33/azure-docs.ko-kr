@@ -3,12 +3,13 @@ title: '빠른 시작: 시작'
 description: 이 빠른 시작에서는 Defender for IoT 배포의 기본 워크플로를 시작하는 방법에 대해 알아봅니다.
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.openlocfilehash: 85bd254236a6d08d8f232e14e5a41dab99f0af04
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-other
+ms.openlocfilehash: 8d6c4170ab814435c49d909f4737f9ba6ba15d95
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132283869"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061706"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>빠른 시작: Defender for IoT 시작
 

@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Azure Database for PostgreSQL에서 Java
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
-ms.custom: mvc, devcenter, devx-track-azurecli
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-other
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: fee783d0cf099c6f5545b6f3da47db615921e89f
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: ebe0cafc00ff79a59a41f05135c22bb1ccc7de87
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287891"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066432"
 ---
 # <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>빠른 시작: Azure Database for PostgreSQL에서 Java 및 JDBC 사용
 

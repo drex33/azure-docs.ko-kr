@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 07/17/2021
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 9fef5f438cc28c5e0fe3ae86d1d85b67af45a8ba
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
+ms.openlocfilehash: 8d88de8cf1e7840997cbd5815daafd76aad3d53f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131005806"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075545"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-cassandra-api-data-v3-driver"></a>Azure Cosmos DB Cassandra API 데이터를 관리하는 Java 앱 빌드(v3 드라이버)
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]

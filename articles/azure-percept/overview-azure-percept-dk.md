@@ -6,13 +6,13 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.custom: 'template-concept #Required, leave this attribute/value as-is., ignite-fall-2021'
-ms.openlocfilehash: 3ce11bcd6b50b4dae9f63c1f9ce4c24cdc49f61d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: template-concept, ignite-fall-2021
+ms.openlocfilehash: 85e90d90e1f02686d02f435009c14f334eac6a98
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131069751"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060425"
 ---
 # <a name="azure-percept-dk-and-vision-device-overview"></a>Azure Percept DK 및 Vision 디바이스 개요
 

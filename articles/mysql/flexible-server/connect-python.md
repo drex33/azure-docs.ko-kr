@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Azure Database for MySQL - 유연한 서
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: 1c8195ae8552e400ae9f95812bb7152c86d7a868
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b91e9dd620b69185fef1ea5b170e60aec6dced5d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131429549"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073974"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>빠른 시작: Python을 사용하여 Azure Database for MySQL - 유연한 서버에서 데이터 연결 및 쿼리
 

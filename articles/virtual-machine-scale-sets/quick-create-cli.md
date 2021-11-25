@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 9f89d1003cb4ec45ec55d4df0499d2efc1910000
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: mimckitt, devx-track-azurecli, mode-api
+ms.openlocfilehash: ead70bd2894cc06cdd52936140b684d9efb8f161
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693316"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045353"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 가상 머신 확장 집합 만들기
 

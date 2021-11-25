@@ -4,16 +4,16 @@ description: Azure Resource Manager 템플릿을 사용하여 가상 머신을 �
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/15/2021
-ms.custom: mvc,subject-armqs, devx-track-azurepowershell
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: de01bcb2a7617be2a5a2d3f0d16ad1a1b1dc8ce6
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 8ef4e61c09685be01a50184fdd5163c92adc8844
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132710565"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068302"
 ---
 #  <a name="back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>ARM 템플릿을 사용하여 Azure에서 가상 머신 백업
 

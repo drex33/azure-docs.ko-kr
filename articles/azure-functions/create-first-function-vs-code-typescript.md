@@ -3,12 +3,13 @@ title: Visual Studio Code를 사용하여 TypeScript 함수 만들기 - Azure Fu
 description: TypeScript 함수를 만든 다음, Visual Studio Code의 Azure Functions 확장을 사용하여 Azure Functions의 서버리스 호스팅에 로컬 Node.js 프로젝트를 게시하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 11/18/2021
-ms.openlocfilehash: a5b738e41f580f776d50c05c847bcd5ecab64031
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.custom: mode-other
+ms.openlocfilehash: 7cf94e3e331eb01195c03ed42523c1f213e96827
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132903049"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073246"
 ---
 # <a name="quickstart-create-a-function-in-azure-with-typescript-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 통해 TypeScript를 사용하여 Azure에서 함수 만들기
 

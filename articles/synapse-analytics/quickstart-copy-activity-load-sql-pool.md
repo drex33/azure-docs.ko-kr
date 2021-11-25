@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, mode-other
 ms.date: 11/02/2020
-ms.openlocfilehash: 8c0ebebd98a34a82b464707b82a650a1825676be
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 14c02199ede7d65e6b0b883b968eb15275cb8b12
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566250"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045384"
 ---
 # <a name="quickstart-load-data-into-dedicated-sql-pool-using-the-copy-activity"></a>빠른 시작: 복사 작업을 사용하여 전용 SQL 풀에 데이터 로드
 

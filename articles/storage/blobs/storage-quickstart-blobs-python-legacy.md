@@ -7,13 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 9d33ccde3b9a489754318704c905f13a6b894b86
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: seo-python-october2019, devx-track-python, mode-other
+ms.openlocfilehash: 23948593451a1850ad68e8748dab0d7454a6d476
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582310"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049835"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>빠른 시작: Python v2.1 SDK로 Blob 관리
 

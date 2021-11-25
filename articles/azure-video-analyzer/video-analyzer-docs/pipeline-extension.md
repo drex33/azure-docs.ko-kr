@@ -1,16 +1,16 @@
 ---
-title: 파이프라인 확장 - Azure Video Analyzer
+title: 파이프라인 확장
 description: Azure Video Analyzer를 사용하면 파이프라인 확장 노드를 통해 파이프라인 처리 능력을 확장할 수 있습니다. 이 문서에서는 파이프라인 확장 노드에 대해 설명합니다.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 7641524fb712d9564fca46ef40e8949f4dd9bad1
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 2ddfa55fb82118b4b01e65a749b98eb23b97811b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131851588"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062454"
 ---
 # <a name="pipeline-extension"></a>파이프라인 확장
 
@@ -52,12 +52,12 @@ gRPC 확장 프로세서는 유추 메시지 교환과 함께 속성을 보내�
 
 ## <a name="cognitive-services-extension-processor"></a>Cognitive Services 확장 프로세서
 
-Cognitive Services 확장 프로세서(Microsoft 빌드 & 지원되는 AI)는 Video Analyzer가 gRPC 기반의 고성능 [구조화 프로토콜을](grpc-extension-protocol.md)사용하여 [Computer Vision 공간 분석](../../cognitive-services/computer-vision/overview.md) 기능과 잘 작동할 수 있도록 하는 사용자 지정 빌드 확장 프로세서입니다. 
+Cognitive Services 확장 프로세서 (Microsoft에서 & 제공 하는 Microsoft에서 지원 되는 AI)는 사용자가 작성 한 확장 프로세서로, 비디오 분석기가 gRPC 기반의 고성능 [구조화 된 프로토콜](grpc-extension-protocol.md)을 사용 하 여 [Computer Vision 공간 분석](../../cognitive-services/computer-vision/overview.md) 기능과 잘 작동할 수 있도록 해 줍니다. 
 
 다음과 같은 경우 Cognitive Services 확장 프로세서 노드를 사용합니다.
 
 * 기존 [공간 분석 작업](../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md)과의 상호 운용성을 향상시키려고 합니다.
-* **Microsoft 빌드 및 지원 AI** 의 gRPC 프로토콜, 정확도 및 성능의 모든 이점을 사용하려고 합니다.
+* **Microsoft에서 구현 하 고 지원 되는 AI** 의 grpc 프로토콜, 정확도 및 성능의 모든 이점을 사용 하고자 합니다.
 * 짧은 대기 시간과 높은 처리량으로 여러 카메라 피드를 분석합니다.
 
 ## <a name="use-your-inferencing-model"></a>유추 모델 사용

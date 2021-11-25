@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 09/27/2021
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: 이미지 인식, 이미지 인식 앱, custom vision
-ms.openlocfilehash: 95e1e744db159e53e950aa8c1fc0bd52f10214de
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 591864e3dcbebd04fe0acac26891de5401498c87
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359333"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070312"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>빠른 시작: Custom Vision 웹 사이트를 사용하여 개체 탐지기 빌드
 

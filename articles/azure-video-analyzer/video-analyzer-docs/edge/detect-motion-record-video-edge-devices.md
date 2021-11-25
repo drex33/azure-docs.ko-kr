@@ -4,13 +4,13 @@ description: Azure Video Analyzer를 사용하여 시뮬레이션된 IP 카메�
 ms.topic: quickstart
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 84dbe38e69b9dea259c570ef229927b75aefbe23
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: be180b98b3e1460102f3151eedb4c754015cab12
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132493423"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060273"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>빠른 시작: 에지 디바이스에서 동작을 감지하고 비디오 녹화
 

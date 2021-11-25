@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 930b365e27200c9735f203551a66b21e24096b6e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: devx-track-python, mode-other
+ms.openlocfilehash: 5b38aea165dea0aa958c5b50f1f88ef0cff1840a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121786540"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072271"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>빠른 시작: Python SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "121786540"
 
 이 빠른 시작에서는 Azure Cosmos DB Cassandra API 계정을 만들고 GitHub에서 복제된 Cassandra Python 앱을 사용하여 Cassandra 데이터베이스 및 컨테이너를 만듭니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다.
 - [Python 2.7 또는 3.6 이상](https://www.python.org/downloads/)
@@ -182,4 +182,3 @@ ms.locfileid: "121786540"
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 Cassandra 데이터 가져오기](migrate-data.md)
-

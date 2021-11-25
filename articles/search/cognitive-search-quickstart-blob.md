@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/07/2021
-ms.openlocfilehash: 01024a829c4e4447cfa7dc642469384170bc99f4
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: mode-other
+ms.openlocfilehash: 3ceb9036ae588c43189bb3ba68063be2655559db
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708164"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047842"
 ---
 # <a name="quickstart-translate-text-and-recognize-entities-using-the-import-data-wizard"></a>빠른 시작: 데이터 가져오기 마법사를 사용하여 텍스트 번역 및 엔터티 인식
 
@@ -137,7 +138,7 @@ Azure Cognitive Search의 AI 보강에서 언어 감지, 텍스트 번역 및 �
 
 1. 맨 위에서 **인덱스 변경** 을 선택하고 앞에서 만든 인덱스를 선택합니다.
 
-1. 쿼리 문자열에 `search="picasso museum" &$select=people,organizations,locations,language,translated_text &$count=true &$filter=language eq 'fr'`과 같은 인덱스를 쿼리할 검색 문자열을 입력한 다음, **검색** 을 선택합니다.
+1. 쿼리 문자열에 `search="picasso museum" &$select=people,organizations,locations,language,translated_text &$count=true &$filter=language eq 'fr'`와 같은 인덱스를 쿼리할 검색 문자열을 입력한 다음, **검색** 을 선택합니다.
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer-query-string-spanish-museums.png" alt-text="검색 탐색기의 쿼리 문자열" border="true":::
 

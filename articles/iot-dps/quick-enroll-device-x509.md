@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
-ms.custom: mvc
+ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set2
-ms.openlocfilehash: fdce1b7b19c5ae348e2b941e6606419d958bc3ad
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 50248ce4693d1c1c8c7430dcf3628f161d916cc3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132871316"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048159"
 ---
 # <a name="quickstart-enroll-a-group-of-devices-to-the-device-provisioning-service-using-x509-certificate-attestation"></a>빠른 시작: X.509 인증서 증명을 사용하여 Device Provisioning Service에 디바이스 그룹 등록 
 

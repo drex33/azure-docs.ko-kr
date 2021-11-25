@@ -8,12 +8,13 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b7be4e257fc884c655fe380f69b08797a907fbbb
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.custom: mode-other
+ms.openlocfilehash: 4b4fdc380e491d1b652bad09d16474f0527c2409
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96022652"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047827"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Android 앱 만들기
 

@@ -8,12 +8,13 @@ ms.topic: quickstart
 ms.date: 08/03/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: d079fd2380aed72910f5b78e2e3135c077ac59d1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mode-other
+ms.openlocfilehash: 82f54487cb557c89751c9635385da0e407674d9c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131077554"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044078"
 ---
 # <a name="quickstart-send-telemetry-from-an-iot-plug-and-play-device-to-azure-iot-hub"></a>빠른 시작: IoT 플러그 앤 플레이 디바이스에서 Azure IoT Hub로 원격 분석 전송
 

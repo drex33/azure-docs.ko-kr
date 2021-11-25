@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: 244b7070d73eb96f584a1a50b49e24b44ba41a7e
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: mode-portal
+ms.openlocfilehash: dc8982f904a71550fc2e436a75b27d413fe528fb
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131561407"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050273"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.openlocfilehash: 4b0c8ff4e360fa0641c3e50420c2ce7085cd5f68
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
-ms.translationtype: HT
+ms.openlocfilehash: d86a20d71737455d604788f4e06c744b037c8cb6
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746916"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133097157"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 설치 및 구성
 ## <a name="overview"></a>개요
@@ -53,7 +53,7 @@ RBS의 Microsoft Azure StorSimple 구현은 다음과 같은 이점을 제공합
 파일 시스템에 BLOB 콘텐츠를 이동하면 다른 비용 절감 및 혜택을 제공할 수 있습니다. 예를 들어 RBS를 사용하면 비용이 많이 드는 계층1 스토리지에 대한 필요성을 줄일 수 있고 콘텐츠 데이터베이스를 축소시키기 때문에 RBS가 SharePoint Server 팜에서 필요한 데이터베이스의 수를 줄일 수 있습니다. 그러나 데이터베이스 크기 제한과 같은 다른 요인 및 비-RBS는 콘텐츠 양은 스토리지 요구 사항에 영향을 줄 수 있습니다. 비용 및 RBS 사용의 이점에 대한 자세한 내용은 [RBS(SharePoint Foundation 2010)을 위한 계획][4] 및 [SharePoint 2013에서 RBS 사용 결정][5]을 참조하세요.
 
 ### <a name="capacity-and-performance-limits"></a>용량 및 성능 제한
-SharePoint 솔루션에서 RBS를 사용을 고려하기 전에 SharePoint Server 2010 및 SharePoint Server 2013의 테스트된 성능 및 용량 제한과 이러한 제한이 어떻게 적절한 성능과 연관되는지 인식해야 합니다. 자세한 내용은 [소프트웨어 경계 및 SharePoint 2013에 대한 한계](/SharePoint/install/software-boundaries-and-limits-0)를 참조하세요.
+SharePoint 솔루션에서 RBS를 사용을 고려하기 전에 SharePoint Server 2010 및 SharePoint Server 2013의 테스트된 성능 및 용량 제한과 이러한 제한이 어떻게 적절한 성능과 연관되는지 인식해야 합니다. 자세한 내용은 [소프트웨어 경계 및 SharePoint 2013에 대한 한계](/sharepoint/install/software-boundaries-and-limits)를 참조하세요.
 
 RBS를 구성하기 전에 다음을 검토합니다.
 

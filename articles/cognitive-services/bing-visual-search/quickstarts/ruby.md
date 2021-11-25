@@ -10,12 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: d907e10484b1873974ec9707d0aec1a89ab9eb50
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.custom: mode-other
+ms.openlocfilehash: 8c4b04221e4819a192d0248fb5f23023de4208f8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499029"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046655"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>빠른 시작: Bing Visual Search REST API 및 Ruby를 사용하여 이미지 인사이트 가져오기
 

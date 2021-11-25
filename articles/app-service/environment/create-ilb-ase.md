@@ -6,13 +6,13 @@ ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: madsd
-ms.custom: mvc, seodec18
-ms.openlocfilehash: ae6e4be378df9b626f17b6bd5b0fd2b620a17392
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.custom: mvc, seodec18, mode-other
+ms.openlocfilehash: 7b76a24aef46a74ac1a0ff400596086aac10c1a7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005170"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073351"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>내부 Load Balancer App Service Environment 만들기 및 사용 
 > [!NOTE]

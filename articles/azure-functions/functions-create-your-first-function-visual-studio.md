@@ -4,17 +4,17 @@ description: 이 빠른 시작에서는 Visual Studio를 사용하여 .NET Core 
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 11/03/2021
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal, mode-other
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
-ms.openlocfilehash: 60e40b675ac8bc32328ea68786329b372f91d056
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: 16354c733e0e6cb12f4e90cda8f4ccce82027034
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028214"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133064967"
 ---
 # <a name="quickstart-create-your-first-c-function-in-azure-using-visual-studio"></a>빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 C# 함수 만들기
 
@@ -132,4 +132,3 @@ Azure에서 *리소스* 란 함수 앱, 함수, 스토리지 계정 등을 의�
 다음 문서로 이동하여 함수에 Azure Storage 큐 바인딩을 추가하는 방법을 알아봅니다.
 > [!div class="nextstepaction"]
 > [함수에 Azure Storage 큐 바인딩 추가](functions-add-output-binding-storage-queue-vs.md)
-

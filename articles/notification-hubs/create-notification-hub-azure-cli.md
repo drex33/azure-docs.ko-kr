@@ -13,13 +13,13 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: d9754bb1390e242b12944b0b59595d4a4d46af33
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: devx-track-azurecli, mode-api
+ms.openlocfilehash: b68136633fd4e5110ef6e00fc9c02393525b2661
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873580"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045751"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure 알림 허브 만들기
 

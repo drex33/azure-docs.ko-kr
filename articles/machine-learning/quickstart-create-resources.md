@@ -10,13 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 10/21/2021
 adobe-target: true
-ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 749400cc3f5c798b16dc08485f0cbff14cb276e7
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other
+ms.openlocfilehash: b45af2069c56bb05b19abd7c35f078d05e9b8501
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131556950"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074221"
 ---
 # <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>빠른 시작: Azure Machine Learning을 시작하는 데 필요한 작업 영역 리소스 만들기
 

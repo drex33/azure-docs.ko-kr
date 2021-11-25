@@ -5,12 +5,13 @@ ms.date: 09/28/2021
 ms.topic: quickstart
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 012fa6c3b6190959b7eb38c140b57a551f317498
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.custom: mode-other
+ms.openlocfilehash: de3c003e3e1d790111aafbf57118e4b1f4adf1af
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129236864"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133065717"
 ---
 # <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Azure CLI를 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기
 이 빠른 시작에서는 Azure CLI를 사용하여 Service Bus 토픽을 만든 다음, 해당 토픽에 대한 구독을 만듭니다. 

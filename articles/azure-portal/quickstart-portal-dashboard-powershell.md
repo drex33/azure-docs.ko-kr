@@ -2,14 +2,14 @@
 title: PowerShell을 사용하여 Azure Portal 대시보드 만들기
 description: Azure Portal에서 Azure PowerShell을 사용하여 대시보드를 만드는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, mode-api
 ms.date: 03/25/2021
-ms.openlocfilehash: 7828dd6ba43cebeef158e897dd8f2a5fb54d8d83
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 5a86133d0c1066c306b76c2a5578c9bb84808762
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077739"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051536"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Portal 대시보드 만들기
 

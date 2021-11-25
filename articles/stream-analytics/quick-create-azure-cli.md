@@ -8,14 +8,14 @@ ms.author: sidram
 ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-api
 ms.date: 07/01/2020
-ms.openlocfilehash: e9f1818f85351213d5a7594161d52729d595ce82
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 590e59e250845811c9bd423aa37f81a5751450a2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749305"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047547"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기
 

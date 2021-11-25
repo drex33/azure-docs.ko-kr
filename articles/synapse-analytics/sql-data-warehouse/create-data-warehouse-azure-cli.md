@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: jrasnick
-ms.custom: azure-synapse, devx-track-azurecli
-ms.openlocfilehash: 3903aa0be5ffa63bc4292371c59002846ec9363c
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: azure-synapse, devx-track-azurecli, mode-api
+ms.openlocfilehash: 81944fde56d641c9d09d853ed709c8615f546d69
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107892097"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070823"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Synapse SQL 풀 만들기
 

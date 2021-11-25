@@ -6,13 +6,13 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 19edfb3b97acf31b2d1a1adceda961ca40a74ecf
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.custom: ignite-fall-2021, mode-api
+ms.openlocfilehash: 0fe482f4cb721398a89c6ce4280cd5a4defc69ed
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132938914"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066810"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli"></a>빠른 시작: Azure CLI 사용하여 Apache Cassandra 클러스터용 Azure Managed Instance 만들기
 

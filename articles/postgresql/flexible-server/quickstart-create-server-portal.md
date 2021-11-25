@@ -4,15 +4,15 @@ description: Azure Portal 사용자 인터페이스를 사용하여 Azure Databa
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: b4fed0e26043e645ece4f35af8b721d858426672
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: d2a9bb93b080cfba1a0e74c3ecf106d23f5d51f5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111406992"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066114"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 유연한 서버 만들기
 

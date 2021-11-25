@@ -6,13 +6,13 @@ ms.topic: quickstart
 ms.date: 11/03/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 696e5138d80b1ba799f96fe60da3be0f4f1d2548
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 5b1a85141cbef0f65586bfa31c881731833954ee
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132485882"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071127"
 ---
 # <a name="quickstart-get-started-with-apache-kafka-for-confluent-cloud---azure-powershell"></a>빠른 시작: Apache Kafka for Confluent Cloud 시작 - Azure PowerShell
 

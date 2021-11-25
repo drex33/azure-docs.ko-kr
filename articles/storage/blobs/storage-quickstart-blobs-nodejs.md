@@ -7,13 +7,13 @@ ms.date: 09/17/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-js
-ms.openlocfilehash: 610e955a948af4e41a32741b7132cdadb322bbab
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: 9f68402dc1df9253fd0e5287e85a7bcb21677e4f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609235"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049864"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>빠른 시작: Node.js에서 JavaScript v12 SDK를 사용하여 Blob 관리
 

@@ -7,13 +7,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: cauribeg
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: c975794d09cdd9f7f9de538fdf2debfb37bea2d3
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-other
+ms.openlocfilehash: a61d0b7d8872bc1a506b0c4aeb54a41cc19be7d9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537837"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047188"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>빠른 시작: Node.js에서 Azure Cache for Redis 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "129537837"
 
 코드로 바로 건너뛰려면 GitHub의 [Node.js 빠른 시작](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/nodejs)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [node_redis](https://github.com/mranney/node_redis) - `npm install redis` 명령을 사용하여 설치할 수 있습니다.

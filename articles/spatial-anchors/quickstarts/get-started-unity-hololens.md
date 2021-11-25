@@ -8,13 +8,12 @@ ms.author: parkerra
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: mode-other
-ms.openlocfilehash: 51f0ce19e3d871b04577e9e8c2551b1a62a65a4a
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: a0b2bbc77b42e836125cb4d5f69b9bdd0f0e7bd6
+ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133055570"
+ms.lasthandoff: 11/23/2021
+ms.locfileid: "132956572"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하는 Unity HoloLens 앱 만들기
 

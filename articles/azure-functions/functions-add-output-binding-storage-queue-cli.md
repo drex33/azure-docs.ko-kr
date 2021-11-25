@@ -3,14 +3,14 @@ title: 명령줄 도구를 사용하여 Azure Functions를 Azure Storage에 연�
 description: 명령줄 프로젝트에 출력 바인딩을 추가하여 Azure Functions를 Azure Storage 큐에 연결하는 방법을 알아봅니다.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.custom: devx-track-python
+ms.custom: devx-track-python, mode-other
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7bbdd8b280782578bb5d6fadf7fb8de360e07bda
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: e32799a1b999e940ffadb6b916fd952dfc25aa18
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831232"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062711"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>명령줄 도구를 사용하여 Azure Functions를 Azure Storage에 연결
 

@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 공용 IP 주소 접두사 만들기 - Azure CLI'
-titlesuffix: Azure Virtual Network
+titleSuffix: Azure Virtual Network
 description: Azure CLI를 사용하여 공용 IP 주소 접두사를 만드는 방법을 알아봅니다.
 services: virtual-network
 author: asudbring
@@ -9,12 +9,13 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.openlocfilehash: 0b72eb4e70fb80602b352c32d6ffbde1cf4336da
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: mode-api
+ms.openlocfilehash: b44f64d8d6df38cc6603b7c3385609169504e324
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369184"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043054"
 ---
 # <a name="quickstart-create-a-public-ip-address-prefix-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 공용 IP 주소 접두사 만들기
 
@@ -72,7 +73,7 @@ IPv4 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv4
 
 # <a name="zonal-ipv4-prefix"></a>[**영역 IPv4 접두사**](#tab/ipv4-zonal)
 
-IPv4 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv4** 를 입력합니다. **`--zone`** 매개 변수에 **2** 를 입력하여 zone 2에 영역 IP 접두사를 만듭니다.
+IPv4 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv4** 를 입력합니다. **`--zone`** 매개 변수에 **2** 를 입력하여 영역 2에 영역 IP 접두사를 만듭니다.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -102,7 +103,7 @@ IPv4 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv4
 
 명령에서 **`--zone`** 매개 변수를 제거하는 것은 모든 지역에서 유효합니다.  
 
-**`--zone`** 매개 변수를 제거하는 것은 [가용성 영역](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 없는 지역에서 표준 공용 IP 주소에 대한 기본 선택 항목입니다.
+**`--zone`** 매개 변수 제거는 [가용성 영역](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 없는 지역에서 표준 공용 IP 주소에 대한 기본 선택 영역입니다.
 
 ---
 
@@ -112,7 +113,7 @@ IPv4 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv4
 
 # <a name="zone-redundant-ipv6-prefix"></a>[**영역 중복 IPv6 접두사**](#tab/ipv6-zone-redundant)
 
-IPv4 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv6** 를 입력합니다. 영역 중복 IPv6 접두사를 만들려면 **`--zone`** 매개 변수에 **1,2,3** 을 입력합니다.
+IPv4 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv6** 을 입력합니다. 영역 중복 IPv6 접두사를 만들려면 **`--zone`** 매개 변수에 **1,2,3** 을 입력합니다.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -126,7 +127,7 @@ IPv4 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv6
 
 # <a name="zonal-ipv6-prefix"></a>[**영역 IPv6 접두사**](#tab/ipv6-zonal)
 
-IPv6 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv6** 를 입력합니다. **`--zone`** 매개 변수에 **2** 를 입력하여 zone 2에 영역 IP 접두사를 만듭니다.
+IPv6 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv6** 을 입력합니다. **`--zone`** 매개 변수에 **2** 를 입력하여 영역 2에 영역 IP 접두사를 만듭니다.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -143,7 +144,7 @@ IPv6 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv6
 
 # <a name="non-zonal-ipv6-prefix"></a>[**비 영역 IPv6 접두사**](#tab/ipv6-non-zonal)
 
-IPv6 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv6** 를 입력합니다. **`--zone`** 매개 변수를 제거하여 비영역 IP 접두사를 만듭니다.
+IPv6 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv6** 을 입력합니다. **`--zone`** 매개 변수를 제거하여 비영역 IP 접두사를 만듭니다.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -156,7 +157,7 @@ IPv6 공용 IP 접두사를 만들려면 **`--version`** 매개 변수에 **IPv6
 
 명령에서 **`--zone`** 매개 변수를 제거하는 것은 모든 지역에서 유효합니다.  
 
-**`--zone`** 매개 변수를 제거하는 것은 [가용성 영역](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 없는 지역에서 표준 공용 IP 주소에 대한 기본 선택 항목입니다.
+**`--zone`** 매개 변수 제거는 [가용성 영역](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones)이 없는 지역에서 표준 공용 IP 주소에 대한 기본 선택 영역입니다.
 
 ---
 

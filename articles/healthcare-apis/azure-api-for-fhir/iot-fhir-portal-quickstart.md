@@ -8,12 +8,13 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 09/10/2021
 ms.author: rabhaiya
-ms.openlocfilehash: 6eca34979b1be4abc6985492bcace04072f4135d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-portal
+ms.openlocfilehash: 6feeb319d96b74b2f7dac82236274f587ae75445
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748881"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061530"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure IoT Connector for FHIR(미리 보기) 배포
 
@@ -170,28 +171,28 @@ Azure는 IoT 디바이스를 연결하고 관리할 수 있는 광범위한 IoT 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기)과 IoT 데이터 연결
 
-IoT Central 애플리케이션을 배포한 후에는 두 개의 기본 시뮬레이션 디바이스가 원격 분석 데이터를 생성하기 시작합니다. 이 자습서에서는 Azure IoT Connector for FHIR을 통해 *Smart Vitals Patch* 시뮬레이터에서 FHIR로 원격 분석 데이터를 수집합니다. IoT 데이터를 Azure IoT Connector for FHIR로 내보내려면 [IoT Central 내에서 연속 데이터 내보내기를 설정](../../iot-central/core/howto-export-data.md)합니다. 먼저 대상에 대 한 연결을 만든 다음 지속적으로 실행할 데이터 내보내기 작업을 만듭니다. 
+IoT Central 애플리케이션을 배포한 후에는 두 개의 기본 시뮬레이션 디바이스가 원격 분석 데이터를 생성하기 시작합니다. 이 자습서에서는 Azure IoT Connector for FHIR을 통해 *Smart Vitals Patch* 시뮬레이터에서 FHIR로 원격 분석 데이터를 수집합니다. IoT 데이터를 Azure IoT Connector for FHIR로 내보내려면 [IoT Central 내에서 연속 데이터 내보내기를 설정](../../iot-central/core/howto-export-data.md)합니다. 먼저 대상에 대한 연결을 만든 다음, 지속적으로 실행할 데이터 내보내기 작업을 만듭니다. 
 
 > [!NOTE]
-> 이 섹션에 대 한 IoT Central 앱 설정 내에서 **데이터 내보내기** 및 **데이터 내보내기 (레거시)** 를 선택 하는 것이 좋습니다.
+> 이 섹션의 IoT Central 앱 설정에서 **데이터 내보내기** 및 **데이터 내보내기(레거시)를** 선택합니다.
 
 [![IoT Central 데이터 내보내기 설정](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png)](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png#lightbox)
 
-새 대상 만들기:
-- **대상 탭으로** 이동 하 여 새 대상을 만듭니다.
-- 대상에 고유한 이름을 지정 하 여 시작 합니다.
-- 대상 유형으로 *Azure Event Hubs* 를 선택 합니다.
-- 이전 단계에서 **연결 문자열** 필드에 대해 가져온 fhir의 연결 문자열에 Azure IoT 커넥터를 제공 합니다.
+새 대상을 만듭니다.
+- **대상** 탭으로 이동하여 새 대상을 만듭니다.
+- 대상에 고유한 이름을 지정하여 시작합니다.
+- 대상 유형으로 *Azure Event Hubs* 선택합니다.
+- 연결 문자열 필드에 대해 이전 단계에서 가져온 Azure IoT Connector for FHIR의 **연결 문자열을** 제공합니다.
 
 새 데이터 내보내기 만들기:
-- 대상을 만든 후에는 **내보내기** 탭으로 이동 하 여 새 데이터 내보내기를 만듭니다. 
-- 데이터 내보내기에 고유한 이름을 지정 하 여 시작 합니다.
-- **데이터** 아래에서 *내보낼 데이터 형식* 으로 *원격 분석* 을 선택 합니다.
-- **대상** 에서 이전 이름에 만든 대상 이름을 선택 합니다.
+- 대상을 만든 후에는 **내보내기** 탭으로 이동하여 새 데이터 내보내기를 만듭니다. 
+- 데이터 내보내기에서 고유한 이름을 지정하여 시작합니다.
+- **데이터** 아래에서 *내보낼 데이터 형식으로* *원격* 분석을 선택합니다.
+- **대상** 아래에서 이전 이름에서 만든 대상 이름을 선택합니다.
 
 ## <a name="view-device-data-in-azure-api-for-fhir"></a>Azure API for FHIR에서 디바이스 데이터 보기
 
-Postman을 사용하여 Azure API for FHIR에서 Azure IoT Connector for FHIR을 통해 만든 FHIR 기반 관찰 리소스를 볼 수 있습니다. 자세한 내용은 [Postman을 사용 하 여 fhir 서비스에 액세스](./../use-postman.md) 를 참조 하 고 `GET` 를 요청 하 여 `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` 심장 rate value로 관찰 된 리소스를 확인 합니다. 
+Postman을 사용하여 Azure API for FHIR에서 Azure IoT Connector for FHIR을 통해 만든 FHIR 기반 관찰 리소스를 볼 수 있습니다. 자세한 내용은 [Postman을 사용하여 FHIR 서비스에 액세스하고](./../use-postman.md) `GET` `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` 심박수 값이 있는 관찰 FHIR 리소스를 보도록 요청을 참조하세요. 
 
 > [!TIP]
 > 사용자에게 Azure API for FHIR 데이터 평면에 액세스할 수 있는 적절한 권한이 있어야 합니다. [Azure RBAC(Azure 역할 기반 액세스 제어)](configure-azure-rbac.md)를 사용하여 필요한 데이터 평면 역할을 할당합니다.

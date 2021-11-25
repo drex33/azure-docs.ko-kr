@@ -6,13 +6,13 @@ ms.author: hophan
 ms.date: 10/28/2021
 ms.topic: quickstart
 ms.service: purview
-ms.custom: mode-api, devx-track-azurepowershell
-ms.openlocfilehash: ac06f6641f60ec1775e161ec1e949522321fd5af
-ms.sourcegitcommit: 5af89a2a7b38b266cc3adc389d3a9606420215a9
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 0adba8cad7baca8188982f10aca8b8b591864ee8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131990200"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055539"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>빠른 시작: Azure PowerShell/Azure CLI를 사용하여 Azure Purview 계정 만들기
 

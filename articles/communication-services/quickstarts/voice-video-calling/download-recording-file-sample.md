@@ -10,12 +10,13 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 95b094620dd9cb3b36ce5f6de664a6aaf8c7990f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: mode-other
+ms.openlocfilehash: 8e955e8e6ba5240e806c22e22294ff92edf6a0e4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130247553"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046237"
 ---
 # <a name="record-and-download-calls-with-event-grid"></a>Event Grid를 사용하여 통화 녹화 및 다운로드
 

@@ -8,15 +8,16 @@ ms.custom:
 - iot-p0-scenario
 - 'Role: Cloud Development'
 - devx-track-azurecli
+- mode-api
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 27fde7dab5c5f16f941fd223e1e08a58948133ea
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 66bc1b948a7a40027b0872105f150f89b4c9e4cd
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731893"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058297"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>빠른 시작: 디바이스에서 IoT hub로 원격 분석을 전송하고 Azure CLI를 사용하여 모니터링
 

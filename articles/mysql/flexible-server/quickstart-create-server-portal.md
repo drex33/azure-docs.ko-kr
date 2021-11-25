@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: e1469c2d7cbc1be4aac2ec73a1f04138ef9d7fb1
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 21753729dff6761ed8f9e8f6e4c32d8d4f73cd63
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131429359"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055818"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>빠른 시작: Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버 만들기
 

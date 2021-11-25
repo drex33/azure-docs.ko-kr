@@ -9,12 +9,13 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 09/10/2021
 ms.author: tamram
-ms.openlocfilehash: abf75bb39610deb54b72002cde3dd8e28131ed94
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-other
+ms.openlocfilehash: 69a32998de7b35f13ad90d7765b7ced8932d54f1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124839133"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069585"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>빠른 시작: Azure Storage Explorer를 사용하여 Blob 만들기
 

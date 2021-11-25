@@ -6,12 +6,13 @@ ms.service: azure-fluid
 ms.topic: quickstart
 ms.date: 09/09/2021
 ms.author: hickeys
-ms.openlocfilehash: f3a25a47cc1bee143f562e936f7927f48d452b4c
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.custom: mode-other
+ms.openlocfilehash: ee8d0eeb9b3a8c80e93cb3fe833afc8d93df0bce
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129662167"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060485"
 ---
 # <a name="quickstart-dice-roller"></a>빠른 시작: 주사위 롤러
 

@@ -5,16 +5,16 @@ services: azure-app-configuration
 documentationcenter: ''
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: alkemper
-ms.openlocfilehash: f5bd0809de5aa7e7e585662ee0c98feaf9be2e79
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 0e01c2a28761948acd1eb05453508578d9a96509
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130245098"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070594"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 .NET Framework 앱 만들기
 

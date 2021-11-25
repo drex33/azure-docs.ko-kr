@@ -8,12 +8,13 @@ author: cjgronlund
 ms.author: cgronlun
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: ab55e1600b412570c54ad291b6954bccefc7cd1d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: 7614d6b91d149fcf09c600c84c6e4bb7241e7955
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128548111"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074251"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>빠른 시작: Windows용 Data Science Virtual Machine 설정
 

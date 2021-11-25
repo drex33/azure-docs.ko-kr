@@ -5,16 +5,16 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom: devx-track-csharp, contperf-fy21q1
+ms.custom: devx-track-csharp, contperf-fy21q1, mode-other
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: alkemper
-ms.openlocfilehash: 353a934842fd872d48d091f1df1b6d94ac4599ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70a3ec7a63c47f3e360f909c2b7350a16ea17014
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98663437"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047460"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 

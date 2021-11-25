@@ -7,15 +7,15 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: mvc,subject-armqs, devx-track-azurepowershell
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 8e8a0e931a2c33883bf18ad92a367110d9be093e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bb4ffb7f7fec2ace99fea9158690e551f74879e6
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128572966"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067462"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure 키 자격 증명 모음 및 키 만들기 
 

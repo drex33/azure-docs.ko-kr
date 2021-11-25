@@ -8,12 +8,13 @@ ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: eriklind
-ms.openlocfilehash: b796989cace5631c876809ee94b47c065bb4be71
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-other
+ms.openlocfilehash: 521674fd0d3115da97646b5327b1e9b5846ae2f9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132335844"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044929"
 ---
 # <a name="create-an-ios-app-public-preview"></a>iOS 앱 만들기(공개 미리 보기)
 

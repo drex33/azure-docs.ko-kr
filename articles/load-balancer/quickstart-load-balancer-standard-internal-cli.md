@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2020
 ms.author: allensu
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2db30024b26352bcc038d606bcdc760b6350d413
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-other
+ms.openlocfilehash: 74d15f974bdb9091f14e15503dae5615bbe3afd8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788838"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074595"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-by-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 내부 부하 분산 장치 만들기
 

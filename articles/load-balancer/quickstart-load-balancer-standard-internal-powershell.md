@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ee916e4ee1993395eae18ccc74ca776e449e3bc5
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 7d932a83d53046bf3c39d3effcf078e56391ee76
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704763"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074392"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 

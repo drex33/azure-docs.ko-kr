@@ -6,14 +6,14 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/15/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c52c2f68754eb87cfca63223674b885f1ba7041e
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: aa61b4d870a85170399b76d1e0d1a4e0103915e3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492609"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055407"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 

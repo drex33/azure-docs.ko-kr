@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 08/26/2021
-ms.openlocfilehash: f474ac853c9196d36af6aa832b0c455db6a08b73
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.custom: mode-other
+ms.openlocfilehash: 0f224b51a171d1d78f61a23129610dd4d0715926
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123032270"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042077"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Go 애플리케이션을 Azure Cosmos DB의 API for MongoDB에 연결
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -30,7 +31,7 @@ Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용
 
 샘플 애플리케이션은 Go로 작성된 명령줄 기반의 `todo` 관리 도구입니다. Azure Cosmos DB의 API for MongoDB는 [MongoDB 유선 프로토콜과 호환](./mongodb-introduction.md)되므로 모든 MongoDB 클라이언트 드라이버에 연결할 수 있습니다. 이 애플리케이션은 애플리케이션에 투명한 방식으로 [MongoDB용 Go 드라이버](https://github.com/mongodb/mongo-go-driver)를 사용하기 때문에 데이터가 Azure Cosmos DB 데이터베이스에 저장됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다. 연결 문자열 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`와 함께 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)를 사용할 수도 있습니다.
 - 컴퓨터에 설치된 [Go](https://golang.org/) 및 Go에 대한 실무 지식.
 - [Git](https://git-scm.com/downloads)

@@ -5,13 +5,13 @@ ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9d4cdf890f749d65eb1a94304e250ec42ca1faf5
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 2c89dc4336fba8a61f7b99a91bf29ffa44a7f351
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132755496"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051149"
 ---
 # <a name="pull-images-from-a-connected-registry-on-iot-edge-device"></a>IoT Edge 디바이스의 연결된 레지스트리에서 이미지 끌어오기
 

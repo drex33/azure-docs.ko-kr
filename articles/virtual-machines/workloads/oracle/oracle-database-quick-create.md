@@ -8,12 +8,13 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.openlocfilehash: 2854cb45f83e46fc556f57247ab4aa28bd7f74c0
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: mode-other
+ms.openlocfilehash: 2bdd3c96eacc1c437c6c29ab86cdec65572dbf12
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696915"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056891"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 

@@ -4,19 +4,19 @@ description: BACPAC 파일을 사용하여 Azure SQL Database 또는 Azure SQL M
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: sqldbrb=1, devx-track-azurepowershell
+ms.custom: sqldbrb=1, devx-track-azurepowershell, mode-other
 ms.devlang: ''
 ms.topic: quickstart
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: cawrites, mathoma
 ms.date: 10/29/2020
-ms.openlocfilehash: f6e7e1b8d1fcd5e0f8fa8072982c4c0cf1681517
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0b5c96269d6c0a241a3bcf5920e7b35c9b1b3f1d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121739702"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070567"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스로 BACPAC 파일을 가져옵니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

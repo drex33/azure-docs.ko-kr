@@ -5,15 +5,15 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.author: allensu
 ms.date: 09/14/2020
-ms.openlocfilehash: a1fee5dd57568a77355315dc0a0ff89bd05775aa
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 51956cefc27963f3a8fb1185f2ab2c65309ef6f2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112467566"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074358"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 

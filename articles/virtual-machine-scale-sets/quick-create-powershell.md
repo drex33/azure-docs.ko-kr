@@ -7,13 +7,13 @@ ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
 ms.date: 11/08/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 0f23b48c50efb4bfc4cc64670ecf72ff7f244e4a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: mimckitt, devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 807fd00d03fbe63fabf5bc07ec708b168e237e41
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693249"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043252"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기
 

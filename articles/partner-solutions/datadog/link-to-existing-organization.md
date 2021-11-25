@@ -6,13 +6,13 @@ ms.topic: quickstart
 ms.date: 05/28/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.custom: references_regions
-ms.openlocfilehash: b142b7d6e34905fe02de2a7546f9265289016808
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.custom: references_regions, mode-other
+ms.openlocfilehash: b0fd0361bd18d3af5685e1af06d091847a36c31e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110657146"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071232"
 ---
 # <a name="quickstart-link-to-existing-datadog-organization"></a>빠른 시작: 기존 Datadog 조직에 연결
 
@@ -54,7 +54,7 @@ Azure의 새 Datadog 리소스를 **US3** 의 기존 Datadog 조직에 연결할
 
 다음 값을 제공합니다.
 
-|속성 | Description
+|속성 | 설명
 |:-----------|:-------- |
 | Subscription | Datadog 리소스를 만드는 데 사용할 Azure 구독을 선택합니다. 소유자 액세스 권한이 필요합니다. |
 | 리소스 그룹 | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. [리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups)은 Azure 솔루션과 관련된 리소스를 보관하는 컨테이너입니다. |

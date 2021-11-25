@@ -3,12 +3,13 @@ title: Azure Resource Manager를 사용하여 Service Fabric 관리형 클러스
 description: Azure Resource Manager 템플릿을 통해 Service Fabric 관리형 클러스터의 만드는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 5/10/2021
-ms.openlocfilehash: 0775d5f6874de8fafb1d9a32cf19071f4a7a99b4
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.custom: mode-other
+ms.openlocfilehash: 7dd09d35c8a1ff7b9e3d17dfcdc9eaf0f37ec1e7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685210"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043442"
 ---
 # <a name="quickstart-deploy-a-service-fabric-managed-cluster-with-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 통해 Service Fabric 관리형 클러스터 배포
 

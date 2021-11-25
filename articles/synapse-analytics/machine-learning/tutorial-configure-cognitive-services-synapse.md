@@ -9,13 +9,13 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: d72db64026ff3d4d4cee759b34047662248737a6
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 19911077e578033da708b0b278bdab347c69705e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131845136"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049657"
 ---
 # <a name="quickstart-configure-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>빠른 시작: Azure Synapse Analytics의 Cognitive Services를 사용하기 위한 필수 구성 요소 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "131845136"
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Azure Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 

@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: eeef03820a0a96376f9e7cb45bc22cc3e2331b22
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: 41e1926873054ecbbc98553927a8aac3a38752e0
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128663254"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072448"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>빠른 시작: Bing Visual Search REST API 및 Node.js를 사용하여 이미지 인사이트 가져오기
 

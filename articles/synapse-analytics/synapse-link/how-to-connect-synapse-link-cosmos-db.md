@@ -9,13 +9,13 @@ ms.subservice: synapse-link
 ms.date: 03/02/2021
 ms.author: rosouz
 ms.reviewer: jrasnick
-ms.custom: cosmos-db
-ms.openlocfilehash: f2c687d3124e19bd91321391396499675052662b
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.custom: cosmos-db, mode-other
+ms.openlocfilehash: ad71305a5f15ec00b6678ec615b0c193085def1d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113042"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056869"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Synapse Link에 연결
 

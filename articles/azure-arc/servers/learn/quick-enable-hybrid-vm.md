@@ -3,12 +3,13 @@ title: Azure Arc 지원 서버를 사용하여 하이브리드 머신 연결
 description: Azure Arc 지원 서버를 사용하여 하이브리드 머신을 연결하고 등록하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 12/15/2020
-ms.openlocfilehash: fc645f930fe37f8a3eca10d1647d40eb9c7a2280
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-other
+ms.openlocfilehash: 7762fb29c20b47334e7c44f30a9d66e0d93f7586
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807644"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040237"
 ---
 # <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>빠른 시작: Azure Arc 지원 서버를 사용하여 하이브리드 머신 연결
 

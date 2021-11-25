@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 0c5ae9dd292aeef8aa1e052cf276568e84bdd95d
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.custom: mode-other
+ms.openlocfilehash: 0d6f76a0183e98d4532995552efc180e00406928
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586873"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133065777"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>빠른 시작: Unity를 사용하여 모델 렌더링
 

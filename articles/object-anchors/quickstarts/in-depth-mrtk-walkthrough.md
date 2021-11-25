@@ -7,12 +7,13 @@ ms.author: rgarcia
 ms.date: 07/12/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 515d44cc7cb40972c67424799163bc57deba9182
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.custom: mode-other
+ms.openlocfilehash: 1e5c39c08a0e536c81530a7d08922772adcacb17
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371572"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073822"
 ---
 # <a name="quickstart-in-depth-mrtk-walkthrough"></a>빠른 시작: 심층 MRTK 연습
 

@@ -4,16 +4,16 @@ description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 �
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: eb844790ac0ae97c281f6d2d7022bee559f545cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45f77a6f549bb2e3dc89aa30b8884e0f9111d5b4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93331933"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066467"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Go 언어를 사용하여 Azure Database for PostgreSQL에서 데이터 연결 및 쿼리 - 단일 서버
 

@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: bd0ca3b20cc37ecf2107e03eea5d6e4a62633f16
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: f7510d82330fb0d505f819a6babf7c2823dcfdff
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129807193"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133097401"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Azure Cache for Redis 클라이언트 쪽 문제 해결
 
@@ -108,6 +108,15 @@ Resolutions for large response sizes are varied but include:
     - Use a round-robin approach to make requests over different connection objects.
 
  -->
+ 
+## <a name="high-client-connections"></a>높은 클라이언트 연결
+
+클라이언트 연결에서 캐시에 대 한 최대 크기에 도달 하면 클라이언트 요청에서 최대를 초과 하 여 연결에 대 한 오류가 발생할 수 있으며, 반복 되는 다시 연결 시도를 처리 하기 때문에 캐시에서 서버 CPU 사용량이 많이 발생할 수도 있습니다.
+
+클라이언트 연결이 높으면 클라이언트 코드에서 연결 누수가 발생할 수 있습니다.  연결이 다시 사용 되거나 제대로 닫히지 않았을 수 있습니다.  클라이언트 코드를 사용 하 여 연결을 검토 합니다.
+
+높은 연결이 모든 합법적인 클라이언트 연결이 고 필요한 경우에는 더 높은 연결 제한이 있는 크기로 캐시를 업그레이드 해야 할 수 있습니다.
+
 ## <a name="additional-information"></a>추가 정보
 
 - [Azure Cache for Redis 서버 쪽 문제 해결](cache-troubleshoot-server.md)

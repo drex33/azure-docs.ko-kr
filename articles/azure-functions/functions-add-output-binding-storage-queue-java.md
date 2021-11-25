@@ -2,17 +2,17 @@
 title: Java 함수를 Azure Storage에 연결
 description: Queue storage 출력 바인딩을 사용하여 Azure Storage에 HTTP 트리거 Java 함수를 연결하는 방법에 대해 알아봅니다.
 author: KarlErickson
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
 zone_pivot_groups: java-build-tools-set
-ms.openlocfilehash: b4381c4acbea8a3b7d86d9c32aaf9cea24cf15fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aaa116aadcc7a72ac5c497aa98ed501323fb42a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93422657"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133076194"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Java 함수를 Azure Storage에 연결
 

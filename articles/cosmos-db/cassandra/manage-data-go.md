@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: 329afe6350ae3cfd126ccc99989d71b273bd884e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mode-other
+ms.openlocfilehash: fceda1b94ac9975ea53864ac93d642c443b41788
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121787989"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056359"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>빠른 시작: `gocql` 클라이언트를 통해 Go 앱을 빌드하여 Azure Cosmos DB Cassandra API 데이터 관리
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]

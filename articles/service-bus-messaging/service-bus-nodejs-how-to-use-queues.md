@@ -6,13 +6,13 @@ ms.author: spelluru
 ms.date: 11/09/2020
 ms.topic: quickstart
 ms.devlang: nodejs
-ms.custom: devx-track-js, mode-api
-ms.openlocfilehash: 176ed204227d1bedcb0977d35149f36c792e10ff
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-js, mode-other
+ms.openlocfilehash: b9d781bb77ff9159dcf61ca267449c7318a79c4b
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131009076"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057552"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(JavaScript)
 이 자습서에서는 JavaScript 프로그램에서 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 큐와 메시지를 주고 받는 방법에 대해 알아봅니다.

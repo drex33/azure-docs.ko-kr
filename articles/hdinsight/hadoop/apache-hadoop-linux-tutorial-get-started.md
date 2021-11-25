@@ -3,14 +3,14 @@ title: '빠른 시작: Azure HDInsight에서 Resource Manager 템플릿을 사�
 description: 이 빠른 시작에서는 Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Hadoop 클러스터를 만듭니다.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.date: 03/13/2020
-ms.openlocfilehash: 4bb4932899ce2ef2b97fef928eb5fd50380029e7
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 3e2ce87eb8270d1e9b589c5d8df857198d253aa3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111560459"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050579"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터 만들기
 

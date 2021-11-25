@@ -8,13 +8,13 @@ ms.service: virtual-wan
 ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
-ms.custom: subject-armqs
-ms.openlocfilehash: 79b78af6e0ff1d23ea47b150dfd6c185e3d9df18
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: dcab1402dcdebcb1680f822bc4fe956bd614dfdd
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132323123"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049463"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 임의 구성 만들기
 

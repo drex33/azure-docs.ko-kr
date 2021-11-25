@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/31/2020
 ms.author: cynthn
-ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 89803665171fce60bdb46f95dd56fa0535fabeb8
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.custom: mvc, devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 9b12f5c1ddb1f1a1b83efcd30c9c0df89fb881fe
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132063820"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045279"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Linux 가상 머신 만들기
 

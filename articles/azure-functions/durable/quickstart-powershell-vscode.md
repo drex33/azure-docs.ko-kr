@@ -5,12 +5,13 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 08/10/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: acd1c61a145067d66f7c1921da108a794bd1faee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mode-api
+ms.openlocfilehash: bcdf1e0681cae6bb91b4a5c6b89d6a58ff5c5aab
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121752298"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070582"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>PowerShell에서 첫 번째 지속성 함수 만들기
 
@@ -20,7 +21,7 @@ ms.locfileid: "121752298"
 
 ![Azure에서 지속성 함수 실행](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

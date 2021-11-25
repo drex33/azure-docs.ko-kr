@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 856845022e63a96b9e5d56d1e869dec55a2511be
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: f20e5ea6c8dbcf83bd1f4c7ebcef0c9eaf7eeee2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892175"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047029"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Azure Functions의 HTTP 엔드포인트 사용자 지정
 
@@ -79,6 +79,9 @@ HTTP 함수 사용자 지정에 대한 자세한 내용은 [Azure Functions HTTP
 - 기타 호스트된 API
 
 프록시에 대한 자세한 내용은 [Azure Functions 프록시 사용]을 참조하세요.
+
+> [!NOTE]
+> 프록시는 Azure Functions 버전 1.x에서 3.x까지 사용할 수 있습니다.
 
 ## <a name="create-your-first-proxy"></a>첫 번째 프록시 만들기
 

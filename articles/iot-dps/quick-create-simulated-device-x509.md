@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.custom: mvc
+ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set1
-ms.openlocfilehash: fb283c3c8739abda82b05d6afce051a85d50d981
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 46d0e0899a79aaa98041157182d06dafe91c3130
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132809023"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041718"
 ---
 # <a name="quickstart-provision-an-x509-certificate-simulated-device"></a>빠른 시작: X.509 인증서 시뮬레이션된 디바이스 프로비저닝
 
@@ -25,7 +25,7 @@ ms.locfileid: "132809023"
 
 이 빠른 시작에서는 Windows 기반 워크스테이션을 위한 솔루션을 보여줍니다. 그러나 Linux에서 절차를 수행할 수도 있습니다. Linux 예제는 [다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법](how-to-provision-multitenant.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 

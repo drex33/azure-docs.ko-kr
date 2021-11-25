@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 05/10/2021
 ms.author: victorh
-ms.openlocfilehash: d0aa88ef44f1d63593a22c657b781720622465d6
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 9c460b363fc69423ce8ab70d3d9ca2bb65f21417
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033566"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133071845"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>빠른 시작: 가용성 영역을 사용하여 Azure Firewall 배포 - ARM 템플릿
 

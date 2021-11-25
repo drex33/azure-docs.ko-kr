@@ -8,13 +8,13 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 09/26/2021
 ms.author: daberry
-ms.custom: devx-track-csharp
-ms.openlocfilehash: e76341f8d3d0e7b7c67be6a19ab3fb8c5b902794
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: 49326b6c7ad423da2314c0ea6db870864ffb19b9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132324178"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133056408"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>빠른 시작: .NET SDK 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드
 

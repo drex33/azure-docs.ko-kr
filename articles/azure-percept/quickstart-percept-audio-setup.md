@@ -6,12 +6,13 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/25/2021
-ms.openlocfilehash: 8b6ec3ba8473be8e924d3c4b8ae17ccbdcf6568f
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: mode-other
+ms.openlocfilehash: 4c97c620f443245e804eb1a192261dcecfd16efe
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221835"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133060454"
 ---
 # <a name="set-up-the-azure-percept-audio-device"></a>Azure Percept Audio 디바이스 설정
 

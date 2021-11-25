@@ -5,12 +5,12 @@ ms.author: palatter
 ms.date: 10/10/2021
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: d87849dc85264f9a4066acabc55d613e1b47e127
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: a9df4595e7cdb0cce55c1792c3b67c1e1056ebeb
+ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132134001"
+ms.lasthandoff: 11/18/2021
+ms.locfileid: "132875687"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -34,6 +34,7 @@ Xcode에서 새 iOS 프로젝트를 만들고, **앱** 템플릿을 선택합니
 ### <a name="install-the-package-and-dependencies-with-cocoapods"></a>CocoaPods를 사용하여 패키지 및 종속성 설치
 
 1. `pod init`를 실행하여 프로젝트 루트 디렉터리에 Podfile을 만듭니다.
+    - 오류가 발생하면 [CocoaPods](https://guides.cocoapods.org/using/getting-started.html)를 최신 버전으로 업데이트합니다.
 2. Podfile에 다음을 추가합니다.
 
 ```
@@ -44,11 +45,19 @@ platform :ios, '13.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'AzureCommunicationUI', '1.0.0-alpha.1'
+    pod 'AzureCommunicationUI', '1.0.0-alpha.2'
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+          config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
 end
 ```
 
-3. `pod install --repo-update`를 실행합니다. 이 프로세스는 10-15분 정도 걸릴 수 있습니다.
+3. `pod install --repo-update`을 실행합니다. 이 프로세스는 10-15분 정도 걸릴 수 있습니다.
 4. Xcode를 사용하여 생성된 `.xcworkspace`를 엽니다.
 
 ### <a name="request-access-to-the-microphone-camera-etc"></a>마이크, 카메라 등에 대한 액세스 요청
@@ -80,7 +89,7 @@ end
 ```swift
 import UIKit
 import AzureCommunicationCalling
-import CallingComposite
+import CallComposite
 
 class ViewController: UIViewController {
 
@@ -110,8 +119,8 @@ class ViewController: UIViewController {
         let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 
         let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                                       displayName: "<DISPLAY_NAME>",
-                                       groupId: UUID(uuidString: "<GROUP_CALL_ID>")!)
+                                       groupId: UUID(uuidString: "<GROUP_CALL_ID>")!,
+                                       displayName: "<DISPLAY_NAME>")
         callComposite?.launch(with: options)
     }
 }
@@ -178,8 +187,8 @@ let communicationTokenCredential = try! CommunicationTokenCredential(token: "<US
 // let uuid = UUID() to create a new call
 let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
 let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                               displayName: "<DISPLAY_NAME>",
-                               groupId: uuid)
+                               groupId: uuid,
+                               displayName: "<DISPLAY_NAME>")
 ```
 
 #### <a name="teams-meeting"></a>Teams 모임
@@ -188,8 +197,8 @@ let options = GroupCallOptions(communicationTokenCredential: communicationTokenC
 
 ```swift
 let options = TeamsMeetingOptions(communicationTokenCredential: communicationTokenCredential,
-                                  displayName: "<DISPLAY_NAME>",
-                                  meetingLink: "<TEAMS_MEETING_LINK>")
+                                  meetingLink: "<TEAMS_MEETING_LINK>",
+                                  displayName: "<DISPLAY_NAME>")
 ```
 
 #### <a name="get-a-microsoft-teams-meeting-link"></a>Microsoft Teams 미팅 링크 가져오기

@@ -3,13 +3,13 @@ title: 명령줄에서 TypeScript 함수 만들기 - Azure Functions
 description: 명령줄에서 TypeScript 함수를 만든 다음, 로컬 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
 ms.date: 11/18/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b147164ba12ab3eab5798b9906b795d89f810afe
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 0a7064d582601c7764bbfbf0b223adf5ead2d99d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132902859"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049010"
 ---
 # <a name="quickstart-create-a-typescript-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 TypeScript 함수 만들기
 

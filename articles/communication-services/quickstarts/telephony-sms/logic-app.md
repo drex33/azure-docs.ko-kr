@@ -9,12 +9,13 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 2764eede3aebd0110e2cc2de8a1813bc1f28cb86
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: mode-other
+ms.openlocfilehash: d890b6ae3a5c2265ae8ed108a74fda3a77997b19
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114444348"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048634"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>빠른 시작: Azure Communication Services를 사용하여 Azure Logic Apps에서 SMS 메시지 보내기
 

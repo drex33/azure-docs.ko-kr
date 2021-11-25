@@ -7,13 +7,13 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: bb2b24c080f7f8173280d5c31ca711d7241d04f1
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 9019a32fc9e8edca9ba8026461945bfb63172afe
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132552720"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133059539"
 ---
 # <a name="quickstart-deploy-your-first-container-app"></a>빠른 시작: 첫 번째 컨테이너 앱 배포
 

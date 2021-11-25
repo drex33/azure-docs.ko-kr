@@ -4,12 +4,13 @@ description: 이 빠른 시작에서는 Azure IoT Hub에서 Azure RTOS용 Defend
 services: defender-for-iot
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.openlocfilehash: 1fc60bd489931cd802ccc8f14cdfca12120ec2ff
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: mode-other
+ms.openlocfilehash: 0b75746159fcd49540ce4011f93f51aba25b1738
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132293500"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070037"
 ---
 # <a name="quickstart-defender-iot-micro-agent-for-azure-rtos"></a>빠른 시작: Azure RTOS용 Defender-IoT-micro-agent
 

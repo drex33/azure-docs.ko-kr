@@ -3,13 +3,13 @@ title: '빠른 시작: Event Hubs에 사용자 지정 이벤트 보내기 - Even
 description: '빠른 시작: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. Event Hub는 엔드포인트에 사용됩니다.'
 ms.date: 09/28/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: f725af009f8c2b8f8c4595865d6d746ff9f55849
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.custom: devx-track-azurecli, mode-other
+ms.openlocfilehash: 5bc51d2eb6247da750e7223a3d007793c14b2739
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230167"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133067719"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Event Hubs로 사용자 지정 이벤트 라우팅
 

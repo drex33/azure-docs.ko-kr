@@ -10,13 +10,13 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2e699beb4bae6c31c73e2e5eebc508306deeb262
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: f0c3b6edf3fc42e0c88e390184ca825c97eefff7
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053567"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046382"
 ---
 # <a name="frequently-asked-questions-for-conversational-language-understanding"></a>대화형 Language Understanding을 위한 질문과 대답
 

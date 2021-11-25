@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: mbullwin
 keywords: 변칙 검색, 알고리즘
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
-ms.openlocfilehash: e9ef8e7af4814dee437ead4f90ef2c43e3b259ae
-ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
+ms.openlocfilehash: a61c74e4e14d00f866d45bce60858a3c9549e667
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2021
-ms.locfileid: "113296922"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040033"
 ---
 # <a name="quickstart-use-the-anomaly-detector-univariate-client-library"></a>빠른 시작: Anomaly Detector 단변량 클라이언트 라이브러리 사용
 
@@ -45,4 +45,3 @@ ms.locfileid: "113296922"
 [!INCLUDE [Python quickstart](../includes/quickstarts/anomaly-detector-rest-api.md)]
 
 ::: zone-end
-

@@ -7,13 +7,14 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 11/16/2021
+ms.custom: mode-other
 zone_pivot_groups: iot-develop-nxp-toolset
-ms.openlocfilehash: b8c51cbe5fd5f4587850ecbd1b6eb4aa5b2c6dd6
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.openlocfilehash: 5fd5c2c93ffdfd8e16846e23924ebfbd098d90d9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132903652"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133058695"
 ---
 # <a name="quickstart-connect-an-nxp-mimxrt1060-evk-evaluation-kit-to-iot-central"></a>빠른 시작: NXP MIMXRT1060-EVK 평가 키트를 IoT Central에 연결
 
@@ -527,4 +528,3 @@ IoT Central에서 디바이스 정보를 볼 수 있습니다.
 
 > [!IMPORTANT]
 > Azure RTOS는 기본 MCU/MPU 하드웨어 보호 메커니즘을 사용하여 통신을 보호하고 코드 및 데이터 격리를 만드는 구성 요소를 OEM에 제공합니다. 그러나 각 OEM은 궁극적으로 디바이스에서 진화하는 보안 요구 사항을 충족하는지 확인해야 합니다.
-

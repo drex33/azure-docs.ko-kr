@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: 74a1093f8a084360669c5b436fa56d6ea7aa33d8
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 818de36c5377065751f4c703676de06f9b3c8c28
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132494580"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051406"
 ---
 # <a name="azure-bastion-faq"></a>Azure Bastion FAQ
 
@@ -24,7 +24,7 @@ ms.locfileid: "132494580"
 
 ### <a name="is-ipv6-supported"></a>IPv6이 지원되나요?
 
-현재 IPv6은 지원되지 않습니다. Azure Bastion은 IPv4만 지원합니다. 즉, 사용자는 자신의 요새 리소스에 IPv4 공용 IP 주소만 할당할 수 있으며,이를 사용 하 여 IPv4 대상 Vm에 연결할 수 있습니다. 또한 사용자의 방호를 사용 하 여 이중 스택 대상 Vm에 연결할 수 있지만 Azure 방호를 통해 IPv4 트래픽만 보내고 받을 수 있습니다. 
+현재 IPv6은 지원되지 않습니다. Azure Bastion은 IPv4만 지원합니다. 즉, Bastion 리소스에 IPv4 공용 IP 주소만 할당할 수 있으며 Bastion을 사용하여 IPv4 대상 VM에 연결할 수 있습니다. Bastion을 사용하여 이중 스택 대상 VM에 연결할 수도 있지만 Azure Bastion 통해서만 IPv4 트래픽을 보내고 받을 수 있습니다. 
 
 ### <a name="can-i-use-azure-bastion-with-azure-private-dns-zones"></a>Azure Private DNS 영역에서 Azure Bastion을 사용할 수 있나요?
 
@@ -71,7 +71,7 @@ Azure Bastion은 배포된 지역 외부로 고객 데이터를 이동하거나 
 * 가상 머신에 대한 읽기 권한자 역할
 * 가상 머신의 개인 IP를 사용하는 NIC에 대한 읽기 권한자 역할
 * Azure Bastion 리소스에 대한 읽기 권한자 역할
-* 대상 가상 컴퓨터의 Virtual Network에 대 한 읽기 역할입니다 (피어 링 Virtual Network에 있는 경우).
+* 대상 가상 머신의 Virtual Network 대한 읽기 역할입니다(Bastion이 피어된 Virtual Network 있는 경우).
 
 ### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>Azure Bastion이 Azure 호스팅 VM에 관리 용도로 액세스하는 경우 RDS CAL이 필요한가요?
 
@@ -79,28 +79,32 @@ Azure Bastion은 배포된 지역 외부로 고객 데이터를 이동하거나 
 
 ### <a name="which-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Bastion 원격 세션 중에 지원되는 키보드 레이아웃은?
 
-Azure 방호는 현재 VM 내에서 다음과 같은 키보드 레이아웃을 지원 합니다.
+Azure Bastion 현재 VM 내에서 다음과 같은 키보드 레이아웃을 지원합니다.
 * en-us-qwerty
-* en-us-qwerty
+* en-gb-qwerty
+* de-ch-qwertz
 * de-de-qwertz
-* qwertz
+* fr-be-azerty
 * fr-fr-azerty
-* fr-fr-azerty
-* fr-fr-qwertz
-* hu-hu-hu-hu-qwertz
-* it-qwerty
+* fr-ch-qwertz
+* hu-hu-qwertz
+* it-it-qwerty
 * ja-jp-qwerty
 * pt-br-qwerty
-* es-qwerty
-* latam-qwerty
-* sv-qwerty
-* tr-qwerty
+* es-es-qwerty
+* es-latam-qwerty
+* sv-se-qwerty
+* tr-tr-qwerty
 
-대상 언어에 대 한 올바른 키 매핑을 설정 하려면 로컬 컴퓨터의 언어나 대상 VM 내 언어를 영어 (미국)로 설정 해야 합니다. 즉, 대상 VM 언어가 대상 언어로 설정 되어 있는 동안에는 로컬 컴퓨터 언어가 영어 (미국)로 설정 되거나 그 반대의 경우도 가능 합니다. 컴퓨터 설정에서 컴퓨터에 영어 (미국) 언어를 추가할 수 있습니다.
+대상 언어에 대한 올바른 키 매핑을 설정하려면 로컬 컴퓨터의 언어 또는 대상 VM 내의 언어를 영어(미국)로 설정해야 합니다. 즉, 대상 VM 언어가 대상 언어로 설정된 동안 로컬 컴퓨터 언어를 영어(미국)로 설정하거나 그 반대로 설정해야 합니다. 컴퓨터 설정에서 컴퓨터에 영어(미국) 언어를 추가할 수 있습니다.
 
 ### <a name="does-azure-bastion-support-timezone-configuration-or-timezone-redirection-for-target-vms"></a><a name="timezone"></a>Azure Bastion은 대상 VM에 대한 표준 시간대 구성 또는 표준 시간대 리디렉션을 지원하나요?
 
 Azure Bastion은 현재 표준 시간대 리디렉션을 지원하지 않으며 표준 시간대를 구성할 수 없습니다.
+
+### <a name="can-i-have-an-azure-bastion-subnet-of-size-27-or-smaller-28-29-etc"></a><a name="subnet"></a>크기가 /27 이하인 Azure Bastion 서브넷을 사용할 수 있나요(/28, /29 등)?
+
+2021년 11월 2일 이후에 배포된 Azure Bastion 리소스의 경우 최소 AzureBastionSubnet 크기는 /26 이상(/25, /24 등)입니다. 이 날짜 이전에 /27 크기의 서브넷에 배포된 모든 Azure Bastion 리소스는 이 변경의 영향을 받지 않으며 계속 작동하지만, 나중에 [호스트 크기 조정을](./configure-host-scaling.md) 활용하도록 선택하는 경우 기존 AzureBastionSubnet의 크기를 /26으로 늘리는 것이 좋습니다.
 
 ### <a name="is-user-defined-routing-udr-supported-on-an-azure-bastion-subnet"></a><a name="udr"></a>Azure Bastion 서브넷에서 UDR(사용자 정의 라우팅)이 지원됩니까?
 

@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: pamela
 ms.reviewer: mathoma
-ms.openlocfilehash: 9890c3b6068fd7e11e8b0e1de663aa262b87399e
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.custom: mode-portal
+ms.openlocfilehash: dd7ece4419b4c10a7f286898aa73110c86c8b1c2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130162592"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073162"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal의 Windows 가상 머신에서 SQL Server 2017 만들기
 

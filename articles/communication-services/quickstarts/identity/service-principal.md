@@ -11,12 +11,13 @@ ms.date: 06/30/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 39c1be0ddd7e2d80800faae96c42f983220307fb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mode-other
+ms.openlocfilehash: f254ba09b9048dec705157501c2b5e86d200d95c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128677248"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133046300"
 ---
 # <a name="quickstart-authenticate-using-azure-active-directory"></a>빠른 시작: Azure Active Directory를 사용하여 인증
 
@@ -55,4 +56,3 @@ Azure Active Directory를 사용하여 Azure Communication Services를 시작하
 - [SMS 메시지 보내기](../../quickstarts/telephony-sms/send.md)
 - [SMS에 대한 자세한 정보](../../concepts/telephony-sms/concepts.md)
 - [테스트를 위해 빠르게 ID 만들기](./quick-create-identity.md).
-

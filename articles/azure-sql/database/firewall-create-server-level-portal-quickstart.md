@@ -4,19 +4,19 @@ description: 서버 수준 방화벽 규칙 만들기
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, mode-portal
 ms.devlang: ''
 ms.topic: quickstart
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: mathoma, vanto
 ms.date: 02/11/2019
-ms.openlocfilehash: c276d5dfd2ca6cbffe09fddacf9c1dc73a3d2eff
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 16e163d1bad1d5fb45349bcb9e3d26012d16a06e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690042"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133048771"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 서버 수준 방화벽 규칙 만들기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

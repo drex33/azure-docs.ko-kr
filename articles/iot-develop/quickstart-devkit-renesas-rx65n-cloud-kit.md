@@ -7,12 +7,13 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: 73463d2474bae2ca0c6788a0332d3f797f2fb002
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: mode-other
+ms.openlocfilehash: cd536f0c948273ed5bc516a98063f91e206c7480
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130226284"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044107"
 ---
 # <a name="quickstart-connect-a-renesas-rx65n-cloud-kit-to-iot-central"></a>빠른 시작: Renesas RX65N Cloud Kit를 IoT Central에 연결
 
@@ -295,4 +296,3 @@ IoT Central에서 디바이스 정보를 볼 수 있습니다.
 
 > [!IMPORTANT]
 > Azure RTOS는 기본 MCU/MPU 하드웨어 보호 메커니즘을 사용하여 통신을 보호하고 코드 및 데이터 격리를 만드는 구성 요소를 OEM에 제공합니다. 그러나 각 OEM은 궁극적으로 디바이스에서 진화하는 보안 요구 사항을 충족하는지 확인해야 합니다.
-

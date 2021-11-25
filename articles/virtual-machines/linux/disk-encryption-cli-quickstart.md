@@ -8,13 +8,13 @@ ms.collection: linux
 ms.subservice: disks
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9b2e96f288bc2c83f1957aa66a770c09be21282b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-azurecli, mode-api
+ms.openlocfilehash: 4f1a64fa847417dfa399585f2defa93836ab746d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588507"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043193"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Linux VM 만들기 및 암호화
 

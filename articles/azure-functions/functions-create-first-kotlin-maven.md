@@ -6,13 +6,13 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ad52f889cdf3d4d1faaf83ee87154b6a51a2860d
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 4bbf06e17d025ceacf677de8da362d17cae6748e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287243"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044952"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>빠른 시작: Kotlin 및 Maven을 사용하여 첫 번째 함수 만들기
 

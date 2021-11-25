@@ -9,12 +9,13 @@ ms.reviewer: ''
 ms.date: 06/11/2021
 author: garyericson
 ms.author: garye
-ms.openlocfilehash: 3fadfc3fdead7249480b2ce841601149f750b958
-ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
+ms.custom: mode-other
+ms.openlocfilehash: 7cddb9bb7ccfe4f0e56e13884c4f805123bff072
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112063736"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041041"
 ---
 # <a name="quickstart-use-a-sample-notebook-from-the-synapse-analytics-gallery"></a>빠른 시작: Synapse Analytics 갤러리의 샘플 Notebook 사용
 

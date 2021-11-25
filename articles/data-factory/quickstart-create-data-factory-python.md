@@ -9,13 +9,13 @@ ms.subservice: tutorials
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/27/2021
-ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 0344ac6e358b35f2f5d420932b188c229bd94fe8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: seo-python-october2019, devx-track-python, mode-other
+ms.openlocfilehash: f5873d45706490a71a6e26054d45489d3bbfe76e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749838"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050756"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
 

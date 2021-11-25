@@ -4,13 +4,13 @@ description: 빠른 시작에서는 Azure HDInsight에서 Apache Storm 토폴로
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/14/2019
-ms.custom: mvc
-ms.openlocfilehash: 73b0434065b06f25320a0666937fd7969c863b33
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.custom: mvc, mode-other
+ms.openlocfilehash: d8d07c9368ffb38e49ae7f8f3ea7b31d65987c79
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870214"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044253"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>빠른 시작: Azure HDInsight에서 Apache Storm 토폴로지 만들기 및 모니터링
 

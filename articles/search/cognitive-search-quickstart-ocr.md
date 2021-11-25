@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/07/2021
-ms.openlocfilehash: 68fc76ab80320a41cd9c9f0884dec8dc7771bccc
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.custom: mode-other
+ms.openlocfilehash: 38d281a6aeb23fbd113b0f0903bd9d279d179ba1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065277"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043522"
 ---
 # <a name="quickstart-apply-ocr-and-image-analysis-using-the-import-data-wizard"></a>빠른 시작: 데이터 가져오기 마법사를 사용하여 OCR 및 이미지 분석 적용
 

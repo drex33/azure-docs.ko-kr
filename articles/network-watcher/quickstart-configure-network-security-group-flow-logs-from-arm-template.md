@@ -7,13 +7,13 @@ ms.author: damendo
 ms.date: 01/07/2021
 ms.topic: quickstart
 ms.service: network-watcher
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
-ms.openlocfilehash: 80df799885218c30a2fcb11b4193d267200f0330
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-other
+ms.openlocfilehash: fa0c4f8a5d3f3eecd15e8c378576908e2bb0ddd5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131070189"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045789"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 네트워크 보안 그룹 흐름 로그 구성
 

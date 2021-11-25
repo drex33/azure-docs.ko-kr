@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: d3af8169bf482acbbc7122c55094231e834b3aa9
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 5c95157666f8b7ac2109ab17f8517b497cfa2a66
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132709826"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062896"
 ---
 # <a name="quickstart-form-recognizer-javascript-client-library-sdks-v30--preview"></a>빠른 시작: Form Recognizer JavaScript 클라이언트 라이브러리 SDKs v3.0 | 미리 보기
 

@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 11/17/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0ba9ac7474631cc398da08132ee975d46f9f8051
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: 93e16719d637ea478f927ceed0afc72f653c7014
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130064764"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133050214"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>빠른 시작: REST API를 사용하여 PowerShell에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]

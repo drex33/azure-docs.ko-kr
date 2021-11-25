@@ -5,13 +5,13 @@ ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 926d9ca087f509a1aa76dcec235fd7996bce4a78
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: ignite-fall-2021, mode-api
+ms.openlocfilehash: dd3d43750767c77b11999e7f11e7d61c23214f57
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101785"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075586"
 ---
 # <a name="quickstart-create-a-connected-registry-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 연결된 레지스트리 만들기
 

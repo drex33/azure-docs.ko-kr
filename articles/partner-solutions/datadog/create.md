@@ -6,13 +6,13 @@ ms.topic: quickstart
 ms.date: 05/28/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.custom: references_regions
-ms.openlocfilehash: 6b2737877ecc550540761bfb704aee98f6e7c2f4
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.custom: references_regions, mode-other
+ms.openlocfilehash: 52e6be9961e885e754291f7c39a401986a88bd82
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655258"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133043613"
 ---
 # <a name="quickstart-get-started-with-datadog-by-creating-new-instance"></a>빠른 시작: 새 인스턴스를 만들어서 Datadog 시작
 
@@ -20,7 +20,7 @@ ms.locfileid: "110655258"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure에서 Datadog의 첫 번째 인스턴스를 만들기 전에 [환경을 구성](prerequisites.md)합니다. 이 빠른 시작의 다음 단계를 계속하기 전에 이 단계를 완료해야 합니다.
+Azure에서 Datadog의 첫 번째 인스턴스를 만들기 전에 [환경을 구성합니다](prerequisites.md). 이 빠른 시작의 다음 단계를 계속하기 전에 이러한 단계를 완료해야 합니다.
 
 ## <a name="find-offer"></a>제안 찾기
 
@@ -52,7 +52,7 @@ Azure Portal을 사용하여 Datadog을 찾습니다.
 
 다음 값을 제공합니다.
 
-|속성 | Description
+|속성 | 설명
 |:-----------|:-------- |
 | Subscription | Datadog 리소스를 만드는 데 사용할 Azure 구독을 선택합니다. 소유자 액세스 권한이 필요합니다. |
 | 리소스 그룹 | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. [리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups)은 Azure 솔루션과 관련된 리소스를 보관하는 컨테이너입니다. |

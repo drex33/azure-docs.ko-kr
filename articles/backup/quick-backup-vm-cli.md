@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 Azure CLI를 사용하여 Recovery Servi
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 46e4eb1392345f4b0ccd8cdcedc30a75e2123877
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: mvc, devx-track-azurecli, mode-api
+ms.openlocfilehash: 2219c832e721ac9c20211a4c46c17804182c5f2e
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599908"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040138"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure에서 가상 머신 백업
 

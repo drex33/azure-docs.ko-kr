@@ -12,13 +12,13 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
-ms.openlocfilehash: 6e2b5137096e407a86011ed0ee08ed7bf45c4f21
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-other
+ms.openlocfilehash: 01af21cfa82f7cfabb968c252cc7c8317ece20c5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131073095"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041759"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Front Door 만들기
 

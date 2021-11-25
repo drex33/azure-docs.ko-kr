@@ -7,13 +7,13 @@ ms.author: jken
 ms.date: 06/09/2021
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: beb16b541f764cde806d94bcbf2fe8649fcbae88
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.openlocfilehash: eb1050d1c20561f28abfdfb1f3795f3b913295a2
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132719678"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133065238"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure App Configuration 저장소 만들기
 

@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 Azure Database for MySQL - 유연한 서
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: 7beb058e51010bc148d9cde31e4053d3de3cf598
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 179299e2f9cbe1e342cbe418de6442394d096df9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131445524"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133074022"
 ---
 # <a name="use-mysql-workbench-with-azure-database-for-mysql-flexible-server"></a>Azure Database for MySQL 유연한 서버와 함께 MySQL Workbench 사용
 

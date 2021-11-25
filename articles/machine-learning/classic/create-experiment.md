@@ -7,14 +7,14 @@ ms.subservice: studio-classic
 ms.topic: quickstart
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: seodec18, mode-other
 ms.date: 02/06/2019
-ms.openlocfilehash: 8049b3fcce0d9f07314a71b051162819da42514c
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 6c930935004631d62e153af2ad0a636ea37aaeaf
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689622"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066974"
 ---
 # <a name="create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
 

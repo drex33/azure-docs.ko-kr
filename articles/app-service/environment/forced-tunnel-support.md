@@ -6,13 +6,13 @@ ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: madsd
-ms.custom: mvc, seodec18
-ms.openlocfilehash: e0d43424e038328f82d3639891aa85397f68d3ad
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.custom: mvc, seodec18, mode-other
+ms.openlocfilehash: bfc379657113f135f3c222a1dd09e97d615c6467
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519613"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040506"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
 > [!NOTE]

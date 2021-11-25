@@ -6,13 +6,13 @@ ms.author: ebnkruma
 ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 29e6f131b5efb36788d2400a940902f3757f5405
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli, mode-api
+ms.openlocfilehash: f081e1cb08cc50b7181c9eaf891600f29af78ce9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725060"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133063499"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 

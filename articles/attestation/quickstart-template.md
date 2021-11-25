@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: msmbaldwin
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: mbaldwin
 ms.date: 05/20/2021
-ms.openlocfilehash: 47c3bc90cbcb9dac75fdf139351ba3ff0871571e
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 02aecaf4b825e0bc0317afda2e6ae7cb2bf4ead3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748016"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047394"
 ---
 # <a name="quickstart-create-an-azure-attestation-provider-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Attestation 공급자 만들기
 

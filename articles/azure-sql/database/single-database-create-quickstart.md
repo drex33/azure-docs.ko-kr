@@ -4,19 +4,18 @@ description: Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: deployment-configuration
-ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: ''
+ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell, mode-other
 ms.topic: quickstart
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 01/27/2021
-ms.openlocfilehash: 54724f2788813830bf85ff1665291ea3b3b43cc8
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: c5c587de359089bccc0e699d82da89000876957c
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132553575"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133040219"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>빠른 시작: Azure SQL Database 단일 데이터베이스 만들기
 

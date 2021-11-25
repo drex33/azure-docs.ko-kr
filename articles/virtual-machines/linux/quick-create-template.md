@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
-ms.custom: subject-armqs
-ms.openlocfilehash: 173adbaa32444a2eb28c050266a503c9f448f927
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: d71f5f1f0508d74d094f8d862ea016eae9b627b9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693934"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133061242"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Ubuntu Linux 가상 머신 만들기
 

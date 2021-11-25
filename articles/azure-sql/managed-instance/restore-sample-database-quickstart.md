@@ -5,19 +5,19 @@ description: 이 빠른 시작에서는 SSMS(SQL Server Management Studio)를 �
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: backup-restore
-ms.custom: ''
+ms.custom: mode-other
 ms.devlang: ''
 ms.topic: quickstart
 author: misliplavo
 ms.author: mlazic
 ms.reviewer: mathoma
 ms.date: 09/13/2021
-ms.openlocfilehash: 3c8df890cb8772c919d70e790f7a2c62eb757e87
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ca0fd12c7a70d6721bae336cd2a6208fa6ed279a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130041288"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054478"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>빠른 시작: SSMS를 사용하여 Azure SQL Managed Instance로 데이터베이스 복원
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

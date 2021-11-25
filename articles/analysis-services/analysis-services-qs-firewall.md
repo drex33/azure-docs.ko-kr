@@ -7,13 +7,13 @@ ms.reviewer: minewiskan
 ms.date: 08/12/2020
 ms.topic: quickstart
 ms.service: azure-analysis-services
-ms.custom: mode-portal
-ms.openlocfilehash: fe774818a1f28d76d35d2771513f91aff785be41
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: mode-other
+ms.openlocfilehash: 3e4a5d808841a2a5e455ba93b6a8cc3e18687a83
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031844"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070694"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>빠른 시작: 서버 방화벽 구성 - 포털
 

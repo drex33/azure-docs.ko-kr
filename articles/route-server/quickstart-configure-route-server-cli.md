@@ -7,12 +7,13 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: ded7b5358c863ceaae153be3582981f90152b045
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.custom: mode-api
+ms.openlocfilehash: a7c09fc4284352ce76536c833df05f3e1b1fc097
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132808112"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133073769"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Route Server 만들기 및 구성 
 

@@ -3,20 +3,17 @@ title: 명령줄에서 C# 함수 만들기 - Azure Functions
 description: 명령줄에서 C# 함수를 만든 다음, 로컬 프로젝트를 Azure Functions의 서버리스 호스팅에 게시하는 방법을 알아봅니다.
 ms.date: 09/14/2021
 ms.topic: quickstart
-ms.custom:
-- devx-track-csharp
-- devx-track-azurecli
-- devx-track-azurepowershell
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
-ms.openlocfilehash: 75d8177b8feaeb5bf4dfa0d7a3791b65fab930d4
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: c9a2e8df17a8f84defb13dfc54b1c5fca25a1756
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132026687"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062665"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>빠른 시작: 명령줄에서 Azure에 C# 함수 만들기
 

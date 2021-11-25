@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 06/04/2021
 ms.author: aahi
-ms.custom: subject-armqs
-ms.openlocfilehash: b9fcd3d5eac8ddda890201bf5608e6e412f5d826
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: 15392d04508aa5d84eb505818bf4c1bbe3fbd973
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112004316"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133062346"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Services 리소스 만들기
 

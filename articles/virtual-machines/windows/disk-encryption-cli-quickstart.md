@@ -8,13 +8,13 @@ ms.subservice: disks
 ms.collection: windows
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6db23229cf0f3521c5855226ac96ad7d52c0fc87
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: devx-track-azurecli, mode-api
+ms.openlocfilehash: 3e26974154b28b683fe143809b1ecfd642b1d9ee
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693439"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052247"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-vm-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Windows VM 만들기 및 암호화
 

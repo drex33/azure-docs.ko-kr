@@ -5,13 +5,13 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: f190c2aec509af157944fb11a110953c9e8bbdb0
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: language-service-question-answering, ignite-fall-2021, mode-other
+ms.openlocfilehash: ce12bd40ab75452577ab1c1f9ce2bcb78705ea32
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131476607"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133053229"
 ---
 # <a name="create-test-and-deploy-a-custom-question-answering-project"></a>사용자 지정 질문 답변 프로젝트 만들기, 테스트 및 배포
 

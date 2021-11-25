@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 - Azure Portal을 사용하여 Private Link 서비스 만들기
-titlesuffix: Azure Private Link
+titleSuffix: Azure Private Link
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Private Link 서비스를 만드는 방법을 알아봅니다.
 services: private-link
 author: asudbring
@@ -8,12 +8,13 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 08/18/2021
 ms.author: allensu
-ms.openlocfilehash: de7d106ae02e1150d9765e60fbfdf0dc0cb9bc74
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: mode-portal
+ms.openlocfilehash: 969fb01d56a243ab888cd392ac8be4a4dd2d0aeb
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810318"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133041346"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Private Link 서비스 만들기
 
@@ -46,7 +47,7 @@ ms.locfileid: "124810318"
     | **설정**          | **값**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **프로젝트 세부 정보**  |                                                                 |
-    | 구독     | Azure 구독 선택                                  |
+    | Subscription     | Azure 구독 선택                                  |
     | 리소스 그룹   | **새로 만들기** 를 선택합니다. **CreatePrivLinkService-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNet** 입력                                    |
@@ -258,7 +259,7 @@ ms.locfileid: "124810318"
     | **설정**          | **값**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **프로젝트 세부 정보**  |                                                                 |
-    | 구독     | Azure 구독 선택                                  |
+    | Subscription     | Azure 구독 선택                                  |
     | 리소스 그룹   | **CreatePrivLinkService-rg** 선택 |
     | **인스턴스 세부 정보** |                                                                 |
     | 속성             | **myVNetPE** 입력                                    |
@@ -305,7 +306,7 @@ ms.locfileid: "124810318"
     | Subscription | 구독을 선택합니다. |
     | Resource group | **CreatePrivLinkService-rg** 를 선택합니다. 이전 섹션에서 이 리소스 그룹을 만들었습니다.|
     | **인스턴스 세부 정보** |  |
-    | Name  | **myPrivateEndpoint** 를 입력합니다. |
+    | 속성  | **myPrivateEndpoint** 를 입력합니다. |
     | 지역 | **(미국) 미국 동부 2** 를 선택합니다. |
 
 6. 페이지 아래쪽에서 **리소스** 탭 또는 **다음: 리소스** 단추를 선택합니다.

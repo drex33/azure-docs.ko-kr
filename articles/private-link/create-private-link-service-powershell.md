@@ -7,13 +7,13 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/24/2021
 ms.author: allensu
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cc921bbbb78e0d6b53165a3d904d90a09144f9d9
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.custom: devx-track-azurepowershell, mode-other
+ms.openlocfilehash: bbc51f21d7f9dd76fef6d3e34e97c2581f1b2dcb
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110696759"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133057521"
 ---
 # <a name="quickstart-create-a-private-link-service-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Private Link 서비스 만들기
 
@@ -315,4 +315,3 @@ Remove-AzResourceGroup -Name 'CreatePrivLinkService-rg'
 Azure 프라이빗 엔드포인트에 대해 자세히 알아보려면 계속 진행하세요.
 > [!div class="nextstepaction"]
 > [빠른 시작: Azure Powershell을 사용하여 Private Endpoint 만들기](create-private-endpoint-powershell.md)
-

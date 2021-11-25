@@ -3,14 +3,14 @@ title: '빠른 시작: Azure Portal에서 Python 앱 만들기'
 description: Azure Portal을 사용하여 첫 번째 Python 앱을 App Service의 Linux 컨테이너에 배포하여 Azure App Service를 시작합니다.
 ms.topic: quickstart
 ms.date: 04/01/2021
-ms.custom: devx-track-python
-robots: noindex
-ms.openlocfilehash: 42f29152521da7bf90a550248e8429e51b728b24
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.custom: devx-track-python, mode-other
+ROBOTS: noindex
+ms.openlocfilehash: 0bca9ff6a2fb1f5ac9f5b6e70b38365b56ae3fa5
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107012359"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054697"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux-azure-portal"></a>빠른 시작: Azure App Service on Linux를 사용하여 Python 앱 만들기(Azure Portal)
 

@@ -8,12 +8,13 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-ms.openlocfilehash: 51a59615d0f87943e195a3f189d96eccaf67623f
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: mode-api
+ms.openlocfilehash: fd25716c3f6edd54c2aff1f681569d1b484d48c1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369421"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133051901"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-powershell"></a>빠른 시작: PowerShell을 사용하여 공용 IP 주소 만들기
 

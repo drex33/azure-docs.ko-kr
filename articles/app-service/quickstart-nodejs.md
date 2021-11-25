@@ -4,14 +4,14 @@ description: 몇 분 안에 첫 번째 Node.js Hello World를 Azure App Service�
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 09/14/2021
-ms.custom: mvc, devcenter, seodec18, mode-portal
+ms.custom: mvc, devcenter, seodec18, mode-other
 zone_pivot_groups: app-service-vscode-cli-portal
-ms.openlocfilehash: 70d98c6aed2e8f561aeb40e4e60fdeab603f58c6
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: b0fd89739c6a6081808dfd0992d4af6cfd6b7f08
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132524059"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042653"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기
 

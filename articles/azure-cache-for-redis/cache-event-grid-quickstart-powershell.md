@@ -6,13 +6,13 @@ author: curib
 ms.author: cauribeg
 ms.topic: quickstart
 ms.service: cache
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fa1ae9a7a2200944bd5da0211be88ba4955e3d03
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.custom: devx-track-azurepowershell, mode-api
+ms.openlocfilehash: 1eb11aec829e110e5d607988939d56e338a555a8
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833889"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042488"
 ---
 # <a name="quickstart-route-azure-cache-for-redis-events-to-web-endpoint-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Cache for Redis 이벤트를 웹 엔드포인트로 라우팅
 

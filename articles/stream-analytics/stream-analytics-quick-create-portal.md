@@ -6,13 +6,13 @@ ms.author: ebnkruma
 ms.date: 03/30/2021
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: 2b5e6ba551f8f02aa93d157fa39e6b951d977ab8
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: b1ae733ac28daa4f7a9d4e964d75297813fadae9
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092384"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133069241"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 

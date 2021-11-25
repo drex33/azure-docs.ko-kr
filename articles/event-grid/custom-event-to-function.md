@@ -3,12 +3,13 @@ title: '빠른 시작: Azure 함수에 사용자 지정 이벤트 보내기 - Ev
 description: '빠른 시작: Azure Event Grid와 Azure CLI 또는 포털을 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. Azure 함수는 엔드포인트에 사용됩니다.'
 ms.date: 09/28/2021
 ms.topic: quickstart
-ms.openlocfilehash: c6f0377b1b6489927de6a980bf4fc1ecb080e051
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: mode-other
+ms.openlocfilehash: 4c7e703ba27bc3dcd3e34031605fca46dc3f9f22
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277484"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042062"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>빠른 시작: Event Grid를 사용하여 Azure 함수로 사용자 지정 이벤트 라우팅
 

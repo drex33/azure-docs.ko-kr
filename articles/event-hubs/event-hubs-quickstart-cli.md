@@ -4,13 +4,13 @@ description: 이 빠른 시작에서는 Azure CLI를 사용하여 이벤트 허�
 ms.topic: quickstart
 ms.date: 06/18/2021
 ms.author: spelluru
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 779d83cbf53423c3b4b6c6d8ce2c27c0c9674da7
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.custom: devx-track-azurecli, mode-api
+ms.openlocfilehash: 6bc24e768210e28a878f6dced7e65f23688e2e0d
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112414812"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075108"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 이벤트 허브 만들기
 

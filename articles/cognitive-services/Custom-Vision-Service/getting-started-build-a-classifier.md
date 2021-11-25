@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 09/27/2021
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: 이미지 인식, 이미지 인식 앱, custom vision
-ms.openlocfilehash: 180ddc450dc172d7fa3eb08ed7466f89f4679195
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 21b6bf5e3e77f48828c1a2fc73a50ace414979b4
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351733"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133070329"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>빠른 시작: Custom Vision 웹 사이트로 분류자 빌드
 
@@ -25,7 +25,7 @@ ms.locfileid: "129351733"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 분류자를 학습시키는 데 사용할 이미지 세트. 이미지 선택 팁은 아래 설명을 참조하세요.
 
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음으로 사용 가능한 도메인 중 하나를 선택합니다. 각 도메인은 다음 표에 설명된 대로 특정 이미지 유형에 맞게 분류자를 최적화합니다. 원하는 경우 나중에 도메인을 변경할 수 있습니다.
 
-    |도메인|목적|
+    |도메인|용도|
     |---|---|
     |__일반__| 광범위한 이미지 분류 작업에 최적화되었습니다. 다른 도메인이 적절하지 않거나 선택할 도메인을 잘 모르겠으면 일반 도메인을 선택합니다. |
     |__음식__|식당 메뉴에 표시되는 것 같은 음식 사진에 최적화되었습니다. 개별 과일이나 채소 사진을 분류하려면 음식 도메인을 사용합니다.|

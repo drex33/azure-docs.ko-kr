@@ -5,17 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 04/26/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3eb2f0023cbd0bbe36b466ecf4a1380aa20a2c5c
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.openlocfilehash: 9a2625d899a48adf608b083e2cb81e55b011ac93
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122531194"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133097420"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 호스트 기반 암호화
 
 호스트 기반 암호화를 통해, AKS 에이전트 노드 VM의 VM 호스트에 저장된 데이터는 미사용 암호화되고 스토리지 서비스로 암호화되어 흐릅니다. 즉, 임시 디스크는 플랫폼 관리형 키를 사용하여 미사용 암호화됩니다. OS 및 데이터 디스크의 캐시는 해당 디스크에 설정된 암호화 유형에 따라 플랫폼 관리형 키 또는 고객 관리형 키를 사용하여 미사용 암호화됩니다. 기본적으로 AKS를 사용하는 경우 OS 및 데이터 디스크는 플랫폼 관리형 키를 사용하여 미사용 암호화됩니다. 즉, 이러한 디스크에 대한 캐시도 플랫폼 관리형 키를 사용하여 기본적으로 미사용 암호화됩니다.  [Azure Kubernetes Service에서 Azure 디스크를 사용하여 BYOK(Bring your own key)](azure-disk-customer-managed-keys.md)에 따라 고유한 관리형 키를 지정할 수 있습니다. 또한 이 단계에서 지정한 키를 사용하여 이러한 디스크에 대한 캐시도 암호화합니다.
 
+호스트 기반 암호화는 Azure Storage 사용되는 SSE(서버 쪽 암호화)와 다릅니다. Azure 관리 디스크는 Azure Storage 사용하여 데이터를 저장할 때 저장 데이터를 자동으로 암호화합니다. 호스트 기반 암호화는 VM의 호스트를 사용하여 데이터가 Azure Storage 통과하기 전에 암호화를 처리합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

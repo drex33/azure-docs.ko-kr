@@ -6,12 +6,13 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: f2ec995334069dc707c8eb09fae3601f58c6c549
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.custom: mode-other
+ms.openlocfilehash: 3e783930bdd5a86f446f11d0769048c514557159
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287261"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047050"
 ---
 # <a name="create-your-first-kotlin-function-in-azure-using-intellij"></a>IntelliJ를 사용하여 Azure에서 첫 번째 Kotlin 함수 만들기
 

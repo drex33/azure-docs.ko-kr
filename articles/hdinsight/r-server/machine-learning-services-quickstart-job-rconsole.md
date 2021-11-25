@@ -5,12 +5,13 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a4c724f973d2a84aada50e62b792b6b2227ecc66
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.custom: mode-other
+ms.openlocfilehash: 4eeaa1c80d42bad9cd684aa46a115e0152d5b916
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112299504"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133045898"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>자습서: R 콘솔을 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행
 

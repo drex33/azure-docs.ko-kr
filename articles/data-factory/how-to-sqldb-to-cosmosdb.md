@@ -1,26 +1,26 @@
 ---
-title: Azure Data Factory를 사용하여 Azure SQL Database 테이블을 Azure CosmosDB로 마이그레이션
-description: Azure SQL Database에서 기존의 정규화된 데이터베이스 스키마를 가져와 Azure Data Factory를 사용하여 Azure CosmosDB 비정규화된 컨테이너로 마이그레이션합니다.
+title: Azure Data Factory 사용하여 Azure SQL Database 테이블을 Azure Cosmos DB로 마이그레이션
+description: Azure SQL Database 기존 정규화된 데이터베이스 스키마를 사용하여 Azure Data Factory Azure Cosmos DB 비정규화된 컨테이너로 마이그레이션합니다.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 75f2f31bc3ef280b17e6bae6926d5cd3ba66b83e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bfd11fa6098aa65d99330d4e28e7f3aec0ada0e7
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128600687"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133097382"
 ---
-# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>정규화된 데이터베이스 스키마를 Azure SQL Database에서 Azure CosmosDB 비정규화 컨테이너로 마이그레이션
+# <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmos-db-denormalized-container"></a>정규화된 데이터베이스 스키마를 Azure SQL Database Azure Cosmos DB 비정규화된 컨테이너로 마이그레이션
 
-이 가이드에서는 Azure SQL Database에서 기존의 정규화된 데이터베이스 스키마를 가져와서 Azure CosmosDB 비정규화된 스키마로 변환한 후 Azure CosmosDB로 로드하는 방법을 설명합니다.
+이 가이드에서는 Azure SQL Database 기존 정규화된 데이터베이스 스키마를 Azure Cosmos DB로 로드하기 위해 Azure Cosmos DB 비정규화된 스키마로 변환하는 방법을 설명합니다.
 
 일반적으로 SQL 스키마는 세 번째 정규 형식을 사용하여 모델링되어 높은 수준의 데이터 무결성을 제공하고 중복 데이터 값이 줄어든 정규화된 스키마가 생성됩니다. 쿼리는 테이블 간에 엔터티를 조인하여 읽을 수 있습니다. CosmosDB는 문서 내에 자체 포함된 데이터를 사용하여 비정규화된 스키마를 통해 컬렉션 또는 컨테이너 내에서 트랜잭션 및 쿼리를 매우 빠르게 처리하도록 최적화되었습니다.
 
-여기서는 Azure Data Factory를 사용하여 단일 매핑 데이터 흐름을 사용하는 파이프라인을 빌드합니다. 이 파이프라인은 엔터티 관계로 기본 키 및 외래 키를 포함하는 두 개의 Azure SQL Database 정규화된 테이블에서 읽습니다. ADF는 데이터 흐름 Spark 엔진을 사용하여 이러한 테이블을 단일 스트림으로 조인하고, 조인된 행을 배열로 수집하고, 새 Azure CosmosDB 컨테이너에 삽입할 정리된 개별 문서를 생성합니다.
+여기서는 Azure Data Factory를 사용하여 단일 매핑 데이터 흐름을 사용하는 파이프라인을 빌드합니다. 이 파이프라인은 엔터티 관계로 기본 키 및 외래 키를 포함하는 두 개의 Azure SQL Database 정규화된 테이블에서 읽습니다. ADF는 데이터 흐름 Spark 엔진을 사용하여 이러한 테이블을 단일 스트림에 조인하고, 조인된 행을 배열에 수집하고, 새 Azure Cosmos DB 컨테이너에 삽입하기 위해 정리된 개별 문서를 생성합니다.
 
 이 가이드에서는 표준 SQL Server AdventureWorks 샘플 데이터베이스의 ```SalesOrderHeader``` 및 ```SalesOrderDetail``` 테이블을 사용하는 'orders'라는 새 컨테이너를 즉석에서 빌드합니다. 이러한 테이블은 ```SalesOrderID```에 의해 조인된 판매 트랜잭션을 나타냅니다. 고유한 세부 정보 레코드 각각에는 ```SalesOrderDetailID```라는 기본 키가 있습니다. 헤더와 세부 정보 간의 관계는 ```1:M```입니다. ADF에서 ```SalesOrderID```에 조인한 다음 각 관련 세부 정보 레코드를 'detail'이라는 배열로 롤링합니다.
 

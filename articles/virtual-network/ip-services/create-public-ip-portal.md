@@ -8,13 +8,13 @@ ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
-ms.custom: template-quickstart
-ms.openlocfilehash: d45e48120c69eeb41ec8bf741e32437f77d2ec69
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: template-quickstart, mode-portal
+ms.openlocfilehash: 23cfac2c0c1a84834c41034bbf61a7ce8d2d28fa
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225027"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052062"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 공용 IP 주소 만들기
 
@@ -61,7 +61,7 @@ ms.locfileid: "130225027"
     | 유휴 제한 시간(분)  | 기본값 **4** 를 그대로 둡니다.        |
     | DNS 이름 레이블          | 이 값은 빈 상태로 둡니다.    |
     | Subscription            | 구독 선택   |
-    | Resource group          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
+    | 리소스 그룹          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | Location                | **(미국) 미국 동부 2** 선택     |
     | 가용성 영역       | **영역 없음** 선택 |
 
@@ -149,7 +149,7 @@ ms.locfileid: "130225027"
     | 유휴 제한 시간(분)  | 기본값 **4** 를 그대로 둡니다.        |
     | DNS 이름 레이블          | 이 값은 빈 상태로 둡니다.    |
     | Subscription            | 구독 선택   |
-    | Resource group          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
+    | 리소스 그룹          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | Location                | **(미국) 미국 동부 2** 선택     |
     | 가용성 영역       | **영역 중복** 을 선택합니다. |
 
@@ -192,7 +192,7 @@ ms.locfileid: "130225027"
     | 유휴 제한 시간(분)  | 기본값 **4** 를 그대로 둡니다.        |
     | DNS 이름 레이블          | 이 값은 빈 상태로 둡니다.    |
     | Subscription            | 구독 선택   |
-    | Resource group          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
+    | 리소스 그룹          | **새로 만들기** 를 선택하고 **QuickStartCreateIP-rg** 를 입력합니다. </br> **확인** 을 선택합니다. |
     | Location                | **(미국) 미국 동부 2** 선택     |
     | 가용성 영역       | **영역 중복** 을 선택합니다. |
 

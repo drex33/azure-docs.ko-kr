@@ -7,13 +7,13 @@ ms.date: 01/27/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 20a6ced453ca49c08131917f0d22c4c7d9f759a9
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
+ms.openlocfilehash: df2cad54722d4832bcda54b32f4a4ddbd3de40a3
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278750"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133052921"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure IoT Hub DPS(Device Provisioning Service) 설정
 

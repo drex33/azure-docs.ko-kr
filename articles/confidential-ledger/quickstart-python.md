@@ -6,13 +6,13 @@ ms.author: mbaldwin
 ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: 292c298f3af1b693574ecf9e053de14373d4d597
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: devx-track-python, devx-track-azurepowershell, mode-other
+ms.openlocfilehash: d0bb70e26d1df61ae8f2165f3326924dff85a214
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131476322"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133044556"
 ---
 # <a name="quickstart-microsoft-azure-confidential-ledger-client-library-for-python"></a>빠른 시작: Python용 Microsoft Azure 기밀 원장 클라이언트 라이브러리
 

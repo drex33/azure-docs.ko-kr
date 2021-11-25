@@ -1,5 +1,5 @@
 ---
-title: 상업용 마켓플레이스에 대한 등급 및 리뷰 대시보드
+title: 상업적 marketplace의 등급 및 리뷰 대시보드
 description: Microsoft AppSource 및 Azure Marketplace에서 제품에 대한 고객 피드백의 통합 보기에 액세스하는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/27/2021
-ms.openlocfilehash: df8d3d610262d9d544b9161c14d790a54d00f3cc
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 11/22/2021
+ms.openlocfilehash: e9154bd1ea46da502cae77b0d6232b801aa167f1
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082646"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055996"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 등급 및 리뷰 대시보드
+# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>상업적 marketplace 분석의 등급 및 리뷰 대시보드
 
-이 문서에서는 파트너 센터 등급 및 리뷰 대시보드에 대한 정보를 제공합니다. 이 대시보드는 Microsoft AppSource 및 Azure Marketplace에 대한 제품의 고객 의견에 대한 통합 보기를 표시합니다. 고객이 두 Marketplace에서 제품을 탐색, 검색 및 구매할 때 획득한 제품에 대한 평점 및 리뷰를 남길 수 있습니다.
+이 문서에서는 파트너 센터의 등급 및 리뷰 대시보드에 대 한 정보를 제공 합니다. 이 대시보드는 Microsoft AppSource 및 Azure Marketplace에 대한 제품의 고객 의견에 대한 통합 보기를 표시합니다. 고객이 두 Marketplace에서 제품을 탐색, 검색 및 구매할 때 획득한 제품에 대한 평점 및 리뷰를 남길 수 있습니다.
 
 - 고객은 새 평점을 제출하거나 제출한 기존 평점 또는 리뷰를 검토하고 업데이트 또는 삭제할 수 있습니다. 고객은 자신이 소유하는 평점과 리뷰만 변경할 수 있습니다.  
 - 리뷰는 Azure Marketplace 또는 AppSource 제품의 제품 표시 페이지에 있는 리뷰 탭에 게시됩니다. 고객은 이름을 포함하거나 익명으로 게시할 수 있습니다.  
@@ -25,35 +25,25 @@ ms.locfileid: "129082646"
 >[!NOTE]
 > 분석 용어에 대한 자세한 정의는 [상업용 마켓플레이스 분석에 대한 자주 묻는 질문과 용어](analytics-faq.yml)를 참조하세요.
 
-## <a name="access-the-ratings--reviews-dashboard"></a>등급 & 검토 대시보드에 액세스
-
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
+## <a name="access-the-ratings--reviews-dashboard"></a>등급 & 리뷰 대시보드에 액세스
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
-1. 홈 페이지에서 **Insights** 타일을 선택합니다.
+1. 홈 페이지에서 **Insights** 타일을 선택 합니다.
 
     [![파트너 센터 홈 페이지의 Insights 타일을 보여 줍니다. ](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
-1. 왼쪽 메뉴에서 등급 **& 검토를** 선택합니다.
-
-#### <a name="current-view"></a>[현재 보기](#tab/current-view)
-
-파트너 센터의 [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)에서 **[분석](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** 섹션을 확장하고 **평점 및 리뷰** 를 선택합니다.
-
----
+1. 왼쪽 메뉴에서 **등급 & 리뷰** 를 선택 합니다.
 
 대시보드에는 다음과 같은 고객 활동의 그래픽 표현이 표시됩니다.
 
 - 등급  
 - 리뷰 의견
 
-Marketplace **Insights** 탭을 사용하여 제안의 Microsoft AppSource 및 Azure Marketplace 메트릭을 개별적으로 볼 수 있습니다. 특정 제품 메트릭을 보려면 제품 드롭다운 목록에서 제품을 선택합니다.
+**Marketplace Insights** 탭을 사용 하 여 제품의 Microsoft AppSource 및 Azure Marketplace 메트릭을 개별적으로 볼 수 있습니다. 특정 제품 메트릭을 보려면 제품 드롭다운 목록에서 제품을 선택합니다.
 
-### <a name="ratings-and-reviews-summary"></a>평점 및 리뷰 요약
+### <a name="ratings-and-reviews-summary"></a>등급 및 리뷰 요약
 
-요약 섹션에는 선택한 날짜 범위에 대한 다음 메트릭이 표시됩니다.
+요약 섹션에는 선택한 날짜 범위에 대 한 다음과 같은 메트릭이 표시 됩니다.
 
 - **평균 평점:** 선택한 제품에 대해 고객이 제출한 모든 평점의 가중 평균 별표 평점입니다.
 - **평점 분석:** 평점을 제출한 고객 수에 따른 별표 평점 분석입니다. 가로 막대형 차트는 실제 및 수정된 평점(업데이트된 평점 수)으로 누적됩니다.
@@ -74,27 +64,13 @@ Marketplace **Insights** 탭을 사용하여 제안의 Microsoft AppSource 및 A
 
 리뷰에 응답하려면 다음 단계를 수행합니다.
 
-#### <a name="workspaces-view"></a>[작업 영역 보기](#tab/workspaces-view)
-
-1. 등급 **& 검토** 페이지에서 **Azure Marketplace** 또는 **AppSource를** 선택합니다. **필터를** 선택하여 리뷰 목록의 범위를 좁힐 수 있으며, 예를 들어 특정 별 등급의 리뷰만 표시할 수 있습니다.
+1. **등급 & 검토** 페이지에서 **Azure Marketplace** 또는 **appsource** 를 선택 합니다. **필터** 를 선택 하 여 리뷰 목록의 범위를 좁히고 특정 별 등급을 가진 리뷰만 표시할 수 있습니다.
 
     [![등급 및 검토 페이지를 보여 줍니다.](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png)](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png#lightbox)
 
 1. 응답하려는 리뷰에 대한 **회신** 링크를 선택하고 **텍스트 상자** 에 답글을 입력한 다음 **회신 보내기** 를 선택합니다.
 
 응답은 AppSource의 제품 상세 정보 페이지에서 원본 리뷰의 텍스트 아래에 표시되고 Azure Marketplace 온라인 상점에 표시됩니다.
-
-#### <a name="current-view"></a>[현재 보기](#tab/current-view)
-
-1. 등급 **& 검토** 페이지에서 **Azure Marketplace** 또는 **AppSource를** 선택합니다. **필터** 를 선택하여 리뷰 목록의 범위를 좁히고 예를 들어 특정 별점을 받은 리뷰만 표시할 수 있습니다.
-
-    :::image type="content" source="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews.png" alt-text="AppSource의 평점 및 리뷰를 보여 줍니다." lightbox="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews.png":::
-
-1. 응답하려는 리뷰에 대한 **회신** 링크를 선택하고 **텍스트 상자** 에 답글을 입력한 다음 **회신 보내기** 를 선택합니다.
-
-응답은 AppSource의 제품 상세 정보 페이지에서 원본 리뷰의 텍스트 아래에 표시되고 Azure Marketplace 온라인 상점에 표시됩니다.
-
----
 
 #### <a name="appsource"></a>AppSource
 

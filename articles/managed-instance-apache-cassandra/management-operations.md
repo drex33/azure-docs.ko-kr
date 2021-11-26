@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 1fea81e093b2e80def283a837f8ba07fa77a93bb
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 5061fc71dd5b429e576cdeabe0285cf0d9d440e3
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132941418"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133096393"
 ---
 # <a name="management-operations-in-azure-managed-instance-for-apache-cassandra"></a>Azure Managed Instance for Apache Cassandra의 관리 작업
 
@@ -37,13 +37,24 @@ Azure Managed Instance for Apache Cassandra는 관리형 오픈 소스 Apache Ca
   * Cassandra 링에서 각 노드의 멤버 자격을 적극적으로 모니터링합니다.
   * 가상 머신을 적극적으로 모니터링하여 Azure, Virtual Machines, 스토리지, Linux 및 지원 소프트웨어의 문제를 식별하고 해결합니다.
 
-* Cassandra 사용으로 인해 발생할 수 있는 모든 CPU, 디스크 및 네트워크 사용 문제를 담당합니다. 이러한 문제의 몇 가지 예는 다음과 같습니다.
+## <a name="support"></a>Support(지원)
 
-  * 비효율적인 쿼리 작업
-  * 용량을 초과하는 처리량
-  * 스토리지 용량을 초과하는 데이터 수집
-  * 잘못된 Keyspace 구성 설정
-  * 잘못된 데이터 모델 또는 파티션 키 전략
+Azure Managed Instance for Apache Cassandra는 관리형 클러스터의 데이터 센터 가용성을 위한 [SLA](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/)를 제공합니다. 서비스 사용과 관련된 문제가 발생하는 경우 [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)에서 지원 요청을 제출합니다. 
+
+>[!IMPORTANT]
+> 지원 사례를 통해 보고된 문제를 조사 및 진단하고 가능한 경우 해결하거나 완화하려고 합니다. 그러나 CPU, 디스크 또는 네트워크 문제를 일으키는 Apache Cassandra 구성 수준 사용에 대한 책임은 사용자에게 있습니다.
+>
+> 이러한 문제의 예는 다음과 같습니다.
+>
+>  * 비효율적인 쿼리 작업
+>  * 용량을 초과하는 처리량
+>  * 스토리지 용량을 초과하는 데이터 수집
+>  * 잘못된 Keyspace 구성 설정
+>  * 잘못된 데이터 모델 또는 파티션 키 전략 
+>
+> 지원 사례를 조사하고 문제의 근본 원인이 Apache Cassandra 구성 수준(유지 관리하는 기본 플랫폼 수준 측면이 아님)에 있는 경우 사례가 종결될 수 있습니다. 가능한 경우 수정에 대한 권장 사항 및 지침도 제공합니다. 따라서 위와 같은 Apache Cassandra의 일반적인 애플리케이션/구성 수준 문제를 방지하기 위해 [메트릭을 사용하도록 설정](visualize-prometheus-grafana.md)하고/또는 [Azure Monitor 통합](monitor-clusters.md )에 익숙해지는 것이 좋습니다. 
+
+
 
 ## <a name="backup-and-restore"></a>백업 및 복원
 

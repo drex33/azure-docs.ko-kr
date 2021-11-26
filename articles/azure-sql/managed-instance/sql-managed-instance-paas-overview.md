@@ -11,12 +11,12 @@ author: niko-neugebauer
 ms.author: nneugebauer
 ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: a35a001a7d543426f5bb2f842b5b00c9a1139cd3
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 5b809abaa40a6fb12b3712f0680d925618801491
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132554031"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133109380"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -62,15 +62,15 @@ SQL Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 |기능 | Description|
 |---|---|
 | SQL Server 버전/빌드 | SQL Server 데이터베이스 엔진(안정적인 최신 버전) |
-| 관리되는 자동 백업 | Yes |
-| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | Yes |
-| 자동 소프트웨어 패치 | Yes |
-| 최신 데이터베이스 엔진 기능 | Yes |
+| 관리되는 자동 백업 | 예 |
+| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | 예 |
+| 자동 소프트웨어 패치 | 예 |
+| 최신 데이터베이스 엔진 기능 | 예 |
 | 데이터베이스당 데이터 파일(행) 수 | 여러 |
 | 데이터베이스당 로그 파일(로그) 수 | 1 |
-| VNet - Azure Resource Manager 배포 | Yes |
+| VNet - Azure Resource Manager 배포 | 예 |
 | VNet - 클래식 배포 모델 | No |
-| 포털 지원 | Yes|
+| 포털 지원 | 예|
 | 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](../../data-factory/tutorial-deploy-ssis-packages-azure.md)의 일부입니다. |
 | 기본 제공 분석 서비스(SSAS) | 아니요 - SSAS는 별도의 [PaaS](../../analysis-services/analysis-services-overview.md)입니다. |
 | 기본 제공 보고 서비스(SSRS) | 아니요 - Azure VM에서 SSRS를 호스트하는 대신, [Power BI의 페이지 매김 보고서](/power-bi/paginated-reports/paginated-reports-report-builder-power-bi)를 사용합니다. SQL Managed Instance는 SSRS를 서비스로 실행할 수는 없지만 SQL Server 인증을 사용하여 Azure Virtual Machine에 설치된 보고 서버용 [SSRS 카탈로그 데이터베이스](/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements)를 호스트할 수 있습니다. |
@@ -82,8 +82,9 @@ SQL Managed Instance의 [vCore 기반 구매 모델](../database/service-tiers-v
 
 vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 
-- **Gen4** 논리 CPU는 Intel&reg; E5-2673 v3(Haswell) 2.4GHz 프로세서, SSD 장착, 물리적 코어, 코어당 7GB RAM 및 vCore가 8~24개인 컴퓨팅 크기를 기반으로 합니다.
-- **Gen5** 논리 CPU는 Intel&reg; E5-2673 v4(Broadwell) 2.3GHz, Intel&reg; SP-8160(Skylake) 및 Intel&reg; 8272CL(Cascade Lake) 2.5GHz 프로세서, 고속 NVMe SSD, 하이퍼 스레드 논리 코어 및 코어가 4~80개인 컴퓨팅 크기를 기반으로 합니다.
+- **표준 시리즈(Gen5)** 논리 CPU는 Intel&reg; E5-2673 v4(Broadwell) 2.3GHz, Intel&reg; SP-8160(Skylake) 및 Intel&reg; 8272CL(Cascade Lake) 2.5GHz 프로세서(**CPU vCore당 5.1 GB의 RAM** 탑재), 고속 NVMe SSD, 하이퍼 스레드 논리 코어 및 코어가 4~80개인 컴퓨팅 크기를 기반으로 합니다.
+- **프리미엄 시리즈** 논리 CPU는 Intel&reg; 8370C(Ice Lake) 2.8 GHz 프로세서(**CPU vCore당 7GB의 RAM** 탑재), 고속 NVMe SSD, 하이퍼 스레드 논리 코어 및 코어가 4~80개인 컴퓨팅 크기를 기반으로 합니다.
+- **프리미엄 시리즈 메모리 최적화** 논리 CPU는 Intel&reg; 8370C(Ice Lake) 2.8 GHz 프로세서(**CPU vCore당 13.6GB의 RAM** 탑재), 고속 NVMe SSD, 하이퍼 스레드 논리 코어 및 코어가 4~64개인 컴퓨팅 크기를 기반으로 합니다.
 
 하드웨어 세대 간의 차이점에 대한 자세한 내용은 [SQL Managed Instance 리소스 제한](resource-limits.md#hardware-generation-characteristics)을 참조하세요.
 
@@ -101,7 +102,7 @@ SQL Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습�
 다음 목록에서는 범용 서비스 계층의 주요 특징을 설명합니다.
 
 - 일반적인 성능 요구 사항이 있는 대부분의 비즈니스 애플리케이션에 적합한 디자인
-- 고성능 Azure Blob Storage(8TB)
+- 고성능 Azure Blob 스토리지(16TB)
 - 신뢰할 수 있는 Azure Blob Storage 및 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)에 기반한 [고가용성](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) 기본 제공
 
 자세한 내용은 [범용 계층의 스토리지 레이어](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) 및 [SQL Managed Instance(범용)의 스토리지 성능 모범 사례 및 고려 사항](/archive/blogs/sqlcat/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose)을 참조하세요.
@@ -115,7 +116,7 @@ SQL Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습�
 다음 목록에서는 중요 비즈니스용 서비스 계층의 주요 특징을 설명합니다.
 
 - 최고의 성능과 HA 요구 사항을 가진 대부분의 비즈니스 애플리케이션용으로 설계됨
-- 초고속 로컬 SSD 스토리지(4세대의 최대 1TB 및 5세대의 최대 4TB)와 함께 제공됨
+- 초고속 로컬 SSD 스토리지(표준 시리즈(Gen5)의 경우 최대 4TB, 프리미엄 시리즈의 경우 최대 5.5TB, 프리미엄 시리즈 메모리 최적화의 경우 최대 16TB)가 제공됩니다.
 - [Always On 가용성 그룹](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) 및 [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)을 기반으로 [고가용성](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) 기본 제공
 - 보고 및 기타 읽기 전용 워크로드에 사용할 수 있는 추가적인 [읽기 전용 데이터베이스 복제본](../database/read-scale-out.md) 기본 제공
 - 고성능 요구 사항이 있는 워크로드에 사용할 수 있는 [메모리 내 OLTP](../in-memory-oltp-overview.md)  

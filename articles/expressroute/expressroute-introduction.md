@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: e1cef56d15838d80079decc6e1da7ad830bd1cd9
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 696c6329abcfe393f4d1d2c9f103e603c8a7d881
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029763"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133109589"
 ---
 # <a name="what-is-azure-expressroute"></a>Azure ExpressRoute란?
 ExpressRoute를 사용하면 연결 공급자의 도움을 받아 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure 및 Microsoft 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
@@ -65,7 +65,9 @@ ExpressRoute를 통해 지원되는 서비스에 대한 자세한 목록은 [Exp
 [ExpressRoute 프리미엄](expressroute-faqs.md)을 사용하여 지정학적 경계를 넘어 연결을 확장할 수 있습니다. 예를 들어 ExpressRoute를 통해 암스테르담의 Microsoft에 연결하는 경우 전 세계 모든 지역에서 호스팅되는 모든 Microsoft 클라우드 서비스에 액세스할 수 있습니다. 또한 북유럽 및 서유럽 지역에 액세스하는 것과 동일한 방식으로 남아메리카 또는 오스트레일리아에 배포된 서비스에 액세스할 수 있습니다. 국가 클라우드는 제외됩니다.
 
 ### <a name="local-connectivity-with-expressroute-local"></a>ExpressRoute Local을 통한 로컬 연결
-[로컬 SKU](expressroute-faqs.md)를 사용하도록 설정하여 데이터를 비용 효율적으로 전송할 수 있습니다. 로컬 SKU를 사용하면 데이터를 원하는 Azure 지역 근처의 ExpressRoute 위치로 가져올 수 있습니다. 로컬에서 데이터 전송은 ExpressRoute 포트 요금에 포함됩니다. 
+[로컬 SKU](expressroute-faqs.md)를 사용하도록 설정하여 데이터를 비용 효율적으로 전송할 수 있습니다. 로컬 SKU를 사용하면 데이터를 원하는 Azure 지역 근처의 ExpressRoute 위치로 가져올 수 있습니다. 로컬에서 데이터 전송은 ExpressRoute 포트 요금에 포함됩니다.
+
+피어링 위치 및 지원되는 Azure 로컬 지역은 [위치별 공급자](expressroute-locations-providers.md#partners)를 참조하세요.
 
 ### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>ExpressRoute Global Reach를 사용한 온-프레미스 간 연결
 ExpressRoute Global Reach를 사용해 ExpressRoute 회로를 연결하면 온-프레미스 사이트 전체에서 데이터를 교환할 수 있습니다. 예를 들어 캘리포니아의 프라이빗 데이터 센터가 실리콘 밸리의 ExpressRoute 회로에 연결되어 있고 텍사스의 다른 프라이빗 데이터 센터가 달라스의 ExpressRoute 회로에 연결되어 있는 경우입니다. ExpressRoute Global Reach를 사용하면 이러한 두 ExpressRoute 회로를 통해 프라이빗 데이터 센터를 모두 연결할 수 있습니다. 데이터 센터 간 트래픽은 Microsoft 네트워크를 통해 전송됩니다.

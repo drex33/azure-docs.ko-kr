@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: ebaad16ff413b33f175815a1ddadb2fa1d5b63ae
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: a58909d40f5513c19d929e932921d947cf3cac32
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131841926"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133038529"
 ---
 # <a name="connect-to-and-manage-teradata-in-azure-purview"></a>Azure Purview에서 Teradata에 연결 및 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "131841926"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| [예**](how-to-lineage-teradata.md)|
+| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 예| [예**](how-to-lineage-teradata.md)|
 
 \**데이터 세트가 [데이터 팩터리 복사 작업에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다](how-to-link-azure-data-factory.md). 
 
@@ -119,7 +119,7 @@ Teradata 원본에 대해 유일하게 지원되는 인증은 **기본 인증** 
     1. **사용 가능한 최대 메모리:** 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 Teradata 원본의 크기에 따라 달라집니다.
 
         > [!Note]
-        > 일반적으로 1000개 테이블당 2GB 메모리를 제공하세요.
+        > 일반적으로 1,000개 테이블당 2GB 메모리를 제공하세요.
 
         :::image type="content" source="media/register-scan-teradata-source/setup-scan.png" alt-text="검사 설정" border="true":::
 

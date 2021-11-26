@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 3cd19094b876203569df83cf3bc165968d9051a2
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 26e62086b12ff6317cf9df9f111e87f764e1a1dc
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257994"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133096889"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Azure Communication Services의 문제 해결
 
@@ -195,6 +195,42 @@ Windows용으로 개발할 때 로그는 `.blog` 파일에 저장됩니다. 로�
 5. `start `를 입력한 다음 3단계에서 반환된 경로를 입력하여 로그가 포함된 폴더를 엽니다. 예: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. 모든 `*.blog` 및 `*.etl` 파일을 Azure 지원 요청에 첨부합니다.
 
+## <a name="finding-azure-active-directory-information"></a>Azure Active Directory 정보 찾기
+
+* **디렉터리 ID 가져오기**
+* **애플리케이션 ID 가져오기**
+* **사용자 ID 가져오기**
+
+## <a name="getting-directory-id"></a>디렉터리 ID 가져오기 
+디렉터리(테넌트) ID를 찾으려면 아래에 나열된 단계를 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)로 이동하고 자격 증명을 사용하여 Azure Portal에 로그인합니다.
+1. 왼쪽 창에서 Azure Active Directory를 선택합니다.
+1. Azure AD의 **개요** 페이지에서 디렉터리(테넌트 ID)를 복사하여 애플리케이션 코드에 저장합니다.
+
+    ![Azure Active Directory 테넌트 ID를 복사하고 저장하는 방법의 스크린샷.](./media/troubleshooting/copy-aad-directory-id.png)
+
+## <a name="getting-application-id"></a>애플리케이션 ID 가져오기 
+애플리케이션 ID를 찾으려면 아래에 나열된 단계를 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)로 이동하고 자격 증명을 사용하여 Azure Portal에 로그인합니다.
+1. 왼쪽 창에서 Azure Active Directory를 선택합니다.
+1. Azure AD의 **앱 등록** 에서 애플리케이션을 선택합니다.
+1. **애플리케이션 ID** 를 복사하고 애플리케이션 코드에 저장합니다.
+
+   ![Azure Active Directory 애플리케이션 ID를 복사하고 저장하는 방법의 스크린샷.](./media/troubleshooting/copy-aad-application-id.png)
+
+   디렉터리(테넌트) ID는 애플리케이션 개요 페이지에서도 찾을 수 있습니다.
+
+## <a name="getting-user-id"></a>사용자 ID 가져오기
+사용자 ID를 찾으려면 아래에 나열된 단계를 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com)로 이동하고 자격 증명을 사용하여 Azure Portal에 로그인합니다.
+1. 왼쪽 창에서 Azure Active Directory를 선택합니다.
+1. Azure AD의 **사용자** 에서 사용자를 선택합니다.
+1. Azure AD 사용자의 **프로필** 페이지에서 **개체 ID** 를 복사하여 애플리케이션 코드에 저장합니다.
+
+   ![Azure Active Directory 사용자 ID를 복사하고 저장하는 방법의 스크린샷.](./media/troubleshooting/copy-aad-user-id.png)
 
 ## <a name="calling-sdk-error-codes"></a>SDK 오류 코드 호출
 

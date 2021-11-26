@@ -14,7 +14,7 @@ ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: 96835e9ef8f072046594cdbbba2b94bac9e40ac5
 ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/09/2021
 ms.locfileid: "113566270"
@@ -25,7 +25,7 @@ Azure Load Balancer를 사용해 여러 포트, 여러 IP 주소 또는 둘 다�
 
 이 문서에서는 이 기능, 중요한 개념 및 제약 조건에 대한 기본 사항을 설명합니다. 서비스를 하나의 IP 주소에 노출만 하려는 경우 [공용](./quickstart-load-balancer-standard-public-portal.md) 또는 [내부](./quickstart-load-balancer-standard-internal-portal.md) 부하 분산 장치 구성에 대한 단순화된 지침을 찾을 수 있습니다. 여러 프런트 엔드를 추가하면 단일 프런트 엔드 구성이 증가합니다. 이 문서의 개념을 사용하여 단순화된 구성을 언제라도 확장할 수 있습니다.
 
-Azure Load Balancer를 정의할 때 프런트 엔드 및 백 엔드 풀 구성이 규칙과 연결됩니다. 규칙에서 참조하는 상태 프로브는 새로운 흐름을 백 엔드 풀의 노드로 전송하는 방법을 결정하는 데 사용됩니다. 프런트 엔드(일명 VIP)는 IP 주소(공용 또는 내부), 전송 프로토콜(UDP 또는 TCP) 및 부하 분산 규칙의 포트 번호로 구성된 3 튜플로 정의됩니다. 백 엔드 풀은 부하 분산 장치 백 엔드 풀을 참조하는 가상 머신 IP 구성(NIC 리소스의 일부)의 컬렉션입니다.
+Azure Load Balancer를 정의할 때 프런트 엔드 및 백 엔드 풀 구성이 규칙과 연결됩니다. 규칙에서 참조하는 상태 프로브는 새로운 흐름을 백 엔드 풀의 노드로 전송하는 방법을 결정하는 데 사용됩니다. 프런트 엔드(일명 VIP)는 IP 주소(공용 또는 내부), 전송 프로토콜(UDP 또는 TCP) 및 부하 분산 규칙의 포트 번호로 구성된 3 튜플로 정의됩니다. 백 엔드 풀은 Load Balancer 백 엔드 풀을 참조하는 가상 머신 IP 구성(NIC 리소스의 일부)의 컬렉션입니다.
 
 다음 표에는 프런트 엔드 구성의 몇 가지 예가 들어 있습니다.
 
@@ -43,7 +43,7 @@ Azure Load Balancer는 부하 분산 규칙을 정의하는 데 유연성을 제
 1. 백 엔드 포트 재사용이 없는 기본 규칙
 2. 백 엔드 포트가 재사용되는 부동 IP 규칙
 
-Azure Load Balancer를 사용하면 동일한 부하 분산 장치 구성에서 두 규칙 유형을 혼합할 수 있습니다. 부하 분산 장치는 규칙의 제약 조건을 준수하는 한 주어진 VM이나 어떠한 조합에 대해서도 그것들을 동시에 사용할 수 있습니다. 어떤 규칙 유형을 선택하는지는 애플리케이션의 요구 사항 및 해당 구성을 지원하는 복잡성에 따라 달라집니다. 어떤 규칙 유형이 시나리오에 가장 적합한지 평가해야 합니다.
+Azure Load Balancer를 사용하면 동일한 부하 분산 장치 구성에서 두 규칙 유형을 혼합할 수 있습니다. Load Balancer는 규칙의 제약 조건을 준수하는 한 주어진 VM이나 어떠한 조합에 대해서도 그것들을 동시에 사용할 수 있습니다. 어떤 규칙 유형을 선택하는지는 애플리케이션의 요구 사항 및 해당 구성을 지원하는 복잡성에 따라 달라집니다. 어떤 규칙 유형이 시나리오에 가장 적합한지 평가해야 합니다.
 
 기본 동작을 시작으로 이러한 시나리오를 더 자세히 알아봅니다.
 
@@ -146,14 +146,14 @@ netsh interface ipv4 set interface “interfacename” weakhostsend=enabled
 | 1 |![녹색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 |![녹색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 프런트 엔드1:80 (VM1 및 VM2) |
 | 2 |![자주색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 |![자주색 백 엔드](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 프런트 엔드2:80 (VM1 및 VM2) |
 
-다음 표는 부하 분산 장치에서의 전체 매핑을 보여 줍니다.
+다음 표는 Load Balancer에서의 전체 매핑을 보여 줍니다.
 
 | 규칙 | 프런트 엔드 IP 주소 | protocol | 포트 | 대상 | 포트 |
 | --- | --- | --- | --- | --- | --- |
 | ![녹색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |프런트 엔드와 동일(65.52.0.1) |프런트 엔드와 동일(80) |
 | ![자주색 규칙](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |프런트 엔드와 동일(65.52.0.2) |프런트 엔드와 동일(80) |
 
-인바운드 흐름의 대상은 VM에서 루프백 인터페이스의 프런트 엔드 IP 주소입니다. 각 규칙은 대상 IP 주소 및 대상 포트의 고유한 조합으로 흐름을 생성해야 합니다. 흐름의 대상 IP 주소를 변경하면 동일한 VM에서 포트 재사용이 가능합니다. 프런트 엔드의 IP 주소 및 해당 루프백 인터페이스의 포트에 바인딩하면 서비스가 부하 분산 장치에 노출됩니다.
+인바운드 흐름의 대상은 VM에서 루프백 인터페이스의 프런트 엔드 IP 주소입니다. 각 규칙은 대상 IP 주소 및 대상 포트의 고유한 조합으로 흐름을 생성해야 합니다. 흐름의 대상 IP 주소를 변경하면 동일한 VM에서 포트 재사용이 가능합니다. 프런트 엔드의 IP 주소 및 해당 루프백 인터페이스의 포트에 바인딩하면 서비스가 Load Balancer에 노출됩니다.
 
 이 예는 대상 포트를 변경하지 않는지 확인합니다. 비록 부동 IP 시나리오이지만 Azure Load Balancer는 또한 백 엔드 대상 포트를 다시 작성하여 프런트 엔드 대상 포트와 다르도록 규칙을 정의하는 것을 지원합니다.
 

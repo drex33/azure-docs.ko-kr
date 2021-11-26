@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 60d99ea9b1add522701a82bbd461e4ef064286aa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 0dcd10aeb7428bd72dbb4028e64239945741f71e
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131070454"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133109696"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -156,7 +156,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 ```
 ---
 
-만료 날짜를 내일로 설정하고, 유효 기간을 60일로 설정하고, 스토리지 계정 리소스 ID를 사용하여 키 자격 증명 모음에 비밀을 추가합니다. `key1Value` 및 `storageAccountResourceId`에 대해 검색된 값을 사용하여 다음 명령을 실행합니다.
+60일의 유효 기간, 스토리지 계정 리소스 ID를 사용하여 키 자격 증명 모음에 비밀을 추가하고, 데모 목적으로 회전을 즉시 트리거하기 위해 만료 날짜를 내일로 설정합니다. `key1Value` 및 `storageAccountResourceId`에 대해 검색된 값을 사용하여 다음 명령을 실행합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -263,7 +263,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage2 -ResourceGroupName vaultrota
 ```
 ---
 
-만료 날짜를 내일로 설정하고, 유효 기간을 60일로 설정하고, 스토리지 계정 리소스 ID를 사용하여 키 자격 증명 모음에 비밀을 추가합니다. `key2Value` 및 `storageAccountResourceId`에 대해 검색된 값을 사용하여 다음 명령을 실행합니다.
+60일의 유효 기간, 스토리지 계정 리소스 ID를 사용하여 키 자격 증명 모음에 비밀을 추가하고, 데모 목적으로 회전을 즉시 트리거하기 위해 만료 날짜를 내일로 설정합니다. `key2Value` 및 `storageAccountResourceId`에 대해 검색된 값을 사용하여 다음 명령을 실행합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -315,6 +315,11 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 키의 `value`는 키 자격 증명 모음의 비밀과 동일합니다.
 
 ![두 번째 스토리지 계정에 대한 A Z storage account keys list 명령의 출력을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-9.png)
+
+## <a name="disable-rotation-for-secret"></a>비밀에 대한 회전 사용 안 함
+
+해당 비밀에 대한 이벤트 그리드 구독을 삭제하면 비밀 회전을 비활성화할 수 있습니다. Azure PowerShell [Remove-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet 또는 Azure CLI [az event grid event--subscription delete](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?#az_eventgrid_event_subscription_delete) 명령을 사용합니다.
+
 
 ## <a name="key-vault-rotation-functions-for-two-sets-of-credentials"></a>두 자격 증명 세트에 대한 Key Vault 회전 함수
 

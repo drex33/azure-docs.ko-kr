@@ -1,5 +1,5 @@
 ---
-title: 부하 분산 장치 TCP 초기화와 유휴 시간 제한 구성
+title: Load Balancer TCP 초기화와 유휴 시간 제한 구성
 titleSuffix: Azure Load Balancer
 description: 이 문서에서는 Azure Load Balancer TCP 유휴 시간 제한과 초기화를 구성하는 방법에 대해 알아봅니다.
 services: load-balancer
@@ -15,7 +15,7 @@ ms.date: 10/26/2020
 ms.author: allensu
 ms.openlocfilehash: 2a360f5972e4a0b35be20af18d365a88db779c85
 ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/29/2021
 ms.locfileid: "110695561"
@@ -29,7 +29,7 @@ Azure Load Balancer의 유휴 시간 제한 범위는 다음과 같습니다.
 
 기본적으로 4분으로 설정되어 있습니다. 비활성 기간이 시간 제한 값보다 긴 경우 클라이언트와 서비스 간의 TCP 또는 HTTP 세션이 유지되지 않을 수 있습니다. 
 
-다음 섹션에서는 부하 분산 장치 리소스의 유휴 시간 제한 설정과 TCP 초기화 설정을 변경하는 방법을 설명합니다.
+다음 섹션에서는 Load Balancer 리소스의 유휴 시간 제한 설정과 TCP 초기화 설정을 변경하는 방법을 설명합니다.
 
 ## <a name="set-tcp-reset-and-idle-timeout"></a>TCP 초기화 및 유휴 시간 제한 설정
 ---
@@ -111,6 +111,6 @@ az network lb rule update \
 ---
 ## <a name="next-steps"></a>다음 단계
 
-TCP 유휴 시간 제한과 초기화에 대한 자세한 내용은 [부하 분산 장치 TCP 초기화와 유휴 시간 제한](load-balancer-tcp-reset.md)을 참조하세요.
+TCP 유휴 시간 제한과 초기화에 대한 자세한 내용은 [Load Balancer TCP 초기화와 유휴 시간 제한](load-balancer-tcp-reset.md)을 참조하세요.
 
-부하 분산 장치 배포 모드를 구성하는 방법에 대한 자세한 내용은 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)을 참조하세요.
+Load Balancer 배포 모드를 구성하는 방법에 대한 자세한 내용은 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)을 참조하세요.

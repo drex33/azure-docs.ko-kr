@@ -1,15 +1,17 @@
 ---
-ms.openlocfilehash: 6f7a0d8169fed92564437166c74255743ea61a7f
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 45bca4d03bf2b05040b62a5fd24577a10355e762
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122820769"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133034853"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/dotnet/).
 - [Azure Az PowerShell 모듈](/powershell/azure/) 설치
+
+전화번호를 사용하려는 경우에는 평가판 계정을 사용할 수 없습니다. 리소스를 만들기 전에 전화번호를 구매하려는 경우 구독이 모든 [요구 사항](../../concepts/telephony-sms/plan-solution.md)을 충족하는지 확인합니다. 
 
 ## <a name="create-azure-communication-services-resource"></a>Azure Communication Services 리소스 만들기
 

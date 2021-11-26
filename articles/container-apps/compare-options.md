@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/03/2021
 ms.author: jehollan
 ms.custom: ignite-fall-2021, mode-other
-ms.openlocfilehash: 5bbd7a318fbeef6229856e98c01b2764cfb28075
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: d3ea833c7161e62e26660cd3730e78e01ef9b146
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/24/2021
-ms.locfileid: "133051039"
+ms.locfileid: "133096621"
 ---
 # <a name="comparing-container-apps-with-other-azure-container-options"></a>다른 Azure 컨테이너 옵션과 Container Apps 비교
 
@@ -53,7 +53,7 @@ ACI(Azure Container Instances)는 주문형 Hyper-V 격리 컨테이너의 단�
 Azure Kubernetes Service가 Azure에서 완전 관리형 Kubernetes 옵션을 제공합니다. Kubernetes API에 대한 직접 액세스를 지원하고 모든 Kubernetes 워크로드를 실행합니다. 전체 클러스터는 사용자의 제어 및 책임 내에서 클러스터 구성 및 작업을 통해 구독에 상주합니다. Azure에서 Kubernetes의 완전 관리형 버전을 찾는 팀의 경우 Azure Kubernetes Service가 이상적인 옵션입니다.
 
 ### <a name="azure-functions"></a>Azure Functions
-Azure Functions는 서버리스 FaaS(Functions-as-a-Service) 솔루션입니다. 함수 프로그래밍 모델을 사용하여 이벤트 기반 함수를 실행하는 데 최적화되어 있습니다. 규모 및 이벤트와의 통합과 관련하여 Azure Container Apps와 많은 특징을 공유하지만 코드 또는 컨테이너로 배포된 임시 함수에 최적화되어 있습니다. Azure Functions 프로그래밍 모델은 이벤트를 트리거하고 다른 데이터 원본에 바인딩하려는 팀에 생산성 혜택을 제공합니다. FaaS 스타일 함수를 빌드할 때 Azure Functions는 이상적인 옵션입니다. Azure Functions 프로그래밍 모델은 베이스 컨테이너 이미지로 사용할 수 있으며, 환경 요구 사항이 변경되면 팀이 코드를 다시 사용할 수 있도록 다른 컨테이너 기반 컴퓨팅 플랫폼으로 이식할 수 있습니다.
+Azure Functions는 서버리스 FaaS(Functions-as-a-Service) 솔루션입니다. 함수 프로그래밍 모델을 사용하여 이벤트 기반 애플리케이션을 실행하는 데 최적화되어 있습니다. 규모 및 이벤트와의 통합과 관련하여 Azure Container Apps와 많은 특징을 공유하지만 코드 또는 컨테이너로 배포된 임시 함수에 최적화되어 있습니다. Azure Functions 프로그래밍 모델은 이벤트에서 함수 실행을 트리거하고 다른 데이터 원본에 바인딩하려는 팀에 생산성 혜택을 제공합니다. FaaS 스타일 함수를 빌드할 때 Azure Functions는 이상적인 옵션입니다. Azure Functions 프로그래밍 모델은 베이스 컨테이너 이미지로 사용할 수 있으며, 환경 요구 사항이 변경되면 팀이 코드를 다시 사용할 수 있도록 다른 컨테이너 기반 컴퓨팅 플랫폼으로 이식할 수 있습니다. 
 
 ### <a name="azure-spring-cloud"></a>Azure Spring Cloud
 Azure Spring Cloud를 사용하면 코드 변경 없이 Spring Boot 마이크로서비스 애플리케이션을 Azure에 쉽게 배포할 수 있습니다. 이 서비스는 개발자가 코드에 집중할 수 있도록 Spring Cloud 애플리케이션의 인프라를 관리합니다. Azure Spring Cloud는 포괄적인 모니터링 및 진단, 구성 관리, 서비스 검색, CI/CD 통합, 청록색 배포 등을 사용하여 수명 주기 관리를 제공합니다. 팀 또는 조직이 주로 Spring인 경우 Azure Spring Cloud가 이상적인 옵션입니다.

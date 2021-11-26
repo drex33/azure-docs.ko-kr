@@ -13,14 +13,14 @@ ms.date: 10/27/2020
 ms.author: kumud
 ms.openlocfilehash: 7f87862cd922451113403b382930379f63e471e4
 ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/07/2021
 ms.locfileid: "113357898"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>인사이트를 사용하여 Azure Load Balancer 모니터링 및 구성
 
-네트워크에 대한 Azure Monitor를 통해 부하 분산 장치에 대한 기능 종속성 시각화 및 미리 구성된 메트릭 대시보드를 제공합니다. 이러한 시각적 개체는 적절한 설계를 결정하고 오류를 신속하게 지역화, 진단, 해결하는 데 도움이 됩니다.
+네트워크에 대한 Azure Monitor를 통해 Load Balancer에 대한 기능 종속성 시각화 및 미리 구성된 메트릭 대시보드를 제공합니다. 이러한 시각적 개체는 적절한 설계를 결정하고 오류를 신속하게 지역화, 진단, 해결하는 데 도움이 됩니다.
 
 >[!NOTE] 
 >이 기능은 프리뷰 상태이며, 기능 종속성 보기 및 미리 구성된 대시보드가 이 환경을 개선하기 위해 변경될 수 있습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "113357898"
 
 Azure에서 Load Balancer 리소스의 인사이트 블레이드를 방문하여 이 보기에 액세스할 수 있습니다.
 
-:::image type="content" source="./media/load-balancer-insights/load-balancer-functional-dependency-visual.png" alt-text="기능적 종속성 보기에 대한 예시입니다. 부하 분산 장치의 프런트 엔드가 구성된 규칙을 통해 백 엔드 풀 멤버에 연결하는 것을 볼 수 있습니다. 표준 Load Balancer의 경우 부하 분산 규칙에서 백 엔드 풀 인스턴스로의 선은 상태 프로브 상태에 따라 색으로 구분됩니다." border="true":::
+:::image type="content" source="./media/load-balancer-insights/load-balancer-functional-dependency-visual.png" alt-text="기능적 종속성 보기에 대한 예시입니다. Load Balancer의 프런트 엔드가 구성된 규칙을 통해 백 엔드 풀 멤버에 연결하는 것을 볼 수 있습니다. 표준 Load Balancer의 경우 부하 분산 규칙에서 백 엔드 풀 인스턴스로의 선은 상태 프로브 상태에 따라 색으로 구분됩니다." border="true":::
 
 표준 Load Balancer의 경우 백 엔드 풀 리소스는 트래픽을 처리할 수 있는 백 엔드 풀의 현재 가용성을 나타내는 상태 프로브의 상태를 사용하여 색으로 구분됩니다. 위의 토폴로지와 함께 상태 그래프가 표시되고 애플리케이션의 상태에 대한 스냅샷 보기를 제공합니다.
 

@@ -6,18 +6,18 @@ ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 09/09/2021
-ms.custom: template-quickstart
+ms.custom: template-quickstart, mode-other
 keywords: Kubernetes, Arc, Azure, 클러스터
-ms.openlocfilehash: 6716ae8b85893b9af4b439ea76eca631bff525bf
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 0408e8b3a6b097b04c07c9d6c1a62f7bd7565914
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130066455"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133047133"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결
 
-이 빠른 시작에서는 Azure Arc 사용 Kubernetes의 이점 및 기존 Kubernetes 클러스터를 Azure Arc에 연결하는 방법을 알아봅니다. 클러스터를 Azure Arc에 연결하는 개념은 [Azure Arc 사용 Kubernetes 에이전트 아키텍처 문서](./conceptual-agent-architecture.md)를 참조하세요.
+이 빠른 시작에서는 Azure Arc 사용 Kubernetes의 이점 및 기존 Kubernetes 클러스터를 Azure Arc에 연결하는 방법을 알아봅니다. 클러스터를 Azure Arc에 연결하는 개념은 [Azure Arc 사용 Kubernetes 에이전트 아키텍처 문서](./conceptual-agent-overview.md)를 참조하세요.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -33,6 +33,10 @@ ms.locfileid: "130066455"
   az extension add --name connectedk8s
   ```
 
+* 클러스터를 Azure Arc에 연결하는 데 사용하려는 ID(사용자 또는 서비스 주체)를 사용하여 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli)합니다.
+    * 사용되는 ID는 최소한 Azure Arc 지원 Kubernetes 리소스 형식(`Microsoft.Kubernetes/connectedClusters`)에 대한 '읽기' 및 '쓰기' 권한이 있어야 합니다.
+    * [Kubernetes 클러스터 - Azure Arc 온보딩 기본 제공 역할](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding)은 Azure Arc에만 클러스터를 연결하는 데 필요한 세부적인 권한이 있으므로 규모에 따라 온보딩에 유용합니다. 이 역할에는 다른 클러스터 또는 다른 Azure 리소스를 업데이트, 삭제 또는 수정할 수 있는 권한이 없습니다.
+
 * 실행 중인 Kubernetes 클러스터. 클러스터가 없는 경우 이러한 옵션 중 하나를 사용하여 클러스터를 만들 수 있습니다.
     * [Docker의 Kubernetes(KIND)](https://kind.sigs.k8s.io/)
     * [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) 또는 [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)용 Docker를 사용하여 Kubernetes 클러스터 만들기
@@ -47,7 +51,6 @@ ms.locfileid: "130066455"
     > 클러스터에는 운영 체제 및 아키텍처 유형 `linux/amd64`의 노드가 하나 이상 있어야 합니다. `linux/arm64` 노드만 있는 클러스터는 아직 지원되지 않습니다.
 
 * 클러스터를 가리키는 `kubeconfig` 파일 및 컨텍스트입니다.
-* Azure Arc 사용 Kubernetes 리소스 종류(`Microsoft.Kubernetes/connectedClusters`)에 대한 '읽기' 및 '쓰기' 권한
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -61,6 +64,10 @@ ms.locfileid: "130066455"
 
     > [!IMPORTANT]
     > **Az.ConnectedKubernetes** PowerShell 모듈이 미리 보기로 제공되는 동안 `Install-Module` cmdlet을 사용하여 별도로 설치해야 합니다.
+
+* 클러스터를 Azure Arc에 연결하는 데 사용하려는 ID(사용자 또는 서비스 주체)를 사용하여 [Azure PowerShell에 로그인](/powershell/azure/authenticate-azureps)합니다.
+    * 사용되는 ID는 최소한 Azure Arc 지원 Kubernetes 리소스 형식(`Microsoft.Kubernetes/connectedClusters`)에 대한 '읽기' 및 '쓰기' 권한이 있어야 합니다.
+    * [Kubernetes 클러스터 - Azure Arc 온보딩 기본 제공 역할](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding)은 Azure Arc에만 클러스터를 연결하는 데 필요한 세부적인 권한이 있으므로 규모에 따라 온보딩에 유용합니다. 이 역할에는 다른 클러스터 또는 다른 Azure 리소스를 업데이트, 삭제 또는 수정할 수 있는 권한이 없습니다.
 
 * 실행 중인 Kubernetes 클러스터. 클러스터가 없는 경우 이러한 옵션 중 하나를 사용하여 클러스터를 만들 수 있습니다.
     * [Docker의 Kubernetes(KIND)](https://kind.sigs.k8s.io/)
@@ -76,7 +83,6 @@ ms.locfileid: "130066455"
     > 클러스터에는 운영 체제 및 아키텍처 유형 `linux/amd64`의 노드가 하나 이상 있어야 합니다. `linux/arm64` 노드만 있는 클러스터는 아직 지원되지 않습니다.
 
 * 클러스터를 가리키는 `kubeconfig` 파일 및 컨텍스트입니다.
-* Azure Arc 사용 Kubernetes 리소스 종류(`Microsoft.Kubernetes/connectedClusters`)에 대한 '읽기' 및 '쓰기' 권한
 
 * [Helm 3](https://helm.sh/docs/intro/install)을 설치합니다. Helm 3 버전이 &lt; 3.7.0인지 확인합니다.
 
@@ -180,6 +186,9 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
+> [!NOTE]
+> 서비스 주체를 사용하여 Azure CLI에 로그인한 경우 클러스터에서 사용자 지정 위치 기능을 사용하도록 설정하려면 [추가 매개 변수](troubleshooting.md#enable-custom-locations-using-service-principal)를 설정해야 합니다.
+
 출력:
 <pre>
 Helm release deployment succeeded
@@ -218,9 +227,6 @@ Helm release deployment succeeded
 
 > [!TIP]
 > 위치 매개 변수가 지정되지 않은 위의 명령은 Azure Arc 사용 Kubernetes 리소스를 리소스 그룹과 동일한 위치에 만듭니다. Azure Arc 사용 Kubernetes 리소스를 다른 위치에 만들려면 `az connectedk8s connect` 명령을 실행할 때 `--location <region>` 또는 `-l <region>`을 지정합니다.
-
-> [!NOTE]
-> 서비스 주체를 사용하여 Azure CLI에 로그인한 경우 클러스터에서 사용자 지정 위치 기능을 사용하도록 설정하려면 [추가 매개 변수](troubleshooting.md#enable-custom-locations-using-service-principal)를 설정해야 합니다.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -332,24 +338,32 @@ Azure Arc 사용 Kubernetes는 몇 가지 연산자를 `azure-arc` 네임스페�
     출력:
     <pre>
 
-    NAME                                        READY      UP-TO-DATE  AVAILABLE  AGE
-    deployment.apps/cluster-metadata-operator     1/1             1        1      16h
-    deployment.apps/clusteridentityoperator       1/1             1        1      16h
-    deployment.apps/config-agent                  1/1             1        1      16h
-    deployment.apps/controller-manager            1/1             1        1      16h
-    deployment.apps/flux-logs-agent               1/1             1        1      16h
-    deployment.apps/metrics-agent                 1/1             1        1      16h
-    deployment.apps/resource-sync-agent           1/1             1        1      16h
+    NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
+    deployment.apps/cluster-metadata-operator   1/1     1            1           13d
+    deployment.apps/clusterconnect-agent        1/1     1            1           13d
+    deployment.apps/clusteridentityoperator     1/1     1            1           13d
+    deployment.apps/config-agent                1/1     1            1           13d
+    deployment.apps/controller-manager          1/1     1            1           13d
+    deployment.apps/extension-manager           1/1     1            1           13d
+    deployment.apps/flux-logs-agent             1/1     1            1           13d
+    deployment.apps/kube-aad-proxy              1/1     1            1           13d
+    deployment.apps/metrics-agent               1/1     1            1           13d
+    deployment.apps/resource-sync-agent         1/1     1            1           13d
 
-    NAME                                           READY    STATUS   RESTART AGE
-    pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
-    pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
-    pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
-    pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
-    pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
-    pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
-    pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
+    NAME                                            READY   STATUS    RESTARTS   AGE
+    pod/cluster-metadata-operator-9568b899c-2stjn   2/2     Running   0          13d
+    pod/clusterconnect-agent-576758886d-vggmv       3/3     Running   0          13d
+    pod/clusteridentityoperator-6f59466c87-mm96j    2/2     Running   0          13d
+    pod/config-agent-7cbd6cb89f-9fdnt               2/2     Running   0          13d
+    pod/controller-manager-df6d56db5-kxmfj          2/2     Running   0          13d
+    pod/extension-manager-58c94c5b89-c6q72          2/2     Running   0          13d
+    pod/flux-logs-agent-6db9687fcb-rmxww            1/1     Running   0          13d
+    pod/kube-aad-proxy-67b87b9f55-bthqv             2/2     Running   0          13d
+    pod/metrics-agent-575c565fd9-k5j2t              2/2     Running   0          13d
+    pod/resource-sync-agent-6bbd8bcd86-x5bk5        2/2     Running   0          13d
     </pre>
+
+이러한 에이전트에 대한 개념적 개요는 [여기](conceptual-agent-overview.md)에서 확인할 수 있습니다.
 
 ## <a name="7-clean-up-resources"></a>7. 리소스 정리
 

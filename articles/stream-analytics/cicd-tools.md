@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/29/2021
-ms.openlocfilehash: 29105070ea3dfb0a41db194e03095b2611a08393
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
-ms.translationtype: HT
+ms.openlocfilehash: 7cae7c02e0a304718d1b10e25643782682aac71c
+ms.sourcegitcommit: 18336347498b1c0593f97ef1110f0edd202c37bd
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110640"
+ms.lasthandoff: 11/26/2021
+ms.locfileid: "133157057"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>CI/CD 도구를 사용하여 Azure Stream Analytics 작업의 빌드, 테스트 및 배포 자동화
 
@@ -141,8 +141,6 @@ azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob
 
 테스트 구성 파일이 비어 있으면 다음 내용이 파일에 기록됩니다. 그렇지 않으면 테스트 사례가 **testcases** 배열에 추가 됩니다. 필요한 입력 구성은 입력 구성 파일이 있는 경우 해당 파일에 따라 자동으로 채워집니다. 그렇지 않으면 기본값이 구성 됩니다. 테스트를 실행 하기 전에 각 입력 및 예상 출력의 **FilePath** 를 지정 해야 합니다. 구성을 수동으로 수정할 수 있습니다.
 
-테스트 유효성 검사에서 특정 출력을 무시하도록 하려면 예상 출력의 **필수** 필드를 **false** 로 설정합니다.
-
 ```json
 {
   "Script": "",
@@ -170,6 +168,78 @@ azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob
 }
 ```
 
+다음 예제에서는 두 개의 입력을 사용하는 쿼리에 대한 두 가지 테스트 사례를 보여줍니다. 테스트 유효성 검사에서 특정 출력을 무시하도록 하려면 예상 출력의 **필수** 필드를 **false** 로 설정합니다. 이 경우 FilePath 속성은 비어 있지 않아야 하지만 유효할 필요는 없습니다.
+
+```JSON
+{
+  "Script": "C:\\...\\...\\samplejob.asaql",
+  "TestCases": [
+    {
+      "Name": "Case 1 - Testing all outputs at once",
+      "Inputs": [
+        {
+          "InputAlias": "entry",
+          "Type": "Data Stream",
+          "Format": "Json",
+          "FilePath": "C:\\...\\...\\Case1_Data_entry.json",
+          "ScriptType": "InputMock"
+        },
+        {
+          "InputAlias": "exit",
+          "Type": "Data Stream",
+          "Format": "Json",
+          "FilePath": "C:\\...\\...\\Case1_Data_exit.json",
+          "ScriptType": "InputMock"
+        }
+      ],
+      "ExpectedOutputs": [
+        {
+          "OutputAlias": "output1",
+          "FilePath": "C:\\...\\...\\Case1_output1.json",
+          "Required": true
+        },
+        {
+          "OutputAlias": "output2",
+          "FilePath": "C:\\...\\...\\Case1_output2.json",
+          "Required": true
+        }
+      ]
+    },
+    {
+      "Name": "Case 2 - Testing only one output at a time (recommended)",
+      "Inputs": [
+        {
+          "InputAlias": "entry",
+          "Type": "Data Stream",
+          "Format": "Json",
+          "FilePath": "C:\\...\\...\\Case2_Data_entry.json",
+          "ScriptType": "InputMock"
+        },
+        {
+          "InputAlias": "exit",
+          "Type": "Data Stream",
+          "Format": "Json",
+          "FilePath": "C:\\...\\...\Case2_Data_exit.json",
+          "ScriptType": "InputMock"
+        }
+      ],
+      "ExpectedOutputs": [
+        {
+          "OutputAlias": "output1",
+          "FilePath": "C:\\...\\...\\Case2_output1.json",
+          "Required": true
+        },
+        {
+          "OutputAlias": "output2",
+          "FilePath": "[N/A]",
+          "Required": false
+        }
+      ]
+    }
+  ]
+}
+```
+
 > [!NOTE]
 > 현재 `ScriptType` 요소에 대해 허용되는 유일한 값은 기본값이기도 한 `InputMock`입니다. 다른 값으로 설정하면 무시되고 기본값(`InputMock`)이 사용됩니다. 
 
@@ -187,6 +257,17 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 | `-testConfigPath` | 구성 파일의 경로입니다. 지정하지 않으면 파일은 **asaproj.json** 파일의 현재 디렉토리 아래 **\test** 에서 검색되며 기본 파일 이름은 **testConfig.json** 입니다.
 | `-outputPath` | 테스트 결과 출력 폴더의 경로입니다. 지정하지 않으면 출력 결과 파일이 현재 디렉토리에 배치됩니다. |
 | `-customCodeZipFilePath` | UDF 또는 역직렬 변환기와 같은 사용자 지정 코드가 사용되는 경우 zip 파일의 경로입니다. |
+
+예를 들어 PowerShell 사용 터미널에서 모든 테스트 자산이 프로젝트 `test` 폴더의 하위 폴더에 있는 경우 각 테스트 실행 출력이 하위 폴더의 새 타임스탬프가 있는 하위 폴더에 저장됩니다. `testResults`
+
+```PowerShell
+$projectPath = "C:\...\...\samplejob\"
+
+azure-streamanalytics-cicd test `
+    -project ($projectPath + "asaproj.json") `
+    -testConfigPath ($projectPath + "test\testConfig.json") `
+    -outputPath ($projectPath + "test\testResults\$(Get-Date -Format "yyyyMMddHHmmss")\")
+```
 
 모든 테스트가 완료되면 JSON 형식의 테스트 결과 요약이 출력 폴더에 생성됩니다. 요약 파일의 이름은 **testResultSummary.json** 입니다.
 

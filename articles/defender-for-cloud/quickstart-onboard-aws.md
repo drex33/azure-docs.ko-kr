@@ -3,17 +3,18 @@ title: 클라우드용 Microsoft Defender에 AWS 계정 연결
 description: Microsoft Defender for Cloud로 AWS 리소스 방어
 author: memildin
 ms.author: memildin
-ms.date: 11/09/2021
+ms.date: 11/24/2021
 ms.topic: quickstart
 ms.service: defender-for-cloud
 manager: rkarlin
 zone_pivot_groups: connect-aws-accounts
-ms.openlocfilehash: 37352dcf8ae68a107fd10dc76a7ccce5fbab95d0
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.custom: mode-other
+ms.openlocfilehash: 98bc2125cd19b8cdecb6975a088478084017d894
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132526797"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133075322"
 ---
 #  <a name="connect-your-aws-accounts-to-microsoft-defender-for-cloud"></a>클라우드용 Microsoft Defender에 AWS 계정 연결
 
@@ -30,7 +31,7 @@ AWS 기반 리소스를 보호하려면 다음 두 가지 메커니즘 중 하�
 - **환경 설정 페이지(미리 보기)** (권장) - 이 미리 보기 페이지는 대폭 개선되고 더욱 간단해진 온보딩 환경(자동 프로비저닝 포함)을 제공합니다. 또한 이 메커니즘은 Defender for Cloud의 향상된 보안 기능을 AWS 리소스로 확장합니다.
 
     - **Defender for Cloud의 CSPM 기능** 은 AWS 리소스로 확장됩니다. 이 에이전트 없는 플랜은 AWS 관련 보안 권장 사항에 따라 AWS 리소스를 평가하며, 평가 결과는 보안 점수에 포함됩니다. 또한 리소스가 AWS(AWS CIS, AWS PCI DSS 및 AWS Foundational 보안 모범 사례)와 관련된 기본 제공 표준을 준수하는지 여부도 평가됩니다. Defender for Cloud의 [자산 인벤토리 페이지](asset-inventory.md)는 Azure 리소스와 함께 AWS 리소스를 관리하는 데 도움이 되는 다중 클라우드 지원 기능입니다.
-    - **Microsoft Defender for Kubernetes** 는 컨테이너 위협 탐지 및 고급 방어를 **Amazon EKS Linux 클러스터** 로 확장합니다.
+    - **컨테이너용 Microsoft Defender** 는 [Defender for Kubernetes](defender-for-kubernetes-introduction.md)의 컨테이너 위협 탐지 및 고급 방어를 **Amazon EKS 클러스터** 로 확장합니다.
     - **서버용 Microsoft Defender** 는 위협 탐지 및 고급 방어를 Windows 및 Linux EC2 인스턴스로 확장합니다. 이 플랜에는 엔드포인트용 Microsoft Defender의 통합 라이선스, 보안 기준 및 OS 수준 평가, 취약성 평가 검사, AAC(적응형 애플리케이션 제어), FIM(파일 무결성 모니터링) 등이 포함됩니다.
 
 다음은 Defender for Cloud의 [개요 대시보드](overview-page.md)에 표시된 AWS 계정을 보여주는 스크린샷입니다.
@@ -45,7 +46,7 @@ AWS 기반 리소스를 보호하려면 다음 두 가지 메커니즘 중 하�
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|미리 보기.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
-|가격 책정:|CSPM 플랜은 무료입니다.<br>Defender for Kubernetes는 미리 보기 기간 동안 무료입니다. 그 후에는 Azure 리소스의 Defender for Kubernetes 플랜과 동일한 가격으로 요금이 청구됩니다.<br>[Azure Arc 지원 서버](../azure-arc/servers/overview.md)를 통해 Azure에 연결된 모든 AWS 머신의 경우 서버용 Defender 플랜은 Azure 머신의 서버용 Defender 플랜과 동일한 가격으로 요금이 청구됩니다. AWS EC2에 Azure Arc 에이전트가 배포되지 않은 경우 해당 머신에 대한 요금이 청구되지 않습니다.|
+|가격 책정:|**CSPM 플랜** 은 무료입니다.<br>**컨테이너용 Defender** 플랜은 미리 보기 기간 동안 무료입니다. 그 후에는 Azure 리소스의 Defender for Kubernetes 플랜과 동일한 가격으로 요금이 청구됩니다.<br>[Azure Arc 지원 서버](../azure-arc/servers/overview.md)를 통해 Azure에 연결된 모든 AWS 머신의 경우 서버용 Defender 플랜은 Azure 머신의 [서버용 Microsoft Defender](defender-for-servers-introduction.md) 플랜과 동일한 가격으로 요금이 청구됩니다. AWS EC2에 Azure Arc 에이전트가 배포되지 않은 경우 해당 머신에 대한 요금이 청구되지 않습니다.|
 |필요한 역할 및 권한:|관련 Azure 구독의 **소유자**<br>소유자가 서비스 주체 세부 정보를 제공하면(서버용 Defender 플랜에 필요) **기여자** 도 AWS 계정을 연결할 수 있습니다.|
 |클라우드:|:::image type="icon" source="./media/icons/yes-icon.png"::: 상용 클라우드<br>:::image type="icon" source="./media/icons/no-icon.png"::: 국가(Azure Government, Azure 중국 21Vianet)|
 |||
@@ -90,7 +91,7 @@ AWS 기반 리소스를 보호하려면 다음 두 가지 메커니즘 중 하�
 
     - 서버용 Defender 범위를 AWS EC2로 확장하려면 **서버** 플랜을 **켜기** 로 설정하고 구성을 필요한 대로 편집합니다. 
 
-    - Defender for Kubernetes 범위를 AWS EKS Linux 클러스터로 확장하려면 **컨테이너** 플랜을 **켜기** 로 설정하고 구성을 필요한 대로 편집합니다.
+    - Defender for Kubernetes가 AWS EKS 클러스터를 보호하려면 Azure Arc 지원 Kubernetes 및 Defender 확장을 설치해야 합니다. **컨테이너** 계획을 **켜기** 로 설정하고 [Amazon Elastic Kubernetes Service 클러스터 보호](defender-for-kubernetes-introduction.md#protect-amazon-elastic-kubernetes-service-clusters)에 설명된 대로 전용 Defender for Cloud 권장 사항을 사용하여 확장(필요한 경우 Arc)을 배포합니다.
 
 1. 다음 단계를 수행하여 설정을 완료합니다.
     1. **다음: 액세스 구성** 을 선택합니다.

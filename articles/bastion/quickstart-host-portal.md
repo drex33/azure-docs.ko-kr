@@ -8,13 +8,13 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 10/12/2021
 ms.author: cherylmc
-ms.custom: ignite-fall-2021
-ms.openlocfilehash: 243b8a068c5301c5545c2afe8567ae1fbf71284c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: ignite-fall-2021, mode-other
+ms.openlocfilehash: 54bf102cbcc9e78cbf734ed7d0287d4328c14f65
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131426718"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133068386"
 ---
 # <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>빠른 시작: VM 설정에서 Azure Bastion 구성
 
@@ -38,6 +38,10 @@ ms.locfileid: "131426718"
 * 필요한 VM 포트:
   * 인바운드 포트: RDP(3389)
 
+ >[!IMPORTANT]
+ >2021년 11월 2일 이후에 배포되는 Azure Bastion 리소스의 경우 최소 AzureBastionSubnet 크기는 /26 이상(/25, /24 등)입니다. 이 날짜 이전에 크기가 /27인 서브넷에 배포된 모든 Azure Bastion 리소스는 이 변경의 영향을 받지 않고 계속 작동하지만, 나중에 [호스트 크기 조정](./configure-host-scaling.md)을 사용하도록 선택하는 경우에는 기존 AzureBastionSubnet의 크기를 /26으로 늘리는 것이 좋습니다.
+ >
+ 
  >[!NOTE]
  >Azure 프라이빗 DNS 영역에서 Azure Bastion을 사용하는 것은 현재 지원되지 않습니다. 시작하기 전에 Bastion 리소스를 배포하려는 가상 네트워크가 프라이빗 DNS 영역에 연결되어 있지 않은지 확인하세요.
  >

@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: ralphe
 zone_pivot_groups: programming-languages-set-nine
-ms.custom: devx-track-csharp
-ms.openlocfilehash: e71c6959ca62fb19ed74ba4fa679f4edfb710725
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: devx-track-csharp, mode-other
+ms.openlocfilehash: 5d9810c4b79b1a0b1487946f135f476a4aa7a514
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88925901"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042285"
 ---
 # <a name="quickstart-multi-device-conversation"></a>빠른 시작: 다중 디바이스 대화
 

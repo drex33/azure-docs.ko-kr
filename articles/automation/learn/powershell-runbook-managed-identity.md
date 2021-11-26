@@ -3,14 +3,14 @@ title: Azure Automation에서 관리 ID를 사용하여 PowerShell Runbook 만�
 description: 이 자습서에서는 Azure Automation에서 PowerShell Runbook의 관리 ID를 사용하는 방법을 알아봅니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/28/2021
+ms.date: 11/24/2021
 ms.topic: tutorial
-ms.openlocfilehash: 31f9e30d938f70852eac5c5185626828e5305897
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: e1b3b59ecf5df22a5727b0b6924b6d8a39cf9b8a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131427174"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133054630"
 ---
 # <a name="tutorial-create-automation-powershell-runbook-using-managed-identity"></a>자습서: 관리 ID를 사용하여 Automation PowerShell Runbook 만들기
 
@@ -101,9 +101,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **프로세스 자동화** 아래에서 **Runbook** 을 선택합니다.
 
 1. **Runbook 만들기** 를 선택합니다.
+
     1. Runbook 이름을 `miTesting`로 지정합니다.
-    1. **Runbook 형식** 드롭다운 메뉴에서 **PowerShell** 을 선택합니다.
-    1. **만들기** 를 선택합니다.
+    1. **Runbook 형식** 드롭다운에서 **PowerShell** 을 선택합니다. 
+    1. **런타임 버전** 드롭다운에서 **7.1(미리 보기)** 또는 **5.1** 을 선택합니다.
+    1. 해당하는 **설명** 을 입력합니다.
+    
+1. **만들기** 를 클릭하여 Runbook을 만듭니다.
 
 1. Runbook 편집기에서 다음 코드를 붙여넣습니다.
 

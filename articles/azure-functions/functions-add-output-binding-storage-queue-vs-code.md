@@ -1,16 +1,16 @@
 ---
 title: Visual Studio Code를 사용하여 Azure Storage에 Azure Functions 연결
-description: Visual Studio Code 프로젝트에 출력 바인딩을 추가하여 Azure Functions를 Azure Storage 큐에 연결하는 방법을 알아봅니다.
+description: Visual Studio Code 프로젝트에 출력 바인딩을 추가하여 Azure Functions를 Azure Queue Storage에 연결하는 방법을 알아봅니다.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-js
+ms.custom: devx-track-python, devx-track-js, mode-other
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 785ed0ee38e27087750542c0719ab9e85ecd00ed
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 2fd924e5b69b5160cbb2bf13d171441a13264727
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516671"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133049241"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Storage에 Azure Functions 연결
 
@@ -82,11 +82,7 @@ Queue storage 출력 바인딩을 사용하므로 프로젝트를 실행하기 �
 
 ::: zone pivot="programming-language-csharp"
 
-HTTP 및 타이머 트리거를 제외하고 바인딩은 확장 패키지로 구현됩니다. 터미널 창에서 다음 [dotnet add package](/dotnet/core/tools/dotnet-add-package) 명령을 실행하여 프로젝트에 스토리지 확장 패키지를 추가합니다.
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
-```
+[!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
 ::: zone-end
 
@@ -154,6 +150,12 @@ Functions에서 각 바인딩 형식의 `direction`, `type` 및 고유한 `name`
 
 ::: zone-end  
 
+::: zone pivot="programming-language-csharp"  
+
+[!INCLUDE [functions-run-function-test-local-vs-code-csharp](../../includes/functions-run-function-test-local-vs-code-csharp.md)]
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"  
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
 
 1. 이전 문서에서와 같이 <kbd>F5</kbd>를 눌러 함수 앱 프로젝트와 Core Tools를 시작합니다. 
@@ -167,6 +169,8 @@ Functions에서 각 바인딩 형식의 `direction`, `type` 및 고유한 `name`
 1. 응답이 반환된 후 <kbd>Ctrl + C</kbd>를 눌러 Core Tools를 중지합니다.
 
 스토리지 연결 문자열을 사용하므로 함수는 로컬로 실행될 때 Azure 스토리지 계정에 연결됩니다. **outqueue** 라는 새 큐는 출력 바인딩이 처음 사용될 때 함수 런타임에 의해 스토리지 계정에 만들어집니다. Storage Explorer를 사용하여 새 메시지와 함께 큐가 만들어졌는지 확인합니다.
+
+::: zone-end
 
 ### <a name="connect-storage-explorer-to-your-account"></a>Storage Explorer를 계정에 연결
 

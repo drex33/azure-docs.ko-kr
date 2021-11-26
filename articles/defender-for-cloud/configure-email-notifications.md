@@ -7,12 +7,13 @@ ms.service: defender-for-cloud
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.author: memildin
-ms.openlocfilehash: 63123cf7dc7257578b4ddcf3afaf272f42d599d5
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.custom: mode-other
+ms.openlocfilehash: fcbf3ee37252f50fe2ca96cce070402f670bbc94
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132526845"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133042027"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>보안 경고에 대한 이메일 알림 구성 
 
@@ -47,7 +48,7 @@ Defender for Cloud의 **이메일 알림** 설정 페이지를 사용하여 다�
 ## <a name="customize-the-security-alerts-email-notifications-via-the-portal"></a>포털을 통해 보안 경고 이메일 알림 사용자 지정<a name="email"></a>
 개인 또는 특정 Azure 역할을 가진 모든 사용자에게 이메일 알림을 보낼 수 있습니다.
 
-1. Defender for Cloud의 **환경 설정** 영역에서 관련 구독을 선택하고 **이메일 알림** 을 선택합니다.
+1. Defender for Cloud의 **환경 설정** 영역에서 관련 구독을 선택하고 **이메일 알림** 을 엽니다.
 
 1. 다음 옵션 중 하나 또는 둘 모두를 사용하여 알림 수신자를 정의합니다.
 

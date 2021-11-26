@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
 ms.author: rifox
-ms.openlocfilehash: bccc61f0099a8d96fd830b48c55d54a67560667b
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: e6f560324f054430c3a9dddc911480ade58eb62a
+ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122966468"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133034861"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -17,6 +17,8 @@ ms.locfileid: "122966468"
 - 운영 체제에 대한 최신 버전의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core).
 - [.NET ID SDK](/dotnet/api/azure.identity)의 최신 버전을 가져옵니다.
 - [.NET 관리 SDK](../../concepts/sdk-options.md)의 최신 버전을 가져옵니다.
+
+전화번호를 사용하려는 경우에는 평가판 계정을 사용할 수 없습니다. 리소스를 만들기 전에 전화번호를 구매하려는 경우 구독이 모든 [요구 사항](../../concepts/telephony-sms/plan-solution.md)을 충족하는지 확인합니다. 
 
 ## <a name="installing-the-sdk"></a>SDK 설치
 

@@ -3,15 +3,16 @@ title: Elastic 애플리케이션 만들기 - Azure 파트너 솔루션
 description: 이 문서에서는 Azure Portal을 사용하여 Elastic 인스턴스를 만드는 방법을 설명합니다.
 ms.service: partner-services
 ms.topic: quickstart
-ms.date: 05/19/2021
+ms.date: 09/02/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 456decb74534cfd3ca5bfbf966c57b4182814225
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.custom: mode-other
+ms.openlocfilehash: 3b718c5b138ceac49c6e1c2b36fc846e6946056a
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952610"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133066523"
 ---
 # <a name="quickstart-get-started-with-elastic"></a>빠른 시작: Elastic 시작
 
@@ -46,12 +47,12 @@ Elastic에 대한 제안이 선택되면 애플리케이션을 설정할 준비�
 
     :::image type="content" source="media/create/create-resource.png" alt-text="Elastic 리소스를 설정하기 위한 양식":::
 
-    | 속성 | Description |
+    | 속성 | 설명 |
     | ---- | ---- |
     | **구독** | 드롭다운에서 소유자 액세스 권한이 있는 Azure 구독을 선택합니다. |
     | **리소스 그룹** | 새 리소스 그룹을 만들지, 아니면 기존 리소스 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 자세한 내용은 [Azure Resource Manager 개요](../../azure-resource-manager/management/overview.md)를 참조하세요. |
     | **Elastic 계정 이름** | 만들려는 Elastic 계정의 이름을 제공합니다. |
-    | **지역** | **미국 서부 2** 또는 **영국 남부** 를 선택합니다. 미리 보기 중에는 이러한 지역만 Elastic에서 지원됩니다. |
+    | **지역** | 배포할 지역을 선택합니다. |
     | **요금제** | **종량제** 입니다. |
     | **가격** | 선택한 Elastic 요금제에 따라 지정됩니다. |
 

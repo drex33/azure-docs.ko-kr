@@ -10,20 +10,79 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/28/2021
 ms.author: eur
-ms.openlocfilehash: cd953953e927472a822b0f1031081a212d6339f6
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.custom: mode-other
+ms.openlocfilehash: d6e18183fc96bf88258b29ab1104c620cc76dc0f
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131510171"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133072530"
 ---
 # <a name="get-started-with-the-azure-speech-cli"></a>Azure Speech CLI 시작
 
-이 문서에서는 코드를 작성하지 않고 Speech CLI(명령줄 인터페이스)를 사용하여 음성 텍스트 변환, 텍스트 음성 변환, 음성 번역 등의 Speech Service에 액세스하는 방법에 대해 알아봅니다. Speech CLI는 프로덕션 환경에 즉시 사용할 수 있으며, `.bat` 또는 셸 스크립트를 사용하여 Speech Service에서 간단한 워크플로를 자동화할 수 있습니다.
+이 문서에서는 코드를 작성하지 않고 Azure Speech CLI(명령줄 인터페이스)를 사용하여 음성 텍스트 변환, 텍스트 음성 변환, 음성 번역 등의 Speech Service에 액세스하는 방법에 대해 알아봅니다. Speech CLI는 프로덕션 환경에 즉시 사용할 수 있으며, `.bat` 또는 셸 스크립트를 사용하여 Speech Service에서 간단한 워크플로를 자동화할 수 있습니다.
 
 이 문서에서는 사용자가 명령 프롬프트, 터미널 또는 PowerShell에 대한 실무 지식이 있다고 가정합니다.
 
+> [!NOTE]
+> PowerShell에서 [stop-parsing 토큰](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.2#stop-parsing-token---)(`--%`)은 `spx` 다음에 와야 합니다. 예를 들어 `spx --% config @region`을 실행하여 현재 지역 구성 값을 확인합니다.
+
 [!INCLUDE [](includes/spx-setup.md)]
+
+
+## <a name="create-subscription-config"></a>구독 구성 만들기
+
+# <a name="terminal"></a>[터미널](#tab/terminal)
+
+시작하려면 Azure 구독 키 및 지역 식별자(예: `eastus`, `westus`)가 필요합니다. 이러한 자격 증명을 가져오는 단계는 [Speech Service 개요](overview.md#find-keys-and-locationregion) 설명서를 참조하세요.
+
+터미널에서 다음 명령을 실행하여 구독 키와 지역 식별자를 구성합니다. 
+
+```console
+spx config @key --set SUBSCRIPTION-KEY
+spx config @region --set REGION
+```
+
+키와 지역은 이후 Speech CLI 명령에 대해 저장됩니다. 다음 명령을 실행하여 현재 구성을 확인합니다.
+
+```console
+spx config @key
+spx config @region
+```
+
+필요에 따라 저장된 값 중 하나를 제거하는 `clear` 옵션을 포함합니다.
+
+```console
+spx config @key --clear
+spx config @region --clear
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+시작하려면 Azure 구독 키 및 지역 식별자(예: `eastus`, `westus`)가 필요합니다. 이러한 자격 증명을 가져오는 단계는 [Speech Service 개요](overview.md#find-keys-and-locationregion) 설명서를 참조하세요.
+
+PowerShell에서 다음 명령을 실행하여 구독 키와 지역 식별자를 구성합니다. 
+
+```powershell
+spx --% config @key --set SUBSCRIPTION-KEY
+spx --% config @region --set REGION
+```
+
+키와 지역은 이후 Speech CLI 명령에 대해 저장됩니다. 다음 명령을 실행하여 현재 구성을 확인합니다.
+
+```powershell
+spx --% config @key
+spx --% config @region
+```
+
+필요에 따라 저장된 값 중 하나를 제거하는 `clear` 옵션을 포함합니다.
+
+```powershell
+spx --% config @key --clear
+spx --% config @region --clear
+```
+
+***
 
 ## <a name="basic-usage"></a>기본 사용법
 
@@ -33,32 +92,29 @@ ms.locfileid: "131510171"
 spx
 ```
 
-키워드를 기준으로 도움말 항목을 검색할 수 있습니다. 예를 들어 다음 명령을 입력하여 Speech CLI 사용 예제 목록을 확인합니다.
+키워드를 기준으로 도움말 항목을 검색할 수 있습니다. 예를 들어 다음 명령을 실행하여 Speech CLI 사용 예제 목록을 확인합니다.
 
 ```console
 spx help find --topics "examples"
 ```
 
-다음 명령을 입력하여 recognize 명령에 대한 옵션을 표시합니다.
+다음 명령을 실행하여 recognize 명령에 대한 옵션을 표시합니다.
 
 ```console
 spx help recognize
 ```
 
-오른쪽 열에 나열된 추가 도움말 명령입니다. 이러한 명령을 입력하여 하위 명령에 대한 자세한 도움말을 가져올 수 있습니다.
+추가 도움말 명령이 콘솔 출력에 나열됩니다. 이러한 명령을 입력하여 하위 명령에 대한 자세한 도움말을 가져올 수 있습니다.
 
 ## <a name="speech-to-text-speech-recognition"></a>음성 - 텍스트 변환(음성 인식)
 
-Speech CLI를 사용하여 시스템의 기본 마이크를 통해 음성을 텍스트로 변환(음성 인식)하겠습니다. 명령을 입력하면 SPX는 현재 활성 입력 디바이스에서 오디오 수신 대기를 시작하고, 사용자가 **ENTER** 를 누르면 중지됩니다. 그러면 기록된 음성이 인식되고 콘솔 출력의 텍스트로 변환됩니다.
-
->[!IMPORTANT]
-> Docker 컨테이너를 사용하는 경우에는 `--microphone` 명령이 작동하지 않습니다.
-
-다음 명령을 실행합니다.
+이 명령을 실행하여 시스템의 기본 마이크를 통해 음성을 텍스트로 변환(음성 인식)합니다. 
 
 ```console
 spx recognize --microphone
 ```
+
+명령을 입력하면 SPX는 현재 활성 입력 디바이스에서 오디오 수신 대기를 시작하고, 사용자가 **ENTER** 를 누르면 중지됩니다. 그러면 음성 오디오가 인식되고 콘솔 출력의 텍스트로 변환됩니다.
 
 Speech CLI를 사용하면 오디오 파일의 음성을 인식할 수도 있습니다.
 
@@ -66,14 +122,13 @@ Speech CLI를 사용하면 오디오 파일의 음성을 인식할 수도 있습
 spx recognize --file /path/to/file.wav
 ```
 
-> [!TIP]
+> [!NOTE]
+> Docker 컨테이너를 사용하는 경우에는 `--microphone` 명령이 작동하지 않습니다.
+> 
 > Docker 컨테이너의 오디오 파일에서 음성을 인식하는 경우 오디오 파일이 이전 단계에서 탑재한 디렉터리에 있는지 확인합니다.
 
-문제가 있거나 Speech CLI의 인식 옵션에 대해 자세히 알아보려면 다음을 입력합니다.
-
-```console
-spx help recognize
-```
+> [!TIP]
+> 문제가 있거나 Speech CLI의 인식 옵션에 대해 자세히 알아보려면 ```spx help recognize```를 실행하면 됩니다.
 
 ## <a name="text-to-speech-speech-synthesis"></a>텍스트 음성 변환(음성 합성)
 
@@ -101,11 +156,8 @@ spx synthesize --voices
 spx synthesize --text "Bienvenue chez moi." --voice fr-CA-Caroline --speakers
 ```
 
-문제가 있거나 Speech CLI의 합성 옵션에 대해 자세히 알아보려면 다음을 입력합니다.
-
-```console
-spx help synthesize
-```
+> [!TIP]
+> 문제가 있거나 Speech CLI의 인식 옵션에 대해 자세히 알아보려면 ```spx help synthesize```를 실행하면 됩니다.
 
 ## <a name="speech-to-text-translation"></a>음성을 텍스트로 번역
 
@@ -130,11 +182,9 @@ spx translate --file /some/file/path/input.wav --source en-US --target ru-RU --o
 > [!NOTE]
 > 지원되는 언어와 해당 로캘 코드 목록은 [언어 및 로캘 문서](language-support.md)를 참조하세요.
 
-문제가 있거나 Speech CLI의 번역 옵션에 대해 자세히 알아보려면 다음을 입력합니다.
+> [!TIP]
+> 문제가 있거나 Speech CLI의 인식 옵션에 대해 자세히 알아보려면 ```spx help translate```를 실행하면 됩니다.
 
-```console
-spx help translate
-```
 
 ## <a name="next-steps"></a>다음 단계
 

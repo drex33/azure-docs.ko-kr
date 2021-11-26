@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 935fcf05624fd1849ae62109dbc22a97d4987676
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: ff63e7e3e8bad702d99f5423fb759681ed9032f6
+ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131847283"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133055489"
 ---
 # <a name="connect-to-and-manage-oracle-in-azure-purview"></a>Azure Purview에서 Oracle에 연결 및 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "131847283"
 
 |**메타데이터 추출**|  **전체 검사**  |**증분 검사**|**범위 검사**|**분류**|**액세스 정책**|**계보**|
 |---|---|---|---|---|---|---|
-| [예](#register)| [예](#scan)| 예 | 예 | 예 | 예| [예**](how-to-lineage-oracle.md)|
+| [예](#register)| [예](#scan)| 아니요 | 아니요 | 아니요 | 예| [예**](how-to-lineage-oracle.md)|
 
 \**데이터 세트가 [데이터 팩터리 복사 작업에서 원본/싱크로 사용되는 경우 데이터 계보가 지원됩니다](how-to-link-azure-data-factory.md). 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/16/2021
 ms.author: danlep
-ms.openlocfilehash: 509a143a368c4626b7d0a39e1c3f2d15c8a3d0b2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ce15a6008ab5c9370389c220d1807e376e5f6118
+ms.sourcegitcommit: 4298f71f502c70d601a7c58b28fc7bca62be3595
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128667771"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133133299"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>논리 앱을 API로 가져오기
 
@@ -94,7 +94,7 @@ dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사�
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 >[!NOTE]
->모든 논리 앱에는 **manual-invoke** 작업이 있습니다. 여러 논리 앱의 API를 구성하고 충돌을 방지하려면 함수 이름을 바꾸어야 합니다.
+>모든 논리 앱에는 **manual-invoke** 작업이 있습니다. 여러 논리 앱의 API를 구성하고 충돌을 방지하려면 함수 이름을 바꾸어야 합니다. 함수/API의 이름을 바꾸려면 OpenAPI 사양 편집기로 이동하여 제목 값을 변경하세요.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

@@ -171,7 +171,7 @@
               href: sql/create-sql-api-python.md
     - name: 자습서
       items:
-        - name: 1 - 데이터 만들기 및 관리
+        - name: 데이터 만들기 및 관리
           items:
             - name: 콘솔 앱 빌드
               items:
@@ -191,18 +191,20 @@
                   href: sql/sql-api-java-application.md
                 - name: Node.js
                   href: sql/sql-api-nodejs-application.md
-        - name: 2 - 데이터 마이그레이션
+        - name: 데이터 마이그레이션
           items:
             - name: 데이터 마이그레이션 도구 사용
               href: import-data.md
             - name: .NET 대량 지원 사용
               href: sql/tutorial-sql-api-dotnet-bulk-import.md
-        - name: 3 - 데이터 쿼리
+        - name: 쿼리 데이터
           href: sql/tutorial-query-sql-api.md
-        - name: 4 - Notebook 만들기
+        - name: Notebook 만들기
           href: sql/create-notebook-visualize-data.md
-        - name: 5 - 전역적으로 데이터 배포
+        - name: 전역적으로 데이터 배포
           href: sql/tutorial-global-distribution-sql-api.md
+        - name: Azure Kubernetes Service의 Spring Boot 앱
+          href: sql/tutorial-springboot-azure-kubernetes-service.md
     - name: 샘플
       items:
         - name: .NET V3 SDK 샘플
@@ -1477,6 +1479,8 @@
           href: configure-synapse-link.md
         - name: Azure Synapse Link에 연결
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Synapse Link 및 통합 Power BI
+          href: integrated-power-bi-synapse-link.md
         - name: 분석 저장소 및 프라이빗 엔드포인트
           href: analytical-store-private-endpoints.md
         - name: Azure Synapse Spark 3을 사용하여 쿼리
@@ -1497,7 +1501,7 @@
               href: continuous-backup-restore-permissions.md
             - name: 계정 프로비전 - 지속적인 백업
               href: provision-account-continuous-backup.md
-            - name: 최신 복원 타임스탬프 가져오기
+            - name: 복원 가능한 최신 타임스탬프 가져오기
               href: get-latest-restore-timestamp.md
             - name: 계정 복원 - 지속적인 백업
               href: restore-account-continuous-backup.md

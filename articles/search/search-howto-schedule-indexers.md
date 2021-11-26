@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: 8ae9a89ddba2010603ae5a5f6b812e3aa1e1e3a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a9cfaf6cf3e45a790c5235153691e301779f5c83
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097979"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133129218"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서 예약 방법
 
@@ -102,4 +102,4 @@ await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 일정에 따라 실행되는 인덱서의 경우 검색 서비스에서 상태를 검색하여 작업을 모니터링하거나 진단 로깅을 사용하도록 설정하여 자세한 정보를 얻을 수 있습니다.
 
 * [검색 인덱서 상태 모니터](search-howto-monitor-indexers.md)
-* [로그 데이터 수집 및 분석](search-monitor-logs.md)
+* [로그 데이터 수집 및 분석](monitor-azure-cognitive-search.md)

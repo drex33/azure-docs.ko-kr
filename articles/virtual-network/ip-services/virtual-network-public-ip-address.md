@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2021
 ms.author: allensu
-ms.openlocfilehash: 63802828019c77c8bcb6b4365dfe0a5d19748db6
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.openlocfilehash: 7a40e2f060d66bd1f4b795d89f5f952663dae469
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132902954"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133109931"
 ---
 # <a name="create-change-or-delete-an-azure-public-ip-address"></a>Azure 공용 IP 주소 만들기, 변경 또는 삭제
 
@@ -82,7 +82,7 @@ ms.locfileid: "132902954"
 
 ## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
-공용 IP를 사용하는 가상 머신 확장 집합을 이용하는 경우, 개별 가상 머신 인스턴스와 연결된 별도의 공용 IP 개체는 없습니다. 그렇지만, 공용 IP 접두사 개체를 [사용해 인스턴스 IP를 생성할 수는 있습니다](https://azure.microsoft.com/resources/templates/vmms-with-public-ip-prefix/).
+공용 IP를 사용하는 가상 머신 확장 집합을 이용하는 경우, 개별 가상 머신 인스턴스와 연결된 별도의 공용 IP 개체는 없습니다. 그렇지만, 공용 IP 접두사 개체를 [사용해 인스턴스 IP를 생성할 수는 있습니다](https://azure.microsoft.com/resources/templates/vmss-with-public-ip-prefix/).
 
 가상 머신 확장 집합에서 공용 IP를 나열하려면, PowerShell([Get-AzPublicIpAddress -VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress))이나 CLI([az virtual machine scale set list-instance-public-ips](/cli/azure/vmss#az_vmss_list_instance_public_ips))를 사용하면 됩니다.
 

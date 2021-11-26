@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 124e1f104bf7607b63eac916754c86b7b28cd8a2
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b9b9b01d3ea8e6eda082915569539d33de98da2e
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131470436"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133129237"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
@@ -141,7 +141,8 @@ Functions 1.x 앱은 [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Mi
             "maxConcurrentCalls": 16,
             "maxConcurrentSessions": 8,
             "maxMessages": 1000,
-            "sessionIdleTimeout": "00:01:00"
+            "sessionIdleTimeout": "00:01:00",
+            "enableCrossEntityTransactions": false
         }
     }
 }
@@ -158,6 +159,7 @@ Service Bus 확장 버전 5.x 이상을 사용하는 경우 `ServiceBusOptions`�
 |maxConcurrentSessions|8|크기 조정된 인스턴스당 동시에 처리할 수 있는 최대 세션 수입니다.|
 |maxMessages|1000|각 함수 호출에 전달될 최대 메시지 수입니다. 메시지 일괄 처리를 수신하는 함수에만 적용됩니다.|
 |sessionIdleTimeout|해당 없음|현재 활성 세션에 대한 메시지가 수신될 때까지 대기하는 최대 시간입니다. 이 시간이 경과되면 프로세서에서 세션을 닫고 다른 세션을 처리하려고 합니다.|
+|enableCrossEntityTransactions|false|Service Bus 네임 스페이스의 여러 엔터티에 걸쳐 있는 트랜잭션을 사용할지 여부입니다.|
 
 ### <a name="retry-settings"></a>다시 시도 설정
 

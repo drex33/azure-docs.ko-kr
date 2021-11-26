@@ -10,12 +10,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 11/22/2021
 ms.author: anavin
-ms.openlocfilehash: 058baee6623d10e1888d33700928cc3f9c5f50de
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 99dedf624d673f06b6b167a9c3db200193d762a4
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132934217"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133109874"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-load-balancer"></a>Azure Load Balancer를 사용하여 일반적인 Azure 배포 오류 해결
 
@@ -39,6 +39,8 @@ ms.locfileid: "132934217"
 |ResourceDeploymentFailure| 부하 분산 장치에 장애가 발생한 경우 다음 단계에 따라 복구하세요.<ol><li>https://resources.azure.com 으로 이동하고 Azure Portal 자격 증명으로 로그인합니다.</li><li>**읽기/쓰기** 를 선택합니다.</li><li>왼쪽에서 **구독** 을 확장한 다음, 업데이트할 Load Balancer로 구독을 확장합니다.</li><li>**ResourceGroups** 를 확장한 다음, 업데이트할 Load Balancer로 리소스 그룹을 확장합니다.</li><li>**Microsoft.Network** > **LoadBalancers** 를 선택한 다음, 업데이트할 Load Balancer로 **LoadBalancer_1** 을 선택합니다.</li><li>**LoadBalancer_1** 에 대한 표시 페이지에서 **가져오기** > **편집** 을 선택합니다.</li><li>**ProvisioningState** 값을 **실패** 에서 **성공** 으로 업데이트합니다.</li><li>**PUT** 을 선택합니다.</li></ol>|
 |LoadBalancerWithoutFrontendIPCantHaveChildResources | 프런트 엔드 IP 구성이 없는 Load Balancer 리소스에는 연결된 자식 리소스 또는 연결된 구성 요소가 있을 수 없습니다. 이 오류를 완화하려면 프런트 엔드 IP 구성을 추가한 다음 추가하려는 리소스를 추가합니다. |
 | LoadBalancerRuleCountLimitReachedForNic | 백 엔드 풀 멤버의 네트워크 인터페이스(가상 머신, 가상 머신 확장 집합)는 300개 이상의 규칙에 연결될 수 없습니다. 규칙 수를 줄이거나 다른 Load Balancer 활용합니다. 이 제한은 Load Balancer [제한 페이지에 설명되어 있습니다.](https://aka.ms/lblimits)
+| LoadBalancerInUseByVirtualMachineScaleSet | Load Balancer 리소스는 가상 머신 확장 집합에서 사용 중이며 삭제할 수 없습니다. 오류 메시지에 제공된 ARM ID를 사용하여 가상 머신 확장 집합을 검색하여 삭제합니다. | 
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: 57dd31643560b54f6f54b8352966a4c05cb6a35b
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: 7b9deee9b1047188a46a1111c570304681eb375c
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131892896"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133128649"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Power BI를 사용하여 Azure Cognitive Search 로그 및 메트릭 시각화
 
@@ -102,6 +102,6 @@ Power BI Template App **Azure Cognitive Search에서 다음을 찾을 수 있습
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [검색 작업 및 작업 모니터링](search-monitor-usage.md)
++ [검색 작업 및 작업 모니터링](monitor-azure-cognitive-search.md)
 + [Power BI란?](/power-bi/fundamentals/power-bi-overview)
 + [Power BI 서비스의 디자이너를 위한 기본 개념](/power-bi/service-basic-concepts)

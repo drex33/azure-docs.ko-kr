@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 7f1787d8b1d074350ce42a98635bb8bb89c4aa75
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: db26882997ac0acc89d7b88bd8044a8085d2bbb5
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131501479"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133109741"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -302,7 +302,7 @@ Azure Portal, REST API, PowerShell 또는 Azure CLI를 사용하여 ExpressRoute
 
 ### <a name="i-received-a-notification-about-maintenance-on-my-expressroute-circuit-what-is-the-technical-impact-of-this-maintenance"></a>내 ExpressRoute 회로에서 유지 관리에 대한 알림을 받았습니다. 이 유지 관리의 기술적 영향은 무엇인가요?
 
-[활성-활성 모드](./designing-for-high-availability-with-expressroute.md#active-active-connections)로 회로를 운영하는 경우 유지 관리 중에 영향을 최소화해야 합니다. 회로의 기본 및 보조 연결에 대해 개별적으로 유지 관리를 수행합니다. 예약된 유지 관리는 일반적으로 피어링 위치의 표준 시간대를 기준으로 업무 외 시간에 수행되며, 사용자가 유지 관리 시간을 선택할 수 없습니다.
+[활성-활성 모드](./designing-for-high-availability-with-expressroute.md#active-active-connections)로 회로를 운영하는 경우 유지 관리 중에 영향을 최소화해야 합니다. 회로의 기본 및 보조 연결에 대해 개별적으로 유지 관리를 수행합니다. 유지 관리 중에는 연결 중 하나에 대 한 경로 앞에 더 긴 시간이 표시 될 수 있습니다. 그 이유는 한 연결에서 다른 연결로 트래픽을 원활 하 게 전환 하는 것입니다. 비대칭 라우팅을 유발 하 여 서비스 중단이 발생할 수 있으므로 더 긴 경로로 무시 하면 안 됩니다. 유지 관리를 수행 하는 동안 BGP 오류가 검색 되는 경우 기본 연결 및 보조 연결 간에 더 빠른 BGP 장애 조치 (failover)를 위해 [Bfd](expressroute-bfd.md) 를 구성 하는 것이 좋습니다. 예약된 유지 관리는 일반적으로 피어링 위치의 표준 시간대를 기준으로 업무 외 시간에 수행되며, 사용자가 유지 관리 시간을 선택할 수 없습니다.
 
 ### <a name="i-received-a-notification-about-a-software-upgrade-or-maintenance-on-my-expressroute-gateway-what-is-the-technical-impact-of-this-maintenance"></a>내 ExpressRoute 게이트웨이에서 소프트웨어 업그레이드 또는 유지 관리에 대한 알림을 받았습니다. 이 유지 관리의 기술적 영향은 무엇인가요?
 
@@ -356,6 +356,8 @@ ExpressRoute Premium은 REST API/PowerShell cmdlet을 호출하여 사용하지 
 ### <a name="what-is-expressroute-local"></a>ExpressRoute 로컬이란?
 
 ExpressRoute 로컬은 표준 SKU 및 프리미엄 SKU와 더불어 ExpressRoute 회로의 SKU입니다. 로컬의 핵심 기능은 ExpressRoute 피어링 위치의 로컬 회로에서 동일한 지하철 근처의 Azure 지역 한두 곳에 대한 액세스만 제공하는 것입니다. 반면, 표준 회로는 지정학적 영역의 모든 Azure 지역에 대한 액세스를 제공하고, 프리미엄 회로는 모든 Azure 지역에 대한 액세스를 전역적으로 제공합니다. 특히 로컬 SKU를 사용하는 경우에는 ExpressRoute 회로의 해당 로컬 지역에서 Microsoft 및 개인 피어링을 통해 경로를 보급할 수만 있습니다. 정의된 로컬 지역과 다른 지역에 대한 경로를 수신할 수 없습니다.
+
+Express 경로 위치에 대해 Express 경로 로컬을 사용 하지 못할 수 있습니다. 피어 링 위치 및 지원 되는 Azure 지역에 대해서는 [위치 및 연결 공급자](expressroute-locations-providers.md#partners)를 참조 하세요.
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>ExpressRoute 로컬의 이점은 무엇인가요?
 

@@ -6,12 +6,12 @@ ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 70924c1d810ca0caf6beecef4aadf1be811bd5ed
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 94f3b4c189ff21d0ca8ca2ce494a561b136677d3
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132703852"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133109171"
 ---
 # <a name="virtual-wan-faq"></a>가상 WAN FAQ
 
@@ -33,9 +33,9 @@ Virtual WAN은 다음 두 가지 버전으로 제공됩니다. 기본 및 표준
 
 ### <a name="how-are-availability-zones-and-resiliency-handled-in-virtual-wan"></a>Virtual WAN에서 가용성 영역 및 복원력은 어떻게 처리되나요?
 
-Virtual WAN은 허브 내에서 사용할 수 있는 허브 및 서비스 컬렉션입니다. 사용자는 Virtual WAN을 필요한 만큼 사용할 수 있습니다. Virtual WAN 허브에는 VPN, ExpressRoute 등과 같은 여러 서비스가 있습니다. 지역에서 가용성 영역 지원하는 경우 이러한 각 서비스는 가용성 영역(Azure Firewall 제외)에 자동으로 배포됩니다. 허브에 처음 배포한 후 지역이 가용성 영역으로 되면 사용자는 게이트웨이를 다시 만들 수 있으며, 이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로비저닝되며, 이는 허브 내에서 복원력이 기본 제공된다는 의미입니다. 사용자는 여러 지역에서 복원력이 필요한 경우 여러 허브에 연결하면 됩니다. 
+Virtual WAN은 허브 내에서 사용할 수 있는 허브 및 서비스 컬렉션입니다. 사용자는 Virtual WAN을 필요한 만큼 사용할 수 있습니다. 가상 WAN 허브에는 VPN, Express 경로 등과 같은 여러 서비스가 있습니다. 이러한 각 서비스는 지역에서 가용성 영역을 지 원하는 경우 Azure 방화벽을 제외 하 고 가용성 영역에 자동으로 배포 됩니다. 허브에 처음 배포한 후 지역이 가용성 영역으로 되면 사용자는 게이트웨이를 다시 만들 수 있으며, 이 경우 가용성 영역 배포가 트리거됩니다. 모든 게이트웨이는 허브에 활성-활성으로 프로비저닝되며, 이는 허브 내에서 복원력이 기본 제공된다는 의미입니다. 사용자는 여러 지역에서 복원력이 필요한 경우 여러 허브에 연결하면 됩니다. 
 
-현재 Azure Firewall Manager Portal,  [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) 또는 CLI를 사용하여 가용성 영역 지원하도록 Azure Firewall 배포할 수 있습니다. 현재 가용성 영역에 배포할 기존 방화벽을 구성할 수 있는 방법은 없습니다. Azure Firewall 삭제하고 다시 배포해야 합니다. 
+현재 azure 방화벽 관리자 포털,  [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) 또는 CLI를 사용 하 여 가용성 영역을 지원 하도록 azure 방화벽을 배포할 수 있습니다. 현재는 가용성 영역 간에 배포 되도록 기존 방화벽을 구성할 수 있는 방법이 없습니다. Azure 방화벽을 삭제 하 고 다시 배포 해야 합니다. 
 
 Virtual WAN은 개념적으로는 글로벌이지만, 실제 Virtual WAN 리소스는 Resource Manager 기반이며 지역 단위로 배포됩니다. 가상 WAN 지역 자체에 문제가 있는 경우 해당 가상 WAN의 모든 허브는 계속해서 있는 그대로 작동하지만, 사용자는 가상 WAN 지역을 사용할 수 있을 때까지 새 허브를 만들 수 없게 됩니다.
 
@@ -295,6 +295,10 @@ ExpressRoute 회로가 가상 허브에 연결되면 온-프레미스와 Azure �
 
 권장되는 Virtual WAN 허브 주소 공간은 /23입니다. Virtual WAN 허브는 다양한 게이트웨이(ExpressRoute, 사이트 간 VPN, 지점 및 사이트 간 VPN, Azure Firewall, 가상 허브 라우터)에 서브넷을 할당합니다. NVA가 가상 허브 내에 배포되는 시나리오의 경우 일반적으로 NVA 인스턴스에 대해 /28이 표시됩니다. 그러나 사용자가 여러 NVA를 프로비전할 경우 /27 서브넷이 할당될 수 있습니다. 따라서 Virtual WAN 허브가 최소 크기 /24로 배포되는 동안 향후 아키텍처를 고려하여 생성 시 사용자가 입력에 권장되는 허브 공간은 /23입니다.
 
+### <a name="can-you-re-size-or-change-the-address-prefixes-of-a-spoke-virtual-network-connected-to-the-virtual-wan-hub"></a>가상 WAN 허브에 연결 된 스포크 Virtual Network의 주소 접두사를 조정 하거나 크기를 변경할 수 있나요?
+
+아니요. 지금은 가능 하지 않습니다. 스포크 Virtual Network의 주소 접두사를 변경 하려면 스포크 Virtual Network와 가상 WAN 허브 간의 연결을 제거 하 고, 스포크 Virtual Network의 주소 공간을 수정한 후 스포크 Virtual Network와 가상 WAN 허브 간의 연결을 다시 만듭니다. 
+
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Virtual WAN에서 IPv6를 지원하나요?
 
 IPv6는 Virtual WAN 허브 및 해당 게이트웨이에서 지원되지 않습니다. IPv4 및 IPv6를 지원하는 VNet이 있고 해당 VNet을 Virtual WAN에 연결하려는 경우 이 시나리오는 현재 지원되지 않습니다.
@@ -330,6 +334,7 @@ Azure Route Server는 NVA(네트워크 가상 어플라이언스)가 DIY 허브 
 사용자에 대한 인터넷 액세스를 보호하기 위해 보안 파트너 공급자를 배포하도록 선택하는 경우 타사 보안 공급자는 사용자를 대신하여 VPN 사이트를 만듭니다. 타사 보안 공급자는 공급자에 의해 자동으로 생성되고 사용자가 만든 VPN 사이트는 아니므로 이 VPN 사이트는 Azure Portal에 표시되지 않습니다.
 
 사용 가능한 옵션 타사 보안 공급자 및 이를 설정하는 방법에 대한 자세한 내용은 [보안 파트너 공급자 배포](../firewall-manager/deploy-trusted-security-partner.md)를 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

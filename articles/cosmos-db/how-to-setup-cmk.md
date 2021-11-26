@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2021
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2a052b7137ac29fae6203c10d3951c60bcbf4bcd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: c8291acc7275a3e1bae120afc46e88de767e57dd
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131041044"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133129560"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 계정에 대한 고객 관리형 키 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -244,7 +244,7 @@ az cosmosdb show \
 
 1.  계정을 만드는 동안 이 작업을 수행하지 않은 경우 사용자 계정에서 [시스템 할당 관리 ID를 사용하도록 설정](./how-to-setup-managed-identity.md#add-a-system-assigned-identity)하고 할당된 `principalId`를 복사합니다.
 
-1.  [위에서](#add-access-policy)설명한 대로 Azure Key Vault 계정에 새 액세스 정책을 추가하지만 `principalId` Azure Cosmos DB의 첫 번째 ID 대신 이전 단계에서 복사한 를 사용하여 추가합니다.
+1.  [위에서](#add-access-policy)설명한 대로 Azure Key Vault 계정에 새 액세스 정책을 추가하지만 `principalId` Azure Cosmos DB의 첫 번째 당사자 ID 대신 이전 단계에서 복사한 를 사용하세요.
 
 1.  Azure Key Vault의 암호화 키에 액세스할 때 시스템 할당 관리 ID를 사용하도록 지정하려면 Azure Cosmos DB 계정을 업데이트합니다. 다음과 같이 수행할 수 있습니다.
 
@@ -273,6 +273,9 @@ az cosmosdb show \
 1.  필요에 따라 Azure Key Vault 액세스 정책에서 Azure Cosmos DB 자사 ID를 제거할 수 있습니다.
 
 ### <a name="to-use-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID를 사용하려면
+
+> [!IMPORTANT]
+> 사용자 할당 관리 ID를 사용하는 경우 Azure Key Vault 계정의 방화벽 규칙은 현재 지원되지 않습니다. Azure Key Vault 계정은 모든 네트워크에서 액세스할 수 있도록 유지해야 합니다.
 
 1.  [위에서](#add-access-policy)설명한 대로 Azure Key Vault 계정에서 새 액세스 정책을 만들 때 `Object ID` Azure Cosmos DB의 타사 ID 대신 사용하려는 관리 ID의 를 사용합니다.
 
@@ -348,7 +351,7 @@ Azure Cosmos 계정에서 사용하는 고객 관리형 키 회전은 두 가지
     
 ## <a name="error-handling"></a>오류 처리
 
-Azure Cosmos DB에서 고객 관리형 키를 사용하는 경우 오류가 있는 경우 Azure Cosmos DB는 응답에 HTTP 하위 상태 코드와 함께 오류 세부 정보를 반환합니다. 이 하위 상태 코드를 사용하여 문제의 근본 원인을 디버그할 수 있습니다. 지원되는 HTTP 하위 상태 코드 목록을 가져오려면 [Azure Cosmos DB에 대한 HTTP 상태 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 문서를 참조하세요.
+Azure Cosmos DB에서 고객이 관리 하는 키를 사용 하는 경우 오류가 발생 하면 응답에 HTTP 하위 상태 코드와 함께 오류 정보를 반환 Azure Cosmos DB. 이 하위 상태 코드를 사용하여 문제의 근본 원인을 디버그할 수 있습니다. 지원되는 HTTP 하위 상태 코드 목록을 가져오려면 [Azure Cosmos DB에 대한 HTTP 상태 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 문서를 참조하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -363,7 +366,7 @@ Azure Cosmos DB에서 고객 관리형 키를 사용하는 경우 오류가 있�
 | 작업 유형 | 요청 단위 증가 |
 |---|---|
 | 포인트 읽기(ID별 항목 가져오기) | 작업당 +5% |
-| 모든 쓰기 작업 | 작업당 +6% <br/> 인덱싱된 속성당 약 + 0.06 RU |
+| 모든 쓰기 작업 | 작업당 +6% <br/> 인덱싱된 속성 당 약 + 0.06 |
 | 쿼리, 변경 피드 읽기 또는 충돌 피드 | 작업당 +15% |
 
 ### <a name="what-data-gets-encrypted-with-the-customer-managed-keys"></a>고객 관리형 키로 어떤 데이터가 암호화되나요?
@@ -398,11 +401,28 @@ Azure Portal에서 Azure Cosmos 계정으로 이동하고 왼쪽 메뉴에서 **
 
 또한 Azure Cosmos 계정에 대한 세부 정보를 프로그래밍 방식으로 가져와서 `keyVaultKeyUri` 속성이 있는지 확인할 수 있습니다. [PowerShell에서](#using-powershell) 그리고 [Azure CLI를 사용하여](#using-azure-cli) 수행하는 방법은 위를 참조하십시오.
 
-### <a name="how-do-customer-managed-keys-affect-a-backup"></a>고객 관리형 키는 백업에 어떤 영향을 주나요?
+### <a name="how-do-customer-managed-keys-affect-periodic-backups"></a>고객 관리 키가 주기적인 백업에 미치는 영향
 
-Azure Cosmos DB는 계정에 저장된 데이터를 [정기적으로 자동 백업](./online-backup-and-restore.md)합니다. 이러한 작업은 암호화된 데이터를 백업합니다. 백업을 성공적으로 복원하려면 다음 조건이 필요합니다.
-- 백업 시 사용한 암호화 키는 필수이며 Azure Key Vault 사용할 수 있어야 합니다. 즉, 해지되지 않았으며 백업 시 사용된 키 버전이 여전히 활성화되어 있습니다.
-- Azure Key Vault [액세스 정책 에서 관리 ID를 사용한](#using-managed-identity)경우 원본 계정에 구성된 ID는 삭제되지 않아야 하며 Azure Key Vault 인스턴스의 액세스 정책에서 선언되어야 합니다.
+Azure Cosmos DB는 계정에 저장된 데이터를 [정기적으로 자동 백업](./online-backup-and-restore.md)합니다. 이러한 작업은 암호화된 데이터를 백업합니다.
+
+정기적 백업을 성공적으로 복원 하려면 다음 조건을 충족 해야 합니다.
+- 백업 시 사용한 암호화 키는 필수 이며 Azure Key Vault에서 사용할 수 있어야 합니다. 즉, 해지를 수행 하지 않고 백업 시 사용 된 키의 버전을 계속 사용할 수 있습니다.
+- 원본 계정의 [Azure Key Vault 액세스 정책에서 관리 id를 사용](#using-managed-identity) 하는 경우 대상 계정도 Key Vault에 액세스할 수 있도록 해야 합니다.
+  - 원본 계정에서 시스템 할당 관리 id를 사용 하는 경우 대상 계정에 동일한 id를 지정할 수 없습니다. 대상 계정에서 시스템 할당 또는 사용자 할당 관리 id를 사용 하도록 설정 하 고,이 id를 대상 계정의 기본 id로 설정 하 고, Azure Key Vault 액세스 정책에서이 id를 선언 해야 합니다.
+  - 원본 계정에 사용자 할당 관리 id를 사용한 경우 동일한 id를 대상 계정에 할당 하 고이 id를 대상 계정의 기본 id로 설정 합니다.
+
+### <a name="how-do-customer-managed-keys-affect-continuous-backups"></a>고객 관리 키가 연속 백업에 미치는 영향
+
+Azure Cosmos DB은 계정에 [연속 백업을](./continuous-backup-restore-introduction.md) 구성 하는 옵션을 제공 합니다. 연속 백업을 사용 하 여 지난 30 일 내에 데이터를 특정 시점으로 복원할 수 있습니다. 고객이 관리 하는 키를 사용 하도록 설정 된 계정에서 연속 백업을 사용 하려면 Key Vault 액세스 정책에 [사용자 할당 관리 id를 사용](#to-use-a-user-assigned-managed-identity) 해야 합니다. Azure Cosmos DB 자사 id 또는 시스템 할당 관리 id는 현재 지원 되지 않습니다.
+
+지정 시간 복원을 성공적으로 수행 하려면 다음 조건이 필요 합니다.
+- 백업 시 사용한 암호화 키는 필수 이며 Azure Key Vault에서 사용할 수 있어야 합니다. 즉, 해지를 수행 하지 않고 백업 시 사용 된 키의 버전을 계속 사용할 수 있습니다.
+- 대상 계정이 Key Vault에도 액세스할 수 있도록 해야 합니다.
+  - 원본 계정에서 시스템 할당 관리 id를 사용 하는 경우 대상 계정에 동일한 id를 지정할 수 없습니다. 대상 계정에서 시스템 할당 또는 사용자 할당 관리 id를 사용 하도록 설정 하 고,이 id를 대상 계정의 기본 id로 설정 하 고, Azure Key Vault 액세스 정책에서이 id를 선언 해야 합니다.
+  - 원본 계정에 사용자 할당 관리 id를 사용한 경우 동일한 id를 대상 계정에 할당 하 고이 id를 대상 계정의 기본 id로 설정 합니다.
+
+> [!IMPORTANT]
+> 계정을 삭제 하기 전에 암호화 키를 취소 하면 해지 된 후 계정 백업에서 기록 된 데이터를 놓칠 수 있습니다.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>암호화 키를 어떻게 해지하나요?
 

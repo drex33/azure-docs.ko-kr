@@ -1,20 +1,20 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Business Central 제품 가용성 구성
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Business Central 제품 가용성을 구성합니다.
+title: Microsoft AppSource Dynamics 365 Business Central 제안 가용성 구성(Azure Marketplace)
+description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 Business Central 제안 가용성을 구성합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: bda339775641af599c81ebf9878b6505a5a05a1e
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.date: 11/24/2021
+ms.openlocfilehash: e351921f17768bf1901be0d5bfc7997f8d56c240
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110547833"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133109152"
 ---
-# <a name="configure-dynamics-365-for-business-central-offer-availability"></a>Dynamics 365 for Business Central 제품 가용성 구성
+# <a name="configure-dynamics-365-business-central-offer-availability"></a>Dynamics 365 Business Central 제안 가용성 구성
 
 이 페이지에서는 지역/국가 및 미리 보기 대상을 포함하여 제품을 사용할 수 있는 위치 및 방법을 정의할 수 있습니다.
 

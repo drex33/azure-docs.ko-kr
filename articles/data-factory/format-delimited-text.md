@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 11/25/2021
 ms.author: jianleishen
-ms.openlocfilehash: 3542ddd7a3276d0ba5b7aaac591f4d4ff936cd86
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 893326cef9995498e66bee2ed7446ddae10bfd2b
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238966"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133128287"
 ---
 # <a name="delimited-text-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 구분된 텍스트 형식
 
@@ -22,7 +22,7 @@ ms.locfileid: "130238966"
 
 **구분된 텍스트 파일을 구문 분석하거나 데이터를 구분된 텍스트 형식으로 쓰려면** 이 문서의 내용을 따르세요. 
 
-구분 기호로 분리된 텍스트 형식은 다음 커넥터에서 지원됩니다. 
+다음 커넥터에 대해 구분 기호로 분리 된 텍스트 형식이 지원 됩니다. 
 
 - [Amazon S3](connector-amazon-simple-storage-service.md)
 - [Amazon S3 호환 스토리지](connector-amazon-s3-compatible-storage.md)
@@ -42,11 +42,11 @@ ms.locfileid: "130238966"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 구분된 텍스트 데이터 세트에서 지원하는 속성 목록을 제공합니다.
 
-| 속성         | 설명                                                  | 필수 |
+| 속성         | Description                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 type 속성을 **DelimitedText** 로 설정해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다.  | 예      |
-| columnDelimiter  | 파일의 열을 구분하는 데 사용되는 문자입니다. <br>기본값은 **쉼표 `,`** 입니다. 열 구분 기호를 빈 문자열로 정의한 경우(구분 기호가 없음을 의미) 전체 줄이 단일 열로 사용됩니다.<br>현재 빈 문자열 또는 다중 문자의 열 구분 기호는 매핑 데이터 흐름에만 지원되고 복사 작업에는 지원되지 않습니다.  | 예       |
+| columnDelimiter  | 파일의 열을 구분하는 데 사용되는 문자입니다. <br>기본값은 **쉼표 `,`** 입니다. 열 구분 기호를 빈 문자열로 정의한 경우(구분 기호가 없음을 의미) 전체 줄이 단일 열로 사용됩니다.<br>현재 빈 문자열인 열 구분 기호는 데이터 흐름을 매핑하는 경우에만 지원 되 고 복사 작업에는 지원 되지 않습니다.  | 예       |
 | rowDelimiter     | 파일의 행을 구분하는 데 사용되는 문자 또는 "\r\n"입니다. <br>기본값은 다음 값 중 하나입니다. **읽기: ["\r\n", "\r", "\n"]** 및 **쓰기: "\n" 또는 "\r\n"** (각각 매핑 데이터 흐름 및 복사 작업). <br>행 구분 기호를 구분 기호 없음(빈 문자열)으로 설정한 경우에는 열 구분 기호도 구분 기호 없음(빈 문자열)으로 설정해야 합니다. 즉, 전체 내용을 단일 값으로 처리합니다.<br>현재 행 구분 기호는 매핑 데이터 흐름에만 지원되고 복사 작업에는 지원되지 않습니다. | 예       |
 | quoteChar        | 열 구분 기호를 포함하는 경우 열 값을 따옴표로 묶을 단일 문자입니다. <br>기본값은 **큰따옴표** `"`입니다. <br>`quoteChar`를 빈 문자열로 정의한 경우 따옴표 문자가 없고 열 값이 따옴표로 묶이지 않으며 `escapeChar`가 열 구분 기호 및 자신을 이스케이프하는 데 사용된다는 의미입니다. | 예       |
 | escapeChar       | 따옴표로 묶인 값 안에서 따옴표를 이스케이프할 단일 문자입니다.<br>기본값은 **백슬래시 `\`** 입니다. <br>`escapeChar`를 빈 문자열로 정의한 경우에는 `quoteChar`도 빈 문자열로 설정해야 합니다. 이 경우 모든 열 값에 구분 기호가 포함되지 않아야 합니다. | 예       |
@@ -92,7 +92,7 @@ ms.locfileid: "130238966"
 
 복사 작업 ***\*source\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성       | 설명                                                  | 필수 |
+| 속성       | Description                                                  | 필수 |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 복사 작업 원본의 type 속성은 **DelimitedTextSource** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분된 텍스트 읽기 설정** 표를 참조하세요. |  예       |
@@ -100,7 +100,7 @@ ms.locfileid: "130238966"
 
 **아래의 지원되는** 구분된 텍스트 읽기 설정`formatSettings`:
 
-| 속성      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings의 형식을 **DelimitedTextReadSettings** 로 설정해야 합니다. | 예      |
 | skipLineCount | 입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. <br>skipLineCount와 firstRowAsHeader가 모두 지정되면 먼저 줄을 건너뛴 다음, 입력 파일에서 헤더 정보를 읽습니다. | 예       |
@@ -140,7 +140,7 @@ ms.locfileid: "130238966"
 
 복사 작업 ***\*sink\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성       | 설명                                                  | 필수 |
+| 속성       | Description                                                  | 필수 |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 복사 작업 원본의 type 속성은 **DelimitedTextSink** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분된 텍스트 쓰기 설정** 표를 참조하세요. |    예      |
@@ -148,7 +148,7 @@ ms.locfileid: "130238966"
 
 **아래의 지원되는** 구분된 텍스트 쓰기 설정`formatSettings`:
 
-| 속성      | 설명                                                  | 필수                                              |
+| 속성      | Description                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | formatSettings의 형식을 **DelimitedTextWriteSettings** 로 설정해야 합니다. | 예                                                   |
 | fileExtension | 출력 파일의 이름을 지정하는 데 사용되는 파일 확장명입니다(예: `.csv`, `.txt`). 출력 DelimitedText 데이터 세트에 `fileName`이 지정되지 않은 경우 이 속성을 반드시 지정해야 합니다. 출력 데이터 세트에서 파일 이름이 구성되어 있으면 해당 이름이 싱크 파일 이름으로 사용되고 파일 확장명 설정은 무시됩니다.  | 출력 데이터 세트에 파일 이름이 지정되지 않은 경우 예입니다. |
@@ -157,13 +157,13 @@ ms.locfileid: "130238966"
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
-매핑 데이터 흐름에서 [Azure Blob](connector-azure-blob-storage.md#mapping-data-flow-properties)Storage, Azure Data Lake Storage Gen1 및 Azure Data [Lake Storage](connector-azure-data-lake-store.md#mapping-data-flow-properties) [Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)데이터 저장소에서 구분된 텍스트 형식을 읽고 쓸 수 있으며 [Amazon S3에서](connector-amazon-simple-storage-service.md#mapping-data-flow-properties)구분된 텍스트 형식을 읽을 수 있습니다.
+매핑 데이터 흐름에서 [Azure Blob](connector-azure-blob-storage.md#mapping-data-flow-properties)Storage, Azure Data Lake Storage Gen1 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-store.md#mapping-data-flow-properties) 데이터 [](connector-azure-data-lake-storage.md#mapping-data-flow-properties)저장소에서 구분된 텍스트 형식을 읽고 쓸 수 있으며 [Amazon S3에서](connector-amazon-simple-storage-service.md#mapping-data-flow-properties)구분된 텍스트 형식을 읽을 수 있습니다.
 
 ### <a name="source-properties"></a>원본 속성
 
 다음 표에서는 구분된 텍스트 원본에서 지원하는 속성을 나열합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치하는 모든 파일이 처리됩니다. 데이터 세트에 설정된 폴더 및 파일 경로를 재정의합니다. | 아니요 | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할된 파일 데이터의 경우 분할된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요 | String | partitionRootPath |
@@ -200,7 +200,7 @@ source(
 
 다음 표에서는 구분된 텍스트 소스에서 지원하는 속성을 나열합니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
 | 파일 이름 옵션 | 작성된 데이터의 명명 형식입니다. 기본적으로 파티션당 파일 하나이고 형식은 `part-#####-tid-<guid>`입니다. | 아니요 | 패턴: String <br> 파티션당: String[] <br> 열 데이터로 파일 이름 지정: String <br> 단일 파일로 출력: `['<fileName>']` <br> 열 데이터로 폴더 이름 지정: String | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |

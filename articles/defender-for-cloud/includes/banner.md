@@ -1,16 +1,13 @@
 ---
 title: include
-author: memildin
-ms.author: memildin
 ms.date: 11/09/2021
-ms.service: defender-for-cloud
 ms.topic: include
-ms.openlocfilehash: 453ed12a2bfb7337fbe89948d87385df4c106c09
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: d9248c553842c2a1ce2fbed277b0730470a997bc
+ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132524945"
+ms.lasthandoff: 11/24/2021
+ms.locfileid: "133133013"
 ---
 <!-- docutune:disable -->
 

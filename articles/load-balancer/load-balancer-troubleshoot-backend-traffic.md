@@ -11,18 +11,31 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/28/2020
+ms.date: 11/24/2021
 ms.author: allensu
-ms.openlocfilehash: bfe2b21a86f2ce4b4630ba69cde87796fd367f4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c0cde104c549f0c6143463cbc4f479a029796f22
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98029201"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133128876"
 ---
 # <a name="troubleshoot-azure-load-balancer-backend-traffic-responses"></a>Azure Load Balancer 백엔드 트래픽 응답 문제 해결
 
 이 페이지에서는 Azure Load Balancer 질문에 대한 문제 해결 정보를 제공합니다.
+
+## <a name="vms-behind-load-balancer-are-receving-uneven-distribution-of-traffic"></a>Load Balancer 뒤의 VM이 균일하지 않은 트래픽 분산을 받고 있습니다.
+백 엔드 풀 멤버가 트래픽을 수신하는 것으로 의심되는 경우 다음과 같은 원인 때문일 수 있습니다. Azure Load Balancer 연결에 따라 트래픽을 분산합니다. 패킷이 아닌 연결당 트래픽 분포를 확인해야 합니다. 미리 구성된 Load Balancer Insights 대시보드 에서 Flow **배포** 탭을 사용하는지 [확인합니다.](load-balancer-insights.md#flow-distribution)
+
+Azure Load Balancer 진정한 라운드 로빈 부하 분산을 지원하지 않지만 해시 기반 [배포 모드](distribution-mode-concepts.md)를 지원합니다. 
+
+## <a name="cause-1-you-have-session-persistence-configured"></a>원인 1: 세션 지속성이 구성되어 있습니다.
+
+원본 지속성 배포 모드를 사용하면 트래픽의 균일하지 않은 배포가 발생할 수 있습니다. 이렇게 하지 않으면 백 엔드 풀의 모든 정상 인스턴스에 트래픽이 분산되도록 세션 지속성을 **없음으로** 업데이트합니다. [Azure Load Balancer 배포 모드에](distribution-mode-concepts.md)대해 자세히 알아봅니다.
+
+## <a name="cause-2-you-have-a-proxy-configured"></a>원인 2: 프록시가 구성되어 있습니다.
+
+프록시 뒤에서 실행되는 클라이언트는 Load Balancer 관점에서 하나의 고유한 클라이언트 애플리케이션으로 표시될 수 있습니다.
 
 ## <a name="vms-behind-load-balancer-are-not-responding-to-traffic-on-the-configured-data-port"></a>Load Balancer 뒤의 VM이 구성된 데이터 포트의 트래픽에 응답하지 않습니다.
 

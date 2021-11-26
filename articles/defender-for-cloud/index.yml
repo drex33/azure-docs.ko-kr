@@ -4,19 +4,19 @@ summary: Microsoft Defender for Cloud는 하이브리드 클라우드 워크로�
 metadata:
   title: Microsoft Defender for Cloud 설명서
   description: 빠른 시작 및 자습서를 사용하여 Defender for Cloud를 시작하고, 워크로드를 보호하고, 위험을 제한하고, 공격을 탐지하고 대응하는 방법을 알아봅니다.
-  services: security-center
-  ms.service: defender-for-cloud
-  ms.topic: landing-page
-  ms.collection: collection
+  services: defender-for-cloud
   author: memildin
   ms.author: memildin
+  manager: raynew
+  ms.topic: landing-page
+  ms.collection: collection
   ms.date: 10/21/2021
-  ms.openlocfilehash: 66839c045da6af6c4b6279ac0501a85ab7ea939b
-  ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+  ms.openlocfilehash: fc2ad72084b56df50a4f35da9e7e0f9d5b0d57ab
+  ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/15/2021
-  ms.locfileid: "132487090"
+  ms.lasthandoff: 11/24/2021
+  ms.locfileid: "133097702"
 landingContent:
 - title: Defender for Cloud 정보
   linkLists:
@@ -28,20 +28,22 @@ landingContent:
       url: security-center-os-coverage.md
     - text: Defender for Cloud를 시작하려면 어떻게 해야 하나요?
       url: get-started.md
+    - text: 보안 정책, 이니셔티브 및 권장 사항은 무엇인가요?
+      url: security-policy-concept.md
 - title: 최신 상태 유지
   linkLists:
   - linkListType: whats-new
     links:
     - text: Defender for Cloud에 대한 릴리스 정보
       url: release-notes.md
-    - text: 컴퓨터에 Azure 보안 기준 적용
-      url: apply-security-baseline.md
-    - text: 통합된 통합 문서 보고서 사용
-      url: custom-dashboards-azure-workbooks.md
-    - text: 하이브리드 및 다중 클라우드 Kubernetes 클러스터 보호
-      url: defender-for-kubernetes-azure-arc.md
-    - text: 오픈 소스 관계형 데이터베이스용 Microsoft Defender
-      url: defender-for-databases-introduction.md
+    - text: 예정된 중요한 변경 내용
+      url: upcoming-changes.md
+    - text: 다중 클라우드 보안 - AWS EKS 클러스터 방어
+      url: defender-for-kubernetes-introduction.md#protect-amazon-elastic-kubernetes-service-clusters
+    - text: 환경 설정을 사용하여 AWS 계정 연결
+      url: quickstart-onboard-aws.md
+    - text: 위협 및 취약성 관리 취약성 평가
+      url: deploy-vulnerability-assessment-tvm.md
 - title: 시작
   linkLists:
   - linkListType: get-started
@@ -50,12 +52,12 @@ landingContent:
       url: get-started.md
     - text: 향상된 보안 기능 사용
       url: enable-enhanced-security.md
+    - text: 하이브리드 및 다중 클라우드 머신 연결
+      url: quickstart-onboard-machines.md
     - text: 자동 프로비저닝 구성
       url: enable-data-collection.md
     - text: 이메일 알림 설정
       url: configure-email-notifications.md
-    - text: Azure 이외 머신 연결
-      url: quickstart-onboard-machines.md
 - title: 보안 점수 향상
   linkLists:
   - linkListType: how-to-guide

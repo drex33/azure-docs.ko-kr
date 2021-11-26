@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
-ms.openlocfilehash: ba2b39a854dd7d70690aea943f7365bc50bc8804
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 649d92403bb0cf1405d4ba2fab96e57bc37c4028
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131038787"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133129522"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api"></a>GenerateAnswer API를 사용하여 답변 가져오기
 
@@ -27,6 +27,9 @@ ms.locfileid: "131038787"
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>GenerateAnswer API를 사용하여 답변 예측 가져오기
 
 봇 또는 애플리케이션에서 [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)를 사용하여 사용자 질문으로 기술 자료를 쿼리하면 질문 및 답변 쌍에서 최적의 일치 항목을 가져올 수 있습니다.
+
+> [!NOTE]
+> 이 설명서는 최신 릴리스에는 적용 되지 않습니다. 최신 질문에 응답 하는 Api를 사용 하는 방법에 대 한 자세한 내용은 [질문 및 답변 빠른 시작 가이드](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk)
 
 <a name="generateanswer-endpoint"></a>
 

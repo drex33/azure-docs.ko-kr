@@ -218,6 +218,10 @@
           href: troubleshoot-outbound-connection.md
         - name: 리소스 상태 및 인바운드 가용성 문제
           href: troubleshoot-rhc.md
+        - name: Azure Instance Metadata Service(IMDS)에 대한 일반적인 오류 코드
+          href: troubleshoot-load-balancer-imds.md
+        - name: 일반적인 배포 오류
+          href: load-balancer-common-deployment-errors.md
 - name: 참조
   items:
     - name: 코드 샘플
@@ -241,10 +245,6 @@
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/loadbalancers
       displayName: ARM
-    - name: Azure Instance Metadata Service(IMDS)에 대한 일반적인 오류 코드
-      href: troubleshoot-load-balancer-imds.md
-    - name: 일반적인 배포 오류
-      href: load-balancer-common-deployment-errors.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

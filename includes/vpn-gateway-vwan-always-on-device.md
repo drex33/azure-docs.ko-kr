@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 756df0b7bce34119230bdcad614e2d45ae0e582a
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
-ms.translationtype: HT
+ms.openlocfilehash: 0c901fcada708f800c84ec20fb03bcfda852d765
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579748"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133110424"
 ---
 디바이스 터널을 성공적으로 설정하려면 다음 요구 사항이 충족되어야 합니다.
 
@@ -117,10 +117,17 @@ ms.locfileid: "110579748"
    ```
 1. [Sysinternals](/sysinternals/downloads/psexec)에서 **PsExec** 를 다운로드하고 **C:\PSTools** 에 파일을 추출합니다.
 1. 관리자 CMD 프롬프트에서 다음을 실행하여 PowerShell을 시작합니다.
-
+   
+   32비트 Windows:
+   
    ```
-   PsExec.exe Powershell for 32-bit Windows
-   PsExec64.exe Powershell for 64-bit Windows
+   PsExec.exe -s -i powershell
+   ```
+   
+   64비트 Windows:
+   
+   ```
+   PsExec64.exe -s -i powershell
    ```
 
    ![스크린샷에서는 64비트 버전의 PowerShell을 시작하는 명령이 포함된 명령 프롬프트 창을 보여줍니다.](./media/vpn-gateway-vwan-always-on-device/powershell.png)

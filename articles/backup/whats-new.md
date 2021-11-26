@@ -2,13 +2,16 @@
 title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 10/20/2021
-ms.openlocfilehash: d63182c46f47353801ca30c086aa341ebd3b9e92
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.date: 11/25/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 4a2b90e8186055f6fb285079cc4e6d63df2b6800
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132716698"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133128857"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -19,6 +22,7 @@ Azure Backup은 Azure에서 데이터의 보호 성능을 향상시키는 새로
 ## <a name="updates-summary"></a>업데이트 요약
 
 - 2021년 10월
+  - [리소스 가드를 사용 하는 다중 사용자 권한 부여 (미리 보기)](#multi-user-authorization-using-resource-guard-in-preview)
   - [Azure Files에 대 한 하루에 여러 번 백업 (미리 보기)](#multiple-backups-per-day-for-azure-files-in-preview)
   - [Azure Backup 메트릭 및 메트릭 경고 (미리 보기)](#azure-backup-metrics-and-metrics-alerts-in-preview)
 - 2021년 7월
@@ -49,6 +53,12 @@ Azure Backup은 Azure에서 데이터의 보호 성능을 향상시키는 새로
   - [RHEL Azure Virtual Machines에서 SAP HANA 백업 (미리 보기)](#back-up-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [백업 데이터에 대한 ZRS(영역 중복 스토리지)(미리 보기)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Azure VM의 SQL Server 및 SAP HANA 워크로드에 대한 일시 삭제](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="multi-user-authorization-using-resource-guard-in-preview"></a>리소스 가드를 사용 하는 다중 사용자 권한 부여 (미리 보기)
+
+Azure Backup는 이제 Recovery Services 자격 증명 모음에서 중요 한 작업에 대 한 추가 보호 계층을 추가할 수 있는 MUA (다중 사용자 권한 부여)를 지원 합니다. Azure Backup MUA의 경우 Azure 리소스 리소스 가드를 사용 하 여 중요 한 작업이 적용 가능한 권한 부여로만 수행 되도록 합니다.
+
+자세한 내용은 [MUA를 사용 하 여 Recovery Services 자격 증명 모음을 보호 하 고 중요 한 작업을 관리 하는 방법](/azure/backup/multi-user-authorization)을 참조 하세요.
 
 ## <a name="multiple-backups-per-day-for-azure-files-in-preview"></a>Azure Files에 대 한 하루에 여러 번 백업 (미리 보기)
 

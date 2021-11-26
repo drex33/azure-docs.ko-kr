@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2021
-ms.openlocfilehash: c7c5ce32801efe68d653dc3abd97c1e5ff3a7f9b
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: f3e64e982df339774651baaed8b37c194597f484
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113000413"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133129446"
 ---
 # <a name="estimate-and-manage-capacity-of-a-search-service"></a>검색 서비스의 용량 예측 및 관리
 
@@ -99,7 +99,7 @@ Cognitive Search에서 분할 관리는 구현 세부 정보이며 구성할 수
 
 1. 원본 데이터가 인덱스로 변환되는 방법을 결정하려면 [초기 인덱스를 만듭니다](search-what-is-an-index.md). 인덱스 크기를 추정하는 유일한 방법입니다. 
 
-1. 포털에서 [스토리지, 서비스 제한, 쿼리 볼륨 및 대기 시간을 모니터링](search-monitor-usage.md)합니다. 포털은 초당 쿼리, 제한된 쿼리 및 검색 대기 시간을 보여줍니다. 이 모든 값이 올바른 계층에 있는지 결정하는 데 도움을 줄 수 있습니다.
+1. 포털에서 [스토리지, 서비스 제한, 쿼리 볼륨 및 대기 시간을 모니터링](monitor-azure-cognitive-search.md)합니다. 포털은 초당 쿼리, 제한된 쿼리 및 검색 대기 시간을 보여줍니다. 이 모든 값이 올바른 계층에 있는지 결정하는 데 도움을 줄 수 있습니다.
 
 1. 고가용성이 필요하거나 쿼리 성능이 느린 경우 복제본을 추가합니다.
 
@@ -222,7 +222,7 @@ QPS(초당 쿼리)는 성능 튜닝 중에 중요한 메트릭입니다. 하지�
 | **복제본 4개** |4 SU |8 SU |12 SU |16 SU |24 SU |해당 없음 |
 | **복제본 5개** |5 SU |10 SU |15 SU |20 SU |30 SU |해당 없음 |
 | **복제본 6개** |6 SU |12 SU |18 SU |24 SU |36 SU |해당 없음 |
-| **복제본 12개** |12 SU |24 SU |36 SU |해당 없음 |해당 없음 |해당 없음 |
+| **복제본 12개** |12 SU |24 SU |36 SU |해당 없음 |N/A |해당 없음 |
 
 SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명되어 있습니다. 자세한 내용은 [가격 정보](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
 

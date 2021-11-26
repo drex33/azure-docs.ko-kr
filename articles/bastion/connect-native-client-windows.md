@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/01/2021
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 9832a7573a1641f91cd1b27d696df533b9130d75
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: e22dcfcc0fe6a6378e2cd1f7de679254e59504f0
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132867602"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133110273"
 ---
 # <a name="connect-to-a-vm-using-bastion-and-the-native-client-on-your-windows-computer-preview"></a>Windows 컴퓨터에서 Bastion 및 네이티브 클라이언트를 사용하여 VM에 커넥트(미리 보기)
 
@@ -118,7 +118,7 @@ VNet에 대해 Bastion을 이미 구성한 경우 다음 설정을 수정합니�
    * SSH 키 쌍을 사용하여 로그인하는 경우 다음 명령을 사용합니다.
 
       ```azurecli-interactive
-      az network bastion ssh "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
+      az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
       ```
 
 ### <a name="connect-to-a-windows-vm"></a>Windows VM에 연결

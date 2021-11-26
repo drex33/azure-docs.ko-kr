@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 05/20/2021
 ms.author: allensu
-ms.openlocfilehash: b2daa54bb17c5eb455be739062c251ed14a0ad13
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 3d50a7246fcbf8d9a9ccbd2985df9b3a70ed18ab
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132707869"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133109836"
 ---
 # <a name="public-ip-address-prefix"></a>공용 IP 주소 접두사
 
@@ -44,7 +44,7 @@ ms.locfileid: "132707869"
 
 |리소스|시나리오|단계|
 |---|---|---|
-|가상 머신| 접두사에서 Azure의 가상 머신에 공용 IP를 연결하면 방화벽의 허용 목록에 IP 주소를 추가할 때 관리 오버헤드가 줄어듭니다. 하나의 방화벽 규칙에서 전체 접두사를 허용 목록에 포함시킬 수 있습니다. Azure에서 가상 머신으로 확장할 때 동일한 접두사의 IP를 연결하면 비용, 시간 및 관리 오버헤드를 절약할 수 있습니다.| 접두사의 IP를 가상 머신에 연결하려면: </br> 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) </br> 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) </br> 3. [IP를 가상 머신의 네트워크 인터페이스에 연결합니다.](./virtual-network-network-interface-addresses.md#add-ip-addresses) </br> [가상 머신 확장 집합에 IP를 연결](https://azure.microsoft.com/resources/templates/vmms-with-public-ip-prefix/)할 수도 있습니다.
+|가상 머신| Azure의 가상 머신에 공용 Ip를 연결 하면 방화벽의 allowlist에 IP 주소를 추가할 때 관리 오버 헤드가 줄어듭니다. 하나의 방화벽 규칙에서 전체 접두사를 허용 목록에 포함시킬 수 있습니다. Azure에서 가상 머신으로 확장할 때 동일한 접두사의 IP를 연결하면 비용, 시간 및 관리 오버헤드를 절약할 수 있습니다.| 접두사의 IP를 가상 머신에 연결하려면: </br> 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) </br> 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) </br> 3. [IP를 가상 머신의 네트워크 인터페이스에 연결합니다.](./virtual-network-network-interface-addresses.md#add-ip-addresses) </br> [가상 머신 확장 집합에 IP를 연결](https://azure.microsoft.com/resources/templates/vmss-with-public-ip-prefix/)할 수도 있습니다.
 | 표준 부하 분산 장치 | 접두사의 공용 IP를 프런트 엔드 IP 구성 또는 부하 분산 장치의 아웃바운드 규칙에 연결하면 Azure 공용 IP 주소 공간이 간소화됩니다. 인접한 IP 주소 범위에서 아웃 바운드 연결을 제거하여 시나리오를 간소화 합니다. | 접두사의 IP를 부하 분산 장치에 연결하려면: </br> 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) </br> 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) </br> 부하 분산 장치를 만들 때 위의 2단계에서 부하 분산 장치의 프런트 엔드 IP로 만든 IP를 선택하거나 업데이트합니다. |
 | Azure Firewall | 아웃바운드 SNAT의 접두사에서 공용 IP를 사용할 수 있습니다. 모든 아웃바운드 가상 네트워크 트래픽은 [Azure Firewall](../../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 공용 IP로 변환됩니다. | IP를 접두사에서 방화벽에 연결하려면 다음을 수행합니다. </br> 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) </br> 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) </br> [Azure Firewall을 배포](../../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall)할 때 접두사에서 이전에 할당한 IP를 반드시 선택해야 합니다.|
 | VPN Gateway(AZ SKU), Application Gateway v2, NAT Gateway | 게이트웨이의 접두사에서 공용 IP를 사용할 수 있습니다. | IP를 접두사에서 게이트웨이에 연결하려면 다음을 수행합니다. </br> 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) </br> 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) </br> 3. [VPN Gateway](../../vpn-gateway/tutorial-create-gateway-portal.md), [Application Gateway](../../application-gateway/quick-create-portal.md#create-an-application-gateway) 또는 [NAT Gateway](../nat-gateway/tutorial-create-nat-gateway-portal.md)를 배포할 때 이전에 접두사에서 제공한 IP를 선택해야 합니다.|
@@ -53,7 +53,7 @@ ms.locfileid: "132707869"
 
 리소스|시나리오|단계|
 |---|---|---|
-|가상 머신 크기 집합 | 개별 공용 IP 리소스는 생성되지 않지만 공용 IP 주소 접두사를 사용하여 가상 머신 확장 집합에서 인스턴스 수준 IP를 생성할 수 있습니다. | 확장 집합 생성의 일부로 공용 IP 구성에 이 접두사를 사용하는 지침이 있는 [템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-with-public-ip-prefix)을 사용합니다. 접두사 영역 속성은 출력에 표시되지 않지만 인스턴스 IP에 전달됩니다. 자세한 내용은 Virtual Machine [Scale Sets에 대한 네트워킹을](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) 참조하세요. |
+|가상 머신 크기 집합 | 개별 공용 IP 리소스는 생성되지 않지만 공용 IP 주소 접두사를 사용하여 가상 머신 확장 집합에서 인스턴스 수준 IP를 생성할 수 있습니다. | 확장 집합 생성의 일부로 공용 IP 구성에 이 접두사를 사용하는 지침이 있는 [템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-with-public-ip-prefix)을 사용합니다. (출력에 표시 되지 않지만 접두사의 영역 속성은 인스턴스 Ip에 전달 됩니다. 자세한 내용은 [가상 머신 확장 집합에 대 한 네트워킹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) 을 참조 하세요.) |
 | 표준 부하 분산 장치 | 공용 IP 주소 접두사는 [아웃바운드 연결 범위에서 모든 IP를 사용](../../load-balancer/outbound-rules.md#scale)하여 부하 분산 장치의 크기를 조정하는 데 사용할 수 있습니다. | 접두사를 부하 분산 장치에 연결하려면 다음을 수행합니다. </br> 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) </br> 2. 부하 분산 장치를 만들 때 부하 분산 장치의 프런트 엔드와 연결된 IP 접두사를 선택합니다. |
 | NAT Gateway | 공용 IP 접두사는 아웃바운드 연결에 대한 접두사에 공용 IP를 사용하여 NAT Gateway의 크기를 조정하는 데 사용할 수 있습니다. | 접두사를 NAT Gateway에 연결하려면 다음을 수행합니다. </br> 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) </br> 2. NAT Gateway를 만들 때 IP 접두사를 아웃바운드 IP로 선택합니다. |
 | VPN Gateway (AZ SKU) 또는 Application Gateway v2 | 영역 중복 VPN 또는 애플리케이션 게이트웨이 v2에 대해 접두사에서 공용 IP를 사용할 수 있습니다. | IP를 접두사에서 게이트웨이에 연결하려면 다음을 수행합니다. </br> 1. [접두사를 만듭니다.](manage-public-ip-address-prefix.md) </br> 2. [접두사에서 IP를 만듭니다.](manage-public-ip-address-prefix.md) </br> 3. [VPN Gateway](../../vpn-gateway/tutorial-create-gateway-portal.md) 또는 [애플리케이션 게이트웨이](../../application-gateway/quick-create-portal.md#create-an-application-gateway)를 배포할 때 이전에 접두사에서 제공한 IP를 선택해야 합니다.|

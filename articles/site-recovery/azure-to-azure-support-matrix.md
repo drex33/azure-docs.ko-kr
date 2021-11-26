@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 11/29/2020
 author: Sharmistha-Rai
 ms.author: sharrai
-ms.openlocfilehash: 3377470e37d0251b10fd46bad6dc37befa8a1681
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.openlocfilehash: 8488138f3666b4c95c7ef6c7b9b4490a17a43eab
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132903030"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133129427"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -73,7 +73,7 @@ Premium Storage | 지원되지 않음 | 표준 스토리지 계정은 캐시 스
 지역 |  가상 머신과 동일한 지역  | 캐시 스토리지 계정은 보호 중인 가상 머신과 동일한 지역에 있어야 합니다.
 구독  | 원본 가상 머신과 다를 수 있음 | 캐시 스토리지 계정은 원본 가상 머신과 동일한 구독에 있지 않아도 됩니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](../storage/common/storage-network-security.md#exceptions)을 선택해야 합니다.<br></br>또한 원본 Vnet의 하나 이상의 서브넷에 대한 액세스를 허용해야 합니다.<br></br>참고: Site Recovery에 사용된 스토리지 계정에 대한 가상 네트워크 액세스를 제한하지 마십시오. '모든 네트워크'에서 액세스를 허용해야 합니다.
-일시 삭제 | 지원되지 않음 | 캐시 저장소 계정에서 사용 하도록 설정 하면 일시 삭제가 지원 되지 않습니다. 비용은 늘어납니다. ASR은 로그 파일의 생성/삭제를 매우 빈번 하 게 수행 하는 반면, 복제는 비용 증가를 초래 합니다.
+일시 삭제 | 지원되지 않음 | 일시 삭제는 캐시 스토리지 계정에서 사용하도록 설정되면 비용이 증가하므로 지원되지 않습니다. ASR은 복제하는 동안 로그 파일의 생성/삭제를 매우 자주 수행하여 비용이 증가합니다.
 
 아래 표에는 단일 스토리지 계정으로 복제할 수 있는 디스크 수에 대한 제한이 나와 있습니다.
 
@@ -126,7 +126,7 @@ SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5[(지원되는 커널 �
 SUSE Linux Enterprise Server 15 | 15, SP1, SP2[(지원되는 커널 버전)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> 복제 컴퓨터를 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터를 업그레이드한 경우 복제를 사용하지 않도록 설정하고 업그레이드 후에 다시 사용하도록 설정해야 합니다.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7,](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) [7.8,](https://support.microsoft.com/help/4573888/) [7.9,](https://support.microsoft.com/help/4597409) [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3(Red](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) Hat 호환 커널 또는 Unbreakable Enterprise 커널 릴리스 3, 4, 5 및 6(UEK3, UEK4, UEK5, UEK6), [8.4(UEK](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) 커널만 지원됨)<br/><br/>8.1(모든 UEK 커널에서 실행되고 RedHat 커널 <= 3.10.0-1062.*는 [9.35에서](https://support.microsoft.com/help/4573888/) 지원되며 나머지 RedHat 커널에 대한 지원은 [9.36에서](https://support.microsoft.com/help/4578241/)사용할 수 있음)
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, [7.6, 7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)( [Red](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) Hat 호환 커널 또는 Unbreakable Enterprise 커널 릴리스 3, 4, 5 및 6 (unbreakable, UEK4, UEK5, UEK6), [8.3](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) (uek 커널을 지원 됨)<br/><br/>8.1 (모든 UEK 커널 및 RedHat 커널 <= 3.10.0-1062. *는 [9.36](https://support.microsoft.com/help/4578241/) [9.35](https://support.microsoft.com/help/4573888/) 에서 지원 되지 않습니다.
 
 > [!NOTE]
 > Linux 버전의 경우 Azure Site Recovery에서 사용자 지정 OS 커널을 지원하지 않습니다. 배포의 부 버전 릴리스/업데이트에 포함된 스톡 커널만 지원됩니다.
@@ -171,17 +171,17 @@ Debian 7 | [9.40](https://support.microsoft.com/topic/update-rollup-53-for-azure
 |||
 Debian 8 | [9.40](https://support.microsoft.com/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a), [9.41](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533), [9.42](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [9.43](https://support.microsoft.com/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6), [9.44](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 3.16.0-4-amd64에서 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.11-amd64 |
 |||
-Debian 9.1 | [9.45](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | 4.19.0-0.bpo.18-amd64 </br> 4.19.0-0.bpo.18-cloud-amd64
+Debian 9.1 | [9.45](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | 4.19.0 64,-amd64 </br> 4.19.0 64, – cloud-amd64
 Debian 9.1 | [9.44](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 4.9.0-1-amd64 ~ 4.9.0-15-amd64 </br> 4.19.0-0.bpo.1-amd64 ~ 4.19.0-0.bpo.16-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 ~ 4.19.0-0.bpo.16-cloud-amd64
 Debian 9.1 | [9.43](https://support.microsoft.com/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6) | 4.9.0-1-amd64 ~ 4.9.0-15-amd64 </br> 4.19.0-0.bpo.1-amd64 ~ 4.19.0-0.bpo.16-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 ~ 4.19.0-0.bpo.16-cloud-amd64
 Debian 9.1 | [9.42](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 4.9.0-1-amd64 ~ 4.9.0-15-amd64 </br> 4.19.0-0.bpo.1-amd64 ~ 4.19.0-0.bpo.16-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 ~ 4.19.0-0.bpo.16-cloud-amd64
 Debian 9.1 | [9.41](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.9.0-1-amd64에서 4.9.0-14-amd64 </br> 4.19.0-0.bpo.1-amd64에서 4.19.0-0.bpo.14-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64에서 4.19.0-0.bpo.14-cloud-amd64 </br> 4.9.0-15-amd64, 4.19.0-0.bpo.16-amd64, 4.19.0-0.bpo.16-cloud-amd64 ~ 9.41 핫픽스 패치**
 |||
 Debian 10 | [9.45](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | 4.19.0-18-amd64 </br> 4.19.0-18-cloud-amd64
-Debian 10 | [9.44](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 4.19.0-6-amd64 ~ 4.19.0-16-amd64 </br> 4.19.0-6-cloud-amd64 ~ 4.19.0-16-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
-Debian 10 | [9.43](https://support.microsoft.com/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6) | 4.19.0-6-amd64 ~ 4.19.0-16-amd64 </br> 4.19.0-6-cloud-amd64 ~ 4.19.0-16-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
-Debian 10 | [9.42](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 4.19.0-6-amd64 ~ 4.19.0-16-amd64 </br> 4.19.0-6-cloud-amd64 ~ 4.19.0-16-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
-Debian 10 | [9.41](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.19.0-6-amd64 ~ 4.19.0-14-amd64 </br> 4.19.0-6-cloud-amd64에서 4.19.0-14-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64 </br> 4.19.0-10-cloud-amd64, 4.19.0-16-amd64, 4.19.0-16-cloud-amd64 ~ 9.41 핫픽스 패치**
+Debian 10 | [9.44](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 4.19.0-6-amd64 to 4.19.0-16-amd64 </br> 4.19.0-6-cloud-amd64 ~ 4.19.0-16-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
+Debian 10 | [9.43](https://support.microsoft.com/topic/update-rollup-56-for-azure-site-recovery-kb5005376-33f27950-1a07-43e5-bf40-4b380a270ef6) | 4.19.0-6-amd64 to 4.19.0-16-amd64 </br> 4.19.0-6-cloud-amd64 ~ 4.19.0-16-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
+Debian 10 | [9.42](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 4.19.0-6-amd64 to 4.19.0-16-amd64 </br> 4.19.0-6-cloud-amd64 ~ 4.19.0-16-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
+Debian 10 | [9.41](https://support.microsoft.com/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.19.0-6-amd64 to 4.19.0-14-amd64 </br> 4.19.0-6-cloud-amd64에서 4.19.0-14-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64 </br> 4.19.0-10-cloud-amd64, 4.19.0-16-amd64, 4.19.0-16-cloud-amd64 ~ 9.41 핫픽스 패치**
 
 **참고: 릴리스로부터 15일 이내에 최신 Linux 커널을 지원하기 위해 Azure Site Recovery는 최신 모바일 에이전트 버전 위에 핫픽스 패치를 출시합니다. 해당 픽스는 두 주 버전 릴리스 사이에 출시됩니다. 최신 버전의 모바일 에이전트(핫픽스 패치 포함)로 업데이트하려면 [이 문서](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure)에 설명된 단계를 따르세요. 해당 패치는 현재 Azure 간 DR 시나리오에 사용되는 모바일 에이전트를 위해 출시되었습니다.
 
@@ -226,7 +226,7 @@ RAM | Azure Site Recovery 드라이버는 RAM의 6%를 소비합니다.
 가용성 집합 | 지원됨 | 기본 옵션을 사용하여 Azure VM에 대해 복제를 사용하도록 설정하면 원본 지역 설정에 따라 가용성 집합이 자동으로 생성됩니다. 이러한 설정을 수정할 수 있습니다.
 가용성 영역 | 지원됨 |
 HUB(하이브리드 사용 혜택) | 지원됨 | 원본 VM에 활성 HUB 라이선스가 있는 경우 테스트 장애 조치(failover) 또는 장애 조치(failover)된 VM에서도 HUB 라이선스를 사용합니다.
-가상 머신 크기 집합 | 지원되지 않음 |
+VMSS Flex | 가용성 시나리오-지원 됨. 확장성 시나리오-지원 되지 않습니다. |
 Azure 갤러리 이미지 - Microsoft 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Azure 갤러리 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 사용자 지정 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
@@ -241,7 +241,7 @@ Azure RBAC 정책 | 지원되지 않음 | VM에 대한 Azure RBAC(Azure 역할 �
 
 **동작** | **세부 정보**
 -- | ---
-복제된 VM에서 디스크 크기 조정 | 원본 VM에서 크기 조정이 지원됩니다. 원본 VM의 크기 조정은 지원되지 않습니다. 크기 조정은 장애 조치 전에 수행해야 합니다. 복제를 해제/다시 설정할 필요가 없습니다.<br/><br/> 장애 조치(failover) 후 원본 VM을 변경하면 변경 내용이 캡처되지 않습니다.<br/><br/> 장애 조치(failover) 후 Azure VM에서 디스크 크기를 변경하는 경우 Site Recovery에서 변경 내용이 캡처되지 않으며 원래 VM 크기로 장애 복구(failback)가 발생합니다.<br/><br/> 크기를 >=4TB로 조정하는 경우 [여기에서](../virtual-machines/premium-storage-performance.md)디스크 캐싱에 대한 Azure 지침을 참고하세요. 
+복제된 VM에서 디스크 크기 조정 | 원본 VM의 크기를 조정 하는 작업이 지원 됩니다. 원본 VM에서 크기를 조정 하는 것은 지원 되지 않습니다. 크기 조정은 장애 조치 (failover) 전에 수행 해야 합니다. 복제를 해제/다시 설정할 필요가 없습니다.<br/><br/> 장애 조치(failover) 후 원본 VM을 변경하면 변경 내용이 캡처되지 않습니다.<br/><br/> 장애 조치(failover) 후 Azure VM에서 디스크 크기를 변경하는 경우 Site Recovery에서 변경 내용이 캡처되지 않으며 원래 VM 크기로 장애 복구(failback)가 발생합니다.<br/><br/> >= 4TB로 크기를 조정 하는 경우 [디스크 캐싱에 대](../virtual-machines/premium-storage-performance.md)한 Azure 지침을 참조 하세요. 
 복제된 VM에 디스크 추가 | 지원됨
 보호된 디스크에 대한 오프라인 변경 | 디스크 연결을 끊고 오프라인으로 수정하려면 전체 다시 동기화를 트리거해야 합니다.
 디스크 캐싱 | 4TiB 이상의 디스크에서 디스크 캐싱은 지원되지 않습니다. 여러 디스크가 VM에 연결되어 있는 경우 4TiB보다 작은 디스크는 캐싱을 지원합니다. Azure 디스크의 캐시 설정을 변경하면 대상 디스크가 분리되었다가 다시 연결됩니다. 운영 체제 디스크인 경우 VM이 다시 시작됩니다. 디스크 캐시 설정을 변경하기 전에 이 중단의 영향을 받을 수 있는 모든 애플리케이션/서비스를 중지합니다. 이러한 권장 사항을 따르지 않으면 데이터가 손상될 수 있습니다.
@@ -261,7 +261,7 @@ OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아�
 데이터 디스크 최대 크기 | 관리 디스크의 경우 32TB<br></br>관리되지 않는 디스크의 경우 4TB|
 데이터 디스크 최소 크기 | 비관리 디스크는 제한이 없습니다. 관리 디스크의 경우 2GB |
 데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/sizes.md).
-스토리지 계정당 데이터 디스크 최대 크기(관리되지 않는 디스크의 경우) | 35TB | 프리미엄 Storage 계정에서 만든 페이지 Blob의 누적 크기에 대한 상한입니다.
+저장소 계정 당 데이터 디스크 최대 크기 (관리 되지 않는 디스크의 경우) | 35TB | premium Storage 계정에서 만든 페이지 blob의 누적 크기에 대 한 상한입니다.
 데이터 디스크 변경 비율 | 프리미엄 스토리지의 경우 디스크당 최대 20MBps입니다. Standard Storage는 디스크당 최대 2MBps입니다. | 디스크의 평균 데이터 변경률이 계속해서 최대값보다 큰 경우 복제가 처리되지 않습니다.<br/><br/>  그러나 최대값을 산발적으로 초과하는 경우 복제가 처리될 수 있지만 복구 지점이 약간 지연될 수 있습니다.
 데이터 디스크 - Standard Storage 계정 | 지원됨 |
 데이터 디스크 - Premium Storage 계정 | 지원됨 | VM의 디스크가 Premium Storage 계정과 표준 스토리지 계정에 분산된 경우 대상 지역의 스토리지를 동일하게 구성하기 위해 각 디스크에 대해 서로 다른 대상 스토리지 계정을 선택할 수 있습니다.
@@ -333,9 +333,9 @@ NIC | 특정 Azure VM 크기에 대해 지원되는 최대 수 | 장애 조치(f
 공용 IP 주소 | 지원됨 | 기존 공용 IP 주소를 NIC에 연결합니다. 또는 공용 IP 주소를 만들고 복구 계획에서 Azure Automation 스크립트를 사용하여 NIC에 연결합니다.
 NIC의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 NIC에 연결합니다.
 서브넷의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 서브넷에 연결합니다.
-예약된(고정) IP 주소 | 지원됨 | 원본 VM의 NIC에 고정 IP 주소가 있고 대상 서브넷에서 동일한 IP 주소를 사용할 수 있는 경우 해당 IP가 장애 조치(Failover)된 VM에 할당됩니다.<br/><br/> 대상 서브넷에서 동일한 IP 주소를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 주소 중 하나가 이 VM용으로 예약됩니다.<br/><br/> 네트워크 네트워크 인터페이스 설정 **복제된 항목에서** 고정 IP 주소 및 서브넷을 지정할 수도  >    >    >  **있습니다.**
+예약된(고정) IP 주소 | 지원됨 | 원본 VM의 NIC에 고정 IP 주소가 있고 대상 서브넷에서 동일한 IP 주소를 사용할 수 있는 경우 해당 IP가 장애 조치(Failover)된 VM에 할당됩니다.<br/><br/> 대상 서브넷에서 동일한 IP 주소를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 주소 중 하나가 이 VM용으로 예약됩니다.<br/><br/> 또한   >    >  **네트워크**  >  **네트워크 인터페이스** 설정 복제 된 항목에 고정 IP 주소 및 서브넷을 지정할 수 있습니다.
 동적 IP 주소 | 지원됨 | 원본의 NIC에 동적 IP 주소가 있는 경우 장애 조치(failover)된 VM의 NIC도 기본적으로 동적으로 설정됩니다.<br/><br/> 필요한 경우 이 주소를 고정 IP 주소로 수정할 수 있습니다.
-여러 IP 주소 | 지원됨 | 여러 IP 주소가 있는 NIC가 있는 VM을 장애 조치하는 경우 원본 지역에 있는 NIC의 기본 IP 주소만 기본적으로 유지됩니다. 보조 IP 구성을 장애 조치(failover)하려면 **네트워크** 블레이드로 이동하여 구성합니다.
+여러 IP 주소 | 지원됨 | 여러 IP 주소가 있는 NIC가 있는 VM을 장애 조치 (failover) 하는 경우 원본 지역의 NIC 기본 IP 주소만 기본적으로 유지 됩니다. 보조 IP 구성을 장애 조치 (failover) 하려면 **네트워크** 블레이드로 이동 하 여 구성 합니다.
 Traffic Manager     | 지원됨 | 트래픽이 평소에는 원본 지역의 엔드포인트로 라우팅되고 장애 조치(Failover) 시에는 대상 지역의 엔드포인트로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.
 Azure DNS | 지원됨 |
 사용자 지정 DNS    | 지원됨 |

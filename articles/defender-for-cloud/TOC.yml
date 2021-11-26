@@ -30,7 +30,7 @@
   items:
     - name: 1. 구독에서 클라우드용 Defender 사용
       href: get-started.md
-    - name: 2. 향상된 보호 사용
+    - name: 2. 향상된 보안 기능 사용
       href: enable-enhanced-security.md
     - name: 3. 하이브리드 및 다중 클라우드 머신 연결
       items:

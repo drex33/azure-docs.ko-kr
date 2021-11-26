@@ -7,19 +7,16 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-fall-2021, mode-other
 zone_pivot_groups: qnamaker-quickstart
-ms.openlocfilehash: fd0c497aa6b23ca445b203ab5fa8db9cde5baab6
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 4cecd5e4a05009035cac9eefea6e048f748ed213
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133039668"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133128990"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>빠른 시작: QnA Maker 클라이언트 라이브러리
 
 QnA Maker 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
-
-> [!NOTE]
-> 이제 최신 버전의 질문 및 응답 기능을 Azure Cognitive Service for Language의 일부로 사용할 수 있습니다. 자세한 내용은 [Azure Cognitive Service for Language 설명서](../../language-service/index.yml)를 참조하세요. 언어 서비스 내의 질문 답변 기능은 [질문 답변](../../language-service/question-answering/overview.md)을 참조하세요.
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 

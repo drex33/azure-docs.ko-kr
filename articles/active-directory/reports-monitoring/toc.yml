@@ -54,6 +54,8 @@
   items:
     - name: 보고서
       items:
+        - name: 활동 로그 액세스
+          href: howto-access-activity-logs.md
         - name: 로그 다운로드
           href: howto-download-logs.md
         - name: Azure AD의 비활성 사용자 계정 관리

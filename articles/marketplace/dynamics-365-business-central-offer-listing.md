@@ -1,20 +1,20 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Business Central 제품 목록의 세부 정보 구성
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Business Central 제품 목록의 세부 정보를 구성합니다.
+title: Microsoft AppSource Dynamics 365 Business Central 제안 목록 세부 정보 구성(Azure Marketplace)
+description: Microsoft AppSource(Azure Marketplace)에 대한 Dynamics 365 Business Central 제안 목록 세부 정보를 구성합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: 1896c5c24d0042098ba6df48c9223099923f565f
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
-ms.translationtype: HT
+ms.date: 11/24/2021
+ms.openlocfilehash: bad5f2128be71cde9373461e12cd751ccf0bfce1
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110616640"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133109342"
 ---
-# <a name="configure-dynamics-365-for-business-central-offer-listing-details"></a>Dynamics 365 for Business Central 제품 목록 세부 정보 구성
+# <a name="configure-dynamics-365-business-central-offer-listing-details"></a>Dynamics 365 Business Central 제안 목록 세부 정보 구성
 
 ## <a name="overview"></a>개요
 

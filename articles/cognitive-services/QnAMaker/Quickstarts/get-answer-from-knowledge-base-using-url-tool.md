@@ -10,16 +10,19 @@ zone_pivot_groups: URL-test-interface
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 2f983ba51269315ba9406faa7e3feec1853e995d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 87a49dd023da073cf8e66bac16251db97aaa9d0d
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131043722"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133128914"
 ---
-# <a name="get-an-answer-from-a-qna-maker-knowledge-base"></a>QNA Maker 기술 자료에서 답변 가져오기
+# <a name="get-an-answer-from-a-qna-maker-knowledge-base"></a>QNA Maker 기술 자료로부터 답변 받기
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
+
+> [!NOTE]
+> 이 설명서는 최신 릴리스에는 적용되지 않습니다. 최신 질문 답변 API를 사용하는 방법에 대한 자세한 내용은 질문 [답변 작성 가이드](../../language-service/question-answering/how-to/authoring.md)를 참조하세요.
 
 ::: zone pivot="url-test-tool-curl"
 

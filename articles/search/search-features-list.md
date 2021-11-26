@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.openlocfilehash: 07442ce360baa152b36bcc1145e0636d73d6fedb
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 085cc7935d62517d98c7939639d3f13362e3aefc
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132724"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133129408"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Azure Cognitive Search의 기능
 
@@ -60,7 +60,7 @@ Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 �
 | 범주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 기능 |
 |-------------------|----------|
 | 프로토타입 및 검사용 도구 | [**인덱스 추가**](search-what-is-an-index.md)는 특성 사용 필드와 몇 가지 다른 설정으로 구성된 기본 스키마를 만드는 데 사용할 수 있는 포털의 인덱스 디자이너입니다. 인덱스를 저장한 후에는 SDK 또는 REST API를 사용하여 데이터를 제공하는 방법으로 작성할 수 있습니다. <br/><br/>[**데이터 가져오기 마법사**](search-import-data-portal.md)는 인덱스, 인덱서, 기술 세트와 데이터 원본 정의를 만듭니다. 데이터가 Azure에 있는 경우, 이 마법사는 특히 개념 증명 조사 및 탐색에 대해 상당한 시간과 노력을 절감할 수 있습니다. <br/><br/>[**검색 탐색기**](search-explorer.md)는 쿼리를 테스트하고 점수 매기기 프로필을 구체화하는 데 사용됩니다.<br/><br/>[**데모 앱 만들기**](search-create-app-portal.md)는 검색 환경을 테스트하는 데 사용할 수 있는 HTML 페이지를 생성하는 데 사용됩니다.  |
-| 모니터링 및 진단 | 포털에 항상 표시되는 단순한 메트릭 이상을 원하신다면 [**모니터링 기능을 사용하세요**](search-monitor-usage.md). 필요한 추가 구성 없이 포털 페이지에서 초당 쿼리 수, 대기 시간 및 제한에 대한 메트릭이 캡처되고 보고됩니다.|
+| 모니터링 및 진단 | 포털에 항상 표시되는 단순한 메트릭 이상을 원하신다면 [**모니터링 기능을 사용하세요**](monitor-azure-cognitive-search.md). 필요한 추가 구성 없이 포털 페이지에서 초당 쿼리 수, 대기 시간 및 제한에 대한 메트릭이 캡처되고 보고됩니다.|
 
 ## <a name="programmability"></a>프로그래밍 기능
 

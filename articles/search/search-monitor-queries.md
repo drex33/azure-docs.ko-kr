@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: e3932ee9a0683689bd74fb2d912d98cd29715da6
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 0f1c90b5cac92b5a0a589985a1fd025f726d17b4
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132343044"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133128629"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 요청 모니터링하기
 
 이 문서에서는 메트릭 및 리소스 로깅을 사용하여 쿼리 성능 및 볼륨을 측정하는 방법을 설명합니다. 또한 검색 모음의 유틸리티 및 효율성을 평가해야 하는 경우 필요한 정보 관련 쿼리에 사용되는 입력 용어를 수집하는 방법을 설명합니다.
 
-Azure Portal은 쿼리 대기 시간, 쿼리 로드(QPS) 및 제한에 대한 기본 메트릭을 보여 줍니다. 이러한 메트릭에 피드되는 기록 데이터는 30일간 보존됩니다. 보존 기간을 늘리거나 운영 데이터 및 쿼리 문자열을 보고하려면 로그된 이벤트 및 메트릭을 유지하기 위한 스토리지 옵션을 지정하는 [진단 설정](search-monitor-logs.md)을 사용하도록 설정해야 합니다.
+Azure Portal은 쿼리 대기 시간, 쿼리 로드(QPS) 및 제한에 대한 기본 메트릭을 보여 줍니다. 이러한 메트릭에 피드되는 기록 데이터는 30일간 보존됩니다. 보존 기간을 늘리거나 운영 데이터 및 쿼리 문자열을 보고하려면 로그된 이벤트 및 메트릭을 유지하기 위한 스토리지 옵션을 지정하는 [진단 설정](monitor-azure-cognitive-search.md)을 사용하도록 설정해야 합니다.
 
 데이터 측정의 무결성을 최대화하는 조건은 다음과 같습니다.
 
@@ -118,7 +118,7 @@ Azure Portal은 쿼리 대기 시간, 쿼리 로드(QPS) 및 제한에 대한 �
 
 ## <a name="return-query-strings-entered-by-users"></a>사용자가 입력한 쿼리 문자열 반환
 
-리소스 로깅을 사용하도록 설정하면 시스템은 **AzureDiagnostics** 테이블에서 쿼리 요청을 캡처합니다. 필수 요소로서 Log Analytics 작업 영역 또는 다른 스토리지 옵션을 지정하여 [리소스 로깅](search-monitor-logs.md)을 사용하도록 이미 설정해 두었어야 합니다.
+리소스 로깅을 사용하도록 설정하면 시스템은 **AzureDiagnostics** 테이블에서 쿼리 요청을 캡처합니다. 필수 요소로서 Log Analytics 작업 영역 또는 다른 스토리지 옵션을 지정하여 [리소스 로깅](monitor-azure-cognitive-search.md)을 사용하도록 이미 설정해 두었어야 합니다.
 
 1. 모니터링 섹션에서 **로그** 를 선택하여 Log Analytics에서 빈 쿼리 창을 엽니다.
 
@@ -188,4 +188,4 @@ Azure Portal은 쿼리 대기 시간, 쿼리 로드(QPS) 및 제한에 대한 �
 검색 서비스 모니터링의 기본 사항을 아직 검토하지 않았다면 관련 내용을 검토하여 모든 감독 기능에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Azure Cognitive Search에서 작업 및 활동 모니터링하기](search-monitor-usage.md)
+> [Azure Cognitive Search에서 작업 및 활동 모니터링하기](monitor-azure-cognitive-search.md)

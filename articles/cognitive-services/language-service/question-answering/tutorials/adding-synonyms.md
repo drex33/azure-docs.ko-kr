@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
 ms.custom: language-service-question-answering, ignite-fall-2021
-ms.openlocfilehash: 0ba6e7a0a336a5fbcb560a07a7731c8cdcc66e9e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: c33422a6bf012670d54ac1beb99fe482869673e3
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131439028"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133128268"
 ---
 # <a name="improve-quality-of-response-with-synonyms"></a>동의어를 사용하여 응답 품질 향상
 
@@ -23,7 +23,7 @@ ms.locfileid: "131439028"
 > * 동의어를 추가하여 응답 품질 개선
 > * 테스트 창의 검사 옵션을 통해 응답 품질 평가
 
-이 자습서에서는 동의어를 사용하여 응답의 품질을 향상시킬 수 있는 방법을 보여줍니다. 사용자가 대체 폼, 동의어 또는 단어 머리글자어를 사용하는 경우 쿼리에 대한 정확한 응답을 얻지 못한다고 가정합니다. 따라서 그들은 [Authoring API](/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations)를 사용하여 키워드에 대한 동의어를 추가하여 응답 품질을 개선하기로 결정했습니다.
+이 자습서에서는 동의어를 사용하여 응답의 품질을 향상시킬 수 있는 방법을 보여줍니다. 사용자가 대체 폼, 동의어 또는 단어 머리글자어를 사용하는 경우 쿼리에 대한 정확한 응답을 얻지 못한다고 가정합니다. 따라서 그들은 [Authoring API](../how-to/authoring.md)를 사용하여 키워드에 대한 동의어를 추가하여 응답 품질을 개선하기로 결정했습니다.
 
 ## <a name="add-synonyms-using-authoring-api"></a>Authoring API를 사용하여 동의어 추가
 

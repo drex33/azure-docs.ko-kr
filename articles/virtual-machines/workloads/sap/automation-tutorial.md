@@ -7,12 +7,12 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: tutorial
 ms.service: virtual-machines-sap
-ms.openlocfilehash: 42157c6a4fb07d0f9982540f12c4605760597f6b
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: f45064a65fc0fdfd3da694aa97f17b5290cf3d4e
+ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132934141"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133110292"
 ---
 # <a name="enterprise-scale-for-sap-deployment-automation-framework---hands-on-lab"></a>SAP 배포 자동화 프레임워크를 위한 엔터프라이즈 크기 조정 - 실습 랩
 
@@ -81,7 +81,7 @@ SAP 애플리케이션에는 일반적으로 여러 배포 계층이 있습니�
 
 ## <a name="hands-on-lab"></a>실습 랩
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 [SAP 배포 자동화 프레임워크 리포지토리](https://github.com/Azure/sap-automation)는 GitHub에서 사용할 수 있습니다.
 
@@ -265,7 +265,7 @@ firewall_deployment=true
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 export subscriptionID="<subscriptionID>"
-export appId="<appID>"
+export spn_id="<appID>"
 export spn_secret="<password>"
 export tenant_id="<tenant>"
 export region_code="NOEU"

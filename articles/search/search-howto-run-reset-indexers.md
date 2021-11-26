@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.openlocfilehash: e29c511a59d8b446b497a8fd4ff393c9a9c683e9
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 61ff9a0c7565e70194d4865df0e111c163390caf
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131449301"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133129199"
 ---
 # <a name="run-or-reset-indexers-skills-or-documents"></a>인덱서, 기술 또는 문서 실행 또는 다시 설정
 
@@ -171,5 +171,5 @@ AI 보강을 통해 채워지는 필드로 인해 잠재적으로는 모든 문�
 
 + [인덱서 작업(REST)](/rest/api/searchservice/indexer-operations)
 + [검색 인덱서 상태 모니터](search-howto-monitor-indexers.md)
-+ [로그 데이터 수집 및 분석](search-monitor-logs.md)
++ [로그 데이터 수집 및 분석](monitor-azure-cognitive-search.md)
 + [인덱서 예약](search-howto-schedule-indexers.md)

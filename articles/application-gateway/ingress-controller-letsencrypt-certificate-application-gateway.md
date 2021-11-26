@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 638b8f24f8cf72f5c6a594a3c5a6eaacf469df8f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
-ms.translationtype: HT
+ms.openlocfilehash: 7b4e6c00f6c50781b1916f2c7b0ae6d1008f1db2
+ms.sourcegitcommit: 4298f71f502c70d601a7c58b28fc7bca62be3595
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056677"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133133394"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>AKS 클러스터용 Application Gateway에서 LetsEncrypt.org를 이용하여 인증서 사용
 
@@ -26,7 +26,7 @@ ms.locfileid: "106056677"
 
     - AKS에 새 `cert-manager` 네임스페이스를 만듭니다.
     - 인증서, 챌린지, 클러스터 발급자, 발급자, 주문과 같은 CRD 생성
-    - [docs.cert-manager.io](https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html#steps)에서 cert-manager 차트 설치
+    - [docs.cert-manager.io](https://cert-manager.io/docs/installation/compatibility/)에서 cert-manager 차트 설치
 
     ```bash
     #!/bin/bash

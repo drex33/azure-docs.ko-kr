@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: 298508f8068b47cbfc720f1d1e8ddf370323ed28
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
-ms.translationtype: HT
+ms.openlocfilehash: 2768994e890dea59537229feede62f77da51c4e4
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106582147"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133128591"
 ---
 # <a name="analyze-performance-in-azure-cognitive-search"></a>Azure Cognitive Search의 성능 분석
 
@@ -32,7 +32,7 @@ ms.locfileid: "106582147"
 
 ## <a name="use-diagnostic-logging"></a>진단 로깅 사용
 
-관리자가 잠재적인 성능 문제를 진단하는 데 사용하는 가장 중요한 도구는 검색 서비스에 대한 운영 데이터와 메트릭을 수집하는 [진단 로깅](search-monitor-logs.md)입니다. 진단 로깅은 [Azure Monitor](../azure-monitor/overview.md)를 통해 사용하도록 설정됩니다. Azure Monitor 사용 및 데이터 저장에 대한 비용이 들지만 서비스에 사용하도록 설정하면 성능 문제를 조사하는 데 도움이 될 수 있습니다.
+관리자가 잠재적인 성능 문제를 진단하는 데 사용하는 가장 중요한 도구는 검색 서비스에 대한 운영 데이터와 메트릭을 수집하는 [진단 로깅](monitor-azure-cognitive-search.md)입니다. 진단 로깅은 [Azure Monitor](../azure-monitor/overview.md)를 통해 사용하도록 설정됩니다. Azure Monitor 사용 및 데이터 저장에 대한 비용이 들지만 서비스에 사용하도록 설정하면 성능 문제를 조사하는 데 도움이 될 수 있습니다.
 
 네트워크 전송 중이거나 앱 서비스 계층 또는 검색 서비스에서 콘텐츠를 처리하는 동안 여러 가지 이유로 대기 시간이 발생할 수 있습니다. 진단 로깅의 주요 이점은 검색 서비스 관점에서 활동이 기록된다는 것입니다. 즉, 로그를 통해 성능 문제가 쿼리 또는 인덱싱 문제로 인한 것인지 아니면 다른 실패 지점으로 인한 것인지 확인할 수 있습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "106582147"
 
 진단 로깅은 기록된 정보를 저장하기 위한 옵션을 제공합니다. 데이터에 대해 고급 Kusto 쿼리를 실행하여 사용량 및 성능에 대한 많은 질문에 답할 수 있도록 [Log Analytics](../azure-monitor/logs/log-analytics-overview.md)를 사용하는 것이 좋습니다. 
 
-검색 서비스 포털 페이지에서 **진단 설정** 을 통해 로깅을 사용하도록 설정한 다음 **로그** 를 선택하여 Log Analytics에 대해 Kusto 쿼리를 실행할 수 있습니다. 설정에 대한 자세한 내용은 [로그 데이터 수집 및 분석](search-monitor-logs.md)을 참조하세요.
+검색 서비스 포털 페이지에서 **진단 설정** 을 통해 로깅을 사용하도록 설정한 다음 **로그** 를 선택하여 Log Analytics에 대해 Kusto 쿼리를 실행할 수 있습니다. 설정에 대한 자세한 내용은 [로그 데이터 수집 및 분석](monitor-azure-cognitive-search.md)을 참조하세요.
 
 :::image type="content" source="media/search-performance/perf-log-menu-options.png" alt-text="로깅 메뉴 옵션" border="true":::
 

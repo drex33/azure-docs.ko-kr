@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/06/2021
-ms.openlocfilehash: dbc82b67206f6453101b0d6f419718b928506f79
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
-ms.translationtype: HT
+ms.openlocfilehash: 42d3a531bc0b91e824912991d41c7e8dccb4e535
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113003857"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133128496"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Azure 포털에서 Azure Cognitive Search에 대한 서비스 관리
 
@@ -37,7 +37,7 @@ Azure Cognitive Search는 사용자 지정 앱에 풍부한 검색 환경을 구
 
 :::image type="content" source="media/search-manage/search-portal-overview-page.png" alt-text="검색 서비스에 대한 포털 페이지" border="true":::
 
-| 영역 | 설명 |
+| 영역 | Description |
 |------|-------------|
 | 1  | **기본 정보** 섹션에는 연결을 설정할 때 사용되는 엔드포인트를 포함한 서비스 속성이 표시됩니다. 계층, 복제본 및 파티션 수도 한눈에 보여 줍니다. |
 | 2 | 페이지 위쪽에는 대화형 도구를 호출하거나 서비스를 관리하기 위한 일련의 명령이 있습니다. [데이터 가져오기](search-get-started-portal.md) 및 [검색 탐색기](search-explorer.md)는 모두 프로토타입 및 검색에 일반적으로 사용됩니다. |
@@ -61,13 +61,13 @@ Azure Cognitive Search는 사용자 지정 앱에 풍부한 검색 환경을 구
 * 역할 기반 보안을 통해 [관리 작업에 대한 액세스 제어](search-security-rbac.md)
 * IP 주소로 액세스를 제한하도록 [IP 방화벽 규칙 구성](service-configure-firewall.md)
 * Azure Private Link 및 프라이빗 가상 네트워크를 사용하여 [프라이빗 엔드포인트 구성](service-create-private-endpoint.md)
-* [서비스 상태 모니터링](search-monitor-usage.md): 스토리지, 쿼리 볼륨 및 대기 시간
+* [서비스 상태 및 작업 모니터링:](monitor-azure-cognitive-search.md)스토리지, 쿼리 볼륨 및 대기 시간
 
 또한 서비스에서 만든 모든 개체(인덱스, 인덱서, 데이터 원본, 기술 세트 등)를 열거할 수 있습니다. 포털의 개요 페이지에는 서비스에 있는 모든 콘텐츠가 표시됩니다. 검색 서비스에 대한 대부분의 작업은 콘텐츠와 관련이 있습니다.
 
 포털에서 수행되는 동일한 관리 작업은 [관리 REST API](/rest/api/searchmanagement/), [Az.Search PowerShell 모듈](search-manage-powershell.md), [az search Azure CLI 모듈](search-manage-azure-cli.md) 및 .NET, Python, Java 및 JavaScript용 Azure SDK를 통해 프로그래밍 방식으로 처리할 수도 있습니다. 관리 작업은 포털 및 모든 프로그래밍 인터페이스에서 완전히 표시됩니다. 한 가지 형식에만 사용할 수 있는 특정 관리 작업은 없습니다.
 
-Cognitive Search는 더 심층적인 모니터링 및 관리를 위해 다른 Azure 서비스를 활용합니다. 자체적으로 검색 서비스 내에 저장되는 유일한 데이터는 개체 콘텐츠(인덱스, 인덱서, 데이터 원본 정의 및 기타 개체)입니다. 포털 페이지에 보고된 메트릭은 30일 롤링 주기로 내부 로그에서 가져옵니다. 사용자가 제어하는 로그 보존 및 추가 이벤트의 경우 [Azure Monitor](../azure-monitor/index.yml)가 필요합니다. 검색 서비스의 진단 로깅 설정에 대한 자세한 내용은 [로그 데이터 수집 및 분석](search-monitor-logs.md)을 참조하세요.
+Cognitive Search는 더 심층적인 모니터링 및 관리를 위해 다른 Azure 서비스를 활용합니다. 자체적으로 검색 서비스 내에 저장되는 유일한 데이터는 개체 콘텐츠(인덱스, 인덱서, 데이터 원본 정의 및 기타 개체)입니다. 포털 페이지에 보고된 메트릭은 30일 롤링 주기로 내부 로그에서 가져옵니다. 사용자가 제어하는 로그 보존 및 추가 이벤트의 경우 [Azure Monitor](../azure-monitor/index.yml)가 필요합니다. 검색 서비스의 진단 로깅 설정에 대한 자세한 내용은 [로그 데이터 수집 및 분석](monitor-azure-cognitive-search.md)을 참조하세요.
 
 ## <a name="administrator-permissions"></a>관리자 권한
 
@@ -80,7 +80,7 @@ Azure 리소스에서 관리 권한은 역할 할당을 통해 부여됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-* 포털에서 사용할 수 있는 [모니터링 기능](search-monitor-usage.md) 검토
+* 포털에서 사용할 수 있는 [모니터링 기능](monitor-azure-cognitive-search.md) 검토
 * [PowerShell](search-manage-powershell.md) 또는 [Azure CLI](search-manage-azure-cli.md)를 사용하여 자동화
 * [보안 기능](search-security-overview.md)을 검토하여 콘텐츠 및 작업 보호
-* [진단 로깅](search-monitor-logs.md)을 사용하여 쿼리 및 인덱싱 워크로드 모니터링
+* [진단 로깅](monitor-azure-cognitive-search.md)을 사용하여 쿼리 및 인덱싱 워크로드 모니터링

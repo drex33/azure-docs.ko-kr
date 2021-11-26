@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 2e02e49b781d19e115ca2c39eead3aa7c693aef7
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
-ms.translationtype: HT
+ms.openlocfilehash: bb0e86f0dab918264ee01b435f90fd0d02187543
+ms.sourcegitcommit: 4298f71f502c70d601a7c58b28fc7bca62be3595
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223038"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133133242"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Azure App Service용 ASP.NET Core 앱 구성
 
@@ -47,7 +47,7 @@ az webapp config show --resource-group <resource-group-name> --name <app-name> -
 지원되는 .NET Core 버전을 모두 표시하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
 
 ```azurecli-interactive
-az webapp list-runtimes --linux | grep DOTNETCORE
+az webapp list-runtimes --linux | grep DOTNET
 ```
 
 ::: zone-end

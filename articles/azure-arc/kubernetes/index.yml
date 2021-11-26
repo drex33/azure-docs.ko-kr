@@ -9,12 +9,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/02/2021
   ms.author: shasb
-  ms.openlocfilehash: 2b0eb9bc6d0f410afcef5a56a87983d2b0232244
-  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.openlocfilehash: bfd815053d1e156620fc284df4d6dfea5f8fb166
+  ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2021
-  ms.locfileid: "129707049"
+  ms.lasthandoff: 11/24/2021
+  ms.locfileid: "133056698"
 landingContent:
 - title: Azure Arc 지원 Kubernetes에 대한 정보
   linkLists:
@@ -26,8 +26,8 @@ landingContent:
       url: validation-program.md
   - linkListType: concept
     links:
-    - text: 에이전트 아키텍처
-      url: conceptual-agent-architecture.md
+    - text: 에이전트 개요
+      url: conceptual-agent-overview.md
     - text: 구성 및 GitOps
       url: conceptual-configurations.md
     - text: GitOps를 사용하는 CI/CD 워크플로

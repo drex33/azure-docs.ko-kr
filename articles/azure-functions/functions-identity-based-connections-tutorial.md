@@ -5,12 +5,12 @@ ms.service: azure-functions
 description: 함수 앱 정의에서 스토리지 연결 문자열을 제거하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 10/20/2021
-ms.openlocfilehash: 8e6e4bfc80f2154843aab5d3971854054f4319b4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5685c6f246ecf9829aaf48d042cea4de066dc937
+ms.sourcegitcommit: 4298f71f502c70d601a7c58b28fc7bca62be3595
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130271218"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133133432"
 ---
 # <a name="tutorial-create-a-function-app-that-connects-to-azure-services-using-identities-instead-of-secrets"></a>자습서: 암호 대신 ID를 사용하여 Azure 서비스에 연결하는 함수 앱 만들기
 
@@ -58,7 +58,7 @@ Azure Files는 아직 SMB 파일 공유에 대해 Azure Active Directory 인증�
 
 1. **기본 사항** 페이지에서 다음 표를 사용하여 Key Vault를 구성합니다.
 
-    | 옵션      | 제안 값  | 설명 |
+    | 옵션      | 제안 값  | Description |
     | ------------ | ---------------- | ----------- |
     | **구독** | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. |
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
@@ -86,7 +86,7 @@ Azure Key Vault를 사용하려면 앱에 암호 읽기 권한을 부여할 수 
 
 1. **기본 사항** 페이지에서 다음 표를 사용하여 ID를 구성합니다.
 
-    | 옵션      | 제안 값  | 설명 |
+    | 옵션      | 제안 값  | Description |
     | ------------ | ---------------- | ----------- |
     | **구독** | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. |
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
@@ -101,7 +101,7 @@ Azure Key Vault를 사용하려면 앱에 암호 읽기 권한을 부여할 수 
 
 1. **역할 할당 추가(미리 보기)** 페이지에서 아래 표에 표시된 대로 옵션을 사용합니다.
 
-    | 옵션      | 제안 값  | 설명 |
+    | 옵션      | 제안 값  | Description |
     | ------------ | ---------------- | ----------- |
     | **범위** |  Key Vault |  범위는 리소스 할당이 적용되는 리소스 세트입니다. 범위에는 하위 수준에서 상속되는 수준이 있습니다. 예를 들어, 구독 범위를 선택하면 역할 할당이 구독의 모든 리소스 그룹 및 리소스에 적용됩니다. |
     |**구독**| 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. |
@@ -125,7 +125,7 @@ Azure Key Vault를 사용하려면 앱에 암호 읽기 권한을 부여할 수 
 
 1. **기본 사항** 페이지에서 다음 표를 사용하여 함수 앱 설정을 구성합니다.
 
-    | 옵션      | 제안 값  | 설명 |
+    | 옵션      | 제안 값  | Description |
     | ------------ | ---------------- | ----------- |
     | **구독** | 사용자의 구독 | 이 새 함수 앱이 만들어질 구독입니다. |
     | **[리소스 그룹](../azure-resource-manager/management/overview.md)** |  myResourceGroup | 함수 앱을 만들 새 리소스 그룹의 이름입니다. |
@@ -297,7 +297,7 @@ Azure Key Vault를 사용하려면 앱에 암호 읽기 권한을 부여할 수 
 > [!IMPORTANT]
 > `AzureWebJobsStorage` 구성은 일부 트리거 및 바인딩에서 사용되며 해당 확장에서도 ID 기반 연결을 사용할 수 있어야 합니다. Blob 트리거 또는 이벤트 허브 트리거를 사용하는 앱은 이러한 확장을 업데이트해야 할 수 있습니다. 이 앱에 대해 정의된 함수가 없으므로 아직 문제는 없습니다. 이 요구 사항에 대해 자세히 알아보려면 [ID를 사용하여 호스트 스토리지에 연결(미리 보기)](./functions-reference.md#connecting-to-host-storage-with-an-identity-preview)을 참조하세요.
 >
-> 마찬가지로 `AzureWebJobsStorage`는 Linux 사용판에서 서버 쪽 빌드를 사용하는 경우 배포 아티팩트에 사용됩니다. Linux 사용판에서 `AzureWebJobsStorage`에 대해 ID 기반 연결을 사용하도록 설정하는 경우 [외부 배포 패키지](/run-functions-from-deployment-package)를 통해 배포해야 합니다.
+> 마찬가지로 `AzureWebJobsStorage`는 Linux 사용판에서 서버 쪽 빌드를 사용하는 경우 배포 아티팩트에 사용됩니다. Linux 사용판에서 `AzureWebJobsStorage`에 대해 ID 기반 연결을 사용하도록 설정하는 경우 [외부 배포 패키지](run-functions-from-deployment-package.md)를 통해 배포해야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 함수 앱으로 이동합니다.
 
@@ -305,7 +305,7 @@ Azure Key Vault를 사용하려면 앱에 암호 읽기 권한을 부여할 수 
 
 1. **AzureWebJobsStorage** 애플리케이션 설정 옆의 **편집** 단추를 선택하고 다음 값을 기준으로 변경합니다.
 
-    | 옵션      | 제안 값  | 설명 |
+    | 옵션      | 제안 값  | Description |
     | ------------ | ---------------- | ----------- |
     | **이름** |  AzureWebJobsStorage__accountName | **AzureWebJobsStorage** 의 이름을 정확한 이름 `AzureWebJobsStorage__accountName`으로 업데이트합니다. 이 설정은 호스트에 저장된 암호를 검색하지 말고 ID를 사용하도록 지시합니다. 새 설정에는 애플리케이션 설정에서 특수 문자에 해당하는 이중 밑줄(`__`)이 사용됩니다.  |
     | **값** | 사용자의 계정 이름 | 연결 문자열의 이름을 **AccountName** 으로만 업데이트합니다. |

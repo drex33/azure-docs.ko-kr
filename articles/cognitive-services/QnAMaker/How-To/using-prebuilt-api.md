@@ -9,18 +9,21 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/05/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b7e505bfbb27aca479569ff6cddfa2686674ae94
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 9b5ef28e48ed2bca1988e305a2a894179af4b07c
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954119"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133129180"
 ---
 # <a name="prebuilt-question-answering"></a>미리 작성된 질문 답변
 
 미리 작성된 질문 답변은 기술 자료를 만들거나, 질문 및 답변 쌍을 유지 관리하거나, 사용률이 낮은 인프라의 비용을 유발하지 않고 텍스트 구절에 대한 질문에 답변할 수 있는 기능을 사용자에게 제공합니다. 이 기능은 API로 제공되며, QnA Maker 또는 추가 스토리지에 대한 세부 정보를 몰라도 질문과 답변 요구 사항을 충족하는 데 사용할 수 있습니다.
 
-사용자 쿼리 및 텍스트/구절 블록을 지정하면 API가 답변 및 정확한 답변(있는 경우)을 반환합니다. 
+> [!NOTE]
+> 이 설명서는 최신 릴리스에는 적용되지 않습니다. 최신 릴리스에서 미리 작성한 API를 사용하는 방법에 대한 자세한 내용은 [미리 작성한 API 문서에 답변하는 질문을 참조하세요.](../../language-service/question-answering/how-to/prebuilt.md)
+
+사용자 쿼리 및 텍스트/구절 블록을 지정하면 API가 답변 및 정확한 답변(있는 경우)을 반환합니다.
 
 <a name="qna-entity"></a>
 

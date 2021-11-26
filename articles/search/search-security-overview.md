@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: a4ed9b5a7d33433a14bb7e6800ac54326184a808
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 79be99461e9557ccb55c59604998330a803e5774
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132347088"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133128933"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 보안 개요
 
@@ -179,7 +179,7 @@ API 키 기반 인증을 사용하는 것은 Azure 보안 모범 사례에 따�
 
 Cognitive Search는 사용자 ID를 기록하지 않으므로 특정 사용자의 정보에 대한 로그를 참조할 수 없습니다. 그러나 서비스에서 로그 만들기-읽기-업데이트-삭제 작업을 수행하므로 특정 작업의 에이전시를 이해하기 위해 다른 로그와 상호 연결할 수 있습니다.
 
-Azure의 경고 및 로깅 인프라를 사용하여 쿼리 볼륨 급증 또는 예상되는 워크로드에서 벗어난 다른 작업을 선택할 수 있습니다. 로그를 설정하는 방법에 대한 자세한 내용은 [로그 데이터 수집 및 분석](search-monitor-logs.md) 및 [쿼리 요청 모니터링](search-monitor-queries.md)을 참조하세요.
+Azure의 경고 및 로깅 인프라를 사용하여 쿼리 볼륨 급증 또는 예상되는 워크로드에서 벗어난 다른 작업을 선택할 수 있습니다. 로그를 설정하는 방법에 대한 자세한 내용은 [로그 데이터 수집 및 분석](monitor-azure-cognitive-search.md) 및 [쿼리 요청 모니터링](search-monitor-queries.md)을 참조하세요.
 
 ### <a name="certifications-and-compliance"></a>인증 및 규정 준수
 

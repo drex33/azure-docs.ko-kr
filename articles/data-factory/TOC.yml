@@ -444,7 +444,7 @@ items:
             href: connector-presto.md
           - name: QuickBooks Online
             href: connector-quickbooks.md
-          - name: REST
+          - name: REST (영문)
             href: connector-rest.md
             displayName: timeout
           - name: Salesforce
@@ -945,6 +945,8 @@ items:
             href: solution-template-move-files.md
           - name: Azure Databricks를 통한 변환
             href: solution-template-databricks-notebook.md
+          - name: Notebook 작업을 사용하여 Synapse 파이프라인 호출
+            href: solution-template-synapse-notebook.md
       - name: 가격 책정 이해
         items:
           - name: 데이터 흐름 예약 용량 개요

@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 09/27/2021
+ms.date: 11/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: fed1ce7f236b568458f1eb1b25ce5420c2ad5501
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 201f6c96220115e1eaaffcb94169b318da93c9d9
+ms.sourcegitcommit: 625ffc4a23b7b71680aaf572fede507053d4ef03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092164"
+ms.lasthandoff: 11/27/2021
+ms.locfileid: "133177312"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -161,9 +161,9 @@ Linux 머신에서 실행할 업데이트를 예약하는 경우, 예를 들어 
 분류는 보안 문제나 취약성을 해결하는 업데이트를 포함하는 OVAL 파일을 기반으로 Linux 업데이트의 경우 **보안** 또는 **기타** 방식으로 수행됩니다. 하지만 업데이트 일정을 실행하면 해당 패키지 관리자(예: YUM, APT 또는 ZYPPER)를 사용하여 설치하기 위해 Linux 머신에서 실행됩니다. Linux 배포판 패키지 관리자는 업데이트를 분류하는 다른 메커니즘을 사용할 수 있습니다. 이 경우 업데이트 관리를 사용하여 OVAL 파일에서 가져온 것과 다를 수 있습니다. 머신을 수동으로 확인하고 패키지 관리자의 보안 관련 업데이트가 무엇인지 이해하려면 [Linux 업데이트 배포 문제 해결](../troubleshoot/update-management.md#updates-linux-installed-different)을 참조하세요.
 
 >[!NOTE]
-> 업데이트 분류별로 업데이트를 배포하면 업데이트 관리에서 지원하는 Linux 배포판에서 제대로 작동하지 않을 수 있습니다. 이는 OVAL 파일의 명명 스키마로 식별된 문제의 결과이며, 이로 인해 업데이트 관리가 필터링 규칙에 따라 분류를 적절하게 일치시킬 수 없습니다. 보안 업데이트 평가에 사용되는 논리가 다르기 때문에 배포 중에 적용되는 보안 업데이트와 결과가 다를 수 있습니다. 분류가 **중요** 및 **보안** 으로 설정된 경우 업데이트 배포가 예상대로 작동합니다. 평가 중 *업데이트 분류* 만 영향을 받습니다.
->
-> Windows Server 컴퓨터용 업데이트 관리 영향을 받지 않으며 업데이트 분류 및 배포는 변경되지 않습니다.
+> 업데이트 평가 중에 업데이트 관리에서 지원 되는 Linux 배포판에서 보안 및 중요 업데이트의 누락 된 분류가 제대로 작동 하지 않을 수 있습니다. 이는 업데이트 관리에서 평가 중 업데이트를 분류 하는 데 사용 하는 OVAL 파일의 명명 스키마로 식별 된 문제에 대 한 결과입니다. 이렇게 하면 누락 된 업데이트를 평가 하는 동안 필터링 규칙에 따라 적절 하 게 일치 하는 분류에서 업데이트 관리 수 없습니다. </br>
+> **업데이트 배포에는 영향을 주지 않습니다**. 보안 업데이트 평가에 다른 논리가 사용 되므로 배포 중에 적용 되는 보안 업데이트의 결과가 다를 수 있습니다. **중요** 및 **보안** 으로 분류를 설정 하는 경우 업데이트 배포가 예상 대로 작동 합니다. 평가 중 *업데이트 분류* 만 영향을 받습니다.</br>
+> **Windows 서버 컴퓨터에 대 한 업데이트 관리는 영향을 받지 않습니다. 업데이트 분류 및 배포는 변경** 되지 않습니다.
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Configuration Manager와 업데이트 관리 통합
 

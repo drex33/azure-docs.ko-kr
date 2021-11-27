@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 805fc2a1bee7ca02f1d70948172e9a26a4526413
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 3b747f4b4b3d25c50e58fd6e8048c984912647eb
+ms.sourcegitcommit: 625ffc4a23b7b71680aaf572fede507053d4ef03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133057579"
+ms.lasthandoff: 11/27/2021
+ms.locfileid: "133177331"
 ---
 # <a name="connect-to-and-manage-mysql-in-azure-purview-preview"></a>Azure Purview에서 MySQL 커넥트 및 관리(미리 보기)
 
@@ -43,7 +43,7 @@ MySQL 원본을 검색할 때 Purview는 다음을 지원합니다.
 
 * 원본을 등록하고 Purview Studio에서 관리하려면 데이터 원본 관리자 및 데이터 읽기 권한자여야 합니다. 자세한 내용은 [Azure Purview 사용 권한 페이지를](catalog-permissions.md) 참조하세요.
 
-* 최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성 가이드](../data-factory/create-self-hosted-integration-runtime.md)를 참조하세요.
+* 최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성 가이드](../data-factory/create-self-hosted-integration-runtime.md)를 참조하세요. 지원되는 최소 자체 호스팅 Integration Runtime 버전은 5.11.7953.1입니다.
 
 * [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)이 자체 호스팅 통합 런타임이 설치된 가상 머신에 설치되어 있는지 확인합니다.
 
@@ -71,7 +71,7 @@ MySQL 원본을 검색할 때 Purview는 다음을 지원합니다.
 1. MySQL 원본에 연결할 **서버** 이름을 입력합니다. 이는 다음과 같을 수 있습니다.
     * 데이터베이스 서버에 연결하는 데 사용되는 호스트 이름입니다. 예: `MyDatabaseServer.com`
     * IP 주소. 예: `192.169.1.2`
-    * 정규화된 JDBC 연결 문자열. 예를 들면 다음과 같습니다.
+    * 정규화된 JDBC 연결 문자열. 예:
 
         ```
         jdbc:mysql://COMPUTER_NAME_OR_IP/DATABASE_NAME
@@ -129,7 +129,7 @@ MySQL 원본에 대해 지원되는 인증 유형은 **기본 인증** 입니다
     1. **사용 가능한 최대 메모리**: 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검색할 MySQL 원본의 크기에 따라 달라집니다.
 
         > [!Note]
-        > 일반적으로 1000개 테이블마다 1GB 메모리를 제공하세요.
+        > 일반적으로 1,000개 테이블당 1GB 메모리를 제공하세요.
 
         :::image type="content" source="media/register-scan-mysql/scan.png" alt-text="MySQL 검사" border="true":::
 

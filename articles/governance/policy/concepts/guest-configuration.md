@@ -3,37 +3,37 @@ title: Azure Policy의 게스트 구성 기능 이해
 description: Azure Policy에서 게스트 구성 기능을 사용하여 가상 머신 내부의 설정을 감사하거나 구성하는 방법을 알아봅니다.
 ms.date: 07/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6a40469b6cd391672ba953bac37402285ac4a097
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f21064a77ed7563aef2e854d8946bf96f38992e5
+ms.sourcegitcommit: 625ffc4a23b7b71680aaf572fede507053d4ef03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040419"
+ms.lasthandoff: 11/27/2021
+ms.locfileid: "133176799"
 ---
 # <a name="understand-the-guest-configuration-feature-of-azure-policy"></a>Azure Policy의 게스트 구성 기능 이해
 
-Azure Policy 게스트 구성 기능은 Azure에서 실행되는 컴퓨터와 하이브리드 [Arc 지원 머신](../../../azure-arc/servers/overview.md)모두에 대해 운영 체제 설정을 코드로 감사하거나 구성하는 기본 기능을 제공합니다.
-이 기능은 컴퓨터별로 직접 사용하거나 Azure Policy 오케스트레이션하여 대규모로 사용할 수 있습니다.
+Azure Policy의 게스트 구성 기능은 Azure에서 실행 중인 컴퓨터와 하이브리드 [Arc 사용 컴퓨터](../../../azure-arc/servers/overview.md)에 대해 운영 체제 설정을 코드로 감사 하거나 구성 하는 기본 기능을 제공 합니다.
+이 기능은 오케스트레이션에서 직접 사용 하거나 Azure Policy 하 여 규모에 맞게 사용할 수 있습니다.
 
-Azure의 구성 리소스는 [확장 리소스](../../../azure-resource-manager/management/extension-resource-types.md)로 설계되었습니다.
-각 구성을 컴퓨터에 대한 추가 속성 집합으로 간주할 수 있습니다. 구성에는 다음과 같은 설정이 포함될 수 있습니다.
+Azure의 구성 리소스는 [확장 리소스로](../../../azure-resource-manager/management/extension-resource-types.md)설계 되었습니다.
+각 구성은 컴퓨터의 추가 속성 집합으로 간주할 수 있습니다. 구성에는 다음과 같은 설정이 포함 될 수 있습니다.
 
 - 운영 체제 설정
 - 애플리케이션 구성 또는 현재 상태
 - 환경 설정
 
-구성은 정책 정의와 다릅니다. 게스트 구성은 Azure Policy 사용하여 컴퓨터에 구성을 동적으로 할당합니다. 구성을 [컴퓨터에 수동으로](guest-configuration-assignments.md#manually-creating-guest-configuration-assignments)할당하거나 [AutoManage와](../../../automanage/automanage-virtual-machines.md)같은 다른 Azure 서비스를 사용하여 할당할 수도 있습니다.
+구성은 정책 정의와 구분 됩니다. 게스트 구성은 Azure Policy를 활용 하 여 컴퓨터에 구성을 동적으로 할당 합니다. [수동으로](guest-configuration-assignments.md#manually-creating-guest-configuration-assignments)컴퓨터에 구성을 할당 하거나 [automanage](../../../automanage/automanage-virtual-machines.md)와 같은 다른 Azure 서비스를 사용할 수도 있습니다.
 
-각 시나리오의 예는 다음 표에 제공됩니다.
+각 시나리오의 예는 다음 표에 나와 있습니다.
 
-| 형식 | 설명 | 예제 스토리 |
+| Type | 설명 | 예제 사례 |
 | - | - | - |
-| [구성 관리](guest-configuration-assignments.md) | 서버의 완전한 표현을 소스 제어의 코드로 사용하려는 경우 배포에는 서버의 속성(크기, 네트워크, 스토리지) 및 운영 체제 및 애플리케이션 설정의 구성이 포함되어야 합니다. | "이 컴퓨터는 내 웹 사이트를 호스트하도록 구성된 웹 서버여야 합니다." |
-| [호환성](../assign-policy-portal.md) | 범위의 모든 머신에 대한 설정을 감사하거나 배포하려고 합니다. 즉, 기존 머신에 사후 대응하거나 배포되는 새 머신에 사전 예방적으로 배포하려고 합니다. | "모든 컴퓨터는 TLS 1.2를 사용해야 합니다. 기존 머신을 감사하여 필요한 위치에 변경이 필요한 경우 제어된 방식으로 대규모로 릴리스할 수 있습니다. 새 컴퓨터의 경우 배포 시 설정을 적용합니다." |
+| [구성 관리](guest-configuration-assignments.md) | 원본 제어의 코드로 서버를 완벽 하 게 표현 하려고 합니다. 배포는 서버 (크기, 네트워크, 저장소)의 속성과 운영 체제 및 응용 프로그램 설정 구성을 포함 해야 합니다. | "이 컴퓨터는 웹 사이트를 호스팅하도록 구성 된 웹 서버 여야 합니다." |
+| [호환성](../assign-policy-portal.md) | 기존 컴퓨터에 대응적 하는 범위에 있는 모든 컴퓨터에 대 한 설정을 감사 하거나 배포 하는 경우 새 컴퓨터에 배포 하는 것이 좋습니다. | "모든 컴퓨터는 TLS 1.2를 사용 해야 합니다. 기존 컴퓨터를 감사 하 여 필요한 경우 규모에 제어 된 방식으로 변경 내용을 릴리스할 수 있습니다. 새 컴퓨터의 경우 배포 시 설정을 적용 합니다. " |
 
-구성의 설정별 결과는 [게스트 할당 페이지에서](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) 또는 구성이 ["준수 세부 정보"](../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale)페이지의 "마지막으로 평가된 리소스" 링크를 클릭하여 Azure Policy 할당에 의해 오케스트레이션되는 경우 볼 수 있습니다.
+구성의 설정 별 결과는 ["준수 세부 정보" 페이지](../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale)의 "마지막 평가 리소스" 링크를 클릭 하 여 [게스트 할당 페이지](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) 에서 또는 Azure Policy 할당에 의해 오케스트레이션 되는 경우 볼 수 있습니다.
 
-[이 문서의 동영상 연습 사용 가능](https://youtu.be/t9L8COY-BkM). (업데이트 출시 예정)
+[이 문서의 동영상 연습 사용 가능](https://youtu.be/t9L8COY-BkM). (업데이트 예정)
 
 ## <a name="enable-guest-configuration"></a>게스트 구성 사용
 
@@ -136,6 +136,9 @@ Azure Arc에서 연결하는 Azure 외부에 있는 노드는 게스트 구성 �
 ## <a name="managed-identity-requirements"></a>관리 ID 요구 사항
 
 _가상 머신에서 게스트 구성 정책을 사용으로 설정하기 위해 필수 구성 요소 배포_ 이니셔티브의 정책 정의를 통해 시스템이 할당한 관리 ID를 사용할 수 있습니다(없는 경우). 이니셔티브에는 ID 만들기를 관리하는 두 가지 정책 정의가 있습니다. 정책 정의의 IF 조건을 사용하면 Azure에서 머신 리소스의 현재 상태를 기반으로 올바른 동작이 보장됩니다.
+
+> [!IMPORTANT]
+> 이러한 정의는 기존 User-Assigned Id (있는 경우) 외에도 대상 리소스에 대 한 관리 되는 System-Assigned id를 만듭니다. 기존 애플리케이션에서 요청에 사용자가 할당한 ID를 지정하지 않으면 머신은 기본적으로 시스템이 할당한 ID를 대신 사용합니다. [자세한 내용](../../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
 
 컴퓨터에 현재 관리 ID가 없으면 효과적인 정책은 [시스템이 할당한 관리 ID를 추가하여 ID가 없는 가상 머신에서 게스트 구성 할당을 사용하도록 설정](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)하는 것입니다.
 

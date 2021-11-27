@@ -7,12 +7,12 @@ ms.reviewer: kimforss
 ms.date: 11/17/2021
 ms.topic: how-to
 ms.service: virtual-machines-sap
-ms.openlocfilehash: f5d2e83a64cbb1d9b74e67497e531db4e53142b6
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: c431fb9a5a2914d55cf6a4b243c3ade39f00da03
+ms.sourcegitcommit: 625ffc4a23b7b71680aaf572fede507053d4ef03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132760032"
+ms.lasthandoff: 11/27/2021
+ms.locfileid: "133177274"
 ---
 # <a name="prepare-sap-bom"></a>SAP BOM 준비
 
@@ -51,17 +51,17 @@ Permalinks를 포함 하는 BOM을 생성 하려면 [이 유형의 bom을 만드
     cd stackfiles
     ```
 
-1. BOM 생성 스크립트를 실행 합니다. 예제 경로를 유틸리티 폴더의 올바른 경로로 바꿉니다. 다음은 그 예입니다.
+1. BOM 생성 스크립트를 실행 합니다. 예제 경로를 유틸리티 폴더의 올바른 경로로 바꿉니다. 예:
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/deploy/scripts/generate_bom.sh >../bom.yml
     ```
 
-1. Product 매개 변수 ()에는 `product` SAP 제품 이름을 입력 합니다. 예: `SAP_S4HANA_1809_SP4`. 값을 입력 하지 않으면 스크립트에서 스택 XML 파일의 이름을 확인 하려고 합니다.
+1. Product 매개 변수 ()에는 `product` SAP 제품 이름을 입력 합니다. 정의합니다(예: `SAP_S4HANA_1809_SP4`). 값을 입력 하지 않으면 스크립트에서 스택 XML 파일의 이름을 확인 하려고 합니다.
 
 1. `bom.yml`검토를 위해 생성 된 파일을 엽니다.
 
-1. 템플릿 섹션 ()을 검토 `templates` 합니다. `file`및 `override_target_location` 값이 올바른지 확인 합니다. 필요한 경우 해당 줄을 편집 하 고 주석 처리 합니다. 다음은 그 예입니다.
+1. 템플릿 섹션 ()을 검토 `templates` 합니다. `file`및 `override_target_location` 값이 올바른지 확인 합니다. 필요한 경우 해당 줄을 편집 하 고 주석 처리 합니다. 예:
 
     ```yml
     templates:
@@ -76,14 +76,14 @@ Permalinks를 포함 하는 BOM을 생성 하려면 [이 유형의 bom을 만드
 
 [스크립팅된 BOM 생성 프로세스](#scripted-creation-process) 에는 다음과 같은 제한 사항이 있습니다.
 
-스크립팅은 HANA2에 대 한 하드 코드 된 종속성이 있습니다. 필요한 종속성 이름과 일치 하도록 BOM 파일을 수동으로 편집 합니다. 다음은 그 예입니다.
+스크립팅은 HANA2에 대 한 하드 코드 된 종속성이 있습니다. 필요한 종속성 이름과 일치 하도록 BOM 파일을 수동으로 편집 합니다. 예:
 
 ```yml
 dependencies:
   - name: "HANA2"
 ```
 
-미디어 매개 변수, 및에 대 한 기본값은 없습니다 `override_target_filename:` `override_target_location` `version:` . BOM 파일을 수동으로 편집 하 여 이러한 매개 변수를 변경 하십시오. 다음은 그 예입니다.
+미디어 매개 변수, 및에 대 한 기본값은 없습니다 `override_target_filename:` `override_target_location` `version:` . BOM 파일을 수동으로 편집 하 여 이러한 매개 변수를 변경 하십시오. 예:
 
 ```yml
    - name:     SAPCAR
@@ -108,7 +108,7 @@ dependencies:
 
 1. `bom.yml`편집기에서를 엽니다.
 
-1. 빌드 및 대상에 대 한 이름이 있는 BOM 헤더를 추가 합니다. `name`값은 저장소 계정의 BOM 폴더 이름과 동일 해야 합니다. 다음은 그 예입니다.
+1. 빌드 및 대상에 대 한 이름이 있는 BOM 헤더를 추가 합니다. `name`값은 저장소 계정의 BOM 폴더 이름과 동일 해야 합니다. 예:
 
     ```yml
     name:    'S4HANA_2020_ISS_v001'
@@ -122,7 +122,7 @@ dependencies:
       target_location: "{{ target_media_location }}/download_basket"
     ```
 
-1. 제품 식별자 섹션을 추가 합니다. 이러한 값은 나중에 템플릿 준비의 일부로 채웁니다. 다음은 그 예입니다.
+1. 제품 식별자 섹션을 추가 합니다. 이러한 값은 나중에 템플릿 준비의 일부로 채웁니다. 예:
 
     ```yml
     product_ids:
@@ -133,7 +133,7 @@ dependencies:
       web:
     ```
 
-1. 재질 섹션을 추가 하 여 필요한 재질 목록을 지정 합니다. 이 섹션에서 다른 Bom에 대 한 종속성을 추가 합니다. 다음은 그 예입니다.
+1. 재질 섹션을 추가 하 여 필요한 재질 목록을 지정 합니다. 이 섹션에서 다른 Bom에 대 한 종속성을 추가 합니다. 예:
 
     ```yml
     materials:
@@ -149,7 +149,7 @@ dependencies:
 
     1. 다운로드 바구니의 각 항목에 대해 `String` 및 데이터를 확인 `Number` 합니다. `String`데이터는 파일 이름 (예: `igshelper_17-10010245.sar` ) 및 친숙 한 설명 (예:)을 제공 `SAP IGS Fonts and Textures` 합니다. `Number`BOM에서 각 항목 후에 데이터를 기록 합니다. 
 
-1. 미디어 목록을에 추가 `bom.yml` 합니다. 그러나 이러한 항목의 순서는 중요 하지 않지만 가독성을 위해 관련 항목을 그룹화 하는 것이 좋습니다. `SAPCAR`SAP 다운로드 바구니에이 유틸리티가 포함 된 경우에도 별도로를 추가 합니다. 다음은 그 예입니다.
+1. 미디어 목록을에 추가 `bom.yml` 합니다. 그러나 이러한 항목의 순서는 중요 하지 않지만 가독성을 위해 관련 항목을 그룹화 하는 것이 좋습니다. `SAPCAR`SAP 다운로드 바구니에이 유틸리티가 포함 된 경우에도 별도로를 추가 합니다. 예:
 
     ```yml
     media:
@@ -163,7 +163,7 @@ dependencies:
         <...>
     ```
 
-1. 필요에 따라 대상 미디어 위치를 재정의 해야 하는 경우 미디어 항목에 매개 변수를 추가 `override_target_location` 합니다. 예: `override_target_location: "{{ target_media_location }}/config"`.
+1. 필요에 따라 대상 미디어 위치를 재정의 해야 하는 경우 미디어 항목에 매개 변수를 추가 `override_target_location` 합니다. 정의합니다(예: `override_target_location: "{{ target_media_location }}/config"`).
 
 1. 빈 템플릿 섹션을 추가 합니다.
 
@@ -171,7 +171,7 @@ dependencies:
     templates:
     ```
 
-1. 스택 파일 섹션을 만듭니다. 다음은 그 예입니다.
+1. 스택 파일 섹션을 만듭니다. 예:
 
     ```yml
     stackfiles:
@@ -195,7 +195,7 @@ Permalinks를 사용 하 여 BOM을 생성 하려면:
 
 1. `DownloadBasket.json`편집기에서를 엽니다.
 
-1. 각 결과에 대해 줄의 내용을 확인 합니다 `Value` . 다음은 그 예입니다.
+1. 각 결과에 대해 줄의 내용을 확인 합니다 `Value` . 예:
 
     ```json
          "Value": "0020000000703122018|SP_B|SAP IGS Fonts and Textures|61489|1|20201023150931|0"
@@ -203,15 +203,15 @@ Permalinks를 사용 하 여 BOM을 생성 하려면:
 
 1. 세로 막대로 구분된 첫 번째 및 네 번째 값을 복사합니다.
 
-    1. 첫 번째 값은 파일 번호입니다. 예: `0020000000703122018`.
+    1. 첫 번째 값은 파일 번호입니다. 정의합니다(예: `0020000000703122018`).
 
-    1. 네 번째 값은 미디어 목록과 일치시키기 위해 사용할 숫자입니다. 예: `61489`.
+    1. 네 번째 값은 미디어 목록과 일치시키기 위해 사용할 숫자입니다. 정의합니다(예: `61489`).
 
     1. 필요에 따라 파일 형식을 나타내는 두 번째 값을 복사합니다. 예를 들어 `SP_B` 커널 이진 파일의 경우 , `SPAT` 커널이 아닌 이진 파일의 경우 및 `CD` 데이터베이스 내보내기용입니다.
 
 1. 네 번째 값을 키로 사용하여 다운로드 장바구니를 미디어 목록에 일치시킬 수 있습니다. 값(예: `61489` )을 미디어 항목에 대한 주석으로 추가한 값(예: `# 61489` )과 일치합니다.
 
-1. 의 일치하는 각 항목에 `bom.yml` 대해 SAP URL에 대한 새 값을 추가합니다. URL의 경우 `https://softwaredownloads.sap.com/file/` 해당 항목에 세 번째 값(예: )을 더한 값을 `0020000000703122018` 사용합니다. 다음은 그 예입니다.
+1. 의 일치하는 각 항목에 `bom.yml` 대해 SAP URL에 대한 새 값을 추가합니다. URL의 경우 `https://softwaredownloads.sap.com/file/` 해당 항목에 세 번째 값(예: )을 더한 값을 `0020000000703122018` 사용합니다. 예:
 
     ```yml
     - name: "SAP IGS Fonts and Textures"
@@ -223,7 +223,7 @@ Permalinks를 사용 하 여 BOM을 생성 하려면:
 
 다음 샘플은 S/4HANA 1909 SP2에 대한 예제 BOM 파일의 작은 부분입니다. 
 
-[GitHub 리포지토리](https://github.com/Azure/sap-automation/deploy/ansible/BOM-catalog) 폴더에서 사용 가능한 전체 BOM 파일을 여러 개 찾을 수 있습니다.
+[GitHub 리포지토리](https://github.com/Azure/sap-automation/tree/main/deploy/ansible/BOM-catalog) 폴더에서 사용 가능한 전체 BOM 파일을 여러 개 찾을 수 있습니다.
 
 ```yml
 step|BOM Content
@@ -299,7 +299,7 @@ stackfiles:
 Linux 형식 명령을 실행하는 모든 OS에서 BOM 구조의 유효성을 검사할 수 있습니다. Windows 경우 WSL(Linux용 Windows 하위 시스템)을 사용합니다. 또 다른 옵션은 BOM 파일의 복사본이 있는 경우 배포자에서 유효성 검사를 실행하는 것입니다.
 
 
-1. `check_bom.sh`BOM이 포함된 디렉터리에서 유효성 검사 스크립트를 실행합니다. 다음은 그 예입니다.
+1. `check_bom.sh`BOM이 포함된 디렉터리에서 유효성 검사 스크립트를 실행합니다. 예:
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/deploy/scripts/check_bom.sh bom.yml
@@ -319,7 +319,7 @@ Linux 형식 명령을 실행하는 모든 OS에서 BOM 구조의 유효성을 �
 
 ### <a name="unsuccessful-validation"></a>유효성 검사 실패
 
-실패한 유효성 검사에는 오류 정보가 포함됩니다. 다음은 그 예입니다.
+실패한 유효성 검사에는 오류 정보가 포함됩니다. 예:
 
 ```output
 ../documentation/ansible/system-design-deployment/examples/S4HANA_2020_ISS_v001/bom_with_errors.yml

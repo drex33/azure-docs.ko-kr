@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 11/26/2021
 ms.author: jianleishen
-ms.openlocfilehash: 970778c36b426fd30af632ca56443c9fb240c389
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b518a109ae75bb3a48498688eab97ff950079559
+ms.sourcegitcommit: 625ffc4a23b7b71680aaf572fede507053d4ef03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223748"
+ms.lasthandoff: 11/27/2021
+ms.locfileid: "133176914"
 ---
 # <a name="json-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 JSON 형식
 
@@ -22,10 +22,10 @@ ms.locfileid: "130223748"
 
 **JSON 파일을 구문 분석하거나 데이터를 JSON 형식으로 쓰려면** 이 문서의 내용을 따르세요. 
 
-JSON 형식은 다음 커넥터에 대해 지원됩니다. 
+JSON 형식은 다음 커넥터에서 지원됩니다. 
 
 - [Amazon S3](connector-amazon-simple-storage-service.md)
-- [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md)
+- [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md),
 - [Azure Blob](connector-azure-blob-storage.md)
 - [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 - [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
@@ -46,10 +46,10 @@ JSON 형식은 다음 커넥터에 대해 지원됩니다.
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 type 속성을 **Json** 으로 설정해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다. **자세한 내용은 커넥터 문서 -> 데이터 세트 속성 섹션을 참조하세요**. | 예      |
-| encodingName     | 테스트 파일을 읽고 쓰는 데 사용되는 인코딩 형식입니다. <br>허용되는 값: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| 예       |
+| encodingName     | 테스트 파일을 읽고 쓰는 데 사용되는 인코딩 형식입니다. <br>허용되는 값은 다음과 같습니다. "UTF-8","UTF-8 without BOM", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147",  "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-12 52", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| 예       |
 | 압축 | 파일 압축을 구성하는 속성 그룹입니다. 작업 실행 중 압축/압축 풀기를 수행하려는 경우 이 섹션을 구성합니다. | 예 |
 | type<br/>( *`compression` 아래*) | JSON 파일을 읽고 쓰는 데 사용되는 압축 코덱입니다. <br>허용되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **Tar**, **snappy** 또는 **lz4** 입니다. 기본값은 압축되지 않습니다.<br>**참고** 현재 복사 작업은 "snappy" 및 "lz4"를 지원하지 않으며 매핑 데이터 흐름은 "ZipDeflate", "TarGzip", "Tar"을 지원하지 않습니다.<br>**참고** 복사 작업을 통해 **ZipDeflate** / **TarGzip** / **Tar** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때, 기본적으로 파일은 `<path specified in dataset>/<folder named as source compressed file>/`과 같이 폴더로 추출됩니다. 즉, [복사 작업 원본](#json-as-source)에서 `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder`를 사용하여 압축된 파일의 이름을 폴더 구조로 유지할지 여부를 제어합니다.| 아니요.  |
-| 수준<br/>( *`compression`아래*) | 압축 비율입니다. <br>허용 값은 **최적** 또는 **가장 빠름** 입니다.<br>- **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.<br>- **최적**: 작업이 완료되는 데 시간이 오래 걸리더라도 최적으로 압축해야 합니다. 자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요. | 예       |
+| 수준<br/>( *`compression` 아래*) | 압축 비율입니다. <br>허용 값은 **최적** 또는 **가장 빠름** 입니다.<br>- **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.<br>- **최적**: 작업이 완료되는 데 시간이 오래 걸리더라도 최적으로 압축해야 합니다. 자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요. | 예       |
 
 다음은 Azure Blob Storage에 대한 JSON 데이터 세트의 예입니다.
 
@@ -212,13 +212,13 @@ JSON 파일에서 데이터를 복사하는 경우 복사 작업은 다음과 �
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
-[매핑 데이터 흐름에서](concepts-data-flow-overview.md) [Azure Blob](connector-azure-blob-storage.md#mapping-data-flow-properties)Storage, Azure Data Lake Storage Gen1 및 Azure [Data Lake Storage Gen2](connector-azure-data-lake-store.md#mapping-data-flow-properties) 등의 [](connector-azure-data-lake-storage.md#mapping-data-flow-properties)데이터 저장소에서 JSON 형식을 읽고 쓸 수 있으며 [Amazon S3에서](connector-amazon-simple-storage-service.md#mapping-data-flow-properties)JSON 형식을 읽을 수 있습니다.
+[데이터 흐름 매핑](concepts-data-flow-overview.md)에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)데이터 저장소에서 json 형식을 읽고 쓸 수 있으며, [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties)에서 json 형식을 읽을 수 있습니다.
 
 ### <a name="source-properties"></a>원본 속성
 
 다음 표에는 json 원본에서 지원하는 속성이 나열되어 있습니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치하는 모든 파일이 처리됩니다. 데이터 세트에 설정된 폴더 및 파일 경로를 재정의합니다. | 아니요 | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할된 파일 데이터의 경우 분할된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요 | String | partitionRootPath |
@@ -360,7 +360,7 @@ JSON 데이터에서 문자를 이스케이프하는 데 백슬래시를 사용�
 
 다음 표에는 json 싱크에서 지원하는 속성이 나열되어 있습니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
 | 파일 이름 옵션 | 작성된 데이터의 명명 형식입니다. 기본적으로 파티션당 파일 하나이고 형식은 `part-#####-tid-<guid>`입니다. | 아니요 | 패턴: String <br> 파티션당: String[] <br> 열의 데이터로: String <br> 단일 파일로 출력: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |

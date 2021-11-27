@@ -1,19 +1,19 @@
 ---
 title: 지원 옵션
 description: Azure Spatial Anchors 지원 팀에서 요청을 여는 방법에 대한 정보입니다.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 077ab48fd75b48afc5f08f95ccaf48eb7ccc1988
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 3899fea9fac3b7975a411318e44ad7788f531032
+ms.sourcegitcommit: 625ffc4a23b7b71680aaf572fede507053d4ef03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131474935"
+ms.lasthandoff: 11/27/2021
+ms.locfileid: "133176852"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Azure Spatial Anchors 지원 옵션
 
@@ -36,13 +36,16 @@ Azure Portal에서 Azure Spatial Anchors에 대한 기술 지원 티켓을 열�
 
    ![Azure Portal 지원 티켓 필드](./media/spatial-anchor-support3.png)
 
-## <a name="community-support"></a>커뮤니티 지원
+## <a name="team--community-support"></a>팀 & 커뮤니티 지원
+### <a name="azure-spatial-anchors-general"></a>Azure 공간 앵커 일반
+공간 고정 팀 및 사용자 커뮤니티에서 지원 하려면 [Azure 공간 앵커 Q&A](https://docs.microsoft.com/answers/topics/azure-spatial-anchors.html)를 참조 하세요.
 
-사용자 커뮤니티에서 지원을 받으려면 [Stack Overflow의 Azure Spatial Anchors](https://stackoverflow.com/questions/tagged/azure-spatial-anchors)를 참조하세요.
+### <a name="azure-spatial-anchors-samples"></a>Azure Spatial Anchors 샘플 
+샘플을 실행할 수 없는 경우 _새 문제_ 를 클릭 한 다음 _시작_ 을 클릭 하 여 [global.asa 샘플 리포지토리에서](https://github.com/Azure/azure-spatial-anchors-samples/issues) 문제를 파일 하세요.
 
 ## <a name="provide-content-feedback"></a>콘텐츠 피드백 제공
 
-각 콘텐츠 문서의 아래쪽에서 GitHub 문제를 열고 Azure Spatial Anchor 설명서 콘텐츠에 대한 피드백을 제공할 수 있습니다.
+각 콘텐츠 문서의 맨 아래에는 GitHub 문제를 열고 Azure 공간 고정 설명서 콘텐츠에 대 한 피드백을 제공할 수 있는 기회가 있습니다.
 
 ## <a name="provide-product-feedback"></a>제품 사용자 의견 제공
 

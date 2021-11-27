@@ -1,5 +1,5 @@
 ---
-title: Salesforce에 대한 커넥트 및 관리
+title: Salesforce에 커넥트 및 관리
 description: 이 가이드에서는 Azure Purview에서 Salesforce에 연결하고 Purview의 기능을 사용하여 Salesforce 원본을 검사하고 관리하는 방법을 설명합니다.
 author: linda33wj
 ms.author: jingwang
@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: b4dd0d5801f3c20f7dcde3cb0f2dcad48e3b8c11
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 286162957a3d98cbd5a09e8a8e93d4b462694dcd
+ms.sourcegitcommit: 625ffc4a23b7b71680aaf572fede507053d4ef03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133038504"
+ms.lasthandoff: 11/27/2021
+ms.locfileid: "133177194"
 ---
 # <a name="connect-to-and-manage-salesforce-in-azure-purview-preview"></a>Azure Purview에서 Salesforce 커넥트 및 관리(미리 보기)
 
@@ -38,7 +38,7 @@ Salesforce를 검사할 때 Purview는 Salesforce 조직, 개체, 필드, 외신
 
 * 원본을 등록하고 Purview Studio에서 관리하려면 데이터 원본 관리자 및 데이터 읽기 권한자여야 합니다. 자세한 내용은 [Azure Purview 권한 페이지](catalog-permissions.md)를 참조하세요.
 
-* 최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성 가이드](../data-factory/create-self-hosted-integration-runtime.md)를 참조하세요.
+* 최신 [자체 호스팅 통합 런타임](https://www.microsoft.com/download/details.aspx?id=39717)을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임 만들기 및 구성 가이드](../data-factory/create-self-hosted-integration-runtime.md)를 참조하세요. 지원되는 최소 자체 호스팅 Integration Runtime 버전은 5.11.7953.1입니다.
 
 * [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)이 자체 호스팅 통합 런타임이 설치된 가상 머신에 설치되어 있는지 확인합니다.
 
@@ -70,7 +70,7 @@ Salesforce를 검사할 때 Purview는 Salesforce 조직, 개체, 필드, 외신
 
 1. 카탈로그에서 나열되는 데이터 원본의 **이름** 을 입력합니다.
 
-1. Salesforce 로그인 엔드포인트 URL을 **도메인 URL** 로 입력합니다. 예들 들어 `https://login.salesforce.com`입니다. 회사의 인스턴스 URL(예: ) `https://na30.salesforce.com` 또는 내 도메인 URL(예: )을 사용할 수 `https://myCompanyName.my.salesforce.com/` 있습니다.
+1. Salesforce 로그인 엔드포인트 URL을 **도메인 URL** 로 입력합니다. 정의합니다(예: `https://login.salesforce.com`). 회사의 인스턴스 URL(예: ) `https://na30.salesforce.com` 또는 내 도메인 URL(예: )을 사용할 수 `https://myCompanyName.my.salesforce.com/` 있습니다.
 
 1. 컬렉션을 선택하거나 새로 만듭니다(선택 사항).
 
@@ -115,14 +115,14 @@ Salesforce 원본에 대해 지원되는 인증 유형은 **소비자 키 인증
         * 연결된 앱 정의에서 소비자 키를 제공합니다. 연결된 앱의 연결된 앱 관리 페이지 또는 연결된 앱의 정의에서 찾을 수 있습니다.
         * 연결된 앱 정의의 소비자 비밀을 Azure Key Vault 비밀에 저장했습니다. 소비자 키와 함께 찾을 수 있습니다.
 
-    1. **개체:** 검색 범위를 지정하는 개체 이름 목록을 제공합니다. 예들 들어 `object1; object2`입니다. 빈 목록은 사용 가능한 모든 개체를 검색하는 것을 의미합니다. 개체 이름을 와일드카드 패턴으로 지정할 수 있습니다. `topic?`, `*topic*` 또는 `topic_?,*topic*`).
+    1. **개체:** 검색 범위를 지정하는 개체 이름 목록을 제공합니다. 정의합니다(예: `object1; object2`). 빈 목록은 사용 가능한 모든 개체를 검색하는 것을 의미합니다. 개체 이름을 와일드카드 패턴으로 지정할 수 있습니다. `topic?`, `*topic*` 또는 `topic_?,*topic*`).
 
     1. **사용 가능한 최대 메모리**: 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 Salesforce 원본의 크기에 따라 달라집니다.
 
         > [!Note]
-        > 일반적으로 1000개 테이블마다 1GB 메모리를 제공하세요.
+        > 일반적으로 1,000개 테이블당 1GB 메모리를 제공하세요.
 
-        :::image type="content" source="media/register-scan-salesforce/scan.png" alt-text="Salesforce 검사" border="true":::
+        :::image type="content" source="media/register-scan-salesforce/scan.png" alt-text="Salesforce 스캔" border="true":::
 
 1. **계속** 을 선택합니다.
 

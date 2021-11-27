@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 11/25/2021
 ms.author: jianleishen
-ms.openlocfilehash: 893326cef9995498e66bee2ed7446ddae10bfd2b
-ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.openlocfilehash: f1b4a779e71487c6bd2323c0cde32a9649c86d17
+ms.sourcegitcommit: 625ffc4a23b7b71680aaf572fede507053d4ef03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2021
-ms.locfileid: "133128287"
+ms.lasthandoff: 11/27/2021
+ms.locfileid: "133177027"
 ---
 # <a name="delimited-text-format-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 구분된 텍스트 형식
 
@@ -42,7 +42,7 @@ ms.locfileid: "133128287"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 구분된 텍스트 데이터 세트에서 지원하는 속성 목록을 제공합니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 세트의 type 속성을 **DelimitedText** 로 설정해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`의 고유한 위치 형식 및 지원되는 속성이 있습니다.  | 예      |
@@ -52,7 +52,7 @@ ms.locfileid: "133128287"
 | escapeChar       | 따옴표로 묶인 값 안에서 따옴표를 이스케이프할 단일 문자입니다.<br>기본값은 **백슬래시 `\`** 입니다. <br>`escapeChar`를 빈 문자열로 정의한 경우에는 `quoteChar`도 빈 문자열로 설정해야 합니다. 이 경우 모든 열 값에 구분 기호가 포함되지 않아야 합니다. | 예       |
 | firstRowAsHeader | 첫 번째 행을 열의 이름을 가진 머리글 줄로 처리할지 여부를 지정합니다.<br>허용되는 값은 **true** 및 **false**(기본값)입니다.<br>firstRowAsHeader가 false인 경우 UI 데이터 미리 보기 및 조회 작업 출력에서 열 이름을 Prop_{n}(0부터 시작)으로 자동 생성하고, 복사 작업은 원본에서 싱크로의 [명시적 매핑](copy-activity-schema-and-type-mapping.md#explicit-mapping)을 요구하고 열을 서수(1부터 시작)로 찾으며, 매핑 데이터 흐름은 열을 나열하고 이름이 Column_{n}(1부터 시작)인 열을 찾습니다.  | 예       |
 | nullValue        | Null 값의 문자열 표현을 지정합니다. <br>기본값은 **빈 문자열** 입니다. | 예       |
-| encodingName     | 테스트 파일을 읽고 쓰는 데 사용되는 인코딩 형식입니다. <br>허용되는 값은 다음과 같습니다. "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>매핑 데이터 흐름은 UTF-7 인코딩을 지원하지 않습니다. | 예       |
+| encodingName     | 테스트 파일을 읽고 쓰는 데 사용되는 인코딩 형식입니다. <br>허용 되는 값은 다음과 같습니다. "UTF-8", "u t f-8 (BOM 포함 안 함)," UTF-16 "," UTF-16 be "," UTF-16-32 "," UTF-32BE "," US-ASCII "," UTF-7 "," BIG5 "," EUC-JP "," EUC-KR "," GB2312 "," GB18030 "," 조합 "," CP875 "," "," CP866 "," IBM00858 "," IBM037 "," IBM273 "," IBM437 "," IBM500 "," IBM737 "," IBM775 "," IBM850 "," IBM852 "," IBM855 "," IBM857 "," IBM860 "," IBM861 "," IBM863 "," IBM864 "," IBM865 "," IBM869 "," IBM870 "," IBM01140 "," IBM01141 "," IBM01142 "," IBM01143 "," IBM01144 "," IBM01145 "," IBM01146 "," IBM01147 ",  "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".<br>매핑 데이터 흐름은 UTF-7 인코딩을 지원하지 않습니다. | 예       |
 | compressionCodec | 텍스트 파일을 읽고 쓰는 데 사용되는 압축 코덱입니다. <br>허용되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **Tar**, **snappy** 또는 **lz4** 입니다. 기본값은 압축되지 않습니다. <br>**참고** 현재 복사 작업은 “snappy” & “lz4”을 지원하지 않으며, 매핑 데이터 흐름은 “ZipDeflate”, “TarGzip”, “Tar”를 지원하지 않습니다. <br>**참고** 복사 작업을 통해 **ZipDeflate** / **TarGzip** / **Tar** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때, 기본적으로 파일은 `<path specified in dataset>/<folder named as source compressed file>/`과 같이 폴더로 추출됩니다. 즉, [복사 작업 원본](#delimited-text-as-source)에서 `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder`를 사용하여 압축된 파일의 이름을 폴더 구조로 유지할지 여부를 제어합니다. | 예       |
 | compressionLevel | 압축 비율입니다. <br>허용 값은 **최적** 또는 **가장 빠름** 입니다.<br>- **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.<br>- **최적**: 작업이 완료되는 데 시간이 오래 걸리더라도 최적으로 압축해야 합니다. 자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요. | 예       |
 
@@ -92,7 +92,7 @@ ms.locfileid: "133128287"
 
 복사 작업 ***\*source\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성       | Description                                                  | 필수 |
+| 속성       | 설명                                                  | 필수 |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 복사 작업 원본의 type 속성은 **DelimitedTextSource** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분된 텍스트 읽기 설정** 표를 참조하세요. |  예       |
@@ -100,7 +100,7 @@ ms.locfileid: "133128287"
 
 **아래의 지원되는** 구분된 텍스트 읽기 설정`formatSettings`:
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | formatSettings의 형식을 **DelimitedTextReadSettings** 로 설정해야 합니다. | 예      |
 | skipLineCount | 입력 파일에서 데이터를 읽을 때 건너뛸 **비어 있지 않은** 행의 수를 나타냅니다. <br>skipLineCount와 firstRowAsHeader가 모두 지정되면 먼저 줄을 건너뛴 다음, 입력 파일에서 헤더 정보를 읽습니다. | 예       |
@@ -140,7 +140,7 @@ ms.locfileid: "133128287"
 
 복사 작업 ***\*sink\**** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성       | Description                                                  | 필수 |
+| 속성       | 설명                                                  | 필수 |
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 복사 작업 원본의 type 속성은 **DelimitedTextSink** 로 설정해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분된 텍스트 쓰기 설정** 표를 참조하세요. |    예      |
@@ -148,7 +148,7 @@ ms.locfileid: "133128287"
 
 **아래의 지원되는** 구분된 텍스트 쓰기 설정`formatSettings`:
 
-| 속성      | Description                                                  | 필수                                              |
+| 속성      | 설명                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | formatSettings의 형식을 **DelimitedTextWriteSettings** 로 설정해야 합니다. | 예                                                   |
 | fileExtension | 출력 파일의 이름을 지정하는 데 사용되는 파일 확장명입니다(예: `.csv`, `.txt`). 출력 DelimitedText 데이터 세트에 `fileName`이 지정되지 않은 경우 이 속성을 반드시 지정해야 합니다. 출력 데이터 세트에서 파일 이름이 구성되어 있으면 해당 이름이 싱크 파일 이름으로 사용되고 파일 확장명 설정은 무시됩니다.  | 출력 데이터 세트에 파일 이름이 지정되지 않은 경우 예입니다. |
@@ -157,13 +157,13 @@ ms.locfileid: "133128287"
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
-매핑 데이터 흐름에서 [Azure Blob](connector-azure-blob-storage.md#mapping-data-flow-properties)Storage, Azure Data Lake Storage Gen1 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-store.md#mapping-data-flow-properties) 데이터 [](connector-azure-data-lake-storage.md#mapping-data-flow-properties)저장소에서 구분된 텍스트 형식을 읽고 쓸 수 있으며 [Amazon S3에서](connector-amazon-simple-storage-service.md#mapping-data-flow-properties)구분된 텍스트 형식을 읽을 수 있습니다.
+데이터 흐름 매핑에서는 [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties)데이터 저장소에서 구분 된 텍스트 형식을 읽고 쓸 수 있으며 [Amazon](connector-amazon-simple-storage-service.md#mapping-data-flow-properties)s 3에서 구분 된 텍스트 형식을 읽을 수 있습니다.
 
 ### <a name="source-properties"></a>원본 속성
 
 다음 표에서는 구분된 텍스트 원본에서 지원하는 속성을 나열합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치하는 모든 파일이 처리됩니다. 데이터 세트에 설정된 폴더 및 파일 경로를 재정의합니다. | 아니요 | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할된 파일 데이터의 경우 분할된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 아니요 | String | partitionRootPath |
@@ -200,7 +200,7 @@ source(
 
 다음 표에서는 구분된 텍스트 소스에서 지원하는 속성을 나열합니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | 아니요 | `true` 또는 `false` | truncate |
 | 파일 이름 옵션 | 작성된 데이터의 명명 형식입니다. 기본적으로 파티션당 파일 하나이고 형식은 `part-#####-tid-<guid>`입니다. | 아니요 | 패턴: String <br> 파티션당: String[] <br> 열 데이터로 파일 이름 지정: String <br> 단일 파일로 출력: `['<fileName>']` <br> 열 데이터로 폴더 이름 지정: String | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames <br> rowFolderUrlColumn |
@@ -223,20 +223,20 @@ CSVSource sink(allowSchemaDrift: true,
     skipDuplicateMapOutputs: true) ~> CSVSink
 ```
 
-## <a name="related-connectors-and-formats"></a>관련 된 커넥터 및 형식
+## <a name="related-connectors-and-formats"></a>관련 커넥터 및 형식
 
-다음은 분리 된 텍스트 형식과 관련 된 몇 가지 일반적인 커넥터 및 형식입니다.
+구분 기호로 분리된 텍스트 형식과 관련된 몇 가지 일반적인 커넥터 및 형식은 다음과 같습니다.
 
-- Azure Blob Storage (connector-azure-blob-storage.md)
-- 이진 형식 (format-binary.md)
-- Dataverse (커넥터-dynamics-365.md)
-- 델타 형식 (delta.md)
-- Excel 형식 (excel.md)
-- 파일 시스템 (system.md)
-- FTP (커넥터-ftp.md)
-- HTTP (커넥터-http.md)
-- JSON 형식 (json.md)
-- Parquet format (parquet.md)
+- Azure Blob Storage(connector-azure-blob-storage.md)
+- 이진 형식(format-binary.md)
+- Dataverse(connector-dynamics-crm-office-365.md)
+- 델타 형식(format-delta.md)
+- Excel format(format-excel.md)
+- 파일 시스템(connector-file-system.md)
+- FTP(connector-ftp.md)
+- HTTP(connector-http.md)
+- JSON 형식(format-json.md)
+- Parquet 형식(format-parquet.md)
 
 ## <a name="next-steps"></a>다음 단계
 

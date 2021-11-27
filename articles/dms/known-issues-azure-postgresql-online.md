@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: a2c3aa5442f89879ddad4859029292027eef3d39
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3387a616f1582e89b221f25befd559b8140a9794
+ms.sourcegitcommit: 625ffc4a23b7b71680aaf572fede507053d4ef03
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130259583"
+ms.lasthandoff: 11/27/2021
+ms.locfileid: "133177293"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql"></a>PostgreSQL에서 Azure DB for PostgreSQL로의 온라인 마이그레이션과 관련된 알려진 문제/마이그레이션 제한 사항
 
@@ -44,42 +44,6 @@ ms.locfileid: "130259583"
 
 - 사용자에게 원본 데이터베이스를 호스팅하는 서버에 대한 복제 역할이 있어야 합니다.
 - 원본 및 대상 데이터베이스 스키마가 일치해야 합니다.
-- 대상 Azure Database for PostgreSQL-단일 서버의 스키마에는 외래 키가 없어야 합니다. 외래 키를 삭제하려면 다음 쿼리를 사용합니다.
-
-    ```
-                  SELECT Queries.tablename
-           ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
-                ,concat('alter table ', Queries.tablename, ' ', 
-                                                STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
-        FROM
-        (SELECT
-        tc.table_schema, 
-        tc.constraint_name as foreignkey, 
-        tc.table_name as tableName, 
-        kcu.column_name, 
-        ccu.table_schema AS foreign_table_schema,
-        ccu.table_name AS foreign_table_name,
-        ccu.column_name AS foreign_column_name 
-    FROM 
-        information_schema.table_constraints AS tc 
-        JOIN information_schema.key_column_usage AS kcu
-          ON tc.constraint_name = kcu.constraint_name
-          AND tc.table_schema = kcu.table_schema
-        JOIN information_schema.constraint_column_usage AS ccu
-          ON ccu.constraint_name = tc.constraint_name
-          AND ccu.table_schema = tc.table_schema
-    WHERE constraint_type = 'FOREIGN KEY') Queries
-      GROUP BY Queries.tablename;
-    
-    ```
-
-    쿼리 결과에서 외래 키 삭제(두 번째 열)를 실행합니다.
-
-- 대상 Azure Database for PostgreSQL-단일 서버의 스키마에는 트리거가 없어야 합니다. 대상 데이터베이스에서 트리거를 사용하지 않도록 설정하려면 다음 명령을 사용합니다.
-
-     ```
-    SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
-     ```
 
 ## <a name="size-limitations"></a>크기 제한
 - 단일 DMS 서비스를 사용하여 PostgreSQL에서 Azure DB for PostgreSQL 최대 1 TB의 데이터를 마이그레이션할 수 있습니다.

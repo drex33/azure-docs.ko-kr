@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 11/17/2020
-ms.openlocfilehash: ed6f7f30fde528d5829dd52d24043d33a0fc913a
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: c680a1079813b3963ec81d98e87c293054e35e3b
+ms.sourcegitcommit: 7e5bfb91cc0a4f94fbe0399f900b0fc7cb59e009
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132708419"
+ms.lasthandoff: 11/28/2021
+ms.locfileid: "133187500"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark란
 
@@ -20,7 +20,7 @@ Apache Spark는 메모리 내 처리를 지원하여 빅 데이터 분석 애플
 
 * [Azure Synapse Analytics의 Spark 풀](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)에는 관리형 Spark 풀이 사용되며 Azure 내에서 분석 인사이트를 위해 데이터를 로드, 모델링, 처리 및 배포할 수 있습니다.
 
-* [Azure Databricks의 Apache Spark](/databricks/getting-started/spark.md)는 Spark 클러스터를 사용하여 사용자 간의 협업을 통해 여러 데이터 원본에서 데이터를 읽고 혁신적인 인사이트로 전환할 수 있는 대화형 작업 영역을 제공합니다.
+* [Azure Databricks의 Apache Spark](/azure/databricks/getting-started/spark)는 Spark 클러스터를 사용하여 사용자 간의 협업을 통해 여러 데이터 원본에서 데이터를 읽고 혁신적인 인사이트로 전환할 수 있는 대화형 작업 영역을 제공합니다.
 
 * [Azure Data Factory의 Spark 활동](../../data-factory/transform-data-using-spark.md)을 사용하면 주문형 또는 기존 Spark 클러스터를 사용하여 데이터 파이프라인에서 Spark 분석을 사용할 수 있습니다.
 

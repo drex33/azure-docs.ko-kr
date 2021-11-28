@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-other
 zone_pivot_groups: custom-qna-quickstart
-ms.openlocfilehash: 754679926595ee38d9ed71d7cad7b0210b8fe92c
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 4f5c6221676b320eec08a81a60da1a529d95a0c1
+ms.sourcegitcommit: 7e5bfb91cc0a4f94fbe0399f900b0fc7cb59e009
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133072341"
+ms.lasthandoff: 11/28/2021
+ms.locfileid: "133187538"
 ---
 # <a name="quickstart-question-answering"></a>빠른 시작: 질문 답변
 
@@ -43,5 +43,6 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
->[자습서: FAQ 봇 만들기](../tutorials/bot-service.md)
+* [자습서: FAQ 봇 만들기](../tutorials/bot-service.md)
+* [API 작성](../how-to/authoring.md)
+

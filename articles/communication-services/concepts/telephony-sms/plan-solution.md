@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.openlocfilehash: d04c6d298d84b9739564124a02ae8a7710186d0e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6ca65b337a416f1f9821c00d2c04eb919fb12b66
+ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233078"
+ms.lasthandoff: 11/20/2021
+ms.locfileid: "132866200"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Azure Communication Services의 전화 번호 유형
 
 > [!IMPORTANT]
-> 전화 번호 가용성은 현재 미국에 청구 주소가 있는 유료 Azure 구독 및 미국 데이터 위치가 있는 Communication Services 리소스로 제한됩니다. 평가판 계정 또는 Azure 체험 크레딧을 사용하여 전화 번호를 얻을 수 없습니다. 자세한 내용은 이 문서의 [구독 자격](#azure-subscriptions-eligibility) 섹션을 참조하세요.
+> 전화 번호 가용성은 현재 미국(푸에르토리코 포함), 영국 및 아일랜드에 청구 주소가 있는 유료 Azure 구독으로 제한됩니다. 평가판 계정 또는 Azure 체험 크레딧을 사용하여 전화 번호를 얻을 수 없습니다. 자세한 내용은 이 문서의 [구독 자격](#azure-subscriptions-eligibility) 섹션을 참조하세요.
 
 
 Azure Communication Services를 사용하면 전화 번호를 사용하여 PSTN(공중 전화망)을 통해 음성 통화를 하고 SMS 메시지를 보낼 수 있습니다. 이 문서에서는 Communication Services를 사용하여 전화 통신 및 SMS 솔루션을 계획하기 위한 전화 번호 유형, 구성 옵션 및 지역 가용성을 검토합니다.

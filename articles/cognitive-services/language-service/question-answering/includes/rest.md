@@ -6,12 +6,12 @@ ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 447428cca5f4d9293c36253f509e65ccce467ceb
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 6de414a090145a91db92ad73b7bdc5e6e8eec16a
+ms.sourcegitcommit: 024fcf9a76cf238e4bfbccfd699e97cc34fa1f42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132875624"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133190448"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 

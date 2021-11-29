@@ -1,19 +1,15 @@
 ---
 title: 클라우드용 Microsoft Defender의 통합 워크로드 보호 사용
 description: 향상된 보안 기능을 사용하여 클라우드용 Microsoft Defender의 보호 기능을 하이브리드 및 다중 클라우드 리소스로 확장하는 방법을 알아봅니다.
-author: memildin
-ms.author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.custom: mode-other
-ms.openlocfilehash: 9a8a93ce44370a9e307fceba86144a6afc1f28ae
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 3909d6d71955158b43ad37e4096d92ba25407665
+ms.sourcegitcommit: 4298f71f502c70d601a7c58b28fc7bca62be3595
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133077527"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133133014"
 ---
 # <a name="quickstart-enable-enhanced-security-features"></a>빠른 시작: 향상된 보안 기능 사용
 
@@ -27,7 +23,7 @@ Defender for Cloud 빠른 시작 및 자습서를 활용하기 위해 향상된 
 
 Defender for Cloud의 향상된 보안 기능을 사용하여 전체 Azure 구독을 보호할 수 있으며, 보호는 구독 내의 모든 리소스에 상속됩니다.
 
-30일 평가판을 사용할 수 있습니다. 선택한 통화와 지역에 따른 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+30일 평가판을 사용할 수 있습니다. 현지 통화 또는 지역의 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
 ## <a name="enable-enhanced-security-features-from-the-azure-portal"></a>Azure Portal의 향상된 보안 기능 사용
 
@@ -43,7 +39,7 @@ Defender for Cloud의 향상된 보안 기능을 사용하여 전체 Azure 구�
 
     1. Defender for Cloud 주 메뉴에서 **환경 설정** 을 선택합니다.
     1. 보호할 구독 또는 작업 영역을 선택합니다.
-    1. 업그레이드 하려면 **모든 Microsoft Defender 계획 사용** 을 선택 합니다.
+    1. **모든 Microsoft Defender 플랜 사용** 을 선택하여 업그레이드합니다.
     1. **저장** 을 선택합니다.
 
     > [!TIP]

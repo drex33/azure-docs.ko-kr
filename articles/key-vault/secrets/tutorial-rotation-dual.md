@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0dcd10aeb7428bd72dbb4028e64239945741f71e
-ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
+ms.openlocfilehash: df245335e9eb5841f6ec03b8c450baef1935330c
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2021
-ms.locfileid: "133109696"
+ms.locfileid: "133129484"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -115,7 +115,7 @@ vaultrotationstorage2    vaultrotation      westus      Microsoft.Storage/storag
 
 순환 함수의 배포 템플릿과 코드는 [Azure 샘플](https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell)에서 찾을 수 있습니다.
 
-## <a name="add-the-storage-account-access-keys-to-key-vault"></a>Key Vault에 스토리지 계정 액세스 키 추가
+### <a name="add-the-storage-account-access-keys-to-key-vault-secrets"></a>Key Vault 비밀에 스토리지 계정 액세스 키 추가
 
 먼저 사용자 주체에게 **비밀 관리** 권한을 부여하도록 액세스 정책을 설정합니다.
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -213,7 +213,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 
 ![첫 번째 스토리지 계정에 대한 A Z storage account keys list 명령의 출력을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-5.png)
 
-## <a name="add-storage-accounts-for-rotation"></a>순환할 스토리지 계정 추가
+## <a name="use-existing-rotation-function-for-multiple-storage-accounts"></a>여러 스토리지 계정에 기존 회전 함수 사용
 
 동일한 함수 앱을 다시 사용하여 여러 스토리지 계정의 키를 순환할 수 있습니다. 
 
@@ -237,7 +237,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 
    ![추가 스토리지 계정을 만드는 방법을 보여주는 스크린샷](../media/secrets/rotation-dual/dual-rotation-7.png)
 
-### <a name="add-another-storage-account-access-key-to-key-vault"></a>Key Vault에 또 다른 스토리지 계정 액세스 키 추가
+### <a name="add-storage-account-access-key-to-key-vault-secrets"></a>Key Vault 비밀에 스토리지 계정 액세스 키 추가
 
 스토리지 계정 리소스 ID를 확인합니다. 이 값은 `id` 속성에서 찾을 수 있습니다.
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)

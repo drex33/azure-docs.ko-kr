@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: c31c77fee8f4a9706f4c7d2ad0c39d89d1327d78
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 1c88456d9da3e9e46f6215ef9a7df6d23e116bcb
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689291"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133129465"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 변경 내용 및 업데이트 모니터링
 **적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
@@ -71,9 +71,9 @@ New-AzVm `
 
 VM에 업데이트 관리를 사용하려면 다음을 수행합니다.
 
-1. 창의 맨 왼쪽에서 **가상 머신** 을 선택합니다.
-1. 목록에서 VM을 선택합니다.
-1. VM 창의 **작업** 창에서 **업데이트 관리** 를 선택합니다.
+1. Azure Portal에서 VM으로 이동합니다(검색 창에서 **가상 머신** 을 검색한 다음, 목록에서 VM 선택).
+1. 작업 아래에서 **게스트 + 호스트 업데이트** 를 선택합니다.
+1. **업데이트 관리로 이동** 을 클릭합니다.
 1. **업데이트 관리 사용** 창이 열립니다.
 
 이 VM에 업데이트 관리를 사용하도록 설정되었는지 확인하기 위한 유효성 검사가 수행됩니다. 유효성 검사를 통해 Log Analytics 작업 영역 및 연결된 Automation 계정이 있는지, 그리고 솔루션이 작업 영역에 있는지 여부가 확인됩니다.

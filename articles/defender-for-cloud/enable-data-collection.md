@@ -1,19 +1,15 @@
 ---
 title: Microsoft Defender for Cloud 대한 에이전트 자동 배포 | Microsoft Docs
 description: 이 문서에서는 Microsoft Defender for Cloud에서 사용하는 Log Analytics 에이전트, 기타 에이전트 및 확장을 자동으로 프로비저닝하도록 설정하는 방법을 설명합니다
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.author: memildin
 ms.custom: mode-other
-ms.openlocfilehash: 65f6ee523b8a92ff6fa08bd0ab15fcb6e13404bf
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: f77aaebaf4d31dd21bdee14fa229aaea29116fa7
+ms.sourcegitcommit: 4298f71f502c70d601a7c58b28fc7bca62be3595
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133049772"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133133375"
 ---
 # <a name="configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에서 에이전트 및 확장에 대한 자동 프로비저닝 구성
 
@@ -287,4 +283,4 @@ Log Analytics 에이전트를 수동으로 설치하려면 다음을 수행합�
 
 
 ## <a name="next-steps"></a>다음 단계
-이 페이지에서는 Log Analytics 에이전트 및 기타 Defender for Cloud 확장에 대해 자동 프로비전을 사용하도록 설정하는 방법을 설명했습니다. 수집된 데이터를 저장할 Log Analytics 작업 영역을 정의하는 방법에 대해서도 설명합니다. 데이터 컬렉션을 사용하도록 설정하려면 두 작업을 모두 수행해야 합니다. 새 작업 영역을 사용하든 기존 작업 영역을 사용하든 관계없이 Log Analytics에 데이터를 저장하면 데이터 스토리지에 대한 추가 요금이 발생할 수 있습니다. 선택한 통화와 지역에 따른 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
+이 페이지에서는 Log Analytics 에이전트 및 기타 Defender for Cloud 확장에 대해 자동 프로비전을 사용하도록 설정하는 방법을 설명했습니다. 수집된 데이터를 저장할 Log Analytics 작업 영역을 정의하는 방법에 대해서도 설명합니다. 데이터 컬렉션을 사용하도록 설정하려면 두 작업을 모두 수행해야 합니다. 새 작업 영역을 사용하든 기존 작업 영역을 사용하든 관계없이 Log Analytics에 데이터를 저장하면 데이터 스토리지에 대한 추가 요금이 발생할 수 있습니다. 현지 통화 또는 지역의 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.

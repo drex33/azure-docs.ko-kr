@@ -4,12 +4,12 @@ description: Azure Application Insights에서 데이터를 볼 수 없나요? �
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: d691958bf6ee55f31b0215b51bb9f4d7fd20c753
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: de5210e0157a3a93f5275a08ec4360db5754fc0f
+ms.sourcegitcommit: 5c1cd21464e8165b16eb8d63ab31ab7b1a8f3675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131079057"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133206975"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>데이터 없음 문제 해결 - .NET/.NET Core용 Application Insights
 
@@ -44,6 +44,32 @@ IIS(인터넷 정보 서비스)는 IIS에 도달하는 모든 요청의 수를 �
 
 > [!IMPORTANT]
 > 계측 키보다 [연결 문자열](./sdk-connection-string.md?tabs=net)이 권장됩니다. 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. 연결 문자열은 원격 분석 데이터를 연결할 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+
+
+## <a name="check-tlsssl-client-settings-aspnet"></a><a id="SSL"></a>TLS/SSL 클라이언트 설정 확인(ASP.NET)
+
+Azure App Service 또는 가상 머신의 IIS에서 호스트되는 ASP.NET 애플리케이션이 있는 경우 누락된 SSL 보안 프로토콜로 인해 애플리케이션이 스냅샷 디버거 서비스에 연결하지 못할 수 있습니다.
+
+[스냅샷 디버거 엔드포인트에는 TLS 버전 1.2이 필요함](https://docs.microsoft.com/azure/azure-monitor/app/snapshot-debugger-upgrade) SSL 보안 프로토콜 세트는 web.config의 system.web 섹션에서 httpRuntime targetFramework 값을 통해 사용하도록 설정되는 특성 중 하나입니다. HttpRuntime targetFramework가 4.5.2 이하인 경우 TLS 1.2는 기본적으로 포함되지 않습니다.
+
+> [!NOTE]
+> httpRuntime targetFramework 값은 애플리케이션을 빌드할 때 사용되는 대상 프레임워크의 영향을 받지 않습니다.
+
+설정을 확인하려면 web.config 파일을 열고 system.web 섹션을 찾습니다. `httpRuntime`의 `targetFramework`가 4.6 이상으로 설정되어 있는지 확인합니다.
+
+   ```xml
+   <system.web>
+      ...
+      <httpRuntime targetFramework="4.7.2" />
+      ...
+   </system.web>
+   ```
+
+> [!NOTE]
+> httpRuntime targetFramework 값을 수정하면 애플리케이션에 적용되는 런타임 특성이 변경되어 다른 미묘한 동작 변화가 나타날 수 있습니다. 이러한 변경을 수행한 후에는 애플리케이션을 철저히 테스트해야 합니다. 호환성 변경 내용에 대 한 전체 목록은 대상 다시 지정 [변경 내용](https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes)을 참조 하세요.
+
+> [!NOTE]
+> targetFramework가 4.7 이상인 경우 Windows에서 사용 가능한 프로토콜을 확인합니다. Azure App Service에서는 TLS 1.2를 사용할 수 있습니다. 그러나 사용자 고유의 가상 머신을 사용하는 경우 OS에서 TLS 1.2를 사용하도록 설정해야 할 수 있습니다.
 
 
 ## <a name="filenotfoundexception-could-not-load-file-or-assembly-microsoftaspnet-telemetrycorrelation"></a>FileNotFoundException: 파일 또는 어셈블리 ‘Microsoft.AspNet TelemetryCorrelation’을 로드할 수 없습니다.
@@ -222,7 +248,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 ### <a name="net-framework"></a>.NET Framework
 
 > [!NOTE]
-> 버전 2.14부터 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 패키지가 더 이상 필요하지 않으며, 이제 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) 패키지를 사용하여 SDK 로그가 수집됩니다. 추가 패키지가 필요하지 않습니다.
+> 2.14 버전부터 [HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 패키지는 더 이상 필요 하지 않습니다. 이제 SDK 로그가 [microsoft applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) 패키지를 사용 하 여 수집 됩니다. 추가 패키지는 필요 하지 않습니다.
 
 1. 다음을 포함하도록 applicationinsights.config 파일을 수정합니다.
 

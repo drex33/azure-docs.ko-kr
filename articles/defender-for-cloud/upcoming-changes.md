@@ -1,18 +1,14 @@
 ---
 title: Microsoft Defender for Cloud에 대한 향후 중요 변경 내용
 description: 알아야 하고 계획해야 할 수 있는 Microsoft Defender for Cloud에 예정된 변경입니다
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: overview
 ms.date: 11/21/2021
-ms.author: memildin
-ms.openlocfilehash: 5c1cf43aa127b50262315465e8c57fe6bc1fe170
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.openlocfilehash: 89040709f3e3a2fd17a990ddf31bd4d95c853f43
+ms.sourcegitcommit: 5c1cd21464e8165b16eb8d63ab31ab7b1a8f3675
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132902840"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133207013"
 ---
 # <a name="important-upcoming-changes-to-microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud에 대한 향후 중요 변경 내용
 
@@ -36,7 +32,7 @@ ms.locfileid: "132902840"
 | [Defender for Containers에서 그룹화할 컨테이너 보안 기능](#container-security-features-to-be-grouped-under-defender-for-containers)                                 | 2021년 12월             |
 | [ID 권장 사항에 대한 여러 변경 사항](#multiple-changes-to-identity-recommendations)                                                                                       | 2021년 12월             |
 | [SQL 데이터베이스의 중요한 데이터 분류에 대한 개선된 권장 사항](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                           | 2022년 1분기                   |
-| [엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | 2022년 3월             |
+| [엔드포인트 보호 솔루션 관리를 위한 권장 사항 변경](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | 2022년 3월                |
 |                                                                                                                                                                                     |                           |
 
 ### <a name="deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses"></a>사용 중단 미리 보기 경고: ARM. MCAS_ActivityFromAnonymousIPAddresses

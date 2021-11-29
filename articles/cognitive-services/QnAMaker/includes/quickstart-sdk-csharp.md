@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 .NET용 QnA Maker 클라이언트 라이
 ms.topic: quickstart
 ms.date: 04/28/2021
 ms.custom: ignite-fall-2021, mode-other
-ms.openlocfilehash: ba303633ce57f216749aa4fcd9779b231a2e7ffc
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 48114f25335144ec8a70023dd8c3420dac39f2b8
+ms.sourcegitcommit: 024fcf9a76cf238e4bfbccfd699e97cc34fa1f42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133039704"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133190490"
 ---
 .NET 용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
 
@@ -27,6 +27,9 @@ ms.locfileid: "133039704"
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
+> [!NOTE]
+> 이 설명서는 최신 릴리스에는 적용되지 않습니다. 최신 릴리스에서 C# API를 사용하는 방법에 대한 자세한 내용은 [C# 빠른 시작에 대한 답변](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=programming-language-csharp)을 참조합니다.
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 또는 현재 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).

@@ -4,16 +4,17 @@ description: 이 빠른 시작에서는 REST API를 사용하여 기술 자료�
 ms.date: 1/22/2021
 ms.topic: quickstart
 ms.custom: ignite-fall-2021, mode-other
-ms.openlocfilehash: dabdfc693e0590bfcdaed0a3ce858c69f2ac0600
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 2ebc4b9ba10cb018d5ac534807345458cab65961
+ms.sourcegitcommit: 024fcf9a76cf238e4bfbccfd699e97cc34fa1f42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133039722"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133190483"
 ---
-[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
 ## <a name="prerequisites"></a>사전 요구 사항
+
+> [!NOTE]
+> 이 설명서는 최신 릴리스에는 적용되지 않습니다. 최신 릴리스에서 REST API를 사용하는 방법에 대한 자세한 내용은 [REST API 빠른 시작에 대한 답변](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=rest)을 참조합니다.
 
 * 현재 버전의 [cURL](https://curl.haxx.se/). 빠른 시작에는 몇 가지 명령줄 스위치가 사용되며, 이러한 스위치는 [cURL 설명서](https://curl.haxx.se/docs/manpage.html)에 나와 있습니다.
 * 키와 리소스 이름을 사용하려면 [QnA Maker 리소스](../how-to/set-up-qnamaker-service-azure.md?tabs=v1#create-a-new-qna-maker-service)가 있어야 합니다. 리소스를 만드는 동안 리소스 **이름** 을 입력한 다음, 키가 생성되었습니다. 리소스 이름은 엔드포인트의 하위 도메인으로 사용됩니다. 키와 리소스 이름을 검색하려면 Azure Portal에서 이 리소스에 대한 **빠른 시작** 을 선택합니다. 리소스 이름은 엔드포인트 URL의 첫 번째 하위 도메인입니다.

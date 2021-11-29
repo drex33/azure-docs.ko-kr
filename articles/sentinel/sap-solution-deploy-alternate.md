@@ -6,12 +6,12 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: 4e65ba4142aa87fe37fb90296a71edad974b4ad5
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 2f67e7c296b261b72bcc917304860e7c26e531ab
+ms.sourcegitcommit: 5c1cd21464e8165b16eb8d63ab31ab7b1a8f3675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132871721"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133206937"
 ---
 # <a name="expert-configuration-options-on-premises-deployment-and-sapcontrol-log-sources"></a>전문가 구성 옵션, 온-프레미스 배포, SAPControl 로그 원본
 
@@ -180,6 +180,8 @@ SAP 자격 증명으로 준비된 Key Vault가 있는 경우 이 절차를 수�
     # env.list template for Credentials
     SAPADMUSER=<SET_SAPCONTROL_USER>
     SAPADMPASSWORD=<SET_SAPCONTROL_PASS>
+    LOGWSID=<SET SENTINEL WORKSPACE id>
+    LOGWSPUBLICKEY=<SET SENTINEL WORKSPACE KEY>
     ABAPUSER=SET_ABAP_USER>
     ABAPPASS=<SET_ABAP_PASS>
     JAVAUSER=<SET_JAVA_OS_USER>
@@ -346,14 +348,14 @@ timechunk = 60
 
 ### <a name="configuring-a-java-sap-control-instance"></a>Java SAP Control 인스턴스 구성
 
-Microsoft Sentinel에 SAP Control 웹 서비스 로그를 구성하려면 다음 JAVA SAP Control 인스턴스 세부 정보를 구성합니다.
+Microsoft 센티널로 SAP Control 웹 서비스 로그를 수집 하려면 다음 JAVA SAP 컨트롤 인스턴스 세부 정보를 구성 합니다.
 
 |매개 변수  |Description  |
 |---------|---------|
 |**javaappserver**     |SAP Control Java 서버 호스트를 입력합니다. <br>예: `contoso-java.server.com`         |
 |**javainstance**     |SAP Control ABAP 인스턴스 번호를 입력합니다. <br>예: `10`         |
 |**javatz**     |SAP Control Java 서버에서 구성된 표준 시간대를 GMT 형식으로 입력합니다. <br>예: `GMT+3`         |
-|**javaseverity**     |Microsoft Sentinel에 웹 서비스 로그를 검색하려는 가장 낮고 포괄적인 심각도 수준을 입력합니다.  값은 다음과 같습니다. <br><br>- **0** = 모든 로그 <br>- **1** = 경고 <br>- **2** = 오류     |
+|**javaseverity**     |Microsoft 센티널에 웹 서비스 로그를 수집 하려는 최하위, 포함, 심각도 수준을 입력 합니다.  값은 다음과 같습니다. <br><br>- **0** = 모든 로그 <br>- **1** = 경고 <br>- **2** = 오류     |
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -363,8 +365,8 @@ SAP 데이터 커넥터를 설치한 후 SAP 관련 보안 콘텐츠를 추가�
 
 자세한 내용은 다음을 참조하세요.
 
-- [SNC를 사용하여 Microsoft Sentinel SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
-- [Microsoft Sentinel SAP 솔루션 세부 SAP 요구 사항](sap-solution-detailed-requirements.md)
-- [Microsoft Sentinel SAP 솔루션 로그 참조](sap-solution-log-reference.md)
-- [Microsoft Sentinel SAP 솔루션: 보안 콘텐츠 참조](sap-solution-security-content.md)
-- [Microsoft Sentinel SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)
+- [SNC를 사용 하 여 Microsoft 센티널 SAP 데이터 커넥터 배포](sap-solution-deploy-snc.md)
+- [Microsoft 센티널 SAP 솔루션 자세한 SAP 요구 사항](sap-solution-detailed-requirements.md)
+- [Microsoft 센티널 SAP 솔루션 로그 참조](sap-solution-log-reference.md)
+- [Microsoft 센티널 SAP 솔루션: 보안 콘텐츠 참조](sap-solution-security-content.md)
+- [Microsoft 센티널 SAP 솔루션 배포 문제 해결](sap-deploy-troubleshoot.md)

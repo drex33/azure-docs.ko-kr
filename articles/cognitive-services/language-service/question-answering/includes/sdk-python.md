@@ -5,12 +5,12 @@ ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/11/2021
-ms.openlocfilehash: 0aa0f65e9a277cbcb28870b970ead3e357057b2f
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 47f430fcb77bda090edf2f931d78c58cfc1c1755
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132353841"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133136304"
 ---
 이 빠른 시작을 Python용 질문 답변 클라이언트 라이브러리에 사용하여 다음을 수행합니다.
 
@@ -27,6 +27,9 @@ ms.locfileid: "132353841"
 [questionanswering_samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering/samples/README.md
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
+> [!NOTE]
+> 이 설명서는 최신 릴리스에는 적용되지 않습니다. 최신 릴리스에서 Python API를 사용하는 방법에 대한 자세한 내용은 [Python 빠른 시작에 대한 답변](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=programming-language-python)을 참조합니다.
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: 696c6329abcfe393f4d1d2c9f103e603c8a7d881
-ms.sourcegitcommit: 8178cd2d9a47a67bb324483bd0879a57591706a1
+ms.openlocfilehash: c8f1444a4ac25184478b3a45bfda5f03c3131f5f
+ms.sourcegitcommit: 625ffc4a23b7b71680aaf572fede507053d4ef03
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2021
-ms.locfileid: "133109589"
+ms.lasthandoff: 11/27/2021
+ms.locfileid: "133176970"
 ---
 # <a name="what-is-azure-expressroute"></a>Azure ExpressRoute란?
 ExpressRoute를 사용하면 연결 공급자의 도움을 받아 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure 및 Microsoft 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.

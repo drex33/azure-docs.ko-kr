@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4e753f23a5dce895260c4b1daea0ae33947cc8f6
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: db3a589440bc492050960f4af4c0e74509acaff4
+ms.sourcegitcommit: 5c1cd21464e8165b16eb8d63ab31ab7b1a8f3675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538204"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133207032"
 ---
 # <a name="use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Azure Cache for Redis에서 Redis 명령줄 도구 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "129538204"
 
 이 도구는 [Windows용 Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/)를 다운로드하여 Windows 플랫폼에 대해 사용할 수 있습니다. 
 
-다른 플랫폼에서 이 명령줄 도구를 실행하려면 [https://redis.io/download](https://redis.io/download)에서 Azure Cache for Redis 다운로드하세요.
+다른 플랫폼에서 명령줄 도구를 실행 하려면에서 공식 Redis를 다운로드 [https://redis.io/download](https://redis.io/download) 합니다.
 
 ## <a name="gather-cache-access-information"></a>캐시 액세스 정보 수집
 

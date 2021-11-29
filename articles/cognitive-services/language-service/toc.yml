@@ -172,7 +172,7 @@ items:
             href: conversational-language-understanding/concepts/evaluation-metrics.md
           - name: 여러 언어 사용
             href: conversational-language-understanding/concepts/multiple-languages.md
-      - name: 참조
+      - name: 참고
         items:
           - name: 미리 빌드된 구성 요소 참조
             href: conversational-language-understanding/prebuilt-component-reference.md
@@ -565,6 +565,14 @@ items:
             href: question-answering/tutorials/multiple-languages.md
           - name: 여러 도메인
             href: question-answering/tutorials/multiple-domains.md
+      - name: 참조
+        items:
+          - name: REST API
+            items:
+              - name: 답변 API
+                href: 'https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering'
+              - name: API 작성
+                href: 'https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects'
   - name: 감정 분석 및 오피니언 마이닝
     items:
       - name: 개요

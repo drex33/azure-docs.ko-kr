@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Python용 QnA Maker 클라이언트 라�
 ms.topic: include
 ms.date: 06/18/2020
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 51e04fd1289ce20856d3461cff86543f8b6af812
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2efce1d8cd51f9930410eb1f2425b0c90c0cf6cd
+ms.sourcegitcommit: 024fcf9a76cf238e4bfbccfd699e97cc34fa1f42
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131071327"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133190451"
 ---
 python용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
 
@@ -27,6 +27,9 @@ python용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 �
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
+> [!NOTE]
+> 이 설명서는 최신 릴리스에는 적용되지 않습니다. 최신 릴리스에서 Python API를 사용하는 방법에 대한 자세한 내용은 [Python 빠른 시작에 대한 답변](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=programming-language-python)을 참조합니다.
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)

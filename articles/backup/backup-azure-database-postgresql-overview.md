@@ -4,12 +4,12 @@ description: Azure Database for PostgreSQL 백업(미리 보기)에 대한 개�
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.custom: references_regions
-ms.openlocfilehash: b868af4c96691c9496a0c5382d9416e784d3eb8c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 6a35d0622512e1f4a0a424d479c1c9e29649e328
+ms.sourcegitcommit: 5c1cd21464e8165b16eb8d63ab31ab7b1a8f3675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130219397"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133206880"
 ---
 # <a name="about-azure-database-for-postgresql-backup-preview"></a>Azure Database for PostgreSQL 백업 정보(미리 보기)
 
@@ -55,7 +55,7 @@ Azure Backup Azure에서 규정한 엄격한 보안 지침을 따릅니다. 백�
 
 ### <a name="key-vault-based-authentication-model"></a>키 자격 증명 모음 기반 인증 모델
 
-Azure Backup 서비스는 각 백업을 하는 동안 Azure PostgreSQL에 연결해야 합니다. 데이터베이스에 해당하는 '사용자 이름 + 암호'(또는 연결 문자열)는 이 연결을 만드는 데 사용되지만 이러한 자격 증명은 Azure Backup 함께 저장되지 않습니다. 대신 Azure Key Vault의 데이터베이스 관리자가 이러한 자격 증명을 [비밀 로](../key-vault/secrets/about-secrets.md)안전하게 시드해야 합니다. 워크로드 관리자는 자격 증명을 관리하고 회전할 책임이 있습니다. Azure Backup 키 자격 증명 모음에서 가장 최근의 비밀 세부 정보를 호출하여 백업을 받습니다.
+Azure Backup 서비스는 각 백업을 하는 동안 Azure PostgreSQL에 연결해야 합니다. 데이터베이스에 해당하는 '사용자 이름 + 암호'(또는 연결 문자열)는 이 연결을 만드는 데 사용되지만 이러한 자격 증명은 Azure Backup 함께 저장되지 않습니다. 대신 Azure Key Vault의 데이터베이스 관리자가 이러한 자격 증명을 [비밀로](../key-vault/secrets/about-secrets.md)안전하게 시드해야 합니다. 워크로드 관리자는 자격 증명을 관리하고 회전할 책임이 있습니다. Azure Backup 키 자격 증명 모음에서 가장 최근의 비밀 세부 정보를 호출하여 백업을 받습니다.
  
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-based-authentication-model.png" alt-text="워크로드 또는 데이터베이스 흐름을 보여 주는 다이어그램":::
 
@@ -66,19 +66,19 @@ Azure Backup 서비스는 각 백업을 하는 동안 Azure PostgreSQL에 연결
    - Azure PostgreSQL 서버에 대한 _읽기 권한자_ 액세스.
    - Azure Key Vault에서 비밀 사용자(또는 비밀을 얻거나 나열) 액세스를 _Key Vault._
 
-1. 네트워크 가시선 액세스 켜기:
+1. 네트워크 가시선 액세스:
 
-   - Azure PostgreSQL 서버 – **Azure 서비스 플래그에 대한 액세스 허용을** **예** 로 설정합니다.
+   - Azure PostgreSQL 서버 – **Azure 서비스 플래그에 대한 액세스 허용** 플래그를 **예** 로 설정합니다.
    - 키 자격 증명 모음 – **신뢰할 수 있는 Microsoft 서비스** 플래그를 **예** 로 설정할 수 있습니다.
 
 1. 데이터베이스에 대한 데이터베이스 사용자의 백업 권한
 
 >[!Note]
->원하는 리소스에 대한 '쓰기' 액세스 권한이 있는 경우 한 번의 클릭으로 [백업 흐름 구성](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases) 내에서 이러한 권한을 부여하거나 필요한 권한이 없는 경우(여러 개인과 관련된 경우) ARM 템플릿을 사용할 수 있습니다. 
+>원하는 리소스에 대한 '쓰기' 액세스 권한이 있는 경우 한 번의 클릭으로 [백업 흐름 구성](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases) 내에서 이러한 권한을 부여하거나, 필요한 권한이 없는 경우(여러 개인과 관련된 경우) ARM 템플릿을 사용할 수 있습니다. 
 
 #### <a name="set-of-permissions-needed-for-azure-postgresql-database-restore"></a>Azure PostgreSQL 데이터베이스 복원에 필요한 사용 권한 집합
 
-복원 권한은 백업에 필요한 권한과 유사하며 대상 PostgreSQL 서버 및 해당 키 자격 증명 모음에 대한 권한을 부여해야 합니다. 백업 흐름 구성과 달리 이러한 사용 권한을 인라인으로 부여하는 환경은 현재 사용할 수 없습니다. 따라서 [Postgres 서버 및 해당 키](#grant-access-on-the-azure-postgresql-server-and-key-vault-manually)자격 증명 모음 에 대한 액세스 권한을 수동으로 부여해야 합니다.
+복원 권한은 백업에 필요한 권한과 유사하며 대상 PostgreSQL 서버 및 해당 키 자격 증명 모음에 대한 권한을 부여해야 합니다. 백업 흐름 구성과 달리 이러한 권한을 인라인으로 부여하는 환경은 현재 사용할 수 없습니다. 따라서 [Postgres 서버 및 해당 키](#grant-access-on-the-azure-postgresql-server-and-key-vault-manually)자격 증명 모음 에 대한 액세스 권한을 수동으로 부여해야 합니다.
 
 또한 키 자격 증명 모음에 저장된 자격 증명에 해당하는 데이터베이스 사용자에 데이터베이스에 대한 다음과 같은 복원 권한이 있는지 확인합니다.
 
@@ -100,9 +100,9 @@ Azure Backup 필요한 모든 액세스 권한을 부여하려면 다음 섹션�
 
 ### <a name="access-permissions-on-the-azure-postgresql-server"></a>Azure PostgreSQL 서버에 대한 액세스 권한
 
-1. Azure PostgreSQL 서버에서 Backup 자격 증명 모음의 MSI **판독기** 액세스를 설정합니다.
+1. Azure PostgreSQL 서버에서 Backup 자격 증명 모음의 MSI **읽기 권한자** 액세스를 설정합니다.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql-overview/set-reader-access-on-azure-postgresql-server-inline.png" alt-text="Azure PostgreSQL 서버에서 Backup 자격 증명 모음의 MSI 판독기 액세스를 설정하는 옵션을 보여주는 스크린샷" lightbox="./media/backup-azure-database-postgresql-overview/set-reader-access-on-azure-postgresql-server-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-overview/set-reader-access-on-azure-postgresql-server-inline.png" alt-text="Azure PostgreSQL 서버에서 Backup 자격 증명 모음의 MSI 판독기 액세스를 설정하는 옵션을 보여주는 스크린샷." lightbox="./media/backup-azure-database-postgresql-overview/set-reader-access-on-azure-postgresql-server-expanded.png":::
 
 1. Azure PostgreSQL 서버의 네트워크 가시선 액세스: 'Azure 서비스에 대한 액세스 허용' 플래그를 '예'로 설정합니다.
 
@@ -112,7 +112,7 @@ Azure Backup 필요한 모든 액세스 권한을 부여하려면 다음 섹션�
 
 1. Azure Key Vault에서 Backup 자격 증명 모음의 MSI **Key Vault 비밀 사용자(또는** 비밀을 **얻거나** **나열)** 액세스를 설정합니다. 권한을 할당하려면 역할 할당 또는 액세스 정책을 사용할 수 있습니다. 도움이 되지 않으므로 두 옵션을 모두 사용하여 권한을 추가할 필요는 없습니다.
 
-   - Azure RBAC(Azure 역할 기반 액세스 제어) 권한 부여를 사용하는 경우(즉, 권한 모델이 Azure 역할 기반 액세스 제어로 설정)
+   - Azure RBAC(Azure 역할 기반 액세스 제어) 권한 부여를 사용하면(즉, 권한 모델이 Azure 역할 기반 액세스 제어로 설정)
 
      - 액세스 제어에서 키 자격 증명 모음에 대한 백업 _자격 증명 모음의_ MSI Key Vault 비밀 사용자 액세스 권한을 부여합니다. 해당 역할의 보유자는 비밀을 읽을 수 있습니다.
      - [Azure RBAC 를 사용하여 Azure Key Vault에 액세스할 수 있는 권한을 애플리케이션에 부여합니다.](../key-vault/general/rbac-guide.md?tabs=azure-cli)
@@ -129,13 +129,13 @@ Azure Backup 필요한 모든 액세스 권한을 부여하려면 다음 섹션�
      :::image type="content" source="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-inline.png" alt-text="권한 모델을 사용하여 사용 권한을 부여하는 옵션을 보여주는 스크린샷은 자격 증명 모음 액세스 정책 모델로 설정됩니다." lightbox="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-expanded.png":::  
  
 
-1. 키 자격 증명 모음의 네트워크 가시선 액세스: 신뢰할 수 있는 **Microsoft 서비스 허용** 플래그를 **예** 로 설정합니다.
+1. 키 자격 증명 모음에 대한 네트워크 가시선 액세스: 신뢰할 수 있는 **Microsoft 서비스 허용** 플래그를 **예** 로 설정합니다.
 
-   :::image type="content" source="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-key-vault-inline.png" alt-text="키 자격 증명 모음에 대한 네트워크 가시선 액세스에 대해 신뢰할 수 있는 Microsoft 서비스 허용 플래그를 예로 설정하는 것을 보여주는 스크린샷." lightbox="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-key-vault-expanded.png":::
+   :::image type="content" source="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-key-vault-inline.png" alt-text="키 자격 증명 모음에 대한 네트워크 가시선 액세스에 대해 신뢰할 수 있는 Microsoft 서비스 허용 플래그를 yes로 설정하는 것을 보여주는 스크린샷." lightbox="./media/backup-azure-database-postgresql-overview/network-line-of-sight-access-on-key-vault-expanded.png":::
 
-### <a name="database-users-backup-privileges-on-the-database"></a>데이터베이스에 대 한 데이터베이스 사용자의 백업 권한
+### <a name="database-users-backup-privileges-on-the-database"></a>데이터베이스에 대한 데이터베이스 사용자의 백업 권한
 
-[PG admin](#using-the-pg-admin-tool) tool에서 다음 쿼리를 실행 합니다 ( _username_ 을 데이터베이스 사용자 ID로 바꿈).
+[PG 관리](#using-the-pg-admin-tool) 도구에서 다음 쿼리를 실행합니다(username을 데이터베이스 사용자 ID로 바꾸기). 
 
 ```
 DO $do$
@@ -152,31 +152,32 @@ EXECUTE format($$ GRANT SELECT ON ALL SEQUENCES IN SCHEMA %I TO username $$, sch
 EXECUTE format($$ ALTER DEFAULT PRIVILEGES IN SCHEMA %I GRANT SELECT ON SEQUENCES TO username $$, sch);
 END LOOP;
 END;
+$do$
 ```
 
 ## <a name="using-the-pg-admin-tool"></a>PG 관리 도구 사용
 
-[PG admin tool](https://www.pgadmin.org/download/) 이 아직 없는 경우 다운로드 합니다. 이 도구를 통해 Azure PostgreSQL 서버에 연결할 수 있습니다. 또한이 서버에 데이터베이스 및 새 사용자를 추가할 수 있습니다.
+[PG 관리자 도구가](https://www.pgadmin.org/download/) 없는 경우 다운로드합니다. 이 도구를 통해 Azure PostgreSQL 서버에 연결할 수 있습니다. 또한 이 서버에 데이터베이스 및 새 사용자를 추가할 수 있습니다.
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/connect-to-azure-postgresql-server-using-pg-admin-tool-inline.png" alt-text="PG admin tool을 사용 하 여 Azure PostgreSQL 서버에 연결 하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-azure-database-postgresql-overview/connect-to-azure-postgresql-server-using-pg-admin-tool-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/connect-to-azure-postgresql-server-using-pg-admin-tool-inline.png" alt-text="PG 관리 도구를 사용하여 Azure PostgreSQL 서버에 연결하는 프로세스를 보여주는 스크린샷" lightbox="./media/backup-azure-database-postgresql-overview/connect-to-azure-postgresql-server-using-pg-admin-tool-expanded.png":::
 
-선택한 이름으로 새 서버를 만듭니다. 호스트 이름/주소 이름을 Azure Portal Azure PostgreSQL 리소스 보기에 표시 된 **서버 이름과** 동일 하 게 입력 합니다.
+선택한 이름으로 새 서버를 만듭니다. Azure Portal Azure PostgreSQL 리소스 뷰에 표시된 서버 이름과 동일한 호스트 **이름/주소 이름을** 입력합니다.
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/create-new-server-using-pg-admin-tool-inline.png" alt-text="PG admin tool을 사용 하 여 새 서버를 만드는 옵션을 보여 주는 스크린샷" lightbox="./media/backup-azure-database-postgresql-overview/create-new-server-using-pg-admin-tool-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/create-new-server-using-pg-admin-tool-inline.png" alt-text="PG 관리 도구를 사용하여 새 서버를 만드는 옵션을 보여주는 스크린샷" lightbox="./media/backup-azure-database-postgresql-overview/create-new-server-using-pg-admin-tool-expanded.png":::
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/enter-host-name-or-address-name-same-as--server-name-inline.png" alt-text="서버 이름과 동일한 호스트 이름 또는 주소 이름을 입력 하는 옵션을 보여 주는 스크린샷" lightbox="./media/backup-azure-database-postgresql-overview/enter-host-name-or-address-name-same-as--server-name-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/enter-host-name-or-address-name-same-as--server-name-inline.png" alt-text="서버 이름과 동일한 호스트 이름 또는 주소 이름을 입력하는 옵션을 보여주는 스크린샷." lightbox="./media/backup-azure-database-postgresql-overview/enter-host-name-or-address-name-same-as--server-name-expanded.png":::
 
-연결이 통과할 수 있도록 _현재 클라이언트 ID 주소_ 를 방화벽 규칙에 추가 해야 합니다.
+연결을 통과할 방화벽 규칙에 _현재 클라이언트 ID 주소를_ 추가해야 합니다.
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-inline.png" alt-text="현재 클라이언트 ID 주소를 방화벽 규칙에 추가 하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-inline.png" alt-text="현재 클라이언트 ID 주소를 방화벽 규칙에 추가하는 프로세스를 보여주는 스크린샷." lightbox="./media/backup-azure-database-postgresql-overview/add-current-client-id-address-to-firewall-rules-expanded.png":::
 
-서버에 새 데이터베이스와 데이터베이스 사용자를 추가할 수 있습니다. 데이터베이스 사용자의 경우 새 **로그인/그룹 역할** 을 추가 합니다. **로그인 가능 여부** 를 **예** 로 설정 합니다.
+서버에 새 데이터베이스 및 데이터베이스 사용자를 추가할 수 있습니다. 데이터베이스 사용자의 경우 새 **로그인/그룹 역할**'을 추가합니다. **로그인할 수 있나요?가** **예** 로 설정되어 있는지 확인합니다.
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-new-databases-and-database-users-to-server-inline.png" alt-text="서버에 새 데이터베이스와 데이터베이스 사용자를 추가 하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-azure-database-postgresql-overview/add-new-databases-and-database-users-to-server-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-new-databases-and-database-users-to-server-inline.png" alt-text="서버에 새 데이터베이스 및 데이터베이스 사용자를 추가하는 프로세스를 보여주는 스크린샷." lightbox="./media/backup-azure-database-postgresql-overview/add-new-databases-and-database-users-to-server-expanded.png":::
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-new-login-group-roles-inline.png" alt-text="데이터베이스 사용자에 대 한 새 로그인 또는 그룹 역할을 추가 하는 프로세스를 보여 주는 스크린샷" lightbox="./media/backup-azure-database-postgresql-overview/add-new-login-group-roles-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/add-new-login-group-roles-inline.png" alt-text="데이터베이스 사용자에 대한 새 로그인 또는 그룹 역할을 추가하는 프로세스를 보여주는 스크린샷" lightbox="./media/backup-azure-database-postgresql-overview/add-new-login-group-roles-expanded.png":::
 
-:::image type="content" source="./media/backup-azure-database-postgresql-overview/set-can-login-to-yes-inline.png" alt-text="로그인 가능 옵션의 확인을 보여 주는 스크린샷은 예로 설정 됩니다." lightbox="./media/backup-azure-database-postgresql-overview/set-can-login-to-yes-expanded.png":::
+:::image type="content" source="./media/backup-azure-database-postgresql-overview/set-can-login-to-yes-inline.png" alt-text="로그인 가능 옵션의 확인이 예로 설정되는 것을 보여주는 스크린샷." lightbox="./media/backup-azure-database-postgresql-overview/set-can-login-to-yes-expanded.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

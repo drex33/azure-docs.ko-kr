@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 42022ade761e1019a3c24d61d7624bf9ea7aaa75
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 4bb9507f10348614d39941415e899965e5b26670
+ms.sourcegitcommit: 5c1cd21464e8165b16eb8d63ab31ab7b1a8f3675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132762123"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133206994"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>장기 로그 보존 시 Azure Data Explorer 통합
 
@@ -25,7 +25,11 @@ Azure Data Explorer에 로그를 저장하면 데이터를 쿼리할 수 있는 
 
 Azure Data Explorer는 로그 및 데이터 분석에 매우 최적화된 빅 데이터 분석 플랫폼입니다. Azure 데이터 탐색기는 쿼리 언어로 KQL (Kusto Query Language)를 사용 하므로 Microsoft 센티널 데이터 저장소에 대 한 좋은 대안입니다. 데이터 저장소에 Azure 데이터 탐색기를 사용 하면 플랫폼 간 쿼리를 실행 하 고 Azure 데이터 탐색기 및 Microsoft 센티널에서 데이터를 시각화할 수 있습니다.
 
-자세한 내용은 Azure Data Explorer [설명서](/azure/data-explorer/) 및 [블로그](https://azure.microsoft.com/blog/tag/azure-data-explorer/)를 참조하세요.
+자세한 내용은 다음을 참조하세요.
+
+- [Azure Data Explorer 설명서](/azure/data-explorer/)
+- [Azure 데이터 탐색기 블로그](https://azure.microsoft.com/blog/tag/azure-data-explorer/)
+- [Azure 데이터 탐색기의 장기 보안 로그 보존을 위한 일반 아키텍처](/architecture/example-scenario/security/security-log-retention-azure-data-explorer)
 
 ### <a name="when-to-integrate-with-azure-data-explorer"></a>Azure Data Explorer와 통합하는 경우
 
@@ -152,9 +156,9 @@ Microsoft 센티널에서 Azure 데이터 탐색기로 데이터를 내보내려
 
 ### <a name="azure-storage--azure-data-factory"></a>[Azure Storage/Azure Data Factory](#tab/azure-storage-azure-data-factory)
 
-이 섹션에서는 Log Analytics의 Microsoft Sentinel 데이터를 Azure Storage 내보내는 방법을 설명합니다. 여기서 Azure Data Factory 일반 작업을 실행하여 데이터를 Azure Data Explorer 내보낼 수 있습니다.
+이 섹션에서는 Log Analytics에서 Azure Storage으로 Microsoft 센티널 데이터를 내보내는 방법에 대해 설명 합니다. 여기서 Azure Data Factory는 일반 작업을 실행 하 여 데이터를 Azure 데이터 탐색기로 내보낼 수 있습니다.
 
-Azure Storage 및 Azure Data Factory 사용하면 Microsoft Sentinel/Log Analytics의 보존 한도에 가까운 경우에만 Azure Storage 데이터를 복사할 수 있습니다. 데이터 중복은 없으며 Azure Data Explorer Microsoft Sentinel의 보존 제한보다 오래된 데이터에 액세스하는 *데만* 사용됩니다.
+Azure Storage 및 Azure Data Factory를 사용 하면 Microsoft 센티널/Log Analytics의 보존 제한에 근접 한 경우에만 Azure Storage에서 데이터를 복사할 수 있습니다. 데이터 중복은 없으며 Azure 데이터 탐색기는 Microsoft 센티널의 보존 한도 보다 오래 된 데이터에 액세스 하는 데 *만* 사용 됩니다.
 
 > [!TIP]
 > 레거시 데이터에서 Azure Storage 및 Azure Data Factory를 사용하기 위한 아키텍처는 더 복잡하지만, 이 방법은 전반적으로 더 큰 비용 절감 효과를 제공할 수 있습니다.
@@ -174,7 +178,7 @@ Azure Storage 및 Azure Data Factory 사용하면 Microsoft Sentinel/Log Analyti
 
 1. **대상 테이블을 만듭니다**. 원시 데이터는 먼저 중간 테이블에 수집됩니다. 여기에서 원시 데이터가 저장, 조작되고 확장됩니다.
 
-    모든 새 데이터에 적용된 함수와 유사한 업데이트 정책은 확장된 데이터를 Microsoft Sentinel의 원래 테이블과 동일한 스키마가 있는 최종 테이블로 수집하는 데 사용됩니다.
+    모든 새 데이터에 적용 되는 함수와 비슷한 업데이트 정책은 확장 된 데이터를 Microsoft 센티널의 원본 테이블과 동일한 스키마를 가진 최종 테이블에 수집 하는 데 사용 됩니다.
 
     원시 테이블의 보존 기간을 **0** 일로 설정합니다. 데이터는 올바르게 형식이 지정된 테이블에만 저장되고, 변환되는 즉시 원시 테이블에서 삭제됩니다.
 
@@ -185,7 +189,7 @@ Azure Storage 및 Azure Data Factory 사용하면 Microsoft Sentinel/Log Analyti
 1. **업데이트 정책을 만들어 원시 레코드 테이블에 연결합니다**. 이 단계에서 업데이트 정책이라는 함수를 만들고 대상 테이블에 연결하여 수집 시 데이터를 변환합니다.
 
     > [!NOTE]
-    > 이 단계는 Microsoft Sentinel과 동일한 스키마 및 형식의 Azure Data Explorer 데이터 테이블을 사용하려는 경우에만 필요합니다.
+    > Microsoft 센티널과 동일한 스키마와 형식을 사용 하 여 Azure 데이터 탐색기에 데이터 테이블을 포함 하려는 경우에만이 단계가 필요 합니다.
     >
 
     자세한 내용은 [Azure Data Explorer에 Event Hub 연결](/azure/data-explorer/ingest-data-no-code?tabs=activity-logs)을 참조하세요.
@@ -215,7 +219,7 @@ Azure Storage 및 Azure Data Factory 사용하면 Microsoft Sentinel/Log Analyti
 
 ## <a name="design-considerations"></a>디자인 고려 사항
 
-Microsoft Sentinel 데이터를 Azure Data Explorer 저장할 때 다음 요소를 고려합니다.
+Azure 데이터 탐색기에 Microsoft 센티널 데이터를 저장 하는 경우 다음 요소를 고려 하세요.
 
 |고려 사항  |설명  |
 |---------|---------|
@@ -229,9 +233,9 @@ Microsoft Sentinel 데이터를 Azure Data Explorer 저장할 때 다음 요소�
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터를 저장하는 위치에 관계없이 Microsoft Sentinel을 사용하여 헌팅 및 조사를 계속합니다.
+데이터를 저장 하는 위치에 관계 없이 Microsoft 센티널을 사용 하 여 계속 탐색 하 고 조사 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
-- [자습서: Microsoft Sentinel을 사용하여 인시던트 조사](investigate-cases.md)
-- [Microsoft Sentinel을 사용하여 위협 헌츠](hunting.md)
+- [자습서: Microsoft 센티널을 사용 하 여 인시던트 조사](investigate-cases.md)
+- [Microsoft 센티널에서 위협 구하기](hunting.md)

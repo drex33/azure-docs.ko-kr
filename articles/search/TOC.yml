@@ -126,21 +126,26 @@
       href: samples-rest.md
 - name: 개념
   items:
-    - name: 인덱스 검색
-      href: search-what-is-an-index.md
-    - name: 전체 텍스트 검색
-      href: search-lucene-query-architecture.md
-    - name: 분석기
-      href: search-analyzers.md
-    - name: 의미 체계 검색
-      href: semantic-search-overview.md
-    - name: 관련성 채점
-      href: index-similarity-and-scoring.md
-    - name: 인덱서
-      href: search-indexer-overview.md
-    - name: AI 보강
-      href: cognitive-search-concept-intro.md
+    - name: 검색
       items:
+        - name: 전체 텍스트 검색
+          href: search-lucene-query-architecture.md
+        - name: 의미 체계 검색
+          href: semantic-search-overview.md
+        - name: 관련성 채점
+          href: index-similarity-and-scoring.md
+    - name: 인덱싱
+      items:
+        - name: 인덱스 검색
+          href: search-what-is-an-index.md
+        - name: 분석기
+          href: search-analyzers.md
+        - name: 인덱서
+          href: search-indexer-overview.md
+    - name: 보강
+      items:
+        - name: 보강 개요
+          href: cognitive-search-concept-intro.md
         - name: 기술 세트
           href: cognitive-search-working-with-skillsets.md
         - name: 디버그 세션
@@ -476,12 +481,10 @@
           href: performance-benchmarks.md
         - name: 더 나은 성능을 위한 팁
           href: search-performance-tips.md
-        - name: 진단 로깅
-          href: search-monitor-logs.md
+        - name: Cognitive Search 모니터링
+          href: monitor-azure-cognitive-search.md
         - name: 진단 로그 시각화
           href: search-monitor-logs-powerbi.md
-        - name: 모니터링 개요
-          href: search-monitor-usage.md
         - name: 쿼리 모니터링
           href: search-monitor-queries.md
         - name: 인덱서 기반 인덱싱 모니터링
@@ -490,12 +493,6 @@
           href: search-traffic-analytics.md
 - name: 참조
   items:
-    - name: Azure CLI
-      href: /cli/azure/search
-    - name: Azure PowerShell
-      href: /powershell/module/az.search
-    - name: Resource Manager 템플릿
-      href: /azure/templates/microsoft.search/searchservices
     - name: REST (영문)
       items:
         - name: 검색 API
@@ -526,6 +523,17 @@
           href: /python/api/overview/azure/search-documents-readme
         - name: 관리 API
           href: /python/api/overview/azure/search/management
+    - name: Azure CLI
+      href: /cli/azure/search
+    - name: Azure PowerShell
+      href: /powershell/module/az.search
+    - name: Resource Manager 템플릿
+      href: /azure/templates/microsoft.search/searchservices
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
+    - name: 데이터 참조 모니터링
+      href: monitor-azure-cognitive-search-data-reference.md
     - name: OData 언어 참조
       items:
         - name: 개요
@@ -603,9 +611,6 @@
               href: cognitive-search-skill-entity-recognition.md
             - name: 감정
               href: cognitive-search-skill-sentiment.md
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: Azure 커뮤니티 지원

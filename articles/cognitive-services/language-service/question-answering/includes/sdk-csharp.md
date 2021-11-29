@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: include
 ms.date: 11/11/2021
-ms.openlocfilehash: 2bfb91893c8a16cb0bf067e034f231f12eafbc1c
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 1afe4b4f2e77c501636bb36ee02878ff7eb74858
+ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132949548"
+ms.lasthandoff: 11/25/2021
+ms.locfileid: "133136358"
 ---
 이 빠른 시작을 .NET용 질문 답변 클라이언트 라이브러리에 사용하여 다음을 수행합니다.
 
@@ -26,6 +26,9 @@ ms.locfileid: "132949548"
 [questionanswering_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/samples/README.md
 
 ## <a name="prerequisites"></a>필수 구성 요소
+
+> [!NOTE]
+> 이 설명서는 최신 릴리스에는 적용되지 않습니다. 최신 릴리스에서 C# API를 사용하는 방법에 대한 자세한 내용은 [C# 빠른 시작에 대한 답변](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=programming-language-csharp)을 참조합니다.
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 또는 현재 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).

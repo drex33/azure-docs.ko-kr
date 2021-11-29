@@ -1,16 +1,16 @@
 ---
 title: Azure Log Analytics 에이전트 관리
-description: 이 문서에서는 컴퓨터에 배포된 Log Analytics Windows 또는 Linux 에이전트의 수명 주기 동안 일반적으로 수행하는 다양한 관리 작업을 설명합니다.
+description: 이 문서에서는 컴퓨터에 배포된 Log Analytics Windows 또는 Linux 에이전트의 수명 주기 동안 일반적으로 수행할 다양한 관리 작업을 설명합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: 0fa173769e50b8d3d06199e166d2507281abc12e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5feef92aebae7c4179891f012d00bd1d23bf2413
+ms.sourcegitcommit: 5c1cd21464e8165b16eb8d63ab31ab7b1a8f3675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240170"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133206747"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
@@ -18,7 +18,7 @@ Azure Monitor Log Analytics Windows 또는 Linux 에이전트를 처음 배포�
 
 ## <a name="upgrading-agent"></a>에이전트 업그레이드
 
-Windows 및 Linux용 Log Analytics 에이전트는 VM이 실행되는 배포 시나리오 및 환경에 따라 수동으로 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 다음 메서드를 사용하여 에이전트를 업그레이드할 수 있습니다.
+Windows 및 Linux용 Log Analytics 에이전트는 VM이 실행되는 배포 시나리오 및 환경에 따라 수동으로 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 다음 방법을 사용하여 에이전트를 업그레이드할 수 있습니다.
 
 | 환경 | 설치 방법 | 업그레이드 방법 |
 |--------|----------|-------------|
@@ -38,12 +38,12 @@ Windows VM의 에이전트를 Log Analytics VM 확장을 사용하여 설치되�
 
 3. Log Analytics 작업 영역 목록에서 작업 영역을 선택합니다.
 
-4. Log Analytics 작업 영역에서 **고급 설정을** 선택한 **다음, 연결된 원본을** 선택하고 마지막으로 **서버를 Windows.**
+4. Log Analytics 작업 영역에서 **에이전트 관리 타일을** 선택한 다음, **서버를 Windows.**
 
 5. Windows **서버** 페이지에서 Windows 운영 체제의 프로세서 아키텍처에 따라 다운로드할 적절한 Windows **에이전트** 다운로드 버전을 선택합니다.
 
 >[!NOTE]
->Windows Log Analytics 에이전트를 업그레이드하는 동안 보고할 작업 영역 구성 또는 다시 구성을 지원하지 않습니다. 에이전트를 구성하려면 [작업 영역 추가 또는 제거에](#adding-or-removing-a-workspace)나열된 지원되는 방법 중 하나를 따라야 합니다.
+>Windows Log Analytics 에이전트를 업그레이드하는 동안 보고할 작업 영역 구성 또는 다시 구성을 지원하지 않습니다. 에이전트를 구성하려면 작업 영역 추가 또는 제거 아래에 나열된 지원되는 방법 중 하나를 따라야 [합니다.](#adding-or-removing-a-workspace)
 >
 
 #### <a name="to-upgrade-using-the-setup-wizard"></a>설치 마법사를 사용하여 업그레이드하려면
@@ -133,7 +133,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Linux 에이전트
-다음 단계에서는 다른 작업 영역에 등록하거나 구성에서 작업 영역을 제거하려는 경우 Linux 에이전트를 다시 구성하는 방법을 보여 줍니다.
+다음 단계에서는 다른 작업 영역에 등록하거나 구성에서 작업 영역을 제거하기로 결정한 경우 Linux 에이전트를 다시 구성하는 방법을 보여 줍니다.
 
 1. 작업 영역에 등록되었는지 확인하려면 다음 명령을 실행합니다.
 
@@ -292,6 +292,6 @@ System Center Operations Manager 관리 그룹에 보고하도록 Linux용 Log A
 
 ## <a name="next-steps"></a>다음 단계
 
-- Linux 에이전트를 설치 하거나 관리 하는 동안 문제가 발생 하는 경우 [linux 에이전트 문제 해결](agent-linux-troubleshoot.md) 을 검토 합니다.
+- [Linux 에이전트를](agent-linux-troubleshoot.md) 설치하거나 관리하는 동안 문제가 발생하는 경우 Linux 에이전트 문제 해결을 검토합니다.
 
-- Windows 에이전트를 설치 하거나 관리 하는 동안 문제가 발생 하는 경우 [Windows 에이전트 문제 해결](agent-windows-troubleshoot.md) 을 검토 하십시오.
+- Windows 에이전트를 설치하거나 관리하는 동안 문제가 발생하는 경우 Windows 에이전트 [문제 해결을](agent-windows-troubleshoot.md) 검토합니다.

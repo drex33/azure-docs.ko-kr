@@ -14,12 +14,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: d7f45c569b588fd88bb58c0125aa4f7931fc7b5f
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: b8cd79326ad5dd9b73e50f3a9a3f241d31b28462
+ms.sourcegitcommit: 5c1cd21464e8165b16eb8d63ab31ab7b1a8f3675
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133042721"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133207051"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>빠른 시작: Azure App Service에서 Java 앱 만들기
 
@@ -99,7 +99,7 @@ Azure App Service에 대한 배포 프로세스는 Azure CLI의 Azure 자격 증
 아래의 maven 명령을 실행하여 배포를 구성합니다. 이 명령은 App Service 운영 체제, Java 버전 및 Tomcat 버전을 설정하는 데 도움이 됩니다.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.1:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.2:config
 ```
 
 ::: zone pivot="platform-windows"

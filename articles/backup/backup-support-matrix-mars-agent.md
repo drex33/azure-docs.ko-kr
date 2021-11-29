@@ -3,12 +3,12 @@ title: MARS 에이전트 지원 매트릭스
 description: 이 문서에는 MARS(Microsoft Azure Recovery Services) 에이전트를 실행하는 컴퓨터를 백업할 때의 Azure Backup 지원이 요약되어 있습니다.
 ms.date: 06/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 068a5391130f569a2d56fa9bd605356036e7737f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.openlocfilehash: 7b6ec2f1170857a994187c8debc5474f928f45ba
+ms.sourcegitcommit: 5c1cd21464e8165b16eb8d63ab31ab7b1a8f3675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952992"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133206956"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -46,7 +46,7 @@ MARS 에이전트를 사용하여 데이터를 백업하면 에이전트에서 �
 크기 |  캐시 폴더의 사용 가능한 공간은 전체 백업 데이터 크기의 5~10% 이상이어야 합니다.
 Location | 캐시 폴더는 백업되는 컴퓨터에 로컬로 저장되어야 하며, 온라인 상태여야 합니다. 캐시 폴더는 네트워크 공유, 이동식 미디어 또는 오프라인 볼륨에 있으면 안 됩니다.
 폴더 | 중복 제거된 볼륨 또는 압축되거나 스파스이거나 재분석 지점이 있는 폴더에서 캐시 폴더를 암호화해서는 안 됩니다.
-위치 변경 | 백업 엔진(`net stop bengine`)을 중지하고 캐시 폴더를 새 드라이브에 복사하여 캐시 위치를 변경할 수 있습니다. (공간이 충분한지 확인). 그런 다음 **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** 아래의 두 레지스트리 항목(**Config/ScratchLocation** 및 **Config/CloudBackupProvider/ScratchLocation**)을 새 위치로 업데이트하고 엔진을 다시 시작합니다.
+위치 변경 | 백업 엔진(`net stop obengine`)을 중지하고 캐시 폴더를 새 드라이브에 복사하여 캐시 위치를 변경할 수 있습니다. (공간이 충분한지 확인). 그런 다음 **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** 아래의 두 레지스트리 항목(**Config/ScratchLocation** 및 **Config/CloudBackupProvider/ScratchLocation**)을 새 위치로 업데이트하고 엔진을 다시 시작합니다.
 
 ## <a name="networking-and-access-support"></a>네트워킹 및 액세스 지원
 

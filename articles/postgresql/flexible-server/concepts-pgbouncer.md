@@ -5,18 +5,17 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/01/2021
-ms.openlocfilehash: d49deec6a782e0b36f110b7c2046b89e314e4011
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.date: 11/30/2021
+ms.openlocfilehash: 6ecd7202e2610cd6d85253861b58fb72c513e065
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387338"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271273"
 ---
 # <a name="pgbouncer-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 PgBouncer
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 Azure Database for PostgreSQL - 유연한 서버는 기본 제공 연결 풀링 솔루션으로 [PgBouncer](https://github.com/pgbouncer/pgbouncer)를 제공합니다. 이 서비스는 데이터베이스별 서버 기준으로 사용하도록 설정할 수 있는 선택적 서비스이며 퍼블릭 및 프라이빗 액세스 모두에서 지원됩니다. PgBouncer는 Postgres 데이터베이스 서버와 동일한 가상 머신에서 실행됩니다. Postgres는 프로세스 기반 모델을 연결에 사용하므로 많은 유휴 연결을 유지 관리하는 데 비용이 많이 듭니다. 따라서 서버가 몇천 개 이상의 연결을 실행하면 Postgres 자체에서 리소스 제약 조건이 적용됩니다. PgBouncer의 주요 이점은 데이터베이스 서버에서 유휴 연결 및 수명이 짧은 연결을 개선하는 것입니다.
 

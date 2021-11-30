@@ -6,20 +6,19 @@ ms.service: postgresql
 ms.topic: how-to
 author: mksuni
 ms.author: sumuth
-ms.date: 12/08/2020
-ms.openlocfilehash: ee3b1f7db8bdafb1233b32579e032e8c864c37a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 331e0b2637d74a5df7b877c1520922b5e6afd159
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97364581"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268851"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 연결 및 쿼리 개요
 
 다음 문서에는 Azure Database for PostgreSQL 단일 서버로 연결하고 쿼리하는 방법을 알려주는 예제 링크가 포함되어 있습니다. 이 가이드에는 아래에서 지원되는 언어의 서버에 연결하는 데 쓸 수 있는 TLS 권장 사항 및 확장 기능도 포함되어 있습니다.
 
->[!IMPORTANT]
-> Azure Database for PostgreSQL 유연한 서버는 **미리 보기** 상태입니다.
+
 
 ## <a name="quickstarts"></a>빠른 시작
 

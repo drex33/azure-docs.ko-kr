@@ -5,13 +5,13 @@ author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/04/2021
-ms.openlocfilehash: 1ca1501f790f914412fa61fce5ceed5ba45130b2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: f39e440d40ef2c70a9f243dbbd1d405dda1e3c42
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566775"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267587"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---flexible-server-via-the-azure-portal"></a>Azure Portal을 통해 Azure Database for PostgreSQL - 유연한 서버에서 서버 매개 변수 구성 
 Azure Portal을 통해 Azure Database for PostgreSQL에 대한 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다.

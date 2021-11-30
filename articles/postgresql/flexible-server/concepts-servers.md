@@ -1,22 +1,21 @@
 ---
-title: Azure Database for PostgreSQL의 서버 - 유연한 서버(미리 보기)
+title: Azure Database for PostgreSQL 서버에서 서버를 유연 하 게
 description: 이 문서에서는 Azure Database for PostgreSQL - 유연한 서버 구성 및 관리를 위한 고려 사항 및 지침을 제공합니다.
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 60edbcf97b43747246e84517cc65bb0dca4ff546
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 6fc741b9ff3534c5dcc4af2fa7789d61cda07fa5
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626846"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271235"
 ---
 # <a name="servers---azure-database-for-postgresql---flexible-server"></a>서버 - Azure Database for PostgreSQL - 유연한 서버
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 이 문서에서는 Azure Database for PostgreSQL - 유연한 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
 

@@ -5,18 +5,17 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 952bd6dddf9f276ed1a4a18f03799147f1902198
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: e2d82ca519d359b1466e04f79d35848f099b4a16
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90936932"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268708"
 ---
 # <a name="restart-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버 다시 시작
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 이 문서에서는 유연한 서버를 다시 시작하는 단계별 절차를 제공합니다. 이 작업은 데이터베이스 서버를 다시 시작해야 하는 정적 매개 변수 변경 내용을 적용하는 데 유용합니다. 영역 중복 고가용성으로 구성된 서버에 대한 절차도 동일합니다. 
 

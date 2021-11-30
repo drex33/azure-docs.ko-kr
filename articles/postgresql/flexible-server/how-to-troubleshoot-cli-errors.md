@@ -5,17 +5,17 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/24/2021
-ms.openlocfilehash: dd44e0bf0ffd7ae70cdb2b715561517d5b92a049
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 11/30/2021
+ms.openlocfilehash: 8d1f7fb8a5cdee319892b5ce72f1dafc83c32ea9
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441261"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271159"
 ---
 # <a name="troubleshoot-azure-database-for-postgresql-flexible-server-cli-errors"></a>유연한 서버 CLI 오류 Azure Database for PostgreSQL 문제 해결
 
-이 문서는 PostgreSQL 유연한 서버를 사용할 때 Azure CLI 관련된 일반적인 문제를 해결하는 데 도움이 됩니다.
+이 문서는 PostgreSQL 유연한 서버를 사용할 때 Azure CLI 일반적인 문제를 해결하는 데 도움이 됩니다.
 
 ## <a name="command-not-found"></a>명령을 찾을 수 없습니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "123441261"
 |MissingSubscriptionRegistration|리소스 공급자에 구독을 등록합니다. 명령을 ```az provider register --namespace Microsoft.DBPostgreSQL``` 실행하여 문제를 해결합니다.|
 |InternalServerError| 서버에 대한 활동 로그를 확인하여 자세한 정보가 있는지 확인합니다. ```az monitor activity-log list --correlation-id <enter correlation-id>``` 명령을 실행합니다. 몇 분 후에 동일한 CLI 명령을 사용해 볼 수 있습니다. 문제가 지속되면 [보고하거나](https://github.com/Azure/azure-cli/issues) Microsoft 지원에 문의하세요.|
 |ResourceNotFound| 참조되는 리소스를 찾을 수 없습니다.  리소스 속성을 확인하거나 리소스가 삭제되었는지 확인하거나 리소스가 다른 구독인지 확인할 수 있습니다. |
-|LocationNotAvailableForResourceType| - Azure 지역에서 Azure Database for Postgres 유연한 서버의 [가용성을 확인합니다.](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql) <br>- Azure DB for PostgreSQL 리소스 유형이 구독에 등록되었는지 확인합니다. |
+|LocationNotAvailableForResourceType| - Azure 지역에서 Azure Database for Postgres 유연한 서버의 [가용성을 확인합니다.](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql) <br>- Azure DB for PostgreSQL 리소스 종류가 구독에 등록되었는지 확인합니다. |
 |ResourceGroupBeingDeleted| 리소스 그룹이 삭제되고 있습니다. 삭제가 완료될 때까지 기다립니다.|
 |PasswordTooLong| 제공된 암호가 너무 깁니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).|
 |PasswordNotComplex| 제공된 암호가 충분히 복잡하지 않습니다.  8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).|
@@ -71,7 +71,7 @@ ms.locfileid: "123441261"
 |InvalidServerName|잘못된 서버 이름을 식별했습니다. 심각도 이름을 확인합니다. [az mysql flexible-server list](/cli/azure/mysql/flexible-server?view=azure-cli-latest#az_mysql_flexible_server_list&preserve-view=true) 명령을 실행하여 사용 가능한 모든 유연한 서버 목록을 확인합니다.|
 |InvalidResourceIdSegment| Azure Resource Manager 템플릿에서 구문 오류가 식별되었습니다. JSON 포맷터 도구를 사용하여 JSON의 유효성을 검사하여 구문 오류를 식별합니다.|
 |InvalidUserName| 유효한 사용자 이름을 입력합니다. 관리 사용자 이름은 azure_superuser, azure_pg_admin, 관리자, 관리자, 루트, 게스트 또는 공용일 수 없습니다. pg_로 시작할 수 없습니다.|
-|BlockedUserName| 관리 사용자 이름은 azure_superuser, azure_pg_admin, 관리자, 관리자, 루트, 게스트 또는 공용일 수 없습니다. pg_로 시작할 수 없습니다. 관리자 이름에 이러한 패턴을 사용하지 마십시오.|
+|BlockedUserName| 관리 사용자 이름은 azure_superuser, azure_pg_admin, 관리자, 관리자, 루트, 게스트 또는 공용일 수 없습니다. pg_로 시작할 수 없습니다. 관리자 이름에 이러한 패턴을 사용하지 않습니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

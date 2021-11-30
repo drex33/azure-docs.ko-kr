@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.openlocfilehash: 09a2c057cbefefc02e40d326eea094e37b092cc5
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 23344a631af34c53ac486a853d4cccfca9e4a118
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131851157"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133270969"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>파이프라인 작업에서 Azure Key Vault 비밀 사용
 
@@ -32,7 +32,7 @@ Azure Key Vault에 자격 증명 또는 비밀 값을 저장하고 파이프라�
 
 2. 키 자격 증명 모음 액세스 정책을 열고 비밀을 가져오고 나열할 수 있는 관리 ID 권한을 추가합니다.
 
-    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png" alt-text="액세스 정책 추가 작업이 강조 표시된 액세스 정책 페이지를 보여주는 &quot; &quot; &quot; &quot; 스크린샷.":::
+    :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png" alt-text="&quot; &quot; &quot; 액세스 정책 추가 &quot; 작업이 강조 표시 된 액세스 정책 페이지를 보여 주는 스크린샷":::
 
     :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png" alt-text="Key Vault 액세스 정책":::
 
@@ -43,6 +43,9 @@ Azure Key Vault에 자격 증명 또는 비밀 값을 저장하고 파이프라�
     :::image type="content" source="media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png" alt-text="비밀 식별자":::
 
     Data Factory 파이프라인을 실행하는 동안 가져오려는 비밀 URI를 적어 둡니다.
+    
+    > [!CAUTION]
+    > 비밀 URI는와 같이 구성 됩니다 `{vaultBaseUrl}/secrets/{secret-name}/{secret-version}` . _비밀 버전_ 은 선택 사항입니다. 지정 하지 않으면 최신 버전이 반환 됩니다. 파이프라인에서 항상 최신 버전의 암호를 사용 하도록 특정 버전이 없는 파이프라인에서 비밀 URI를 지정 하는 것이 좋습니다.
 
 4. Data Factory 파이프라인에서 새 웹 작업을 추가하고 다음과 같이 구성합니다.  
 

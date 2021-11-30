@@ -5,24 +5,24 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 11/30/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6d66d030514f121fabe8de36783d879afe0b5ea9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 71290479cc04271f465a37623d3814f71d5b448d
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528242"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267777"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Azure Database for PostgreSQL 버전 관리 정책
 
-이 페이지에서는 Azure Database for PostgreSQL 버전 관리 정책에 대해 설명합니다. 이 페이지는 Azure Database for PostgreSQL - 단일 서버 및 Azure Database for PostgreSQL - 유연한 서버(미리 보기) 배포 모드에 적용됩니다.
+이 페이지에서는 Azure Database for PostgreSQL 버전 관리 정책을 설명하고 Azure Database for PostgreSQL - 단일 서버 및 Azure Database for PostgreSQL - 유연한 서버 배포 모드에 적용할 수 있습니다.
 
 ## <a name="supported--postgresql-versions"></a>지원되는 PostgreSQL 버전
 
 Azure Database for PostgreSQL는 현재 다음 버전을 지원합니다.
 
-| 버전 | 단일 서버 | 유연한 서버(미리 보기) | 하이퍼스케일(Citus) |
+| 버전 | 단일 서버 | 유연한 서버 | 하이퍼스케일(Citus) |
 | ----- | :------: | :----: | :----: |
 | PostgreSQL 13 |  | X  | X |
 | PostgreSQL 12 |  | X  | X |
@@ -64,6 +64,6 @@ PostgreSQL 버전 10 이전에는 [PostgreSQL 버전 관리 정책](https://www.
 
 ## <a name="next-steps"></a>다음 단계
 - Azure Database for PostgreSQL - 단일 서버 [지원되는 버전](./concepts-supported-versions.md)을 참조하세요.
-- Azure Database for PostgreSQL - 유연한 서버(미리 보기) [지원되는 버전](flexible-server/concepts-supported-versions.md)을 참조하세요.
+- Azure Database for PostgreSQL - 유연한 서버 [지원 버전을](flexible-server/concepts-supported-versions.md) 참조하세요.
 - 주 버전 업그레이드를 수행하는 방법에 대한 자세한 내용은 [주 버전 업그레이드](how-to-upgrade-using-dump-and-restore.md) 설명서를 참조하세요.
 - 지원되는 PostgreSQL 확장에 대한 자세한 내용은 [확장 문서](concepts-extensions.md)를 참조하세요.

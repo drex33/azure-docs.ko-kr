@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc, mode-other
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/01/2021
-ms.openlocfilehash: ccb6db2ede03e8a9ba479982c34443b3f0e0c1ac
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.date: 11/30/2021
+ms.openlocfilehash: d88b28c356d026ac67062badfc970b9f47e27d62
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133066049"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271254"
 ---
 # <a name="security-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 보안
 

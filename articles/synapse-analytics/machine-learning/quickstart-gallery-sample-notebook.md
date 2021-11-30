@@ -7,15 +7,15 @@ ms.subservice: machine-learning
 ms.topic: quickstart
 ms.reviewer: ''
 ms.date: 06/11/2021
-author: garyericson
-ms.author: garye
+author: rothja
+ms.author: jroth
 ms.custom: mode-other
-ms.openlocfilehash: 7cddb9bb7ccfe4f0e56e13884c4f805123bff072
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 8d76184e3db82025bbe41764b9c8b5a5cfb40a74
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133041041"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267951"
 ---
 # <a name="quickstart-use-a-sample-notebook-from-the-synapse-analytics-gallery"></a>빠른 시작: Synapse Analytics 갤러리의 샘플 Notebook 사용
 

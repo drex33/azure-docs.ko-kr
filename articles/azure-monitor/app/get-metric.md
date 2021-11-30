@@ -4,12 +4,12 @@ description: GetMetric() 호출을 효과적으로 사용하여 Azure Monitor Ap
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 8efea750ea60c8bb699dac4ffc9aba56241726e1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 0df826e90cff575e2e7ee3c5a55b8b2c3a6affb2
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070087"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269887"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>.NET 및 .NET Core의 사용자 지정 메트릭 컬렉션
 
@@ -32,7 +32,7 @@ Application Insights에서 `TrackMetric()` 및 `GetMetric()`을 통해 수집된
 요약하자면 `GetMetric()`은 사전 집계를 수행하기 때문에 권장되는 방법입니다. 모든 Track() 호출의 값을 누적하고 1분마다 요약/집계를 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있습니다.
 
 > [!NOTE]
-> .NET 및 .NET Core SDK만 GetMetric() 메서드를 포함합니다. Java를 사용하는 경우 [Micrometer를 사용하여 사용자 지정 메트릭 보내기](./java-in-process-agent.md#send-custom-metrics-using-micrometer)를 참조하세요. JavaScript 및 Node.js의 경우 `TrackMetric()`을 계속 사용할 수 있지만 이전 섹션에서 설명한 주의 사항을 염두에 두어야 합니다. Python의 경우 [OpenCensus.stats](./opencensus-python.md#metrics)를 사용하여 사용자 지정 메트릭을 보낼 수 있지만 메트릭 구현은 다릅니다.
+> .NET 및 .NET Core SDK만 GetMetric() 메서드를 포함합니다. Java를 사용하는 경우 [Micrometer를 사용하여 사용자 지정 메트릭 보내기](./java-in-process-agent.md#send-custom-metrics-by-using-micrometer)를 참조하세요. JavaScript 및 Node.js의 경우 `TrackMetric()`을 계속 사용할 수 있지만 이전 섹션에서 설명한 주의 사항을 염두에 두어야 합니다. Python의 경우 [OpenCensus.stats](./opencensus-python.md#metrics)를 사용하여 사용자 지정 메트릭을 보낼 수 있지만 메트릭 구현은 다릅니다.
 
 ## <a name="getting-started-with-getmetric"></a>GetMetric 시작
 
@@ -203,13 +203,13 @@ Application Insights 리소스에 대해 다차원 메트릭을 사용하려면 
 
 ![폼 팩터](./media/get-metric/formfactor.png)
 
-### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions&quot;></a>4개 이상의 차원이 있는 경우 MetricIdentifier를 사용하는 방법
+### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>4개 이상의 차원이 있는 경우 MetricIdentifier를 사용하는 방법
 
 현재 10개의 차원이 지원되지만 4개 이상의 차원이 있는 경우 `MetricIdentifier`를 사용해야 합니다.
 
 ```csharp
-// Add &quot;using Microsoft.ApplicationInsights.Metrics;&quot; to use MetricIdentifier
-// MetricIdentifier id = new MetricIdentifier(&quot;[metricNamespace]&quot;,&quot;[metricId],&quot;[dim1]&quot;,&quot;[dim2]&quot;,&quot;[dim3]&quot;,&quot;[dim4]&quot;,&quot;[dim5]");
+// Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
+// MetricIdentifier id = new MetricIdentifier("[metricNamespace]","[metricId],"[dim1]","[dim2]","[dim3]","[dim4]","[dim5]");
 MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold", "FormFactor", "GraphicsCard", "MemorySpeed", "BatteryCapacity", "StorageCapacity");
 Metric computersSold  = _telemetryClient.GetMetric(id);
 computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");

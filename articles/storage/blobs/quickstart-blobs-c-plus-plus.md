@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: mode-other
-ms.openlocfilehash: 5271acf46973fa517eb48a55c9949f9ed38109e1
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 217d9a48a1e14a8f172d82622eb3c13a5dee04f0
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133069549"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271064"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-c"></a>빠른 시작: C++용 Azure Blob Storage 클라이언트 라이브러리 v12
 
@@ -190,4 +190,4 @@ Deleting container: myblobcontainer
 Blob Storage 샘플을 보려면 다음으로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [C++용 Azure Blob Storage SDK v12 샘플](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/sample)
+> [C++용 Azure Blob Storage SDK v12 샘플](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-blobs/samples)

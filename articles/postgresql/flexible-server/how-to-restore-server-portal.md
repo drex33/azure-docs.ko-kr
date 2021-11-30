@@ -5,18 +5,17 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/18/2021
-ms.openlocfilehash: a9d09169b81e274202e9bf3df5a91844cf34807b
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.date: 11/30/2021
+ms.openlocfilehash: b385645ea8ec82d7e866e524e7edeedf45650cac
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721949"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267630"
 ---
 # <a name="point-in-time-restore-of-a-flexible-server"></a>유연한 서버의 특정 시점 복원
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 이 문서에서는 백업을 사용하여 유연한 서버에서 지정 시간 복구를 수행하는 단계별 절차를 제공합니다. 보존 기간 내의 최근 복원 지점이나 사용자 지정 복원 지점에 대해 수행할 수 있습니다.
 
@@ -67,23 +66,23 @@ ms.locfileid: "132721949"
 
 7.  복원 작업이 시작되었다는 알림이 표시됩니다.
 
-## <a name="performing-geo-restore-preview"></a>Geo-Restore 수행(미리 보기)
+## <a name="performing-geo-restore-preview"></a>Geo-Restore 수행 (미리 보기)
 
-원본 서버가 지역 중복 백업으로 구성된 경우 쌍을 이루는 지역에서 서버를 복원할 수 있습니다. 처음으로 복원하는 경우 원본 서버가 생성된 후 1시간 이상 기다려 주세요.
+원본 서버가 지역 중복 백업을 사용 하 여 구성 된 경우 쌍을 이루는 지역에 있는 서버를 복원할 수 있습니다. 첫 번째 복원의 경우 원본 서버가 생성 된 후 1 시간 이상 기다려야 합니다.
 
-1.  [Azure Portal](https://portal.azure.com/)에서 백업을 지역 복원할 유연한 서버를 선택합니다.
+1.  [Azure Portal](https://portal.azure.com/)에서 백업을 지역에서 복원 하려는 유연한 서버를 선택 합니다.
 
 2.  개요 페이지에서 **복원** 을 클릭합니다.
  :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-click.png" alt-text="복원 클릭":::
 
-3. 복원 페이지에서 Geo-Redundant 복원을 선택하여 쌍을 이루는 지역으로 복원합니다. 
+3. 복원 페이지에서 Geo-Redundant 복원을 선택 하 여 쌍을 이루는 지역으로 복원 합니다. 
  :::image type="content" source="./media/how-to-restore-server-portal/geo-restore-choose-checkbox.png" alt-text="지역 복원 선택":::
  
-4. 지역 및 데이터베이스 버전이 미리 선택되어 있습니다. 쌍을 이루는 지역에서 사용 가능한 마지막 데이터로 복원됩니다. 복원할 지역에서 **가용성 영역을** 선택할 수 있습니다.
+4. 지역 및 데이터베이스 버전이 미리 선택 되어 있습니다. 쌍을 이루는 지역에서 사용 가능한 마지막 데이터로 복원 됩니다. 복원할 지역에서 **가용성 영역** 을 선택할 수 있습니다.
 
-5. 기본적으로 복원된 서버에 대한 백업은 지역 중복 백업으로 구성됩니다. 지역 중복 백업을 원하지 않는 경우 **서버 구성을** 클릭하고 지역 중복 백업을 선택 취소할 수 있습니다.
+5. 기본적으로 복원 된 서버에 대 한 백업은 지역 중복 백업을 사용 하 여 구성 됩니다. 지역 중복 백업을 원하지 않는 경우 **서버 구성** 을 클릭 하 고 지역 중복 백업을 선택 취소할 수 있습니다.
 
-6. 원본 서버가 **프라이빗 액세스** 로 구성된 경우 원격 지역의 다른 VNET으로만 복원할 수 있습니다. 기존 VNET을 선택하거나 새 VNET을 만들고 서버를 해당 VNET으로 복원할 수 있습니다.  
+6. 원본 서버가 **개인 액세스** 를 사용 하 여 구성 된 경우 원격 지역의 다른 VNET 으로만 복원할 수 있습니다. 기존 VNET을 선택 하거나 새 VNET을 만들고 서버를 해당 VNET으로 복원할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

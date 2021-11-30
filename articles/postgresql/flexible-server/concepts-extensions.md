@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/30/2021
-ms.openlocfilehash: bc176567721b3c023afcb82e920b33fca7ca0a53
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.date: 11/30/2021
+ms.openlocfilehash: ceac1b5fcf1e788a01034e48b20b7dcb88d2016e
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132061233"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271292"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 PostgreSQL 확장
 
@@ -152,7 +152,7 @@ Azure Database for PostgreSQL은 아래에 나열된 대로 주요 확장의 일
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | 지구 표면의 대권거리 계산|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성 및 거리 결정|
 > |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | 키/값 쌍 집합을 저장하기 위한 데이터 형식|
-> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.1.2            | 가상 인덱스에 대 한 지원 추가 확장 |
+> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.1.2            | 가상 인덱스 지원을 추가하는 확장 |
 > |[intagg](https://www.postgresql.org/docs/11/intagg.html)                     | 1.1             | 정수 집계 및 열거자 (사용되지 않음)|
 > |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | 정수의 1차원 배열에 대한 함수, 연산자 및 인덱스 지원|
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | 국제 제품 번호 지정 표준에 대한 데이터 형식|

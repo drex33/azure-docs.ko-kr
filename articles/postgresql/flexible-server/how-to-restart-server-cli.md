@@ -5,18 +5,17 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 05/29/2021
-ms.openlocfilehash: 6687603572d752a1f433213dc8a4068275298cae
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 47bc6b0bec469786437ac7aa59845b8f3cd151e1
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026626"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271178"
 ---
-# <a name="restart-an-azure-database-for-postgresql---flexible-server-preview"></a>Azure Database for PostgreSQL - Flexible Server 다시 시작(미리 보기)
+# <a name="restart-an-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버 다시 시작
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
+
 
 이 문서에서는 Azure CLI를 사용하여 유연한 서버를 다시 시작, 시작 및 중지하는 방법을 보여 줍니다.
 

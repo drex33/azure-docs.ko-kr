@@ -6,14 +6,14 @@ ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 9/22/2020
+ms.date: 11/30/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 315e4439ca66a3fbadac228c013797f516bc2940
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 0c1e0e43918a994a7c71ca569ffb5b79265b6d00
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605767"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269354"
 ---
 # <a name="customize-server-parameters-for-azure-database-for-postgresql---flexible-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL - 유연한 서버에 대한 서버 매개 변수 사용자 지정
 

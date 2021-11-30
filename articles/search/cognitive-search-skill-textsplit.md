@@ -5,14 +5,14 @@ description: Azure Cognitive Search에서 AI 보강 파이프라인의 길이에
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: e2531bcb010b83f795cc7f77b68848c86c4c470a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4e0b5fd69e31eb035c9155986dd9f00f97986814
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131010672"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271349"
 ---
 # <a name="text-split-cognitive-skill"></a>텍스트 분할 인식 기술
 

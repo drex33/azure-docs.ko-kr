@@ -5,14 +5,14 @@ description: 필드 컬렉션에서 통합된 하나의 필드로 텍스트를 �
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: 4ea7681a28cf8f17c53e42e9ad05ddf12b5d2f9b
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 389b85e5c19bf336adfe8f954f0d58ebeccf8b13
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537270"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133270988"
 ---
 #   <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술
 

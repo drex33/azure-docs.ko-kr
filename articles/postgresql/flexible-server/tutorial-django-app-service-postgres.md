@@ -1,24 +1,21 @@
 ---
-title: '자습서: App Service 및 Azure Database for PostgreSQL - 유연한 서버(미리 보기)를 사용하여 가상 네트워크에 Django 앱 배포'
-description: App Service 및 Azure Database for PostgreSQL - 유연한 서버(미리 보기)를 사용하여 가상 네트워크에 Django 앱 배포
+title: 가상 네트워크에서 App Service 및 Azure Database for PostgreSQL - 유연한 서버를 사용하여 Django 앱을 배포하는 방법에 대한 자습서
+description: App Serice를 사용하여 Django 앱 배포 및 Azure Database for PostgreSQL - 가상 네트워크에서 유연한 서버
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 84fd0c368bcf39af1bae90dc83336ffdb8489768
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a55412ad70f5ea303a95e2ec3a641ace08b07f7d
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791520"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267511"
 ---
-# <a name="tutorial-deploy-django-app-with-app-service-and-azure-database-for-postgresql---flexible-server-preview"></a>자습서: App Service 및 Azure Database for PostgreSQL - 유연한 서버(미리 보기)를 사용하여 Django 앱 배포
-
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+# <a name="tutorial-deploy-django-app-with-app-service-and-azure-database-for-postgresql---flexible-server"></a>자습서: App Service 및 Azure Database for PostgreSQL 사용하여 Django 앱 배포 - 유연한 서버 
 
 이 자습서에서는 Azure에서 App Services 및 Azure Database for PostgreSQL - 유연한 서버를 사용하여 가상 네트워크에 Django 애플리케이션을 배포하는 방법을 알아봅니다.
 

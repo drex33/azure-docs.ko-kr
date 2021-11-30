@@ -4,13 +4,13 @@ description: 구성 집합 패턴에 대해 설명합니다.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 08/18/2021
-ms.openlocfilehash: b2ccac6f646304d7d530e616a57c8490e17aba22
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: cdb890437fee5fe16f4e7b6b38120fd109e7c5ab
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122568227"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268556"
 ---
 # <a name="configuration-set-pattern"></a>구성 집합 패턴
 
@@ -49,7 +49,7 @@ ms.locfileid: "122568227"
 
 이 템플릿의 구성 집합 패턴을 사용할 수 있습니다.
 
-프로덕션 또는 비프로덕션과 같은 환경 유형을 나타내는 단일 매개 변수를 허용합니다. `@allowedValues` 매개 변수 데코레이터를 사용하여 템플릿의 사용자가 예상한 값만 제공하도록 합니다.
+프로덕션 또는 비프로덕션과 같은 환경 유형을 나타내는 단일 매개 변수를 허용합니다. `@allowed` 매개 변수 데코레이터를 사용하여 템플릿의 사용자가 예상한 값만 제공하도록 합니다.
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-configuration-set/main.bicep" range="5-9" :::
 

@@ -5,13 +5,13 @@ author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/21/2021
-ms.openlocfilehash: bdda8163bacd596eafab2a9b2d10d914012a3efb
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: ffed2e934c5c4b4e882f84f351c0325baa1ab4ac
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866871"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267017"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 방화벽 규칙
 Azure Database for PostgreSQL - 유연한 서버를 실행하는 경우 두 가지 주요 네트워킹 옵션이 있습니다. 하나는 프라이빗 액세스(가상 네트워크 통합)이고 다른 하나는 공용 액세스(허용된 IP 주소)입니다. 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3a15b0c74ebe9a4696c2b61b6dd3b16d9f4b9d10
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 2789cb0082a229369f03f619a407a2b0de82403a
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535852"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271026"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>시계열 ID 선택 모범 사례
 
@@ -33,7 +33,7 @@ ms.locfileid: "122535852"
 > [!IMPORTANT]
 > 시계열 ID는 다음과 같습니다.
 >
-> * *대/소문자를 구분* 하는 속성: 글자 및 문자 대/소문자는 검색, 비교, 업데이트 및 분할 시 사용됩니다.
+> * *대/소문자를 구분하는 문자열* 속성: 문자 및 문자 대/소문자는 검색, 비교, 업데이트 및 분할 시 사용됩니다.
 > * *변경이 불가능한* 속성: 만든 후에는 변경할 수 없습니다.
 
 > [!TIP]

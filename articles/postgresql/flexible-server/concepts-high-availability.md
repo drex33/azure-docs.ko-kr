@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL - 유연한 서버(미리 보기)를 사용한 영역 중복 고가용성 개요
+title: Azure Database for PostgreSQL 유연한 서버를 사용 하는 영역 중복 고가용성 개요
 description: Azure Database for PostgreSQL - 유연한 서버를 사용하여 영역 중복 고가용성 개념에 대해 알아보기
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/26/2021
-ms.openlocfilehash: 80b0d18eec8bbc37eda407d07873786f4155f4be
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/30/2021
+ms.openlocfilehash: 55519f695007ae08e36e178d8e1fa6661a86df65
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131422618"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267758"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 고가용성 개념
 
@@ -113,7 +113,7 @@ scale-compute 또는 scale-storage와 같은 다른 사용자 시작 작업의 �
 애플리케이션 가동 중지 시간은 #1단계 후에 시작되며 #6단계가 완료될 때까지 유지됩니다. 나머지 단계는 애플리케이션 쓰기 및 커밋에 영향을 주지 않고 백그라운드에서 발생합니다.
 
 >[!Important]
->종단 간 장애 조치 (failover) 프로세스에는 기본 오류가 발생 한 후 (a) 대기 서버로 장애 조치 (failover) 되 고 (b) 새 대기 서버를 안정 된 상태로 설정 하는 작업이 포함 됩니다. 대기 모드로의 장애 조치 (failover)가 완료 될 때 까지만 응용 프로그램의 가동 중지 시간이 발생할 수 있으므로 전체 종단 간 장애 조치 (failover) 프로세스가 아닌 **응용 프로그램/클라이언트 관점에서 가동 중지 시간을 측정 하세요** . 
+>엔드 투 엔드 장애 조치(failover) 프로세스에는 (a) 기본 실패 후 대기 서버로 장애 조치(failover)하고 (b) 안정적인 상태로 새 대기 서버를 설정하는 작업이 포함됩니다. 대기로 장애 조치(failover)가 완료될 때까지만 애플리케이션에서 가동 중지 시간이 발생하기 때문에 전체 엔드투엔드 장애 조치(failover) 프로세스 대신 **애플리케이션/클라이언트 관점에서 가동 중지 시간을 측정하세요.** 
 
 ### <a name="planned-failover"></a>계획된 장애 조치
 
@@ -184,7 +184,7 @@ scale-compute 또는 scale-storage와 같은 다른 사용자 시작 작업의 �
 * 읽기 쿼리에는 대기 복제본을 사용할 수 없습니다.
 
 * 주 서버의 워크로드 및 작업에 따라 승격되기 전에 대기 복제본에서 수행되어야 하는 복구 작업으로 인해 장애 조치 프로세스 시간이 120초보다 오래 걸릴 수 있습니다. 
-* 대기 서버는 일반적으로 초당 40MB/s 속도로 WAL 파일을 복구 합니다. 워크 로드가이 제한을 초과 하는 경우 장애 조치 (failover) 중에 또는 새 대기를 설정한 후 복구를 완료 하는 데 오랜 시간이 걸릴 수 있습니다. 
+* 대기 서버는 일반적으로 40MB/s의 속도로 WAL 파일을 복구합니다. 워크로드가 이 제한을 초과하는 경우 장애 조치(failover) 중이나 새 대기를 설정한 후 복구를 완료하는 데 시간이 오래 걸릴 수 있습니다. 
 
 * 주 데이터베이스 서버를 다시 시작하면 대기 복제본도 다시 시작됩니다. 
 
@@ -279,7 +279,7 @@ scale-compute 또는 scale-storage와 같은 다른 사용자 시작 작업의 �
     복제는 동기 모드에서 발생하므로 데이터가 손실되지 않습니다.
 
 * **장애 조치(failover) 시간에 대한 SLA를 제공하나요?** <br>
-    장애 조치(failover) 시간의 경우 일반적으로 작업에 소요되는 시간에 대한 지침을 제공합니다. 서비스를 GA할 때 전체 가동 시간에 대한 공식 SLA가 제공됩니다. 공개 미리 보기 중에는 SLA가 제공되지 않습니다.
+    장애 조치(failover) 시간의 경우 일반적으로 작업에 소요되는 시간에 대한 지침을 제공합니다. 전체 작동 시간에 대한 공식 SLA가 제공됩니다. 
 
 * **장애 조치(failover) 후 애플리케이션이 서버에 자동으로 연결되나요?** <br>
     아니요. 동일한 엔드포인트(호스트 이름)에 다시 연결하려면 애플리케이션에 다시 시도 메커니즘이 있어야 합니다.

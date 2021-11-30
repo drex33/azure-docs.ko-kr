@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/01/2021
-ms.openlocfilehash: e5c304c958c0939b34bd3df71978d818d30f3cd5
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.date: 11/30/2021
+ms.openlocfilehash: 2b8d9d8722a06b6b287dabf24b480208d15f455a
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387680"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268385"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL의 계산 및 스토리지 옵션 - 유연한 서버
 
@@ -22,7 +22,7 @@ Azure Database for PostgreSQL 서버는 버스트 가능, 범용 및 메모리 �
 | 리소스/계층 | **버스트 가능** | **범용** | **메모리 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | VM 시리즈 | B 시리즈  | Ddsv4 시리즈, <br> Dsv3 시리즈  | Edsv4 시리즈, <br> Esv3 시리즈 |
-| vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 20(v4), 32, 48, 64 |
+| vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 20 (v4), 32, 48, 64 |
 | vCore 메모리 | 변수 | 4GB | 6.75~8GB |
 | 스토리지 크기 | 32GB~16TB | 32GB~16TB | 32GB~16TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |

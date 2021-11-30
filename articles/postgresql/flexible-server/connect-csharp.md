@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-csharp, mode-other
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 01/16/2021
-ms.openlocfilehash: de5b2b9868840adcd240758d49170860bb29d2a7
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.date: 11/30/2021
+ms.openlocfilehash: 67c81c187b223cd58fbff0b85bbaa3010e763337
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133038461"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268309"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>빠른 시작: .NET(C#)을 사용하여 Azure Database for PostgreSQL - 유연한 서버의 데이터 연결 및 쿼리
 

@@ -1,15 +1,15 @@
 ---
-title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생 자습서 - Azure
+title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생 자습서
 description: 이 자습서에서는 Azure Video Analyzer를 사용하여 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 이를 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 04d84e372cd7464ba91f415ae9bfdd8875796e96
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 1fd0e4e9ce0437b85e8149a359992acdd30a3f30
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132284648"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268594"
 ---
 # <a name="tutorial-event-based-video-recording-and-playback"></a>자습서: 이벤트 기반 비디오 녹화 및 재생
 
@@ -70,7 +70,7 @@ ms.locfileid: "132284648"
 
 * 첫 번째 경로는 HTTP 확장 노드에 대한 것입니다. 노드는 `samplingOptions` 필드를 사용하여 사용자가 설정한 값으로 비디오 프레임을 샘플링한 다음, 프레임을 개체 감지기인 AI 모듈 YOLOv3에 이미지로 릴레이합니다. 노드는 모델에서 감지된 개체(교통 차량)인 결과를 받습니다. 그런 다음, HTTP 확장 노드에서 IoT Hub 메시지 싱크 노드를 통해 결과를 IoT Edge 허브에 게시합니다.
 
-* objectCounter 모듈이 IoT Edge 허브에서 메시지를 받도록 설정되며, 여기에는 개체 감지 결과(교통 차량)가 포함됩니다. 모듈은 이러한 메시지를 확인하고 설정을 통해 구성된 특정 형식의 개체를 찾습니다. 이러한 개체가 있으면 이 모듈에서 메시지를 IoT Edge 허브에 보냅니다. 이러한 "개체 발견" 메시지는 파이프라인의 IoT Hub 원본 노드로 라우팅됩니다. 이러한 메시지를 받으면 파이프라인의 IoT Hub 원본 노드가 [신호 게이트 프로세서](../pipeline.md#signal-gate-processor) 노드를 트리거합니다. 그러면 신호 게이트 프로세서 노드가 구성된 시간 동안 열립니다. 비디오는 이 시간 동안 게이트를 통과하여 비디오 싱크 노드로 이동합니다. 그러면 라이브 스트림의 이 부분이 [비디오 싱크](../pipeline.md#video-sink) 노드를 통해 Video Analyzer 계정의 [비디오](../terminology.md#video)에 녹화됩니다. 이 자습서에서 사용되는 비디오는 [고속도로 교차로 샘플 비디오](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv)입니다.
+* objectCounter 모듈이 IoT Edge 허브에서 메시지를 받도록 설정되며, 여기에는 개체 감지 결과(교통 차량)가 포함됩니다. 모듈은 이러한 메시지를 확인하고 설정을 통해 구성된 특정 형식의 개체를 찾습니다. 이러한 개체가 있으면 이 모듈에서 메시지를 IoT Edge 허브에 보냅니다. 이러한 "개체 발견" 메시지는 파이프라인의 IoT Hub 원본 노드로 라우팅됩니다. 이러한 메시지를 받으면 파이프라인의 IoT Hub 원본 노드가 [신호 게이트 프로세서](../pipeline.md#signal-gate-processor) 노드를 트리거합니다. 그러면 신호 게이트 프로세서 노드가 구성된 시간 동안 열립니다. 비디오는 이 시간 동안 게이트를 통과하여 비디오 싱크 노드로 이동합니다. 그러면 라이브 스트림의 이 부분이 [비디오 싱크](../pipeline.md#video-sink) 노드를 통해 Video Analyzer 계정의 [비디오](../terminology.md#video)에 녹화됩니다. 이 자습서에서 사용되는 비디오는 [고속도로 교차로 샘플 비디오](https://avamedia.blob.core.windows.net/public/camera-300s.mkv)입니다.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 

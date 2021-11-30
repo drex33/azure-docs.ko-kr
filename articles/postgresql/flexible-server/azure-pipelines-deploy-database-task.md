@@ -6,19 +6,19 @@ ms.custom: seodec18, devx-track-azurecli, mode-other
 ms.author: sumuth
 author: mksuni
 ms.service: postgresql
-ms.date: 08/09/2021
-ms.openlocfilehash: 69414d97c5137c146938747e853d1162a5ca77cd
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.date: 11/30/2021
+ms.openlocfilehash: 1c5eaf34960c4dc86a8a00af227068284c25eff2
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133066124"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267112"
 ---
 # <a name="azure-pipelines-task-for-azure-database-for-postgresql-flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에 대한 Azure Pipelines 작업
 
 **Azure Pipelines** 를 사용하여 빌드가 성공할 때마다 Azure Database for PostgreSQL 유연한 서버에 데이터베이스 업데이트를 자동으로 배포할 수 있습니다.  Azure CLI 작업을 사용해서 데이터베이스에 대해 SQL 파일 또는 인라인 SQL 스크립트로 데이터베이스를 업데이트할 수 있습니다. 이 작업은 Linux, macOS 또는 Windows 운영 체제에서 실행되는 플랫폼 간 에이전트에서 실행될 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 계정. 계정이 없으면 [체험 계정을 얻습니다](https://azure.microsoft.com/free/).
 - Azure 계정에 대한 [Azure Resource Manager 서비스 연결](/azure/devops/pipelines/library/connect-to-azure)
@@ -75,7 +75,7 @@ ms.locfileid: "133066124"
 
 Azure Pipelines에서 Azure CLI 작업을 사용할 때 모든 작업 입력의 전체 목록을 볼 수 있습니다. 
 
-| 매개 변수            | 설명         | 
+| 매개 변수            | Description         | 
 | :------------------- | :-------------------|
 | azureSubscription| (필수) 배포에 대한 Azure Resource Manager 구독을 제공합니다. 이 매개 변수는 선택한 작업 버전이 0.*일 때만 표시됩니다. Azure CLI 작업 v1.0은 Azure Resource Manager 구독만 지원합니다. |
 |scriptType| (필수) 스크립트 유형을 제공합니다. 지원되는 스크립트는 PowerShell, PowerShell Core, Bat, 셸 및 스크립트입니다. **Linux 에이전트** 에서 실행할 때 ```bash``` 또는 ```pscore``` 중 하나를 선택합니다. **Windows 에이전트** 를 실행할 때 ```batch```, ```ps``` 및 ```pscore``` 중 하나를 선택합니다. |

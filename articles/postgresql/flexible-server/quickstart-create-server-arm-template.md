@@ -6,18 +6,17 @@ ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-other
 ms.author: sumuth
-ms.date: 2/11/2021
-ms.openlocfilehash: 6667c77a3bcc16b27f52e658797d6ecfc07fef95
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.date: 11/30/2021
+ms.openlocfilehash: 1fc0bbeb68c5b2cb444470d1e75a9d38184ae9e7
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133066082"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271425"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---flexible-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for PostgreSQL - 유연한 서버 만들기
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 유연한 서버는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정하는 데 사용하는 관리 서비스입니다. ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 PostgreSQL 유연한 서버를 프로비저닝하여 여러 서버 또는 서버 상 여러 데이터베이스를 배포할 수 있습니다.
 
@@ -39,116 +38,112 @@ _postgres-flexible-server-template.json_ 파일을 만들고 여기에 다음 JS
 {
   "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters": {
-    "administratorLogin": {
-      "type": "String"
+    "parameters": {
+        "administratorLogin": {
+            "defaultValue": "csadmin",
+            "type": "String"
+        },
+        "administratorLoginPassword": {
+            "type": "SecureString"
+        },
+        "location": {
+            "defaultValue": "eastus",
+            "type": "String"
+        },
+        "serverName": {
+            "type": "String"
+        },
+        "serverEdition": {
+            "defaultValue": "GeneralPurpose",
+            "type": "String"
+        },
+        "skuSizeGB": {
+            "defaultValue": 128,
+            "type": "Int"
+        },
+        "dbInstanceType": {
+            "defaultValue": "Standard_D4ds_v4",
+            "type": "String"
+        },
+        "haEnabled": {
+            "defaultValue": "Disabled",
+            "type": "string"
+        },
+        "availabilityZone": {
+            "defaultValue": "1",
+            "type": "String"
+        },
+        "version": {
+            "defaultValue": "12",
+            "type": "String"
+        },
+        "tags": {
+            "defaultValue": {},
+            "type": "Object"
+        },
+        "firewallRules": {
+            "defaultValue": {},
+            "type": "Object"
+        },
+        "backupRetentionDays": {
+            "defaultValue": 14,
+            "type": "Int"
+        },
+        "geoRedundantBackup": {
+            "defaultValue": "Disabled",
+            "type": "String"
+        },
+        "virtualNetworkExternalId": {
+            "defaultValue": "",
+            "type": "String"
+        },
+        "subnetName": {
+            "defaultValue": "",
+            "type": "String"
+        },
+        "privateDnsZoneArmResourceId": {
+            "defaultValue": "",
+            "type": "String"
+        },
     },
-    "administratorLoginPassword": {
-      "type": "SecureString"
+    "variables": {
+        "api": "2021-06-01",
+        "publicNetworkAccess": "[if(empty(parameters('virtualNetworkExternalId')), 'Enabled', 'Disabled')]"
     },
-    "location": {
-      "type": "String"
-    },
-    "serverName": {
-      "type": "String"
-    },
-    "serverEdition": {
-      "type": "String"
-    },
-    "storageSizeMB": {
-      "type": "Int"
-    },
-    "haEnabled": {
-      "type": "string"
-    },
-    "availabilityZone": {
-      "type": "String"
-    },
-    "version": {
-      "type": "String"
-    },
-    "tags": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "firewallRules": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "vnetData": {
-      "defaultValue": {},
-      "type": "Object"
-    },
-    "backupRetentionDays": {
-      "type": "Int"
-    }
-  },
-  "variables": {
-    "api": "2020-02-14-privatepreview",
-    "firewallRules": "[parameters('firewallRules').rules]",
-    "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
-    "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
-    "finalVnetData": "[json(concat('{ \"subnetArmResourceId\": \"', variables('vnetDataSet').subnetArmResourceId, '\"}'))]"
-  },
   "resources": [
     {
       "type": "Microsoft.DBforPostgreSQL/flexibleServers",
       "apiVersion": "[variables('api')]",
       "name": "[parameters('serverName')]",
       "location": "[parameters('location')]",
-      "sku": {
-        "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]"
-      },
-      "tags": "[parameters('tags')]",
-      "properties": {
-        "version": "[parameters('version')]",
-        "administratorLogin": "[parameters('administratorLogin')]",
-        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-        "publicNetworkAccess": "[variables('publicNetworkAccess')]",
-        "DelegatedSubnetArguments": "[if(empty(parameters('vnetData')), json('null'), variables('finalVnetData'))]",
-        "haEnabled": "[parameters('haEnabled')]",
-        "storageProfile": {
-          "storageMB": "[parameters('storageSizeMB')]",
-          "backupRetentionDays": "[parameters('backupRetentionDays')]"
+        "sku": {
+            "name": "[parameters('dbInstanceType')]",
+            "tier": "[parameters('serverEdition')]"
         },
-        "availabilityZone": "[parameters('availabilityZone')]"
-      }
-    },
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-08-01",
-      "name": "[concat('firewallRules-', copyIndex())]",
-      "dependsOn": [
-        "[concat('Microsoft.DBforPostgreSQL/flexibleServers/', parameters('serverName'))]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.DBforPostgreSQL/flexibleServers/firewallRules",
-              "name": "[concat(parameters('serverName'),'/',variables('firewallRules')[copyIndex()].name)]",
-              "apiVersion": "[variables('api')]",
-              "properties": {
-                "StartIpAddress": "[variables('firewallRules')[copyIndex()].startIPAddress]",
-                "EndIpAddress": "[variables('firewallRules')[copyIndex()].endIPAddress]"
-              }
-            }
-          ]
+      "tags": "[parameters('tags')]",
+        "properties": {
+            "version": "[parameters('version')]",
+            "administratorLogin": "[parameters('administratorLogin')]",
+            "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+            "network": {
+                "publicNetworkAccess": "[variables('publicNetworkAccess')]",
+                "delegatedSubnetResourceId": "[if(empty(parameters('virtualNetworkExternalId')), json('null'), json(concat(parameters('virtualNetworkExternalId'), '/subnets/' , parameters('subnetName'))))]",
+                "privateDnsZoneArmResourceId": "[if(empty(parameters('virtualNetworkExternalId')), json('null'), parameters('privateDnsZoneArmResourceId'))]"
+            },
+            "haEnabled": "[parameters('haEnabled')]",
+            "storage": {
+                "storageSizeGB": "[parameters('skuSizeGB')]"
+            },
+            "backup": {
+                "backupRetentionDays": 7,
+                "geoRedundantBackup": "Disabled"
+            },
+            "availabilityZone": "[parameters('availabilityZone')]"
         }
-      },
-      "copy": {
-        "name": "firewallRulesIterator",
-        "count": "[if(greater(length(variables('firewallRules')), 0), length(variables('firewallRules')), 1)]",
-        "mode": "Serial"
-      },
-      "condition": "[greater(length(variables('firewallRules')), 0)]"
     }
   ]
 }
+
 ```
 
 이러한 리소스는 템플릿에 정의되어 있습니다.
@@ -183,7 +178,7 @@ Azure에서 서버가 생성되었는지 확인하려면 다음 단계를 수행
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-1. [Azure Portal](https://portal.azure.com)에서 **Azure Database for PostgreSQL 유연한 서버(미리 보기)** 를 검색하여 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Database for PostgreSQL 유연한 서버** 를 검색 하 고 선택 합니다.
 1. 데이터베이스 목록에서 새 서버를 선택하여 **개요** 페이지에서 서버를 관리합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)

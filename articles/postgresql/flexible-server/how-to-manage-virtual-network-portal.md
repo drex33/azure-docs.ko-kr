@@ -5,18 +5,17 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 04/22/2021
-ms.openlocfilehash: 18d556a11ff55c1967252491d26bea62729498c5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 5d18a27533213687d6648d639f7a630b2a51738d
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952434"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271197"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL - 유연한 서버에 대한 가상 네트워크 만들기 및 관리
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 Azure Database for PostgreSQL - 유연한 서버는 유연한 서버에 연결하는 두 가지 유형의 상호 배타적인 네트워크 연결 방법을 지원합니다. 다음은 두 가지 옵션입니다.
 

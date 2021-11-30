@@ -5,15 +5,15 @@ description: 보강 파이프라인 내 파일에서 콘텐츠를 추출합니�
 manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ms.author: chalton
-ms.openlocfilehash: 02d3431ecc7a5c460be75885fd786b3b4c4d276f
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: a95ffad271693c09aba884688e2830278c3aff5b
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529479"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271121"
 ---
 # <a name="document-extraction-cognitive-skill"></a>문서 추출 인식 기술
 

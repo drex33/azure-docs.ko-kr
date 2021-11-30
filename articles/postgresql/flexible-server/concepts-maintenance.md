@@ -5,20 +5,19 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 6cb9ad127e7a13780cbd36198a1dcbcce858ac65
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/30/2021
+ms.openlocfilehash: 75ef4e40834f499a402ace55170c24c5ee022042
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124804805"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267720"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Azure Database for PostgreSQL에서 예약된 유지 관리 – 유동 서버
  
 Azure Database for PostgreSQL - 유연한 서버는 관리형 데이터베이스를 안전하고 안정적으로, 또 최신 상태로 유지하기 위해 정기적으로 유지 관리를 수행합니다. 유지 관리 중에 서버는 새로운 기능, 업데이트, 패치를 가져옵니다.
  
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됩니다.
+
  
 ## <a name="selecting-a-maintenance-window"></a>유지 관리 기간 선택
  
@@ -37,7 +36,7 @@ Azure Database for PostgreSQL - 유연한 서버는 관리형 데이터베이스
 > [!IMPORTANT]
 > 일반적으로 서버에 대해 성공적으로 예약된 유지 관리 이벤트 사이의 간격은 30일 이상입니다.
 >
-> 그러나 심각한 취약성과 같은 심각한 응급 업데이트의 경우 알림 기간이 5일보다 짧거나 생략될 수 있습니다. 최근 30일 동안 예약된 유지 관리가 성공적으로 수행된 경우에도 중요 업데이트가 서버에 적용될 수 있습니다.
+> 그러나 심각한 취약점과 같은 중요 한 응급 업데이트의 경우 알림 창은 5 일 보다 짧거나 생략 될 수 있습니다. 최근 30일 동안 예약된 유지 관리가 성공적으로 수행된 경우에도 중요 업데이트가 서버에 적용될 수 있습니다.
 
 일정 설정은 언제든지 업데이트할 수 있습니다. 유연한 서버의 유지 관리가 예약되어 있고 일정 기본 설정을 업데이트하는 경우 현재 롤아웃이 예약된 대로 진행되고 일정 설정 변경은 다음 예약된 유지 관리가 성공적으로 완료될 때 적용됩니다.
 

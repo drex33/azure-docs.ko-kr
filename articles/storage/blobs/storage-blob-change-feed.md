@@ -1,5 +1,5 @@
 ---
-title: Blob Storage에서 피드 변경
+title: Blob Storage 변경 피드
 titleSuffix: Azure Storage
 description: Azure Blob Storage의 변경 피드 로그 및 이를 사용하는 방법에 대해 알아봅니다.
 author: tamram
@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 906360ae091d13c2805f232bf56d6f6cb3398727
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: a6f9018fc5f10ce1ec1d7f3dc92e8b881f737e40
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132937038"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268784"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage의 변경 피드 지원
 
@@ -56,7 +56,7 @@ ms.locfileid: "132937038"
 
 - 변경 피드는 계정에서 발생하는 모든 사용 가능한 이벤트에 대한 *모든* 변경 내용을 캡처합니다. 클라이언트 애플리케이션은 필요에 따라 이벤트 유형을 필터링할 수 있습니다. (현재 릴리스의 [조건](#conditions)을 참조하세요.)
 
-- 표준 범용 v2, 프리미엄 블록 blob 및 Blob storage 계정만 변경 피드를 사용 하도록 설정할 수 있습니다. 계층적 네임 스페이스를 사용할 수 있는 계정은 현재 지원 되지 않습니다. 범용 v1 스토리지 계정은 지원되지 않지만 가동 중지 시간 없이 범용 v2로 업그레이드할 수 있습니다. 자세한 내용은 [GPv2 스토리지 계정으로 업그레이드](../common/storage-account-upgrade.md)를 참조하세요.
+- 표준 범용 v2, 프리미엄 블록 Blob 및 Blob Storage 계정만 변경 피드를 사용하도록 설정할 수 있습니다. 계층 구조 네임스페이스를 사용하는 계정은 현재 지원되지 않습니다. 범용 v1 스토리지 계정은 지원되지 않지만 가동 중지 시간 없이 범용 v2로 업그레이드할 수 있습니다. 자세한 내용은 [GPv2 스토리지 계정으로 업그레이드](../common/storage-account-upgrade.md)를 참조하세요.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -293,7 +293,6 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 이 섹션에서는 변경 피드의 현재 릴리스에서 알려진 문제 및 조건에 대해 설명합니다.
 
 - 단일 변경에 대한 이벤트 레코드 변경 내용이 변경 피드에 두 번 이상 나타날 수 있습니다.
-- 변경 피드 로그 파일의 수명은 아직 해당 파일에 대한 시간 기반 보존 정책을 설정하여 관리할 수 없으며, Blob은 삭제할 수 없습니다.
 - 로그 파일의 `url` 속성은 현재 항상 비어 있습니다.
 - segments.json 파일의 `LastConsumable` 속성은 변경 피드에서 완료하는 첫 번째 세그먼트를 나열하지 않습니다. 이 문제는 첫 번째 세그먼트가 완료된 후에만 발생합니다. 첫 번째 시간 이후의 모든 후속 세그먼트는 `LastConsumable` 속성에서 정확하게 캡처됩니다.
 - ListContainers API를 호출하는 경우 현재 **$blobchangefeed** 컨테이너가 표시되지 않으며, Azure Portal 또는 Storage Explorer에도 해당 컨테이너가 표시되지 않습니다. 콘텐츠는 $blobchangefeed 컨테이너에서 ListBlobs API를 직접 호출하여 볼 수 있습니다.
@@ -305,10 +304,10 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 | Storage 계정 유형 | Blob Storage(기본 지원) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
 |--|--|--|--|--|
-| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | 
-| Premium 블록 Blob | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
+| 표준 범용 v2 | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) | 
+| Premium 블록 Blob | ![예](../media/icons/yes-icon.png) | ![아니요](../media/icons/no-icon.png) | ![예](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(SSH 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS (네트워크 파일 시스템) 3.0 프로토콜 및 SFTP (SSH 파일 전송 프로토콜) 지원 계층 구조 네임 스페이스를 사용 하는 저장소 계정이 필요 합니다.
 
 ## <a name="faq"></a>FAQ
 

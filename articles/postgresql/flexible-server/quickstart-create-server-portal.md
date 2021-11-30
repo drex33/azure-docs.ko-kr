@@ -6,18 +6,17 @@ ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc, mode-portal
 ms.topic: quickstart
-ms.date: 06/02/2021
-ms.openlocfilehash: d2a9bb93b080cfba1a0e74c3ecf106d23f5d51f5
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.date: 11/30/2021
+ms.openlocfilehash: 8885560dfc7f356f897a2225bf6a96c70fefc17c
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133066114"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271406"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 유연한 서버 만들기
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정하는 데 사용하는 관리 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 약 5분 안에 Azure Database for PostgreSQL - 유연한 서버를 만드는 방법을 보여 줍니다.
 

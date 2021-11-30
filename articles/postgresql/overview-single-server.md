@@ -6,20 +6,20 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/21/2020
-ms.openlocfilehash: 3f53d6f348c7c1b46562b3769a415a5a7acc9262
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/30/2021
+ms.openlocfilehash: f2a5ef67f3944897ffe35da6ab5ae215ead9ad26
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131463963"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133270000"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버
 
 PostgreSQL 커뮤니티 버전에서 제공하는 [Azure Database for PostgreSQL](./overview.md)은 다음과 같은 세 가지 배포 모드로 사용할 수 있습니다.
 
 - 단일 서버
-- 유연한 서버(미리 보기)
+- 유연한 서버
 - 하이퍼스케일(Citus)
 
 이 문서에서는 단일한 서버 배포 모델의 핵심 개념을 간략하게 설명하고 소개합니다. 유연한 서버 배포 모드에 대해 알아보려면 [유연한 서버 개요](./flexible-server/overview.md) 및 하이퍼스케일(Citus) 개요를 참조하세요.

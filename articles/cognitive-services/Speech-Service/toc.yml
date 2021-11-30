@@ -529,10 +529,14 @@ items:
                     href: windows-voice-assistants-faq.yml
   - name: 방법 가이드
     items:
-      - name: 로깅 사용
-        href: how-to-use-logging.md
-      - name: 메모리 사용량 추적
-        href: how-to-track-speech-sdk-memory-usage.md
+      - name: 로그 및 진단
+        items:
+          - name: SDK에서 로깅 사용
+            href: how-to-use-logging.md
+          - name: 음성 텍스트 세션 ID 가져오기
+            href: how-to-get-speech-session-id.md
+          - name: 메모리 사용량 추적
+            href: how-to-track-speech-sdk-memory-usage.md
       - name: 프라이빗 엔드포인트 사용
         href: speech-services-private-link.md
       - name: VNet 서비스 엔드포인트 사용

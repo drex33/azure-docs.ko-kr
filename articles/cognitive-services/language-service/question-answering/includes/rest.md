@@ -1,17 +1,17 @@
 ---
 title: '빠른 시작: cURL 및 REST를 사용하여 기술 자료 관리 - 사용자 지정 질문 답변'
 description: 이 빠른 시작에서는 REST API를 사용하여 기술 자료를 만들고, 게시하고, 쿼리하는 방법을 보여 줍니다.
-ms.date: 11/16/2021
+ms.date: 11/29/2021
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6de414a090145a91db92ad73b7bdc5e6e8eec16a
-ms.sourcegitcommit: 024fcf9a76cf238e4bfbccfd699e97cc34fa1f42
+ms.openlocfilehash: a84e88920ae059fbe61449eeb8974df6cd366c1c
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2021
-ms.locfileid: "133190448"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269005"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -25,7 +25,7 @@ ms.locfileid: "133190448"
 
 ### <a name="generate-an-answer-from-a-knowledge-base"></a>기술 자료에서 답변 생성
 
-REST API 및 cURL을 사용하여 질문 답변 프로젝트/기술 자료를 쿼리하려면 다음 정보를 확인해야 합니다.
+REST Api 및 말아를 사용 하 여 [질문에 응답 하는 프로젝트/기술 자료를 쿼리하려면](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) 다음 정보가 필요 합니다.
 
 |변수 이름 | 값 |
 |--------------------------|-------------|
@@ -94,7 +94,7 @@ curl -X POST -H "Ocp-Apim-Subscription-Key: {YOUR_API_KEY}" -H "Content-Type: ap
 
 ## <a name="query-text-without-a-knowledge-base"></a>기술 자료 없이 텍스트 쿼리
 
-`query-text`를 통해 호출되는 미리 빌드된 질문 답변 REST API를 사용하여 기술 자료 없이 질문 답변을 사용할 수도 있습니다. 이 경우 요청이 보내지면 답변을 검색하려는 질문 및 관련 텍스트 레코드 모두를 질문 답변에 제공합니다.
+또한를 통해 호출 되는 미리 작성 된 질문 REST API 응답을 사용 하 여 [기술 자료 없이 질문에 대 한 답변을 사용할](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) 수 있습니다 `query-text` . 이 경우 요청이 보내지면 답변을 검색하려는 질문 및 관련 텍스트 레코드 모두를 질문 답변에 제공합니다.
 
 다음 예제에서는 `API KEY` 및 `ENDPOINT`에 대한 변수만 수정하면 됩니다.
 

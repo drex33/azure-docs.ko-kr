@@ -5,18 +5,17 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 10/01/2021
-ms.openlocfilehash: ad7cbfc7c06a86cca79930c9745160cc9af4697f
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.date: 11/30/2021
+ms.openlocfilehash: 1a05db53891e33d08ba9d89bc5c349d453c4cb99
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388872"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268874"
 ---
 # <a name="scram-authentication-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 SCRAM 인증
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 SCRAM(솔트된 Challenge Response Authentication Mechanism)은 암호 기반 상호 인증 프로토콜입니다. 이는 여러 수준의 보안을 추가하고 신뢰할 수 없는 연결에서 암호 검색을 방지하는 챌린지-응답 체계입니다. SCRAM에서는 고급 보안을 제공하는 암호로 해시된 형식으로 서버에 암호를 저장할 수 있습니다. 
 
@@ -86,7 +85,7 @@ SCRAM 인증 방법을 사용하여 PostgreSQL 데이터베이스 서버에 액�
 8. 그런 다음, SCRAM 인증을 지원하는 클라이언트에서 서버에 연결할 수 있습니다.
 
 > [!Note] 
-> 기본 제공 관리 되는 [PgBouncer](concepts-pgbouncer.md)에 연결 된 경우 scram 인증이 지원 되지 않습니다.
+> SCRAM 인증은 기본 제공 [관리되는 PgBouncer](concepts-pgbouncer.md)에 연결된 경우 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure CLI를 사용하여 Azure Database for PostgreSQL - 유연한 서버 가상 네트워크를 만들고 관리](./how-to-manage-virtual-network-cli.md)합니다.

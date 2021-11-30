@@ -5,13 +5,13 @@ author: ssen-msft
 ms.author: ssen
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: 9ee2dc4b3e8ea6a9f892adbc378e8e13b8bd8160
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 48ccf6f2332d987543f8c15f551fddcd6f82893f
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107558693"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268366"
 ---
 # <a name="best-practices-for-query-store---flexible-server"></a>쿼리 저장소 - 유연한 서버 모범 사례
 
@@ -24,7 +24,7 @@ ms.locfileid: "107558693"
 
 |**pg_qs.query_capture_mode** | **시나리오**|
 |---|---|
-|_모두_  |모든 쿼리 및 쿼리 실행 빈도와 기타 통계 측면에서 워크로드를 철저하게 분석합니다. 작업에서 새 쿼리를 식별합니다. 사용자나 자동 매개 변수화에 대한 기회를 식별하는 데 임시 쿼리를 사용하는지 검색합니다. _모두_ 는 리소스 사용 비용이 증가합니다. |
+|_모두_  |모든 쿼리 및 쿼리 실행 빈도와 기타 통계 측면에서 워크로드를 철저하게 분석합니다. 작업에서 새 쿼리를 식별합니다. 사용자 또는 자동 매개 변수화 기회를 식별하는 데 임시 쿼리를 사용하는지 검색합니다. _모두_ 는 리소스 사용 비용이 증가합니다. |
 |_상위_  |클라이언트에서 실행한 상위 쿼리에 집중합니다.
 |_없음_ |없음으로 설정된 경우 쿼리 저장소는 새 쿼리를 캡처하지 않습니다. 조사하려는 쿼리 집합 및 시간 범위를 이미 캡처했으며 다른 쿼리 때문에 발생할 수 있는 방해 요소를 제거하고 싶은 경우에 사용합니다. _없음_ 은 환경 테스트 및 벤치마킹에 적합합니다. _없음_ 을 사용하면 중요한 새 쿼리를 추적하고 최적화하는 기회를 놓칠 수 있으므로 주의해서 사용해야 합니다. |
 

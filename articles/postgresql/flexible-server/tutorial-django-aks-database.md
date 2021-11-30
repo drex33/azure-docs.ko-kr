@@ -5,23 +5,22 @@ ms.service: postgresql
 author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a1c19100cad65c965c567c93c67db1033a4bba10
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: a09fde7a2c506b355454677a9305f4e2e0d8c58b
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132136849"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267663"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>자습서: Azure Database for PostgreSQL - 유연한 서버를 사용하여 AKS에 Django 앱 배포
 
-이 빠른 시작에서는 Azure CLI를 사용하여 Azure Database for PostgreSQL - 유연한 서버(미리 보기)를 통해 Django 애플리케이션을 AKS(Azure Kubernetes Service) 클러스터에 배포합니다.
+이 빠른 시작에서는 Azure CLI 사용하여 Azure Database for PostgreSQL - 유연한 서버가 있는 AKS(Azure Kubernetes Service) 클러스터에 Django 애플리케이션을 배포합니다.
 
-**[AKS](../../aks/intro-kubernetes.md)** 는 클러스터를 빠르게 배포하고 관리할 수 있는 관리되는 Kubernetes 서비스입니다. **[Azure Database for PostgreSQL - 유연한 서버(미리 보기)](overview.md)** 는 데이터베이스 관리 기능 및 구성 설정에 대한 보다 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다.
+**[AKS](../../aks/intro-kubernetes.md)** 는 클러스터를 빠르게 배포하고 관리할 수 있는 관리되는 Kubernetes 서비스입니다. **[Azure Database for PostgreSQL - 유연한 서버는](overview.md)** 데이터베이스 관리 기능 및 구성 설정에 대해 보다 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다.
 
 > [!NOTE]
-> - Azure Database for PostgreSQL 유연한 서버는 현재 공개 미리 보기에 있습니다.
 > - 이 빠른 시작에서는 Kubernetes 개념, Django 및 PostgreSQL에 대한 기본 지식이 있다고 가정합니다.
 
 ## <a name="pre-requisites"></a>필수 구성 요소

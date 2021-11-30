@@ -6,15 +6,15 @@ author: shizn
 ms.author: xshi
 ms.service: serviceconnector
 ms.topic: tutorial
-ms.date: 10/28/2021
+ms.date: 11/30/2021
 zone_pivot_groups: postgres-server-options
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f2a3307cfea56d18cbbe0186cd3c927fafdd4074
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: ba4acaa0e6917641163c4af4cb37162a0a7de1b2
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131853036"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269981"
 ---
 # <a name="tutorial-using-service-connector-preview-to-build-a-django-app-with-postgres-on-azure-app-service"></a>자습서: 서비스 커넥터(미리 보기)를 사용하여 Postgres on Azure App Service로 Django 앱 빌드
 
@@ -23,7 +23,7 @@ ms.locfileid: "131853036"
 
 ::: zone pivot="postgres-single-server"
 
-이 자습서에서는 데이터 기반 Python [Django](https://www.djangoproject.com/) 웹앱을 [Azure App Service](overview.md)에 배포하고 Azure Database for Postgres 데이터베이스에 연결하는 방법을 보여 줍니다. 위의 옵션을 선택하여 PostgresSQL 유연한 서버(미리 보기)를 사용해 볼 수도 있습니다. 유연한 서버는 더 간단한 배포 메커니즘을 제공하고 계속 들어가는 비용을 낮춥니다.
+이 자습서에서는 데이터 기반 Python [Django](https://www.djangoproject.com/) 웹앱을 [Azure App Service](overview.md)에 배포하고 Azure Database for Postgres 데이터베이스에 연결하는 방법을 보여 줍니다. 위의 옵션을 선택하여 PostgresSQL 유연한 서버를 사용해 볼 수도 있습니다. 유연한 서버는 더 간단한 배포 메커니즘을 제공하고 지속적인 비용을 낮춥니다.
 
 이 자습서에서는 Azure CLI를 사용하여 다음 작업을 완료합니다.
 
@@ -39,14 +39,14 @@ ms.locfileid: "131853036"
 
 ::: zone pivot="postgres-flexible-server"
 
-이 자습서에서는 데이터 기반 Python [Django](https://www.djangoproject.com/) 웹앱을 [Azure App Service](overview.md)에 배포하고 [Azure Database for PostgreSQL 유연한 서버(미리 보기)](../postgresql/flexible-server/index.yml) 데이터베이스에 연결하는 방법을 보여 줍니다. PostgreSQL 유연한 서버(미리 보기)를 사용할 수 없는 경우 위의 단일 서버 옵션을 선택합니다. 
+이 자습서에서는 데이터 기반 Python [Django](https://www.djangoproject.com/) 웹앱을 배포하여 [Azure App Service Azure Database for PostgreSQL](overview.md) 유연한 [서버(미리 보기)](../postgresql/flexible-server/index.yml) 데이터베이스에 연결하는 방법을 보여줍니다. PostgreSQL 유연한 서버를 사용할 수 없는 경우 위의 단일 서버 옵션을 선택합니다. 
 
 이 자습서에서는 Azure CLI를 사용하여 다음 작업을 완료합니다.
 
 > [!div class="checklist"]
 > * Python 및 Azure CLI를 사용하여 초기 환경 설정
-> * Azure Database for PostgreSQL 유연한 서버 데이터베이스
-> * Azure App Service에 코드 배포 및 PostgreSQL 유연한 서버에 연결
+> * Azure Database for PostgreSQL 유연한 서버 데이터베이스 만들기
+> * Azure App Service 코드를 배포하고 PostgreSQL 유연한 서버에 연결
 > * 코드 업데이트 및 다시 배포
 > * 진단 로그 보기
 > * Azure Portal에서 웹앱 관리
@@ -120,7 +120,7 @@ cd serviceconnector-webapp-postgresql-django
 
 ::: zone pivot="postgres-flexible-server"
 
-유연한 서버(미리 보기)의 경우 샘플의 유연한 서버 분기를 사용합니다. 이 분기에는 데이터베이스 서버 URL을 설정하는 방법과 Azure PostgreSQL 유연한 서버의 필요에 따라 Django 데이터베이스 구성에 `'OPTIONS': {'sslmode': 'require'}`를 추가하는 것과 같은 몇 가지 필요한 변경 내용이 포함되어 있습니다.
+유연한 서버(미리 보기)의 경우 샘플의 유연한 서버 분기를 사용합니다. 이 분기에는 데이터베이스 서버 URL을 설정하는 방법과 `'OPTIONS': {'sslmode': 'require'}` Azure PostgreSQL 유연한 서버의 필요에 따라 Django 데이터베이스 구성에 추가하는 방법과 같은 몇 가지 필요한 변경 내용이 포함되어 있습니다.
 
 ```terminal
 git checkout flexible-server
@@ -133,7 +133,7 @@ git checkout flexible-server
 [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp)로 이동합니다.
 
 ::: zone pivot="postgres-flexible-server"
-유연한 서버(미리 보기)의 경우 대신 "마스터"라는 분기 컨트롤을 선택하고 유연한 서버 분기를 선택합니다.
+유연한 서버의 경우 "마스터"라는 분기 컨트롤을 선택하고 대신 유연한 서버 분기를 선택합니다.
 ::: zone-end
 
 **복제** 를 선택하고 **ZIP 다운로드** 를 선택합니다. 
@@ -282,7 +282,7 @@ az webapp up --resource-group ServiceConnector-tutorial-rg --location eastus --p
 
 1. 터미널에서 앱 코드가 포함된 *djangoapp* 리포지토리 폴더에 있는지 확인합니다.
 
-1. 샘플 앱의 `flexible-server` 분기로 전환합니다. 이 분기에는 PostgreSQL 유연한 서버에 필요한 특정 구성이 포함되어 있습니다.
+1. 샘플 앱의 `flexible-server` 분기로 전환합니다. 이 분기에는 PostgreSQL 유연한 서버에 필요한 특정 구성이 포함 됩니다.
 
     ```cmd
     git checkout flexible-server
@@ -423,4 +423,4 @@ az group delete --name ServiceConnector-tutorial-rg --no-wait
 서비스 커넥터에 대해 자세히 알아보려면 아래 나열된 자습서를 따르세요.
 
 > [!div class="nextstepaction"]
-> [서비스 커넥터 개념에 대해 알아보기](./concept-service-connector-internals.md)
+> [서비스 커넥터 개념에 대한 자세한 정보](./concept-service-connector-internals.md)

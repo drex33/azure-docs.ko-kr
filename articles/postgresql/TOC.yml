@@ -409,7 +409,7 @@
               href: howto-migrate-using-dump-and-restore.md
             - name: pg_dump 및 psql을 사용하여 데이터 업그레이드/마이그레이션
               href: howto-migrate-using-export-and-import.md
-- name: 유연한 서버(미리 보기)
+- name: 유연한 서버
   expanded: true
   items:
     - name: 유연한 서버 설명서

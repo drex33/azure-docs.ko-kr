@@ -5,14 +5,14 @@ description: 이 페이지에는 사용되지 않는 것으로 간주되어 조�
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/16/2021
-ms.openlocfilehash: 884d5cd8d2a1318162a09a39a7ef03bb8b8f612e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1e519ea92da17c4848ddc60249002edd4817bee0
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631745"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268252"
 ---
 # <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Azure Cognitive Search에서 사용되지 않는 인식 기술
 

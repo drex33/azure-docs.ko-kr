@@ -7,13 +7,13 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/16/2021
-ms.openlocfilehash: 68c43d149da28f7a140ac4f4fd32d76fe53f3e2d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/29/2021
+ms.openlocfilehash: f4b228969f0f12c7af9dc7dffd88f6433bb88c73
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128663310"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269709"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대한 Azure Private Link
 
@@ -64,7 +64,7 @@ Azure Data Factory 서비스에 대한 통신은 Private Link를 통해 이동�
    > 프라이빗 엔드포인트를 통해 Azure Data Factory에 연결하는 것은 데이터 팩터리의 자체 호스팅 통합 런타임에만 적용됩니다. Azure Synapse에 대해서는 지원되지 않습니다.
 
 > [!WARNING]
-> Azure Data Factory에서 프라이빗 링크를 사용하도록 설정하는 동시에 퍼블릭 액세스를 차단하는 경우, 연결된 서비스를 만들 때 자격 증명이 Azure Key Vault에 저장되어 있는지 확인합니다. 그러지 않으면 자격 증명이 작동하지 않습니다.
+> Azure Data Factory Private Link 사용하도록 설정하고 공용 액세스를 동시에 차단하는 경우 자격 증명을 Azure Key Vault에 저장하여 보안을 유지하도록 하는 것이 좋습니다.
 
 ## <a name="dns-changes-for-private-endpoints"></a>프라이빗 엔드포인트에 대한 DNS 변경 내용
 프라이빗 엔드포인트를 생성하면 Data Factory에 대한 DNS CNAME 리소스 레코드가 접두사 'private link'를 포함하는 하위 도메인의 별칭으로 업데이트됩니다. 또한 기본적으로 프라이빗 엔드포인트에 대한 DNS A 리소스 레코드를 사용하여 'privatelink' 하위 도메인에 해당하는 [프라이빗 DNS 영역](../dns/private-dns-overview.md)을 만듭니다.
@@ -73,7 +73,7 @@ Azure Data Factory 서비스에 대한 통신은 Private Link를 통해 이동�
 
 위의 예에서 프라이빗 엔드포인트를 호스팅하는 VNet 외부에서 해결되면 Data Factory 'DataFactory A'에 대한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---------- | -------- | --------------- |
 | DataFactoryA.{지역}.datafactory.azure.net | CNAME   | DataFactoryA.{지역}.datafactory.azure.net |
 | DataFactoryA.{지역}.datafactory.azure.net | CNAME   | < 데이터 팩터리 서비스 퍼블릭 엔드포인트 > |
@@ -81,7 +81,7 @@ Azure Data Factory 서비스에 대한 통신은 Private Link를 통해 이동�
 
 프라이빗 엔드포인트를 호스팅하는 VNet에서 확인되면 DataFactoryA에 대한 DNS 리소스 레코드는 다음과 같습니다.
 
-| Name | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---------- | -------- | --------------- |
 | DataFactoryA.{지역}.datafactory.azure.net | CNAME   | DataFactoryA.{지역}.privatelink.datafactory.azure.net |
 | DataFactoryA.{지역}.privatelink.datafactory.azure.net   | A | < 프라이빗 엔드포인트 IP 주소 > |

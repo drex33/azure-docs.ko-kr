@@ -6,14 +6,14 @@ manager: jennmar
 author: ayokande
 ms.author: aakande
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: 4b052e6ac5746d771e7725b39c13fd57b20facb8
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 6c5cdf6442d97172d9a5f66488177598bd6d56cb
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038466"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271102"
 ---
 # <a name="entity-linking-cognitive-skill"></a>엔터티 연결 인식 기술
 

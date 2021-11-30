@@ -1091,6 +1091,8 @@
           href: cassandra/glowroot-cassandra.md
         - name: 오류 코드 정의
           href: cassandra/error-codes-solution.md
+        - name: Cassandra API의 경량 트랜잭션
+          href: cassandra/lwt-cassandra-api.md
     - name: 참조
       items:
         - name: REST 리소스 공급자

@@ -5,19 +5,18 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/15/2021
+ms.date: 11/30/2021
 ms.custom: mvc
-ms.openlocfilehash: 8981e4c3048413cfb0c9550c92ed7d36033db3f4
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 1ad66b8d79e1460d7ece42669b85bea93fa5a936
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132722052"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269468"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL - 유연한 서버 관리
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 이 문서에서는 Azure Database for PostgreSQL - 유연한 서버를 관리하는 방법을 보여 줍니다. 관리 작업에는 컴퓨팅 및 스토리지 스케일링, 관리자 암호 재설정, 서버 정보 보기 등이 포함됩니다.
 

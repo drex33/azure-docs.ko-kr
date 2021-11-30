@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 9f4c87e489f060c6f875a2ca1b970ccecc2d8214
-ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
+ms.openlocfilehash: 726bee60d88681fac2018b62bb86f2c0b2033d50
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133031402"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267872"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
 
@@ -46,7 +46,7 @@ Communication Service 데이터에는 다음과 같은 두 가지 범주가 있�
 
 ### <a name="identities"></a>Identities
 
-Azure Communication Services는 ID의 디렉터리를 유지 관리하고 [DeleteIdentity](/rest/api/communication/communicationidentity/delete) API를 사용하여 ID를 제거합니다. ID를 삭제하면 연결된 모든 액세스 토큰이 취소되고 해당 채팅 메시지가 삭제됩니다. ID를 제거하는 방법에 대한 자세한 내용은 [이 페이지를 참조하세요](../quickstarts/access-tokens.md).
+Azure Communication Services는 ID의 디렉터리를 유지 관리하고 [DeleteIdentity](/rest/api/communication/communicationidentity/communication-identity/delete) API를 사용하여 ID를 제거합니다. ID를 삭제하면 연결된 모든 액세스 토큰이 취소되고 해당 채팅 메시지가 삭제됩니다. ID를 제거하는 방법에 대한 자세한 내용은 [이 페이지를 참조하세요](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 

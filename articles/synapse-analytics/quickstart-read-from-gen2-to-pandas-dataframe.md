@@ -7,15 +7,15 @@ ms.subservice: machine-learning
 ms.topic: quickstart
 ms.reviewer: jrasnick, garye, negust
 ms.date: 03/23/2021
-author: garyericson
-ms.author: garye
+author: rothja
+ms.author: jroth
 ms.custom: mode-other
-ms.openlocfilehash: b92ec647b8937d8a92332f717cf682bfc88b217f
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: b45092b3b7dffcebd9fd40baa55f715bb0577262
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133038081"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271311"
 ---
 # <a name="quickstart-read-data-from-adls-gen2-to-pandas-dataframe-in-azure-synapse-analytics"></a>빠른 시작: Azure Synapse Analytics의 ADLS Gen2에서 Pandas 데이터 프레임으로 데이터 읽기
 

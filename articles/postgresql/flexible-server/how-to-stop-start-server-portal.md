@@ -5,18 +5,17 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: a08c9244644228bd6d9154bdc4882fc91334bc62
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 86865ca88745b02d5aab63d24e78625669f8bbc7
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110797377"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265351"
 ---
-# <a name="stopstart-an-azure-database-for-postgresql---flexible-server-preview-using-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL Flexible Server(미리 보기) 중지/시작
+# <a name="stopstart-an-azure-database-for-postgresql---flexible-server--using-azure-portal"></a>Azure Database for PostgreSQL 중지/시작 - Azure Portal 사용하여 유연한 서버
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 현재 미리 보기로 제공됩니다.
+
 
 이 문서에서는 유연한 서버를 중지하고 시작하는 단계별 지침을 제공합니다.
 

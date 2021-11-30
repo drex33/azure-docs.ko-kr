@@ -6,21 +6,20 @@ ms.author: sumuth
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 06/30/2021
+ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 146a3a252a0f8105245c2a6826876e1400efdc13
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 99d958d9a173a64063f3ecdd85c22bb00e180f6e
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124766989"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267435"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>자습서: App Services 웹앱을 사용하여 가상 네트워크에 Azure Database for PostgreSQL - 유연한 서버 만들기
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
 
-이 자습서에서는 Azure Database for PostgreSQL - 유연한 서버(미리 보기)를 사용하여 [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 내에 Azure App Service 웹앱을 만드는 방법을 보여줍니다.
+
+이 자습서에서는 [가상 네트워크](../../virtual-network/virtual-networks-overview.md)내에서 Azure Database for PostgreSQL 유연한 서버를 사용 하 여 Azure App Service 웹 앱을 만드는 방법을 보여 줍니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 >[!div class="checklist"]
@@ -64,7 +63,6 @@ az postgres flexible-server create --resource-group demoresourcegroup --name dem
 ```json
 Local context is turned on. Its information is saved in working directory /home/jane. You can run `az local-context off` to turn it off.
 Command argument values from local context: --resource-group demoresourcegroup, --location: eastus
-Command group 'postgres flexible-server' is in preview. It may be changed/removed in a future release.
 Checking the existence of the resource group ''...
 Creating Resource group 'demoresourcegroup ' ...
 Creating new vnet "demoappvnet" in resource group "demoresourcegroup" ...

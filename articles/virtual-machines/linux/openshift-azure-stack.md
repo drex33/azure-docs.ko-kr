@@ -9,13 +9,13 @@ ms.subservice: openshift
 ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 11/19/2021
-ms.openlocfilehash: a506b6f7a8ddc11c075bb115bf23e7c7b0497973
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.date: 11/29/2021
+ms.openlocfilehash: 28881d5d261e2c86b357bf46131606480d405414
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132871417"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133270741"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-to-azure-stack-hub"></a>Azure Stack Hub에 OpenShift Container Platform 또는 OKD 배포
 
@@ -71,8 +71,10 @@ Azure CLI를 사용하는 배포 단계에 대해서는 [OpenShift Container Pla
 
 Red Hat는 openshift 4.x의 RHCOS (Red Hat Enterprise Linux CoreOS) 이미지를 관리 합니다. 배포 프로세스는 Red Hat 끝점에서 이미지를 가져옵니다. 따라서 사용자 (테 넌 트)는 Azure Stack 허브 Marketplace에서 이미지를 가져올 필요가 없습니다.
 
-[ARM 템플릿을 사용 하 여 Azure Stack 허브에 클러스터 설치](https://docs.openshift.com/container-platform/4.9/installing/installing_azure_stack_hub/installing-azure-stack-hub-user-infra.html)에서 열린 Shift 설명서의 단계를 따를 수 있습니다.
+[ARM 템플릿을 사용 하 여 Azure Stack 허브에 클러스터 설치](https://docs.openshift.com/container-platform/4.9/installing/installing_azure_stack_hub/installing-azure-stack-hub-user-infra.html)에서 openshift 설명서의 단계를 따를 수 있습니다.
 
+> [!WARNING]
+> OpenShift에 문제가 있는 경우 지원에 대 한 Red Hat에 문의 하세요.
 ## <a name="next-steps"></a>다음 단계
 
 - [배포 후 작업](./openshift-container-platform-3x-post-deployment.md)

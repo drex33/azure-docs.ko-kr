@@ -3,12 +3,12 @@ title: vCenter에 대한 외부 ID 원본 구성
 description: vCenter에 대한 LDAP 또는 LDAPS를 통한 Active Directory를 외부 ID 원본으로 구성하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.openlocfilehash: 37478b65572fba2815121b0712d1a0f2e43376dc
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: ecbe38f6882d0d8a6b98ba61955f710a01d197f2
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131506299"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133270817"
 ---
 # <a name="configure-external-identity-source-for-vcenter"></a>vCenter에 대한 외부 ID 원본 구성
 
@@ -89,7 +89,7 @@ ms.locfileid: "131506299"
    | **SecondaryURL**  | 기본 오류가 있는 경우를 대비한 보조 대체 URL입니다.  |
    | **BaseDNUsers**  |  유효한 사용자를 찾을 위치(예: **CN=users,DC=yourserver,DC=internal**).  LDAP 인증을 사용하려면 기본 DN이 필요합니다.  |
    | **BaseDNGroups**  | 그룹을 찾을 위치(예: **CN=group1, DC=yourserver,DC= internal**). LDAP 인증을 사용하려면 기본 DN이 필요합니다.  |
-   | **자격 증명**  | AD 원본(cloudadmin 아님) 인증에 사용되는 사용자 이름과 암호입니다.  |
+   | **자격 증명**  | AD 원본(cloudadmin 아님) 인증에 사용되는 사용자 이름과 암호입니다. 사용자는 형식 이어야 합니다 **username@avsldap.local** . |
    | **CertificateSAS** | AD 원본에 대한 인증을 위한 인증서가 있는 SAS 문자열의 경로입니다. 여러 인증서를 사용 하는 경우 각 SAS 문자열을 쉼표로 구분 합니다. 예: **pathtocert1, pathtocert2**.  |
    | **GroupName**  | Cloudadmin 액세스를 제공 하는 외부 id 원본의 그룹입니다. 예: **avs-관리자**.  |
    | **다음까지 유지**  | cmdlet 출력의 보존 기간입니다. 기본값은 60일입니다.   |
@@ -126,7 +126,7 @@ ms.locfileid: "131506299"
    | **실행할 이름 지정**  | 영숫자 이름(예: **addexternalIdentity**)입니다.  |
    | **Timeout**  |  완료하는 데 너무 오래 걸릴 경우 cmdlet이 종료되는 기간입니다.  |
 
-1. **알림** 또는 실행 실행 **상태** 창을 확인 하 여 진행 상황을 확인 합니다.
+1. **알림** 또는 **실행 상태** 창을 확인하여 진행 상황을 확인합니다.
 
 
 ## <a name="add-existing-ad-group-to-cloudadmin-group"></a>기존 AD 그룹을 cloudadmin 그룹에 추가
@@ -144,7 +144,7 @@ ms.locfileid: "131506299"
    | **실행할 이름 지정**  | 영숫자 이름(예: **addADgroup**)입니다.  |
    | **Timeout**  |  완료하는 데 너무 오래 걸릴 경우 cmdlet이 종료되는 기간입니다.  |
 
-1. **알림** 또는 실행 실행 **상태** 창을 확인 하 여 진행 상황을 확인 합니다.
+1. **알림** 또는 **실행 상태** 창을 확인하여 진행 상황을 확인합니다.
 
 
 
@@ -163,7 +163,7 @@ ms.locfileid: "131506299"
    | **실행할 이름 지정**  | 영숫자 이름(예: **removeADgroup**)입니다.  |
    | **Timeout**  |  완료하는 데 너무 오래 걸릴 경우 cmdlet이 종료되는 기간입니다.  |
 
-1. **알림** 또는 실행 실행 **상태** 창을 확인 하 여 진행 상황을 확인 합니다.
+1. **알림** 또는 **실행 상태** 창을 확인하여 진행 상황을 확인합니다.
 
 
 
@@ -184,7 +184,7 @@ ms.locfileid: "131506299"
    | **실행할 이름 지정**  | 영숫자 이름(예: **remove_externalIdentity**)입니다.  |
    | **Timeout**  |  완료하는 데 너무 오래 걸릴 경우 cmdlet이 종료되는 기간입니다.  |
 
-1. **알림** 또는 실행 실행 **상태** 창을 확인 하 여 진행 상황을 확인 합니다.
+1. **알림** 또는 **실행 상태** 창을 확인하여 진행 상황을 확인합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

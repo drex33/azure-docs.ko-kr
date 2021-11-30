@@ -6,19 +6,18 @@ ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e571d29dc9bade1069f6c67257bf04552ff894ef
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5420522c1c28f1d525877f2eb6e1146c849b4459
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130241613"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268670"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql---flexible-server-firewall-rules-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL - 유연한 서버 방화벽 규칙 만들기 및 관리
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 Azure Database for PostgreSQL - 유연한 서버는 유연한 서버에 연결하는 두 가지 유형의 상호 배타적인 네트워크 연결 방법을 지원합니다. 다음은 두 가지 옵션입니다.
 

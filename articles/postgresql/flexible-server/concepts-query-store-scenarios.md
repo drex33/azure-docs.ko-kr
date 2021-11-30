@@ -5,13 +5,13 @@ author: ssen-msft
 ms.author: ssen
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: ac0374cf91229e7f1b3f84d967d9825e2a3090f2
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 41d9ba86e5d083727400b0557072d5232376e408
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107558730"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269564"
 ---
 # <a name="usage-scenarios-for-query-store---flexible-server"></a>쿼리 저장소 사용 시나리오 - 유연한 서버
 

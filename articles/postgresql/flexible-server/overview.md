@@ -5,31 +5,30 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/18/2021
+ms.date: 11/30/2021
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 90786b09586cdf91f69b6e6c90eb4e5b971ff5a9
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 24c57134b2bea7f133601d9f6377e4e5bc5d7436
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132724694"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269430"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>개요 - Azure Database for PostgreSQL - 유연한 서버
 
 PostgreSQL 커뮤니티 버전에서 제공하는 [Azure Database for PostgreSQL](../overview.md)은 세 가지 배포 모드로 사용할 수 있습니다.
 
 - [단일 서버](../overview-single-server.md)
-- 유연한 서버(미리 보기)
+- 유연한 서버 
 - 하이퍼스케일(Citus)
 
 이 문서에서는 유연한 서버 배포 모델의 핵심 개념에 대한 개요 및 소개를 제공합니다.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 ## <a name="overview"></a>개요
 
-Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 기능 및 구성 설정에 대한 보다 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 일반적으로 서비스는 사용자 요구 사항에 따라 더 많은 유연성과 서버 구성 사용자 지정을 제공합니다. 유연한 서버 아키텍처를 통해 사용자는 클라이언트 계층으로 데이터베이스 엔진을 배치하여 대기 시간을 줄이고, 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 선택할 수 있습니다. 또한 유연한 서버는 서버를 중지/시작하는 기능과 전체 컴퓨팅 용량이 지속적으로 필요하지 않는 워크로드에 이상적인 확장 가능한 컴퓨팅 계층을 통해 더 나은 비용 최적화 제어 기능을 제공합니다. 서비스는 현재 PostgreSQL 11, 12 및 13의 커뮤니티 버전을 지원합니다. 서비스는 현재 미리 보기 상태이며, 다양한 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 사용할 수 있습니다.
+Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 기능 및 구성 설정에 대한 보다 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 일반적으로 서비스는 사용자 요구 사항에 따라 더 많은 유연성과 서버 구성 사용자 지정을 제공합니다. 유연한 서버 아키텍처를 통해 사용자는 클라이언트 계층으로 데이터베이스 엔진을 배치하여 대기 시간을 줄이고, 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 선택할 수 있습니다. 또한 유연한 서버는 서버를 중지/시작하는 기능과 전체 컴퓨팅 용량이 지속적으로 필요하지 않는 워크로드에 이상적인 확장 가능한 컴퓨팅 계층을 통해 더 나은 비용 최적화 제어 기능을 제공합니다. 서비스는 현재 PostgreSQL 11, 12 및 13의 커뮤니티 버전을 지원합니다. 서비스는 현재 광범위 한  [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 사용할 수 있습니다.
 
 ![유연한 서버 - 개요](./media/overview/overview-flexible-server.png)
 

@@ -6,14 +6,14 @@ manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: 71bd45fae729efed6d76ab65fc4ea45944998f45
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: fbab58c152da5c412671906f781efe0979cd1897
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537414"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271368"
 ---
 # <a name="pii-detection-cognitive-skill"></a>PII 검색 인식 기술
 

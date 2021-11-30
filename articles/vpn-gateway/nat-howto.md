@@ -6,16 +6,16 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/24/2021
+ms.date: 11/29/2021
 ms.author: yushwang
-ms.openlocfilehash: 8b9d3d298986aa4aae6ead4e9733c9b0994b1f91
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
-ms.translationtype: HT
+ms.openlocfilehash: 66aceaeff2f226b7afa4ee16d4affd0584261bab
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113214068"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133271007"
 ---
-# <a name="how-to-configure-nat-on-azure-vpn-gateways-preview"></a>Azure VPN Gateway에서 NAT를 구성하는 방법(미리 보기)
+# <a name="how-to-configure-nat-on-azure-vpn-gateways"></a>Azure VPN gateway에서 NAT를 구성 하는 방법
 
 이 문서는 Azure Portal을 사용하여 Azure VPN Gateway에서 NAT(Network Address Translation)를 구성하는 데 도움이 됩니다.
 
@@ -26,9 +26,6 @@ NAT는 IP 패킷의 한 IP 주소를 다른 IP 주소로 번역하는 메커니�
 Azure VPN 게이트웨이에서 NAT 지원에 대한 자세한 내용은 [Azure VPN Gateway의 NAT 정보](nat-overview.md)를 참조하세요.
 
 > [!IMPORTANT] 
-> VPN 게이트웨이용 Azure NAT는 현재 미리 보기 상태입니다. 
-> * 이 문서의 **[미리 보기 제한 사항](#limits)** 을 참조하세요.
-> * Azure VPN 게이트웨이 NAT는 정적, 1:1 NAT 규칙만 지원합니다. 동적 NAT 규칙은 지원되지 않습니다.
 > * NAT는 VpnGw2~5, VpnGw2AZ~5AZ와 같은 SKU에서 지원됩니다.
 
 ## <a name="getting-started"></a>시작
@@ -42,7 +39,6 @@ Azure VPN 게이트웨이에서 NAT 지원에 대한 자세한 내용은 [Azure 
 ### <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-* [미리 보기 제한 사항](#limits)을 검토합니다.
 
 ## <a name="part-1-create-vnet-and-gateways"></a><a name ="vnet"></a>1부: VNet 및 게이트웨이 만들기
 
@@ -77,9 +73,6 @@ Azure VPN 게이트웨이에서 NAT 지원에 대한 자세한 내용은 [Azure 
 
    :::image type="content" source="./media/nat-howto/branch-2.png" alt-text="분기 2 로컬 네트워크 게이트웨이를 보여주는 스크린샷" lightbox="./media/nat-howto/branch-2.png":::
 
-   > [!IMPORTANT] 
-   > 미리 보기 중에 로컬 네트워크 게이트웨이 주소 공간이 VNet 주소 공간과 같거나 작으면 **BGP** 를 사용하여 로컬 네트워크 게이트웨이 주소 공간 필드를 **비워 둡니다**. 미리 보기 중에는 이 시나리오에서 고정 라우팅(비 BGP)이 지원되지 않습니다.
-   >
 
 ## <a name="part-2-create-nat-rules"></a><a name ="nat-rules"></a>2부: NAT 규칙 만들기
 
@@ -95,7 +88,7 @@ Azure VPN 게이트웨이에서 NAT 지원에 대한 자세한 내용은 [Azure 
 
 다음 단계를 수행하여 VPN 게이트웨이에서 모든 NAT 규칙을 만듭니다.
 
-1. Azure Portal에서 **Virtual Network 게이트웨이** 리소스 페이지로 이동하고 **NAT 규칙(미리 보기)** 을 선택합니다.
+1. Azure Portal에서 **Virtual Network 게이트웨이** 리소스 페이지로 이동 하 고 **NAT 규칙** 을 선택 합니다.
 1. 위 **NAT 규칙 테이블** 을 사용하여 값을 채웁니다.
 
    :::image type="content" source="./media/nat-howto/nat-rules.png" alt-text="NAT 규칙을 보여주는 스크린샷" lightbox="./media/nat-howto/nat-rules.png":::
@@ -131,17 +124,15 @@ Azure VPN 게이트웨이에서 NAT 지원에 대한 자세한 내용은 [Azure 
 
 이러한 단계를 완료한 후에는 [다이어그램 1](#diagram)에 표시된 토폴로지와 일치하는 설정을 갖게 됩니다.
 
-## <a name="preview-limitations"></a><a name ="limits"></a>미리 보기 제한 사항
+## <a name="limitations"></a><a name ="limits"></a>제한 사항
 
 > [!IMPORTANT] 
-> NAT 기능 미리 보기 중에는 몇 가지 제약 조건이 있습니다. 이들 중 일부는 GA 이전에 해결됩니다.
+> NAT 기능에는 몇 가지 제약 조건이 있습니다.
 >
 
-* Azure VPN 게이트웨이 NAT는 정적, 1:1 NAT 규칙만 지원합니다. 동적 NAT 규칙은 지원되지 않습니다.
 * NAT는 VpnGw2~5, VpnGw2AZ~5AZ와 같은 SKU에서 지원됩니다.
 * NAT는 IPsec/IKE 크로스-프레미스 연결에만 지원됩니다. VNet 간 연결이나 P2S 연결은 지원되지 않습니다.
 * NAT 규칙은 연결 만들기 프로세스 중에 연결 리소스와 연결될 수 없습니다. 먼저 연결 리소스를 만든 다음, 연결 구성 페이지에서 NAT 규칙을 연결합니다.
-* 미리 보기의 경우 로컬 네트워크 게이트웨이 주소 공간이 VNet 주소 공간과 같거나 작으면 **BGP** 를 사용하여 로컬 네트워크 게이트웨이 주소 공간을 **비워 둡니다**. 로컬 네트워크 게이트웨이와 VNet 간에 주소가 충돌하면 고정 라우팅(비 BGP)은 지원되지 **않습니다**.
 * 다른 로컬 네트워크 게이트웨이(온-프레미스 네트워크 또는 분기)의 주소 공간은 [다이어그램 1](#diagram)과 같은 겹치지 않는 접두사와 매핑하도록 *IngressSNAT* 규칙과 동일할 수 있습니다.
 * *정책 기반 트래픽 선택기 사용* 이 사용되는 연결에서는 NAT 규칙이 지원되지 않습니다.
 

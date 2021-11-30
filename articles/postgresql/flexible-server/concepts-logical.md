@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/01/2021
-ms.openlocfilehash: 13326622dae32c0ebd8fa86035967d51ab734c2a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 11/30/2021
+ms.openlocfilehash: 14372ccc81e7fe78342753c9c2cb0190f9ab5084
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130241595"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269583"
 ---
 # <a name="logical-replication-and-logical-decoding-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버에서 논리 복제 및 논리 디코딩
 
@@ -243,7 +243,7 @@ SELECT * FROM pg_replication_slots;
 ## <a name="limitations"></a>제한 사항
 * **논리 복제** 제한 사항은 [여기](https://www.postgresql.org/docs/12/logical-replication-restrictions.html)에서 설명한 대로 적용됩니다.
 * **읽기 복제본** - Azure Database for PostgreSQL 읽기 복제본은 현재 유연한 서버에서 지원되지 않습니다.
-* **슬롯 및 HA 장애 조치(failover)** - 주 서버의 논리 복제 슬롯은 보조 AZ의 대기 서버에서 사용할 수 없습니다. 서버에서 영역 중복 고가용성 옵션을 사용하는 경우 이 상황이 적용됩니다. 대기 서버에 대한 장애 조치(failover)가 발생하는 경우 대기 서버에서 논리 복제 슬롯을 사용할 수 없습니다.
+* **슬롯 및 HA 장애 조치(failover)** - 주 서버의 논리 복제 슬롯은 보조 AZ의 대기 서버에서 사용할 수 없습니다. 이 상황은 서버가 영역 중복 고가용성 옵션을 사용하는 경우에 적용됩니다. 대기 서버에 대한 장애 조치(failover)가 발생하는 경우 대기 서버에서 논리 복제 슬롯을 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [네트워킹 옵션](concepts-networking.md)에 관한 자세한 정보

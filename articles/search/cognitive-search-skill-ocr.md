@@ -5,14 +5,14 @@ description: Azure Cognitive Search의 보강 파이프라인에서 OCR(광학 �
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: b0ed1860abe3d8a85e87e2bf2746812e1ca67d2e
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 20ab4d3ddbca86e03027e9c853050489827a16fd
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537254"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269335"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
 

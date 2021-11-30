@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 530078dc7a720b39a2b276230fd7e04fb9ab01d4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 910e478e5bcdf2fb7ade7169a6182087ea7f3987
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425665"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133270950"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -187,11 +187,11 @@ Azure Cosmos DB는 Cassandra API 계정에서 다음 데이터베이스 명령�
 | 구성 요소  |지원됨 |
 |---------|---------|
 | 존재하는 경우 삭제 | 예 |
-| 삭제 조건 | 아니요 |
+| 삭제 조건 | 예 |
 | 없는 경우 삽입 | 예 |
 | 존재하는 경우 업데이트 | 예 |
 | 없는 경우 업데이트 | Yes |
-| 업데이트 조건 | 아니요 |
+| 업데이트 조건 | 예 |
 
 > [!NOTE]
 > 경량 트랜잭션은 현재 다중 지역 쓰기를 사용하는 계정에 대해 지원되지 않습니다.

@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 사용자 지정 질문 답변을 사용
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 11/29/2021
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-other
 zone_pivot_groups: custom-qna-quickstart
-ms.openlocfilehash: 4f5c6221676b320eec08a81a60da1a529d95a0c1
-ms.sourcegitcommit: 7e5bfb91cc0a4f94fbe0399f900b0fc7cb59e009
+ms.openlocfilehash: 466d31bd5e8ae355358599ee9dd2ecb14c05f23a
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2021
-ms.locfileid: "133187538"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269006"
 ---
 # <a name="quickstart-question-answering"></a>빠른 시작: 질문 답변
 
@@ -41,8 +41,13 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [포털](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+## <a name="explore-the-rest-api"></a>REST API 탐색
+
+질문 응답 파이프라인 자동화에 대 한 자세한 내용은 REST API 설명서를 참조 하세요. 현재 제작 기능은 REST API 통해서만 사용할 수 있습니다.
+
+* [Authoring API 참조](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+* [API 말아 작성 예제 작성](../how-to/authoring.md)
+
 ## <a name="next-steps"></a>다음 단계
 
 * [자습서: FAQ 봇 만들기](../tutorials/bot-service.md)
-* [API 작성](../how-to/authoring.md)
-

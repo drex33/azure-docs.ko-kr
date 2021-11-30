@@ -5,18 +5,17 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/18/2021
-ms.openlocfilehash: f2e72a0861e40f538ef6e6861c185411bd28e9e0
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.date: 11/30/2021
+ms.openlocfilehash: 29b7f440f182f01c457c9867d571dc4205f4d83e
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132713310"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269449"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버에서 지원되는 PostgreSQL 주 버전
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 Azure Database for PostgreSQL - 유연한 서버는 현재 다음 주 버전을 지원합니다.
 

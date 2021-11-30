@@ -6,14 +6,14 @@ manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: c55d0e9c7897fdf2e34016bd0f2657db123cee69
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: e4772db7fff0109af72500b9d5c7e56ac564e73e
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567456"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133270891"
 ---
 #   <a name="text-translation-cognitive-skill"></a>텍스트 번역 인식 기술
 

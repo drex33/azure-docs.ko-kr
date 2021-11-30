@@ -33,7 +33,7 @@ groups:
   - id: postgres-single-server
     title: 단일 서버
   - id: postgres-flexible-server
-    title: 유연한 서버(미리 보기)
+    title: 유연한 서버
 - id: programming-languages-set-one
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -1417,9 +1417,9 @@ groups:
   - id: iot-toolset-mcuxpresso
     title: MCUXpresso
 metadata:
-  ms.openlocfilehash: 51f29806ed58662a6d2c8a037013d772ee4991dd
-  ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+  ms.openlocfilehash: ba085bfaa2acbd523c039bf91f02b3d1c88e92a8
+  ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/22/2021
-  ms.locfileid: "132902631"
+  ms.lasthandoff: 11/30/2021
+  ms.locfileid: "133265389"

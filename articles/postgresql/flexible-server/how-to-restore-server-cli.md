@@ -5,19 +5,18 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 05/29/2021
-ms.openlocfilehash: f14bae80cad6fd9fc6ee534e8c8d1d9b6df617db
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 0c33a9c6b4d357d2f16655074a43974d547ffaaa
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026719"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269375"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-postgresql---flexible-server-with-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PsotgreSQL - Flexible Server의 특정 시점 복원
 
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server는 현재 공개 미리 보기로 제공됩니다.
+
 
 이 문서에서는 백업을 사용하여 유연한 서버에서 지정 시간 복구를 수행하는 단계별 절차를 제공합니다.
 

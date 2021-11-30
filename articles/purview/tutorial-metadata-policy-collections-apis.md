@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 09/24/2021
-ms.openlocfilehash: 79848d8f54ea1d019f2a9e6cf93a61cc8b7c49f9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 20b66804a970dc3ed8c8da74eb3a74531d638033
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130245932"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265958"
 ---
 # <a name="tutorial-use-rest-apis-to-manage-role-based-access-control-on-azure-purview-collections"></a>자습서: REST API를 사용하여 Azure Purview 컬렉션에 대한 역할 기반 액세스 제어 관리 
 
@@ -25,7 +25,7 @@ Azure Purview의 기본 제공 역할에 대한 자세한 내용은 [Azure Purvi
 ## <a name="metadata-policy-api-reference-summary"></a>메타데이터 정책 API 참조 요약
 다음 표에서는 [Azure Purview 메타데이터 정책 API 참조에 대한 개요](/rest/api/purview/metadatapolicydataplane/Metadata-Policy)를 제공합니다. 
 
-이러한 API를 실행하기 전에 {pv-acc-name}을 Azure Purview 계정의 이름으로 바꿉니다. 예를 들어 Purview 계정 이름이 *FabrikamPurviewAccount* 인 경우 API 엔드포인트는 *FabrikamPurviewAccount.purview.azure.com* 이 됩니다.
+> 참고: 이러한 Api를 실행 하기 전에 {pv-acc-name}을 Azure 부서의 범위 계정의 이름으로 바꿉니다. 예를 들어 Purview 계정 이름이 *FabrikamPurviewAccount* 인 경우 API 엔드포인트는 *FabrikamPurviewAccount.purview.azure.com* 이 됩니다. "Api-version" 매개 변수는 변경 될 수 있습니다. 최신 "api-version" 및 API 서명의 [부서의 범위 메타 데이터 정책 REST API 설명서](/rest/api/purview/metadatapolicydataplane/Metadata-Policy) 를 참조 하세요.
 
 | API&nbsp;함수 | REST&nbsp;메서드 | API&nbsp;엔드포인트 | 설명 | 
 | :- | :- | :- | :- | 

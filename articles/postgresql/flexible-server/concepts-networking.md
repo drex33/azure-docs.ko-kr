@@ -5,17 +5,17 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/08/2021
-ms.openlocfilehash: 7a2f20fee0dc3fe3239372ec03b1a4bb9a777378
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.date: 11/30/2021
+ms.openlocfilehash: f83fc991a017c3dd0dbe3912daeb2f8d8bbec4b6
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132810162"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269639"
 ---
-# <a name="networking-overview-for-azure-database-for-postgresql---flexible-server-preview"></a>네트워킹 개요 - Azure Database for PostgreSQL - 유연한 서버(미리 보기)
+# <a name="networking-overview-for-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에 대 한 네트워킹 개요 
 
-이 문서에서는 Azure Database for PostgreSQL - 유연한 서버에 대한 연결 및 네트워킹 개념을 설명합니다. 유연한 서버 배포 옵션은 미리 보기 상태입니다.
+이 문서에서는 Azure Database for PostgreSQL - 유연한 서버에 대한 연결 및 네트워킹 개념을 설명합니다. 
 
 Azure Database for PostgreSQL - 유연한 서버 인스턴스(*유연한 서버*)를 만들 때 다음 네트워킹 옵션 중 하나를 선택해야 합니다. **프라이빗 액세스(VNet 통합)** 또는 **퍼블릭 액세스(허용된 IP 주소)** . 
 
@@ -167,7 +167,7 @@ Azure Database for PostgreSQL - 유연한 서버는 TLS(전송 계층 보안)를
 
 Azure Database for PostgreSQL은 TLS 1.2 이상을 지원합니다. [RFC 8996](https://datatracker.ietf.org/doc/rfc8996/)에서 IETF(Internet Engineering Task Force)는 TLS 1.0 및 TLS 1.1을 사용해서는 안 된다고 명시하고 있습니다. 두 프로토콜 모두 2019년 말부터 더 이상 사용되지 않습니다.
 
-TLS 1.0 및 TLS 1.1과 같은 이전 버전의 TLS 프로토콜을 사용하는 들어오는 모든 연결은 기본적으로 거부됩니다. 
+TLS 1.0 및 TLS 1.1과 같은 이전 버전의 TLS 프로토콜을 사용하는 모든 수신 연결은 기본적으로 거부됩니다. 
 
 > [!NOTE]
 > SSL 및 TLS 인증서는 연결이 최첨단 암호화 프로토콜로 보호된다는 것을 인증합니다. 유선 연결을 암호화하여 전송 중에 데이터에 대한 무단 액세스를 방지할 수 있습니다. 따라서 최신 버전의 TLS를 사용하여 Azure Database for PostgreSQL - 유연한 서버에 대한 연결을 암호화하는 것이 좋습니다. 권장되지는 않지만 필요한 경우 **require_secure_transport** 서버 매개 변수를 OFF로 업데이트하여 Azure Database for PostgreSQL - 유연한 서버에 연결하기 위해 TLS\SSL을 사용하지 않도록 설정하는 옵션이 있습니다. 또한 **ssl_min_protocol_version** 및 **ssl_max_protocol_version** 서버 매개 변수를 설정하여 TLS 버전을 설정할 수 있습니다.

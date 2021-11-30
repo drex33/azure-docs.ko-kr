@@ -6,20 +6,19 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/18/2021
-ms.openlocfilehash: 672fa91d0fc6785332ace1d45f8e1c080895347e
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.date: 11/30/2021
+ms.openlocfilehash: c2f4a4c9b1ea1e91b04a013a4fc3cd1573bee965
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721863"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267549"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>릴리스 정보 - Azure Database for PostgreSQL - 유연한 서버
 
 이 페이지에서는 기능 추가, 엔진 버전 지원, 확장 및 유연한 서버인 PostgreSQL 관련 기타 공지 사항과 관련된 최신 뉴스와 업데이트를 제공합니다.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 ## <a name="release-november-2021"></a>릴리스: 2021년 11월
 
@@ -82,7 +81,7 @@ ms.locfileid: "132721863"
 * 오스트레일리아 동부, 캐나다 중부 및 프랑스 중부 등 새 [지역](./overview.md#azure-regions) 지원
 * [기본 제공 PgBouncer](./concepts-pgbouncer.md) 연결 풀러 지원 
 <!--- * Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2. -->
-* 공개 미리 보기의 [지능형 성능](concepts-query-store.md)
+* [지능형 성능](concepts-query-store.md) .
 * 여러 버그 수정, 안정성 및 성능 향상
 
 ## <a name="release-october-2020---march-2021"></a>릴리스: 2020년 10월 - 2021년 3월

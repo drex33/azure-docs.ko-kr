@@ -5,19 +5,18 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 05/29/2021
+ms.date: 11/30/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b9d4a5faccd228e4eba25b6818b3dbcc0df5402a
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.openlocfilehash: 625ffd70fc987843689899b3d56900c29f7ffed6
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111026631"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268974"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-postgresql-flexible-server-with-azure-cli"></a>Azure CLI를 사용한 Azure Database for PostgreSQL Flexible Server의 영역 중복 고가용성 관리
 
-> [!NOTE]
-> Azure Database for PostgreSQL Flexible Server는 미리 보기로 제공됩니다. 
+
 
 이 문서에서는 유연한 서버에서 서버를 만들 당시 영역 중복 고가용성 구성을 사용하거나 사용하지 않도록 설정하는 방법을 설명합니다. 서버를 만든 후에도 영역 중복 고가용성을 사용하지 않도록 설정할 수 있습니다. 서버를 만든 후에는 영역 중복 고가용성을 사용할 수 없습니다.
 

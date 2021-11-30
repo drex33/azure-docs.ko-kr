@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/26/2021
-ms.openlocfilehash: c28e3b84251c645ff690098950066b3bb653f3df
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 11/30/2021
+ms.openlocfilehash: 1142b2251d9b630be8a28a1311de38df89ddb79d
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131467534"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269620"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 제한
 

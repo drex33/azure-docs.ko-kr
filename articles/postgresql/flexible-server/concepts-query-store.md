@@ -5,13 +5,13 @@ author: ssen-msft
 ms.author: ssen
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: 6ab2ea6f6544bcf561e92f00b5afee693393c157
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 4383ff5b847ee7a8c38bd6f24d64226b3620d6d3
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107558663"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269506"
 ---
 # <a name="monitor-performance-with-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
 **적용 대상:**  Azure Database for PostgreSQL - 유연한 서버 버전 11 이상

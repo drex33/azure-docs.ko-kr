@@ -5,25 +5,24 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/02/2021
-ms.openlocfilehash: c5b4f6611dc5ad5a514eaf1affd0517c14fcd353
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.date: 11/30/2021
+ms.openlocfilehash: 9aec09b2e75174850c17644530cdec3d2cef2471
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132337115"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267036"
 ---
 # <a name="comparison-chart---azure-database-for-postgresql-single-server-and-flexible-server"></a>비교 차트 - Azure Database for PostgreSQL 단일 서버 및 유연한 서버
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 다음 표는 단일 서버와 유연한 서버 간의 상위 수준 특징 및 기능 비교를 제공합니다.
 
 | **특징/기능** | **단일 서버** | **유연한 서버** |
 | ---- | ---- | ---- |
 | **일반**  | | |
-| 일반 공급 | 2018년 이후 GA | 공개 미리 보기 |
+| 일반 공급 | 2018년 이후 GA | 2021 이후 GA|
 | PostgreSQL | 커뮤니티 | 커뮤니티 |
 | 버전 | 9.6, 10, 11 | 11, 12, 13 |
 | 기본 운영 체제 | Windows | Linux  |
@@ -110,10 +109,10 @@ ms.locfileid: "132337115"
 | **기타 기능** | | |
 | 고객 관리형 키(BYOK) | 예 | 아니요 |
 | 경고 | 예 | 예 |
-| Microsoft Defender for Cloud | Yes | 아니요 |
+| Microsoft Defender for Cloud | 예 | 아니요 |
 | 리소스 상태 | 예 | 아니요 |
 | 서비스 상태 | 예 | 예 |
-| 성능 인사이트(iPerf) | Yes | 예(미리 보기) |
+| 성능 인사이트(iPerf) | 예 | 예 |
 | 주 버전 업그레이드 지원 | 아니요 | 아니요 |
 | 부 버전 업그레이드 | 예. 유지 관리 기간 동안 자동 | 예. 유지 관리 기간 동안 자동 |
 

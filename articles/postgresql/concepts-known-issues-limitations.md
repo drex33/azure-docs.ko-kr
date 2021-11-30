@@ -1,17 +1,17 @@
 ---
-title: 알려진 문제 및 제한 사항 - Azure Database for PostgreSQL - 단일 서버 및 유연한 서버(미리 보기)
+title: Azure Database for PostgreSQL 대한 알려진 문제 및 제한 사항 - 단일 서버 및 유연한 서버
 description: 고객이 알아야 하는 알려진 문제를 나열합니다.
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/02/2021
-ms.openlocfilehash: 0806ef1a191759e769271a97fb1809298cde10db
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 32d04b9545a32008f32fc8ff9c84d764d8f5f9a9
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535598"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269753"
 ---
 # <a name="azure-database-for-postgresql---known-issues-and-limitations"></a>Azure Database for PostgreSQL - 알려진 문제 및 제한 사항
 

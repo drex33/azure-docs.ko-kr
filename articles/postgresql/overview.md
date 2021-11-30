@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/21/2020
-ms.openlocfilehash: 3d80aba60c4e3662e0a1b3d5d8ed8f2ab6c135a2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 11/30/2021
+ms.openlocfilehash: e3e0e0682c1e02bd84ccc77226fd24c57292f685
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121725258"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267473"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Azure Database for PostgreSQL이란?
 
@@ -49,7 +49,7 @@ Azure Database for PostgreSQL 단일 서버는 데이터베이스 사용자 지�
 
 단일 서버 배포 모드에 대한 자세한 개요는 [단일 서버 개요](./overview-single-server.md)를 참조하세요.
 
-### <a name="azure-database-for-postgresql---flexible-server-preview"></a>Azure Database for PostgreSQL - 유연한 서버(미리 보기)
+### <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버
 
 Azure Database for PostgreSQL 유연한 서버는 데이터베이스 관리 기능 및 구성 설정에 대한 보다 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 일반적으로 이 서비스는 사용자 요구 사항에 따라 더 많은 유연성과 사용자 지정을 제공합니다. 유연한 서버 아키텍처는 사용자가 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 선택할 수 있습니다. 유연한 서버는 서버를 중지/시작하는 기능과 버스트 가능 컴퓨팅 계층을 통해 비용을 최적화할 수 있으므로 전체 컴퓨팅 용량이 지속적으로 필요하지 않는 워크로드에 적합합니다. 이 서비스는 현재 PostgreSQL 커뮤니티 버전 11 및 12를 지원하며 새 버전이 곧 추가될 예정입니다. 이 서비스는 현재 공개 미리 보기로 제공되며, 다양한 Azure 지역에서 사용할 수 있습니다.
 

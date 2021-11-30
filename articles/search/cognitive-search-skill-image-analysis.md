@@ -5,14 +5,14 @@ description: Azure Cognitive Search의 AI 보강 파이프라인에서 이미지
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: d6b32dfedcb5ad5322a32c519084eac3858225ba
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 5595b6ab9cd0a7bf1a3e7f6d7dc6625b7953ed49
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537351"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268195"
 ---
 # <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 

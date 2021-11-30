@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: files
 ms.topic: quickstart
 ms.custom: mode-other
-ms.openlocfilehash: 3c5c7ee12d3f173776536855c112e7914ea153e6
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 704a3228da454243176d029702f8f84833c9e59d
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133073582"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133269525"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
 
@@ -185,4 +185,4 @@ Deleting files share: sample-share
 Blob Storage 샘플을 보려면 다음으로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [C++용 Azure Storage 파일 공유 SDK v12 샘플](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-files-shares/sample)
+> [C++용 Azure Storage 파일 공유 SDK v12 샘플](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-files-shares/samples)

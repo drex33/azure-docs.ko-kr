@@ -10,12 +10,12 @@ ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: aa724a14325b52f7c745330157c3d1b137195833
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 798fdd65400c2c16712870d36578171e4777e9d6
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132867046"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265920"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
@@ -89,6 +89,41 @@ Storage Blob 데이터 기여자를 부여하는 대신 파일 하위 세트에 
 - 쿼리 대상이 CSV 파일인 경우 [통계 만들기](develop-tables-statistics.md#statistics-in-serverless-sql-pool)를 고려해 보세요. 
 
 - 쿼리를 최적화하려면 [서버리스 SQL 풀의 성능 모범 사례](./best-practices-serverless-sql-pool.md)를 참조하세요.  
+
+### <a name="content-of-directory-on-the-path-cannot-be-listed"></a>경로에 있는 디렉터리 콘텐츠를 나열할 수 없습니다.
+
+이 오류는 Azure Data Lake를 쿼리하는 사용자가 스토리지의 파일을 나열할 수 없음을 나타냅니다. 이 오류가 발생할 수 있는 몇 가지 시나리오가 있습니다.
+- Azure AD 통과 [인증을](develop-storage-files-storage-access-control.md?tabs=user-identity) 사용하는 Azure AD 사용자에게는 Azure Data Lake Storage에 파일을 나열할 수 있는 권한이 없습니다.
+- Azure AD 또는 SQL 사용자가 [SAS 키](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) 또는 [작업 영역 관리 ID](develop-storage-files-storage-access-control.md?tabs=managed-identity)를 사용하여 데이터를 읽고 있으며 해당 키/ID에는 스토리지의 파일을 나열할 수 있는 권한이 없습니다.
+- DataVerse 데이터에 액세스하는 사용자에게 DataVerse에서 데이터를 쿼리할 수 있는 권한이 없습니다. SQL 사용자를 사용하는 경우 발생할 수 있습니다.
+- Delta Lake에 액세스하는 사용자에게 Delta Lake 트랜잭션 로그를 읽을 수 있는 권한이 없을 수 있습니다.
+ 
+이 문제를 해결하는 가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 역할을 자신에게 부여하는 `Storage Blob DataContributor` 것입니다.
+- [자세한 내용은 스토리지에 대한 Azure Active Directory 액세스 제어 전체 가이드를 참조하세요](../../storage/blobs/assign-azure-role-data-access.md).
+- [Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어 방문](develop-storage-files-storage-access-control.md)
+ 
+#### <a name="content-of-dataverse-table-cannot-be-listed"></a>DataVerse 테이블의 내용을 나열할 수 없습니다.
+
+DataVerse에 대한 Synapse 링크를 사용하여 연결된 DataVerse 테이블을 읽는 경우 Azure AD 계정을 사용하여 서버리스 SQL 풀에 액세스해야 합니다.
+DataVerse 테이블을 참조하는 외부 테이블을 읽으려고 시도한 SQL 로그인에서 다음 오류가 발생합니다.`External table '???' is not accessible because content of directory cannot be listed. `
+
+#### <a name="content-of-delta-lake-transaction-log-cannot-be-listed"></a>Delta Lake 트랜잭션 로그의 내용을 나열할 수 없습니다.
+
+서버리스 SQL 풀이 Delta Lake 트랜잭션 로그 폴더를 읽을 수 없는 경우 다음 오류가 반환됩니다.
+
+```Msg 13807, Level 16, State 1, Line 6
+Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
+```
+
+`_delta_log` 폴더가 있는지 확인합니다(Delta Lake 형식으로 변환되지 않은 일반 Parquet 파일을 쿼리하고 있을 수 있음). `_delta_log` 폴더가 있는 경우 기본 Delta Lake 폴더에 대한 읽기 및 나열 권한이 둘 다 있는지 확인합니다. FORMAT='CSV'를 사용하여 직접 \*.json 파일을 읽어 보세요(BULK 매개 변수에 URI 배치).
+
+```sql
+select top 10 *
+from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json',FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b',ROWTERMINATOR = '0x0b') 
+with (line varchar(max)) as logs
+```
+
+이 쿼리가 실패하면 호출자는 기본 스토리지 파일을 읽을 수 있는 권한이 없습니다.  
 
 ### <a name="could-not-allocate-tempdb-space-while-transferring-data-from-one-distribution-to-another"></a>한 배포에서 다른 배포로 데이터를 전송하는 동안 tempdb 공간을 할당할 수 없습니다.
 
@@ -495,7 +530,7 @@ WITH ( FORMAT_TYPE = PARQUET)
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
 
-| 오류 | 근본 원인 |
+| Error | 근본 원인 |
 | --- | --- |
 | 구문 오류:<br/> - `Openrowset` 근처의 구문이 잘못되었습니다.<br/> - `...`가 인식할 수 있는 `BULK OPENROWSET` 공급자 옵션이 아닙니다.<br/> - `...` 근처의 구문이 잘못되었습니다. | 가능한 근본 원인:<br/> - 첫 번째 매개 변수로 CosmosDB를 사용하지 않음.<br/> - 세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용함.<br/> - 세 번째 매개 변수(컨테이너 이름)를 지정하지 않음. |
 | CosmosDB 연결 문자열에 오류가 발생했습니다. | - 계정, 데이터베이스 또는 키가 지정되지 않음. <br/> - 인식되지 않는 연결 문자열에는 몇 가지 옵션이 있음.<br/> - 세미콜론(`;`)은 연결 문자열의 끝에 배치됩니다. |
@@ -554,32 +589,6 @@ Azure Synapse SQL은 다음과 같은 경우 트랜잭션 저장소에 표시되
 - 서버리스 SQL 풀은 Delta Lake 파일 업데이트를 지원하지 않습니다. 서버리스 SQL 풀을 사용하여 최신 버전의 Delta Lake를 쿼리할 수 있습니다. Azure Synapse Analytics에서 Apache Spark 풀을 사용하여 [Delta Lake를 업데이트](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data)합니다.
 - Azure Synapse Analytics의 서버리스 SQL 풀은 [BLOOM 필터](/azure/databricks/delta/optimizations/bloom-filters)를 사용하는 데이터 세트를 지원하지 않습니다.
 - Delta Lake 지원은 전용 SQL 풀에서 사용할 수 없습니다. 서버리스 풀을 사용하여 Delta Lake 파일을 쿼리하고 있는지 확인합니다.
-
-### <a name="content-of-directory-on-path-cannot-be-listed"></a>경로에 있는 디렉터리의 콘텐츠를 나열할 수 없음
-
-서버리스 SQL 풀이 Delta Lake 트랜잭션 로그 폴더를 읽을 수 없는 경우 다음 오류가 반환됩니다.
-
-```
-Msg 13807, Level 16, State 1, Line 6
-Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
-```
-
-`_delta_log` 폴더가 있는지 확인합니다(Delta Lake 형식으로 변환되지 않은 일반 Parquet 파일을 쿼리하고 있을 수 있음).
-
-`_delta_log` 폴더가 있는 경우 기본 Delta Lake 폴더에 대한 읽기 및 나열 권한이 둘 다 있는지 확인합니다.
-FORMAT='CSV'를 사용하여 직접 \*.json 파일을 읽어 보세요(BULK 매개 변수에 URI 배치).
-
-```sql
-select top 10 * 
-from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json', 
-FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0b') with (line varchar(max)) as logs
-```
-
-이 쿼리가 실패하면 호출자는 기본 스토리지 파일을 읽을 수 있는 권한이 없습니다. 
-
-가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 `Storage Blob Data Contributor` 역할을 자신에게 부여하는 것입니다. 
-- [자세한 내용은 스토리지에 대한 Azure Active Directory 액세스 제어 전체 가이드를 참조하세요](../../storage/blobs/assign-azure-role-data-access.md). 
-- [Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어 방문](develop-storage-files-storage-access-control.md)
 
 ### <a name="json-text-is-not-properly-formatted"></a>JSON 텍스트의 형식이 잘못되었습니다.
 

@@ -67,6 +67,12 @@
               href: azure-netapp-files-smb-performance.md
             - name: Azure 가상 머신 SKU 모범 사례
               href: performance-virtual-machine-sku.md
+    - name: 애플리케이션 볼륨 그룹
+      items:
+        - name: SAP HANA 대한 애플리케이션 볼륨 그룹 이해
+          href: application-volume-group-introduction.md
+        - name: SAP HANA 애플리케이션 볼륨 그룹에 대한 요구 사항 및 고려 사항
+          href: application-volume-group-considerations.md
     - name: 데이터 보호
       items:
         - name: Azure NetApp Files 스냅샷 작동 방식
@@ -115,6 +121,8 @@
           href: faq-application-resilience.md
         - name: 데이터 마이그레이션 및 보호 FAQ
           href: faq-data-migration-protection.md
+        - name: 애플리케이션 볼륨 그룹 FAQ
+          href: faq-application-volume-group.md
         - name: Azure NetApp Files 백업 FAQ
           href: faq-backup.md
         - name: 보안 FAQ
@@ -191,6 +199,20 @@
               href: azure-netapp-files-resize-capacity-pools-or-volumes.md
             - name: 볼륨의 서비스 수준을 동적으로 변경
               href: dynamic-change-volume-service-level.md
+    - name: 응용 프로그램 볼륨 그룹 관리
+      items:
+        - name: 첫 번째 SAP HANA 호스트 배포
+          href: application-volume-group-deploy-first-host.md
+        - name: 다중 호스트 SAP HANA 시스템에 호스트 추가
+          href: application-volume-group-add-hosts.md
+        - name: HSR에서 보조 데이터베이스로 SAP HANA 시스템의 볼륨 추가
+          href: application-volume-group-add-volume-secondary.md
+        - name: SAP HANA 시스템용 볼륨을 DR 시스템으로 추가
+          href: application-volume-group-disaster-recovery.md
+        - name: 응용 프로그램 볼륨 그룹의 볼륨 관리
+          href: application-volume-group-manage-volumes.md
+        - name: 응용 프로그램 볼륨 그룹 삭제
+          href: application-volume-group-delete.md
     - name: 데이터 보호 관리
       items:
         - name: 볼륨 스냅샷 관리
@@ -251,6 +273,8 @@
           href: troubleshoot-capacity-pools.md
         - name: 볼륨 오류 해결
           href: troubleshoot-volumes.md
+        - name: 응용 프로그램 볼륨 그룹 오류 문제 해결
+          href: troubleshoot-application-volume-groups.md
         - name: 스냅샷 정책 오류 문제 해결
           href: troubleshoot-snapshot-policies.md
         - name: 지역 간 복제 오류 문제 해결

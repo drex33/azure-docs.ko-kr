@@ -1,5 +1,5 @@
 ---
-title: Azure Cognitive Search 모니터링
+title: 모니터 Azure Cognitive Search
 description: 리소스 로깅을 사용하도록 설정하고, 쿼리 메트릭, 리소스 사용량 및 Azure Cognitive Search 서비스에 대한 기타 시스템 데이터를 얻습니다.
 manager: nitinme
 author: HeidiSteen
@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2021
 ms.custom: subject-monitoring
-ms.openlocfilehash: bc8af84bf571a02f478ebe81ee3ca216c89532f4
-ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.openlocfilehash: 91a5af08f5a277ad2373062310362dde6c0c56a3
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2021
-ms.locfileid: "133129725"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218029"
 ---
 # <a name="monitoring-azure-cognitive-search"></a>모니터링 Azure Cognitive Search
 
@@ -41,14 +41,14 @@ Azure 서비스를 모니터링하는 방법을 잘 모르는 경우 다음 개�
 
 Azure Cognitive Search Azure 리소스에서 데이터 모니터링에 설명된 다른 Azure 리소스와 동일한 종류의 [모니터링 데이터를 수집합니다.](../azure-monitor/essentials/monitor-azure-resource.md) Azure Cognitive Search 만든 메트릭 및 로그 메트릭에 대한 자세한 내용은 [데이터 참조를](monitor-azure-cognitive-search-data-reference.md) 참조하세요.
 
-통계, 개수 및 상태를 포함하여 검색 서비스 자체에서 시스템 데이터를 가져올 수도 있습니다.
+Azure Monitor 수집한 리소스 로그 외에도 통계, 개수 및 상태를 포함하여 검색 서비스 자체에서 시스템 데이터를 가져올 수 있습니다.
 
 * [서비스 통계(REST)](/rest/api/searchservice/get-service-statistics)
 * [인덱스 통계(REST)](/rest/api/searchservice/get-index-statistics)
 * [문서 수(REST)](/rest/api/searchservice/count-documents)
 * [인덱서 상태(REST)](/rest/api/searchservice/get-indexer-status)
 
-위의 정보는 Azure Portal 읽을 수도 있습니다. REST 호출의 경우 [관리자 API 키와](search-security-api-keys.md) [Postman](search-get-started-rest.md) 또는 다른 REST 클라이언트를 사용합니다.
+위의 시스템 정보는 Azure Portal 읽을 수도 있습니다. REST 호출의 경우 [관리자 API 키와](search-security-api-keys.md) [Postman](search-get-started-rest.md) 또는 다른 REST 클라이언트를 사용합니다.
 
 Azure Portal 페이지에서 사용량 및 모니터링 탭에서 개수 및 메트릭을 확인합니다. 왼쪽 탐색의 명령은 구성 및 데이터 탐색 페이지에 대한 액세스를 제공합니다.
 
@@ -64,7 +64,7 @@ Azure Portal 페이지에서 사용량 및 모니터링 탭에서 개수 및 메
 
 리소스 로그는 진단 설정을 만들고 하나 이상의 위치로 라우팅할 때까지 수집 및 저장되지 않습니다. 로그 데이터 수집 및 보존은 사용량 기반 가격 책정에 따라 청구됩니다. 진단 설정을 만들 때까지 청구가 시작되지 않습니다.
 
-Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](/azure/azure-monitor/platform/diagnostic-settings)를 참조하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정합니다. *Azure Cognitive Search* 범주는 [Azure Cognitive Search 모니터링 데이터 참조](monitor-azure-cognitive-search-data-reference.md#resource-logs)에 나열됩니다.
+Azure Portal, CLI 또는 PowerShell을 사용한 진단 설정 만들기의 자세한 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](/azure/azure-monitor/platform/diagnostic-settings)를 참조하세요. 진단 설정을 만들 때 수집할 로그 범주를 지정합니다. *Azure Cognitive Search* 범주는 Azure Cognitive Search 모니터링 데이터 [참조](monitor-azure-cognitive-search-data-reference.md#resource-logs)에 나열됩니다.
 
 > [!Important]
 > 이러한 설정을 사용하려면 추가 Azure 서비스(스토리지 계정, 이벤트 허브 또는 Log Analytics)가 필요하므로 비용이 늘어날 수 있습니다. 자세한 내용은 [Azure Monitor 가격 책정을](https://azure.microsoft.com/pricing/details/monitor/#pricing) 참조하세요.
@@ -85,9 +85,9 @@ Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 �
 
 [활동 로그는](/azure/azure-monitor/essentials/activity-log) 구독 수준 이벤트에 대한 인사이트를 제공하는 Azure 내의 플랫폼 로그 유형입니다. 활동 로그는 독립적으로 보거나 Azure Monitor Logs로 라우팅할 수 있습니다. 여기서 Log Analytics를 사용하여 훨씬 더 복잡한 쿼리를 수행할 수 있습니다.  
 
-Azure Cognitive Search 대해 수집된 리소스 로그 유형 목록은 [Azure Cognitive Search 모니터링 데이터 참조(리소스 로그)를 참조하세요.](monitor-azure-cognitive-search-data-reference.md#resource-logs)
+Azure Cognitive Search 대해 수집된 리소스 로그 유형 목록은 Azure Cognitive Search 모니터링 [데이터 참조(리소스 로그)를 참조하세요.](monitor-azure-cognitive-search-data-reference.md#resource-logs)
 
-Azure Monitor Logs에서 사용하고 Log Analytics에서 쿼리할 수 있는 테이블 목록은 [Azure Cognitive Search 모니터링 데이터 참조(Azure Monitor 로그 테이블)를 참조하세요.](monitor-azure-cognitive-search-data-reference.md#azure-monitor-logs-tables)
+Azure Monitor Logs에서 사용하고 Log Analytics에서 쿼리할 수 있는 테이블 목록은 [Azure Cognitive Search 모니터링 데이터 참조(Azure Monitor Logs Tables)를 참조하세요.](monitor-azure-cognitive-search-data-reference.md#azure-monitor-logs-tables)
 
 > [!NOTE]
 > 포털 페이지는 몇 분 마다 새로고침되고, 보고된 숫자는 근사값이며, 시스템에서 요청을 처리하는 정도에 대한 일반적 개념을 제공하기 위한 것입니다. 초당 쿼리 수(QPS)와 같은 실제 메트릭은 페이지에 표시되는 숫자보다 크거나 작을 수 있습니다. 정밀도가 요구 사항인 경우 API를 사용하는 것이 좋습니다.
@@ -155,7 +155,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Cognitive Search와 같은 리소스를 포함하여 Azure 서비스를 감독하는 데 Azure Monitor를 능숙하게 다루는 것이 필요합니다. Azure Monitor 익숙하지 않은 경우 시간을 내어 리소스 로깅과 관련된 문서를 검토하세요. 다음 문서를 시작 하는 것이 좋습니다.
+Azure Cognitive Search와 같은 리소스를 포함하여 Azure 서비스를 감독하는 데 Azure Monitor를 능숙하게 다루는 것이 필요합니다. Azure Monitor 익숙하지 않은 경우 시간을 내어 리소스 로깅과 관련된 문서를 검토하세요. 다음 문서를 시작하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)

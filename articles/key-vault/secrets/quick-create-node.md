@@ -3,17 +3,17 @@ title: 빠른 시작 - JavaScript용 Azure Key Vault 비밀 클라이언트 라�
 description: JavaScript 클라이언트 라이브러리를 사용하여 Azure Key Vault에서 비밀을 생성, 검색 및 삭제하는 방법을 알아봅니다.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 12/6/2020
+ms.date: 11/29/2021
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js, mode-other
-ms.openlocfilehash: 167c518621baca028b3b19834c78d80fb22b513d
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 78ab150e12cc4a0ef9e22573d89176f52234607f
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133067112"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133217764"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-javascript-version-4"></a>빠른 시작: JavaScript용 Azure Key Vault 비밀 클라이언트 라이브러리(버전 4)
 
@@ -25,14 +25,17 @@ Key Vault 클라이언트 라이브러리 리소스:
 
 Key Vault 및 비밀에 대한 자세한 내용은 다음을 참조하세요.
 - [Key Vault 개요](../general/overview.md)
-- [비밀 개요](about-secrets.md)를 참조하세요.
+- [비밀 개요](about-secrets.md)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- 현재 운영 체제의 [Node.js](https://nodejs.org)입니다.
+- 현재 [Node.js LTS](https://nodejs.org)입니다.
 - [Azure CLI](/cli/azure/install-azure-cli)
-- Key Vault - [Azure Portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md) 또는 [Azure PowerShell](../general/quick-create-powershell.md)을 사용하여 만들 수 있습니다.
+- 기존 Key Vault-다음을 사용 하 여 만들 수 있습니다.
+    - [Azure CLI](../general/quick-create-cli.md)
+    - [Azure Portal](../general/quick-create-portal.md) 
+    - [Azure PowerShell](../general/quick-create-powershell.md)
 
 이 빠른 시작에서는 [Azure CLI](/cli/azure/install-azure-cli)를 실행하고 있다고 가정합니다.
 
@@ -52,232 +55,192 @@ Key Vault 및 비밀에 대한 자세한 내용은 다음을 참조하세요.
 
 ## <a name="create-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
 
-다음으로, 클라우드에 배포할 수 있는 Node.js 애플리케이션을 만듭니다. 
+주요 자격 증명 모음을 사용 하는 Node.js 응용 프로그램을 만듭니다. 
 
-1. 명령 셸에서 `key-vault-node-app`이라는 폴더를 만듭니다.
+1. 터미널에서 라는 폴더를 만들고 `key-vault-node-app` 해당 폴더로 변경 합니다.
 
-```terminal
-mkdir key-vault-node-app
-```
+    ```terminal
+    mkdir key-vault-node-app && cd key-vault-node-app
+    ```
 
-1. 새로 만든 *key-vault-node-app* 디렉터리로 변경하고, 'init' 명령을 실행하여 노드 프로젝트를 초기화합니다.
+1. Node.js 프로젝트를 초기화 합니다.
 
-```terminal
-cd key-vault-node-app
-npm init -y
-```
+    ```terminal
+    npm init -y
+    ```
 
 ## <a name="install-key-vault-packages"></a>Key Vault 패키지 설치
 
-콘솔 창에서 Node.js용 Azure Key Vault [비밀 라이브러리](https://www.npmjs.com/package/@azure/keyvault-secrets)를 설치합니다.
+1. 터미널을 사용 하 여 Node.js에 대 한 Azure Key Vault 비밀 라이브러리를 설치 [@azure/keyvault-secrets](https://www.npmjs.com/package/@azure/keyvault-secrets) 합니다.
 
-```terminal
-npm install @azure/keyvault-secrets
-```
+    ```terminal
+    npm install @azure/keyvault-secrets
+    ```
 
-[azure.identity](https://www.npmjs.com/package/@azure/identity) 패키지를 설치하여 Key Vault에 인증합니다.
+1. Azure Id 라이브러리, 패키지를 설치 [@azure/identity](https://www.npmjs.com/package/@azure/identity) 하 여 Key Vault에 인증 합니다.
 
-```terminal
-npm install @azure/identity
+    ```terminal
+    npm install @azure/identity
+    ```
+
+## <a name="create-a-service-principal"></a>서비스 주체 만들기
+
+서비스 주체를 만들고 Azure 리소스에 대한 액세스를 구성합니다. 개별 사용자 계정 및 암호 대신 서비스 주체를 사용 합니다.
+
+1. Azure CLI 또는 [Cloud Shell](https://shell.azure.com)에서 Azure [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) 명령을 사용하여 서비스 주체를 만듭니다. 
+
+    ```bash
+    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME
+    ```
+
+2. 이 빠른 시작의 뒷부분에서 azure SDK에 대 한 Azure 인증을 설정 하기 위해 명령 응답을 기록해 둡니다.
+
+    ```json
+    {
+      "appId": "YOUR-SERVICE-PRINCIPAL-ID",
+      "displayName": "YOUR-SERVICE-PRINCIPAL-NAME",
+      "name": "http://YOUR-SERVICE-PRINCIPAL-NAME",
+      "password": "YOUR-SERVICE-PRINCIPAL-SECRET",
+      "tenant": "YOUR-TENANT-ID"
+    }
+    ```
+
+## <a name="grant-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한 부여
+
+[Az keyvault set 정책](/cli/azure/keyvault#az_keyvault_set_policy) 명령을 사용 하 여 서비스 사용자에 게 비밀 권한을 부여 하는 key vault에 대 한 액세스 정책을 만듭니다.
+
+```azurecli
+az keyvault set-policy --name <your-key-vault-name> --spn <your-service-principal-id> --secret-permissions delete get list set purge
 ```
 
 ## <a name="set-environment-variables"></a>환경 변수 설정
 
-이 애플리케이션은 키 자격 증명 모음 이름을 `KEY_VAULT_NAME`이라는 환경 변수로 사용합니다.
+1. 다음 필수 환경 변수를 수집 합니다.
 
-Windows
-```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
-````
-Windows PowerShell
-```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
-```
+    |이름|값|
+    |--|--|
+    |AZURE_TENANT_ID|서비스 주체 결과에서-테 넌 트 ID입니다.|
+    |AZURE_CLIENT_ID|서비스 주체 결과에서-서비스 보안 주체 ID|
+    |AZURE_CLIENT_SECRET|서비스 주체 결과에서-서비스 보안 주체 암호|
+    |KEYVAULT_URI|https://YOUR-KEY-VAULT-NAME.vault.azure.net/|
 
-macOS 또는 Linux
-```cmd
-export KEY_VAULT_NAME=<your-key-vault-name>
-```
+1. 명령을 선택 하 고 위의 표에 있는 각 키와 설정에 대해 한 번씩 4 번 실행 합니다. 
 
-## <a name="grant-access-to-your-key-vault"></a>키 자격 증명 모음에 대한 액세스 권한 부여
+    # <a name="windows"></a>[Windows](#tab/env-windows)
+    
+    ```cmd
+    set name=value
+    ```
+    # <a name="windows-powershell"></a>[Windows PowerShell](#tab/env-windows-powershell)
+    
+    ```powershell
+    $Env:name="value"
+    ```
+    # <a name="macos-or-linux"></a>[macOS 또는 Linux](#tab/env-mac-linux)
+    
+    ```cmd
+    export name=value
+    ```
+    
+    ---
 
-비밀 권한을 사용자 계정에 부여하는 키 자격 증명 모음에 대한 액세스 정책을 만듭니다.
-
-```azurecli
-az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set purge
-```
-
-## <a name="code-examples"></a>코드 예제
+## <a name="code-example"></a>코드 예제
 
 아래의 코드 샘플에서는 클라이언트를 만들고, 비밀을 설정, 검색 및 삭제하는 방법을 보여 줍니다. 
 
-### <a name="set-up-the-app-framework"></a>앱 프레임워크 설정
+1. 새 텍스트 파일을 만들고 다음 코드를 **index.js** 파일에 붙여넣습니다. 
 
-1. 새 텍스트 파일을 만들고 'index.js'로 저장합니다.
-
-1. Azure 및 Node.js 모듈을 로드하는 데 필요한 호출 추가
-
-1. 기본적인 예외 처리를 포함하여 프로그램의 구조 만들기
-
-```javascript
-const readline = require('readline');
-
-function askQuestion(query) {
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
-    });
-
-    return new Promise(resolve => rl.question(query, ans => {
-        rl.close();
-        resolve(ans);
-    }))
-}
-
-async function main() {
+    ```javascript
+    const { SecretClient } = require("@azure/keyvault-secrets");
+    const { DefaultAzureCredential } = require("@azure/identity");
     
-}
-
-main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
-```
-
-### <a name="add-directives"></a>지시문 추가
-
-다음 지시문을 코드 위쪽에 추가합니다.
-
-```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
-```
-
-### <a name="authenticate-and-create-a-client"></a>클라이언트 인증 및 만들기
-
-이 빠른 시작에서 로그인한 사용자는 로컬 개발에서 기본적으로 설정되는 방법인 키 자격 증명 모음에 인증하는 데 사용됩니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
-
-아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제에서는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 [Azure Identity Library](/javascript/api/overview/azure/identity-readme)에서 ['DefaultAzureCredential()'](/javascript/api/@azure/identity/defaultazurecredential) 클래스를 사용합니다. Key Vault 인증에 대한 자세한 내용은 [개발자 가이드](../general/developers-guide.md#authenticate-to-key-vault-in-code)를 참조하세요.
-
-'main()' 함수에 다음 코드를 추가합니다.
-
-```javascript
-const keyVaultName = process.env["KEY_VAULT_NAME"];
-const KVUri = "https://" + keyVaultName + ".vault.azure.net";
-
-const credential = new DefaultAzureCredential();
-const client = new SecretClient(KVUri, credential);
-```
-
-### <a name="save-a-secret"></a>비밀 저장
-
-이제 애플리케이션이 인증되었으므로 [setSecret 메서드](/javascript/api/@azure/keyvault-secrets/secretclient#setSecret_string__string__SetSecretOptions_)를 사용하여 키 자격 증명 모음에 비밀을 넣을 수 있습니다. 이 작업에는 비밀 이름이 필요합니다. 이 샘플에서는 "mySecret"을 사용합니다.  
-
-```javascript
-await client.setSecret(secretName, secretValue);
-```
-
-### <a name="retrieve-a-secret"></a>비밀 검색
-
-이제 [getSecret 메서드](/javascript/api/@azure/keyvault-secrets/secretclient#getSecret_string__GetSecretOptions_)를 사용하여 이전에 설정한 값을 검색할 수 있습니다.
-
-```javascript
-const retrievedSecret = await client.getSecret(secretName);
- ```
-
-이제 비밀이 `retrievedSecret.value`로 저장됩니다.
-
-### <a name="delete-a-secret"></a>비밀 삭제
-
-마지막으로 [beginDeleteSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#beginDeleteSecret_string__BeginDeleteSecretOptions_) 및 [purgeDeletedSecret](/javascript/api/@azure/keyvault-secrets/secretclient?#purgeDeletedSecret_string__PurgeDeletedSecretOptions_) 메서드를 사용하여 키 자격 증명 모음에서 비밀을 삭제하고 제거하겠습니다.
-
-```javascript
-const deletePoller = await client.beginDeleteSecret(secretName);
-await deletePoller.pollUntilDone();
-await client.purgeDeletedSecret(secretName);
-```
-
-## <a name="sample-code"></a>예제 코드
-
-```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
-
-const readline = require('readline');
-
-function askQuestion(query) {
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout,
+    // Load the .env file if it exists
+    const dotenv = require("dotenv");
+    dotenv.config();
+    
+    async function main() {
+      // DefaultAzureCredential expects the following three environment variables:
+      // - AZURE_TENANT_ID: The tenant ID in Azure Active Directory
+      // - AZURE_CLIENT_ID: The application (client) ID registered in the AAD tenant
+      // - AZURE_CLIENT_SECRET: The client secret for the registered application
+      const credential = new DefaultAzureCredential();
+    
+      const url = process.env["KEYVAULT_URI"] || "<keyvault-url>";
+    
+      const client = new SecretClient(url, credential);
+    
+      // Create a secret
+      const uniqueString = new Date().getTime();
+      const secretName = `secret${uniqueString}`;
+      const result = await client.setSecret(secretName, "MySecretValue");
+      console.log("result: ", result);
+    
+      // Read the secret we created
+      const secret = await client.getSecret(secretName);
+      console.log("secret: ", secret);
+    
+      // Update the secret with different attributes
+      const updatedSecret = await client.updateSecretProperties(secretName, result.properties.version, {
+        enabled: false
+      });
+      console.log("updated secret: ", updatedSecret);
+    
+      // Delete the secret
+      // If we don't want to purge the secret later, we don't need to wait until this finishes
+      await client.beginDeleteSecret(secretName);
+    }
+    
+    main().catch((error) => {
+      console.error("An error occurred:", error);
+      process.exit(1);
     });
+    ```
 
-    return new Promise(resolve => rl.question(query, ans => {
-        rl.close();
-        resolve(ans);
-    }))
-}
+## <a name="run-the-sample-application"></a>샘플 애플리케이션 실행
 
-async function main() {
-
-  const keyVaultName = process.env["KEY_VAULT_NAME"];
-  const KVUri = "https://" + keyVaultName + ".vault.azure.net";
-
-  const credential = new DefaultAzureCredential();
-  const client = new SecretClient(KVUri, credential);
-
-  const secretName = "mySecret";
-  var secretValue = await askQuestion("Input the value of your secret > ");
-
-  console.log("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
-  await client.setSecret(secretName, secretValue);
-
-  console.log("Done.");
-
-  console.log("Forgetting your secret.");
-  secretValue = "";
-  console.log("Your secret is '" + secretValue + "'.");
-
-  console.log("Retrieving your secret from " + keyVaultName + ".");
-
-  const retrievedSecret = await client.getSecret(secretName);
-
-  console.log("Your secret is '" + retrievedSecret.value + "'.");
-
-  console.log("Deleting your secret from " + keyVaultName + " ...");
-  const deletePoller = await client.beginDeleteSecret(secretName);
-  await deletePoller.pollUntilDone();
-  console.log("Done.");
-  
-  console.log("Purging your secret from {keyVaultName} ...");
-  await client.purgeDeletedSecret(secretName);
-  
-}
-
-main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
-
-```
-
-## <a name="test-and-verify"></a>테스트 및 확인
-
-1. 다음 명령을 실행하여 앱을 실행합니다.
+1. 앱 실행:
 
     ```terminal
-    npm install
     node index.js
     ```
 
-1. 메시지가 표시되면 비밀 값을 입력합니다. 예를 들어 mySecretPassword입니다.
+1. Create 및 get 메서드는 암호에 대 한 전체 JSON 개체를 반환 합니다.
 
-    다음과 유사한 출력이 표시됩니다.
-
-    ```azurecli
-    Input the value of your secret > mySecretPassword
-    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
-    Forgetting your secret.
-    Your secret is ''.
-    Retrieving your secret from <your-unique-keyvault-name>.
-    Your secret is 'mySecretPassword'.
-    Deleting your secret from <your-unique-keyvault-name> ... done.  
-    Purging your secret from <your-unique-keyvault-name> ... done.   
+    ```JSON
+    {
+        "value": "MySecretValue",
+        "name": "secret1637692472606",
+        "properties": {
+            "createdOn": "2021-11-23T18:34:33.000Z",
+            "updatedOn": "2021-11-23T18:34:33.000Z",
+            "enabled": true,
+            "recoverableDays": 90,
+            "recoveryLevel": "Recoverable+Purgeable",
+            "id": "https: //YOUR-KEYVAULT-NAME.vault.azure.net/secrets/secret1637692472606/YOUR-VERSION",
+            "vaultUrl": "https: //YOUR-KEYVAULT-NAME.vault.azure.net",
+            "version": "YOUR-VERSION",
+            "name": "secret1637692472606"
+        }
+    }
     ```
 
+    Update 메서드는 이름/값 쌍 **속성** 을 반환 합니다.
+
+    ```JSON
+    "createdOn": "2021-11-23T18:34:33.000Z",
+    "updatedOn": "2021-11-23T18:34:33.000Z",
+    "enabled": true,
+    "recoverableDays": 90,
+    "recoveryLevel": "Recoverable+Purgeable",
+    "id": "https: //YOUR-KEYVAULT-NAME.vault.azure.net/secrets/secret1637692472606/YOUR-VERSION",
+    "vaultUrl": "https: //YOUR-KEYVAULT-NAME.vault.azure.net",
+    "version": "YOUR-VERSION",
+    "name": "secret1637692472606"
+    ```
+
+## <a name="integrating-with-app-configuration"></a>앱 구성과 통합
+
+Azure SDK는 지정 된 Key Vault 비밀 ID를 구문 분석 하는 도우미 메서드인 [parseKeyVaultSecretIdentifier](/javascript/api/@azure/keyvault-secrets/#parseKeyVaultSecretIdentifier_string_)을 제공 합니다. Key Vault에 대 한 [앱 구성](/azure/azure-app-configuration/) 참조를 사용 하는 경우이 작업이 필요 합니다. 앱 구성은 Key Vault 비밀 ID를 저장 합니다. 비밀 이름을 가져오기 위해 해당 ID를 구문 분석 하려면 _parseKeyVaultSecretIdentifier_ 메서드가 필요 합니다. 비밀 이름이 있으면이 빠른 시작의 코드를 사용 하 여 현재 비밀 값을 가져올 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

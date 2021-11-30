@@ -1030,6 +1030,8 @@
               href: cassandra/oracle-migrate-cosmos-db-blitzz.md
             - name: Blitzz를 사용하여 Apache Cassandra에서 Cassandra API로 마이그레이션
               href: cassandra/migrate-data-blitzz.md
+            - name: 마이그레이션-이중 쓰기 프록시를 사용 하 여 Cassandra API에 대 한 Apache Cassandra
+              href: cassandra/migrate-data-dual-write-proxy.md
             - name: Databricks를 사용하여 Apache Cassandra에서 Cassandra API로 마이그레이션
               href: cassandra/migrate-data-databricks.md
             - name: Apache Kafka를 사용하여 PostgreSQL에서 Cassandra API로 마이그레이션

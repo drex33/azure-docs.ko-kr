@@ -1,18 +1,18 @@
 ---
-title: Azure Stream Analytics 클러스터에서 작업 만들기 및 삭제
+title: Azure Stream Analytics 클러스터에서 작업 추가 및 삭제
 description: Azure Stream Analytics 클러스터에서 Stream Analytics 작업을 관리하는 방법 알아보기
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/16/2021
-ms.openlocfilehash: 4a6334d33dea959bdd3704f848e7bc8250b6e7c6
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.date: 11/29/2021
+ms.openlocfilehash: 6e3e721bdf55e91c8e113da1399e0de2d827de09
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600726"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133217305"
 ---
 # <a name="add-and-remove-jobs-in-an-azure-stream-analytics-cluster"></a>Azure Stream Analytics 클러스터에서 작업 추가 및 제거
 

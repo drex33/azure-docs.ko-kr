@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드�
 ms.topic: conceptual
 ms.date: 11/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: ebc4c07e26f2e88509beafb4258e7a47dd43d354
-ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.openlocfilehash: 3636656314d878def9091bf4e78a79bf471a883c
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132956894"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218751"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>ARM 템플릿을 사용한 구독 배포
 
@@ -68,7 +68,7 @@ Azure 정책의 경우 다음을 사용합니다.
 
 모니터링의 경우 다음을 사용합니다.
 
-* [diagnosticSettings](/templates/microsoft.insights/diagnosticsettings)
+* [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 * [logprofiles](/azure/templates/microsoft.insights/logprofiles)
 
 보안을 위해 다음을 사용합니다.
@@ -443,7 +443,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Access Control
 
-역할 할당에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당](../../role-based-access-control/role-assignments-template.md)을 참조 하세요.
+역할 할당에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure 역할 할당을 참조하세요.](../../role-based-access-control/role-assignments-template.md)
 
 다음 예제에서는 리소스 그룹을 만들고 해당 그룹에 잠금을 적용하며 보안 주체에 역할을 할당합니다.
 
@@ -451,6 +451,6 @@ New-AzSubscriptionDeployment `
 
 ## <a name="next-steps"></a>다음 단계
 
-* 클라우드 용 Microsoft Defender에 대 한 작업 영역 설정 배포에 대 한 예제는 [deployASCwithWorkspaceSettings](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)를 참조 하세요.
+* Microsoft Defender for Cloud에 대한 작업 영역 설정을 배포하는 예제는 [deployASCwithWorkspaceSettings.json을](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)참조하세요.
 * 샘플 템플릿은 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments)에서 찾을 수 있습니다.
 * [관리 그룹 수준](deploy-to-management-group.md) 및 [테넌트 수준](deploy-to-tenant.md)에서 템플릿을 배포할 수도 있습니다.

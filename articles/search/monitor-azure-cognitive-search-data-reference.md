@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: reference
 ms.date: 11/24/2021
 ms.custom: subject-monitoring
-ms.openlocfilehash: d274b53d34d4d2259fa732e1b41e41d1a9567de9
-ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.openlocfilehash: 99199166f0bea8124f95c81e396664af09bdfeff
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2021
-ms.locfileid: "133129726"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133217745"
 ---
 # <a name="azure-cognitive-search-monitoring-data-reference"></a>모니터링 데이터 참조 Azure Cognitive Search
 
@@ -57,13 +57,11 @@ ms.locfileid: "133129726"
 
 + 리소스 로그는 유형(또는 범주)으로 그룹화됩니다. Azure Cognitive Search 작업 범주 아래에 리소스 [**로그를 생성합니다.**](../azure-monitor/essentials/resource-logs-categories.md#microsoftsearchsearchservices)
 
-+ 리소스 로그 스키마에 공통이 포함됩니다. 
-
 [Azure Monitor에서 지원되는 모든 리소스 로그 범주 유형](/azure/azure-monitor/platform/resource-logs-schema) 목록을 참조하세요.
 
 ## <a name="azure-monitor-logs-tables"></a>Azure Monitor Logs 테이블
 
-[Azure Monitor 로그는](../azure-monitor/logs/data-platform-logs.md) 모니터링되는 리소스에서 로그 및 성능 데이터를 수집하고 구성하는 Azure Monitor 기능입니다. 이러한 리소스 중 하나에는 Azure Cognitive Search 생성된 플랫폼 로그가 포함됩니다.
+[Azure Monitor 로그는](../azure-monitor/logs/data-platform-logs.md) 모니터링되는 리소스에서 로그 및 성능 데이터를 수집하고 구성하는 Azure Monitor 기능입니다. Log Analytics에 대한 진단 설정을 구성한 경우 Azure Monitor Logs 테이블에서 Azure Cognitive Search 생성된 리소스 로그를 쿼리할 수 있습니다.
 
 이 섹션에서는 Azure Cognitive Search 관련되고 Log Analytics 및 Azure Portal 메트릭 탐색기 쿼리에 사용할 수 있는 모든 Azure Monitor Logs Kusto 테이블을 참조합니다.
 
@@ -113,14 +111,14 @@ Azure Monitor 통해 사용할 수 있는 모든 리소스 로그는 [공통 최
 
 리소스 로그에는 다음 예제와 같이 일반적인 속성과 검색 관련 속성의 조합이 포함됩니다.
 
-| Name | 유형 | 설명 및 예 |
+| 이름 | Type | 설명 및 예 |
 | ---- | ---- | ----------------------- |
 | TimeGenerated | DateTime | 작업의 타임스탬프입니다. 예: `2021-12-07T00:00:43.6872559Z` |
 | 리소스 | String | 리소스 ID입니다. 예: `/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group-name>/providers/Microsoft.Search/searchServices/<your-search-service-name>` |
 | 범주 | String | "OperationLogs". 이 값은 상수입니다. OperationLogs는 리소스 로그에 사용되는 유일한 범주입니다. |
-| OperationName | String |  작업의 이름입니다(전체 목록은 스키마 섹션 참조). 예: `Query.Search` |
+| OperationName | String |  작업의 이름입니다(아래 [작업의 전체 목록](#resource-log-search-ops) 참조). 예를 들면 다음과 같습니다. `Query.Search` |
 | OperationVersion | 문자열 | 요청에 사용되는 api-version입니다. 예: `2020-06-30` |
-| ResultType | 문자열 |"Success". 가능한 값: Success 또는 Failure |
+| ResultType | String |"Success". 가능한 값: Success 또는 Failure |
 | ResultSignature | Int | HTTP 결과 코드입니다. 예: `200` |
 | DurationMS | Int | 작업 기간(밀리초)입니다. |
 | 속성 |Object | 작업별 데이터를 포함하는 개체입니다. 다음 속성 스키마 테이블을 참조하세요.|
@@ -131,7 +129,7 @@ Azure Monitor 통해 사용할 수 있는 모든 리소스 로그는 [공통 최
 
 아래 속성은 Azure Cognitive Search에만 적용됩니다.
 
-| Name | 유형 | 설명 및 예 |
+| 이름 | Type | 설명 및 예 |
 | ---- | ---- | ----------------------- |
 | Description_s | 문자열 | 작업의 엔드포인트입니다. 예: `GET /indexes('content')/docs` |
 | Documents_d | Int | 처리된 문서 수입니다. |

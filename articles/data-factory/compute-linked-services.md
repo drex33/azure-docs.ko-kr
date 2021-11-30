@@ -1,7 +1,7 @@
 ---
 title: 컴퓨팅 환경
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 'Azure Data Factory 및 Synapse Analytics 파이프라인 (예: Azure HDInsight)에서 데이터를 변환 또는 처리 하는 데 사용할 수 있는 계산 환경에 대해 알아봅니다.'
+description: 'Azure Data Factory 및 Synapse Analytics 파이프라인(예: Azure HDInsight)과 함께 사용하여 데이터를 변환하거나 처리할 수 있는 컴퓨팅 환경에 대해 알아봅니다.'
 ms.service: data-factory
 ms.subservice: concepts
 ms.topic: conceptual
@@ -9,22 +9,22 @@ author: nabhishek
 ms.author: abnarain
 ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: ddd268a540b17e4cf2246c04ba74eac1a84923f1
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 30e32fe6bf74ec83d21744282803a9767c651459
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132870334"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218900"
 ---
-# <a name="compute-environments-supported-by-azure-data-factory-and-synapse-pipelines"></a>Azure Data Factory 및 Synapse 파이프라인에서 지 원하는 계산 환경
+# <a name="compute-environments-supported-by-azure-data-factory-and-synapse-pipelines"></a>Azure Data Factory 및 Synapse 파이프라인에서 지원하는 컴퓨팅 환경
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
 
-이 문서는 프로세스 또는 변환 데이터에 사용할 수 있는 다양한 컴퓨팅 환경을 설명합니다. 또한 이러한 계산 환경을 연결 하는 연결 된 서비스를 구성할 때 지원 되는 다양 한 구성 (주문형 및 사용자 고유의 구성)에 대 한 세부 정보를 제공 합니다.
+이 문서는 프로세스 또는 변환 데이터에 사용할 수 있는 다양한 컴퓨팅 환경을 설명합니다. 또한 이러한 컴퓨팅 환경을 연결하는 연결된 서비스를 구성할 때 지원되는 다양한 구성(주문형 및 사용자 고유의 가져오기)에 대한 세부 정보도 제공합니다.
 
-다음 표에서는 지원 되는 계산 환경 및 이러한 환경에서 실행할 수 있는 활동의 목록을 제공 합니다. 
+다음 표에서는 지원되는 컴퓨팅 환경 및 해당 환경에서 실행할 수 있는 작업의 목록을 제공합니다. 
 
 | 컴퓨팅 환경                                          | 활동                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -44,21 +44,21 @@ ms.locfileid: "132870334"
 
 | 컴퓨팅 연결된 서비스에서 | 속성 이름                | Description                                                  | Blob | ADLS Gen2 | Azure SQL DB | ADLS Gen 1 |
 | ------------------------- | ---------------------------- | ------------------------------------------------------------ | ---- | --------- | ------------ | ---------- |
-| 요청 시                 | linkedServiceName            | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결된 서비스입니다. | 예  | 예       | 아니요           | 예         |
-|                           | additionalLinkedServiceNames | 서비스에서 사용자를 대신 하 여 등록할 수 있도록 HDInsight 연결 된 서비스에 대 한 추가 저장소 계정을 지정 합니다. | 예  | 아니요        | 아니요           | 예         |
+| 요청 시                 | linkedServiceName            | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결된 서비스입니다. | 예  | 예       | 예           | 예         |
+|                           | additionalLinkedServiceNames | 서비스에서 사용자 대신 등록할 수 있도록 HDInsight 연결된 서비스에 대한 추가 스토리지 계정을 지정합니다. | 예  | 예        | 예           | 예         |
 |                           | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 Azure SQL 데이터베이스를 메타스토어로 사용하여 만들어집니다. | 예   | 아니요        | 예          | 예         |
-| BYOC                      | linkedServiceName            | Azure Storage 연결된 서비스 참조                | 예  | 예       | 아니요           | 예         |
-|                           | additionalLinkedServiceNames | 서비스에서 사용자를 대신 하 여 등록할 수 있도록 HDInsight 연결 된 서비스에 대 한 추가 저장소 계정을 지정 합니다. | 아니요   | 아니요        | 아니요           | 예         |
-|                           | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스에 대한 참조입니다. | 예   | 아니요        | 아니요           | 예         |
+| BYOC                      | linkedServiceName            | Azure Storage 연결된 서비스 참조                | 예  | 예       | 예           | 예         |
+|                           | additionalLinkedServiceNames | 서비스에서 사용자 대신 등록할 수 있도록 HDInsight 연결된 서비스에 대한 추가 스토리지 계정을 지정합니다. | 예   | 예        | 아니요           | 예         |
+|                           | hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스에 대한 참조입니다. | 예   | 예        | 아니요           | 예         |
 
 ### <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight 주문형 연결된 서비스
 
-이러한 유형의 구성에서는 컴퓨팅 환경이 서비스에 의해 완벽 하 게 관리 됩니다. 데이터를 처리하기 위한 작업을 제출하기 전에 서비스에서 자동으로 컴퓨팅 환경을 만들고 작업이 완료되면 제거합니다. 사용자는 주문형 컴퓨팅 환경에 대한 연결된 서비스를 만들고 구성하며 작업 실행, 클러스터 관리, 부트스트래핑 작업에 대한 세부적인 설정을 제어할 수 있습니다.
+이 유형의 구성에서 컴퓨팅 환경은 서비스에서 완전히 관리됩니다. 데이터를 처리하기 위한 작업을 제출하기 전에 서비스에서 자동으로 컴퓨팅 환경을 만들고 작업이 완료되면 제거합니다. 사용자는 주문형 컴퓨팅 환경에 대한 연결된 서비스를 만들고 구성하며 작업 실행, 클러스터 관리, 부트스트래핑 작업에 대한 세부적인 설정을 제어할 수 있습니다.
 
 > [!NOTE]
 > 주문형 구성은 현재 Azure HDInsight 클러스터에 대해서만 지원됩니다. 또한 Azure Databricks는 작업 클러스터를 사용하여 주문형 작업도 지원합니다. 자세한 내용은 [Azure Databricks 연결된 서비스](#azure-databricks-linked-service)를 참조하세요.
 
-서비스는 데이터를 처리 하는 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 스토리지 계정(JSON에서 linkedServiceName 속성)과 동일한 하위 지역에 만들어집니다. 스토리지 계정 `must`는 범용 표준 Azure Storage 계정이어야 합니다. 
+서비스는 데이터를 처리하는 주문형 HDInsight 클러스터를 자동으로 만들 수 있습니다. 클러스터는 클러스터와 연결된 스토리지 계정(JSON에서 linkedServiceName 속성)과 동일한 하위 지역에 만들어집니다. 스토리지 계정 `must`는 범용 표준 Azure Storage 계정이어야 합니다. 
 
 주문형 HDInsight 연결된 서비스에 대해 다음 **중요한** 점에 유의하십시오.
 
@@ -72,7 +72,7 @@ ms.locfileid: "132870334"
 
 #### <a name="example"></a>예제
 
-다음 JSON는 Linux 기반 주문형 HDInsight 연결된 서비스를 정의합니다. 서비스는 **Linux 기반** HDInsight 클러스터를 자동으로 만들어 필요한 작업을 처리 합니다. 
+다음 JSON는 Linux 기반 주문형 HDInsight 연결된 서비스를 정의합니다. 서비스는 **Linux 기반** HDInsight 클러스터를 자동으로 만들어 필요한 작업을 처리합니다. 
 
 ```json
 {
@@ -113,7 +113,7 @@ ms.locfileid: "132870334"
 
 #### <a name="properties"></a>속성
 
-| 속성                     | 설명                              | 필수 |
+| 속성                     | Description                              | 필수 |
 | ---------------------------- | ---------------------------------------- | -------- |
 | type                         | 형식 속성은 **HDInsightOnDemand** 로 설정해야 합니다. | 예      |
 | clusterSize                  | 클러스터의 작업자/데이터 노드 수 HDInsight 클러스터는 속성에 지정한 작업자 노드의 수와 함께 2개의 헤드 노드로 생성됩니다. 노드의 크기는 4개 코어를 포함한 Standard_D3이므로, 4개 작업자 노드 클러스터에서 24개 코어(작업자 노드용 4\*4 = 16코어 및 헤드 노드용 2\*4 = 8코어)를 사용합니다. 자세한 내용은 [Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. | 예      |
@@ -161,7 +161,7 @@ ms.locfileid: "132870334"
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성                | 설명                              | 필수 |
+| 속성                | Description                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예      |
 | **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | 예      |
@@ -171,7 +171,7 @@ ms.locfileid: "132870334"
 
 또한 주문형 HDInsight 클러스터의 세부적인 구성에 다음 속성을 지정할 수 있습니다.
 
-| 속성               | 설명                              | 필수 |
+| 속성               | Description                              | 필수 |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | 만들어지는 HDInsight 클러스터에 대한 핵심 구성 매개 변수(core-site.xml에서 처럼)를 지정합니다. | 예       |
 | hBaseConfiguration     | HDInsight 클러스터에 대한 HBase 구성 매개 변수(hbase-site.xml)를 지정합니다. | 예       |
@@ -239,7 +239,7 @@ ms.locfileid: "132870334"
 #### <a name="node-sizes"></a>노드 크기
 다음 속성을 사용하여 헤드, 데이터 및 Zookeeper 노드의 크기를 지정할 수 있습니다. 
 
-| 속성          | 설명                              | 필수 |
+| 속성          | Description                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | 헤드 노드의 크기를 지정합니다. 기본값은 다음과 같습니다. Standard_D3 자세한 내용은 **노드 크기 지정** 섹션을 참조하세요. | 예       |
 | dataNodeSize      | 데이터 노드의 크기를 지정합니다. 기본값은 다음과 같습니다. Standard_D3 | 예       |
@@ -298,7 +298,7 @@ Azure HDInsight 연결된 서비스를 만들어 데이터 팩터리 또는 Syna
 ```
 
 ### <a name="properties"></a>속성
-| 속성          | 설명                                                  | 필수 |
+| 속성          | Description                                                  | 필수 |
 | ----------------- | ------------------------------------------------------------ | -------- |
 | type              | 형식 속성은 **HDInsight** 로 설정해야 합니다.            | 예      |
 | clusterUri        | HDInsight 클러스터의 URI입니다.                            | 예      |
@@ -361,7 +361,7 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
 
 ### <a name="properties"></a>속성
-| 속성          | 설명                              | 필수 |
+| 속성          | Description                              | 필수 |
 | ----------------- | ---------------------------------------- | -------- |
 | type              | 형식 속성은 **AzureBatch** 로 설정해야 합니다. | 예      |
 | accountName       | Azure Batch 계정의 이름         | 예      |
@@ -372,6 +372,9 @@ Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 | connectVia        | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예       |
 
 ## <a name="machine-learning-studio-classic-linked-service"></a>Machine Learning Studio(클래식) 연결된 서비스
+
+[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 Machine Learning Studio(클래식) 연결된 서비스를 만들어 Machine Learning Studio(클래식) 일괄 처리 채점 엔드포인트를 데이터 팩터리 또는 Synapse 작업 영역에 등록합니다.
 
 ### <a name="example"></a>예제
@@ -397,7 +400,7 @@ Machine Learning Studio(클래식) 연결된 서비스를 만들어 Machine Lear
 ```
 
 ### <a name="properties"></a>속성
-| 속성               | 설명                              | 필수                                 |
+| 속성               | Description                              | 필수                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | 형식 속성은 **AzureML** 로 설정해야 합니다. | 예                                      |
 | mlEndpoint             | 일괄 처리 점수 매기기 URL입니다.                   | 예                                      |
@@ -409,7 +412,7 @@ Machine Learning Studio(클래식) 연결된 서비스를 만들어 Machine Lear
 | connectVia             | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예                                       |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 연결된 서비스
-Azure Machine Learning 연결 된 서비스를 만들어 Azure Machine Learning 작업 영역을 data factory 또는 Synapse 작업 영역에 연결 합니다.
+Azure Machine Learning 연결된 서비스를 만들어 Azure Machine Learning 작업 영역을 데이터 팩터리 또는 Synapse 작업 영역에 연결합니다.
 
 > [!NOTE]
 > 현재 Azure Machine Learning 연결된 서비스에 대한 서비스 주체 인증만 지원됩니다.
@@ -442,7 +445,7 @@ Azure Machine Learning 연결 된 서비스를 만들어 Azure Machine Learning 
 
 ### <a name="properties"></a>속성
 
-| 속성               | 설명                              | 필수                                 |
+| 속성               | Description                              | 필수                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | 형식 속성은 **AzureMLService** 로 설정되어야 합니다. | 예                                      |
 | subscriptionId         | Azure 구독 ID입니다.              | 예                                      |
@@ -454,7 +457,7 @@ Azure Machine Learning 연결 된 서비스를 만들어 Azure Machine Learning 
 | connectVia             | 이 연결된 서비스에 작업을 디스패치하는 데 사용할 통합 런타임입니다. Azure 통합 런타임 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예 |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 연결된 서비스
-**Azure Data Lake Analytics** 연결 된 서비스를 만들어 Azure Data Lake Analytics 계산 서비스를 Data factory 또는 Synapse 작업 영역에 연결 합니다. 파이프라인에서 데이터 레이크 분석 U-SQL 작업은 이 연결된 서비스를 가리킵니다. 
+**Azure Data Lake Analytics** 연결된 서비스를 만들어 Azure Data Lake Analytics 컴퓨팅 서비스를 데이터 팩터리 또는 Synapse 작업 영역에 연결합니다. 파이프라인에서 데이터 레이크 분석 U-SQL 작업은 이 연결된 서비스를 가리킵니다. 
 
 ### <a name="example"></a>예제
 
@@ -485,7 +488,7 @@ Azure Machine Learning 연결 된 서비스를 만들어 Azure Machine Learning 
 
 ### <a name="properties"></a>속성
 
-| 속성             | 설명                              | 필수                                 |
+| 속성             | Description                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | type                 | 형식 속성은 **AzureDataLakeAnalytics** 로 설정해야 합니다. | 예                                      |
 | accountName          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
@@ -547,13 +550,13 @@ Azure Machine Learning 연결 된 서비스를 만들어 Azure Machine Learning 
 
 ### <a name="properties"></a>속성
 
-| 속성             | 설명                              | 필수                                 |
+| 속성             | Description                              | 필수                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | name                 | 연결된 서비스의 이름입니다.               | 예   |
 | type                 | 형식 속성은 **Azure Databricks**. | 예                                      |
 | 도메인               | Databricks 작업 영역의 지역을 기준으로 Azure 지역을 적절히 지정합니다. 예: https://eastus.azuredatabricks.net | 예                                 |
 | accessToken          | 서비스가 Azure Databricks에서 인증을 받으려면 액세스 토큰이 필요합니다. 액세스 토큰은 Databricks 작업 영역에서 생성해야 합니다. 액세스 토큰을 찾는 보다 자세한 단계는 [여기](/azure/databricks/dev-tools/api/latest/authentication#generate-token)에서 확인할 수 있습니다.  | 예                                       |
-| MSI          | 서비스의 관리 id (시스템 할당)를 사용 하 여 Azure Databricks에 인증 합니다. ' MSI ' 인증을 사용 하는 경우 액세스 토큰이 필요 하지 않습니다. 관리 Id 인증에 대 한 자세한 내용은 여기를 참조 [하세요](https://techcommunity.microsoft.com/t5/azure-data-factory/azure-databricks-activities-now-support-managed-identity/ba-p/1922818) .  | 예                                       |
+| MSI          | 서비스의 관리 ID(시스템 할당)를 사용하여 Azure Databricks 인증합니다. 'MSI' 인증을 사용하는 경우 액세스 토큰이 필요하지 않습니다. 관리 ID 인증에 대한 자세한 내용은 [여기에서](https://techcommunity.microsoft.com/t5/azure-data-factory/azure-databricks-activities-now-support-managed-identity/ba-p/1922818) 찾을 수 있습니다.  | 예                                       |
 | existingClusterId    | 해당하는 모든 작업을 실행할 기존 클러스터의 클러스터 ID입니다. 이미 만들어진 대화형 클러스터여야 합니다. 클러스터가 응답을 중지하는 경우 수동으로 다시 시작해야 합니다. 안정성을 높이기 위해서는 새 클러스터에서 작업을 실행하는 것이 좋습니다. Databricks 작업 영역 -> 대화형 클러스터 이름 -> 구성 -> 태그에서 대화형 클러스터의 클러스터 ID를 찾을 수 있습니다. [자세한 정보](https://docs.databricks.com/user-guide/clusters/tags.html) | 예 
 | instancePoolId    | Databricks 작업 영역에 있는 기존 풀의 인스턴스 풀 ID입니다.  | 예  |
 | newClusterVersion    | 클러스터의 Spark 버전입니다. Databricks에서 작업 클러스터를 만듭니다. | 예  |
@@ -565,19 +568,19 @@ Azure Machine Learning 연결 된 서비스를 만들어 Azure Machine Learning 
 
 ## <a name="azure-sql-database-linked-service"></a>Azure SQL Database 연결된 서비스
 
-Azure SQL 연결된 서비스를 만들고 [저장 프로시저 작업과](transform-data-using-stored-procedure.md) 함께 사용하여 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](connector-azure-sql-database.md#linked-service-properties) 문서를 참조하세요.
+Azure SQL 연결 된 서비스를 만들고 [저장 프로시저 작업과](transform-data-using-stored-procedure.md) 함께 사용 하 여 파이프라인에서 저장 프로시저를 호출 합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](connector-azure-sql-database.md#linked-service-properties) 문서를 참조하세요.
 
 ## <a name="azure-synapse-analytics-linked-service"></a>Azure Synapse Analytics 연결된 서비스
 
-Azure Synapse Analytics 연결된 서비스를 만들고 [저장 프로시저 작업과](transform-data-using-stored-procedure.md) 함께 사용하여 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure Synapse Analytics 커넥터](connector-azure-sql-data-warehouse.md#linked-service-properties) 문서를 참조하세요.
+Azure Synapse Analytics 연결 된 서비스를 만들고 [저장 프로시저 작업과](transform-data-using-stored-procedure.md) 함께 사용 하 여 파이프라인에서 저장 프로시저를 호출 합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure Synapse Analytics 커넥터](connector-azure-sql-data-warehouse.md#linked-service-properties) 문서를 참조하세요.
 
 ## <a name="sql-server-linked-service"></a>SQL Server 연결된 서비스
 
-SQL Server 연결된 서비스를 만들고 [저장 프로시저 작업과](transform-data-using-stored-procedure.md) 함께 사용하여 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [SQL Server 커넥터](connector-sql-server.md#linked-service-properties) 문서를 참조하세요.
+SQL Server 연결 된 서비스를 만들고 [저장 프로시저 작업과](transform-data-using-stored-procedure.md) 함께 사용 하 여 파이프라인에서 저장 프로시저를 호출 합니다. 이 연결된 서비스에 대한 자세한 내용은 [SQL Server 커넥터](connector-sql-server.md#linked-service-properties) 문서를 참조하세요.
 
 ## <a name="azure-function-linked-service"></a>Azure 함수의 연결된 서비스
 
-Azure Function 연결된 서비스를 만들고 Azure [Function 작업과](control-flow-azure-function-activity.md) 함께 사용하여 파이프라인에서 Azure Functions 실행합니다. Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)는 `JObject`가 *아님* 에 유의) `JObject` 이외의 모든 반환 형식이 실패하고 *응답 콘텐츠가 유효한 JObject가 아닙니다* 사용자 오류가 발생합니다.
+Azure Function 연결 된 서비스를 만들고 [Azure function 활동](control-flow-azure-function-activity.md) 에서 사용 하 여 파이프라인에서 Azure Functions를 실행 합니다. Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm)는 `JObject`가 *아님* 에 유의) `JObject` 이외의 모든 반환 형식이 실패하고 *응답 콘텐츠가 유효한 JObject가 아닙니다* 사용자 오류가 발생합니다.
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
@@ -588,4 +591,4 @@ Azure Function 연결된 서비스를 만들고 Azure [Function 작업과](contr
 
 ## <a name="next-steps"></a>다음 단계
 
-지원되는 변환 활동 목록은 데이터 [변환을 참조하세요.](transform-data.md)
+지원 되는 변환 활동 목록은 [데이터 변환](transform-data.md)을 참조 하세요.

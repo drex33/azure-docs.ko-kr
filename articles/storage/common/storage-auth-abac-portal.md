@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 11/16/2021
-ms.openlocfilehash: e275f8e77e09decad21602057273f458b0e11ebe
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: d3df3da2c5806feeb1eaf57d598362ffce8ed6e8
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132751464"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218618"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-the-azure-portal-preview"></a>자습서: Azure Portal을 사용하여 BLOB에 대한 액세스를 제한하는 역할 할당 조건 추가(미리 보기)
 
@@ -188,7 +188,7 @@ Chandra가 `Project=Cascade` 태그 없이 Blob을 읽으려고 하면 액세스
 
 ## <a name="step-6-test-the-condition"></a>6단계: 조건 테스트
 
-1. 새 창에서 [Azure Portal](https://azure.portal.com)을 엽니다.
+1. 새 창에서 [Azure Portal](https://portal.azure.com)을 엽니다.
 
 1. 이전에 만든 사용자로 로그인합니다.
 

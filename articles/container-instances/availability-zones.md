@@ -4,12 +4,12 @@ description: 가용성 영역에서 컨테이너 그룹을 배포하는 방법�
 ms.topic: article
 ms.date: 10/13/2021
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: a2cce289dc95ecc876ba308ed9406fffb37b9e18
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: ba2f0b4022e87741c2a7661be25c052f34f52c26
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131859297"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218713"
 ---
 # <a name="deploy-an-azure-container-instances-aci-container-group-in-an-availability-zone-preview"></a>가용성 영역에 ACI(Azure Container Instances) 컨테이너 그룹 배포(미리 보기)
 
@@ -31,11 +31,11 @@ ms.locfileid: "131859297"
 
 * GPU 리소스가 있는 컨테이너 그룹은 현재 가용성 영역을 지원하지 않습니다.
 * Virtual Network 삽입된 컨테이너 그룹은 현재 가용성 영역을 지원하지 않습니다.
-* Windows 2016년 컨테이너 그룹은 현재 가용성 영역을 지원하지 않습니다.
+* Windows Sever 2016 컨테이너 그룹은 현재 가용성 영역을 지원하지 않습니다.
 
 ### <a name="version-requirements"></a>버전 요구 사항
 
-* Azure CLI 사용하는 경우 버전 이상 설치되어 있는지 `2.30.0` 확인합니다.
+* Azure CLI 사용하는 경우 `2.30.0` 버전이 설치되어 있는지 확인합니다.
 * PowerShell을 사용하는 경우 버전 이상 설치되어 있는지 `2.1.1-preview` 확인합니다.
 * Java SDK를 사용하는 경우 버전 이상 설치되어 있는지 `2.9.0` 확인합니다.
 * 가용성 영역 지원은 ACI API 버전 이상에서만 사용할 수 `09-01-2021` 있습니다.
@@ -197,4 +197,4 @@ az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create
 [az-deployment-group-create]: /cli/azure/deployment#az_deployment_group_create
-[availability-zone-overview]: /availability-zones/az-overview.md
+[availability-zone-overview]: /azure/availability-zones/az-overview

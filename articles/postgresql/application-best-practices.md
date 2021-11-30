@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.openlocfilehash: 6463f30bc79d937bd5a51a5c8c78fbdd72954b1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: b7a23616521e486670c8e4f2c555d7c383c6e90a
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97364603"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133217865"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-postgresql"></a>Azure Database for PostgreSQL을 사용하여 애플리케이션을 빌드하는 데 유용한 모범 사례
 
@@ -34,7 +34,7 @@ PostgreSQL 서버를 [보안](./concepts-security.md)이 유지되고 공용으�
 읽기 작업이 많은 워크로드의 경우 `tmp_table_size` 및 `max_heap_table_size`는 서버 매개 변수를 조정하는 데 유용하며 성능을 향상시킬 수 있습니다. 이러한 변수에 필요한 값을 계산하려면 총 연결당 메모리 값 및 기본 메모리를 확인합니다. 서버의 총 메모리에 대해 기본 메모리 계정과 결합된 `tmp_table_size`를 제외한 연결당 메모리 매개 변수의 합입니다.
 
 ### <a name="use-environment-variables-for-connection-information"></a>연결 정보에 환경 변수 사용
-애플리케이션 코드에 데이터베이스 자격 증명을 저장하지 마세요. 프런트 엔드 애플리케이션에 맞는 환경 변수 설정 지침을 따릅니다. 앱 서비스 사용에 대한 내용은 [앱 설정을 구성하는 방법](../app-service/configure-common.md#configure-app-settings)을 참조하고 Azure Kuberentes 서비스에 대한 내용은 [Kubernetes 암호를 사용하는 방법](https://kubernetes.io/docs/concepts/configuration/secret/)을 참조하세요.
+애플리케이션 코드에 데이터베이스 자격 증명을 저장하지 마세요. 프런트 엔드 응용 프로그램에 따라 환경 변수 설정 지침을 따릅니다. App service 사용에 대 한 자세한 내용은 [앱 설정을 구성 하는 방법](../app-service/configure-common.md#configure-app-settings) 및 Azure Kuberentes 서비스에 대 한 자세한 내용은 [Kubernetes 암호를 사용 하는 방법](https://kubernetes.io/docs/concepts/configuration/secret/)을 참조 하세요.
 
 ## <a name="performance-and-resiliency"></a>성능 및 복원력
 다음은 애플리케이션의 성능 문제를 디버그하는 데 사용할 수 있는 몇 가지 도구와 사례입니다.
@@ -43,7 +43,7 @@ PostgreSQL 서버를 [보안](./concepts-security.md)이 유지되고 공용으�
 연결 풀링을 사용하면 시작 시 고정된 연결 집합이 설정되고 유지 관리됩니다. 이를 통해 데이터베이스 서버에 설정된 동적 새 연결로 인해 발생하는 서버의 메모리 조각화를 줄일 수 있습니다. 애플리케이션 프레임워크 또는 데이터베이스 드라이버가 지원하는 경우 연결 풀링을 애플리케이션 측에서 구성할 수 있습니다. 지원되지 않는 경우 애플리케이션 외부에서 실행 중이고 데이터베이스 서버에 연결된 [PgBouncer](https://pgbouncer.github.io/) 또는 [Pgpool](https://pgpool.net/mediawiki/index.php/Main_Page)과 같은 프록시 연결 풀 서비스를 활용하는 것도 좋습니다. PgBouncer 및 Pgpool은 모두 Azure Database for PostgreSQL과 작동하는 커뮤니티 기반 도구입니다.
 
 ### <a name="retry-logic-to-handle-transient-errors"></a>일시적인 오류를 처리하기 위한 다시 시도 논리
-애플리케이션에서 데이터베이스에 대한 연결이 일시적으로 끊어지거나 손실되는 일시적인 오류가 발생할 수 있습니다. 이러한 경우 서버는 5~10 초 내에 1~2회 다시 시도한 후에 가동되어 실행됩니다. 첫 번째로 다시 시도하기 전에 5초간 대기하는 것이 좋습니다. 그런 다음 대기 시간을 최대 60초까지 점진적으로 늘려 다시 시도할 때마다 수행합니다. 애플리케이션에서 실패한 작업으로 간주되는 시점의 최대 다시 시도 횟수를 제한하여 추가 조사를 수행할 수 있습니다. 자세히 알아보려면 [연결 오류 문제를 해결하는 방법](./concepts-connectivity.md)을 참조하세요.
+애플리케이션에서 데이터베이스에 대한 연결이 일시적으로 끊어지거나 손실되는 일시적인 오류가 발생할 수 있습니다. 이러한 경우 서버는 5~10 초 내에 1~2회 다시 시도한 후에 가동되어 실행됩니다. 첫 번째로 다시 시도하기 전에 5초간 대기하는 것이 좋습니다. 그런 다음, 대기 시간을 최대 60초까지 점진적으로 늘려 다시 시도할 때마다 수행합니다. 애플리케이션에서 실패한 작업으로 간주되는 시점의 최대 다시 시도 횟수를 제한하여 추가 조사를 수행할 수 있습니다. 자세히 알아보려면 [연결 오류 문제를 해결하는 방법](./concepts-connectivity.md)을 참조하세요.
 
 ### <a name="enable-read-replication-to-mitigate-failovers"></a>장애 조치(failover)를 완화하기 위해 읽기 복제본을 사용하도록 설정
 장애 조치(failover) 시나리오에 [입력 데이터 복제](./concepts-read-replicas.md)를 사용할 수 있습니다. 읽기 복제본을 사용하는 경우, 원본 서버와 복제본 서버 간에 자동 장애 조치(failover)가 수행되지 않습니다. 복제는 비동기이므로 원본과 복제본 사이에 지연되는 시간이 발생하게 됩니다. 네트워크 지연은 원본 서버에서 실행되는 워크로드의 크기와 데이터 센터 간 발생하는 대기 시간 등 여러 가지 요인에 영향을 받을 수 있습니다. 대부분의 경우 복제본 지연 시간은 몇 초에서 몇 분 사이입니다.
@@ -62,7 +62,7 @@ PostgreSQL 서버를 [보안](./concepts-security.md)이 유지되고 공용으�
 - 프로덕션 데이터베이스를 읽기 전용 상태로 전환합니다. 배포가 완료될 때까지 프로덕션 데이터베이스에서 쓰기 작업을 수행하지 않아야 합니다.
 - 1단계에서 새로 업데이트한 데이터베이스를 사용하여 애플리케이션을 테스트합니다.
 - 애플리케이션 변경 내용을 배포하고 애플리케이션이 현재 최근 업데이트된 새 데이터베이스를 사용 중인지 확인합니다.
-- 변경 사항을 롤백할 수 있도록 이전 프로덕션 데이터베이스를 보관합니다. 그런 다음 필요한 경우 이전 프로덕션 데이터베이스를 삭제하거나 Azure Storage로 내보내도록 평가할 수 있습니다.
+- 변경 사항을 롤백할 수 있도록 이전 프로덕션 데이터베이스를 보관합니다. 그런 다음, 필요한 경우 이전 프로덕션 데이터베이스를 삭제하거나 Azure Storage로 내보내도록 평가할 수 있습니다.
 
 >  [!NOTE]
 > 전자 상거래 앱과 같이 읽기 전용 상태로 전환할 수 없는 애플리케이션의 경우 백업을 수행한 후 프로덕션 데이터베이스에 직접 변경 내용을 배포합니다. 이렇게 하면 일부 사용자가 실패한 요청을 경험할 수 있으므로 사용량이 적은 시간에 변경하여 앱에 트래픽이 적게 발생하도록 영향을 최소화해야 합니다. 애플리케이션 코드가 실패한 요청도 모두 처리하는지 확인합니다.

@@ -153,6 +153,8 @@
           href: core/how-to-connect-devices-x509.md
         - name: Azure CLI를 사용하여 디바이스 연결 모니터링
           href: core/howto-monitor-devices-azure-cli.md
+        - name: Windows 장치에서 Linux에 대 한 커넥트 IoT Edge
+          href: core/howto-connect-eflow.md
         - name: IoT Edge 투명 게이트웨이를 통해 디바이스 연결
           href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Azure Sphere DevKit 준비 및 연결

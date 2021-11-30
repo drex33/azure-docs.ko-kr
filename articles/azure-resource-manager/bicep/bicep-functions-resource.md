@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 10/25/2021
-ms.openlocfilehash: a14019e3cdf595efe0a32a7021333aa5b4f6a6b1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 4b876644e20b32b3636d8d36b12e59218dd0ef6f
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131087422"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218561"
 ---
 # <a name="resource-functions-for-bicep"></a>Bicep의 리소스 함수
 
@@ -182,7 +182,7 @@ module sql './sql.bicep' = {
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | apiVersion |예 |문자열 |이 매개 변수를 제공하지 않으면 리소스에 대한 API 버전이 사용됩니다. 함수를 특정 버전으로 실행해야 하는 경우에만 사용자 지정 API 버전을 제공합니다. **yyyy-mm-dd** 형식을 사용합니다. |
 | functionValues |예 |object | 함수에 대한 값이 있는 개체입니다. 스토리지 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. |
@@ -321,8 +321,8 @@ sasToken: stg.listAccountSas('2021-04-01', accountSasProperties).accountSasToken
 | Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-04-15/notebook-workspaces/list-connection-info) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2020-06-01/topics/listsharedaccesskeys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2021-12-01/domains/list-shared-access-keys) |
+| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2021-12-01/topics/list-shared-access-keys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
@@ -417,7 +417,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 리소스 종류가 지역에 대한 영역을 지원하는지 여부를 결정합니다.
 
-네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 

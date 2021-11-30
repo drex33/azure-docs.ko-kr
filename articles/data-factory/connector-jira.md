@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 55326ecbc0ad6283503358a0b34d2fba6d4bc2dc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 474d044fe6c40cc599c2fd38a37449b834a3123b
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827290"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218656"
 ---
 # <a name="copy-data-from-jira-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 Jira에서 데이터 복사
 
@@ -68,13 +68,13 @@ Jira에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 다음은 Jira 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Jira** 로 설정해야 합니다. | 예 |
 | host | Jira 서비스의 IP 주소 또는 호스트 이름입니다. (예: jira.example.com)  | 예 |
 | 포트 | Jira 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 HTTPS를 통해 연결하는 경우 443이고, HTTP를 통해 연결하는 경우 8080입니다.  | 예 |
 | 사용자 이름 | Jira 서비스에 액세스하는 데 사용하는 사용자 이름입니다.  | 예 |
-| password | username 필드에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| password | 사용자 이름 필드에서 제공한 사용자 이름에 해당 하는 [ATLASSIAN API 토큰](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/) (Atlassian 계정에 대해 2 단계 인증을 사용 하도록 설정 된 경우) 또는 암호입니다. 이 필드를 SecureString으로 표시하여 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 | useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름을 서버의 호스트 이름과 일치시킬지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 | usePeerVerification | TLS를 통해 연결할 때 서버의 ID 확인 여부를 지정합니다. 기본값은 true입니다.  | 예 |

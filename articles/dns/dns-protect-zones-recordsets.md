@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2da488eaf020f38e164b0dc3102ef589e2ee5f85
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: d6006d13e0c7d596c659700adab1c171d1d760a0
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697014"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218879"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS 영역 및 레코드를 보호하는 방법
 
@@ -182,7 +182,7 @@ Azure CLI를 통해 만들 수도 있습니다.
 
 ```azurecli-interactive
 # Create new role definition based on input file
-az role create -inputfile <file path>
+az role defination create --role-definition <file path>
 ```
 
 그런 다음 이 문서의 앞부분에서 설명한 대로 역할을 기본 역할과 동일한 방식으로 할당할 수 있습니다.

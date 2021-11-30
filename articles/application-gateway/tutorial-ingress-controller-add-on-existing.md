@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: caya
-ms.openlocfilehash: 2fe615da256099c3135f607a7b6f8095bb93b442
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8dba1e6536ce2d3533daf97f8af5e17ef5ce40fa
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772850"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218922"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway"></a>자습서: 기존 Application Gateway를 사용하여 기존 AKS 클러스터에 Application Gateway 수신 컨트롤러 추가 기능을 사용하도록 설정(미리 보기)
 
@@ -61,7 +61,7 @@ az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-ma
 별도의 가상 네트워크에서 AKS 클러스터 및 Application Gateway를 사용하는 경우 두 가상 네트워크의 주소 공간이 겹치지 않아야 합니다. AKS 클러스터가 배포하는 기본 주소 공간은 10.0.0.0/8이므로 Application Gateway 가상 네트워크 주소 접두사를 11.0.0.0/8로 설정합니다. 
 
 ```azurecli-interactive
-az network public-ip create -n myPublicIp -g MyResourceGroup --allocation-method Static --sku Standard
+az network public-ip create -n myPublicIp -g myResourceGroup --allocation-method Static --sku Standard
 az network vnet create -n myVnet -g myResourceGroup --address-prefix 11.0.0.0/8 --subnet-name mySubnet --subnet-prefix 11.1.0.0/16 
 az network application-gateway create -n myApplicationGateway -l canadacentral -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet
 ```
@@ -84,12 +84,12 @@ Azure Portal을 사용하여 AGIC 추가 기능을 사용하도록 설정하려�
 
 ![Application Gateway 수신 컨트롤러 포털](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
-## <a name="peer-the-two-virtual-networks-together&quot;></a>두 가상 네트워크를 피어링
+## <a name="peer-the-two-virtual-networks-together"></a>두 가상 네트워크를 피어링
 
 한 가상 네트워크에 AKS 클러스터를 배포하고 다른 가상 네트워크에 Application Gateway를 배포했으므로, 이제 트래픽이 Application Gateway에서 클러스터의 Pod로 흐르도록 두 가상 네트워크를 피어링해야 합니다. 두 가상 네트워크를 피어링하려면 Azure CLI 명령을 두 번 실행하여 양방향으로 연결해야 합니다. 첫 번째 명령은 Application Gateway 가상 네트워크에서 AKS 가상 네트워크로 피어링 연결을 만들고, 두 번째 명령은 반대 방향으로 피어링 연결을 만듭니다.
 
 ```azurecli-interactive
-nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query &quot;nodeResourceGroup")
+nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "nodeResourceGroup")
 aksVnetName=$(az network vnet list -g $nodeResourceGroup -o tsv --query "[0].name")
 
 aksVnetId=$(az network vnet show -n $aksVnetName -g $nodeResourceGroup -o tsv --query "id")

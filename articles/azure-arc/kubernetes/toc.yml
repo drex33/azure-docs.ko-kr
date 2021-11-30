@@ -80,6 +80,8 @@
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Azure Arc 지원 Open Service Mesh 배포
           href: tutorial-arc-enabled-open-service-mesh.md
+        - name: Azure Key Vault에서 비밀 액세스
+          href: tutorial-akv-secrets-provider.md
     - name: Arc 지원 서비스 배포
       items:
         - name: 사용자 지정 위치 만들기

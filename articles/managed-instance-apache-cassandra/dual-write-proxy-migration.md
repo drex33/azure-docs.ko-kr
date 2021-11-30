@@ -7,18 +7,18 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: tutorial
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 061fd0f1244221aabb6fa37a84924be653fafbaa
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 727e9ca2bce4d6926f7f29fd850ce3401af0ad1b
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131032459"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218228"
 ---
 # <a name="live-migration-to-azure-managed-instance-for-apache-cassandra-by-using-a-dual-write-proxy"></a>이중 쓰기 프록시를 사용하여 Azure Managed Instance for Apache Cassandra로 실시간 마이그레이션
 
 가능하면 [하이브리드 클러스터](configure-hybrid-cluster.md)를 구성하여 기존 클러스터에서 Azure Managed Instance for Apache Cassandra로 데이터를 마이그레이션할 때 Apache Cassandra 네이티브 기능을 사용하는 것이 좋습니다. 이 기능은 Apache Cassandra의 가십 프로토콜을 사용하여 원본 데이터 센터에서 새로운 관리형 인스턴스 데이터 센터로 원활하게 데이터를 복제합니다. 그러나 원본 데이터베이스 버전이 호환되지 않거나 하이브리드 클러스터를 설정할 수 없는 경우가 있을 수 있습니다. 
 
-이 자습서에서는 [이중 쓰기 프록시](https://github.com/Azure-Samples/cassandra-proxy) 및 Apache Spark를 사용하여 실시간으로 데이터를 Azure Managed Instance for Apache Cassandra로 마이그레이션하는 방법을 설명합니다. 이 방법의 이점은 다음과 같습니다.
+이 자습서에서는 [이중 쓰기 프록시](https://github.com/Azure-Samples/cassandra-proxy) 및 Apache Spark를 사용하여 실시간으로 데이터를 Azure Managed Instance for Apache Cassandra로 마이그레이션하는 방법을 설명합니다. 이중 쓰기 프록시는 실시간 변경 내용을 캡처하는 데 사용되지만 기록 데이터는 Apache Spark 사용하여 대량으로 복사됩니다. 이 방법의 이점은 다음과 같습니다.
 
 - **최소한의 애플리케이션 변경**. 프록시가 최소한의 구성 변경으로 또는 구성 변경 없이 애플리케이션 코드의 연결을 허용할 수 있습니다. 모든 요청을 원본 데이터베이스에 라우팅하고 비동기 방식으로 쓰기를 보조 대상으로 라우팅합니다. 
 - **클라이언트 유선 프로토콜 종속성**. 이 방법은 백 엔드 리소스나 내부 프로토콜에 종속되지 않으므로 Apache Cassandra 유선 프로토콜을 구현하는 모든 원본 또는 대상 Cassandra 시스템에서 사용할 수 있습니다.
@@ -43,7 +43,10 @@ Spark 3.0을 지원하는 Azure Databricks 런타임 버전 7.5를 선택하는 
 
 ## <a name="add-spark-dependencies"></a>Spark 종속성 추가
 
-네이티브 및 Azure Cosmos DB Cassandra 엔드포인트 모두에 연결하려면 Apache Spark Cassandra 커넥터 라이브러리를 클러스터에 추가해야 합니다. 클러스터에서 **라이브러리** > **새로 설치** > **Maven** 을 선택한 다음 Maven 좌표에 `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0`을 추가합니다.
+유선 프로토콜 호환 Apache Cassandra 엔드포인트에 연결하려면 Apache Spark Cassandra 커넥터 라이브러리를 클러스터에 추가해야 합니다. 클러스터에서 **라이브러리** > **새로 설치** > **Maven** 을 선택한 다음 Maven 좌표에 `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0`을 추가합니다.
+
+> [!IMPORTANT]
+> 마이그레이션하는 동안 각 행에 대해 Apache Cassandra를 유지해야 하는 요구 사항이 있는 경우 `writetime` [이 샘플](https://github.com/Azure-Samples/cassandra-migrator)를 사용하는 것이 좋습니다. 이 샘플의 종속성 jar에는 Spark 커넥터도 포함되어 있으므로 위의 커넥터 어셈블리 대신 설치해야 합니다. 이 샘플은 기록 데이터 로드가 완료된 후 원본과 대상 간에 행 비교 유효성 검사를 수행하려는 경우에도 유용합니다. 자세한 내용은[아래의 "기록 데이터 로드 실행"](dual-write-proxy-migration.md#run-the-historical-data-load)및 "[원본의 유효성 검사 및 대상](dual-write-proxy-migration.md#validate-the-source-and-target)" 섹션을 참조하세요. 
 
 :::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Azure Databricks에서 Maven 패키지를 검색하는 방법을 보여 주는 스크린샷":::
 
@@ -51,6 +54,7 @@ Spark 3.0을 지원하는 Azure Databricks 런타임 버전 7.5를 선택하는 
 
 > [!NOTE]
 > Cassandra 커넥터 라이브러리가 설치된 후 Azure Databricks 클러스터를 다시 시작해야 합니다.
+
 
 ## <a name="install-the-dual-write-proxy"></a>이중 쓰기 프록시 설치
 
@@ -126,8 +130,8 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> 
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar <source-server> <destination-server>
 ```
 
-> [!NOTE]
-> 네이티브 Apache Cassandra 클러스터의 모든 노드에서 프록시를 설치 및 실행하지 않으면 애플리케이션 성능에 영향을 주게 됩니다. 클라이언트 드라이버가 클러스터 내의 모든 노드에 대한 연결을 열 수 없습니다. 
+> [!WARNING]
+> 원본 Apache Cassandra 클러스터의 모든 노드에서 프록시를 실행하는 대신 별도의 컴퓨터에서 원격으로 프록시를 설치하고 실행하면 실시간 마이그레이션이 발생하는 동안 성능에 영향을 줍니다. 기능적으로 작동하지만 클라이언트 드라이버는 클러스터 내의 모든 노드에 대한 연결을 열 수 없으며 단일 공동 조정자 노드(프록시가 설치된 위치)를 사용하여 연결합니다.
 
 ### <a name="allow-zero-application-code-changes"></a>제로(0) 애플리케이션 코드 변경 허용
 
@@ -219,12 +223,16 @@ DFfromSourceCassandra
 
 > [!NOTE]
 > 위의 Scala 샘플에서 `timestamp`는 원본 테이블의 모든 데이터를 읽기 전 현재 시간으로 설정되는 것을 확인할 수 있습니다. `writetime`은 이 소급 적용된 타임스탬프로 설정됩니다. 따라서 기록 데이터가 대상 엔드포인트에 로드될 때 기록되는 레코드는 기록 데이터를 읽는 동안 이중 쓰기 프록시의 이후 타임스탬프로 제공되는 업데이트를 덮어쓸 수 없습니다.
->
-> 어떤 이유로든 ‘정확한’ 타임스탬프를 유지해야 하는 경우 [이 샘플](https://github.com/Azure-Samples/cassandra-migrator)처럼 타임스탬프를 유지하는 기록 데이터 마이그레이션 방법을 사용해야 합니다. 
+
+> [!IMPORTANT]
+> 어떤 이유로든 ‘정확한’ 타임스탬프를 유지해야 하는 경우 [이 샘플](https://github.com/Azure-Samples/cassandra-migrator)처럼 타임스탬프를 유지하는 기록 데이터 마이그레이션 방법을 사용해야 합니다. 샘플의 종속성 jar에도 Spark 커넥터가 포함되어 있으므로 이전 필수 구성요소에서 언급한 Spark 커넥터 어셈블리를 설치할 필요가 없습니다. 둘 다 Spark 클러스터에 설치하면 충돌이 발생합니다.
 
 ## <a name="validate-the-source-and-target"></a>원본 및 대상의 유효성 검사
 
-기록 데이터 로드가 완료되면 데이터베이스가 동기화되고 중단할 준비가 된 것입니다. 그러나 최종적으로 중단하기 전에 원본과 대상의 유효성을 검사하여 요청 결과가 일치하는지 확인하는 것이 좋습니다.
+기록 데이터 로드가 완료되면 데이터베이스가 동기화되고 중단할 준비가 된 것입니다. 그러나 원본 및 대상의 유효성을 검사하여 최종적으로 잘라내기 전에 일치하는지 확인하는 것이 좋습니다.
+
+> [!NOTE]
+> 위에서 언급한 [cassandra 마이그레이션기](https://github.com/Azure-Samples/cassandra-migrator) 샘플을 사용하여 를 유지한 경우 `writetime` 특정 허용 오차에 따라 원본 및 대상의 행을 비교하여 [마이그레이션의 유효성을 검사하는](https://github.com/Azure-Samples/cassandra-migrator#validate-migration) 기능이 포함됩니다. [](https://github.com/Azure-Samples/cassandra-migrator/blob/main/build_files/src/main/scala/com/cassandra/migrator/validation/RowComparisonFailure.scala) 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 937a42d6ebdf3d2ccb87451a2db07df199655005
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e0816d41f285f86403e6d818737d76935601900b
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128586782"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218941"
 ---
 # <a name="tutorial-migrate-your-data-to-a-cassandra-api-account"></a>자습서: Cassandra API 계정으로 데이터 마이그레이션
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -97,6 +97,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    COPY exampleks.tablename FROM 'data.csv' WITH HEADER = TRUE;
    ```
 
+>[!IMPORTANT]
+> 오픈 소스 Apache Cassandra 버전의 CQLSH COPY만 지원됩니다. DSE(Datastax Enterprise) 버전의 CQLSH에 오류가 발생할 수 있습니다. 
 
 
 ### <a name="migrate-data-by-using-spark"></a>Spark를 사용하여 데이터 마이그레이션 
@@ -108,6 +110,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. 데이터를 대상 Cassandra API 엔드포인트로 이동합니다. Azure Databricks를 사용한 마이그레이션은 이 [방법 가이드](migrate-data-databricks.md)를 참조하세요.
 
 Azure 가상 머신이나 다른 클라우드의 기존 클러스터에 데이터가 있는 경우 Spark 작업을 사용하여 데이터를 마이그레이션하는 것이 좋습니다. 이렇게 하려면 Spark를 일회성 또는 정기 수집을 위한 중개자로 설정해야 합니다. 온-프레미스 환경과 Azure 사이에 Azure ExpressRoute 연결을 사용하면 이 마이그레이션 속도를 높일 수 있습니다. 
+
+### <a name="live-migration"></a>실시간 마이그레이션
+
+네이티브 Apache Cassandra 클러스터에서 가동 중지 시간이 0으로 마이그레이션해야 하는 경우 기록 데이터를 마이그레이션하기 위해 이중 쓰기 및 별도의 대량 데이터 로드를 구성하는 것이 좋습니다. 최소한의 애플리케이션 코드 변경을 허용하는 오픈 소스 [이중 쓰기 프록시를](https://github.com/Azure-Samples/cassandra-proxy) 제공하여 이 패턴을 보다 간단하게 구현했습니다. 이 패턴 구현에 대한 자세한 내용은 [이중 쓰기 프록시 및 Apache Spark 사용한 실시간 마이그레이션에](migrate-data-dual-write-proxy.md) 대한 방법 문서를 살펴보십시오. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

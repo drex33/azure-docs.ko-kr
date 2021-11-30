@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿(ARM 템플릿)에서 리소스에 
 ms.topic: conceptual
 ms.date: 11/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ed0baec28dc6c543bddb87780b42c7560a7a9b2f
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: e8eb4d67ce9775995a24f4ece16991b41bffc7f0
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133068767"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218209"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -26,7 +26,7 @@ Resource Manager는 Azure Resource Manager 템플릿(ARM 템플릿)에서 리소
 
 매개 변수, 변수 또는 현재 배포에서 값을 가져오려면 [배포 값 함수](template-functions-deployment.md)를 참조하세요.
 
-배포 범위 값을 얻으려면 [범위 함수 를 참조하세요.](template-functions-scope.md)
+배포 범위 값을 가져오려면 [범위 함수](template-functions-scope.md)를 참조 하세요.
 
 ## <a name="extensionresourceid"></a>extensionResourceId
 
@@ -177,8 +177,8 @@ list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. �
 | Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-04-15/notebook-workspaces/list-connection-info) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2020-06-01/topics/listsharedaccesskeys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2021-12-01/domains/list-shared-access-keys) |
+| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2021-12-01/topics/list-shared-access-keys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |

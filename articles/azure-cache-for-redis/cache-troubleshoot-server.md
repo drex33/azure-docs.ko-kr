@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 9c50ac01eb95672b946daf9916f83743d2156b01
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 603529c5a10745dfdd1bb2a7eec1758f1e49ebd9
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537406"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218171"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Azure Cache for Redis 서버 쪽 문제 해결
 
@@ -60,7 +60,8 @@ CPU 또는 서버 부하와 같은 [메트릭을 모니터링합니다](cache-ho
 
 일부 Redis 명령 실행은 다른 명령에 비해 비용이 많이 듭니다. [Redis 명령 설명서](https://redis.io/commands)는 각 명령의 시간 복잡성을 보여 줍니다. Redis 명령 처리는 단일 스레드이므로, 실행하는 데 시간이 걸리는 명령은 그 다음에 오는 다른 모든 명령을 차단합니다. Redis 서버에 실행하는 명령을 검토하여 성능에 미치는 영향을 파악합니다. 예를 들어, [KEYS](https://redis.io/commands/keys) 명령은 O(N) 작업이라고 알지 못해도 자주 사용됩니다. [SCAN](https://redis.io/commands/scan)을 사용하여 CPU 급증을 줄이는 KEYS를 방지할 수 있습니다.
 
-[SLOWLOG](https://redis.io/commands/slowlog) 명령을 사용하여 서버에 대해 실행되는 비용이 많이 드는 명령을 측정할 수 있습니다.
+[SLOWLOG GET](https://redis.io/commands/slowlog-get) 명령을 사용 하 여 서버에 대해 실행 되는 비용이 많이 드는 명령을 측정할 수 있습니다.
+ 
 
 ## <a name="server-side-bandwidth-limitation"></a>서버 쪽 대역폭 제한
 

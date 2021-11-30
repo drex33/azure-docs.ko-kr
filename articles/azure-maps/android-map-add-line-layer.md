@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: ce8733fdc6e6fd22414df944e35fa3609668e653
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e9e677ce5ecd767147e18b2dd85608ec11d20263
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438465"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218302"
 ---
 # <a name="add-a-line-layer-to-the-map-android-sdk"></a>지도에 선 계층 추가 (Android SDK)
 
@@ -23,7 +23,7 @@ ms.locfileid: "123438465"
 > [!TIP]
 > 기본적으로 선 계층은 다각형의 좌표와 데이터 원본의 선을 렌더링합니다. LineString geometry 기능만 렌더링 하도록 계층을 제한 하려면 `filter` 계층의 옵션을로 설정 `eq(geometryType(), "LineString")` 합니다. MultiLineString 기능도 포함 하려면 `filter` 계층의 옵션을로 설정 `any(eq(geometryType(), "LineString"), eq(geometryType(), "MultiLineString"))` 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료해야 합니다. 이 문서의 코드 블록은 맵 `onReady` 이벤트 처리기에 삽입할 수 있습니다.
 
@@ -455,7 +455,7 @@ map.layers.add(
 
 | ![자주색 화살표 아이콘 이미지](media/android-map-add-line-layer/purple-arrow-right.png)|
 |:-----------------------------------------------------------------------:|
-|                           `purple_arrow_right.png`                       |
+|                           `purple-arrow-right.png`                       |
 
 아래 스크린샷은 화살표 아이콘이 있는 선을 표시 하는 위의 코드를 보여 줍니다.
 

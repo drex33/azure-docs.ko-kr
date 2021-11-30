@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 5659e366fd5c949ea374768bf848313d747896d2
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 2c47d0d4c668d2e25fe1d1297106657f14f6151f
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425856"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133217936"
 ---
 # <a name="add-a-polygon-layer-to-the-map-android-sdk"></a>지도에 다각형 계층 추가 (Android SDK)
 
 이 문서에서는 다각형 계층을 사용하여 맵에 `Polygon` 및 `MultiPolygon` 기능 기하 도형의 영역을 렌더링하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료해야 합니다. 이 문서의 코드 블록은 맵 `onReady` 이벤트 처리기에 삽입할 수 있습니다.
 
@@ -257,7 +257,7 @@ map.layers.add(
 
 | ![자주색 화살표 아이콘 이미지](media/how-to-add-shapes-to-android-map/fill-checker-red.png)|
 |:-----------------------------------------------------------------------:|
-| fill_checker_red.png                                                    |
+| fill-checker-red.png                                                    |
 
 다음은 지도의 채우기 패턴이 있는 다각형을 렌더링 하는 위의 코드의 스크린샷입니다.
 

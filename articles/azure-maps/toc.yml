@@ -13,7 +13,7 @@ items:
       - name: Android 앱 만들기
         href: quick-android-map.md
       - name: iOS 앱 만들기
-        href: quick-iOS-app.md
+        href: quick-ios-app.md
   - name: 자습서
     items:
       - name: 웹 SDK 자습서
@@ -281,6 +281,38 @@ items:
         items:
           - name: iOS 지도 컨트롤 시작
             href: how-to-use-ios-map-control-library.md
+          - name: 지도 스타일 변경
+            href: set-map-style-ios-sdk.md
+          - name: 맵에 컨트롤 추가
+            href: add-controls-map-ios.md
+          - name: 데이터 소스 만들기
+            href: create-data-source-ios-sdk.md
+          - name: 기호 레이어 추가
+            href: add-symbol-layer-ios.md
+          - name: 거품형 레이어 추가
+            href: add-bubble-layer-map-ios.md
+          - name: 기능 정보 표시
+            href: display-feature-information-ios-sdk.md
+          - name: 선 계층 추가
+            href: add-line-layer-map-ios.md
+          - name: 다각형 레이어 추가
+            href: add-polygon-layer-map-ios.md
+          - name: 다각형 입체 면 레이어 추가
+            href: add-polygon-extrusion-layer-map-ios.md
+          - name: 열 지도 계층 추가
+            href: add-heat-map-layer-ios.md
+          - name: 이미지 레이어 추가
+            href: add-image-layer-map-ios.md
+          - name: 타일 레이어 추가
+            href: add-tile-layer-map-ios.md
+          - name: 트래픽 데이터 표시
+            href: show-traffic-data-map-ios-sdk.md
+          - name: 요소 데이터 클러스터링
+            href: clustering-point-data-ios-sdk.md
+          - name: 데이터 기반 식 사용
+            href: data-driven-style-expressions-ios-sdk.md
+          - name: 이벤트에 React
+            href: interact-map-ios-sdk.md
           - name: Azure Maps 실내 맵 모듈 사용
             href: how-to-use-indoor-module-ios.md
       - name: Power BI에서 Azure Maps 사용
@@ -338,7 +370,7 @@ items:
           - name: Render Service
             href: /rest/api/maps/render
           - name: Render Service V2
-            href: /rest/api/maps/renderv2
+            href: /rest/api/maps/render-v2
           - name: Route Service
             href: /rest/api/maps/route
           - name: Search 서비스
@@ -366,11 +398,11 @@ items:
               - name: WFS 서비스
                 href: /rest/api/maps/v2/wfs
           - name: Maps 계정 관리
-            href: /rest/api/maps-management
+            href: /rest/api/maps-management/
       - name: JavaScript
         items:
           - name: 지도 컨트롤
-            href: /javascript/api/azure-maps-javascript/
+            href: /javascript/api/azure-maps-control/
           - name: 그리기 도구
             href: /javascript/api/azure-maps-drawing-tools/
           - name: 서비스 모듈
@@ -396,7 +428,7 @@ items:
           - name: IoT Hub Device Provisioning Service
             href: ../iot-dps/index.yml
           - name: IoT Central
-            href: /microsoft-iot-central/
+            href: /azure/iot-central/
           - name: IoT Edge
             href: ../iot-edge/index.yml
           - name: IoT 플러그 앤 플레이
@@ -414,7 +446,7 @@ items:
       - name: Azure Maps 사용 약관
         href: 'https://azure.microsoft.com/support/legal/'
       - name: Azure Maps 가격 책정
-        href: 'https://azure.microsoft.com/pricing/details/azure-maps'
+        href: 'https://azure.microsoft.com/pricing/details/azure-maps/'
       - name: 요금 계산기
         href: 'https://azure.microsoft.com/pricing/calculator/'
       - name: Azure Maps 비디오
@@ -426,9 +458,9 @@ items:
       - name: Azure Maps 용어집
         href: glossary.md
       - name: 서비스 업데이트
-        href: 'https://azure.microsoft.com/updates'
+        href: 'https://azure.microsoft.com/updates/'
       - name: Azure IoT 개발자 센터
-        href: 'https://azure.microsoft.com/develop/iot/'
+        href: 'https://azure.microsoft.com/overview/iot/'
       - name: Azure 로드맵
         href: 'https://azure.microsoft.com/roadmap/?category=iot'
       - name: 기술 사례 연구

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.openlocfilehash: 89f4f5a6a428ad8a2707b25f96d837a288c5f443
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 9115a3c825b88749f783dd0053e0ee9bd21db45a
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132862875"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218010"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Azure Data Factory 버전 1의 데이터 변환
 
@@ -58,6 +58,9 @@ Data Factory 파이프라인의 HDInsight 스트리밍 작업은 사용자 고�
 Data Factory 파이프라인에서 HDInsight Spark 작업은 사용자 고유 HDInsight 클러스터에서 Spark 프로그램을 실행합니다. 자세한 내용은 [Azure Data Factory에서 Spark 프로그램 호출](data-factory-spark.md) 을 참조하세요. 
 
 ## <a name="ml-studio-classic-activities"></a>ML Studio(클래식) 작업
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 Azure Data Factory를 사용하면 예측 분석을 위해 게시된 ML Studio(클래식) 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [일괄 실행 작업](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity)을 사용하면 Studio(클래식) 웹 서비스를 호출하여 데이터를 일괄적으로 예측할 수 있습니다.
 
 시간이 지남에 따라 Studio(클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. [업데이트 리소스 작업](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity)을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  

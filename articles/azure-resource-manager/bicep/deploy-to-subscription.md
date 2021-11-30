@@ -3,12 +3,12 @@ title: Bicep을 사용하여 테넌트로 리소스 배포
 description: 관리 그룹 범위에서 리소스를 배포하는 Bicep 파일을 만드는 방법을 설명합니다. 리소스 그룹을 만드는 방법을 보여주는 스크린샷
 ms.topic: conceptual
 ms.date: 11/22/2021
-ms.openlocfilehash: b79c21d66d4d7e02446ab469fcb02e83e66899f0
-ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.openlocfilehash: ee0e3fcc323d002a52d6f5e30d0def77fc5ecda5
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132955882"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218637"
 ---
 # <a name="subscription-deployments-with-bicep-files"></a>Bicep 파일을 사용한 구독 배포
 
@@ -71,7 +71,7 @@ Azure 정책의 경우 다음을 사용합니다.
 
 모니터링을 위해 다음을 사용 합니다.
 
-* [diagnosticSettings](/templates/microsoft.insights/diagnosticsettings)
+* [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 * [logprofiles](/azure/templates/microsoft.insights/logprofiles)
 
 보안을 위해 다음을 사용 합니다.

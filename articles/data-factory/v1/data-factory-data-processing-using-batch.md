@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a9dd37d74a12f262584f1cf41955b1444134a7ec
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e32f21953e0d2e1704ac6e26dcfc23baf3d0749e
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131065307"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218852"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -120,7 +120,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
    f. **확인** 을 선택하여 풀을 만듭니다.
 
 #### <a name="azure-storage-explorer"></a>Azure Storage Explorer
-[Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) 또는 [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf Software)를 사용하여 Storage 프로젝트의 데이터를 검사하고 변경합니다. 클라우드 호스팅 애플리케이션의 로그에 있는 데이터를 검사하고 변경할 수도 있습니다.
+[Azure Storage Explorer 6](https://azure.microsoft.com/features/storage-explorer/) 또는 [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)(ClumsyLeaf Software)를 사용하여 Storage 프로젝트의 데이터를 검사하고 변경합니다. 클라우드 호스팅 애플리케이션의 로그에 있는 데이터를 검사하고 변경할 수도 있습니다.
 
 1. 프라이빗 액세스로 **mycontainer** 라는 컨테이너를 만듭니다(익명 액세스 없음).
 

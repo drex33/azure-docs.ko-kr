@@ -1,22 +1,22 @@
 ---
 title: 프록시를 사용하여 센서 연결
-description: 직접 인터넷에 액세스할 수 없는 프록시를 통해 센서와 통신 하도록 IoT 용 Microsoft Defender를 구성 하는 방법에 대해 알아봅니다.
+description: 직접 인터넷에 액세스할 수 없는 프록시를 통해 센서와 통신하도록 Microsoft Defender for IoT를 구성하는 방법을 알아봅니다.
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.openlocfilehash: 0a6e2ef526985ca5e8bee208989310ed01f18267
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 35e694a59064e4801553d053d66b72b3d2e7c620
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132278800"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133217915"
 ---
-# <a name="connect-microsoft-defender-for-iot-sensors-without-direct-internet-access-by-using-a-proxy"></a>커넥트 프록시를 사용 하 여 인터넷에 직접 액세스 하지 않는 IoT 용 Microsoft Defender 센서 
+# <a name="connect-microsoft-defender-for-iot-sensors-without-direct-internet-access-by-using-a-proxy"></a>프록시를 사용하여 직접 인터넷 액세스 없이 Microsoft Defender for IoT 센서 커넥트 
 
-이 문서에서는 직접 인터넷에 액세스할 수 없는 프록시를 통해 센서와 통신 하도록 IoT 용 Microsoft Defender를 구성 하는 방법을 설명 합니다. HTTP 터널링이 있고 연결에 HTTP CONNECT 명령을 사용하는 전달 프록시와 센서를 연결합니다. 여기에 제공된 지침에서는 오픈 소스 Squid 프록시를 사용하며 CONNECT를 지원하는 다른 프록시가 사용될 수 있습니다. 
+이 문서에서는 직접 인터넷에 액세스할 수 없는 프록시를 통해 센서와 통신하도록 Microsoft Defender for IoT를 구성하는 방법을 설명합니다. HTTP 터널링이 있고 연결에 HTTP CONNECT 명령을 사용하는 전달 프록시와 센서를 연결합니다. 여기에 제공된 지침에서는 오픈 소스 Squid 프록시를 사용하며 CONNECT를 지원하는 다른 프록시가 사용될 수 있습니다. 
 
 프록시는 암호화된 SSL 터널을 사용하여 센서에서 서비스로 데이터를 전송합니다. 프록시는 데이터를 검사, 분석 또는 캐시하지 않습니다. 
 
-다음 다이어그램에서는 IT 네트워크에 있는 프록시를 통해 클라우드로 온-클라우드의 IoT 센서에서 클라우드로의 Microsoft Defender로 이동 하는 데이터와 산업용 DMZ를 보여 줍니다.
+다음 다이어그램에서는 IT 네트워크 및 산업용 DMZ에 있는 프록시를 통해 클라우드로 OT 세그먼트의 Microsoft Defender for Cloud에서 IoT 센서로 데이터를 전송하는 데이터를 보여줍니다.
 
 :::image type="content" source="media/how-to-connect-sensor-by-proxy/cloud-access.png" alt-text="클라우드를 통해 센서를 프록시에 연결":::
 
@@ -25,7 +25,7 @@ ms.locfileid: "132278800"
 이 시나리오에서는 Ubuntu 18 서버에서 최신 버전의 [Squid](http://www.squid-cache.org/)를 설치하고 구성합니다.
 
 > [!Note]
-> IoT 용 Microsoft Defender는 Squid 또는 다른 프록시 서비스에 대 한 지원을 제공 하지 않습니다.
+> Microsoft Defender for IoT는 Squid 또는 다른 프록시 서비스에 대한 지원을 제공하지 않습니다.
 
 **Ubuntu 18 서버에 Squid 프록시를 설치하려면**:
 

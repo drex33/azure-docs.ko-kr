@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 ms.custom: devx-track-azurecli, device-developer
 services: iot-central
-ms.openlocfilehash: 9c257b9df42af31c443ae3e609d578db6adeb1c8
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: bccf644ed13c7b93281f7f5b97c45935b2918e1e
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154834"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218808"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Azure CLI를 사용하여 디바이스 연결 모니터링
 
@@ -78,4 +78,4 @@ az iot central device twin show --app-id <app-id> --device-id <device-id>
 
 ## <a name="next-steps"></a>다음 단계
 
-제안된 다음 단계는 [Azure IoT Central의 디바이스 연결](./concepts-get-connected.md)에 대해 읽는 것입니다.
+제안된 다음 단계는 [Windows(EFLOW)에서 Linux용 Azure IoT Edge를 연결하는 방법을](./howto-connect-eflow.md)알아보는 것입니다.

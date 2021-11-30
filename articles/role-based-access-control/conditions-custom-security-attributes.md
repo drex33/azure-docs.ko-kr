@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 11/16/2021
 ms.author: rolyon
-ms.openlocfilehash: 2e6ec883cf60935881b724dfff8cbfe2a5f5a2cc
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 2a8ebab29b4ad2f5c59fc1cb65a4deb4c7bd4bd1
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132765145"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133217783"
 ---
 # <a name="allow-read-access-to-blobs-based-on-tags-and-custom-security-attributes-preview"></a>태그 및 사용자 지정 보안 특성에 따라 Blob에 대한 읽기 액세스 허용(미리 보기)
 
@@ -63,7 +63,7 @@ ms.locfileid: "132765145"
 
 ## <a name="step-1-add-a-new-custom-security-attribute"></a>1단계: 새 사용자 지정 보안 특성 추가
 
-1. [Azure Portal](https://azure.portal.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1.   >  **사용자 지정 보안 특성 Azure Active Directory(미리 보기)** 를 클릭합니다.
 
@@ -85,7 +85,7 @@ ms.locfileid: "132765145"
 
 ## <a name="step-3-set-up-storage-and-blob-index-tags"></a>3단계: 스토리지 및 Blob 인덱스 태그 설정
 
-1. Blob 인덱스 태그 기능과 호환되는 스토리지 계정을 만듭니다. 자세한 내용은 [Blob 인덱스 태그를 통해 Azure Blob 데이터 관리 및 찾기를 참조하세요.](../storage/blobs/storage-manage-find-blobs.md)
+1. Blob 인덱스 태그 기능과 호환되는 스토리지 계정을 만듭니다. 자세한 내용은 [Blob 인덱스 태그를 사용하여 Azure Blob 데이터 관리 및 찾기](../storage/blobs/storage-manage-find-blobs.md)를 참조하세요.
 
 1. 스토리지 계정 내에 새 컨테이너를 만들고 **공용 액세스 수준을** **프라이빗(익명 액세스 없음)으로** 설정합니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "132765145"
  
 ## <a name="step-4-assign-storage-blob-data-reader-role-with-a-condition"></a>4단계: 조건을 사용하여 Storage Blob 데이터 판독기 역할 할당
 
-1. 새 탭을 열고 [Azure Portal](https://azure.portal.com)로그인합니다.
+1. 새 탭을 열고 [Azure Portal](https://portal.azure.com)로그인합니다.
 
 1. 스토리지 계정이 있는 리소스 그룹을 엽니다.
 
@@ -165,30 +165,30 @@ ms.locfileid: "132765145"
 
 1. 검토 + 할당 탭에서 **검토 + 할당을** 클릭하여 조건과 함께 Storage Blob 데이터 판독기 역할을 할당합니다.
 
-## <a name="step-5-assign-reader-role"></a>5단계: 읽기 역할 할당
+## <a name="step-5-assign-reader-role"></a>5단계: 리더 역할 할당
 
 - 이전 단계를 반복하여 리소스 그룹 범위에서 보안 그룹에 대한 [읽기](built-in-roles.md#reader) 역할을 할당합니다.
 
     > [!NOTE]
-    > 일반적으로 읽기 역할 할당은 필요하지 않습니다. 그러나 이 작업은 Azure Portal 사용하여 조건을 테스트할 수 있도록 수행됩니다.
+    > 일반적으로 리더 역할을 할당할 필요가 없습니다. 그러나 이 작업을 수행하면 Azure Portal을 사용하여 조건을 테스트할 수 있습니다.
 
 ## <a name="step-6-test-the-condition"></a>6단계: 조건 테스트
 
-1. 새 창에서 [Azure Portal](https://azure.portal.com)을 엽니다.
+1. 새 창에서 [Azure Portal](https://portal.azure.com)을 엽니다.
 
 1. 사용자 지정 보안 특성으로 만든 사용자로 `Project=Cascade` 로그인합니다.
 
 1. 만든 스토리지 계정 및 컨테이너를 엽니다.
 
-1. 인증 방법이 **액세스 키가** 아닌 **Azure AD 사용자 계정으로** 설정되어 있는지 확인합니다.
+1. 인증 방법이 **액세스 키** 가 아닌 **Azure AD 사용자 계정** 으로 설정되어 있는지 확인합니다.
 
-    ![테스트 파일이 있는 스토리지 컨테이너의 스크린샷.](./media/conditions-custom-security-attributes/test-storage-container.png)
+    ![테스트 파일이 포함된 스토리지 컨테이너의 스크린샷.](./media/conditions-custom-security-attributes/test-storage-container.png)
 
-1. 텍스트 파일을 클릭합니다.
+1. Baker 텍스트 파일을 클릭합니다.
 
     Blob을 보거나 다운로드할 수 **없으며** 권한 부여 실패 메시지가 표시되어야 합니다.
  
-1. Cascade 텍스트 파일을 클릭합니다.
+1. 계단식 텍스트 파일을 클릭합니다.
 
     Blob을 보고 다운로드할 수 있어야 합니다.
 

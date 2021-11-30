@@ -3,20 +3,20 @@ title: iOS 앱 만들기
 description: Azure Maps 계정 및 첫 번째 iOS 앱을 만드는 단계입니다.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/13/2021
+ms.date: 11/23/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: eriklind
 ms.custom: mode-other
-ms.openlocfilehash: 521674fd0d3115da97646b5327b1e9b5846ae2f9
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 054bcc67df6e013574ce04d0cccad620ffdb3297
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133044929"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218061"
 ---
-# <a name="create-an-ios-app-public-preview"></a>iOS 앱 만들기(공개 미리 보기)
+# <a name="create-an-ios-app-preview"></a>iOS 앱 만들기(미리 보기)
 
 이 문서에서는 iOS 앱에 Azure Maps를 추가하는 방법을 보여 줍니다. 여기서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -153,18 +153,12 @@ Azure Maps iOS SDK를 사용하여 계속 개발할 계획이 없는 경우:
 추가 코드 예제는 다음 문서를 참조하세요.
 
 * [Azure Maps의 인증 관리](how-to-manage-authentication.md)
+* [iOS 맵에서 지도 스타일 변경](set-map-style-ios-sdk.md)
+* [기호 계층 추가](add-symbol-layer-ios.md)
+* [선 계층 추가](add-line-layer-map-ios.md)
+* [다각형 계층 추가](add-polygon-layer-map-ios.md)
 
 <!--
-## Additional information
-
-See the following articles for additional code examples:
-
-* [Manage authentication in Azure Maps](how-to-manage-authentication.md)
-* [Change map styles in iOS maps](set-map-style-ios-sdk.md)
-* [Add a symbol layer](add-symbol-layer-ios.md)
-* [Add a line layer](add-line-layer-to-map-ios.md)
-* [Add a polygon layer](add-polygon-layer-map-ios.md)
-
 ## Next steps
 
 In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:

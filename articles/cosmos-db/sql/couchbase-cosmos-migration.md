@@ -8,12 +8,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ab1bd7c5c4dee610485c556eb3dc0e62ee6d9cb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7f4867727154c774ddd3bcfd65fbe4769c9e25ca
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657712"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218334"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>CouchBase에서 Azure Cosmos DB SQL API로 마이그레이션
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -187,7 +187,7 @@ Azure Cosmos DB에는 다양한 Java 프레임워크를 지원하는 다음과 �
 
 N1QL 쿼리는 Couchbase에서 쿼리를 정의하는 방법입니다.
 
-|N1QL 쿼리 | Azure CosmosDB 쿼리|
+|N1QL 쿼리 | Azure Cosmos DB 쿼리|
 |-------------------|-------------------|
 |SELECT META(`TravelDocument`).id AS id, `TravelDocument`.* FROM `TravelDocument` WHERE `_type` = "com.xx.xx.xx.xxx.xxx.xxxx " and country = 'India’ and ANY m in Visas SATISFIES m.type == 'Multi-Entry' and m.Country IN ['India', Bhutan’] ORDER BY ` Validity` DESC LIMIT 25 OFFSET 0 | SELECT c.id,c FROM c JOIN m in  c.country=’India’ WHERE c._type = " com.xx.xx.xx.xxx.xxx.xxxx" and c.country = 'India' and m.type = 'Multi-Entry' and m.Country IN ('India', 'Bhutan') ORDER BY c.Validity DESC OFFSET 0 LIMIT 25 |
 

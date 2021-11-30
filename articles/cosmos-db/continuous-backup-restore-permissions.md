@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 0d572e706c70a82544acbbe0416370ce3bc55485
-ms.sourcegitcommit: 1aeff9f012cfd868104ef0159c5204e402d75696
+ms.openlocfilehash: 3e049985f9387a84f1e5f174f22beac0f3560281
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133030280"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218827"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정을 복원하는 권한 관리
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -47,7 +47,7 @@ Azure Cosmos DB를 사용하면 지속적인 백업 계정에 대한 복원 권�
 |Resource group | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |CosmosDB 복원 가능한 계정 리소스 | /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995|
 
-복원 가능한 계정 리소스는 `az cosmosdb restorable-database-account list --name <accountname>` CLI의 명령이나 PowerShell의 `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet의 출력에서 추출할 수 있습니다. 출력의 이름 특성은 복원 가능한 계정의 `instanceID`를 나타냅니다. 
+복원 가능한 계정 리소스는 `az cosmosdb restorable-database-account list --account-name <accountname>` CLI의 명령이나 PowerShell의 `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet의 출력에서 추출할 수 있습니다. 출력의 이름 특성은 복원 가능한 계정의 `instanceID`를 나타냅니다. 
 
 ## <a name="permissions"></a>권한
 
@@ -73,17 +73,17 @@ Azure Cosmos DB를 사용하면 지속적인 백업 계정에 대한 복원 권�
 구독 수준에서 `CosmosRestoreOperator` 기본 제공 역할 할당
 
 ```azurecli-interactive
-az role assignment create --role "CosmosRestoreOperator" --assignee <email> –scope /subscriptions/<subscriptionId>
+az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope /subscriptions/<subscriptionId>
 ```
 
 ### <a name="assign-capability-to-restore-from-a-specific-account"></a>특정 계정에서 복원 기능 할당
 
 * 특정 리소스 그룹에 대한 사용자 쓰기 작업을 할당합니다. 이 작업은 리소스 그룹에 새 계정을 만드는 데 필요합니다.
 
-* 복원해야 하는 특정 복원 가능한 데이터베이스 계정에 *CosmosRestoreOperator* 기본 제공 역할을 할당합니다. 다음 명령에서 *RestorableDatabaseAccount* 의 범위는 `az cosmosdb restorable-database-account`의 출력(CLI를 사용하는 경우) 또는 `Get-AzCosmosDBRestorableDatabaseAccount`(PowerShell을 사용하는 경우)의 `ID` 속성에서 검색됩니다.
+* 복원해야 하는 특정 복원 가능한 데이터베이스 계정에 *CosmosRestoreOperator* 기본 제공 역할을 할당합니다. 다음 명령에서 *RestorableDatabaseAccount* 의 범위는 `az cosmosdb restorable-database-account list`의 출력(CLI를 사용하는 경우) 또는 `Get-AzCosmosDBRestorableDatabaseAccount`(PowerShell을 사용하는 경우)의 `ID` 속성에서 검색됩니다.
 
   ```azurecli-interactive
-   az role assignment create --role "CosmosRestoreOperator" --assignee <email> –scope <RestorableDatabaseAccount>
+   az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope <RestorableDatabaseAccount>
   ```
 
 ### <a name="assign-capability-to-restore-from-any-source-account-in-a-resource-group"></a>리소스 그룹의 모든 원본 계정에 복원 기능을 할당합니다.
@@ -130,7 +130,7 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli) 또는 [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template)를 사용하여 지속적인 백업을 프로비저닝합니다.
-* SQL 및 MongoDB 계정에 대한 [복원 가능한 최신 타임스탬프를](get-latest-restore-timestamp.md) 얻습니다.
+* SQL 및 MongoDB 계정에 대 한 [최신 복원 가능한 타임 스탬프를 가져옵니다](get-latest-restore-timestamp.md) .
 * [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli) 또는 [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template)를 사용하여 계정을 복원합니다.
 * [정기적 백업에서 지속적인 백업으로 계정에 마이그레이션](migrate-continuous-backup.md)합니다.
 * [지속적인 백업 모드의 리소스 모델](continuous-backup-restore-resource-model.md)

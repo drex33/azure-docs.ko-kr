@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: dech
-ms.openlocfilehash: 41059de2efd316c492933209f412e9b4512a0de9
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: f9afd838f804260d8263b6593085bfea455d9161
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117030"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218376"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner---sql-api"></a>Azure Cosmos DB 용량 플래너를 사용하여 RU/s 예측 - SQL API
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -58,7 +58,7 @@ ms.locfileid: "123117030"
 |지역 수|Azure Cosmos DB는 모든 새 Azure 하위 지역에 제공됩니다. 워크로드에 필요한 지역 수를 선택합니다. 지역 수를 Cosmos 계정과 연결할 수 있습니다. 자세한 내용은 Azure Cosmos DB의 [글로벌 배포](../distribute-data-globally.md)를 참조하세요.|
 |다중 지역 쓰기|[다중 지역 쓰기](../distribute-data-globally.md#key-benefits-of-global-distribution)를 사용하도록 설정하면 애플리케이션이 모든 Azure 지역을 읽고 쓸 수 있습니다. 다중 지역 쓰기를 사용하지 않도록 설정하면 애플리케이션이 데이터를 단일 지역에 쓸 수 있습니다. <br/><br/> 여러 다른 지역에서 대기 시간이 짧은 쓰기가 필요한 활성-활성 워크로드가 있어야 하는 경우 다중 지역 쓰기를 사용하도록 설정합니다. 예를 들어, 여러 다른 지역에서 대용량 데이터베이스에 데이터를 쓰는 IOT 워크로드입니다. <br/><br/> 다중 지역 쓰기는 99.999% 읽기 및 쓰기 가용성을 보장합니다. 다중 지역 쓰기에는 단일 쓰기 지역보다 더 많은 처리량이 필요합니다. 자세한 내용은 [단일 쓰기 지역과 다중 쓰기 지역의 RU 차이점](../optimize-cost-regions.md) 문서를 참조하세요.|
 |기본 일관성|Azure Cosmos DB에서는 5가지 일관성 수준을 지원하므로, 개발자가 일관성, 가용성, 대기 시간 간의 균형을 맞출 수 있습니다. 자세한 정보는 [일관성 수준](../consistency-levels.md) 문서를 참조하세요. <br/><br/> 기본적으로 Azure Cosmos DB에서는 세션 일관성을 사용하여 세션에서 고유 쓰기를 읽을 수 있는 기능을 보장합니다. <br/><br/> 강력 또는 제한된 부실을 선택하려면 세션, 일관된 접두사, 최종 일관성과 비교할 때 읽기에 필요한 RU/s의 두 배가 필요합니다. 다중 지역 쓰기와의 강력한 일관성은 지원되지 않으며 강력한 일관성이 있는 단일 지역 쓰기로 자동으로 기본 설정됩니다. |
-|인덱싱 정책|기본적으로 Azure Cosmos DB는 유연하고 효율적인 쿼리를 위해 모든 항목의 [모든 속성을 인덱싱](../index-policy.md)합니다(**자동** 인덱싱 정책에 매핑). <br/><br/> **해제** 를 선택하면 속성이 인덱싱되지 않습니다. 그러면 쓰기의 RU 비용이 최저가 됩니다. [포인트 읽기](/dotnet/api/microsoft.azure.cosmos.container.readitemasync)(키 값 조회) 및/또는 쓰기만 수행하고 쿼리는 수행하지 않으려는 경우 **해제** 정책을 선택합니다. <br/><br/> **자동** 을 선택하면 Azure CosmosDB가 모든 항목이 기록될 때 이를 자동으로 인덱싱합니다. <br/><br/> **사용자 지정** 인덱싱 정책을 사용하면 쓰기 처리량과 스토리지를 낮추기 위해 인덱스에서 특정 속성을 포함하거나 제외할 수 있습니다. 자세한 정보는 [인덱싱 정책](../index-overview.md)과 [샘플 인덱싱 정책](how-to-manage-indexing-policy.md#indexing-policy-examples) 문서를 참조하세요.|
+|인덱싱 정책|기본적으로 Azure Cosmos DB는 유연하고 효율적인 쿼리를 위해 모든 항목의 [모든 속성을 인덱싱](../index-policy.md)합니다(**자동** 인덱싱 정책에 매핑). <br/><br/> **해제** 를 선택하면 속성이 인덱싱되지 않습니다. 그러면 쓰기의 RU 비용이 최저가 됩니다. [포인트 읽기](/dotnet/api/microsoft.azure.cosmos.container.readitemasync)(키 값 조회) 및/또는 쓰기만 수행하고 쿼리는 수행하지 않으려는 경우 **해제** 정책을 선택합니다. <br/><br/> **자동을** 선택하는 경우 Azure Cosmos DB는 기록되는 모든 항목을 자동으로 인덱싱합니다. <br/><br/> **사용자 지정** 인덱싱 정책을 사용하면 쓰기 처리량과 스토리지를 낮추기 위해 인덱스에서 특정 속성을 포함하거나 제외할 수 있습니다. 자세한 정보는 [인덱싱 정책](../index-overview.md)과 [샘플 인덱싱 정책](how-to-manage-indexing-policy.md#indexing-policy-examples) 문서를 참조하세요.|
 |트랜잭션 저장소에 저장된 총 데이터 |단일 지역의 트랜잭션 저장소에 저장된 총 예상 데이터(GB)입니다.|
 |분석 저장소 사용| 분석 저장소를 사용하려면 **설정** 을 선택합니다. **분석 저장소에 저장되는 총 데이터** 를 입력합니다. 이 값은 단일 지역의 분석 저장소에 저장되는 예상 데이터(GB)를 나타냅니다.  |
 |워크로드 모드|워크로드 볼륨이 일정한 경우 **일정** 옵션을 선택합니다. <br/><br/> 시간이 지남에 따라 워크로드 볼륨이 변경되는 경우 **가변** 옵션을 선택합니다.  예를 들어 특정 날짜 또는 한 달 동안입니다. 가변 워크로드 옵션을 선택하는 경우 다음 설정을 사용할 수 있습니다.<ul><li>최대 시간 비율: 워크로드에 최대(가장 높은) 처리량이 필요한 한 달의 시간 백분율입니다. </li></ul> <br/><br/> 예를 들어, 평일 오전 9시부터 오후 6시까지의 업무 시간 동안 작업이 많은 워크로드가 있는 경우 최대 시간의 백분율은 최대 45시간/730시간/월 = ~6%입니다.<br/><br/>사용량 최대 간격과 사용량이 적은 간격을 사용하면 [프로비저닝된 처리량을 프로그래매틱 방식으로 스케일링](../set-throughput.md#update-throughput-on-a-database-or-a-container) 업하고 다운로드하여 비용을 최적화할 수 있습니다.|

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/13/2021
 ms.author: tisande
-ms.openlocfilehash: c2f380e92693e6ef2d16e74001b2d22d76e6d941
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
-ms.translationtype: HT
+ms.openlocfilehash: 31b107b4972b5ccc970660eb79e6f0eb8a618fa3
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122567760"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218694"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +34,7 @@ Azure Cosmos DB는 다음 두 가지 연결 모드를 지원합니다.
 > [!NOTE]
 > Azure Cosmos DB는 지연 인덱싱 모드도 지원합니다. 지연 인덱싱은 엔진이 다른 작업을 수행하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행합니다. 이로 인해 **불일치 또는 불완전** 쿼리 결과가 발생할 수 있습니다. Cosmos 컨테이너를 쿼리하려면 지연 인덱스를 선택하지 않아야 합니다. 새 컨테이너는 지연 인덱싱을 선택할 수 없습니다. cosmoslazyindexing@microsoft.com에 문의하여 예외를 요청할 수 있습니다(지연 인덱싱을 지원하지 않는 [서버리스](serverless.md) 모드에서 Azure Cosmos 계정을 사용하는 경우 제외).
 
-기본적으로 인덱싱 정책은 `automatic`으로 설정됩니다. 인덱싱 정책에서 `automatic` 속성을 `true`로 설정하면 됩니다. 이 속성을 `true`로 설정하면 작성되는 문서를 Azure CosmosDB가 자동으로 인덱싱할 수 있습니다.
+기본적으로 인덱싱 정책은 `automatic`으로 설정됩니다. 인덱싱 정책에서 `automatic` 속성을 `true`로 설정하면 됩니다. 이 속성을로 설정 `true` 하면 Azure Cosmos DB 작성 된 문서를 자동으로 인덱싱할 수 있습니다.
 
 ## <a name="index-size"></a><a id="index-size"></a>인덱스 크기
 

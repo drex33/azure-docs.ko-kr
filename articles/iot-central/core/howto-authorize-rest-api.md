@@ -7,12 +7,12 @@ ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 28efc06f2d7c3b5a9fca8d96dda7fa885a98f088
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: be98dab4d843236fd2ac0b270d894fd5c4cd6986
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131070340"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133218580"
 ---
 # <a name="how-to-authenticate-and-authorize-iot-central-rest-api-calls"></a>IoT Central REST API 호출을 인증하고 권한을 부여하는 방법
 
@@ -113,7 +113,7 @@ REST API 사용:
 1. REST API를 사용하여 역할에 대한 API 토큰을 만듭니다. 예를 들어 연산자 역할에 대해 `operator-token`이라는 API 토큰을 만들려면 다음을 사용합니다.
 
     ```http
-    PUT https://{your app subdomain}.azureiotcentral.com/api/roles/operator-token?api-version=1.0
+    PUT https://{your app subdomain}.azureiotcentral.com/api/apiToken/operator-token?api-version=1.0
     ```
 
     본문 요청:

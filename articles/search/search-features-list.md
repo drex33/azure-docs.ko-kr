@@ -8,24 +8,24 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.openlocfilehash: 085cc7935d62517d98c7939639d3f13362e3aefc
-ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.openlocfilehash: 8d8ed975b5bfc94562c3ea0edae3d478936075cf
+ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2021
-ms.locfileid: "133129408"
+ms.lasthandoff: 11/29/2021
+ms.locfileid: "133217884"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Azure Cognitive Search의 기능
 
 Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 영구 스토리지, 인덱싱 중에 사용되는 통합 AI를 사용하여 더 많은 텍스트와 구조를 추출하고 API와 도구를 제공합니다. 
 
-다음 표에는 범주별로 해당 기능이 요약되어 있습니다. Cognitive Search 다른 검색 기술과 비교 하는 방법에 대 한 자세한 내용은 [검색 옵션 비교](search-what-is-azure-search.md#compare-search-options)를 참조 하세요.
+다음 표에는 범주별로 해당 기능이 요약되어 있습니다. Cognitive Search 다른 검색 기술과 비교하는 방법에 대한 자세한 내용은 [검색 옵션 비교를 참조하세요.](search-what-is-azure-search.md#compare-search-options)
 
 ## <a name="indexing-features"></a>인덱싱 기능
 
 | 범주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 기능 |
 |-------------------|----------|
-| 데이터 원본 | JSON 문서로 제출된 경우 검색 인덱스에서 모든 원본의 텍스트를 허용할 수 있습니다. <br/><br/> [**인덱서**](search-indexer-overview.md)는 지원되는 데이터 원본에서 데이터 가져오기를 자동화하여 기본 데이터 저장소에서 검색 가능한 콘텐츠를 추출하는 기능입니다. 인덱서가 JSON serialization을 처리합니다. [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md)또는 [Azure Blob storage](search-howto-indexing-azure-blob-storage.md)를 비롯 한 [다양 한 데이터 원본](search-data-sources-gallery.md)에 연결할 수 있습니다. |
+| 데이터 원본 | JSON 문서로 제출된 경우 검색 인덱스에서 모든 원본의 텍스트를 허용할 수 있습니다. <br/><br/> [**인덱서**](search-indexer-overview.md)는 지원되는 데이터 원본에서 데이터 가져오기를 자동화하여 기본 데이터 저장소에서 검색 가능한 콘텐츠를 추출하는 기능입니다. 인덱서가 JSON serialization을 처리합니다. [Azure SQL Database,](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)Azure Cosmos [DB](search-howto-index-cosmosdb.md)또는 [Azure Blob Storage를](search-howto-indexing-azure-blob-storage.md)비롯한 [다양한 데이터 원본에](search-data-sources-gallery.md)연결할 수 있습니다. |
 | 계층형 및 중첩 데이터 구조 | [**복합 형식**](search-howto-complex-data-types.md) 및 컬렉션을 사용하면 거의 모든 유형의 JSON 구조를 검색 인덱스로 모델링할 수 있습니다. 일대다 및 다대다 카디널리티는 컬렉션, 복합 형식 및 복합 형식 컬렉션을 통해 고유하게 표현할 수 있습니다.|
 | 언어 분석 | 분석기는 인덱싱 및 검색 작업 중 텍스트 처리에 사용되는 구성 요소입니다. 기본적으로, 범용 표준 Lucene 분석기를 사용하거나, 언어 분석기, 구성한 사용자 지정 분석기 또는 필요한 형식으로 토큰을 생성하는 미리 정의된 다른 분석기를 사용하여 기본값을 재정의할 수 있습니다. <br/><br/>Lucene 또는 Microsoft의 [**언어 분석기**](index-add-language-analyzers.md)는 동사 시제, 성, 불규칙 복수 명사(예: ‘mouse’와 ‘mice’), 단어 분해, 단어 분철(띄어쓰기가 없는 언어의 경우) 등을 비롯한 언어별 언어 체계를 지능적으로 처리할 수 있습니다. <br/><br/>[**사용자 지정 어휘 분석기**](index-add-custom-analyzers.md)는 표기 일치 및 정규식을 사용하는 복잡한 검색 쿼리에 사용됩니다.<br/><br/> |
 
@@ -33,9 +33,9 @@ Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 �
 
 | 범주&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 기능 |
 |-------------------|----------|
-|인덱싱 중 AI 처리 | [**AI 보강**](cognitive-search-concept-intro.md) 는 전체 텍스트 검색을 위해 인덱싱할 수 없는 콘텐츠에서 텍스트와 정보를 추출 하는 인덱서 파이프라인에서 포함 된 이미지 및 자연어 처리를 의미 합니다. AI 처리는 기술에서 기술을 추가 하 고 결합 하 여 수행 되며,이는 인덱서에 연결 됩니다. AI는 텍스트 번역 또는 OCR (광학 문자 인식) 또는 사용자가 제공 하는 [사용자 지정 기술과](cognitive-search-create-custom-skill-example.md) 같은 Microsoft의 [기본 기술](cognitive-search-predefined-skills.md) 입니다. |
-| 비검색 시나리오에서 분석하고 사용할 수 있도록 보강된 콘텐츠 저장 | [**기술 자료 저장소**](knowledge-store-concept-intro.md) 는 보강 콘텐츠의 영구 저장소로, 지식 마이닝 및 데이터 과학 처리와 같은 비 검색 시나리오를 위한 것입니다. 기술 자료 저장소는 기술에 정의 되어 있지만 Azure Storage 개체 또는 테이블 형식 행 집합으로 생성 됩니다.|
-| 캐시 된 강화 | [**증분 보강 (미리 보기)**](cognitive-search-incremental-indexing-conceptual.md) 는 기술 실행 중에 다시 사용할 수 있는 캐시 된 강화을 나타냅니다. 캐싱은 OCR 및 이미지 분석을 포함 하는 기술력과에서 처리 하는 데 비용이 많이 드는 특히 유용 합니다. |
+|인덱싱 중 AI 처리 | [**AI 보강은**](cognitive-search-concept-intro.md) 전체 텍스트 검색을 위해 인덱싱할 수 없는 콘텐츠에서 텍스트 및 정보를 추출하는 인덱서 파이프라인의 포함된 이미지 및 자연어 처리를 나타냅니다. AI 처리는 기술에서 기술을 추가하고 결합하여 달성한 다음, 인덱서에 연결됩니다. AI는 텍스트 번역 또는 OCR(광학 인식)과 같은 Microsoft의 [기본 제공 기술](cognitive-search-predefined-skills.md) 또는 제공하는 사용자 지정 [기술일](cognitive-search-create-custom-skill-example.md) 수 있습니다. |
+| 비검색 시나리오에서 분석하고 사용할 수 있도록 보강된 콘텐츠 저장 | [**지식 저장소는**](knowledge-store-concept-intro.md) 지식 마이닝 및 데이터 과학 처리와 같은 검색이 아닌 시나리오를 위한 보강된 콘텐츠의 영구 스토리지입니다. 지식 저장소는 기술 세트에 정의되지만 Azure Storage 개체 또는 테이블 형식 행 집합으로 만들어집니다.|
+| 캐시된 보강 | [**증분 보강(미리 보기)은**](cognitive-search-incremental-indexing-conceptual.md) 기술 실행 중에 다시 사용할 수 있는 캐시된 보강을 나타냅니다. 캐싱은 처리 비용이 많이 드는 OCR 및 이미지 분석을 포함하는 기술 집합에서 특히 중요합니다. |
 
 ## <a name="query-and-user-experience"></a>쿼리 및 사용자 환경
 
@@ -43,7 +43,7 @@ Azure Cognitive Search는 전체 텍스트 검색 엔진, 검색 인덱스의 �
 |-------------------|----------|
 |자유 형식 텍스트 검색 | [**전체 텍스트 검색**](search-lucene-query-architecture.md)은 대부분의 검색 기반 앱에서 기본적으로 사용되는 검색 방식입니다. 쿼리는 지원되는 구문을 사용하여 작성할 수 있습니다. <br/><br/>[**간단한 쿼리 구문**](query-simple-syntax.md)은 논리 연산자, 구 검색 연산자, 후위 연산자, 선행 연산자를 제공합니다.<br/><br/>[**전체 Lucene 쿼리 구문**](query-lucene-syntax.md)에는 간단한 구문의 모든 연산이 포함되며 유사 항목 검색, 근접 검색, 용어 상승 및 정규식에 대한 확장이 포함됩니다.|
 | 관련성 | [**간단한 점수 매기기**](index-add-scoring-profiles.md)는 Azure Cognitive Search의 주요 이점입니다. 점수 매기기 프로필은 문서 자체의 값에 대한 함수로서 관련성을 모델링하는 데 사용됩니다. 예를 들어 최신 제품 또는 할인 제품을 검색 결과의 더 높은 부분에 나타내려고 할 수 있습니다. 또한 따로 추적하고 저장한 고객 검색 기본 설정에 따라 개인화된 점수에 태그를 사용하여 점수 매기기 프로필을 만들 수도 있습니다. |
-| 지리적 검색 | Azure Cognitive Search는 지리적 위치를 처리하고, 필터링하고, 표시합니다. 이 기능을 통해 사용자는 실제 위치에 대한 검색 결과의 근접도에 따라 데이터를 검색할 수 있습니다. [이 동영상을 시청](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)하거나 [이 예제를 검토](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)하여 자세히 알아보세요. |
+| 지리적 검색 | Azure Cognitive Search는 지리적 위치를 처리하고, 필터링하고, 표시합니다. 이 기능을 통해 사용자는 실제 위치에 대한 검색 결과의 근접도에 따라 데이터를 검색할 수 있습니다. |
 | 필터 및 패싯 | [**패싯 탐색**](search-faceted-navigation.md)은 단일 쿼리 매개 변수를 통해 사용하도록 설정됩니다. Azure Cognitive Search는 자기 주도형 필터링(예: 가격 범위 또는 브랜드별로 카탈로그 항목 필터링)을 위해 카탈로그 목록 이면의 코드로 사용할 수 있는 패싯 탐색 구조를 반환합니다. <br/><br/> [**필터**](query-odata-filter-orderby-syntax.md)를 사용하여 패싯 탐색을 애플리케이션 UI에 통합하고, 쿼리 작성을 향상하고, 사용자 또는 개발자가 지정한 기준에 따라 필터링할 수 있습니다. OData 구문을 사용하여 필터를 만듭니다. |
 | 사용자 환경 | [**자동 완성**](search-add-autocomplete-suggestions.md)은 검색 창의 자동 완성 쿼리에 사용할 수 있습니다. <br/><br/>[**검색 제안**](/rest/api/searchservice/suggesters) 도 검색 표시줄 결과에서 일부 텍스트 입력에서 작동에 실제 문서 쿼리를 사용 하지 않고 인덱스 사용 약관이 있습니다. <br/><br/>[**동의어**](search-synonyms.md)는 사용자가 대체 용어를 제공할 필요 없이 쿼리의 범위를 암시적으로 확장하는 동등한 용어를 연결합니다. <br/><br/>[**적중 항목 강조 표시**](/rest/api/searchservice/Search-Documents)는 검색 결과의 일치하는 키워드에 텍스트 서식을 적용합니다. 강조 표시된 조각을 반환할 필드를 선택할 수 있습니다.<br/><br/>[**정렬**](/rest/api/searchservice/Search-Documents)은 인덱스 스키마를 통해 여러 필드에 제공된 후 쿼리 시 단일 검색 매개 변수를 통해 전환됩니다.<br/><br/> 검색 결과의 [**페이징**](search-pagination-page-layout.md) 및 제한은 Azure Cognitive Search에서 검색 결과에 대해 제공하는 세밀하게 튜닝된 컨트롤을 사용하여 간단하게 수행할 수 있습니다.  <br/><br/>|
 

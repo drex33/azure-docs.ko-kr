@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/30/2021
-ms.openlocfilehash: c2f4a4c9b1ea1e91b04a013a4fc3cd1573bee965
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: daa7dd0e174a0e49b201ce304c70f59300588755
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/30/2021
-ms.locfileid: "133267549"
+ms.locfileid: "133288185"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>릴리스 정보 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -24,6 +24,7 @@ ms.locfileid: "133267549"
 
 * 새 서버를 만들어 [최신 PostgreSQL 부](./concepts-supported-versions.md) 13.4, 12.8 및 11.13 지원<sup>$</sup>
 * 선택된 쌍을 이루는(미국 동부 2, 미국 중부, 북유럽, 서유럽, 일본 동부 및 일본 서부)의 미리 보기에서 [지역 중복 백업 및 복원](concepts-backup-restore.md) 기능을 지원합니다.
+*  미국 중북부, 스웨덴 중부 및 미국 서부 3의 [새 지역에](overview.md#azure-regions) 대한 지원. 
 *  높은 처리량 스트리밍 데이터를 기존 테이블에 수집하기 위해 [미리 보기에서 ASA(Azure Stream Analytics) 커넥터](https://techcommunity.microsoft.com/t5/analytics-on-azure/stream-analytics-updates-ignite-fall-2021-new-outputs-new/ba-p/2919170)를 지원합니다.
 *  여러 버그 수정, 안정성 및 성능 향상<sup>$</sup>
 
@@ -81,7 +82,7 @@ ms.locfileid: "133267549"
 * 오스트레일리아 동부, 캐나다 중부 및 프랑스 중부 등 새 [지역](./overview.md#azure-regions) 지원
 * [기본 제공 PgBouncer](./concepts-pgbouncer.md) 연결 풀러 지원 
 <!--- * Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2. -->
-* [지능형 성능](concepts-query-store.md) .
+* [지능형 성능.](concepts-query-store.md)
 * 여러 버그 수정, 안정성 및 성능 향상
 
 ## <a name="release-october-2020---march-2021"></a>릴리스: 2020년 10월 - 2021년 3월

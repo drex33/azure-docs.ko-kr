@@ -2,21 +2,21 @@
 title: '자습서: 뉴욕 택시 데이터 로드'
 description: 이 자습서에서는 Azure Portal과 SQL Server Management Studio를 사용해 Synapse SQL용 Azure Blob에서 뉴욕 택시 데이터를 로드합니다.
 services: synapse-analytics
-author: julieMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/23/2020
-ms.author: jrasnick
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 7ede40aba8e2d36e4262b4bc89a35f5d67079e0e
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
-ms.translationtype: HT
+ms.openlocfilehash: 24c441b06f157bb5aa897984a1f693eb73ff3b38
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567510"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287596"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>자습서: 뉴욕 택시 데이터 집합 로드
 

@@ -1,25 +1,30 @@
 ---
-title: Java에서 Azure Service Bus 큐 사용(azure-messaging-servicebus)
-description: 이 자습서에서는 Java를 사용하여 Azure Service Bus 큐에서 메시지를 보내고 받는 방법을 알아봅니다. 새 azure-messaging-servicebus 패키지를 사용합니다.
+title: Azure Service Bus 큐 시작 (Java)
+description: 이 자습서에서는 Java 프로그래밍 언어를 사용 하 여 Azure Service Bus 큐에서 메시지를 보내고 받는 방법을 보여 줍니다.
 ms.date: 02/13/2021
 ms.topic: quickstart
 ms.devlang: Java
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
-ms.openlocfilehash: 996ebd9994f215d4ca0336b3d89dea63cf3a9d84
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: a06f908ec79e1dd606a6d0ec156c874385390a6d
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133069668"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288755"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-java"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(Java)
+> [!div class="op_single_selector" title1="프로그래밍 언어를 선택 합니다."]
+> * [C#](service-bus-dotnet-get-started-with-queues.md)
+> * [Java](service-bus-java-how-to-use-queues.md)
+> * [JavaScript](service-bus-nodejs-how-to-use-queues.md)
+> * [Python](service-bus-python-how-to-use-queues.md)
+
 이 빠른 시작에서는 Azure Service Bus 큐에서 메시지를 보내고 받는 Java 앱을 만듭니다. 
 
-> [!IMPORTANT]
-> 이 빠른 시작에서는 새 azure-messaging-servicebus 패키지를 사용합니다. 이전 azure-servicebus 패키지를 사용하는 빠른 시작은 [azure-servicebus를 사용하여 메시지 보내기 및 받기](service-bus-java-how-to-use-queues-legacy.md)를 참조하세요.
+> [!NOTE]
+> 이 빠른 시작에서는 Service Bus 큐로 메시지를 보내고 받는 간단한 시나리오에 대 한 단계별 지침을 제공 합니다. azure Service Bus에 대 한 미리 빌드된 java 샘플은 [GitHub의 java 용 azure SDK 리포지토리](https://github.com/azure/azure-sdk-for-java/tree/main/sdk/servicebus/azure-messaging-servicebus/src/samples)에서 찾을 수 있습니다. 
 
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 - Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다. Service Bus 네임스페이스에 대한 **연결 문자열** 및 만든 **큐** 의 이름을 적어 둡니다.
 - [Java용 Azure SDK][Azure SDK for Java]를 설치합니다. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]를 설치할 수 있습니다. 그런 다음, **Java용 Microsoft Azure 라이브러리** 를 프로젝트에 추가할 수 있습니다. IntelliJ를 사용하는 경우 [Azure Toolkit for IntelliJ 설치](/azure/developer/java/toolkit-for-intellij/installation)를 참조하세요. 

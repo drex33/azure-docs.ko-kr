@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: 8a181f48bcdf7ec186aac1b05d3aaf135fa35c09
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: cc4e31a011d2318d01e01a2c0237f47e06541ed2
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132550498"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287200"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-between-websocket-clients-using-subprotocol"></a>자습서: 하위 프로토콜을 사용하여 WebSocket 클라이언트 간에 메시지 게시 및 구독
 
@@ -132,7 +132,7 @@ ms.locfileid: "132550498"
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-messaging-webpubsub</artifactId>
-            <version>1.0.0-beta.6</version>
+            <version>1.0.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.javalin/javalin -->
         <dependency>

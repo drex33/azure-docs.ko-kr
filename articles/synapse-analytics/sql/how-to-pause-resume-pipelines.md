@@ -1,20 +1,20 @@
 ---
 title: Synapse 파이프라인을 사용하여 전용 SQL 풀을 일시 중지하고 다시 시작하는 방법
 description: Azure Synapse Analytics에서 Synapse 파이프라인을 사용하여 전용 SQL 풀에 대한 일시 중지 및 다시 시작을 자동화하는 방법을 알아봅니다.
-author: julieMSFT
-ms.author: jrasnick
+author: kromerm
+ms.author: makromer
 ms.service: synapse-analytics
 ms.reviewer: wiassaf
 ms.subservice: sql
 ms.topic: how-to
 ms.date: 08/12/2021
 ms.custom: template-how-to
-ms.openlocfilehash: d31cb6d07958c5f14ac5e45f0094e772b168a535
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 4eba28c746d12a2daa1a88477932751c5d9f9134
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131847929"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287121"
 ---
 # <a name="pause-and-resume-dedicated-sql-pools-with-synapse-pipelines"></a>Synapse 파이프라인을 사용하여 전용 SQL 풀 일시 중지 및 다시 시작
 

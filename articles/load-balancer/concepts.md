@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2020
+ms.date: 11/29/2021
 ms.author: allensu
-ms.openlocfilehash: 946741c8aa70040dd0186deceab0fb090cf38c11
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 8b4adada6ba79acffe98bf11d6be9cc90521ed3e
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129271748"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288869"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Azure Load Balancer 알고리즘
 
@@ -36,18 +36,6 @@ Load Balancer는 몇 가지 기능을 UDP 및 TCP 애플리케이션 모두에 �
 - **대상 포트**
 - **사용 가능한 서버에 흐름을 매핑하기 위한 IP 프로토콜 번호**
 
-## <a name="session-persistence"></a>세션 지속성
-
-동일한 흐름의 패킷이 동일한 백 엔드 풀 인스턴스에 도착합니다. 그러나 클라이언트가 동일한 원본 IP에서 새 흐름을 시작하면 원본 포트가 변경됩니다. 결과적으로 5 튜플 해시로 인해 트래픽이 다른 백 엔드 엔드포인트로 이동할 수 있습니다. 
-
-원본 IP 주소에 대한 세션 지속성은 2개 또는 3개의 튜플 해시를 사용하여 생성됩니다. 세션 지속성을 사용하도록 설정하면 동일한 클라이언트 IP 주소의 연속 요청이 동일한 가상 머신에서 처리됩니다. 부하 분산 모드에 대한 자세한 내용은 [Azure Load Balancer 배포 모드 구성을](./load-balancer-distribution-mode.md)참조하세요.
-
-다음 이미지는 해시 기반 배포를 표시합니다.
-
-![해시 기반 배포](./media/load-balancer-overview/load-balancer-distribution.png)
-
-*그림: 해시 기반 배포*
-
 ## <a name="application-independence-and-transparency"></a>애플리케이션 독립성 및 투명성
 
 Load Balancer는 TCP/UDP 애플리케이션 시나리오를 지원하며 흐름을 닫거나 시작하지 않습니다. 또한 Load Balancer는 흐름의 페이로드와 상호 작용하지 않습니다. 
@@ -66,6 +54,7 @@ Load Balancer는 계층 4에서 작동하며 애플리케이션 계층 게이트
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Load Balancer를 구성하는 [구성 요소](components.md)에 대해 알아봅니다.
+- Azure Load Balancer 트래픽 [배포 모드에](distribution-mode-concepts.md) 대해 알아보기
 - Load Balancer를 사용하여 시작하려면 [공용 표준 Load Balancer 만들기](quickstart-load-balancer-standard-public-portal.md)를 참조하세요. 하나의 부하 분산 장치를 만들고, 사용자 지정 IIS 확장이 설치된 VM을 만들고, VM 간에 웹앱의 부하를 분산시킵니다.
 - [Azure Load Balancer 아웃바운드 연결](load-balancer-outbound-connections.md)에 대해 자세히 알아보세요.
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).

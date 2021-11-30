@@ -2,21 +2,21 @@
 title: 전용 SQL 풀(이전 SQL DW)의 투명한 데이터 암호화(포털)
 description: Azure Synapse Analytics에 있는 전용 SQL 풀(이전 SQL DW)의 TDE(투명한 데이터 암호화)
 services: synapse-analytics
-author: julieMSFT
+author: nanditavalsan
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 06/23/2021
-ms.author: jrasnick
+ms.author: nanditav
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ddaa7656b5d926b3bf7fdb34548eafe99e9bcf89
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: fda920186719842b1be9636b2209b2e82460d2a7
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092062"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288489"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에 있는 전용 SQL 풀(이전 SQL DW)의 TDE(투명한 데이터 암호화) 시작
 

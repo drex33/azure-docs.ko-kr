@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: ae1af4f47188c853018e8d18a2b1564713fcb2d9
-ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
+ms.openlocfilehash: 00e0f3ecb1773f79c221171c624dfa4b2a4f360c
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132814283"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287691"
 ---
 # <a name="tutorial-publish-and-subscribe-messages-using-websocket-api-and-azure-web-pubsub-service-sdk"></a>자습서: WebSocket API 및 Azure Web PubSub 서비스 SDK를 사용하여 메시지 게시 및 구독
 
@@ -270,7 +270,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.6</version>
+        <version>1.0.0</version>
     </dependency>
 
     <dependency>
@@ -520,7 +520,7 @@ Azure Web PubSub 서비스를 사용하면 WebSocket 및 게시-구독 패턴을
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.6</version>
+        <version>1.0.0</version>
     </dependency>
     ```
 

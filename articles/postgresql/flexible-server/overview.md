@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 11/30/2021
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 24c57134b2bea7f133601d9f6377e4e5bc5d7436
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: e4b216d58aead921f75c8e790bae6f4eae6723e3
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/30/2021
-ms.locfileid: "133269430"
+ms.locfileid: "133287083"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>개요 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -28,7 +28,7 @@ PostgreSQL 커뮤니티 버전에서 제공하는 [Azure Database for PostgreSQL
 
 ## <a name="overview"></a>개요
 
-Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 기능 및 구성 설정에 대한 보다 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 일반적으로 서비스는 사용자 요구 사항에 따라 더 많은 유연성과 서버 구성 사용자 지정을 제공합니다. 유연한 서버 아키텍처를 통해 사용자는 클라이언트 계층으로 데이터베이스 엔진을 배치하여 대기 시간을 줄이고, 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 선택할 수 있습니다. 또한 유연한 서버는 서버를 중지/시작하는 기능과 전체 컴퓨팅 용량이 지속적으로 필요하지 않는 워크로드에 이상적인 확장 가능한 컴퓨팅 계층을 통해 더 나은 비용 최적화 제어 기능을 제공합니다. 서비스는 현재 PostgreSQL 11, 12 및 13의 커뮤니티 버전을 지원합니다. 서비스는 현재 광범위 한  [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 사용할 수 있습니다.
+Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 기능 및 구성 설정에 대한 보다 세부적인 제어와 유연성을 제공하도록 설계된 완전 관리형 데이터베이스 서비스입니다. 일반적으로 서비스는 사용자 요구 사항에 따라 더 많은 유연성과 서버 구성 사용자 지정을 제공합니다. 유연한 서버 아키텍처를 통해 사용자는 클라이언트 계층으로 데이터베이스 엔진을 배치하여 대기 시간을 줄이고, 단일 가용성 영역 및 여러 가용성 영역에서 고가용성을 선택할 수 있습니다. 또한 유연한 서버는 서버를 중지/시작하는 기능과 전체 컴퓨팅 용량이 지속적으로 필요하지 않는 워크로드에 이상적인 확장 가능한 컴퓨팅 계층을 통해 더 나은 비용 최적화 제어 기능을 제공합니다. 서비스는 현재 PostgreSQL 11, 12 및 13의 커뮤니티 버전을 지원합니다. 이 서비스는 현재 다양한 Azure 지역에서 사용할 수 [있습니다.](https://azure.microsoft.com/global-infrastructure/services/)
 
 ![유연한 서버 - 개요](./media/overview/overview-flexible-server.png)
 
@@ -110,11 +110,13 @@ Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결�
 | 일본 서부 | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | 한국 중부 | :heavy_check_mark: | :x: | :x: |
 | 한국 남부 | :heavy_check_mark: | :x: | :x: |
+| 미국 중북부 | :heavy_check_mark: | :x: | :x: |
 | 북유럽 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 노르웨이 동부 | :heavy_check_mark: | :x: | :x: |
 | 남아프리카 북부 | :heavy_check_mark: | :x: | :x: |
 | 미국 중남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | 동남 아시아 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 스웨덴 중부 | :heavy_check_mark: | :x: | :x: |
 | 스위스 북부 | :heavy_check_mark: | :x: | :x: |
 | 아랍에미리트 북부 | :heavy_check_mark: | :x: | :x: |
 | 영국 남부 | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -122,6 +124,7 @@ Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결�
 | 서유럽 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 미국 서부 | :heavy_check_mark: | :x: | :x: |
 | 미국 서부 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| 미국 서부 3 | :heavy_check_mark: | :x: | :x: |
 
 <!-- We continue to add more regions for flexible server. -->
 

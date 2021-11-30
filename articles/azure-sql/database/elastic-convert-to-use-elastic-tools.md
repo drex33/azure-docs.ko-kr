@@ -11,12 +11,12 @@ author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: c6a2506ec92580c949deef98c53d42b06bc37054
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: a8569f321165d6f040171c911794dd510977d016
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131473607"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287140"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "131473607"
 3. 개별 분할된 데이터베이스를 준비합니다.  
 4. 분할된 데이터베이스 맵에 매핑을 추가합니다.
 
-이러한 기술은 [.NET Framework 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 또는 [Azure SQL Database - 탄력적 데이터베이스 도구 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 있는 PowerShell 스크립트 중 하나를 사용하여 구현할 수 있습니다. 여기에 있는 예제에서는 PowerShell 스크립트를 사용합니다.
+이러한 기술은 [.NET Framework 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 또는 [Azure SQL Database - 탄력적 데이터베이스 도구 스크립트](https://github.com/Azure/elastic-db-tools/tree/master/Samples/PowerShell)에 있는 PowerShell 스크립트 중 하나를 사용하여 구현할 수 있습니다. 여기에 있는 예제에서는 PowerShell 스크립트를 사용합니다.
 
 ShardMapManager에 대한 자세한 내용은 [분할된 데이터베이스 맵 관리](elastic-scale-shard-map-management.md)를 참조하세요. 탄력적 데이터베이스 도구에 대한 개요는 [ 기능 개요](elastic-scale-introduction.md)를 참조하세요.
 
@@ -156,9 +156,9 @@ Get-Mappings -ShardMap $ShardMap
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Elastic Database tools 스크립트](https://github.com/Azure/elastic-db-tools/tree/master/Samples/PowerShell)에서 PowerShell 스크립트를 가져옵니다.
+Azure 탄력적 데이터베이스 도구 스크립트에서 PowerShell [스크립트를 얻습니다.](https://github.com/Azure/elastic-db-tools/tree/master/Samples/PowerShell)
 
-탄력적 데이터베이스 도구 클라이언트 라이브러리는 GitHub: [Azure/탄력적-도구](https://github.com/Azure/elastic-db-tools)에서 사용할 수 있습니다.
+탄력적 데이터베이스 도구 클라이언트 라이브러리는 [azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools)GitHub 사용할 수 있습니다.
 
 분할/병합 도구를 사용하여 데이터를 다중 테넌트 모델에서 단일 테넌트 모델로 또는 반대로 이동합니다. [분할 병합 도구](elastic-scale-configure-deploy-split-and-merge.md)를 참조하세요.
 

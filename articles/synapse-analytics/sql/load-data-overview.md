@@ -2,24 +2,24 @@
 title: 전용 SQL 풀을 위한 PolyBase 데이터 로드 전략 설계
 description: ETL 대신 전용 SQL로 데이터 로드를 위한 ELT(추출, 변환 및 로드) 프로세스를 설계합니다.
 services: synapse-analytics
-author: julieMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: jrasnick
+ms.author: joanpo
 ms.reviewer: igorstan
-ms.openlocfilehash: 79be8f9d98816690171476d9c5764884e1b4e0f7
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 70a3835957ccfb7913da4d6950093e29f7b945b1
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567467"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287957"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀을 위한 PolyBase 데이터 로드 전략 설계
 
-기존의 SMP 데이터 웨어하우스는 데이터 로드를 위해 ETL(추출, 변환 및 로드) 프로세스를 사용합니다. Azure SQL 풀은 스케일링이 가능하고 유연한 컴퓨팅 및 스토리지 리소스를 활용하는 MPP(대량 병렬 처리) 아키텍처입니다. ELT(추출, 로드 및 변환) 프로세스를 사용하면 기본 제공된 분산 쿼리 처리 기능을 활용하고, 로드 전에 데이터를 변환하는 데 필요한 리소스를 제거할 수 있습니다.
+기존의 SMP 데이터 웨어하우스는 데이터 로드를 위해 ETL(추출, 변환 및 로드) 프로세스를 사용합니다. Azure SQL 풀은 스케일링이 가능하고 유연한 컴퓨팅 및 스토리지 리소스를 활용하는 MPP(대량 병렬 처리) 아키텍처입니다. ELT(추출, 로드 및 변환) 프로세스는 기본 제공 분산 쿼리 처리 기능을 활용하고 로드하기 전에 데이터를 변환하는 데 필요한 리소스를 제거할 수 있습니다.
 
 SQL 풀은 BCP, SQL BulkCopy API 등 Polybase 이외 옵션을 비롯해 여러 로드 메서드를 지원하지만, 데이터를 로드하는 가장 빠르고 가장 스케일링 성능이 뛰어난 방법은 PolyBase를 사용하는 것입니다.  PolyBase는 T-SQL 언어를 통해 Azure Blob Storage 또는 Azure Data Lake Store에 저장된 외부 데이터에 액세스하는 기술입니다.
 
@@ -48,9 +48,9 @@ ELT(추출, 로드 및 변환)는 원본 시스템에서 데이터를 추출하�
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 외부 파일 형식
 
-PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서 데이터를 로드합니다. 그리고 분리된 텍스트 파일 외에 Hadoop 파일 형식 RC 파일, ORC 및 Parquet에서도 데이터를 로드합니다. 또한 Gzip 및 Snappy 압축 파일에서도 데이터를 로드할 수 있습니다. PolyBase는 현재 확장 ASCII, 고정 너비 형식 및 중첩된 형식(예: WinZip, JSON 및 XML)을 지원하지 않습니다.
+PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서 데이터를 로드합니다. PolyBase는 Hadoop 파일 형식 RC 파일, ORC 및 Parquet에서도 로드됩니다. 또한 Gzip 및 Snappy 압축 파일에서도 데이터를 로드할 수 있습니다. PolyBase는 현재 확장 ASCII, 고정 너비 형식 및 중첩된 형식(예: WinZip, JSON 및 XML)을 지원하지 않습니다.
 
-SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true)를 사용하여 분리된 텍스트 파일로 데이터를 내보낼 수 있습니다. Parquet에서 Azure Synapse Analytics로의 데이터 형식 매핑은 다음과 같습니다.
+SQL Server 내보내는 경우 [bcp 명령줄 도구를](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) 사용하여 데이터를 구분된 텍스트 파일로 내보낼 수 있습니다. Parquet에서 Azure Synapse Analytics로의 데이터 형식 매핑은 다음과 같습니다.
 
 | **Parquet 데이터 형식** |                      **SQL 데이터 형식**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -125,7 +125,7 @@ PolyBase를 사용하여 데이터를 로드하려는 경우 다음 로드 옵�
 
 ### <a name="non-polybase-loading-options"></a>PolyBase 외 로드 옵션
 
-데이터가 PolyBase와 호환되지 않으면 [bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) 또는 [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy)를 사용할 수 있습니다. bcp는 Azure Blob Storage를 거치지 않고도 전용 SQL 풀에 직접 로드되며, 소규모 로드에만 사용됩니다. 이러한 옵션의 로드 성능은 PolyBase보다 훨씬 느립니다.
+데이터가 PolyBase와 호환되지 않으면 [bcp](/sql/tools/bcp-utility?view=azure-sqldw-latest&preserve-view=true) 또는 [SQLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy)를 사용할 수 있습니다. BCP는 Azure Blob Storage를 거치지 않고 전용 SQL 풀에 직접 로드되며 작은 로드에만 사용할 수 있습니다. 이러한 옵션의 로드 성능은 PolyBase보다 느립니다.
 
 ## <a name="5-transform-the-data"></a>5. 데이터 변환
 

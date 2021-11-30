@@ -3,17 +3,17 @@ title: Azure Synapse Analytics에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Synapse Analytics에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
 ms.date: 09/17/2021
 ms.topic: reference
-author: julieMSFT
-ms.author: jrasnick
+author: nanditavalsan
+ms.author: nanditav
 ms.service: synapse-analytics
 ms.subservice: security
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: e7aa6f178293a36a88ff448dacca86b71524e6be
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8f7d6a6527b23382e10702fb4b8a16e4906bbd60
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633561"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287862"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-synapse-analytics"></a>Azure Synapse Analytics에 대한 Azure Policy 규정 준수 컨트롤
 

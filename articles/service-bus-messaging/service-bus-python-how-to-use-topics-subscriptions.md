@@ -1,6 +1,6 @@
 ---
-title: Python azure-servicebus 패키지 버전 7.0.0에서 Azure Service Bus 토픽 및 구독 사용
-description: 이 문서에서는 Python을 사용하여 토픽에 메시지를 보내고 구독에서 메시지를 받는 방법을 보여줍니다.
+title: Azure Service Bus 항목 시작 (Python)
+description: 이 자습서에서는 Azure Service Bus 토픽으로 메시지를 보내고 Python 프로그래밍 언어를 사용 하 여 토픽의 구독에서 메시지를 수신 하는 방법을 보여 줍니다.
 documentationcenter: python
 author: spelluru
 ms.author: spelluru
@@ -8,17 +8,28 @@ ms.date: 11/18/2020
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: devx-track-python, mode-other
-ms.openlocfilehash: 91cc8e661e1cbcbae6c763f5d53b8e5cd0028829
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: b00610c5a61a14fa42fe556296b140877985b0bb
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133045692"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288794"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-python"></a>Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(Python)
+
+> [!div class="op_single_selector" title1="프로그래밍 언어를 선택 합니다."]
+> * [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+> * [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+> * [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> * [Python](service-bus-python-how-to-use-topics-subscriptions.md)
+
 이 문서에서는 Python을 사용하여 Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지를 받는 방법을 보여줍니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> 이 빠른 시작에서는 메시지 일괄 처리를 Service Bus 토픽으로 보내고 해당 토픽의 구독에서 해당 메시지를 받는 간단한 시나리오에 대한 단계별 지침을 제공합니다. azure Service Bus에 대 한 미리 빌드된 JavaScript 및 TypeScript 샘플은 [GitHub의 Python 용 azure SDK 리포지토리에](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples)있습니다.
+
+
+## <a name="prerequisites"></a>필수 조건
 - Azure 구독 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계를 따릅니다. 연결 문자열, 항목 이름 및 구독 이름을 기록해 둡니다. 이 빠른 시작에는 하나의 구독만 사용합니다. 
 - [Azure Python SDK][Azure Python 패키지] 패키지가 설치된 Python 3.5 이상. 자세한 내용은 [Python 설치 가이드](/azure/developer/python/azure-sdk-install)를 참조하세요.

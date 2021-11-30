@@ -2,21 +2,21 @@
 title: 사용자 정의 스키마 사용
 description: T-SQL 사용자 정의 스키마를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀에 대한 솔루션을 개발하기 위한 팁입니다.
 services: synapse-analytics
-author: MSTehrani
+author: nanditavalsan
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: emtehran
+ms.author: nanditav
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 3204c77dd076d9aac6eb5a60b489280caefcbf4b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 6bf7e06d0557931d3b56a67cd6eb07e1b6a8df4e
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96460451"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288679"
 ---
 # <a name="user-defined-schemas-for-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀 사용자 정의 스키마
 이 문서에서는 T-SQL 사용자 정의 스키마를 사용하여 전용 SQL 풀에서 솔루션을 개발하기 위한 몇 가지 팁을 설명합니다.

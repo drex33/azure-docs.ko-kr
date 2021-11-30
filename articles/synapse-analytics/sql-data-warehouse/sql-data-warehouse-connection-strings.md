@@ -2,21 +2,21 @@
 title: 연결 문자열
 description: Synapse SQL 풀에 대한 연결 문자열
 services: synapse-analytics
-author: XiaoyuMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
-ms.openlocfilehash: 8130d6672cf6ef8df5fa2e9854cfeba8a37b8bc7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 886a37e5f5802e75c39bbddbd1da08ea2d273a9c
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98677322"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287521"
 ---
 # <a name="connection-strings-for-sql-pools-in-azure-synapse"></a>Azure Synapse의 SQL 풀에 대한 연결 문자열
 

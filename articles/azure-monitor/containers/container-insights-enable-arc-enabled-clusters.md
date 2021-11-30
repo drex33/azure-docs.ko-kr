@@ -5,12 +5,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Azure Monitor 사용하여 Azure Arc 지원 Kubernetes 클러스터의 메트릭 및 로그 수집
-ms.openlocfilehash: 90a648c5cb6ace4d1f055532d335a705220e2716
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: e9ca3d0c3de46e16ebf02f7471884c86a10bd176
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465462"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287501"
 ---
 # <a name="azure-monitor-container-insights-for-azure-arc-enabled-kubernetes-clusters"></a>Azure Arc 지원 Kubernetes 클러스터에 대한 컨테이너 Insights Azure Monitor
 
@@ -22,6 +22,11 @@ ms.locfileid: "131465462"
 - Azure Monitor Container Insights 라이브 데이터 기능을 제외하고 [개요](container-insights-overview.md) 문서에 설명된 대로 Azure Arc 지원 Kubernetes 모니터링을 지원합니다. 또한 사용자에게는 [메트릭을 사용하도록 설정](container-insights-update-metrics.md)하기 위한 [소유자](../../role-based-access-control/built-in-roles.md#owner) 권한이 필요하지 않습니다.
 - `Docker`, `Moby` 및 CRI 호환 컨테이너 런타임(예: `CRI-O` 및 `containerd`)
 - 인증이 없는 아웃바운드 프록시 및 기본 인증이 있는 아웃바운드 프록시가 지원됩니다. 신뢰할 수 있는 인증서가 필요한 아웃바운드 프록시는 현재 지원되지 않습니다.
+
+>[!NOTE]
+>Azure Red Hat OpenShift v4.x의 Container Insights 마이그레이션하는 경우 설치 문제를 방지하기 위해 Azure Arc 사용하도록 설정된 Kubernetes에서 컨테이너 Insights 구성을 계속하기 전에 [모니터링을](./container-insights-optout-openshift-v4.md) 사용하지 않도록 설정했는지도 확인하세요.
+>
+
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -111,7 +116,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 ### <a name="option-4---on-azure-stack-edge"></a>옵션 4 - Azure Stack Edge에서
 
-Azure Arc 지원 Kubernetes 클러스터가 Azure Stack Edge 경우 사용자 지정 탑재 경로를 `/home/data/docker` 사용해야 합니다.
+Azure Arc 지원 Kubernetes 클러스터가 Azure Stack Edge 경우 사용자 지정 탑재 경로를 사용해야 `/home/data/docker` 합니다.
 
 ```azurecli
 az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.logsettings.custommountpath=/home/data/docker
@@ -167,10 +172,10 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     ```
 
 ## <a name="verify-extension-installation-status"></a>확장 설치 상태 확인
-Azure Arc 지원 Kubernetes 클러스터에 대한 Azure Monitor 확장을 성공적으로 만든 후에는 Azure Portal 또는 CLI를 사용하여 설치 상태를 추가로 확인할 수 있습니다. 설치가 성공하면 상태가 '설치되었습니다'로 표시됩니다. 상태가 '실패'로 표시되거나 오랜 시간 동안 '보류 중' 상태로 유지되는 경우 아래 문제 해결 섹션으로 진행합니다.
+Azure Arc 지원 Kubernetes 클러스터에 대한 Azure Monitor 확장을 성공적으로 만든 후에는 Azure Portal 또는 CLI를 사용하여 설치 상태를 추가로 확인할 수 있습니다. 설치에 성공하면 상태가 '설치 중'으로 표시됩니다. 상태가 '실패'로 표시되거나 장기간 '보류 중' 상태로 유지되는 경우 아래 문제 해결 섹션으로 진행합니다.
 
 ### <a name="azure-portal"></a>Azure Portal
-1. Azure Portal에서 확장이 설치된 Azure Arc 지원 Kubernetes 클러스터를 선택합니다.
+1. Azure Portal 확장이 설치된 Azure Arc 지원 Kubernetes 클러스터를 선택합니다.
 2. 리소스 블레이드의 '설정' 섹션 아래에서 '확장' 항목을 선택합니다.
 3. 이름이 'azuremonitor-containers'인 확장이 표시되고 '설치 상태' 열에 상태가 나열됩니다.
 ### <a name="azure-cli"></a>Azure CLI

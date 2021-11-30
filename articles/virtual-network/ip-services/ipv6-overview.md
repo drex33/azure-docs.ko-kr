@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: allensu
-ms.openlocfilehash: 259be22f0d69326617845d4b14a249e3b5cf4939
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b689bed2f957d4b04b8945b7e073afd03be5eecc
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131424612"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287976"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Azure 가상 네트워크용 IPv6란?
 
@@ -72,7 +72,8 @@ Azure VNET용 IPv6은 고객이 Azure에서 이중 스택(IPv4 + IPv6) 애플리
 
 ## <a name="limitations"></a>제한 사항
 현재 릴리스의 Azure 가상 네트워크용 IPv6에는 다음과 같은 제한 사항이 있습니다.
-- VPN 게이트웨이는 현재 IPv6 트래픽만 지원하지만 이중 스택 VNET에 배포할 수 있습니다.
+- VPN Gateway는 현재 IPv4 트래픽만 지원하지만 이중 스택 VNET에 배포할 수 있습니다.
+- Application Gateway v2는 현재 IPv6를 지원하지 않습니다. IPv4만 사용하는 이중 스택 VNet에서 작동할 수 있지만, 게이트웨이 서브넷이 IPv4 전용이어야 합니다. Application Gateway v1은 이중 스택 VNet을 지원하지 않습니다.
 - Azure 플랫폼(AKS 등)은 컨테이너에 대한 IPv6 통신을 지원하지 않습니다. 
 - IPv6 전용 Virtual Machines 또는 Virtual Machines Scale Sets는 지원되지 않습니다. 각 NIC는 IPv4 IP 구성을 하나 이상 포함해야 합니다. 
 - 기존 IPv4 배포에 IPv6을 추가하는 경우 기존 리소스 탐색 링크를 포함하는 VNET에 IPv6 범위를 추가할 수 없습니다.  

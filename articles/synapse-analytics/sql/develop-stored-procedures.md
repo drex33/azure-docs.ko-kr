@@ -2,20 +2,20 @@
 title: 저장 프로시저를 사용합니다.
 description: 솔루션 개발을 위한 Azure Synapse Analytics의 Synapse SQL을 사용한 저장 프로시저를 구현하기 위한 팁입니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: mstehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 11/03/2020
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.openlocfilehash: 083077b2b29bc415e83d6f5a76941fa83fa853e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a037d919b3e930934457766866499a0ee314b4a0
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101674143"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288717"
 ---
 # <a name="stored-procedures-using-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL을 사용한 저장 프로시저
 

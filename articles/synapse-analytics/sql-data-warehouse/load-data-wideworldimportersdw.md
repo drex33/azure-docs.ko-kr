@@ -2,21 +2,21 @@
 title: '자습서: Azure Portal과 SSMS를 사용하여 데이터 로드'
 description: 자습서에서는 Azure Portal과 SQL Server Management Studio를 사용하여 전역 Azure Blob에서 Azure Synapse Analytics SQL 풀로 WideWorldImportersDW 데이터 웨어하우스를 로드합니다.
 services: synapse-analytics
-author: julieMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 01/12/2021
-ms.author: jrasnick
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: adfaadc211cbe91517bac62e1ec32633821f9f17
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: ae260a7d88d85697f410ddea2559872ddccdd128
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537709"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287805"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>자습서: Azure Synapse Analytics SQL 풀로 데이터 로드
 

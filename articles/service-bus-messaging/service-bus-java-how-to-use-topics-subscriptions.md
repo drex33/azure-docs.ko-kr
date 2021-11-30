@@ -1,24 +1,32 @@
 ---
-title: Java에서 Azure Service Bus 토픽 및 구독 사용(azure-messaging-servicebus)
-description: 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 통해 Java 코드를 작성하여 Azure Service Bus 토픽에 메시지를 보낸 다음, 해당 토픽에 대한 구독에서 메시지를 받습니다.
+title: Azure Service Bus 항목 시작 (Java)
+description: 이 자습서에서는 Azure Service Bus 토픽으로 메시지를 보내고 Java 프로그래밍 언어를 사용 하 여 토픽의 구독에서 메시지를 수신 하는 방법을 보여 줍니다.
 ms.date: 02/13/2021
 ms.topic: quickstart
 ms.devlang: Java
 ms.custom: mode-other
-ms.openlocfilehash: cbe068414269912f6db919bdf8d442ee8deee7ff
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 52acf30c9ce631115870aba8ecace6611fe55184
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133057543"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133286893"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-java"></a>Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(Java)
+
+> [!div class="op_single_selector" title1="프로그래밍 언어를 선택 합니다."]
+> * [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+> * [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+> * [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> * [Python](service-bus-python-how-to-use-topics-subscriptions.md)
+
+
 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 통해 Java 코드를 작성하여 Azure Service Bus 토픽에 메시지를 보낸 다음, 해당 토픽에 대한 구독에서 메시지를 받습니다.
 
-> [!IMPORTANT]
-> 이 빠른 시작에서는 새 azure-messaging-servicebus 패키지를 사용합니다. 이전 azure-servicebus 패키지를 사용하는 빠른 시작은 [azure-servicebus를 사용하여 메시지 보내기 및 받기](service-bus-java-how-to-use-topics-subscriptions-legacy.md)를 참조하세요.
+> [!NOTE]
+> 이 빠른 시작에서는 메시지 일괄 처리를 Service Bus 토픽으로 보내고 해당 토픽의 구독에서 해당 메시지를 받는 간단한 시나리오에 대한 단계별 지침을 제공합니다. azure Service Bus에 대 한 미리 빌드된 java 샘플은 [GitHub의 java 용 azure SDK 리포지토리](https://github.com/azure/azure-sdk-for-java/tree/main/sdk/servicebus/azure-messaging-servicebus/src/samples)에서 찾을 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계를 따릅니다. 연결 문자열, 항목 이름 및 구독 이름을 기록해 둡니다. 이 빠른 시작에는 하나의 구독만 사용합니다. 

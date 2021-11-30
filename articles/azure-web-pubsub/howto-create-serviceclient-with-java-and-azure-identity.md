@@ -6,12 +6,12 @@ ms.author: tefa
 ms.date: 11/15/2021
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.openlocfilehash: aa0f9918b971015632866eb50995e6a2d6eb2f75
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 58beee817fc68eff0e438e94d4eb7889b2572a36
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132730505"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133286284"
 ---
 # <a name="how-to-create-a-webpubsubserviceclient-with-java-and-azure-identity"></a>Java 및 Azure ID를 사용하여 를 만드는 방법 `WebPubSubServiceClient`
 
@@ -40,7 +40,7 @@ ms.locfileid: "132730505"
   <dependency>
       <groupId>com.azure</groupId>
       <artifactId>azure-messaging-webpubsub</artifactId>
-      <version>1.0.0-beta.6</version>
+      <version>1.0.0</version>
   </dependency>
   ```
 

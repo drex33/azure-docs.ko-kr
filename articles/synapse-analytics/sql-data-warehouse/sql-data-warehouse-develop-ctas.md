@@ -2,21 +2,21 @@
 title: CREATE TABLE AS SELECT (CTAS)
 description: 솔루션 개발용 Synapse SQL의 CTAS(CREATE TABLE AS SELECT) 문에 대한 설명 및 예제입니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/26/2019
-ms.author: xiaoyul
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seoapril2019, azure-synapse
-ms.openlocfilehash: 68bab754142538fc6067cf2593ae6244a03a48d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: a2d752ff97e51514830acc2f53f562c071d6e11d
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98734817"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288736"
 ---
 # <a name="create-table-as-select-ctas"></a>CREATE TABLE AS SELECT (CTAS)
 

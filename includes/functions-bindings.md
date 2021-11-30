@@ -2,15 +2,15 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
+ms.date: 11/29/2021
 ms.author: glenga
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 182f448ca852f114bb9564e04c1316119f2b6aa3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: c9fba484463680e53b3aa6f32f37fa8326332c92
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97506265"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133289128"
 ---
 이 표는 Azure Functions 런타임의 주요 버전에서 지원되는 바인딩을 보여 줍니다.
 
@@ -19,6 +19,7 @@ ms.locfileid: "97506265"
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Azure Cosmos DB](../articles/azure-functions/functions-bindings-cosmosdb-v2.md)               |✔|✔|✔|✔|✔|
+| [Azure SQL(미리 보기)](../articles/azure-functions/functions-bindings-azure-sql.md)               | |✔| |✔|✔|
 | [Dapr](https://github.com/dapr/azure-functions-extension)<sup>3</sup>             | |✔|✔|✔|✔|
 | [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|

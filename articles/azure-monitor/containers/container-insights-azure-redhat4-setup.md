@@ -3,16 +3,21 @@ title: 컨테이너 인사이트로 Azure Red Hat OpenShift v4.x 구성 | Micros
 description: 이 문서에서는 Azure Red Hat OpenShift 버전 4 이상에서 호스트되는 Azure Monitor를 사용하여 Kubernetes 클러스터에 대한 모니터링을 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 4f9bdaf07903294ede0b8530a28e716c27d9cd9e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: cb7ddc8125dee8577d9a344c51171c6ba0b3b5f2
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130231515"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133286780"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-container-insights"></a>컨테이너 인사이트로 Azure Red Hat OpenShift v4.x 구성
 
 컨테이너 인사이트는 AKS(Azure Kubernetes Service) 및 AKS 엔진 클러스터에 대한 풍부한 모니터링 환경을 제공합니다. 이 문서에서는 [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) 버전 4.x에서 호스트되는 Kubernetes 클러스터에 대한 모니터링을 사용하여 비슷한 모니터링 환경을 구현하는 방법을 설명합니다.
+
+>[!NOTE]
+> 2022년 5월까지 Azure Red Hat OpenShift v4.x에 대한 컨테이너 Insights 지원을 단계적으로 계획하고 있습니다. 고객은 업그레이드된 환경을 제공하고 1회 클릭 온보딩을 제공하는 Azure Arc 사용하도록 설정된 Kubernetes에서 컨테이너 Insights 마이그레이션하는 것이 좋습니다. 자세한 내용은 [설명서를](./container-insights-enable-arc-enabled-clusters.md) 참조하세요.
+>
+
 
 >[!NOTE]
 >Azure Red Hat OpenShift에 대한 지원은 현재 공개 미리 보기의 기능입니다.
@@ -129,7 +134,7 @@ ms.locfileid: "130231515"
 export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/<clusterName>"
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId 
 

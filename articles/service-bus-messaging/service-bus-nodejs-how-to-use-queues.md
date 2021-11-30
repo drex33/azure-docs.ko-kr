@@ -1,23 +1,32 @@
 ---
-title: JavaScript에서 azure/service-bus 큐를 사용하는 방법
-description: '@azure/service-bus 패키지의 최신 버전을 사용하여 메시지를 Service Bus 큐에서 메시지를 보내고 받는 JavaScript 프로그램을 작성하는 방법에 대해 알아봅니다.'
+title: Azure Service Bus 큐 시작 (JavaScript)
+description: 이 자습서에서는 JavaScript 프로그래밍 언어를 사용 하 여 Azure Service Bus 큐에서 메시지를 보내고 받는 방법을 보여 줍니다.
 author: spelluru
 ms.author: spelluru
 ms.date: 11/09/2020
 ms.topic: quickstart
 ms.devlang: nodejs
 ms.custom: devx-track-js, mode-other
-ms.openlocfilehash: b9d781bb77ff9159dcf61ca267449c7318a79c4b
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: c68d3a14b09d87b4ab2373f84392a9b35d1aef9f
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133057552"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287995"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(JavaScript)
+> [!div class="op_single_selector" title1="프로그래밍 언어를 선택 합니다."]
+> * [C#](service-bus-dotnet-get-started-with-queues.md)
+> * [Java](service-bus-java-how-to-use-queues.md)
+> * [JavaScript](service-bus-nodejs-how-to-use-queues.md)
+> * [Python](service-bus-python-how-to-use-queues.md)
+
 이 자습서에서는 JavaScript 프로그램에서 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 큐와 메시지를 주고 받는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> 이 빠른 시작에서는 Service Bus 큐로 메시지를 보내고 받는 간단한 시나리오에 대 한 단계별 지침을 제공 합니다. azure Service Bus에 대 한 미리 빌드된 javascript 및 TypeScript 샘플은 [GitHub의 JavaScript 용 azure SDK 리포지토리에서](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/service-bus/samples/v7)확인할 수 있습니다. 
+
+## <a name="prerequisites"></a>필수 조건
 - Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화하거나 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 등록할 수 있습니다.
 - 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다. Service Bus 네임스페이스에 대한 **연결 문자열** 및 사용자가 만든 **큐** 의 이름을 적어둡니다.
 

@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 08/10/2021
 ms.author: danlep
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: c9e9aed4af6a535a718dcecdb05d9913629ef5e7
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 3245e800ea46fa9befe27f18eab1834e5b73716f
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132869367"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287159"
 ---
 # <a name="connect-to-a-virtual-network-using-azure-api-management"></a>Azure API Management를 사용하여 가상 네트워크에 연결
 
-Azure VNET(가상 네트워크) 내에 Azure API Management 배포하여 네트워크 내의 백 엔드 서비스에 액세스할 수 있습니다. VNET 연결 옵션, 요구 사항 및 고려 사항은 [Azure API Management 가상 네트워크 사용을](virtual-network-concepts.md)참조하세요.
+Azure API Management는 Azure VNET (가상 네트워크) 내에 배포 하 여 네트워크 내의 백 엔드 서비스에 액세스할 수 있습니다. VNET 연결 옵션, 요구 사항 및 고려 사항은 [Azure API Management에서 가상 네트워크 사용](virtual-network-concepts.md)을 참조 하세요.
 
-이 문서에서는 개발자 포털, API 게이트웨이 및 기타 API Management 엔드포인트가 공용 인터넷에서 액세스할 수 있는 *외부* 모드에서 API Management 인스턴스에 대한 VNET 연결을 설정하는 방법을 설명합니다. VNET 내에서만 엔드포인트에 액세스할 수 있는 *내부* 모드와 관련한 구성은 [Azure API Management 사용하여 내부 가상 네트워크에 커넥트](./api-management-using-with-internal-vnet.md)참조하세요.
+이 문서에서는 공용 인터넷에서 개발자 포털, API 게이트웨이 및 기타 API Management 끝점에 액세스할 수 있는 *외부* 모드에서 API Management 인스턴스에 대 한 VNET 연결을 설정 하는 방법을 설명 합니다. VNET 내 에서만 끝점에 액세스할 수 있는 *내부* 모드와 관련 된 구성은 [Azure API Management를 사용 하 여 내부 가상 네트워크에 커넥트](./api-management-using-with-internal-vnet.md)를 참조 하세요.
 
 :::image type="content" source="media/api-management-using-with-vnet/api-management-vnet-external.png" alt-text="외부 VNET에 커넥트":::
 
@@ -29,16 +29,16 @@ Azure VNET(가상 네트워크) 내에 Azure API Management 배포하여 네트�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-일부 필수 조건은 `stv2` `stv1` API Management 인스턴스를 호스트하는 [컴퓨팅 플랫폼의](compute-infrastructure.md) 버전( 또는 )에 따라 다릅니다.
+일부 필수 구성 요소는 `stv2` `stv1` API Management 인스턴스를 호스트 하는 [계산 플랫폼](compute-infrastructure.md) 의 버전 (또는)에 따라 달라 집니다.
 
 > [!TIP]
-> 포털을 사용하여 기존 API Management 인스턴스의 네트워크 연결을 만들거나 업데이트하면 인스턴스가 컴퓨팅 `stv2` 플랫폼에서 호스트됩니다.
+> 포털을 사용 하 여 기존 API Management 인스턴스의 네트워크 연결을 만들거나 업데이트 하는 경우 인스턴스는 `stv2` 계산 플랫폼에서 호스팅됩니다.
 
 ### <a name="stv2"></a>[stv2](#tab/stv2)
 
 + **API Management 인스턴스.** 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
 
-* API Management 인스턴스와 동일한 지역 및 구독에 있는 가상 네트워크 및 **서브넷** 서브넷에는 다른 Azure 리소스가 포함될 수 있습니다.
+* API Management 인스턴스와 동일한 지역 및 구독에 있는 **가상 네트워크 및 서브넷** 서브넷은 다른 Azure 리소스를 포함할 수 있습니다.
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
@@ -46,26 +46,26 @@ Azure VNET(가상 네트워크) 내에 Azure API Management 배포하여 네트�
 
 + **API Management 인스턴스.** 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
 
-* API Management 인스턴스와 동일한 지역 및 구독에 있는 가상 네트워크 및 **서브넷**
+* API Management 인스턴스와 동일한 지역 및 구독에 있는 **가상 네트워크 및 서브넷**
 
-    서브넷은 API Management 인스턴스 전용이어야 합니다. 다른 리소스가 포함된 Resource Manager VNET 서브넷에 Azure API Management 인스턴스를 배포하려고 하면 배포가 실패합니다.
+    서브넷은 API Management 인스턴스에 전용 이어야 합니다. 다른 리소스가 포함된 Resource Manager VNET 서브넷에 Azure API Management 인스턴스를 배포하려고 하면 배포가 실패합니다.
 
 ---
 
 ## <a name="enable-vnet-connection"></a>VNET 연결 사용
 
-### <a name="enable-vnet-connectivity-using-the-azure-portal-stv2-compute-platform"></a>Azure Portal 사용하여 VNET 연결 사용( `stv2` 컴퓨팅 플랫폼)
+### <a name="enable-vnet-connectivity-using-the-azure-portal-stv2-compute-platform"></a>Azure Portal ( `stv2` 계산 플랫폼)를 사용 하 여 VNET 연결 사용
 
 1. [Azure Portal](https://portal.azure.com)로 이동하여 API Management 인스턴스를 찾습니다. **API Management 서비스** 를 검색하고 선택합니다.
 1. API Management 인스턴스를 선택합니다.
 
 1. **가상 네트워크** 를 선택합니다.
-1. **외부** 액세스 유형을 선택합니다.
+1. **외부** 액세스 형식을 선택 합니다.
     :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Azure Portal에서 VNET을 선택합니다.":::
 
-1. API Management 서비스가 프로비전되는 위치(지역) 목록에서 다음을 수행합니다. 
+1. API Management 서비스가 프로 비전 되는 위치 (지역) 목록에서: 
     1. **위치** 를 선택합니다.
-    1. **가상 네트워크,** **서브넷** 및 **IP 주소를** 선택합니다. 
+    1. **가상 네트워크**, **서브넷** 및 **IP 주소** 를 선택 합니다. 
     * VNET 목록은 사용자가 구성하고 있는 하위 지역에 설정된 Azure 구독에서 사용할 수 있는 Resource Manager VNET으로 채워집니다.
 
         :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-select.png" alt-text="포털의 VNET 설정":::
@@ -78,9 +78,9 @@ Azure VNET(가상 네트워크) 내에 Azure API Management 배포하여 네트�
 
     API Management 인스턴스를 업데이트하는 데 15~45분이 걸릴 수 있습니다.
 
-### <a name="enable-connectivity-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 연결 사용
+### <a name="enable-connectivity-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 연결 사용
 
-다음 템플릿을 사용하여 API Management 인스턴스를 배포하고 VNET에 연결합니다. 템플릿은 `stv2` `stv1` API Management 인스턴스를 호스트하는 [컴퓨팅 플랫폼의](compute-infrastructure.md) 버전( 또는 )에 따라 다릅니다.
+다음 템플릿을 사용 하 여 API Management 인스턴스를 배포 하 고 VNET에 연결 합니다. 템플릿은 `stv2` `stv1` API Management 인스턴스를 호스트 하는 [계산 플랫폼](compute-infrastructure.md) 의 버전 (또는)에 따라 달라 집니다.
 
 ### <a name="stv2"></a>[stv2](#tab/stv2)
 
@@ -98,46 +98,46 @@ Azure VNET(가상 네트워크) 내에 Azure API Management 배포하여 네트�
 
      [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet%2Fazuredeploy.json)
 
-### <a name="enable-connectivity-using-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet을 사용하여 연결 사용 
+### <a name="enable-connectivity-using-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet을 사용 하 여 연결 사용 
 
-VNET에서 API Management 인스턴스를 [만들거나](/powershell/module/az.apimanagement/new-azapimanagement) [업데이트합니다.](/powershell/module/az.apimanagement/update-azapimanagementregion)
+VNET에서 API Management 인스턴스를 [만들거나](/powershell/module/az.apimanagement/new-azapimanagement) [업데이트](/powershell/module/az.apimanagement/update-azapimanagementregion) 합니다.
 
 ---
 
 ## <a name="connect-to-a-web-service-hosted-within-a-virtual-network"></a>가상 네트워크 내에서 호스트되는 웹 서비스에 연결
-API Management 서비스를 VNET에 연결한 후에는 공용 서비스와 마찬가지로 VNET 내의 백 엔드 서비스에 액세스할 수 있습니다. API를 만들거나 편집할 때 **웹 서비스 URL** 필드에 웹 서비스의 로컬 IP 주소 또는 호스트 이름(DNS 서버가 VNET에 대해 구성된 경우)을 입력하면 됩니다.
+API Management 서비스를 VNET에 연결한 후에는 공용 서비스와 마찬가지로 백 엔드 서비스에 액세스할 수 있습니다. API를 만들거나 편집할 때 **웹 서비스 URL** 필드에 웹 서비스의 로컬 IP 주소 또는 호스트 이름(DNS 서버가 VNET에 대해 구성된 경우)을 입력하면 됩니다.
 
 :::image type="content" source="media/api-management-using-with-vnet/api-management-using-vnet-add-api.png" alt-text="VNET에서 API 추가":::
 
 ## <a name="common-network-configuration-issues"></a><a name="network-configuration-issues"> </a>일반적인 네트워크 구성 이슈
 
-네트워크 구성 설정에 대한 자세한 내용은 다음 섹션을 검토하세요. 
+네트워크 구성 설정에 대 한 자세한 내용은 다음 섹션을 참조 하십시오. 
 
-이러한 설정은 VNET에 API Management 서비스를 배포하는 동안 발생할 수 있는 일반적인 잘못된 구성 문제를 해결합니다.
+이러한 설정은 API Management 서비스를 VNET에 배포 하는 동안 발생할 수 있는 일반적인 잘못 된 구성 문제를 해결 합니다.
 
 ### <a name="custom-dns-server-setup"></a>사용자 지정 DNS 서버 설정 
-외부 VNET 모드에서 Azure는 기본적으로 DNS를 관리합니다. 필요에 따라 사용자 지정 DNS 서버를 구성할 수 있습니다. API Management 서비스는 여러 API 서비스에 따라 달라집니다. API Management가 사용자 지정 DNS 서버를 사용하는 VNET에서 호스트되는 경우 해당 Azure 서비스의 호스트 이름을 확인해야 합니다.  
-* Azure에서 제공하는 호스트 이름 전달을 포함하여 사용자 지정 DNS 설정에 대한 지침은 [Azure 가상 네트워크의 리소스에 대한 이름 확인 을 참조하세요.](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)  
-* 참조는 필요한 [포트](#required-ports) 및 네트워크 요구 사항을 참조하세요.
+외부 VNET 모드에서 Azure는 기본적으로 DNS를 관리 합니다. 필요에 따라 사용자 지정 DNS 서버를 구성할 수 있습니다. API Management 서비스는 여러 API 서비스에 따라 달라집니다. API Management가 사용자 지정 DNS 서버를 사용하는 VNET에서 호스트되는 경우 해당 Azure 서비스의 호스트 이름을 확인해야 합니다.  
+* Azure에서 제공 하는 호스트 이름에 대 한 전달을 포함 하 여 사용자 지정 DNS 설정에 대 한 지침은 [azure 가상 네트워크의 리소스에 대 한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조 하세요.  
+* 참조는 [필요한 포트](#required-ports) 및 네트워크 요구 사항을 참조 하세요.
 
 > [!IMPORTANT]
-> VNET에 사용자 지정 DNS 서버를 사용하려는 경우 API Management 서비스를 **배포하기 전에** 설정합니다. 그렇지 않으면 DNS 서버를 변경할 때마다 [네트워크 구성 작업 적용](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates)을 실행하여 API Management 서비스를 업데이트해야 합니다.
+> VNET에 사용자 지정 DNS 서버를 사용 하려는 경우 API Management 서비스를 배포 **하기 전에** 설정 합니다. 그렇지 않으면 DNS 서버를 변경할 때마다 [네트워크 구성 작업 적용](/rest/api/apimanagement/2021-08-01/api-management-service/apply-network-configuration-updates)을 실행하여 API Management 서비스를 업데이트해야 합니다.
 
 ### <a name="required-ports"></a>필요한 포트  
 
-[네트워크 보안 그룹][NetworkSecurityGroups] 규칙을 사용하여 API Management 배포되는 서브넷으로의 인바운드 및 아웃바운드 트래픽을 제어할 수 있습니다. 특정 포트를 사용할 수 없는 경우 API Management 제대로 작동하지 않아 액세스할 수 없게 될 수 있습니다. 
+[네트워크 보안 그룹][NetworkSecurityGroups] 규칙을 사용 하 여 API Management를 배포 하는 서브넷에 대 한 인바운드 및 아웃 바운드 트래픽을 제어할 수 있습니다. 특정 포트를 사용할 수 없는 경우 API Management 제대로 작동 하지 않아 액세스할 수 없게 될 수 있습니다. 
 
-API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 포트가 사용됩니다. 일부 요구 사항은 `stv2` `stv1` API Management 인스턴스를 호스트하는 [컴퓨팅 플랫폼의](compute-infrastructure.md) 버전( 또는 )에 따라 다릅니다.
+API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표의 포트가 사용됩니다. 일부 요구 사항은 `stv2` `stv1` API Management 인스턴스를 호스트 하는 [계산 플랫폼](compute-infrastructure.md) 의 버전 (또는)에 따라 달라 집니다.
 
 >[!IMPORTANT]
-> *목적* 열의 **굵게** 표시한 항목은 API Management 서비스의 성공적인 배포 및 작업에 필요한 포트 구성을 나타냅니다. "선택 사항"이라는 레이블이 있는 구성은 설명된 대로 특정 기능을 사용하도록 설정하기 위해서만 필요합니다. 서비스의 전반적인 상태를 위해서는 필요하지 않습니다. 
+> *용도* 열의 **굵게 표시** 된 항목은 API Management 서비스를 성공적으로 배포 하 고 작동 하는 데 필요한 포트 구성을 표시 합니다. "선택 사항"으로 지정 된 구성은 설명 된 대로 특정 기능을 사용 하도록 설정 하는 데만 필요 합니다. 서비스의 전반적인 상태에는 필요 하지 않습니다. 
 
 #### <a name="stv2"></a>[stv2](#tab/stv2)
 
 | 소스/대상 포트 | Direction          | 전송 프로토콜 |   [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) <br> 원본 / 대상   | 목적(\*)                                                 | VNET 유형 |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / [80], 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management 클라이언트 통신(선택 사항)                     | 외부             |
-| * / 3443                     | 인바운드            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure Portal 및 PowerShell용 관리 엔드포인트(선택 사항)         | 외부 및 내부  |
+| * / [80], 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management에 대 한 클라이언트 통신 (선택 사항)                     | 외부             |
+| * / 3443                     | 인바운드            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure Portal 및 PowerShell에 대 한 관리 끝점 (선택 사항)         | 외부 및 내부  |
 | * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | **Azure Storage에 대한 종속성**                             | 외부 및 내부  |
 | * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) 및 Azure Key Vault 종속성 (옵션)              | 외부 및 내부  |
 | * / 1433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL 엔드포인트에 대한 액세스**                           | 외부 및 내부  |
@@ -251,7 +251,7 @@ Windows를 실행 하는 가상 머신을 VNET에 추가 하는 경우, 포트 1
 
 ## <a name="control-plane-ip-addresses"></a>제어 평면 IP 주소
 
-다음 IP 주소는 **Azure 환경** 으로 구분 됩니다. **전역** 으로 표시된 허용되는 인바운드 요청 IP 주소는 **지역** 별 IP 주소와 함께 허용되어야 합니다.
+다음 IP 주소는 **Azure 환경** 으로 구분 됩니다. **전역** 으로 표시된 허용되는 인바운드 요청 IP 주소는 **지역** 별 IP 주소와 함께 허용되어야 합니다.  경우에 따라 두 개의 IP 주소가 나열 됩니다.  두 IP 주소를 모두 허용 합니다.
 
 | **Azure 환경**|   **지역**|  **IP 주소**|
 |-----------------|-------------------------|---------------|
@@ -261,11 +261,11 @@ Windows를 실행 하는 가상 머신을 VNET에 추가 하는 경우, 포트 1
 | Azure 공용| 오스트레일리아 중부 2| 20.39.99.81|
 | Azure 공용| 오스트레일리아 동부| 20.40.125.155|
 | Azure 공용| 오스트레일리아 남동부| 20.40.160.107|
-| Azure 공용| 브라질 남부| 191.233.24.179|
+| Azure 공용| 브라질 남부| 191.233.24.179, 191.238.73.14|
 | Azure 공용| 브라질 남동부| 191.232.18.181|
-| Azure 공용| 캐나다 중부| 52.139.20.34|
+| Azure 공용| 캐나다 중부| 52.139.20.34, 20.48.201.76|
 | Azure 공용| 캐나다 동부| 52.139.80.117|
-| Azure 공용| 인도 중부| 13.71.49.1|
+| Azure 공용| 인도 중부| 13.71.49.1, 20.192.45.112|
 | Azure 공용| 미국 중부| 13.86.102.66|
 | Azure 공용| 미국 중부 EUAP| 52.253.159.160|
 | Azure 공용| 동아시아| 52.139.152.27|
@@ -275,20 +275,20 @@ Windows를 실행 하는 가상 머신을 VNET에 추가 하는 경우, 포트 1
 | Azure 공용| 프랑스 중부| 40.66.60.111|
 | Azure 공용| 프랑스 남부| 20.39.80.2|
 | Azure 공용| 독일 북부| 51.116.0.0|
-| Azure 공용| 독일 중서부| 51.116.96.0|
+| Azure 공용| 독일 중서부| 51.116.96.0, 20.52.94.112|
 | Azure 공용| 일본 동부| 52.140.238.179|
 | Azure 공용| 일본 서부| 40.81.185.8|
-| Azure 공용| Jio 인도 중부| 20.192.234.160|
-| Azure 공용| Jio 인도 서부| 20.193.202.160|
-| Azure 공용| 한국 중부| 40.82.157.167|
+| Azure 공용| 인도 중부| 20.192.234.160|
+| Azure 공용| 인도 서부| 20.193.202.160|
+| Azure 공용| 한국 중부| 40.82.157.167, 20.194.74.240|
 | Azure 공용| 한국 남부| 40.80.232.185|
 | Azure 공용| 미국 중북부| 40.81.47.216|
 | Azure 공용| 북유럽| 52.142.95.35|
 | Azure 공용| 노르웨이 동부| 51.120.2.185|
 | Azure 공용| 노르웨이 서부| 51.120.130.134|
-| Azure 공용| 남아프리카 북부| 102.133.130.197|
+| Azure 공용| 남아프리카 북부| 102.133.130.197, 102.37.166.220|
 | Azure 공용| 남아프리카 공화국 서부| 102.133.0.79|
-| Azure 공용| 미국 중남부| 20.188.77.119|
+| Azure 공용| 미국 중남부| 20.188.77.119, 20.97.32.190|
 | Azure 공용| 인도 남부| 20.44.33.246|
 | Azure 공용| 동남아시아| 40.90.185.46|
 | Azure 공용| 스위스 북부| 51.107.0.91|
@@ -344,7 +344,7 @@ Windows를 실행 하는 가상 머신을 VNET에 추가 하는 경우, 포트 1
   연결 문제를 해결 하려면 [네트워크 구성 설정](#network-configuration-issues) 을 검토 하 고 필요한 네트워크 설정을 수정 합니다.
 
 * **증분 업데이트**  
-  네트워크를 변경할 때 [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status)를 참조하여 API Management 서비스에서 중요한 리소스에 대한 액세스를 손실하지 않았는지 확인합니다. 연결 상태는 15분마다 업데이트되어야 합니다.
+  네트워크를 변경할 때 [NetworkStatus API](/rest/api/apimanagement/2021-08-01/network-status)를 참조하여 API Management 서비스에서 중요한 리소스에 대한 액세스를 손실하지 않았는지 확인합니다. 연결 상태는 15분마다 업데이트되어야 합니다.
 
 * **리소스 탐색 링크**  
   리소스 관리자 VNET 서브넷에 배포 된 경우 [ `stv1` 계산 플랫폼](compute-infrastructure.md)에서 호스트 되는 apim 인스턴스는 리소스 탐색 링크를 만들어 서브넷을 예약 합니다. 서브넷에 니미 다른 공급자의 리소스가 포함된 경우에는 배포가 **실패** 합니다. 마찬가지로 API Management 서비스를 삭제하거나 다른 서브넷으로 이동하면 리소스 탐색 링크가 제거됩니다.

@@ -2,21 +2,21 @@
 title: ETL 대신 ELT 설계
 description: Azure Synapse Analytics 내의 전용 SQL 풀에 대한 유연한 데이터 로드 전략을 구현합니다.
 services: synapse-analytics
-author: julieMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: jrasnick
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 0fd10d851c60ebb36a2861c8aa4fbd46daac84d7
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 72d83396eff31f24bd1457164bb9e38df8cc885a
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278693"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288204"
 ---
 # <a name="data-loading-strategies-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 데이터 로드 전략
 

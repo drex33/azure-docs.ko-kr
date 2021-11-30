@@ -2,20 +2,20 @@
 title: 전용 SQL 풀의 트랜잭션 최적화
 description: 전용 SQL 풀의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: mstehrani
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: xiaoyul
+ms.author: emtehran
 ms.reviewer: igorstan
-ms.openlocfilehash: 7d309e2786a1ec56a5e34f2594520e7e36bbcf6b
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 295297643552b03dfa6774b8bd997c6af84337ff
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567473"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287538"
 ---
 # <a name="optimize-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀의 트랜잭션 최적화 
 

@@ -1,22 +1,22 @@
 ---
 title: 전용 SQL 풀(이전의 SQL DW) 보호
 description: 전용 SQL 풀(이전의 SQL DW)을 보호하고 Azure Synapse Analytics에서 솔루션을 개발하기 위한 팁입니다.
-author: julieMSFT
+author: nanditavalsan
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: jrasnick
+ms.author: nanditav
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: ad19c976cceab76d6eb0dbfbea5840d9764bffec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 14fc4cb7a802a4b0694a2e4f66dd07cdb004ce02
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092954"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287469"
 ---
 # <a name="secure-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW) 보호
 

@@ -54,6 +54,8 @@ items:
             href: concept-best-practices-network.md
           - name: 검사 모범 사례
             href: concept-best-practices-scanning.md
+          - name: 분류 모범 사례
+            href: concept-best-practices-classification.md
           - name: Automation 모범 사례
             href: concept-best-practices-automation.md
       - name: Azure Purview 권한

@@ -7,12 +7,12 @@ ms.service: azure-web-pubsub
 ms.topic: quickstart
 ms.date: 11/01/2021
 ms.custom: mode-other
-ms.openlocfilehash: 888377e6c1e4843cb4041e1bff5bbad044714d75
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 07fcb6c24694af17f2112fef40d51a9162d63bab
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133072920"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287216"
 ---
 # <a name="quickstart-publish-messages-using-the-service-sdk-for-the-azure-web-pubsub-instance"></a>빠른 시작: Azure Web PubSub 인스턴스용 서비스 SDK를 사용하여 메시지 게시
 
@@ -227,7 +227,7 @@ ms.locfileid: "133072920"
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.6</version>
+        <version>1.0.0</version>
     </dependency>
     ```
 

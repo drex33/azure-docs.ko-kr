@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 11/01/2021
-ms.openlocfilehash: 38890a5bf968bf88678e0665847fb067708291c3
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 8f11abb13b146e56e5d3604e24fd10bcd6c293aa
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132547263"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287178"
 ---
 # <a name="tutorial-create-a-chat-app-with-azure-web-pubsub-service"></a>자습서: Azure Web PubSub 서비스를 사용하여 채팅 앱 만들기
 
@@ -382,7 +382,7 @@ mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutori
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.6</version>
+        <version>1.0.0</version>
     </dependency>
     ```
 
@@ -906,7 +906,7 @@ az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --
     });
     ```
 
-    이 이벤트 처리기는 `client.sendToAll()`을 사용하여 수신 메시지를 모든 클라이언트에 브로드캐스트합니다.
+    이 이벤트 처리기는 `client.sendToAll()`를 사용하여 수신 메시지를 모든 클라이언트에 브로드캐스트합니다.
 
 2.  사용자로부터 서버로 메시지를 보내고 받은 메시지를 페이지에 표시하는 논리를 추가하도록 `index.html`을 업데이트합니다.
 

@@ -2,20 +2,22 @@
 title: 새 구독 또는 리소스 그룹으로 리소스 이동
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 11/30/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ec23b4306f088328bfb72f3cf9071a70f8eb2307
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
-ms.translationtype: HT
+ms.openlocfilehash: 40275e11be0146cc04cd574f37ef0e6fee550461
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586782"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288015"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>리소스를 새 리소스 그룹 또는 구독으로 이동
 
 이 문서에서는 Azure 리소스를 다른 Azure 구독 또는 동일한 구독의 다른 리소스 그룹으로 이동하는 방법을 보여 줍니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용하여 리소스를 이동할 수 있습니다.
 
-이동 작업 동안 원본 그룹과 대상 그룹 모두 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트 또는 삭제할 수 없음을 의미합니다. 리소스가 고정된 것을 의미하지는 않습니다. 예를 들어 Azure SQL 논리 서버 및 해당 데이터베이스를 새 리소스 그룹 또는 구독으로 이동할 경우 이 데이터베이스를 사용하는 애플리케이션에 가동 중지 시간이 발생하지 않습니다. 여전히 데이터베이스에 대해 읽기 및 쓰기를 수행할 수 있습니다. 잠금은 최대 4시간까지 지속될 수 있지만 대부분의 이동 작업이 훨씬 적은 시간에 완료됩니다.
+이동 작업 동안 원본 그룹과 대상 그룹 모두 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트 또는 삭제할 수 없음을 의미합니다. 리소스가 고정된 것을 의미하지는 않습니다. 예를 들어 Azure SQL 논리 서버, 해당 데이터베이스 및 기타 종속 리소스를 새 리소스 그룹 또는 구독으로 이동 하는 경우 데이터베이스를 사용 하는 응용 프로그램에서 가동 중지 시간이 발생 하지 않습니다. 여전히 데이터베이스에 대해 읽기 및 쓰기를 수행할 수 있습니다. 잠금은 최대 4시간까지 지속될 수 있지만 대부분의 이동 작업이 훨씬 적은 시간에 완료됩니다.
+
+이동 과정에서 새 종속 리소스를 설정 해야 하는 경우 다시 구성 될 때까지 해당 서비스가 중단 됩니다.
 
 리소스를 이동할 때는 새 리소스 그룹 또는 구독으로만 이동됩니다. 리소스의 위치는 변경하지 않습니다.
 

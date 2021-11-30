@@ -2,8 +2,8 @@
 title: '빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW) 만들기'
 description: Azure PowerShell을 사용하여 서버 수준 방화벽 규칙으로 전용 SQL 풀(이전의 SQL DW)을 신속하게 만듭니다.
 services: synapse-analytics
-author: XiaoyuMSFT
-ms.author: xiaoyul
+author: joannapea
+ms.author: joanpo
 manager: craigg
 ms.reviewer: igorstan
 ms.date: 4/11/2019
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.custom: devx-track-azurepowershell, seo-lt-2019, azure-synapse, mode-api
-ms.openlocfilehash: 261d8cfe1264b793d68574c5050ef6dcceacb7f7
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f331600eef4161c05a1f3702fda2d48176fd7be1
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131013387"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288242"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW) 만들기
 

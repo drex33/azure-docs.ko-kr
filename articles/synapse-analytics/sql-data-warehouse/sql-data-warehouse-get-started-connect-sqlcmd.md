@@ -2,21 +2,21 @@
 title: Sqlcmd를 사용하여 연결
 description: Sqlcmd 명령줄 유틸리티를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀에 연결하고 쿼리합니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f8b4d54585bc70c3ee5f24846e216f75e985cf84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 449107980d700ebb8c36d1892a0a31c722b0d9d0
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101675727"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288469"
 ---
 # <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sqlcmd"></a>sqlcmd를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀에 연결합니다
 

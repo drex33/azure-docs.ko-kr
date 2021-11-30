@@ -2,21 +2,21 @@
 title: 전용 SQL 풀에 대한 데이터 로드 모범 사례
 description: Azure Synapse Analytics에서 전용 SQL 풀로 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
 services: synapse-analytics
-author: julieMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 08/26/2021
-ms.author: jrasnick
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: ee3be53c6a52f0bc0a8ceab0424a7a6c99a0f441
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 58ddd616f600e4f36db4cc6da02cb1e6512b7bc2
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539590"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287444"
 ---
 # <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 데이터를 로드 하는 모범 사례
 
@@ -149,7 +149,7 @@ Azure Storage 계정 키를 회전하려면:
 
 키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true)을 실행합니다.
 
-예제:
+예:
 
 원래 키를 만드는 경우
 

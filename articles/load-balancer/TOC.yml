@@ -73,18 +73,18 @@
   items:
     - name: 포털 설정
       href: manage.md
-    - name: 영역 간 부하 분산 장치
-      href: cross-region-overview.md
-    - name: 게이트웨이 부하 분산 장치
-      href: gateway-overview.md
     - name: 새로운 기능
       href: whats-new.md
     - name: 구성 요소
       href: components.md
     - name: 부하 분산 알고리즘
       href: concepts.md
+    - name: 배포 모드
+      href: distribution-mode-concepts.md
     - name: SKU
       href: skus.md
+    - name: 부동 IP 구성
+      href: load-balancer-floating-ip.md
     - name: 상태 모니터링
       items:
         - name: 부하 분산 장치 모니터링
@@ -109,12 +109,12 @@
       href: outbound-rules.md
     - name: 유휴 시간 제한에 도달하면 TCP 재설정
       href: load-balancer-tcp-reset.md
-    - name: 표준 Load Balancer 및 가용성 영역
+    - name: 가용성 영역
       href: load-balancer-standard-availability-zones.md
-    - name: 부동 IP 구성
-      href: load-balancer-floating-ip.md
-    - name: 배포 모드
-      href: distribution-mode-concepts.md
+    - name: 영역 간 부하 분산 장치
+      href: cross-region-overview.md
+    - name: 게이트웨이 부하 분산 장치
+      href: gateway-overview.md
     - name: 보안
       items:
         - name: 보안 기준
@@ -240,7 +240,7 @@
       href: 'https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers'
     - name: Python
       href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/load-balancer/loadbalancers
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/loadbalancers

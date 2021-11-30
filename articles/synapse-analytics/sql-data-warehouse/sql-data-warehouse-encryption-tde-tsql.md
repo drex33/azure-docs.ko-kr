@@ -2,21 +2,21 @@
 title: 투명한 데이터 암호화(T-SQL)
 description: Azure Synapse Analytics(T-SQL)의 TDE(투명한 데이터 암호화)
 services: synapse-analytics
-author: julieMSFT
+author: nanditavalsan
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/30/2019
-ms.author: jrasnick
+ms.author: nanditav
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 80e5da6bb281806afe6bc980e35d70732bcd609c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 5f44d775006ed199d7c13b4131809b3aa16ddd4b
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98676275"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288452"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>투명한 데이터 암호화(TDE) 시작
 

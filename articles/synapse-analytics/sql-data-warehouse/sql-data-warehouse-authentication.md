@@ -2,22 +2,22 @@
 title: 전용 SQL 풀(이전의 SQL DW)에 대한 인증
 description: Azure AD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)에 인증하는 방법을 알아봅니다.
 services: synapse-analytics
-author: julieMSFT
+author: nanditavalsan
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/02/2019
-ms.author: jrasnick
+ms.author: nanditav
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 80bc9f6fc6af94ba2a5ade77cc1d53b3fc29f1ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8578f15dae0fc67b70ce656190cf86a937317179
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685347"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288660"
 ---
 # <a name="authenticate-to-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 인증
 

@@ -184,18 +184,28 @@
       items:
         - name: 개요
           href: backup-azure-sql-database.md
-        - name: Backup
+        - name: Azure Portal에서
           items:
-            - name: 자격 증명 모음에서 여러 SQL Server VM 백업
-              href: backup-sql-server-database-azure-vms.md
-            - name: SQL Server 가용성 그룹 백업
-              href: backup-sql-server-on-availability-groups.md
-            - name: VM 창에서 SQL Server VM 백업
-              href: backup-sql-server-vm-from-vm-pane.md
-        - name: 복원
-          href: restore-sql-database-azure-vm.md
-        - name: 관리
-          href: manage-monitor-sql-database-backup.md
+            - name: Backup
+              items:
+                - name: 자격 증명 모음에서 여러 SQL Server VM 백업
+                  href: backup-sql-server-database-azure-vms.md
+                - name: SQL Server 가용성 그룹 백업
+                  href: backup-sql-server-on-availability-groups.md
+                - name: VM 창에서 SQL Server VM 백업
+                  href: backup-sql-server-vm-from-vm-pane.md
+            - name: 복원
+              href: restore-sql-database-azure-vm.md
+            - name: 관리
+              href: manage-monitor-sql-database-backup.md
+        - name: REST API 사용
+          items:
+            - name: Backup
+              href: backup-azure-sql-vm-rest-api.md
+            - name: 복원
+              href: restore-azure-sql-vm-rest-api.md
+            - name: 관리
+              href: manage-azure-sql-vm-rest-api.md
     - name: Azure Database for PostgreSQL 백업
       items:
         - name: 개요

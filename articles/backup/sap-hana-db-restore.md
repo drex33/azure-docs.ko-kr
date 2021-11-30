@@ -2,16 +2,16 @@
 title: Azure VM에서 SAP HANA 데이터베이스 복원
 description: 이 문서에서는 Azure Virtual Machines에서 실행되는 SAP HANA 데이터베이스를 복원하는 방법에 대해 알아봅니다. 지역 간 복원을 사용하여 데이터베이스를 보조 지역으로 복원할 수도 있습니다.
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/30/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 427dc637a0aa44ab6a0627b7a844ad6c7d3bb46e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2a09f652e59d503cfcfc2bcda7a95c4e4b28f4af
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131431558"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287900"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 복원
 
@@ -33,7 +33,7 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
 * 동일한 지역에 있는 SAP HANA 인스턴스로만 데이터베이스를 복원할 수 있습니다.
 
-* 대상 인스턴스를 원본과 동일한 자격 증명 모음에 등록해야 합니다.
+* 대상 인스턴스를 원본과 동일한 자격 증명 모음에 등록해야 합니다. [자세한 정보](backup-azure-sap-hana-database.md#discover-the-databases).
 
 * Azure Backup은 동일한 VM에 있는 두 개의 서로 다른 SAP HANA 인스턴스를 구분할 수 없습니다. 따라서 한 인스턴스의 데이터를 동일한 VM의 다른 인스턴스에 복원하는 것은 불가능합니다.
 
@@ -41,11 +41,11 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
   1. Azure Portal 백업 센터로 이동하여 **+백업을** 클릭합니다.
 
-     :::image type="content" source="./media/sap-hana-db-restore/backup-center-configure-inline.png" alt-text="대상 SAP HANA 인스턴스를 복원할 준비가 되었는지 확인하는 프로세스를 시작하는 방법을 보여주는 스크린샷" lightbox="./media/sap-hana-db-restore/backup-center-configure-expanded.png":::
+     :::image type="content" source="./media/sap-hana-db-restore/backup-center-configure-inline.png" alt-text="대상 SAP HANA 인스턴스를 복원할 준비가 되었는지 확인하는 프로세스를 시작하는 방법을 보여 SAP HANA 스크린샷" lightbox="./media/sap-hana-db-restore/backup-center-configure-expanded.png":::
 
   1. 데이터 원본 유형으로 **Azure VM에서 SAP HANA** 선택하고 SAP HANA 인스턴스가 등록된 자격 증명 모음을 선택한 다음 **계속을** 클릭합니다.
 
-     :::image type="content" source="./media/sap-hana-db-restore/hana-select-vault.png" alt-text="Azure VM에서 SAP HANA 선택하는 스크린샷":::
+     :::image type="content" source="./media/sap-hana-db-restore/hana-select-vault.png" alt-text="Azure VM에서 SAP HANA 선택하는 스크린샷.":::
 
   1. **VM에서 DB 검색** 아래에서 **자세히 보기** 를 선택합니다.
 
@@ -73,7 +73,7 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
 1. 데이터 원본 유형으로 **Azure VM에서 SAP HANA** 선택하고 복원하려는 데이터베이스를 선택한 다음 **계속을** 클릭합니다.
 
-   :::image type="content" source="./media/sap-hana-db-restore/hana-restore-select-database.png" alt-text="백업 항목을 복원하는 방법을 보여주는 스크린샷":::
+   :::image type="content" source="./media/sap-hana-db-restore/hana-restore-select-database.png" alt-text="백업 항목을 복원하는 방법을 보여주는 스크린샷.":::
 
 1. **복원 구성** 에서 데이터를 복원할 위치(또는 방법)를 지정합니다.
 
@@ -178,7 +178,7 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
         * `<DatabaseName>` - 복원하려는 새 데이터베이스 또는 기존 데이터베이스의 이름
         * `<Timestamp>` - 특정 시점 복원에 대한 정확한 타임스탬프
-        * `<DatabaseName@HostName>` - 백업이 복원에 사용되는 데이터베이스의 이름 및 이 데이터베이스가 있는 **호스트**/SAP HANA 서버 이름. `USING SOURCE <DatabaseName@HostName>` 옵션은 데이터 백업(복원에 사용됨)이 대상 SAP HANA 컴퓨터와 다른 SID 또는 이름을 사용하는 데이터베이스임을 지정합니다. 따라서 백업이 수행 되는 동일한 HANA 서버에서 수행 되는 복원에 대해 지정할 필요가 없습니다.
+        * `<DatabaseName@HostName>` - 백업이 복원에 사용되는 데이터베이스의 이름 및 이 데이터베이스가 있는 **호스트**/SAP HANA 서버 이름. `USING SOURCE <DatabaseName@HostName>` 옵션은 데이터 백업(복원에 사용됨)이 대상 SAP HANA 컴퓨터와 다른 SID 또는 이름을 사용하는 데이터베이스임을 지정합니다. 따라서 백업이 수행되는 동일한 HANA 서버에서 수행되는 복원에 대해 지정할 필요가 없습니다.
         * `<PathToGeneratedCatalogInStep3>` - **C단계** 에서 생성된 카탈로그 파일의 경로
         * `<DataFileDir>` - 전체 백업이 포함된 폴더
         * `<LogFilesDir>` - 로그 백업, 차등 및 증분 백업(있는 경우)이 포함된 폴더
@@ -271,10 +271,10 @@ CRR을 사용하도록 설정된 경우 보조 지역에서 백업 항목을 볼
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>보조 지역 복원 작업 모니터링
 
-1. Azure Portal에서 **백업 센터**  >  **백업 작업** 으로 이동 합니다.
-1. 보조 지역의 작업을 보려면 값 간 **복원** 에 대 한 **작업** 을 필터링 합니다.
+1. Azure Portal **백업 센터 백업** 작업 으로  >  이동합니다.
+1. 보조 지역의 작업을 보려면 **CrossRegionRestore** 값에 **대한** 필터 작업입니다.
 
-   :::image type="content" source="./media/sap-hana-db-restore/hana-view-jobs-inline.png" alt-text="필터링 된 백업 작업을 보여 주는 스크린샷" lightbox="./media/sap-hana-db-restore/hana-view-jobs-expanded.png":::
+   :::image type="content" source="./media/sap-hana-db-restore/hana-view-jobs-inline.png" alt-text="필터링된 Backup 작업을 보여주는 스크린샷." lightbox="./media/sap-hana-db-restore/hana-view-jobs-expanded.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 798fdd65400c2c16712870d36578171e4777e9d6
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: 2fb50c54acd89fb8a70ff849d39c54998555c56a
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/30/2021
-ms.locfileid: "133265920"
+ms.locfileid: "133287577"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
@@ -95,7 +95,7 @@ Storage Blob 데이터 기여자를 부여하는 대신 파일 하위 세트에 
 이 오류는 Azure Data Lake를 쿼리하는 사용자가 스토리지의 파일을 나열할 수 없음을 나타냅니다. 이 오류가 발생할 수 있는 몇 가지 시나리오가 있습니다.
 - Azure AD 통과 [인증을](develop-storage-files-storage-access-control.md?tabs=user-identity) 사용하는 Azure AD 사용자에게는 Azure Data Lake Storage에 파일을 나열할 수 있는 권한이 없습니다.
 - Azure AD 또는 SQL 사용자가 [SAS 키](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) 또는 [작업 영역 관리 ID](develop-storage-files-storage-access-control.md?tabs=managed-identity)를 사용하여 데이터를 읽고 있으며 해당 키/ID에는 스토리지의 파일을 나열할 수 있는 권한이 없습니다.
-- DataVerse 데이터에 액세스하는 사용자에게 DataVerse에서 데이터를 쿼리할 수 있는 권한이 없습니다. SQL 사용자를 사용하는 경우 발생할 수 있습니다.
+- DataVerse 데이터에 액세스하는 사용자에게 DataVerse에서 데이터를 쿼리할 수 있는 권한이 없습니다. 이는 SQL 사용자를 사용하는 경우에 발생할 수 있습니다.
 - Delta Lake에 액세스하는 사용자에게 Delta Lake 트랜잭션 로그를 읽을 수 있는 권한이 없을 수 있습니다.
  
 이 문제를 해결하는 가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 역할을 자신에게 부여하는 `Storage Blob DataContributor` 것입니다.
@@ -104,8 +104,14 @@ Storage Blob 데이터 기여자를 부여하는 대신 파일 하위 세트에 
  
 #### <a name="content-of-dataverse-table-cannot-be-listed"></a>DataVerse 테이블의 내용을 나열할 수 없습니다.
 
-DataVerse에 대한 Synapse 링크를 사용하여 연결된 DataVerse 테이블을 읽는 경우 Azure AD 계정을 사용하여 서버리스 SQL 풀에 액세스해야 합니다.
-DataVerse 테이블을 참조하는 외부 테이블을 읽으려고 시도한 SQL 로그인에서 다음 오류가 발생합니다.`External table '???' is not accessible because content of directory cannot be listed. `
+DataVerse에 대한 Synapse 링크를 사용하여 연결된 DataVerse 테이블을 읽는 경우 Azure AD 계정을 사용하여 서버리스 SQL 풀을 통해 연결된 데이터에 액세스해야 합니다.
+SQL 로그인을 사용하여 DataVerse 테이블을 참조하는 외부 테이블을 읽으려고 하면 다음 오류가 발생합니다.
+
+```
+External table '???' is not accessible because content of directory cannot be listed.
+```
+
+DataVerse 외부 테이블은 항상 **Azure AD 통과 인증을** 사용합니다. [SAS 키](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) 또는 작업 영역 [관리 ID](develop-storage-files-storage-access-control.md?tabs=managed-identity)를 사용하도록 구성할 수 **없습니다.**
 
 #### <a name="content-of-delta-lake-transaction-log-cannot-be-listed"></a>Delta Lake 트랜잭션 로그의 내용을 나열할 수 없습니다.
 
@@ -124,6 +130,15 @@ with (line varchar(max)) as logs
 ```
 
 이 쿼리가 실패하면 호출자는 기본 스토리지 파일을 읽을 수 있는 권한이 없습니다.  
+
+###  <a name="invalid-object-name"></a>잘못된 개체 이름
+
+이 오류는 서버리스 SQL 풀 데이터베이스에 없는 개체(테이블 또는 뷰)를 사용하고 있음을 나타냅니다.
+- 테이블/뷰를 나열하고 개체가 있는지 확인합니다. Synapse Studio에서 서버리스 SQL 풀에서 사용할 수 없는 일부 테이블을 표시할 수 있으므로 SSMS 또는 ADS를 사용합니다.
+- 개체가 표시되면 대/소문자 구분/이진 데이터베이스 데이터 정렬을 사용하고 있는지 확인합니다. 개체 이름이 쿼리에서 사용한 이름과 일치하지 않을 수 있습니다. 이진 데이터베이스 데이터 정렬을 통해 `Employee` 및 는 서로 다른 두 `employee` 개체입니다.
+- 개체가 표시되지 않으면 Lake/Spark 데이터베이스에서 테이블을 쿼리하려고 할 수 있습니다. 서버리스 풀에서 테이블을 사용할 수 없는 몇 가지 이유가 있습니다.
+  - 테이블에는 서버리스 SQL 나타낼 수 없는 일부 열 유형이 있습니다.
+  - 테이블의 형식은 서버리스 SQL 풀(Delta, ORC 등)에서 지원되지 않습니다.
 
 ### <a name="could-not-allocate-tempdb-space-while-transferring-data-from-one-distribution-to-another"></a>한 배포에서 다른 배포로 데이터를 전송하는 동안 tempdb 공간을 할당할 수 없습니다.
 
@@ -686,10 +701,10 @@ Synapse Studio를 사용하는 경우 SQL Server Management Studio 또는 Azure 
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
-서비스 주체의 경우 애플리케이션 ID를 SID(객체 ID 아님)로 사용하여 로그인을 만들어야 합니다. 다른 SPI/앱에 대한 역할 할당을 만들 때 Azure Synapse 서비스가 Microsoft Graph에서 애플리케이션 ID를 가져오지 못하도록 제한하는 서비스 주체와 관련된 알려진 제한이 있습니다.  
+서비스 주체의 경우 애플리케이션 ID를 SID(객체 ID 아님)로 사용하여 로그인을 만들어야 합니다. 다른 SPI/앱에 대 한 역할 할당을 만들 때 Azure Synapse 서비스가 Microsoft Graph에서 응용 프로그램 ID를 가져올 수 없도록 하는 서비스 주체에 대 한 알려진 제한 사항이 있습니다.  
 
 #### <a name="solution-1"></a>해결 방법 #1
-Azure Portal > Synapse Studio > 관리 > 액세스 제어로 이동하고 원하는 서비스 주체에 대해 Synapse 관리자 또는 Synapse SQL 관리자를 수동으로 추가합니다.
+Azure Portal > Synapse Studio로 이동 하 > > 액세스 제어를 관리 하 고, 원하는 서비스 사용자에 대 한 Synapse administrator 또는 Synapse SQL 관리자를 수동으로 추가 합니다.
 
 #### <a name="solution-2"></a>해결 방법 #2
 SQL 코드를 통해 적절한 로그인을 수동으로 만들어야 합니다.

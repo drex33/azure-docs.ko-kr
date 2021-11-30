@@ -6,17 +6,16 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/30/2021
-ms.openlocfilehash: 90e0040dd58a99ffad63654c3e983f3bb3501006
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: 6036fe9dda5690e6a4181b00dd92eaa91e00aa5b
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/30/2021
-ms.locfileid: "133267055"
+ms.locfileid: "133287045"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버를 사용한 비즈니스 연속성 개요
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 Azure Database for PostgreSQL - 유연한 서버의 **비즈니스 연속성** 은 비즈니스가 중단, 특히 자사의 컴퓨팅 인프라에서 계속 운영할 수 있도록 하는 메커니즘, 정책 및 절차를 나타냅니다. 대부분의 경우 유연한 서버는 클라우드 환경에서 발생할 수 있는 중단 이벤트를 처리하고 애플리케이션 및 비즈니스 프로세스를 계속 실행합니다. 그러나 자동으로 처리할 수 없는 몇 가지 이벤트는 다음과 같습니다.
 
@@ -63,7 +62,7 @@ Azure Database for PostgreSQL - 유연한 서버의 **비즈니스 연속성** �
 | <B>스토리지 오류 | 디스크 오류 또는 물리적 블록 손상과 같은 스토리지 관련 문제는 애플리케이션에 영향을 주지 않습니다. 데이터가 3개 복사본에 저장되므로 남은 스토리지에서 데이터 복사본이 제공됩니다. 손상된 데이터 블록이 자동으로 복구되고 데이터의 새 복사본이 자동으로 생성됩니다. | 전체 스토리지에 액세스할 수 없는 경우처럼 복구할 수 없는 드문 오류가 발생한 경우에는 유연한 서버를 대기 복제본으로 장애 조치(failover)하여 가동 중지 시간을 줄입니다. 자세한 내용은 [HA 개념 페이지](./concepts-high-availability.md)를 참조하세요. |
 | <b> 논리적/사용자 오류 | 실수로 삭제한 테이블 또는 잘못 업데이트된 데이터와 같은 사용자 오류로부터 복구하려면 PITR([지정 시간 복구](../concepts-backup.md))를 수행해야 합니다. 복원 작업을 수행하는 동안 사용자 지정 복원 지점을 지정합니다. 이 지점은 오류 발생 직전의 시간입니다.<br> <br>  데이터베이스 서버에 있는 모든 데이터베이스 대신 데이터베이스의 일부 또는 특정 테이블만 복원하려면 새 인스턴스에서 데이터베이스 서버를 복원하고 [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html)를 통해 테이블을 내보낸 후 [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html)를 사용하여 테이블을 데이터베이스로 복원하면 됩니다. | 모든 변경 내용이 대기 복제본에 동기적으로 복제되므로 이러한 사용자 오류 고가용성으로 보호되지 않습니다. 해당 오류에서 복구하려면 특정 시점 복원을 수행해야 합니다. |
 | <b> 가용성 영역 오류 | 영역 수준 오류에서 복구하려면 백업을 사용하고 사용자 지정 복원 지점을 선택하여 최신 데이터를 복구할 최신 시간으로 특정 시점 복원을 수행할 수 있습니다. 새 유연한 서버가 영향을 받지 않는 또 다른 영역에 배포됩니다. 복원에 걸리는 시간은 이전 백업 및 복구할 트랜잭션 로그의 양에 따라 달라집니다. | 유연한 서버는 데이터 손실 없이 60~120초 이내에 대기 서버에 자동으로 장애 조치(failover) 됩니다. 자세한 내용은 [HA 개념 페이지](./concepts-high-availability.md)를 참조하세요. | 
-| <b> 지역 오류 | 서버가 지역 중복 백업으로 구성된 경우 쌍을 이루는 지역에서 지역 복원을 수행할 수 있습니다. 새 서버가 프로비전되고 이 지역에 복사된 사용 가능한 마지막 데이터로 복구됩니다. | 동일한 프로세스입니다. |
+| <b> 지역 오류 | 서버가 지역 중복 백업을 사용 하 여 구성 된 경우 쌍을 이루는 지역에서 지역 복원을 수행할 수 있습니다. 새 서버가 프로 비전 되 고이 지역에 복사 된 마지막으로 사용 가능한 데이터로 복구 됩니다. | 동일한 프로세스입니다. |
 
 > [!IMPORTANT]
 > 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. [Azure 리소스 잠금](../../azure-resource-manager/management/lock-resources.md)을 사용하여 사고로 인한 서버 삭제를 방지할 수 있습니다.

@@ -1,18 +1,18 @@
 ---
-title: Azure Service Bus 메시지 샘플 개요
-description: Service Bus 메시지 샘플은 Azure Service Bus 메시지의 주요 기능을 보여 주며 GitHub의 샘플에 대한 링크를 제공합니다.
+title: Azure Service Bus 샘플 또는 예제
+description: 주요 기능을 보여 주는 Azure Service Bus 메시징 샘플 또는 예제입니다.
 author: spelluru
 ms.topic: article
 ms.date: 07/23/2021
 ms.author: spelluru
-ms.openlocfilehash: 22712d825fb341e4f34ea90dbb7531d9661070fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d63840efd189d31baa8b8bdbd35e6083680a88dc
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122566243"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133287938"
 ---
-# <a name="service-bus-messaging-samples"></a>Service Bus 메시징 샘플
+# <a name="service-bus-messaging-samples-or-examples"></a>Service Bus 메시징 샘플 또는 예제
 Service Bus 메시지 샘플은 [Service Bus 메시지](https://azure.microsoft.com/services/service-bus/)의 주요 기능을 보여 줍니다. 현재, 다음과 같은 위치에서 샘플을 찾을 수 있습니다.
 
 ## <a name="net-samples"></a>.NET 샘플

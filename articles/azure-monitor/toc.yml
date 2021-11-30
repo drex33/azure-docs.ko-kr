@@ -1125,6 +1125,8 @@
               href: containers/container-insights-agent-config.md
             - name: 메트릭을 사용하도록 업데이트
               href: containers/container-insights-update-metrics.md
+            - name: Azure Red Hat OpenShift v4.x에서 Azure Arc 사용하도록 설정된 클러스터로 마이그레이션
+              href: containers/container-insights-transition-hybrid.md
         - name: Monitor
           items:
             - name: 성능 모니터링

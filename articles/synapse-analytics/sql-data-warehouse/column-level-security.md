@@ -2,22 +2,22 @@
 title: 전용 SQL 풀에 대한 열 수준 보안
 description: 열 수준 보안을 통해 고객은 사용자의 실행 컨텍스트 또는 그룹 멤버 자격에 따라 데이터베이스 테이블 열에 대한 액세스를 제어하여, 애플리케이션에서 보안의 디자인과 코딩을 간소화하고, 열 액세스에 대한 제한을 구현할 수 있습니다.
 services: synapse-analytics
-author: julieMSFT
+author: nanditavalsan
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/19/2020
-ms.author: jrasnick
+ms.author: nanditav
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: fb34051f7d4b24190806dde939c8cc6d9c2a4896
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f71cbc730bccb41a5a502d9b0e9ff382da501d5f
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98679950"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133286855"
 ---
 # <a name="column-level-security"></a>열 수준 보안
 

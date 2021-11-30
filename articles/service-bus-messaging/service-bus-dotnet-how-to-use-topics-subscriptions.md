@@ -1,18 +1,26 @@
 ---
-title: Azure Service Bus 토픽 및 구독 시작
-description: 이 빠른 시작에서는 azure-messaging-servicebus 패키지를 사용하여 메시지를 Azure Service Bus 토픽에 보내는 방법을 보여 줍니다.
+title: Azure Service Bus 토픽 시작(.NET)
+description: 이 자습서에서는 .NET 프로그래밍 언어를 사용하여 Azure Service Bus 토픽에 메시지를 보내고 토픽 구독에서 메시지를 받는 방법을 보여 드립니다.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
 ms.custom: contperf-fy22q2, mode-other
-ms.openlocfilehash: 6beabe18f4e3b268f5b26d95ea713d07c454e219
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 9199278ea82a74f7eb190c51c3d7eb9a87537dc3
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133057717"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133286994"
 ---
-# <a name="get-started-with-azure-service-bus-topics-and-subscriptions"></a>Azure Service Bus 토픽 및 구독 시작
+# <a name="get-started-with-azure-service-bus-topics-and-subscriptions-net"></a>Azure Service Bus 토픽 및 구독 시작(.NET)
+
+> [!div class="op_single_selector" title1="프로그래밍 언어를 선택합니다."]
+> * [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+> * [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+> * [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> * [Python](service-bus-python-how-to-use-topics-subscriptions.md)
+
+
 이 빠른 시작에서는 [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) .NET 라이브러리를 사용하여 Service 버스 토픽에 메시지를 보내고 해당 토픽에 대한 구독에서 메시지를 수신하는 방법을 보여 줍니다.
 
 이 빠른 시작에서는 다음 단계를 수행합니다.

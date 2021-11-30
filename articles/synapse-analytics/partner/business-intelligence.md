@@ -7,16 +7,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 07/09/2021
-author: mabasile-MSFT
-ms.author: mabasile
+author: periclesrocha
+ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 12ca40edbe419668fab0654650049e82925fbb01
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: ee9a2eb309c365151d07b25df7cf1b20e1b5236f
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131463243"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288546"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics 비즈니스 인텔리전스 파트너
 
@@ -39,7 +39,7 @@ ms.locfileid: "131463243"
 | ![Mode Analytics](./media/business-intelligence/mode-logo.png) |**모드**<br>Mode는 현대적 분석 및 BI 솔루션으로, 팀이 믿을 수 없을 만큼 빠르고 기대를 넘어서 만족스러운 데이터 분석을 통해 의사 결정을 내릴 수 있도록 지원합니다. 데이터 팀은 SQL, Python, R 및 시각적 분석을 결합하는 기본 워크플로를 통해 보다 빠르게 움직이며, 관련자들은 자신의 데이터를 탐색하고 공유하는 것과 함께 작업합니다. 모든 사람에게 더 쉽게 액세스할 수 있는 데이터를 사용하면 질문에서 답변에 이르는 과정을 단축하고 비즈니스에서 더 나은 결정을 더 빨리 내릴 수 있습니다.|[제품 페이지](https://mode.com/)<br> |
 | ![Pyramid Analytics](./media/business-intelligence/pyramid-logo.png) |**Pyramid Analytics**<br>Pyramid 2020은 팀을 연결하고, 확신에 찬 결정을 내리고, 승산 있는 결과를 생성하는 신뢰할 수 있는 분석 플랫폼입니다. 비즈니스 사용자는 브라우저 또는 디바이스에서 IT의 도움 없이 하이엔드, 클라우드 규모의 분석 및 데이터 과학을 수행할 수 있습니다. 데이터 과학자는 기계 학습 알고리즘 및 스크립팅을 활용하여 어려운 비즈니스 문제를 이해할 수 있습니다. 고급 사용자는 자신의 데이터를 준비 및 모델링하여 이해를 돕는 문석 콘텐츠를 만들 수 있습니다. 비전문 사용자는 뛰어난 시각화 및 안내가 제공되는 분석 프레젠테이션을 활용할 수 있습니다. 이는 거버넌스를 통한 차세대 셀프 서비스 분석입니다. |[제품 페이지](https://www.pyramidanalytics.com/analytics-os)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/pyramidanalytics.pyramid2020v4) |
 | ![Qlik](./media/business-intelligence/qlik_logo.png) |**Qlik Sense Enterprise**<br>누구나 사용 가능한 데이터 시각화 앱을 통해 정보를 보다 쉽게 검색할 수 있습니다. Qlik Sense를 사용하는 경우 조직의 모든 사용자가 유연한 대화형 시각화를 쉽게 만들고 적절한 결정을 내릴 수 있습니다. |[제품 페이지](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qlik.qlik-sense) |
-| ![SAS](./media/business-intelligence/sas-logo.jpg) |**SAS® Viya®**<br>SAS® Viya®는 확장 가능한 클라우드 네이티브 아키텍처에서 실행되는 AI, 분석 및 데이터 관리 솔루션입니다. 이를 통해 인사이트를 운영하여 데이터 과학자부터 비즈니스 사용자까지 모든 사용자가 협업하고 혁신적인 결과를 더 빠르게 실현할 수 있습니다. 오픈 소스 또는 SAS 모델을 사용 하 여 SAS®® Api 또는 대화형 인터페이스를 통해 액세스 하 여 원시 데이터를 작업으로 변환할 수 있습니다. |[제품 페이지](https://www.sas.com/microsoft)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/sas-institute-560503.sas-viya-saas?tab=Overview)<br>|
+| ![SAS](./media/business-intelligence/sas-logo.jpg) |**SAS®®**<br>SAS®®은 확장 가능한 클라우드 기본 아키텍처에서 실행 되는 AI, 분석 및 데이터 관리 솔루션입니다. 이를 통해 데이터 과학자에서 비즈니스 사용자에 이르는 모든 사용자가 공동 작업을 하 고 혁신적인 결과를 운영 수 있습니다. 오픈 소스 또는 SAS 모델을 사용하면 API 또는 대화형 인터페이스를 통해 SAS® Viya® 액세스하여 원시 데이터를 작업으로 변환할 수 있습니다. |[제품 페이지](https://www.sas.com/microsoft)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/sas-institute-560503.sas-viya-saas?tab=Overview)<br>|
 | ![SiSense](./media/business-intelligence/sisense_logo.png) |**SiSense**<br>SiSense는 비즈니스가 데이터를 분석하고 시각화하는 데 필요한 도구와 함께 제공되는 전체 스택 비즈니스 인텔리전스 소프트웨어입니다. 고성능 분석 데이터베이스, 여러 원본, 단순 데이터 추출(ETL) 및 웹 기반 데이터 시각화를 조인하는 기능입니다. SiSense BI 및 Analytics로 큰 데이터 집합 분석 및 시각화를 시작합니다. |[제품 페이지](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>Tableau의 셀프 서비스 분석은 플랫 파일에서 데이터베이스까지 여러 유형의 데이터를 보고 이해하는 데 도움이 됩니다. Tableau에는 라이브 데이터 및 메모리 내 분석을 모두 지원하는 Synapse SQL 풀에 대한 최적화된 네이티브 커넥터가 있습니다. |[제품 페이지](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|
 | ![Targit](./media/business-intelligence/targit_logo.png) |**Targit(Decision Suite)**<br>Targit Decision Suite는 실시간 대시보드, 셀프 서비스 분석, 사용자 친화적인 보고, 뛰어난 모바일 기능 및 간단한 데이터 검색 기술을 구현하는 BI 플랫폼을 제공합니다. 통합적인 단일 솔루션에 모든 것이 담겨 있습니다. Targit는 회사들이 행동을 취하도록 용기를 줍니다. |[제품 페이지](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/targit.targit-decision-suite)<br> |

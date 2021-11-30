@@ -2,21 +2,21 @@
 title: Azure Synapse의 SQL 풀에 연결
 description: SQL 풀에 연결합니다.
 services: synapse-analytics
-author: XiaoyuMSFT
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: xiaoyul
+ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: azure-synapse, seo-lt-2019, devx-track-csharp
-ms.openlocfilehash: 546c0c21762d0cfe10cf4f1b7a2e1b7d6691166e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f2dd00700d1a643bdbdebf8501af6a1cffffebde
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685262"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288819"
 ---
 # <a name="connect-to-a-sql-pool-in-azure-synapse"></a>Azure Synapse의 SQL 풀에 연결 
 

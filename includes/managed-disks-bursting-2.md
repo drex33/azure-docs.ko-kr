@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/09/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 7b1ac1f3b2fcb8c999276fecec495cf496108c12
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: fc35c763276ec8f9c049bfb42a4482d9e918a817
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132134930"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133289119"
 ---
 ### <a name="on-demand-bursting"></a>주문형 버스팅
 
@@ -66,24 +66,9 @@ ms.locfileid: "132134930"
 
 ## <a name="virtual-machine-level-bursting"></a>가상 머신 수준 버스팅
 
-VM 수준 버스팅은 크레딧 기반 모델만 버스팅에 사용하며, 이를 지원하는 모든 VM에 대해 기본적으로 사용하도록 설정됩니다.
 
-VM 수준 버스팅은 다음 크기로 지원되는 Azure 퍼블릭 클라우드의 모든 지역에서 사용하도록 설정됩니다. 
-- [Dsv4 시리즈](../articles/virtual-machines/dv4-dsv4-series.md)
-- [Dasv4 시리즈](../articles/virtual-machines/dav4-dasv4-series.md)
-- [Ddsv4 시리즈](../articles/virtual-machines/ddv4-ddsv4-series.md)
-- [Dasv5 시리즈](../articles/virtual-machines/dasv5-dadsv5-series.md)
-- [Dadsv5 시리즈](../articles/virtual-machines/dasv5-dadsv5-series.md)
-- [Esv4 시리즈](../articles/virtual-machines/ev4-esv4-series.md)
-- [Easv4 시리즈](../articles/virtual-machines/eav4-easv4-series.md)
-- [Edsv4 시리즈](../articles/virtual-machines/edv4-edsv4-series.md)
-- [Easv5 시리즈](../articles/virtual-machines/easv5-eadsv5-series.md)
-- [Eadsv5 시리즈](../articles/virtual-machines/easv5-eadsv5-series.md)
-- [B 시리즈](../articles/virtual-machines/sizes-b-series-burstable.md)
-- [Fsv2 시리즈](../articles/virtual-machines/fsv2-series.md)
-- [Dsv3 시리즈](../articles/virtual-machines/dv3-dsv3-series.md)
-- [Esv3 시리즈](../articles/virtual-machines/ev3-esv3-series.md)
-- [Lsv2 시리즈](../articles/virtual-machines/lsv2-series.md)
+VM 수준 버스트는 버스트에 신용 기반 모델만 사용 하며, 대부분의 Premium Storage 지원 되는 vm에 대해 기본적으로 사용 하도록 설정 되어 있습니다.
+
 
 ## <a name="bursting-flow"></a>버스팅 흐름
 
@@ -103,29 +88,6 @@ VM 수준 버스팅은 다음 크기로 지원되는 Azure 퍼블릭 클라우�
 
 다음 예에서는 다양한 VM 및 디스크의 조합에서 버스팅이 작동하는 방식을 보여 줍니다. 예를 쉽게 따를 수 있도록 MB/초에 중점을 두지만 동일한 논리가 IOPS에 독립적으로 적용됩니다.
 
-### <a name="non-burstable-virtual-machine-with-burstable-disks"></a>버스트 가능한 디스크가 있는 버스트 불가능한 가상 머신
-**VM 및 디스크 조합:** 
-- Standard_D8as_v4 
-    - 캐시되지 않은 MB/초: 192
-- P4 OS 디스크
-    - 프로비전된 MB/초: 25
-    - 최대 버스트 MB/초: 170 
-- 2개 P10 데이터 디스크 
-    - 프로비전된 MB/초: 100
-    - 최대 버스트 MB/초: 170
-
- VM이 부팅되면 OS 디스크에서 데이터를 검색합니다. OS 디스크는 부팅 중인 VM의 일부이므로 OS 디스크에는 버스팅 크레딧이 완전히 적립되어 있습니다. 이러한 크레딧을 사용하면 OS 디스크에서 시작을 초당 170MB/초로 버스트할 수 있습니다.
-
-![VM은 192MB/초의 처리량에 대한 요청을 OS 디스크에 보내고, OS 디스크는 170MB/초의 데이터로 응답합니다.](media/managed-disks-bursting/nonbursting-vm-bursting-disk/nonbursting-vm-bursting-disk-startup.jpg)
-
-부팅이 완료되면 애플리케이션이 VM에서 실행되고 중요하지 않은 워크로드가 있습니다. 이 워크로드에는 모든 디스크에서 균등하게 분산되는 15MB/초가 필요합니다.
-
-![애플리케이션에서 15MB/초의 처리량에 대한 요청을 VM에 보내고, VM에서 요청을 받아 5MB/초에 대한 요청을 각 디스크에 보내고, 각 디스크에서 5MB/초를 반환하고, VM에서 15MB/초를 애플리케이션에 반환합니다.](media/managed-disks-bursting/nonbursting-vm-bursting-disk/nonbursting-vm-bursting-disk-idling.jpg)
-
-그런 다음, 애플리케이션에서 192MB/초가 필요한 일괄 작업을 처리해야 합니다. 2MB/초는 OS 디스크에서 사용하고, 나머지는 데이터 디스크 간에 균등하게 분할됩니다.
-
-![애플리케이션에서 192MB/초의 처리량에 대한 요청을 VM에 보내고, VM에서 요청을 받아 대량 요청을 데이터 디스크(각각 95MB/초) 및 OS 디스크(2MB/초)에 보내고, 데이터 디스크에서 이 요구를 충족하기 위해 버스트하고, 모든 디스크에서 요청된 처리량을 VM에 반환하고, VM에서 이를 애플리케이션에 반환합니다.](media/managed-disks-bursting/nonbursting-vm-bursting-disk/nonbursting-vm-bursting-disk-bursting.jpg)
-
 ### <a name="burstable-virtual-machine-with-non-burstable-disks"></a>버스트 불가능한 디스크가 있는 버스트 가능한 가상 머신
 **VM 및 디스크 조합:** 
 - Standard_L8s_v2 
@@ -133,8 +95,10 @@ VM 수준 버스팅은 다음 크기로 지원되는 Azure 퍼블릭 클라우�
     - 최대 버스트 MB/초: 1,280
 - P50 OS 디스크
     - 프로비전된 MB/초: 250 
+    - 주문형 버스트: **사용 안** 함
 - 2개 P50 데이터 디스크 
     - 프로비전된 MB/초: 250
+    - 주문형 버스트: **사용 안** 함
 
  초기 부팅 후 애플리케이션이 VM에서 실행되고 중요하지 않은 워크로드가 있습니다. 이 워크로드에는 모든 디스크에서 균등하게 분산되는 30MB/초가 필요합니다.
 ![애플리케이션에서 30MB/초의 처리량에 대한 요청을 VM에 보내고, VM에서 요청을 받아 10MB/초에 대한 요청을 각 디스크에 보내고, 각 디스크에서 10MB/초를 반환하고, VM에서 30MB/초를 애플리케이션에 반환합니다.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
@@ -142,6 +106,7 @@ VM 수준 버스팅은 다음 크기로 지원되는 Azure 퍼블릭 클라우�
 그런 다음, 애플리케이션에서 600MB/초가 필요한 일괄 작업을 처리해야 합니다. Standard_L8s_v2에서 버스트하여 이 요구를 충족한 다음, 디스크에 대한 요청이 P50 디스크에서 균등하게 분산됩니다.
 
 ![애플리케이션에서 600MB/초의 처리량에 대한 요청을 VM에 보내고, VM에서 버스트를 수행하여 요청을 받고 200MB/초에 대한 요청을 각 디스크에 보내고, 각 디스크에서 200MB/초를 반환하고, VM에서 버스트하여 600MB/초를 애플리케이션에 반환합니다.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
+
 ### <a name="burstable-virtual-machine-with-burstable-disks"></a>버스트 가능한 디스크가 있는 버스트 가능한 가상 머신
 **VM 및 디스크 조합:** 
 - Standard_L8s_v2 

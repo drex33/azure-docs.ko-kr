@@ -1,22 +1,22 @@
 ---
 title: FTP 서버에서 데이터 복사
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 Synapse Analytics 파이프라인의 복사 작업을 사용 하 여 FTP 서버에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
+description: Azure Data Factory 또는 Synapse Analytics 파이프라인에서 복사 활동을 사용하여 FTP 서버에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/29/2021
 ms.author: jianleishen
-ms.openlocfilehash: 69b33da047bd6dcd4dfc4df76456c42a5718e219
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 34cd284dea1abd914b8d48a5c3adca5b890ee1ac
+ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124815439"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133288850"
 ---
-# <a name="copy-data-from-ftp-server-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics를 사용 하 여 FTP 서버에서 데이터 복사
+# <a name="copy-data-from-ftp-server-using-azure-data-factory-or-synapse-analytics"></a>Azure Data Factory 또는 Synapse Analytics 사용하여 FTP 서버에서 데이터 복사
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 >
@@ -24,7 +24,7 @@ ms.locfileid: "124815439"
 > * [현재 버전](connector-ftp.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 FTP 서버에서 데이터를 복사하는 방법을 설명합니다. 자세히 알아보려면 [Azure Data Factory](introduction.md) 및 [Synapse Analytics](../synapse-analytics/overview-what-is.md)에 대 한 소개 문서를 참조 하세요.
+이 문서에서는 FTP 서버에서 데이터를 복사하는 방법을 설명합니다. 자세한 내용은 Azure Data Factory [및](../synapse-analytics/overview-what-is.md) [Synapse Analytics](introduction.md) 대한 소개 문서를 읽어보세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -80,7 +80,7 @@ FTP 커넥터는 수동 모드에서 실행되는 FTP 서버를 지원합니다.
 
 FTP 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성을 다음으로 설정해야 합니다. **FtpServer**. | 예 |
 | host | FTP 서버의 이름 또는 IP 주소를 지정합니다. | 예 |
@@ -152,7 +152,7 @@ FTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 데이터 세트의 `location` 설정에서 FTP에 다음 속성이 지원됩니다.
 
-| 속성   | 설명                                                  | 필수 |
+| 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 세트에 있는 `location` 아래의 type 속성은 **FtpServerLocation** 으로 설정되어야 합니다. | 예      |
 | folderPath | 폴더에 대한 경로입니다. 와일드카드를 사용하여 폴더를 필터링하려면 이 설정을 건너뛰고 작업 원본 설정에서 지정합니다. | 예       |
@@ -194,7 +194,7 @@ FTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 FTP에 다음 속성이 지원됩니다.
 
-| 속성                 | 설명                                                  | 필수                                      |
+| 속성                 | Description                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | `storeSettings` 아래의 type 속성은 **FtpReadSettings** 로 설정되어야 합니다. | 예                                           |
 | ***복사할 파일 찾기:*** |  |  |
@@ -209,8 +209,7 @@ FTP 연결된 서비스에 다음 속성이 지원됩니다.
 | enablePartitionDiscovery | 분할된 파일의 경우 파일 경로에서 파티션을 구문 분석할지를 지정하고 추가 원본 열로 추가합니다.<br/>허용되는 값은 **false**(기본값) 및 **true** 입니다. | 예                                            |
 | partitionRootPath | 파티션 검색을 사용하는 경우 분할된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정합니다.<br/><br/>지정하지 않으면 기본적으로 다음과 같이 지정됩니다.<br/>- 데이터 세트의 파일 경로 또는 원본의 파일 목록을 사용하는 경우 파티션 루트 경로는 데이터 세트에서 구성된 경로입니다.<br/>- 와일드카드 폴더 필터를 사용하는 경우 파티션 루트 경로는 첫 번째 와일드카드 앞의 하위 경로입니다.<br/><br/>예를 들어 데이터 세트의 경로를 "root/folder/year=2020/month=08/day=27"로 구성한다고 가정합니다.<br/>- 파티션 루트 경로를 "root/folder/year=2020"으로 지정하면 복사 작업은 내부의 열 외에도 각각 값이 "08" 및 "27"인 `month` 및 `day` 열을 파일에 두 개 더 생성합니다.<br/>- 파티션 루트 경로를 지정하지 않으면 추가 열이 생성되지 않습니다. | 예                                            |
 | maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
-
-데이터를 FTP로 복사 하는 경우 서비스는 파일 길이를 먼저 가져온 다음 파일을 여러 부분으로 나누고 병렬로 읽습니다. FTP 서버가 파일 길이 가져오기 또는 특정 오프셋에서 읽기를 지원하지 않는 경우 오류가 발생할 수 있습니다.
+| disableChunking | FTP에서 데이터를 복사할 때 서비스는 먼저 파일 길이를 구한 다음 파일을 여러 부분으로 나누고 병렬로 읽으려고 시도합니다. FTP 서버에서 파일 길이를 얻거나 특정 오프셋에서 읽기를 지원할지 여부를 지정합니다. <br/>허용되는 값은 false(기본값), **true** 입니다.  | 예 |
 
 **예:**
 
@@ -242,7 +241,8 @@ FTP 연결된 서비스에 다음 속성이 지원됩니다.
                     "type": "FtpReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
-                    "wildcardFileName": "*.csv"
+                    "wildcardFileName": "*.csv",
+                    "disableChunking": false
                 }
             },
             "sink": {
@@ -293,7 +293,7 @@ FTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **FileShare** |예 |
 | folderPath | 파일의 경로입니다. 와일드카드 필터가 지원되며, 허용되는 와일드카드는 `*`(0개 이상의 문자 일치) 및 `?`(0-1개의 문자 일치)입니다. 실제 폴더 이름에 와일드카드 또는 이 이스케이프 문자가 있는 경우 `^`을 사용하여 이스케이프합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |예 |
@@ -338,7 +338,7 @@ FTP 연결된 서비스에 다음 속성이 지원됩니다.
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 작업 원본 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **FileSystemSource** |예 |
 | recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive가 true로 설정되고 싱크가 파일 기반 저장소인 경우 싱크에서 빈 폴더/하위 폴더가 복사/생성되지 않습니다.<br/>허용되는 값은 **true**(기본값), **false** 입니다. | 예 |

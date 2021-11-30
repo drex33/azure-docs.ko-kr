@@ -1,0 +1,59 @@
+### YamlMime:Hub
+title: Azure 부하 테스트 설명서
+summary: 'Azure Load Testing 서비스를 사용하여 대규모 부하를 생성하고, 앱 성능 병목 현상을 식별하고, 회귀 테스트를 자동화하는 방법을 알아봅니다. 자습서, 코드 예제, GitHub 작업, Azure Pipelines 등'
+metadata:
+  title: Azure 부하 테스트 설명서
+  description: 'Azure Load Testing 서비스를 사용하여 대규모 부하를 생성하고, 앱 성능 병목 현상을 식별하고, 회귀 테스트를 자동화하는 방법을 알아봅니다. 자습서, 코드 예제, GitHub 작업, Azure Pipelines 등'
+  services: load-testing
+  ms.service: load-testing
+  ms.topic: hub-page
+  ms.collection: collection
+  ms.author: jmartens
+  author: j-martens
+  ms.date: 11/30/2021
+highlightedContent:
+  items:
+    - title: Azure 부하 테스트란?
+      itemType: overview
+      url: overview-what-is-azure-load-testing.md
+    - title: 성능 병목 상태 식별
+      itemType: tutorial
+      url: tutorial-identify-bottlenecks-azure-portal.md
+    - title: 지속적인 회귀 테스트 설정
+      itemType: tutorial
+      url: tutorial-cicd-azure-pipelines.md
+conceptualContent:
+  items:
+    - title: 부하 테스트 구성
+      links:
+        - url: how-to-high-scale-load.md
+          itemType: how-to-guide
+          text: 대규모 구성
+        - url: how-to-parameterize-load-tests.md
+          itemType: how-to-guide
+          text: 부하 테스트 매개 변수화
+        - url: how-to-update-rerun-test.md
+          itemType: how-to-guide
+          text: 부하 테스트 업데이트 & 다시 실행
+    - title: 테스트 결과 분석
+      links:
+        - url: how-to-compare-multiple-test-runs.md
+          itemType: how-to-guide
+          text: 실행을 비교하여 성능 분석
+        - url: how-to-find-download-logs.md
+          itemType: how-to-guide
+          text: 부하 테스트 로그 & 다운로드 찾기
+        - url: how-to-appservice-insights.md
+          itemType: how-to-guide
+          text: AppService 워크로드에서 인사이트 얻기
+        - url: how-to-export-test-results.md
+          itemType: how-to-guide
+          text: 결과 내보내기
+    - title: 부하 테스트 자동화
+      links:
+        - url: tutorial-cicd-azure-pipelines.md
+          itemType: tutorial
+          text: Azure Pipelines CI/CD 워크플로
+        - url: tutorial-cicd-github-actions.md
+          itemType: tutorial
+          text: GitHub 작업의 CI/CD 워크플로

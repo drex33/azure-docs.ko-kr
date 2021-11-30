@@ -712,6 +712,12 @@ productDirectory:
       azureCategories:
         - devops
       url: /azure/devops/test/
+    - title: Azure 부하 테스트
+      summary: 대규모 부하를 생성 하 고 앱 성능 병목 상태를 식별 합니다.
+      imageSrc: 'https://static.docs.com/ui/media/product/azure/load-testing.svg'
+      azureCategories:
+        - devops
+      url: load-testing/index.yml
     - title: Azure에 대한 GitHub 작업
       summary: 'GitHub에서 Azure로 모든 앱 빌드, 테스트 및 배포'
       imageSrc: ./media/index/github-actions-icon.svg

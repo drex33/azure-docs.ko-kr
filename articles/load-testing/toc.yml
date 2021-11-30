@@ -1,0 +1,58 @@
+- name: Azure 부하 테스트 문서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Azure 부하 테스트 란?
+      displayName: 'ALT, load, MALT'
+      href: overview-what-is-azure-load-testing.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 부하 테스트 만들기 & 실행
+      href: quickstart-create-and-run-load-test.md
+- name: 자습서
+  expanded: true
+  items:
+    - name: 성능 병목 상태 식별
+      href: tutorial-identify-bottlenecks-azure-portal.md
+    - name: 지속적인 회귀 테스트 (CI/CD)
+      expanded: true
+      items:
+        - name: GitHub 작업을 사용 하 여 자동화
+          href: tutorial-cicd-github-actions.md
+        - name: Azure Pipelines를 사용 하 여 자동화
+          href: tutorial-cicd-azure-pipelines.md
+- name: 방법
+  expanded: true
+  items:
+    - name: 테스트 실행 비교
+      href: how-to-compare-multiple-test-runs.md
+    - name: 서버 쪽 모니터링 구성
+      href: how-to-update-rerun-test.md
+    - name: 높은 규모의 부하에 대 한 구성
+      href: how-to-high-scale-load.md
+    - name: 테스트 실행 오류 문제 해결
+      href: how-to-find-download-logs.md
+    - name: 테스트 조건 정의
+      href: how-to-define-test-criteria.md
+    - name: 부하 테스트 매개 변수화
+      href: how-to-parameterize-load-tests.md
+    - name: App Service 진단에서 정보 얻기
+      href: how-to-appservice-insights.md
+    - name: 테스트 결과 내보내기
+      href: how-to-export-test-results.md
+    - name: 관리 ID 사용
+      href: how-to-use-a-managed-identity.md
+- name: 참고
+  items:
+    - name: 테스트 구성 YAML
+      href: reference-test-config-yaml.md
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/load-testing-service/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'

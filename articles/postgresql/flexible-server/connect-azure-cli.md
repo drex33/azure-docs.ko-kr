@@ -6,18 +6,17 @@ ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devx-track-azurecli, mode-other
 ms.topic: quickstart
-ms.date: 03/06/2021
-ms.openlocfilehash: a070878362d60d052ddc57047e5d7c69a40d7d2b
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.date: 11/30/2021
+ms.openlocfilehash: b4d3c841fbb63b5b5549298f889e7d133550bf54
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133038616"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266998"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-postgresql---flexible-server"></a>빠른 시작: Azure Database for PostgreSQL - 유연한 서버를 사용하여 Azure CLI로 연결 및 쿼리
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
+
 
 이 빠른 시작에서는 ```az postgres flexible-server connect```에서 Azure CLI를 사용하여 Azure Database for PostgreSQL 유연한 서버에 연결하고 ```az postgres flexible-server execute``` 명령을 통해 단일 쿼리 또는 sql 파일을 실행하는 방법을 보여줍니다. 이 명령을 사용하면 데이터베이스 서버에 대한 연결을 테스트하고 쿼리를 실행할 수 있습니다. 대화형 모드를 사용하여 여러 쿼리를 실행할 수도 있습니다. 
 

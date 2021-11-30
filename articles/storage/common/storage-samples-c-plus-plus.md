@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 46f34dfc6a841bf465aed527907ee81e8fb56e22
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 186abd4f318820b1ffb63b6769bb37f4adf69175
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633719"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266354"
 ---
 # <a name="azure-storage-samples-using-v12-c-client-libraries"></a>v12 C++ 클라이언트 라이브러리를 사용하는 Azure Storage 샘플
 
@@ -25,31 +25,31 @@ ms.locfileid: "128633719"
 
 :::row:::
    :::column:::
-        [연결 문자열을 사용하여 인증](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L18)
+        [연결 문자열을 사용하여 인증](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L18)
    :::column-end:::
    :::column:::
-        [Blob 컨테이너 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L20)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-        [Blob 클라이언트 가져오기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L30)
-   :::column-end:::
-   :::column:::
-        [Blob 업로드](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L32)
+        [Blob 컨테이너 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L20)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column:::
-        [Blob에 메타데이터 설정](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L34)
+        [Blob 클라이언트 가져오기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L30)
    :::column-end:::
    :::column:::
-        [Blob 속성 가져오기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L37)
+        [Blob 업로드](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L32)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+        [Blob에 메타데이터 설정](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L34)
+   :::column-end:::
+   :::column:::
+        [Blob 속성 가져오기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L37)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-        [Blob 다운로드](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp#L44)
+        [Blob 다운로드](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp#L44)
    :::column-end:::
 :::row-end:::
 
@@ -57,42 +57,42 @@ ms.locfileid: "128633719"
 
 :::row:::
    :::column:::
-        [연결 문자열을 사용하여 서비스 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L22)
+        [연결 문자열을 사용하여 서비스 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L22)
    :::column-end:::
    :::column:::
-        [연결 문자열을 사용하여 파일 시스템 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L25)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-        [파일 시스템 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L30)
-   :::column-end:::
-   :::column:::
-        [디렉터리 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L48)
+        [연결 문자열을 사용하여 파일 시스템 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L25)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column:::
-        [파일 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L52)
+        [파일 시스템 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L30)
    :::column-end:::
    :::column:::
-        [파일에 데이터 추가](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L68)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column:::
-        [파일 데이터 플러시](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L77)
-   :::column-end:::
-   :::column:::
-        [파일 읽기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L80)
+        [디렉터리 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L48)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column:::
-        [모든 파일 시스템 나열](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L88)
+        [파일 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L52)
    :::column-end:::
    :::column:::
-        [파일 시스템 삭제](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp#L102)
+        [파일에 데이터 추가](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L68)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+        [파일 데이터 플러시](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L77)
+   :::column-end:::
+   :::column:::
+        [파일 읽기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L80)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column:::
+        [모든 파일 시스템 나열](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L88)
+   :::column-end:::
+   :::column:::
+        [파일 시스템 삭제](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp#L102)
    :::column-end:::
 :::row-end:::
 
@@ -100,31 +100,31 @@ ms.locfileid: "128633719"
 
 :::row:::
     :::column:::
-        [연결 문자열을 사용하여 공유 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L18)
+        [연결 문자열을 사용하여 공유 클라이언트 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L18)
     :::column-end:::
     :::column:::
-        [파일 공유 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L21)
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [파일 클라이언트 가져오기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L29)
-    :::column-end:::
-    :::column:::
-        [파일 업로드](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L31)
+        [파일 공유 만들기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L21)
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [파일에 메타데이터 설정](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L33)
+        [파일 클라이언트 가져오기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L29)
     :::column-end:::
     :::column:::
-        [파일 속성 가져오기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L36)
+        [파일 업로드](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L31)
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [파일에 메타데이터 설정](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L33)
+    :::column-end:::
+    :::column:::
+        [파일 속성 가져오기](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L36)
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        [파일 다운로드](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp#L43)
+        [파일 다운로드](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp#L43)
     :::column-end:::
 :::row-end:::
 
@@ -132,9 +132,9 @@ ms.locfileid: "128633719"
 
 전체 C++ 샘플 라이브러리를 보려면 다음으로 이동하세요.
 
-- [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/sample)
-- [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-datalake/sample)
-- [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-shares/sample)
+- [Azure Blob 코드 샘플](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/samples)
+- [Azure Data Lake 코드 샘플](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-datalake/samples)
+- [Azure Files 코드 샘플](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-files-shares/samples)
 
 각 라이브러리에 대한 GitHub 리포지토리를 찾아보고 복제할 수 있습니다.
 

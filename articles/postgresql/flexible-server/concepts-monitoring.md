@@ -5,18 +5,17 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 3d26c585593161ccf4f8ec33f913cc7163531f89
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: b6bc83ffae3b363d4bdb0200e9890cd896898bed
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606660"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266373"
 ---
 # <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 메트릭 모니터
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for PostgreSQL은 서버 동작에 대한 인사이트를 제공하기 위해 다양한 모니터링 옵션을 제공합니다.
 

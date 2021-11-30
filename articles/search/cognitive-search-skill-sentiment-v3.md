@@ -6,14 +6,14 @@ manager: jennmar
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: d42eb099091840ed5dbab61abbad47e087504ab3
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: ce7a13fad5e13aae523508b5c4a865db0d8dd3d9
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214525"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267321"
 ---
 # <a name="sentiment-cognitive-skill-v3"></a>감성 인식 기술(V3)
 

@@ -5,25 +5,23 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 36f282571dc0f3b8f6b9298c23042c955bc59058
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 01d629685129ce51511fe0c3b0f8cb569ebc41ac
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107225753"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265427"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL - 유연한 서버 방화벽 규칙 만들기 및 관리
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
 Azure Database for PostgreSQL - 유연한 서버는 유연한 서버에 연결하는 두 가지 유형의 상호 배타적인 네트워크 연결 방법을 지원합니다. 다음은 두 가지 옵션입니다.
 
 * 퍼블릭 액세스(허용된 IP 주소)
 * 프라이빗 액세스(VNet 통합)
 
-이 문서에서는 Azure Portal을 사용하여 **공용 액세스(허용된 IP 주소)** 를 사용하여 PostgreSQL 서버를 만드는 방법에 중점을 두고, 유연한 서버를 만든 후 방화벽 규칙을 관리하는 방법에 대한 개요를 제공합니다. *공용 액세스(허용된 IP 주소)* 를 사용하면 PostgreSQL 서버에 대한 연결이 허용된 IP 주소로만 제한됩니다. 방화벽 규칙에서 클라이언트 IP 주소를 허용해야 합니다. 자세한 내용을 알아보려면 [공용 액세스(허용된 IP 주소)](./concepts-networking.md#public-access-allowed-ip-addresses)를 참조하세요. 방화벽 규칙은 서버를 만들 때 정의할 수 있지만(권장), 나중에 추가할 수도 있습니다. 이 문서에서는 공용 액세스(허용된 IP 주소)를 사용하여 방화벽 규칙을 만들고 관리하는 방법에 대한 개요를 제공합니다.
+이 문서에서는 Azure Portal을 사용하여 **공용 액세스(허용된 IP 주소)** 를 사용하여 PostgreSQL 서버를 만드는 방법에 중점을 두고, 유연한 서버를 만든 후 방화벽 규칙을 관리하는 방법에 대한 개요를 제공합니다. *공용 액세스(허용된 IP 주소)* 를 사용하면 PostgreSQL 서버에 대한 연결이 허용된 IP 주소로만 제한됩니다. 방화벽 규칙에서 클라이언트 IP 주소를 허용해야 합니다. 자세한 내용을 알아보려면 [퍼블릭 액세스(허용된 IP 주소)](./concepts-networking.md#public-access-allowed-ip-addresses)를 참조하세요. 방화벽 규칙은 서버를 만들 때 정의할 수 있지만(권장), 나중에 추가할 수도 있습니다. 이 문서에서는 공용 액세스(허용된 IP 주소)를 사용하여 방화벽 규칙을 만들고 관리하는 방법에 대한 개요를 제공합니다.
 
 ## <a name="create-a-firewall-rule-when-creating-a-server"></a>서버를 만들 때 방화벽 규칙 만들기
 

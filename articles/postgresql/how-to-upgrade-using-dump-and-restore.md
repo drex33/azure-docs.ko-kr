@@ -5,18 +5,18 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/21/2021
-ms.openlocfilehash: b2216754cbdb6081a82f71392aee6e5f8ce2d3ba
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 11/30/2021
+ms.openlocfilehash: ad22ad7ed366349330e61e4fe750e7eb410807a2
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128648414"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265370"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>덤프 및 복원을 사용하여 PostgreSQL 데이터베이스 업그레이드
 
 >[!NOTE]
-> 이 설명서에 나온 개념은 Azure Database for PostgreSQL 단일 서버 및 Azure Database for PostgreSQL 유연한 서버(미리 보기) 모두에 적용됩니다. 
+> 이 설명서에 설명 된 개념은 Azure Database for PostgreSQL 단일 서버 및 Azure Database for PostgreSQL 유연한 서버 모두에 적용 됩니다. 
 
 다음 방법을 사용하여 데이터베이스를 더 높은 주 버전 서버로 마이그레이션하여 Azure Database for PostgreSQL에 배포된 PostgreSQL 서버를 업그레이드할 수 있습니다.
 * **오프라인** 방법: PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 및 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html)를 사용하며 데이터 마이그레이션에 대한 가동 중지 시간이 발생합니다. 이 문서에서는 이 업그레이드/마이그레이션 방법에 대해 다룹니다.
@@ -200,7 +200,7 @@ PostgreSQL 클라이언트가 없거나 Azure Cloud Shell을 사용하려는 경
 > 이 문서에서 설명하는 프로세스를 사용하여 미리 보기 상태인 Azure Database for PostgreSQL 유연한 서버를 업그레이드할 수도 있습니다. 주요 차이점은 유연한 서버 대상에 대한 연결 문자열에 `@dbName`이 없다는 점입니다.  예를 들어 사용자 이름이 `pg`인 경우 연결 문자열의 단일 서버 사용자 이름은 `pg@pg-95`이고, 유연한 서버에서는 `pg`를 사용하기만 하면 됩니다.
 
 ## <a name="post-upgrademigrate"></a>업그레이드 후/마이그레이션
-주 버전 업그레이드가 완료되면 `ANALYZE` 각 데이터베이스에서 명령을 실행하여 테이블을 새로 고치는 것이 `pg_statistic` 좋습니다. 그렇지 않으면 성능 문제가 발생할 수 있습니다.
+주 버전 업그레이드가 완료 된 후에는 `ANALYZE` 각 데이터베이스에서 명령을 실행 하 여 테이블을 새로 고치는 것이 좋습니다 `pg_statistic` . 그렇지 않으면 성능 문제가 발생할 수 있습니다.
 
 ```SQL
 postgres=> analyze;

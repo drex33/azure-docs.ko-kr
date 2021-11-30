@@ -3,11 +3,13 @@ items:
     href: index.yml
   - name: 개요
     items:
-      - name: 서비스 정보
+      - name: FHIR 서비스 정보
         href: overview.md
   - name: 빠른 시작
     expanded: true
     items:
+      - name: FHIR 서비스 시작
+        href: get-started-with-fhir.md
       - name: FHIR 서비스 배포
         expanded: true
         items:
@@ -34,11 +36,11 @@ items:
   - name: 방법 가이드
     expanded: true
     items:
-      - name: Postman을 사용 하 여 액세스
+      - name: Postman을 사용하여 액세스
         href: ../use-postman.md
-      - name: 말아를 사용 하 여 액세스
+      - name: cURL을 사용하여 액세스
         href: ../using-curl.md
-      - name: REST 클라이언트를 사용 하 여 액세스
+      - name: REST 클라이언트를 사용하여 액세스
         href: ../using-rest-client.md
       - name: 검색
         expanded: true
@@ -72,9 +74,9 @@ items:
             href: fhir-service-diagnostic-logs.md
   - name: 개념
     items:
-      - name: 서비스 자동 크기 조정
+      - name: FHIR 서비스 자동 크기 조정
         href: fhir-service-autoscale.md
-      - name: Rest API 기능
+      - name: FHIR Rest API 기능
         href: fhir-rest-api-capabilities.md
   - name: 리소스
     items:

@@ -5,14 +5,14 @@ description: Azure Cognitive Search의 AI 보강 파이프라인 텍스트에서
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/17/2021
-ms.openlocfilehash: b750e99d30c0b540a381ce9e9b32b228b4dceaf8
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5a3b4e026d10db4a38116e6e9b330f13ebf0acfd
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210951"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266733"
 ---
 # <a name="sentiment-cognitive-skill"></a>감성 인식 기술
 

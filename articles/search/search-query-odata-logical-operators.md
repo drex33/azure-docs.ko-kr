@@ -6,7 +6,7 @@ manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/16/2021
 translation.priority.mt:
 - de-de
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0cd42f2a8ba7b9d543909604184e3618da31e710
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c8687df7937d9551d0dfa97d0530f8bb6b06e4fa
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128656553"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265027"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Azure Cognitive Search의 OData 논리 연산자 - `and`, `or`, `not`
 

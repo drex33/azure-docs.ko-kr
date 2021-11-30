@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: eur
 ms.custom: contperf-fy21q2, references_regions
-ms.openlocfilehash: 579c6d8b6a5bb506586f8f09feefff51743be80c
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 83e561877f5aff0bcdc94d56cf6ed5f3bb93d290
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131508970"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265636"
 ---
 # <a name="what-is-custom-speech"></a>Custom Speech란?
 
@@ -72,9 +72,6 @@ Azure 계정과 Speech Service 구독을 만든 후에는 [Speech Studio](https:
 데이터, 모델, 테스트 및 엔드포인트와 같은 콘텐츠는 [Speech Studio](https://speech.microsoft.com/customspeech)에서 *프로젝트* 로 구성됩니다. 각 프로젝트는 도메인 및 국가/언어에 따라 다릅니다. 예를 들어 미국의 영어를 사용하는 콜 센터에 대한 프로젝트를 만들 수 있습니다.
 
 첫 번째 프로젝트를 만들려면 **음성 텍스트 변환/Custom Speech** 를 선택한 다음, **새 프로젝트** 를 선택합니다. 마법사에서 제공하는 지침에 따라 프로젝트를 만듭니다. 프로젝트를 만든 후에는 **데이터**, **테스트**, **학습** 및 **배포** 라는 네 개의 탭이 표시됩니다. [다음 단계](#next-steps)에 제공된 링크를 사용하여 각 탭을 사용하는 방법을 알아보세요.
-
-> [!IMPORTANT]
-> [Speech Studio(이전의](https://aka.ms/speechstudio) "Custom Speech Portal")은 최근에 업데이트되었습니다. CRIS.ai 포털에서 또는 API를 사용하여 이전 데이터, 모델, 테스트 및 게시된 엔드포인트를 만든 경우, 새 포털에서 새 프로젝트를 만들어 이러한 이전 엔터티에 연결해야 합니다.
 
 ## <a name="model-and-endpoint-lifecycle"></a>모델 및 엔드포인트 수명 주기
 

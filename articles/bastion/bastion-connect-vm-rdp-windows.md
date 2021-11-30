@@ -6,14 +6,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 11/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1a1423a0587a64452671e74a210baa9d2ad16ea8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f6e2a5516d1952ba39f7a1d04a4a1bc955ddadc8
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634553"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265674"
 ---
 # <a name="create-an-rdp-connection-to-a-windows-vm-using-azure-bastion"></a>Azure Bastion 사용하여 Windows VM에 대한 RDP 연결 만들기
 
@@ -46,7 +46,7 @@ Windows VM에 연결하려면 Windows VM에서 다음 포트가 열려 있어야
 *   인바운드 포트: 사용자 지정 값(Azure Bastion 통해 VM에 연결할 때 이 사용자 지정 포트를 지정해야 합니다.)
 
 > [!NOTE]
-> 사용자 지정 포트 값을 지정하려면 표준 SKU를 사용하여 Azure Bastion 구성해야 합니다. 기본 SKU에서는 사용자 지정 포트를 지정할 수 없습니다. 표준 SKU는 현재 미리 보기 상태입니다.
+> 사용자 지정 포트 값을 지정하려면 표준 SKU를 사용하여 Azure Bastion 구성해야 합니다. 기본 SKU에서는 사용자 지정 포트를 지정할 수 없습니다.
 >
 
 ## <a name="connect"></a><a name="rdp"></a>연결

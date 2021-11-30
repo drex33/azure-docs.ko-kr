@@ -5,18 +5,17 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 365cb5604c1f9ddc2c0d7f3cc63daff96b043515
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: df38e31113733d90280d3b1889fea9f2496e516d
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608054"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265598"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---flexible-server"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL - 유연한 서버의 메트릭에 대한 경고 설정
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 이 문서에서는 Azure Portal을 사용하여 Azure Database for PostgreSQL 경고를 설정하는 방법을 보여 줍니다. Azure 서비스의 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
 

@@ -6,21 +6,20 @@ ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 9/22/2020
+ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli, mode-api
-ms.openlocfilehash: 067feb0139bb50e50f7abef1a67c659da4dc86c0
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: b777d4197544a30dbf35c68881c673d4e453a27b
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133066077"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266941"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Database for PostgreSQL 유연한 서버 만들기
 
 이 빠른 시작에서는 [Azure Cloud Shell](https://shell.azure.com)에서 [Azure CLI](/cli/azure/get-started-with-azure-cli) 명령을 사용하여 5분 안에 Azure Database for PostgreSQL 유연한 서버를 만드는 방법을 보여 줍니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-> [!IMPORTANT] 
-> Azure Database for PostgreSQL 유연한 서버는 현재 미리 보기로 제공됩니다.
+
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 

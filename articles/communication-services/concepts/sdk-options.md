@@ -9,12 +9,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 0e9a9c41b9cdc0cd4d4ad48f1b1df0dde1abf858
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: f457c08d25bf9e33aa7a51d83a2661c622d2f605
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132934084"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265617"
 ---
 # <a name="sdks-and-rest-apis"></a>SDK 및 REST API
 
@@ -33,7 +33,7 @@ Azure Communication Services 기능은 개념적으로 8개 영역으로 구성�
 |--------|----------|---------|----------------------------------|
 | Azure Resource Manager | [REST (영문)](/rest/api/communication/communicationservice)| 서비스| Communication Services 리소스 프로비전 및 관리|
 | 일반 | 해당 없음 | 클라이언트 및 서비스 | 다른 SDK의 기본 형식을 제공합니다. |
-| ID | [REST (영문)](/rest/api/communication/communicationidentity) | 서비스| 사용자, 액세스 토큰 관리|
+| ID | [REST (영문)](/rest/api/communication/communicationidentity/communication-identity) | 서비스| 사용자, 액세스 토큰 관리|
 | 전화 번호| [REST (영문)](/rest/api/communication/phonenumbers)| 서비스| 전화 번호 가져오기 및 관리 |
 | sms| [REST (영문)](/rest/api/communication/sms) | 서비스| SMS 메시지 보내기 및 받기|
 | 채팅 | 소유 신호를 포함하는 [REST](/rest/api/communication/) | 클라이언트 및 서비스 | 애플리케이션에 실시간 텍스트 기반 채팅 추가 |

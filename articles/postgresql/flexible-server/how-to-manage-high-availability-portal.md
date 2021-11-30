@@ -5,18 +5,17 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/07/2021
-ms.openlocfilehash: 5a7b8c2f76abc9dd41894280e7cf610d0cae85ea
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: b3912908f66989c5c2cae312bd3cbe03d59dc08e
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111554884"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266392"
 ---
 # <a name="manage-zone-redundant-high-availability-in-flexible-server"></a>유연한 서버에서 영역 중복 고가용성 관리
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 이 문서에서는 유연한 서버에서 영역 중복 고가용성 구성을 사용하거나 사용하지 않도록 설정하는 방법을 설명합니다.
 

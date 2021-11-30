@@ -1,24 +1,23 @@
 ---
-title: Azure Database for PostgreSQL - 유연한 서버(미리 보기) - 예약된 유지 관리 - Azure Portal
+title: Azure Database for PostgreSQL - 유연한 서버 - 예약된 유지 관리 - Azure Portal
 description: Azure Portal에서 Azure Database for PostgreSQL - 유연한 서버의 예약된 유지 관리 설정을 구성하는 방법을 알아봅니다.
 author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: be6040b8b84a4b86746d62bd2f1c07f0ffea0a3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 396490c615ab32f1526b17f61485d296c6b6c656
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91336295"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266299"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-postgresql--flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 예약된 유지 관리 설정 관리
  
-Azure 구독의 각 유연한 서버에 대해 유지 관리 옵션을 지정할 수 있습니다. 옵션에는 예정된 유지 관리 이벤트와 완료된 유지 관리 이벤트의 유지 관리 일정 및 알림 설정이 포함됩니다.
+Azure 구독의 각 유연한 서버에 대해 유지 관리 옵션을 지정할 수 있습니다. 옵션에는 예정된 유지 관리 이벤트와 완료된 유지 관리 이벤트에 대한 유지 관리 일정 및 알림 설정이 포함됩니다.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됩니다.
+
 
 ## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 완료하려면 다음이 필요합니다.

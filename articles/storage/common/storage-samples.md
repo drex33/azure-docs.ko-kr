@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4cac7e334a2d936c027c244aba22e58a364863e1
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 56aa4bec6e80f64238d32512d2d3eb442f9604b1
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708133"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265018"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage 샘플
 
@@ -51,9 +51,9 @@ Node.js 샘플을 탐색하려면 [Node.js Storage 클라이언트 라이브러�
 
 C++ 샘플을 탐색하려면 GitHub에서 [C++용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)를 가져옵니다.
 
-- [Azure Blob 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp)
-- [Azure Data Lake 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp)
-- [Azure Files 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp)
+- [Azure Blob 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-blobs/samples/blob_getting_started.cpp)
+- [Azure Data Lake 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-datalake/samples/datalake_getting_started.cpp)
+- [Azure Files 시작](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-shares/samples/file_share_getting_started.cpp)
 
 ## <a name="azure-cli"></a>Azure CLI
 

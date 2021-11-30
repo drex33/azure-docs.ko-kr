@@ -5,14 +5,14 @@ description: 구조화되지 않은 데이터에서 메타데이터 및 구조�
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: 9395f0446680135bde99193609bde82385f64b0b
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
-ms.translationtype: HT
+ms.openlocfilehash: 653a4b89eab4d35c6642e8a6b17b34906fe59267
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038784"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267359"
 ---
 # <a name="shaper-cognitive-skill"></a>쉐이퍼 인식 기술
 

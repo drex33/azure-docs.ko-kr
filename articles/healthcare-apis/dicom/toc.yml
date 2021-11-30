@@ -9,6 +9,8 @@ items:
   - name: 빠른 시작
     expanded: true
     items:
+      - name: DICOM 서비스 시작
+        href: get-started-with-dicom.md
       - name: Azure Portal를 사용 하 여 DICOM 서비스 배포
         href: deploy-dicom-services-in-azure.md
   - name: 자습서

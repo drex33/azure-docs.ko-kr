@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 67b17324b550196728da62cb0e5b306d6387fa25
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 2d32acf23ff17d185063d0fc467c5b1f42c22721
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131483054"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266638"
 ---
 # <a name="azure-dedicated-host-sku-configuration-tables"></a>Azure 전용 호스트 SKU 구성 테이블
 Azure 전용 호스트 Sku는 VM 제품군 및 특정 하드웨어 사양의 조합입니다. 전용 호스트 SKU에서 지정 하는 VM 시리즈의 Vm만 배포할 수 있습니다. 예를 들어 Dsv3-3에서 [Dsv3 시리즈](dv3-dsv3-series.md#dsv3-series) vm만 프로 비전 할 수 있습니다. 
@@ -80,7 +80,7 @@ Dsv4-Type1는 Intel® 케스케이드 Lake (Xeon® 플래티넘 8272CL) 프로�
 |                |                 |               | D48s v4 | 1     |
 |                |                 |               | D64s v4 | 1     |
 
-Dsv4-Type1에서 여러 VM 크기를 혼합할 수도 있습니다. 다음은 Dsv4-Type1에서 VM 패키지의 샘플 조합입니다.
+Dsv4-Type1에서 여러 VM 크기를 혼합할 수도 있습니다. 다음은 Dsv4-Type1에서 VM 패킹의 샘플 조합입니다.
 - 1 D64sv4 + 1 D16sv4
 - 1 D32sv4 + 2 D16dsv4 + 2 D8sv4
 - 10 D4sv4 + 20 D2sv4
@@ -88,11 +88,11 @@ Dsv4-Type1에서 여러 VM 크기를 혼합할 수도 있습니다. 다음은 Ds
 ## <a name="dsv3"></a>Dsv3
 ### <a name="dsv3-type1"></a>Dsv3-Type1
 
-Dsv3-Type1는 Intel® Broadwell (2.3 GHz Xeon® E5-2673 v4) 프로세서를 활용 하는 전용 호스트 SKU입니다. 40 물리적 코어, 64 vCPUs 및 256 GiB RAM을 제공 합니다. Dsv3-Type1 [Dsv3 시리즈](dv3-dsv3-series.md#dsv3-series) vm을 실행 합니다.
+Dsv3-Type1 Intel® Broadwell(2.3GHz Xeon® E5-2673 v4) 프로세서를 활용하는 Dedicated Host SKU입니다. 40개의 실제 코어, 64개의 vC CPU 및 256 GiB RAM을 제공합니다. Dsv3-Type1 [Dsv3 시리즈](dv3-dsv3-series.md#dsv3-series) VM을 실행합니다.
 
-다음 압축 구성은 Dsv3-Type1 호스트에 배치할 수 있는 일관 된 Vm의 최대 압축을 간략하게 설명 합니다.
+다음 Packing 구성에서는 Dsv3-Type1 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
 
-| 실제 코어 | 사용 가능한 vCPUs | 사용 가능한 RAM | VM 크기 | VM 수 |
+| 물리적 코어 | 사용 가능한 vC CPU | 사용 가능한 RAM | VM 크기 | VM 수 |
 |----------------|-----------------|---------------|---------|-------|
 | 40             | 64              | 256GiB       | D2s v3  | 32    |
 |                |                 |               | D4s v3  | 16    |
@@ -102,18 +102,18 @@ Dsv3-Type1는 Intel® Broadwell (2.3 GHz Xeon® E5-2673 v4) 프로세서를 활�
 |                |                 |               | D48s v3 | 1     |
 |                |                 |               | D64s v3 | 1     |
 
-Dsv3-Type1에서 여러 VM 크기를 혼합할 수도 있습니다. 다음은 Dsv3-Type1에서 VM 패키지의 샘플 조합입니다.
+Dsv3-Type1에서 여러 VM 크기를 혼합할 수도 있습니다. 다음은 Dsv3-Type1에서 VM 패킹의 샘플 조합입니다.
 - 1 D32sv3 + 1 D16sv3 + 1 D8sv3
 - 1 D48sv3 + 3 D4sv3 + 2 D2sv3
 - 10 D4sv3 + 12 D2sv3
 
 ### <a name="dsv3-type2"></a>Dsv3-Type2
 
-Dsv3-Type2는 Intel® Skylake (2.1 GHz Xeon® 플래티넘 8171M) 프로세서를 활용 하는 전용 호스트 SKU입니다. 48 물리적 코어, 76 vCPUs 및 504 GiB RAM을 제공 합니다. Dsv3-Type2 [Dsv3 시리즈](dv3-dsv3-series.md#dsv3-series) vm을 실행 합니다.
+Dsv3-Type2 Intel® Skylake(2.1GHz Xeon® 8171M) 프로세서를 활용하는 Dedicated Host SKU입니다. 48개의 실제 코어, 76개의 vC CPU 및 504 GiB RAM을 제공합니다. Dsv3-Type2 [Dsv3 시리즈](dv3-dsv3-series.md#dsv3-series) VM을 실행합니다.
 
-다음 압축 구성은 Dsv3-Type2 호스트에 배치할 수 있는 일관 된 Vm의 최대 압축을 간략하게 설명 합니다.
+다음 Packing 구성에서는 Dsv3-Type2 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
 
-| 실제 코어 | 사용 가능한 vCPUs | 사용 가능한 RAM | VM 크기 | VM 수 |
+| 물리적 코어 | 사용 가능한 vC CPU | 사용 가능한 RAM | VM 크기 | VM 수 |
 |----------------|-----------------|---------------|---------|-------|
 | 48             | 76              | 504GiB       | D2s v3  | 32    |
 |                |                 |               | D4s v3  | 18    |
@@ -123,18 +123,18 @@ Dsv3-Type2는 Intel® Skylake (2.1 GHz Xeon® 플래티넘 8171M) 프로세서�
 |                |                 |               | D48s v3 | 1     |
 |                |                 |               | D64s v3 | 1     |
 
-Dsv3-Type2에서 여러 VM 크기를 혼합할 수도 있습니다. 다음은 Dsv3-Type2에서 VM 패키지의 샘플 조합입니다.
+Dsv3-Type2에서 여러 VM 크기를 혼합할 수도 있습니다. 다음은 Dsv3-Type2에서 VM 패킹의 샘플 조합입니다.
 - 1 D64sv3 + 2 D4vs3 + 2 D2sv3
 - 1 D48sv3 + 4 D4sv3 + 6 D2sv3
 - 12 D4sv3 + 14 D2sv3
 
 ### <a name="dsv3-type3"></a>Dsv3-Type3
 
-Dsv3-Type3는 Intel® 케스케이드 Lake (Xeon® 플래티넘 8272CL) 프로세서를 활용 하는 전용 호스트 SKU입니다. 52 물리적 코어, 80 vCPUs 및 504 GiB RAM을 제공 합니다. Dsv3-Type3 [Dsv3 시리즈](dv3-dsv3-series.md#dsv3-series) vm을 실행 합니다.
+Dsv3-Type3 Intel® Cascade Lake(Xeon® 8272CL) 프로세서를 활용하는 Dedicated Host SKU입니다. 52개의 실제 코어, 80개의 vC CPU 및 504 GiB RAM을 제공합니다. Dsv3-Type3 [Dsv3 시리즈](dv3-dsv3-series.md#dsv3-series) VM을 실행합니다.
 
-다음 압축 구성은 Dsv3-Type3 호스트에 배치할 수 있는 일관 된 Vm의 최대 압축을 간략하게 설명 합니다.
+다음 Packing 구성에서는 Dsv3-Type3 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
 
-| 실제 코어 | 사용 가능한 vCPUs | 사용 가능한 RAM | VM 크기 | VM 수 |
+| 물리적 코어 | 사용 가능한 vC CPU | 사용 가능한 RAM | VM 크기 | VM 수 |
 |----------------|-----------------|---------------|---------|-------|
 | 52             | 80              | 504GiB       | D2s v3  | 32    |
 |                |                 |               | D4s v3  | 20    |
@@ -144,7 +144,7 @@ Dsv3-Type3는 Intel® 케스케이드 Lake (Xeon® 플래티넘 8272CL) 프로�
 |                |                 |               | D48s v3 | 1     |
 |                |                 |               | D64s v3 | 1     |
 
-Dsv3-3에서 여러 VM 크기를 혼합할 수도 있습니다. 다음은 Dsv3-3에 대 한 VM 패키지의 샘플 조합입니다.
+Dsv3-Type3에서 여러 VM 크기를 혼합할 수도 있습니다. 다음은 Dsv3-Type3에서 VM 패킹의 샘플 조합입니다.
 - 1 D64sv3 + 1 D8sv3 + 2 D4sv3
 - 1 D48sv3 + 1 D16sv3 + 4 D4sv3
 - 15 D4sv3 + 10 D2sv3
@@ -152,22 +152,22 @@ Dsv3-3에서 여러 VM 크기를 혼합할 수도 있습니다. 다음은 Dsv3-3
 ## <a name="dcsv2"></a>DCsv2
 ### <a name="dcsv2-type1"></a>DCsv2-Type1
 
-DCsv2-Type1는 Intel® 커피 Lake (Xeon® E-2288G (SGX 기술 포함) 프로세서를 활용 하는 전용 호스트 SKU입니다. 8 개의 물리적 코어, 8 개 vCPUs 및 64 GiB RAM을 제공 합니다. DCsv2-Type1 [DCsv2 시리즈](dcv2-series.md) vm을 실행 합니다.
+DCsv2-Type1 Intel® Coffee Lake(Xeon® SGX 기술이 있는 E-2288G) 프로세서를 활용하는 Dedicated Host SKU입니다. 8개의 실제 코어, 8개의 vC CPU 및 64 GiB RAM을 제공합니다. DCsv2-Type1 [DCsv2 시리즈](dcv2-series.md) VM을 실행합니다.
 
-다음 압축 구성은 DCsv2-Type1 호스트에 배치할 수 있는 일관 된 Vm의 최대 압축을 간략하게 설명 합니다.
+다음 Packing 구성에서는 DCsv2-Type1 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
 
-| 실제 코어 | 사용 가능한 vCPUs | 사용 가능한 RAM | VM 크기 | VM 수 |
+| 물리적 코어 | 사용 가능한 vC CPU | 사용 가능한 RAM | VM 크기 | VM 수 |
 |----------------|-----------------|---------------|---------|-------|
-| 8              | 8               | 64GiB        | DC8s v2 | 1     |
+| 8              | 8               | 64GiB        | DC8 v2  | 1     |
 
 ## <a name="easv4"></a>Easv4
 ### <a name="easv4-type1"></a>Easv4-Type1
 
-Easv4-Type1는 AMD의 2.35 GHz EPYC™ 7452 프로세서를 활용 하는 전용 호스트 SKU입니다. 64 물리적 코어, 96 vCPUs 및 672 GiB RAM을 제공 합니다. Easv4-Type1 [Easv4 시리즈](eav4-easv4-series.md#easv4-series) vm을 실행 합니다.
+Easv4-Type1 AMD의 2.35GHz EPYC™ 7452 프로세서를 활용하는 Dedicated Host SKU입니다. 64개의 실제 코어, 96개의 vC CPU 및 672 GiB RAM을 제공합니다. Easv4-Type1 [Easv4 시리즈](eav4-easv4-series.md#easv4-series) VM을 실행합니다.
 
-다음 압축 구성은 Easv4-Type1 호스트에 배치할 수 있는 일관 된 Vm의 최대 압축을 간략하게 설명 합니다.
+다음 Packing 구성에서는 Easv4-Type1 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
 
-| 실제 코어 | 사용 가능한 vCPUs | 사용 가능한 RAM | VM 크기  | VM 수 |
+| 물리적 코어 | 사용 가능한 vC CPU | 사용 가능한 RAM | VM 크기  | VM 수 |
 |----------------|-----------------|---------------|----------|-------|
 | 64             | 96              | 672GiB       | E2as v4  | 32    |
 |                |                 |               | E4as v4  | 21    |
@@ -182,11 +182,11 @@ Easv4-Type1는 AMD의 2.35 GHz EPYC™ 7452 프로세서를 활용 하는 전용
 ## <a name="edsv4"></a>Edsv4
 ### <a name="edsv4-type1"></a>Edsv4-Type1
 
-Edsv4-Type1는 Intel® 케스케이드 Lake (Xeon® 플래티넘 8272CL) 프로세서를 활용 하는 전용 호스트 SKU입니다. 52 물리적 코어, 64 vCPUs 및 504 GiB RAM을 제공 합니다. Edsv4-Type1 [Edsv4 시리즈](edv4-edsv4-series.md#edsv4-series) vm을 실행 합니다.
+Edsv4-Type1 Intel® Cascade Lake(Xeon® 8272CL) 프로세서를 활용하는 Dedicated Host SKU입니다. 52개의 실제 코어, 64개의 vC CPU 및 504 GiB RAM을 제공합니다. Edsv4-Type1 [Edsv4 시리즈](edv4-edsv4-series.md#edsv4-series) VM을 실행합니다.
 
-다음 압축 구성은 Edsv4-Type1 호스트에 배치할 수 있는 일관 된 Vm의 최대 압축을 간략하게 설명 합니다.
+다음 Packing 구성에서는 Edsv4-Type1 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
 
-| 실제 코어 | 사용 가능한 vCPUs | 사용 가능한 RAM | VM 크기  | VM 수 |
+| 물리적 코어 | 사용 가능한 vC CPU | 사용 가능한 RAM | VM 크기  | VM 수 |
 |----------------|-----------------|---------------|----------|-------|
 | 52             | 64              | 504GiB       | E2ds v4  | 31    |
 |                |                 |               | E4ds v4  | 15    |
@@ -200,11 +200,11 @@ Edsv4-Type1는 Intel® 케스케이드 Lake (Xeon® 플래티넘 8272CL) 프로�
 ## <a name="esv4"></a>Esv4
 ### <a name="esv4-type1"></a>Esv4-Type1
 
-Esv4-Type1는 Intel® 케스케이드 Lake (Xeon® 플래티넘 8272CL) 프로세서를 활용 하는 전용 호스트 SKU입니다. 52 물리적 코어, 80 vCPUs 및 504 GiB RAM을 제공 합니다. Esv4-Type1 [Esv4 시리즈](ev4-esv4-series.md#esv4-series) vm을 실행 합니다.
+Esv4-Type1 Intel® Cascade Lake(Xeon® 8272CL) 프로세서를 활용하는 Dedicated Host SKU입니다. 52개의 실제 코어, 80개의 vC CPU 및 504 GiB RAM을 제공합니다. Esv4-Type1 [Esv4 시리즈](ev4-esv4-series.md#esv4-series) VM을 실행합니다.
 
-다음 압축 구성은 Esv4-Type1 호스트에 배치할 수 있는 일관 된 Vm의 최대 압축을 간략하게 설명 합니다.
+다음 Packing 구성에서는 Esv4-Type1 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
 
-| 실제 코어 | 사용 가능한 vCPUs | 사용 가능한 RAM | VM 크기 | VM 수 |
+| 물리적 코어 | 사용 가능한 vC CPU | 사용 가능한 RAM | VM 크기 | VM 수 |
 |----------------|-----------------|---------------|---------|-------|
 | 52             | 80              | 504GiB       | E2s v4  | 31    |
 |                |                 |               | E4s v4  | 15    |
@@ -352,7 +352,7 @@ Ms-Type1 Intel® Cascade Lake(Xeon® 8280) 프로세서를 활용하는 Dedicate
 
 ### <a name="msm-type1"></a>Msm-Type1
 
-Msm-Type1 Intel® Cascade Lake(Xeon® 8280) 프로세서를 활용하는 Dedicated Host SKU입니다. 112개의 실제 코어, 128개의 vC CPU 및 3,892 GiB RAM을 제공합니다. Msm-Type1 [Ms,](m-series.md) Mms, Mts 및 Mls VM을 포함한 M 시리즈 VM을 실행합니다.
+Msm-Type1 Intel® Cascade Lake(Xeon® 8280) 프로세서를 활용하는 Dedicated Host SKU입니다. 112개의 실제 코어, 128개의 vC CPU 및 3,892 GiB RAM을 제공합니다. Msm-Type1 Ms, Mms, [Mts](m-series.md) 및 Mls VM을 포함한 M 시리즈 VM을 실행합니다.
 
 다음 Packing 구성에서는 Msm-Type1 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
 

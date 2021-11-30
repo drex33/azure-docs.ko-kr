@@ -7,18 +7,17 @@ ms.service: postgresql
 ms.custom: mvc, mode-other
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/22/2020
-ms.openlocfilehash: 930b8130ddd3d85bf8c0e3bcc6659c588d5185e7
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.date: 11/30/2021
+ms.openlocfilehash: 0f43d2fc1ad1031f41f2a03c4c629b3e2a79639f
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133038429"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266979"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 유연한 서버의 데이터 연결 및 쿼리
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 이 빠른 시작에서는 Python을 사용하여 Azure Database for PostgreSQL 유연한 서버에 연결합니다. 그런 다음, SQL 문을 사용하여 Mac, Ubuntu Linux 및 Windows 플랫폼에서 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제합니다. 
 

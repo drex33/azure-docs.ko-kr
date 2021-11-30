@@ -15,23 +15,23 @@ ms.workload: iaas-sql-server
 ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: 8d9e94ae12600223c6f54fb75cbc6c9648ecf7f9
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 8759452ec5a5f2142171f5f18f15a62033d2669c
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132156982"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265820"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>프리미엄 파일 공유를 사용하여 FCI 만들기(Azure VMs의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!TIP]
-> 동일한 Azure 가상 네트워크 내에서 [여러 서브넷](failover-cluster-instance-prepare-vm.md#subnets) 에 SQL Server vm을 만들어 장애 조치 (failover) 클러스터 인스턴스에 대 한 Azure Load Balancer 또는 DNN (분산 네트워크 이름)의 필요성을 제거 합니다.
+> 동일한 Azure 가상 네트워크 내의 [여러 서브넷에](failover-cluster-instance-prepare-vm.md#subnets) SQL Server VM을 만들어 장애 조치(failover) 클러스터 인스턴스에 대한 Azure Load Balancer 또는 DNN(분산 네트워크 이름)이 필요하지 않습니다.
 
 
 이 문서에서는 [프리미엄 파일 공유](../../../storage/files/storage-how-to-create-file-share.md)를 사용하여 Azure VMs(Virtual Machines)에서 SQL Server를 사용한 FCI(장애 조치(failover) 클러스터 인스턴스)를 만드는 방법을 설명합니다.
 
-Premium 파일 공유는 SSD에서 지원 되며 Windows Server 2012 이상에서 SQL Server 2012 이상에 대 한 장애 조치 (failover) 클러스터 인스턴스와 함께 사용할 수 있도록 완전히 지원 되는 대기 시간이 짧은 파일 공유를 제공 합니다. 프리미엄 파일 공유는 뛰어난 유연성을 제공하여 가동 중지 시간 없이 파일 공유 크기를 조정하고 크기를 조정할 수 있습니다.
+Premium 파일 공유는 SSD를 지원하며, Windows Server 2012 이상에서 SQL Server 2012 이상에 대해 장애 조치(failover) 클러스터 인스턴스와 함께 사용할 수 있도록 완벽하게 지원되는 대기 시간이 짧은 파일 공유를 일관되게 제공합니다. 프리미엄 파일 공유는 뛰어난 유연성을 제공하여 가동 중지 시간 없이 파일 공유 크기를 조정하고 크기를 조정할 수 있습니다.
 
 자세히 알아보려면 [Azure VMs에서 SQL Server를 사용한 FCI](failover-cluster-instance-overview.md) 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)의 개요를 참조하세요. 
 
@@ -50,7 +50,7 @@ Premium 파일 공유는 SSD에서 지원 되며 Windows Server 2012 이상에�
 
 ## <a name="mount-premium-file-share"></a>프리미엄 파일 공유 탑재
 
-Premium 파일 공유를 탑재 하려면 다음 단계를 수행 합니다. 
+프리미엄 파일 공유를 탑재하려면 다음 단계를 수행합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 스토리지 계정으로 이동합니다.
 1. **데이터 스토리지** 에서 **파일 공유** 로 이동한 다음 SQL 스토리지에 사용할 프리미엄 파일 공유를 선택합니다.
@@ -59,7 +59,7 @@ Premium 파일 공유를 탑재 하려면 다음 단계를 수행 합니다.
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="파일 공유 연결 포털에서 PowerShell 명령 복사":::
 
-1. 원격 데스크톱 프로토콜 (RDP)를 사용 하 여 **SQL Server fci가 서비스 계정에 사용할 계정을** 사용 하 여 SQL Server VM에 연결 합니다.
+1. RDP(원격 데스크톱 프로토콜)를 사용하여 SQL Server **FCI가 서비스 계정에 사용할 계정으로 SQL Server VM에 연결합니다.**
 1. 관리 PowerShell 명령 콘솔을 엽니다.
 1. 파일 공유 포털에서 이전에 텍스트 편집기에 복사한 명령을 실행합니다.
 1. 파일 탐색기 또는 **실행** 대화 상자(Windows+R 입력)를 사용하여 공유로 이동합니다. 네트워크 경로 `\\storageaccountname.file.core.windows.net\filesharename`을 사용합니다. 예를 들어 `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
@@ -69,20 +69,20 @@ Premium 파일 공유를 탑재 하려면 다음 단계를 수행 합니다.
   > [!IMPORTANT]
   > 백업 파일에 별도의 파일 공유를 사용하여 이 데이터 및 로그 파일용 공유에서 IOPS(초당 입출력 작업 수) 및 공간 용량을 절약하는 것이 좋습니다. 백업 파일에 프리미엄 또는 표준 파일 공유 중 하나를 사용할 수 있습니다.
 
-## <a name="create-windows-failover-cluster"></a>Windows 장애 조치 (Failover) 클러스터 만들기
+## <a name="create-windows-failover-cluster"></a>Windows 장애 조치(failover) 클러스터 만들기
 
-Windows 서버 장애 조치 (Failover) 클러스터를 만드는 단계는 SQL Server vm을 단일 서브넷 또는 다중 서브넷에 배포 했는지 여부에 따라 달라 집니다. 클러스터를 만들려면 [다중 서브넷 시나리오](availability-group-manually-configure-tutorial-multi-subnet.md#add-failover-cluster-feature) 또는 [단일 서브넷 시나리오](availability-group-manually-configure-tutorial-single-subnet.md#create-the-cluster)에 대 한 자습서의 단계를 따르세요. 이러한 자습서는 가용성 그룹을 만들기 위한 것 이지만 클러스터를 만드는 단계는 동일 합니다. 
+Windows Server 장애 조치(failover) 클러스터를 만드는 단계는 SQL Server VM을 단일 서브넷 또는 여러 서브넷에 배포했는지에 따라 달라집니다. 클러스터를 만들려면 다중 서브넷 시나리오 또는 [단일](availability-group-manually-configure-tutorial-single-subnet.md#create-the-cluster) [서브넷 시나리오에](availability-group-manually-configure-tutorial-multi-subnet.md#add-failover-cluster-feature) 대한 자습서의 단계를 수행합니다. 이러한 자습서는 가용성 그룹을 만들기 위한 것이지만 클러스터를 만드는 단계는 동일합니다. 
 
 
 ## <a name="configure-quorum"></a>쿼럼 구성
 
-클라우드 감시는 Azure vm의 SQL Server에 대 한이 유형의 클러스터 구성에 권장 되는 쿼럼 솔루션입니다.  
+클라우드 감시는 Azure VM에서 SQL Server 이러한 유형의 클러스터 구성에 권장되는 쿼럼 솔루션입니다.  
 
 클러스터에 짝수 투표가 있는 경우 비즈니스 요구에 가장 적합한 [쿼럼 솔루션](hadr-cluster-quorum-configure-how-to.md)을 구성합니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-windows-server-failover-cluster-overview.md#quorum)을 참조하세요. 
 
-## <a name="validate-cluster"></a>클러스터의 유효성 검사
+## <a name="validate-cluster"></a>클러스터 유효성 검사
 
-장애 조치(Failover) 클러스터 관리자 UI 또는 PowerShell을 사용 하 여 가상 컴퓨터 중 하나에서 클러스터의 유효성을 검사 합니다.
+장애 조치(Failover) 클러스터 관리자 UI 또는 PowerShell을 사용하여 가상 머신 중 하나에서 클러스터의 유효성을 검사합니다.
 
 UI를 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나에서 다음을 수행합니다.
 
@@ -131,46 +131,46 @@ Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "S
 
 1. **SQL Server 장애 조치(failover) 클러스터 새로 설치** 를 선택한 다음, 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
 
-1. **클러스터 네트워크 구성** 페이지에서 사용자가 제공 하는 IP는 SQL Server vm이 단일 서브넷 또는 다중 서브넷에 배포 되었는지 여부에 따라 달라 집니다. 
+1. 클러스터 **네트워크 구성** 페이지에서 제공하는 IP는 SQL Server VM이 단일 서브넷 또는 여러 서브넷에 배포되었는지에 따라 달라집니다. 
 
-   1. **단일 서브넷 환경** 에 대해 [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 에 추가할 IP 주소를 제공 합니다.
-   1. **다중 서브넷 환경** 에 대해 이전에 [장애 조치 (failover) 클러스터 인스턴스 네트워크 이름의 IP 주소로](failover-cluster-instance-prepare-vm.md#assign-secondary-ip-addresses)지정 했던 _첫 번째_ SQL Server VM의 서브넷에 보조 IP 주소를 제공 합니다.
+   1. 단일 **서브넷 환경의** 경우 [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) 추가하려는 IP 주소를 제공합니다.
+   1. 다중 **서브넷 환경의** 경우 이전에 장애 조치(failover) 클러스터 인스턴스 네트워크 이름의 IP 주소로 지정한 _첫 번째_ SQL Server VM의 서브넷에 보조 [IP 주소를](failover-cluster-instance-prepare-vm.md#assign-secondary-ip-addresses)제공합니다.
 
-   :::image type="content" source="./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-network-secondary-ip-vm-1.png" alt-text="장애 조치 (failover) 클러스터 인스턴스 네트워크 이름에 대 한 ip 주소로 이전에 지정 된 첫 번째 SQL Server VM의 서브넷에 보조 IP 주소를 제공 합니다.":::
+   :::image type="content" source="./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-network-secondary-ip-vm-1.png" alt-text="이전에 장애 조치(failover) 클러스터 인스턴스 네트워크 이름의 IP 주소로 지정한 첫 번째 SQL Server VM의 서브넷에 보조 IP 주소를 제공합니다.":::
 
-1. **데이터베이스 엔진 구성** 에서는 데이터 디렉터리가 프리미엄 파일 공유에 있어야 합니다. 공유의 전체 경로를 `\\storageaccountname.file.core.windows.net\filesharename\foldername` 형식으로 입력합니다. 파일 서버를 데이터 디렉터리로 지정 했음을 알리는 경고가 나타납니다. 이 경고는 예상된 것입니다. 파일 공유를 보관할 때 RDP를 통해 VM에 액세스하는 데 사용한 사용자 계정이 SQL Server 서비스가 가능한 오류를 방지하는 데 사용하는 계정과 동일한지 확인합니다.
+1. **데이터베이스 엔진 구성에서** 데이터 디렉터리를 프리미엄 파일 공유에 있어야 합니다. 공유의 전체 경로를 `\\storageaccountname.file.core.windows.net\filesharename\foldername` 형식으로 입력합니다. 파일 서버를 데이터 디렉터리로 지정했다는 경고가 표시됩니다. 이 경고는 예상된 것입니다. 파일 공유를 보관할 때 RDP를 통해 VM에 액세스하는 데 사용한 사용자 계정이 SQL Server 서비스가 가능한 오류를 방지하는 데 사용하는 계정과 동일한지 확인합니다.
 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="파일 공유를 SQL 데이터 디렉터리로 사용":::
 
-1. 마법사의 단계를 완료 한 후 설치 프로그램은 첫 번째 노드에 SQL Server fci를 설치 합니다.
+1. 마법사의 단계를 완료하면 설치 프로그램에서 첫 번째 노드에 SQL Server FCI를 설치합니다.
 
-1. 첫 번째 노드에서 FCI 설치가 성공한 후 RDP를 사용 하 여 두 번째 노드에 연결 합니다.
+1. 첫 번째 노드에서 FCI 설치가 성공한 후 RDP를 사용하여 두 번째 노드에 연결합니다.
 
 1. **SQL Server 설치 센터** 를 연 다음, **설치** 를 선택합니다.
 
-1. **SQL Server 장애 조치(failover) 클러스터에 노드 추가** 를 선택합니다. 마법사의 지침에 따라 SQL Server를 설치 하 고 fci에 노드를 추가 합니다.
+1. **SQL Server 장애 조치(failover) 클러스터에 노드 추가** 를 선택합니다. 마법사의 지침에 따라 SQL Server 설치하고 FCI에 노드를 추가합니다.
 
-1. 다중 서브넷 시나리오의 경우 **클러스터 네트워크 구성** 에서 이전에 [장애 조치 (failover) 클러스터 인스턴스 네트워크 이름의 IP 주소로](failover-cluster-instance-prepare-vm.md#assign-secondary-ip-addresses) 지정 된 _두 번째_ SQL Server VM의 서브넷에 보조 IP 주소를 입력 합니다.
+1. 다중 서브넷 시나리오의 경우 **클러스터 네트워크 구성** 에서 이전에 장애 조치(failover) 클러스터 인스턴스 네트워크 이름의 IP 주소로 지정한 두 _번째_ SQL Server VM의 서브넷에 보조 [IP 주소를](failover-cluster-instance-prepare-vm.md#assign-secondary-ip-addresses) 입력합니다.
 
-    :::image type="content" source="./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-network-secondary-ip-vm-2.png" alt-text="장애 조치 (failover) 클러스터 인스턴스 네트워크 이름에 대 한 ip 주소로 이전에 지정 된 두 번째 SQL Server VM 서브넷의 서브넷에 보조 IP 주소를 입력 합니다.":::
+    :::image type="content" source="./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-network-secondary-ip-vm-2.png" alt-text="이전에 장애 조치(failover) 클러스터 인스턴스 네트워크 이름의 IP 주소로 지정한 두 번째 SQL Server VM 서브넷의 서브넷에 보조 IP 주소를 입력합니다.":::
 
-    **클러스터 네트워크 구성** 에서 **다음** 을 선택한 후 설치 프로그램은 예제 이미지에서와 같이 여러 서브넷을 검색 SQL Server를 나타내는 대화 상자를 표시 합니다.  **예** 를 선택하여 확인합니다. 
+    **클러스터 네트워크 구성에서** **다음을** 선택한 후 설치 프로그램에서 SQL Server 이미지와 같이 여러 서브넷을 검색했음을 나타내는 대화 상자가 표시됩니다.  **예** 를 선택하여 확인합니다. 
 
     :::image type="content" source="./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-multi-subnet-confirmation.png" alt-text="다중 서브넷 확인":::
    
 
-1. 마법사의 지침을 완료 한 후 설치 프로그램은 두 번째 SQL Server fci 노드를 추가 합니다. 
+1. 마법사의 지침을 완료하면 설치 프로그램에서 두 번째 SQL Server FCI 노드를 추가합니다. 
 
 1. SQL Server 장애 조치 클러스터 인스턴스에 추가하려는 다른 모든 노드에서 이러한 단계를 반복합니다. 
 
 
 >[!NOTE]
-> Azure Marketplace 갤러리 이미지는 SQL Server Management Studio 설치 되어 제공 됩니다. marketplace 이미지 [다운로드 SQL Server Management Studio (SSMS)](/sql/ssms/ownload-sql-server-management-studio-ssms)를 사용 하지 않은 경우
+> Azure Marketplace 갤러리 이미지에는 SQL Server Management Studio 설치되어 있습니다. 마켓플레이스 이미지를 사용하지 않은 경우 [SSMS(SQL Server Management Studio)를 다운로드합니다.](/sql/ssms/download-sql-server-management-studio-ssms)
 
 
 ## <a name="register-with-sql-iaas-extension"></a>SQL IaaS 확장에 등록 
 
-포털에서 SQL Server VM을 관리 하려면 [경량 관리 모드](sql-agent-extension-manually-register-single-vm.md#lightweight-mode)의 SQL IaaS 에이전트 확장을 사용 하 여 등록 합니다. 현재는 fci에서 지원 되는 유일한 모드 이며 Azure vm에서 SQL Server 합니다. 
+포털에서 SQL Server VM을 관리하려면 현재 Azure VM에서 FCI 및 SQL Server 지원되는 유일한 모드인 [경량 관리 모드의](sql-agent-extension-manually-register-single-vm.md#lightweight-mode)SQL IaaS 에이전트 확장에 등록합니다. 
 
 PowerShell을 사용하여 경량 모드로 SQL Server VM을 등록합니다(-LicenseType은 `PAYG` 또는 `AHUB`일 수 있음).
 
@@ -205,6 +205,6 @@ SQL Server vm을 여러 서브넷에 배포한 경우에는이 단계를 건너�
 
 - [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
 - [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
-- [장애 조치(failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [장애 조치(Failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 - [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)
 

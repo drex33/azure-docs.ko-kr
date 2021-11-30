@@ -5,14 +5,14 @@ description: Azure Cognitive Search AI 보강 파이프라인의 텍스트에서
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: 0b9de4c1abc492a24dee26dd05e7a164239c8f9b
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: ff829eccaac7226185dd0559ad30cf900247e67f
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529467"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268119"
 ---
 #   <a name="named-entity-recognition-cognitive-skill"></a>명명된 엔터티 인식 기술
 

@@ -6,7 +6,7 @@ manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/16/2021
 translation.priority.mt:
 - de-de
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8e8cc8522a4e41c389043f394ec0de5e26f51c53
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 78ee38491db717af7fa3174526603c3b716ce599
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620296"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265313"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Azure Cognitive Search의 OData 식 구문 참조
 

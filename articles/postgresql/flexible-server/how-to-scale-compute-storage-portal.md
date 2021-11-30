@@ -5,18 +5,17 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 1542bba53b51ffdf2129953a81e5d13975ade434
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.date: 11/30/2021
+ms.openlocfilehash: 3dd981ac3e16e2be556348c094283ac8e6118691
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90939244"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266960"
 ---
 # <a name="scale-operations-in-flexible-server"></a>유연한 서버의 크기 조정 작업
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
+
 
 이 문서에서는 컴퓨팅 및 스토리지에 대한 크기 조정 작업을 수행하는 단계를 제공합니다. 애플리케이션을 실행하는 데 적합한 vCores 수를 선택하는 것을 비롯하여 버스트 가능, 범용 및 메모리 최적화 SKU 간에 컴퓨팅 계층을 변경할 수 있습니다. 스토리지를 확장할 수도 있습니다. 예상 IOPS는 컴퓨팅 계층, vCores 및 스토리지 용량을 기준으로 표시됩니다. 비용 예측도 선택에 따라 표시됩니다.
 

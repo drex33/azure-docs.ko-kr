@@ -5,14 +5,14 @@ description: 구조화되지 않은 텍스트를 평가하고 각 레코드에 �
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: 01b6449baa7c5d13b041f886074425d78e037579
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 689c7fd6020a545a0664a9e72a60e08c4ff81882
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122529516"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267340"
 ---
 #   <a name="language-detection-cognitive-skill"></a>언어 감지 인식 기술
 

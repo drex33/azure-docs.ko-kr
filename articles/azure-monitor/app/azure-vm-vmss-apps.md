@@ -4,12 +4,12 @@ description: Azure VM 및 Azure Virtual Machine Scale Sets에 대한 애플리�
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b2eb0a9413766878e8abb9ee0ce24b490b10909
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2b16d2e5ef686dea419c3155af99bcdc63250cc7
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131067757"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266581"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 및 Azure 가상 머신 확장 집합에 Azure Monitor Application Insights 에이전트 배포
 
@@ -43,7 +43,7 @@ Azure Virtual Machines 및 Azure Virtual Machine Scale Sets 호스팅된 애플�
   * Application Insights 에이전트는 .NET SDK와 동일한 종속성 신호를 기본적으로 자동 수집합니다. 자세한 내용은 [종속성 자동 수집](./auto-collect-dependencies.md#net)을 참조하세요.
         
 #### <a name="java"></a>Java
-  * Java의 경우 **[Application Insights Java 3.0 에이전트](./java-in-process-agent.md)** 가 권장되는 접근 방식입니다. 가장 많이 사용되는 라이브러리 및 프레임워크, 로그 및 종속성은 다양한 [추가 구성](./java-standalone-config.md)과 함께 [자동 수집](./java-in-process-agent.md#auto-collected-requests)됩니다.
+  * Java의 경우 **[Application Insights Java 3.0 에이전트](./java-in-process-agent.md)** 가 권장되는 접근 방식입니다. 가장 많이 사용되는 라이브러리 및 프레임워크, 로그 및 종속성은 다양한 [추가 구성](./java-standalone-config.md)과 함께 [자동 수집](./java-in-process-agent.md#autocollected-requests)됩니다.
 
 ### <a name="code-based-via-sdk"></a>SDK를 통한 코드 기반
     

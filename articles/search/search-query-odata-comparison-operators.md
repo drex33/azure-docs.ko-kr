@@ -6,7 +6,7 @@ manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/16/2021
 translation.priority.mt:
 - de-de
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 804e974196b62b6dfed9d4bd64b8dfe0cc107faf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2728268ab18f8243793b85ba5e019e9880dbc013
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591523"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265901"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Azure Cognitive Search의 OData 비교 연산자 - `eq`, `ne`, `gt`, `lt`, `ge`, `le`
 

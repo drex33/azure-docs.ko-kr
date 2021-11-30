@@ -6,7 +6,7 @@ manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/16/2021
 translation.priority.mt:
 - de-de
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: c98ef5871fa4f3d45633965671e6f915b518409e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f87c3f04fe8ef7c18a1b87c6b10474c05a1692b5
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607029"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266277"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $orderby 구문
 

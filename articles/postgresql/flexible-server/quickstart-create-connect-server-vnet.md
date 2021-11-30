@@ -6,20 +6,19 @@ ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, mode-other
 ms.topic: quickstart
-ms.date: 07/29/2021
-ms.openlocfilehash: b4a9c51a86ed6ce352108cee002a464f8ec853ff
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.date: 11/30/2021
+ms.openlocfilehash: 61326e9dd5d4f5f35a1c26c84386cbe8e095d71a
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133066155"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265560"
 ---
 # <a name="connect-azure-database-for-postgresql-flexible-server-with-the-private-access-connectivity-method"></a>프라이빗 액세스 연결 방법을 사용하여 Azure Database for PostgreSQL 유연한 서버 연결
 
 Azure Database for PostgreSQL 유연한 서버는 클라우드에서 고가용성 PostgreSQL 서버를 실행, 관리 및 크기 조정하는 데 사용할 수 있는 관리되는 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 가상 네트워크에서 유연한 서버를 만드는 방법을 보여 줍니다.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
+
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 

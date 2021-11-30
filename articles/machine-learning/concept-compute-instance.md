@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2021
-ms.openlocfilehash: af7069aae9412f7964cca82c034d0e0966220ada
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 2fd95c7df4a807ef58941040994070e2e62ed875
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081133"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265047"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -111,7 +111,7 @@ Notebooks 파일 공유에 학습 데이터를 저장하지 마세요. 임시 �
 
 **[설정 스크립트(미리 보기)를 사용](how-to-create-manage-compute-instance.md#setup-script)** 하여 컴퓨팅 인스턴스를 자동으로 사용자 지정하고 구성할 수도 있습니다.
 
-스스로 계산 인스턴스를 만들려면 Azure Machine Learning studio에서 작업 영역을 사용 하 고, 노트북 중 하나를 실행할 준비가 되 면 **계산** 섹션 또는 **노트북** 섹션에서 [새 계산 인스턴스를 만듭니다](how-to-create-manage-compute-instance.md?tabs=azure-studio#create) .
+컴퓨팅 인스턴스를 직접 만들려면 Azure Machine Learning Studio에서 작업 영역을 사용하고 Notebook 중 하나를 실행할 준비가 되면 **컴퓨팅** 섹션 또는 **Notebooks** 섹션에서 새 [컴퓨팅 인스턴스를 만듭니다.](how-to-create-manage-compute-instance.md?tabs=azure-studio#create)
 
 인스턴스를 만들 수도 있습니다.
 * [통합 Notebook 환경](tutorial-train-models-with-aml.md#azure)에서 직접 만들기
@@ -132,7 +132,7 @@ Notebooks 파일 공유에 학습 데이터를 저장하지 마세요. 임시 �
 컴퓨팅 인스턴스:
 * 작업 큐가 있습니다.
 * 기업에서 SSH 포트를 열지 않고도 가상 네트워크 환경에서 안전하게 작업을 실행합니다. 작업은 컨테이너화된 환경에서 실행되며 모델 종속성을 Docker 컨테이너로 패키지합니다.
-* 여러 작은 작업을 병렬로 실행할 수 있습니다(미리 보기).  나머지 작업이 큐에 있는 동안 코어당 두 개의 작업을 병렬로 실행할 수 있습니다.
+* 여러 작은 작업을 병렬로 실행할 수 있습니다(미리 보기).  나머지 작업은 큐에 대기하는 동안 코어당 하나의 작업을 병렬로 실행할 수 있습니다.
 * 단일 노드 다중 GPU [분산 학습](how-to-train-distributed-gpu.md) 작업 지원
 
 컴퓨팅 인스턴스는 테스트/디버그 시나리오에 대한 로컬 추론 배포 대상으로 사용할 수 있습니다.

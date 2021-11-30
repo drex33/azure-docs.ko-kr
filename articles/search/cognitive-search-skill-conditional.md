@@ -5,14 +5,14 @@ description: Azure Cognitive Search의 조건부 기술을 사용하면 기술 �
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: acd3a42051fa42821013424ab0410814968b6131
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: 015e4d4b54d89540aa03e4e0b0bee981a3edf92f
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537271"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133268290"
 ---
 # <a name="conditional-cognitive-skill"></a>조건부 인식 기술
 

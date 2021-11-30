@@ -6,7 +6,7 @@ manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/16/2021
 translation.priority.mt:
 - de-de
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7fc46da1ee5d22eb8774dc7c7533d123c6415e88
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 03b46b80e7e442082c31f69b6fd9f59666cb36f2
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673505"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133265939"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Azure Cognitive Search의 OData 컬렉션 연산자 - `any` 및 `all`
 

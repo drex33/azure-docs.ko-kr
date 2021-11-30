@@ -7,17 +7,17 @@ ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: garyericson
-ms.author: garye
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma, davidph
 manager: cgronlun
 ms.date: 03/17/2021
-ms.openlocfilehash: 0d24da8044cc4306f65f235a85092593610e33f7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d8e53984e6698ee42076279afdd351aedc7b693b
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567374"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133266147"
 ---
 # <a name="machine-learning-services-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 Machine Learning Services
 

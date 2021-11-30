@@ -5,14 +5,14 @@ description: Azure Cognitive Search 인지 검색 파이프라인의 텍스트�
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: 977ac567f195e0ab8053d7b8bd98543801a3b6a4
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
-ms.translationtype: HT
+ms.openlocfilehash: a07ddcfab0e3278403ad3893a9b11c0801684b0b
+ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537274"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133267397"
 ---
 # <a name="custom-entity-lookup-cognitive-skill"></a>사용자 지정 엔터티 조회 인식 기술
 

@@ -6,12 +6,12 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.openlocfilehash: fdb3f7cb80a3fa9f053f5117d83f8a428f512c8c
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 6d908f327cf83531bcd1656736441ec8a059d5d7
+ms.sourcegitcommit: 845eb7b0ed05ef2f0dfa6f054eaf5f32c780567c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132760013"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133302565"
 ---
 # <a name="large-scale-security-analytics-using-microsoft-sentinel-notebooks-and-azure-synapse-integration-public-preview"></a>Microsoft Sentinel Notebook 및 Azure Synapse 통합을 사용하는 대규모 보안 분석(공개 미리 보기)
 
@@ -25,7 +25,7 @@ KQL 및 Log Analytics는 Microsoft Sentinel에서 데이터를 쿼리하고 분�
 
 Azure Synapse 통합하면 다음을 제공합니다.
 
-- 비용 최적화, 완전 관리형 Azure Synapse Apache Spark 컴퓨팅 풀을 사용하는 **보안 빅 데이터 분석.**
+- **비용** 최적화, 완전 관리형 Azure Synapse Apache Spark 컴퓨팅 풀을 사용하는 빅 데이터 분석 보안
 
 - Azure Blob Storage 기반으로 구축된 빅 데이터 분석 전용 기능 집합인 Azure Data Lake Storage Gen2를 통해 기록 데이터에 대한 분석을 빌드하는 **비용 효율적인 Data Lake 액세스입니다.**
 
@@ -98,9 +98,9 @@ Microsoft Sentinel은 기본 제공 Azure Synapse - **Azure ML 구성 및 Azure 
 
 1. Notebook의 초기 단계에서 셀을 실행하여 필요한 Python 라이브러리 및 함수를 로드하고 Azure 리소스에 인증합니다.
 
-1. 4단계 Spark 풀 **구성의** 셀 Azure Synapse을 실행하여 빅 데이터 쿼리를 실행할 때 사용할 새 [Azure Synapse Apache Spark 풀을](../synapse-analytics/spark/apache-spark-pool-configurations.md) 만듭니다.
+1. 4단계 Spark 풀 **Azure Synapse 구성의** 셀을 실행하여 빅 데이터 쿼리를 실행할 때 사용할 새 [Azure Synapse Apache Spark 풀을](../synapse-analytics/spark/apache-spark-pool-configurations.md) 만듭니다.
 
-1. Azure **ML 작업 영역이 Azure Synapse 작업 영역과** 통신할 수 있도록 5단계, Azure ML 작업 영역 및 연결된 서비스 구성의 셀을 실행합니다. 자세한 내용은 [Azure Synapse Analytics 및 Azure Machine Learning 작업 영역 연결 및 Apache Spark 풀 연결을 참조하세요.](../machine-learning/how-to-link-synapse-ml-workspaces.md)
+1. Azure ML 작업 영역 **및 연결된 서비스 구성의** 5단계에서 셀을 실행하여 Azure ML 작업 영역이 Azure Synapse 작업 영역과 통신할 수 있도록 합니다. 자세한 내용은 [Azure Synapse Analytics 및 Azure Machine Learning 작업 영역 연결 및 Apache Spark 풀 연결을 참조하세요.](../machine-learning/how-to-link-synapse-ml-workspaces.md)
 
 1. Azure **Log Analytics에서 Azure Data Lake Storage Gen2로 데이터 내보내기** 6단계의 셀을 실행하여 Azure Log Analytics에서 Azure Data Lake Storage 쿼리에 사용할 데이터를 내보냅니다.
 
@@ -151,7 +151,7 @@ Microsoft Sentinel은 기본 제공 **Azure Synapse - Apache Spark Notebook을 �
 
     **ADLS에서 로컬 파일 시스템으로 결과 내보내기,** **ADLS에서 파일 다운로드** 및 **결과 표시** 단계의 코드를 사용하여 JSON 파일을 로컬로 저장하고 확인합니다.
 
-1. 결과를 로컬로 저장한 후 추가 데이터로 보강하고 시각화를 실행할 수 있습니다. 예를 들어 **Azure Synapse - Apache Spark Notebook을 사용하여 잠재적 네트워크 탐지를** 검색하면 다음 작업을 수행할 수 있는 추가 단계가 제공됩니다.
+1. 결과를 로컬로 저장한 후 추가 데이터로 보강하고 시각화를 실행할 수 있습니다. 예를 들어 **Azure Synapse - Apache Spark Notebook을 사용하여 잠재적 네트워크 탐지를 검색하면** 다음 작업을 수행할 수 있는 추가 단계가 제공됩니다.
 
     - IP 주소 GeoLocation, WhoIs 및 기타 위협 인텔리전스 데이터를 사용하여 결과를 보강하여 비정상적인 네트워크 동작을 보다 완전하게 파악할 수 있습니다.
     - MSTICPy 시각화를 실행하여 원격 네트워크 연결 또는 기타 이벤트의 배포를 살펴보면서 위치를 매핑합니다.
@@ -178,7 +178,7 @@ Azure Synapse 세션에 없는 경우 Microsoft Sentinel은 Notebook 페이지 �
 
 를 사용하여 모든 후속 코드 `%%synapse` 셀을 시작하여 시작한 Synapse 세션을 사용합니다.
 
-다음은 그 예입니다.
+예:
 
 ```python
 %%synapse
@@ -196,19 +196,19 @@ end_date = "<enter date in the format yyyy-MM-dd e.g.2021-09-17>"  # fill in you
 lookback_days = 21 # fill in lookback days if you want to run it on historical data. make sure you have historical data available in ADLS
 ```
 
-### <a name="define-your-data-lookback-period"></a>데이터 lookback 기간 정의
+### <a name="define-your-data-lookback-period"></a>데이터 조회 기간 정의
 
-이 샘플 노트북의 빅 데이터 쿼리는 `end-date` 매개 변수를 사용 하거나 시간 범위를 사용 하 여 미리 정의 된 날짜에서 데이터를 실행할 수 있습니다.
+이 샘플 Notebook의 빅 데이터 쿼리는 매개 변수 또는 더 긴 시간 범위를 사용하여 미리 정의된 날짜의 데이터에 대해 실행할 수 `end-date` 있습니다.
 
-다음은 그 예입니다.
+예:
 
-- 특정 날짜의 데이터에 관심이 있는 경우 11 월 15 2021 일을 현재 날짜로 지정 하 고, 쿼리는 2021 15,의 데이터 에서만 실행 됩니다. 
+- 특정 날짜의 데이터에 관심이 있는 경우 2021년 11월 15일을 현재 날짜로 지정하면 쿼리는 2021년 11월 15일의 데이터에 대해서만 실행됩니다. 
 
-- 쿼리의 시간 범위를 더 길게 정의 하려면 현재 날짜 외에 lookback 매개 변수를 정의 합니다. 예를 들어 `lookback_days` 매개 변수가 days로 설정 되 `21` 고 `end_date` 매개 변수가로 설정 되 면 `2021-11-17` 쿼리는 21 일의 데이터를 확인 하 고 11 월 2021 17 일에서 다시 계산 합니다.
+- 쿼리에 대한 더 긴 시간 범위를 정의하려면 현재 날짜 외에도 lookback 매개 변수를 정의합니다. 예를 들어 `lookback_days` 매개 변수가 `21` 일로 설정되고 매개 변수가 로 설정된 경우 `end_date` `2021-11-17` 쿼리는 2021년 11월 17일부터 21일 동안의 데이터를 조회합니다.
 
-**Azure Synapse-Apache Spark 노트북을 사용 하 여 잠재적인 네트워크 표지 검색** 에서 **데이터 준비 단계** 에서이 코드를 찾을 수 있습니다.
+Azure Synapse **- Apache Spark Notebook을 사용하여 잠재적 네트워크 탐지에서** **데이터 준비 단계** 에서 이 코드를 찾을 수 있습니다.
 
-다음은 그 예입니다.
+예:
 
 ```python
 # Datetime and lookback parameters
@@ -216,9 +216,9 @@ end_date = "2021-11-17>"  # fill in your input date
 lookback_days = "21" # fill in lookback days if you want to run it on historical data. Make sure you have historical data available in ADLS
 ```
 
-위의 예제에서 쿼리는 2021 년 10 월 28 일 사이의 데이터에서 실행 됩니다.
+위의 예제에서 쿼리는 2021년 10월 28일부터 11월 17일 사이의 데이터에 대해 실행됩니다.
 
-### <a name="stop-an-azure-synapse-session-from-within-microsoft-sentinel"></a>Microsoft 센티널 내에서 Azure Synapse 세션 중지
+### <a name="stop-an-azure-synapse-session-from-within-microsoft-sentinel"></a>Microsoft Sentinel 내에서 Azure Synapse 세션 중지
 
 다음 코드를 실행하세요.
 
@@ -226,13 +226,13 @@ lookback_days = "21" # fill in lookback days if you want to run it on historical
 %synapse stop
 ```
 
-### <a name="switch-azure-synapse-workspaces-in-microsoft-sentinel"></a>Microsoft 센티널에서 Azure Synapse 작업 영역 전환
+### <a name="switch-azure-synapse-workspaces-in-microsoft-sentinel"></a>Microsoft Sentinel에서 Azure Synapse 작업 영역 전환
 
-현재 로그인 한 것과 다른 Synapse 작업 영역을 관리 하거나 선택 하려면 다음 방법 중 하나를 사용 합니다.
+현재 로그인한 작업 영역과 다른 Synapse 작업 영역을 관리하거나 선택하려면 다음 방법 중 하나를 사용합니다.
 
-- **azure ML와 새 azure Synapse 작업 영역 간에 연결 된 서비스를 이미 만든 경우** 다음을 수행 합니다.
+- **Azure ML 새 Azure Synapse 작업 영역 간에 연결된 서비스를 이미 만든 경우:**
 
-    1. `linkservice`다음 코드 셀에 매개 변수의 이름을 입력 한 다음 셀 및 후속 셀을 다시 실행 합니다.
+    1. `linkservice`다음 코드 셀에 매개 변수의 이름을 입력한 다음 셀과 후속 셀을 다시 실행합니다.
 
         ```python
         amlworkspace = "<aml workspace name>"  # fill in your AML workspace name
@@ -241,18 +241,19 @@ lookback_days = "21" # fill in lookback days if you want to run it on historical
         linkedservice = '<linked service name>' # fill in your linked service created to connect to synapse workspace
         ```
 
-    1. 등록 되어 연결 된 서비스에 연결 된 Azure Synapse Spark 풀의 이름을 제공 해야 합니다.
+    1. 연결된 서비스에 등록되고 연결된 Azure Synapse Spark 풀의 이름을 제공해야 합니다.
 
         ```python
         synapse_spark_compute = "<synapse spark compute>"
         ```
 
-- **azure ML와 azure Synapse 작업 영역 간에 연결 된 서비스가 아직 없는 경우** azure **Synapse – azure ML 및 azure Synapse Analytics** 노트북을 실행 하 여 azure Synapse을 실행 하기 전에 연결 된 서비스를 구성 하도록 합니다. Apache Spark 노트북을 **사용 하 여 잠재적인 네트워크를 검색** 합니다.
+- **Azure ML 및 Azure Synapse 작업 영역 간에 연결된 서비스가 아직 없는 경우** Azure Synapse 실행하기 전에 연결된 서비스를 **구성하도록 Azure Synapse - Azure ML 구성 및 Azure Synapse Analytics** Notebook을 실행해야 **합니다. – Apache Spark Notebook을 사용하여 잠재적인 네트워크 탐지를 검색합니다.**
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음을 참조하세요.
 
-- [Jupyter 노트북을 사용 하 여 보안 위협 구하기](notebooks.md)
-- [자습서: Microsoft 센티널에서 Jupyter 노트북 및 MSTICPy 시작 하기](notebook-get-started.md)
+- [Jupyter Notebook을 사용하여 보안 위협 헌트](notebooks.md)
+- [자습서: Microsoft Sentinel에서 Jupyter Notebook 및 MSTICPy 시작](notebook-get-started.md)
 - [Azure Synapse Analytics 및 Azure Machine Learning 작업 영역을 연결하고 Apache Spark 풀 연결(미리 보기)](../machine-learning/how-to-link-synapse-ml-workspaces.md)
+- [첫 번째 Microsoft Sentinel Notebook 만들기(블로그](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/creating-your-first-microsoft-sentinel-notebook/ba-p/2977745) 시리즈)

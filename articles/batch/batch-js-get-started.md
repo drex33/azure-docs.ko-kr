@@ -3,12 +3,12 @@ title: JavaScript용 Azure Batch 클라이언트 라이브러리 사용
 description: Azure Batch의 기본 개념을 알아보고 JavaScript를 사용하여 간단한 솔루션을 빌드합니다.
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 1f53c793e4c676df319d46f30595ac330846dfa5
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
-ms.translationtype: HT
+ms.openlocfilehash: 2a4f96c8d5c21f2b21edfccc8f4cf744224639c6
+ms.sourcegitcommit: 845eb7b0ed05ef2f0dfa6f054eaf5f32c780567c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106230910"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133302299"
 ---
 # <a name="get-started-with-batch-sdk-for-javascript"></a>JavaScript용 Batch SDK 시작
 
@@ -247,7 +247,7 @@ Azure Batch 작업은 유사한 작업의 논리적 그룹입니다. 이 시나�
 이러한 작업은 Azure Batch 서비스를 통해 병렬로 실행되어 여러 노드에 배포되고 조정됩니다.
 
 > [!TIP]
-> [taskSlotsPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 속성을 사용하여 단일 노드에서 동시에 실행할 수 있는 최대 작업 수를 지정할 수 있습니다.
+> taskSlotsPerNode 속성을 사용하여 단일 노드에서 동시에 실행할 수 있는 최대 작업 수를 지정할 수 있습니다.
 
 #### <a name="preparation-task"></a>준비 작업
 
@@ -259,7 +259,7 @@ Azure Batch 작업은 유사한 작업의 논리적 그룹입니다. 이 시나�
 Azure Storage 계정에 스크립트를 업로드하고 해당 스크립트에 액세스하는 SAS URI를 생성할 수 있습니다. Azure Storage JavaScript SDK를 사용하여 이 프로세스를 자동화할 수도 있습니다.
 
 > [!TIP]
-> 작업에 대한 준비 작업은 특정 작업을 실행해야 하는 VM 노드에서만 실행됩니다. 노드에서 실행되는 태스크와 관계없이 모든 노드에 필수 구성 요소를 설치하도록 하려면 풀을 추가하는 동안 [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) 속성을 사용하면 됩니다. 다음 준비 작업 정의를 참조에 사용할 수 있습니다.
+> 작업에 대한 준비 작업은 특정 작업을 실행해야 하는 VM 노드에서만 실행됩니다. 노드에서 실행되는 태스크와 관계없이 모든 노드에 필수 구성 요소를 설치하도록 하려면 풀을 추가하는 동안 startTask 속성을 사용하면 됩니다. 다음 준비 작업 정의를 참조에 사용할 수 있습니다.
 
 준비 작업은 Azure Batch 작업이 제출되는 동안 지정됩니다. 다음은 준비 작업 구성 매개 변수입니다.
 
@@ -332,7 +332,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 이 코드는 풀에 여러 작업을 추가합니다. 각 작업은 앞에서 만든 VM의 풀에 있는 노드에서 실행됩니다. 작업 수가 풀의 VM 수 또는 taskSlotsPerNode 속성을 초과할 경우 노드를 사용할 수 있게 될 때까지 작업이 대기합니다. 이 오케스트레이션은 Azure Batch에서 자동으로 처리됩니다.
 
-포털에 가면 구체적인 작업 상태 보기가 있습니다. Azure JavaScript SDK에서 목록을 사용하여 함수를 가져올 수도 있습니다. 자세한 내용은 설명서 [링크](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html)에 제공됩니다.
+포털에 가면 구체적인 작업 상태 보기가 있습니다. Azure JavaScript SDK에서 목록을 사용하고 함수를 얻을 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

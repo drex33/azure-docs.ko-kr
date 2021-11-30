@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 12/9/2020
-ms.openlocfilehash: 2b2de0d25c8bdba99e6559bdec1902e9cda7b35c
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
-ms.translationtype: HT
+ms.openlocfilehash: 26b37079eb4a397f5a4d9463cfa59ed6f18b40f0
+ms.sourcegitcommit: 845eb7b0ed05ef2f0dfa6f054eaf5f32c780567c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112583098"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133302584"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력
 
@@ -25,6 +25,8 @@ Stream Analytics 작업 출력을 만들고, 편집하고, 테스트하려면 [A
 | 출력 형식 | 분할 | 보안 | 
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|예|Azure Active Directory 사용자 </br> , 관리 ID|
+|[Azure Database Explorer](azure-database-explorer-output.md)|예|관리 ID|
+|[Azure Database for PostgreSQL](postgresql-database-output.md)|예|사용자 이름 및 암호 인증|
 |[Azure SQL Database](sql-database-output.md)|예. 선택 사항입니다.|SQL 사용자 인증, </br> 관리 ID|
 |[Azure Synapse Analytics](azure-synapse-analytics-output.md)|예|SQL 사용자 인증, </br> 관리 ID(미리 보기)|
 |[Blob Storage 및 Azure Data Lake Gen2](blob-storage-azure-data-lake-gen2-output.md)|예|액세스 키, </br> 관리 ID|

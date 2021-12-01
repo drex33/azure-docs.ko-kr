@@ -9,12 +9,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/02/2021
   ms.author: shasb
-  ms.openlocfilehash: bfd815053d1e156620fc284df4d6dfea5f8fb166
-  ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+  ms.openlocfilehash: b4ab0ed6a5aa7191187040970d8b1da4ae4ebc48
+  ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/24/2021
-  ms.locfileid: "133056698"
+  ms.lasthandoff: 12/01/2021
+  ms.locfileid: "133407744"
 landingContent:
 - title: Azure Arc 지원 Kubernetes에 대한 정보
   linkLists:
@@ -28,10 +28,12 @@ landingContent:
     links:
     - text: 에이전트 개요
       url: conceptual-agent-overview.md
-    - text: 구성 및 GitOps
-      url: conceptual-configurations.md
-    - text: GitOps를 사용하는 CI/CD 워크플로
-      url: conceptual-gitops-ci-cd.md
+    - text: 클러스터 확장
+      url: conceptual-extensions.md
+    - text: 사용자 지정 위치
+      url: conceptual-custom-locations.md
+    - text: 구성 및 GitOps(Flux v2)
+      url: conceptual-gitops-flux2.md
     - text: 질문과 대답
       url: faq.md
 - title: 시작
@@ -44,22 +46,24 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: GitOps를 사용하여 구성 배포
-      url: tutorial-use-gitops-connected-cluster.md
-    - text: GitOps를 통한 CI/CD 구현
-      url: tutorial-gitops-ci-cd.md
-- title: 클러스터 구성, 제어 및 모니터링
+    - text: GitOps를 사용하여 구성 배포(Flux v2)
+      url: tutorial-use-gitops-flux2.md
+    - text: GitOps를 통해 CI/CD 구현(Flux v2)
+      url: tutorial-gitops-flux2-ci-cd.md
+- title: 클러스터 관리
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: GitOps를 사용하여 Helm 차트 배포
-      url: use-gitops-with-helm.md
-    - text: Azure Policy를 사용하여 GitOps 적용
-      url: use-azure-policy.md
-    - text: 클러스터에 확장 배포
-      url: extensions.md
-    - text: Azure IoT 에지 워크로드 배포
-      url: deploy-azure-iot-edge-workloads.md
+    - text: 컨테이너용 Azure Monitor를 사용하여 모니터링
+      url: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
+    - text: Microsoft Defender for Cloud를 사용하여 위협 방지 적용
+      url: ../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
+    - text: Azure Policy를 사용한 클러스터 내 정책 시행
+      url: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+    - text: Azure Arc 지원 Open Service Mesh 배포
+      url: tutorial-arc-enabled-open-service-mesh.md
+    - text: Azure Key Vault 비밀에 액세스
+      url: tutorial-akv-secrets-provider.md
 - title: 개념 증명
   linkLists:
   - linkListType: sample

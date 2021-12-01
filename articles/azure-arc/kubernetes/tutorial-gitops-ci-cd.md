@@ -5,14 +5,17 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: b73cc2a6b04d5e851611841f01890a60de71daab
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2df6fe4ecc87c8b7d6fa5c21b12ca3358aca391c
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131039737"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407725"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>자습서: Azure Arc 지원 Kubernetes 클러스터를 사용하여 GitOps로 CI/CD 구현
+
+> [!NOTE]
+> 이 자습서에서는 Flux v1과 함께 GitOps를 사용 합니다.  이제 Flux v2를 사용 하는 GitOps를 Azure Arc 사용 Kubernetes 및 AKS (Azure Kubernetes Service) 클러스터의 미리 보기로 사용할 수 있습니다. [Flux v2에서 GitOps를 사용 하는 자습서로 이동](./tutorial-gitops-flux2-ci-cd.md)합니다.
 
 이 자습서에서는 Azure Arc 지원 Kubernetes 클러스터와 함께 GitOps를 사용하여 CI/CD 솔루션을 설정합니다. Azure Vote 샘플 앱을 사용하여 다음을 수행합니다.
 

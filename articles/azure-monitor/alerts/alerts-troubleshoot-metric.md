@@ -4,13 +4,13 @@ description: Azure Monitor 메트릭 경고 및 가능한 솔루션에서 발생
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 09/30/2021
-ms.openlocfilehash: 6b093eeda754d288030e6ff3f1739a5c68c659c1
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.date: 11/12/2021
+ms.openlocfilehash: 6ca97175e175e5870c29be449557d09be19a53fc
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615603"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407668"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 
@@ -110,9 +110,11 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>조건이 충족될 때마다 메트릭 경고가 발생하도록 설정
 
-메트릭 경고는 기본적으로 상태 저장이므로 지정된 시계열에 이미 경고가 발생했다면 추가 경고가 발생하지 않습니다. 특정 메트릭 경고 규칙 상태 비저장을 만들고 경고 조건이 충족되는 모든 평가에 대한 경고를 받으려면 다음 옵션 중 하나를 수행합니다.
+메트릭 경고는 기본적으로 상태 저장이므로 지정된 시계열에 이미 경고가 발생했다면 추가 경고가 발생하지 않습니다. 특정 메트릭 경고 규칙 상태 비저장을 설정 하 고 경고 조건이 충족 되는 모든 평가<sup>1</sup> 에 대 한 경고를 받으려면 다음 옵션 중 하나를 수행 합니다.
 - 프로그래밍 방식으로 경고 규칙을 만드는 경우(예: [Resource Manager](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [REST](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert) 사용) *autoMitigate* 속성을 'False'로 변경합니다.
 - Azure Portal을 통해 경고 규칙을 만드는 경우 '경고 자동 해결' 옵션을 선택 취소합니다('경고 규칙 세부 정보' 섹션에서 사용 가능).
+
+<sup>1</sup> 상태 비저장 메트릭 경고 규칙의 경우, 평가 빈도가 10 분 미만으로 설정 되 고 조건이 계속 충족 되더라도 경고는 최소 10 분 마다 한 번만 트리거됩니다.
 
 > [!NOTE] 
 > 메트릭 경고 규칙을 상태 비저장으로 설정하면 발생한 경고가 해결되지 않습니다. 따라서 조건이 더 이상 충족되지 않는 경우에도 발생한 경고는 30일의 보존 기간이 끝날 때까지 발생함 상태로 유지됩니다.
@@ -141,7 +143,7 @@ Azure 리소스를 삭제하면 연결된 메트릭 경고 규칙이 자동으�
     }
 ```
 > [!NOTE] 
-> 며칠 동안 내보내지 않은 기존 사용자 지정 메트릭에 대한 경고 규칙을 정의할 때 *skipMetricValidation* 매개 변수를 사용해야 할 수도 있습니다.
+> 며칠 동안 내보내지 않은 기존 사용자 지정 메트릭에 대해 경고 규칙을 정의 하는 경우 *skipMetricValidation* 매개 변수를 사용 해야 할 수도 있습니다.
 
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Azure Portal을 통해 메트릭 경고 규칙의 Azure Resource Manager 템플릿 내보내기
 

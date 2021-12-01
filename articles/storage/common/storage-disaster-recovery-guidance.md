@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/07/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 18f6be8421d424b8eefe04c5cb2e3f8026858ec7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 60e4d7cc9d24ca166e30c42b0f5a8159c9babeff
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128626725"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407554"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>재해 복구 및 저장소 계정 장애 조치(failover)
 
@@ -112,7 +112,7 @@ DNS 항목이 업데이트되면 지역 중복 계정의 쓰기 액세스 권한
 
 주 지역에서 보조 지역으로 장애 조치(failover)한 후에 스토리지 계정이 새 주 지역에서 로컬로 중복되도록 구성됩니다. 그런 다음 지역 중복을 위해 새 주 지역에서 계정을 구성할 수 있습니다. 계정이 장애 조치(failover) 후 지역 중복을 위해 구성되면 새 주 지역은 원래 장애 조치(failover) 이전에 주 지역이었던 새 보조 지역으로 데이터를 즉시 복사하기 시작합니다. 그러나 새 주 지역의 기존 데이터가 새 보조 지역에 완전히 복사되기까지 다소 시간이 걸릴 수 있습니다.
 
-스토리지 계정이 지역 중복을 위해 다시 구성되면 새 주 지역에서 새 보조 지역으로의 장애 복구(failback)를 시작할 수 있습니다. 이 경우 장애 조치(failover) 이전의 원래 주 지역은 다시 주 지역이 되며 원래 기본 구성이 GRS/RA-GRS였는지 GZRS/RA-GZRS였는지에 따라 로컬 중복 또는 영역 중복이 되도록 구성됩니다. 장애 조치(failover) 이후 주 지역(원래 보조 지역)의 모든 데이터는 장애 복구(failback) 중에 손실됩니다. 스토리지 계정의 데이터 대부분이 장애 복구(failback) 전에 새 보조 지역에 복사되지 않으면 주요 데이터가 손실될 수 있습니다.
+저장소 계정이 지리적 중복성을 위해 다시 구성 된 후 새 주 데이터베이스에서 새 보조 데이터베이스로 장애 복구 (failback)를 시작할 수 있습니다. 이 경우 장애 조치(failover) 이전의 원래 주 지역은 다시 주 지역이 되며 원래 기본 구성이 GRS/RA-GRS였는지 GZRS/RA-GZRS였는지에 따라 로컬 중복 또는 영역 중복이 되도록 구성됩니다. 장애 조치(failover) 이후 주 지역(원래 보조 지역)의 모든 데이터는 장애 복구(failback) 중에 손실됩니다. 스토리지 계정의 데이터 대부분이 장애 복구(failback) 전에 새 보조 지역에 복사되지 않으면 주요 데이터가 손실될 수 있습니다.
 
 주요 데이터 손실을 방지하려면 장애 복구(failback) 전에 **마지막 동기화 시간** 속성 값을 확인합니다. 마지막 동기화 시간을 데이터를 새 주 지역에 마지막으로 기록한 시간과 비교하여 데이터 손실을 예측합니다.
 

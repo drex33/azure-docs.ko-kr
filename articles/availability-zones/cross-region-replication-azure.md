@@ -8,12 +8,12 @@ ms.date: 10/21/2021
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: ad4b4c24ba463349037abf5e92130640090c148a
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 5a8e33b3b43aec6e36740dd50b07a7a6da8218b2
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132864686"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407269"
 ---
 # <a name="cross-region-replication-in-azure-business-continuity-and-disaster-recovery"></a>Azure의 지역 간 복제: 비즈니스 연속성 및 재해 복구
 
@@ -43,6 +43,12 @@ ms.locfileid: "132864686"
 - **순차적 업데이트**: 사용 하도록 설정 된 지역에 대해 계획 된 Azure 시스템 업데이트는 가동 중지 시간을 최소화 하 고, 버그의 영향을 최소화 하 고, 잘못 된 업데이트가 발생 하는 드문 경우의 논리적 오류를 최소화 하도록 시간순으로
 - **물리적 격리**: 모든 지역에서 가능 하지는 않지만, Azure는 사용 중인 지역의 데이터 센터 간에 최소 거리 300 마일 (483 킬로미터)을 보장 합니다. 데이터 센터 분리는 자연 재해, 민사 내전, 정전 또는 실제 네트워크 중단이 여러 지역에 영향을 줄 수 있는 가능성을 줄여줍니다. 격리는 지리 크기, 전원 또는 네트워크 인프라 가용성, 규정 등 지리 내의 제약 조건에 따라 달라 집니다.
 - **데이터 상주**: 지역은 세금 및 법률 집행 행정의 데이터 상주 요구 사항을 충족 하기 위해 사용 집합 (브라질 남부 및 싱가포르 제외)과 동일한 지리 내에 상주 합니다. 
+
+사용자 고유의 지역 쌍을 만들 수는 없지만, 원하는 수의 지역에 서비스를 구축 하 고 Azure 서비스를 사용 하 여 쌍으로 연결 하 여 고유한 재해 복구 솔루션을 만들 수 있습니다. 예를 들어 [AzCopy](../storage/common/storage-use-azcopy-v10.md) 와 같은 Azure 서비스를 사용 하 여 다른 지역의 Azure Storage 계정에 대 한 데이터 백업을 예약할 수 있습니다. [Azure DNS 및 Azure Traffic Manager](../networking/disaster-recovery-dns-traffic-manager.md)를 사용 하 여 주 지역에서 손실 되는 응용 프로그램에 대 한 복원 력 있는 아키텍처를 디자인할 수 있습니다.
+
+Azure는 지역 쌍에 대 한 계획 된 유지 관리 및 복구 우선 순위를 제어 합니다. 일부 Azure 서비스는 기본적으로 Azure [중복 저장소](../storage/common/storage-redundancy.md)와 같은 지역 쌍을 사용 합니다.
+
+지역 쌍 내에서 서비스를 사용 하는 것으로 제한 되지 않습니다. Azure 서비스는 특정 지역 쌍을 사용할 수 있지만 비즈니스 요구를 충족 하는 모든 지역에서 다른 서비스를 호스트할 수 있습니다. 예를 들어 Azure GRS 저장소 솔루션은 미국 동부에 있는 Azure 계산 리소스를 사용 하는 동시에 캐나다 동부의 피어와 캐나다 중부의 데이터를 쌍으로 연결할 수 있습니다.
 
 ## <a name="azure-cross-region-replication-pairings-for-all-geographies"></a>모든 지역에 대 한 Azure 지역 간 복제 쌍
 
@@ -74,6 +80,7 @@ ms.locfileid: "132864686"
 | 북아메리카 |미국 서부 3 |미국 동부 |
 | 노르웨이 | 노르웨이 동부 | 노르웨이 서부\* |
 | 남아프리카 | 남아프리카 북부 |남아프리카 공화국 서부\* |
+| 스웨덴 | 스웨덴 중부 |스웨덴 남부\* |
 | 스위스 | 스위스 북부 |스위스 서부\* |
 | 영국 |영국 서부 |영국 남부 |
 | 아랍에미리트연합국 | 아랍에미리트 북부 | 아랍에미리트 중부\* |

@@ -55,12 +55,12 @@ conceptualContent:
         - url: ./kubernetes/quickstart-connect-cluster.md
           itemType: quickstart
           text: 클러스터를 Azure Arc에 연결
-        - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md
+        - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
           itemType: tutorial
           text: 컨테이너용 Azure Monitor를 사용하여 모니터링
-        - url: ./kubernetes/use-azure-policy.md
+        - url: ./kubernetes/tutorial-use-gitops-flux2.md
           itemType: how-to-guide
-          text: Azure Policy를 사용하여 GitOps 적용
+          text: GitOps를 사용 하 여 클러스터에 구성 적용
         - url: ./kubernetes/tutorial-arc-enabled-open-service-mesh.md
           itemType: tutorial
           text: Azure Arc 지원 Open Service Mesh(미리 보기)

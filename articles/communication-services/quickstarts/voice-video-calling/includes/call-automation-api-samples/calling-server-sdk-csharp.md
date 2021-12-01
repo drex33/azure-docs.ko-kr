@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
-ms.openlocfilehash: 1dae62ae0ab1fa03dd4c5e1128699cd43a241984
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 264c59f53e05d79e9bc4118d4546d8e9bb07e2d5
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121802896"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133405901"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -25,7 +25,7 @@ ms.locfileid: "121802896"
 - [Visual Studio(2019 이상)](https://visualstudio.microsoft.com/vs/)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472)(Visual Studio 인스턴스에 따라 32비트 또는 64비트 버전을 설치해야 함).
 - Azure Communication Services 리소스를 만듭니다. 자세한 내용은 [Azure Communication Services 리소스 만들기](../../../create-communication-resource.md)를 참조하세요. 이 샘플에 대한 **연결 문자열** 리소스를 기록해야 합니다.
-- 새 Azure Communication Services 리소스의 전화 번호를 받습니다. 자세한 내용은 [전화 번호 받기](../../../telephony-sms/get-phone-number.md?pivots=platform-azp)를 참조하세요.
+- 새 Azure Communication Services 리소스의 전화 번호를 받습니다. 자세한 내용은 [전화 번호 받기](../../../telephony/get-phone-number.md?pivots=platform-azp)를 참조하세요.
 - [ngrok](https://www.ngrok.com/download)를 다운로드하여 설치합니다. 샘플이 로컬로 실행되면 ngrok는 모든 이벤트를 수신할 수 있도록 설정합니다.
 - (선택 사항) 애플리케이션에서 재생할 사용자 지정 메시지를 생성하기 위한 Azure Speech 리소스를 만듭니다. [이 참고 자료](../../../../../cognitive-services/speech-service/overview.md#try-the-speech-service-for-free)에 따라 리소스를 만듭니다.
 

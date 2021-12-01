@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: a12068259d82e833826bcac5e6c58059fb51c56c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c54facdbf61185f6a95732e280298261d30ee5bb
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93336982"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133406490"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>자습서: Azure Database for PostgreSQL 모니터링 및 튜닝 - 단일 서버
 
@@ -65,9 +65,6 @@ Azure Portal의 [Query Performance Insight](concepts-query-performance-insight.m
 6. 서버의 대기 쿼리를 시각화하려면 **대기 통계** 탭을 선택합니다.
    
    :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight 대기 통계":::
-
-### <a name="permissions"></a>사용 권한
-Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자** 는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
 
 
 ## <a name="performance-recommendations"></a>성능 권장 사항

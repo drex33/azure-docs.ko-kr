@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: e958a253834ee9548a1a91e38d947821a3058767
-ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.openlocfilehash: c4d22294ecf3a9cebc2e4b552c88a49caf6ffeda
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132957306"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133406452"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 Query Performance Insight
 
@@ -31,10 +31,6 @@ Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼�
 
 - 쿼리의 대기 특성 이해
 - 리소스 대기 추세 및 리소스 경쟁이 있는 위치 이해
-
-## <a name="permissions"></a>사용 권한
-
-Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자** 는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

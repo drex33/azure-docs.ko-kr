@@ -79,6 +79,8 @@
       href: servicemesh-about.md
     - name: 지속 가능한 소프트웨어 엔지니어링
       href: concepts-sustainable-software-engineering.md
+    - name: GitOps
+      href: /azure-arc/kubernetes/conceptual-gitops-flux2.md
     - name: 모범 사례
       items:
         - name: 개요

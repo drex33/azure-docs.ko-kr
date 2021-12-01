@@ -6,18 +6,18 @@ ms.date: 10/13/2021
 ms.topic: article
 author: nickomang
 ms.author: nickoman
-ms.openlocfilehash: 80d6eb34e1b1e0bbce6a8a1f1d2de58dbec51b4c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9a5e515e076c9e4067a17a18bedf6b3b22bebdee
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131447432"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407706"
 ---
-# <a name="deploy-and-manage-cluster-extensions-for-azure-kubernetes-service-aks-preview"></a>AKS(Azure Kubernetes Service용 클러스터 확장 배포 및 관리(미리 보기)
+# <a name="deploy-and-manage-cluster-extensions-for-azure-kubernetes-service-aks-preview"></a>AKS(Azure Kubernetes Service)용 클러스터 확장 배포 및 관리(미리 보기)
 
 클러스터 확장은 AKS 클러스터의 Azure Machine Learning(ML)와 같은 서비스의 설치 및 수명 주기 관리를 위한 Azure Resource Manager 기반 환경을 제공합니다. 이 기능을 사용하면 다음을 수행할 수 있습니다.
 
-* AZURE RESOURCE MANAGER 클러스터에서 대규모 배포를 포함하여 확장의 배포를 기반으로 합니다.
+* AZURE RESOURCE MANAGER 기반 확장 배포(AKS 클러스터 간 대규모 배포 포함)
 * Azure Resource Manager 확장(업데이트, 삭제)의 수명 주기 관리
 
 이 문서에서는 다음을 알아봅니다.
@@ -102,7 +102,7 @@ az provider register --namespace Microsoft.ContainerService
 ### <a name="setup-the-azure-cli-extension-for-cluster-extensions"></a>클러스터 확장에 대한 Azure CLI 확장 설정
 
 > [!NOTE]
-> Azure CLI 확장에 지원되는 최소 버전은 `k8s-extension` `1.0.0` 입니다. 설치한 버전이 확실하지 않은 경우 를 실행하고 `az extension show --name k8s-extension` 필드를 찾습니다. `version`
+> Azure CLI 확장에 지원되는 최소 버전은 `k8s-extension` `1.0.0` 입니다. 설치한 버전이 확실하지 않은 경우 를 실행하고 `az extension show --name k8s-extension` 필드를 `version` 찾습니다.
 
 `k8s-extension`Azure CLI 확장도 필요합니다. 다음 명령을 실행하여 설치합니다.
   
@@ -125,17 +125,18 @@ az extension update --name k8s-extension
 | --------- | ----------- |
 | [Dapr][dapr-overview] | Dapr은 모든 개발자가 클라우드 및 에지에서 실행되는 복원력 있는 상태 비저장 및 상태 비저장 애플리케이션을 쉽게 빌드할 수 있게 해주는 이식 가능한 이벤트 기반 런타임입니다. |
 | [Azure 기계 학습][azure-ml-overview] | Azure Kubernetes Service 클러스터를 사용하여 Azure Machine Learning 기계 학습 모델을 학습, 유추 및 관리합니다. |
+| [Flux(GitOps)][gitops-overview] | Flux와 함께 GitOps를 사용하여 클러스터 구성 및 애플리케이션 배포를 관리합니다. |
 
 ## <a name="supported-regions-and-kubernetes-versions"></a>지원되는 지역 및 Kubernetes 버전
 
 클러스터 확장은 [Azure Arc 사용하도록 설정된 Kubernetes 지역 지원에][arc-k8s-regions]나열된 지역의 AKS 클러스터에서 사용할 수 있습니다.
 
-지원되는 Kubernetes 버전의 경우 각 확장에 대한 해당 설명서를 참조하세요.
+지원되는 Kubernetes 버전은 각 확장에 대한 해당 설명서를 참조하세요.
 
 ## <a name="usage-of-cluster-extensions"></a>클러스터 확장 사용
 
 > [!NOTE]
-> 이 문서에 제공된 샘플은 완전하지 않으며 기능을 소개하기 위한 것입니다. 명령 및 해당 매개 변수의 포괄적인 목록은 [az k8s-extension CLI 참조 를 참조하세요.][k8s-extension-reference]
+> 이 문서에 제공된 샘플은 완전하지 않으며 기능을 소개하기 위한 것입니다. 명령 및 해당 매개 변수의 포괄적인 목록은 [az k8s-extension CLI 참조][k8s-extension-reference]를 참조하세요.
 
 ### <a name="create-extensions-instance"></a>확장 인스턴스 만들기
 
@@ -146,7 +147,7 @@ az k8s-extension create --name aml-compute --extension-type Microsoft.AzureML.Ku
 ```
 
 > [!NOTE]
-> 클러스터 확장 서비스는 48시간 넘게 중요한 정보를 유지할 수 없습니다. 클러스터 확장 에이전트가 48시간 넘게 네트워크에 연결되어 있지 않고 클러스터에서 확장을 만들지 여부를 결정할 수 없는 경우 확장이 `Failed` 상태로 전환됩니다. 상태가 되면 `Failed` 를 다시 실행하여 `k8s-extension create` 새 확장 인스턴스를 만들어야 합니다.
+> 클러스터 확장 서비스는 48시간 넘게 중요한 정보를 유지할 수 없습니다. 클러스터 확장 에이전트가 48시간 넘게 네트워크에 연결되어 있지 않고 클러스터에서 확장을 만들지 여부를 확인할 수 없는 경우 확장이 `Failed` 상태로 전환됩니다. 상태가 되면 `Failed` 를 다시 실행하여 `k8s-extension create` 새 확장 인스턴스를 만들어야 합니다.
 
 #### <a name="required-parameters"></a>필수 매개 변수
 
@@ -242,6 +243,7 @@ az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-g
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [azure-ml-overview]: ../machine-learning/how-to-attach-arc-kubernetes.md
 [dapr-overview]: ./dapr.md
+[gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
 [k8s-extension-reference]: /cli/azure/k8s-extension
 
 <!-- EXTERNAL -->

@@ -80,6 +80,8 @@
           href: create-profile-container-adds.md
         - name: Azure Files 및 AD DS 사용
           href: create-file-share.md
+        - name: Azure Files 및 Azure AD 사용
+          href: create-profile-container-azure-ad.md
         - name: FSLogix 앱 컨테이너를 사용하여 Office 설치
           href: fslogix-office-app-rule-editor.md
         - name: Azure Files를 사용하도록 계정에 권한 부여

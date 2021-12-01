@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc, devx-track-azurecli, mode-other
 ms.topic: quickstart
 ms.date: 11/30/2021
-ms.openlocfilehash: b4d3c841fbb63b5b5549298f889e7d133550bf54
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: 53e75c999b73e2bf57649ec61fe23fa51718579d
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133266998"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133406642"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-postgresql---flexible-server"></a>빠른 시작: Azure Database for PostgreSQL - 유연한 서버를 사용하여 Azure CLI로 연결 및 쿼리
 
@@ -96,13 +96,6 @@ postgres> exit
 Goodbye!
 Local context is turned on. Its information is saved in working directory C:\sunitha. You can run `az local-context off` to turn it off.
 Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
-```
-
-## <a name="run-single-query"></a>단일 쿼리 실행
-```--querytext``` 인수, ```-q```를 사용하여 명령을 통해 단일 쿼리를 실행할 수 있습니다
-
-```azurecli
-az postgres flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> -q "<query-text>"
 ```
 
 **예제:** 

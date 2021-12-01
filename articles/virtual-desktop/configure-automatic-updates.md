@@ -7,12 +7,12 @@ ms.date: 06/12/2020
 ms.author: helohr
 ms.reviewer: v-cawood; clemr
 manager: femila
-ms.openlocfilehash: 8266473553288584a534e8833d8c50dcb2ec40cf
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 6550499efcf613278080a5c8f30c8c0c758c9e86
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754550"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133406281"
 ---
 # <a name="configure-microsoft-endpoint-configuration-manager"></a>Microsoft Endpoint Configuration Manager 구성
 
@@ -25,19 +25,12 @@ ms.locfileid: "111754550"
    - 가상 머신에 Microsoft Endpoint Configuration Manager 에이전트를 설치했는지 확인합니다.
    - Microsoft Endpoint Configuration Manager의 버전이 최소한 분기 수준 1906에 있는지 확인합니다. 최상의 결과를 얻으려면 분기 수준 1910 이상을 사용하세요.
 
-## <a name="configure-the-software-update-point"></a>소프트웨어 업데이트 지점 구성
+## <a name="receiving-updates-for-windows-10-and-11-enterprise-multi-session"></a>Windows 10 및 11 Enterprise 다중 세션에 대한 업데이트 받기
 
-Windows 10 Enterprise 다중 세션에 대한 업데이트를 받으려면 Microsoft Endpoint Configuration Manager 내에서 Windows Server 버전 1903 이상을 제품으로 사용하도록 설정해야 합니다. 이 제품 설정은 Windows Server Update Service를 사용하여 시스템에 업데이트를 배포하는 경우에도 적용됩니다.
+해당 Windows 10 클라이언트 업데이트로 Windows 10 Enterprise 다중 세션을 업데이트할 수 있습니다. 예를 들어 Windows 10 버전 21H2 클라이언트 업데이트를 설치하여 다중 세션 버전 21H2를 Windows 10 Enterprise 업데이트할 수 있습니다.
 
-업데이트를 받으려면 다음을 수행합니다.
-
-1. Microsoft Endpoint Configuration Manager 열고 **사이트** 를 선택합니다.
-2. **사이트 구성 요소 구성** 을 선택합니다.
-3. 드롭다운 메뉴에서 **소프트웨어 업데이트 지점** 을 선택합니다.
-4. **제품** 탭을 선택합니다.
-5. **Windows Server 버전 1903 이상** 이라고 표시된 확인란을 선택합니다.
-6. **소프트웨어 라이브러리** > **개요** > **소프트웨어 업데이트** > **모든 소프트웨어 업데이트** 로 이동하여 **소프트웨어 업데이트 동기화** 를 선택합니다.
-7. **프로그램 파일** > **Microsoft Configuration Manager** > **로그** 의 wsyncmgr.log 파일을 확인하여 변경 내용이 저장되었는지 확인합니다. 업데이트를 동기화하는 데 몇 분 정도 걸릴 수 있습니다.
+> [!NOTE]
+> 현재는 Windows 10 Enterprise 다중 세션 버전 21H2를 업데이트하고 해당 Windows 클라이언트 업데이트로 다중 세션을 Windows 11 Enterprise 수 없습니다.
 
 ## <a name="create-a-query-based-collection"></a>쿼리 기반 컬렉션 만들기
 

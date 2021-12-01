@@ -4,19 +4,19 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 06/30/2021
 ms.author: rifox
-ms.openlocfilehash: 606baedec2c0395c12803ba4c67dd320e6fb58e5
-ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
+ms.openlocfilehash: ed4ddeae34a4a540e924f1145a7c5e2517d466db
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "133022044"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133406123"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/dotnet/).
 - [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
 
-전화번호를 사용하려는 경우에는 평가판 계정을 사용할 수 없습니다. 리소스를 만들기 전에 전화번호를 구매하려는 경우 구독이 모든 [요구 사항](../../concepts/telephony-sms/plan-solution.md)을 충족하는지 확인합니다. 
+전화번호를 사용하려는 경우에는 평가판 계정을 사용할 수 없습니다. 리소스를 만들기 전에 전화번호를 구매하려는 경우 구독이 모든 [요구 사항](../../concepts/telephony/plan-solution.md)을 충족하는지 확인합니다. 
 
 ## <a name="create-azure-communication-services-resource"></a>Azure Communication Services 리소스 만들기
 

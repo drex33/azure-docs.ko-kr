@@ -6,21 +6,18 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: babf2c8208732a194184549dfa5ed3228b376d0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: bb4e12d27370879f682681adc0012d3185c5b076
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91710263"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407288"
 ---
 # <a name="query-performance-insight"></a>쿼리 
 
 **적용 대상:** Azure Database for PostgreSQL - 단일 서버 버전 9.6, 10, 11
 
 Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼리, 쿼리가 시간의 경과에 따라 변경되는 방식 및 쿼리에 영향을 주는 대기 등을 빠르게 파악할 수 있습니다.
-
-## <a name="permissions"></a>사용 권한
-Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자** 는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 Query Performance Insight가 작동하려면 [쿼리 저장소](concepts-query-store.md)에 데이터가 있어야 합니다.

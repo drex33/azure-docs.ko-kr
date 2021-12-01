@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: nikuklic
-ms.openlocfilehash: acfba31896f7a658e08d5765812c09d78b662b0d
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 7b6bc6da8bc859a267441e972a9a12809d7dfaea
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112536052"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133406170"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
 
@@ -21,7 +21,7 @@ ms.locfileid: "112536052"
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - 배포된 Communication Services 리소스. [Communication Services 리소스를 만듭니다](../../../create-communication-resource.md).
-- Communication Services 리소스에서 가져온 전화 번호입니다. [전화 번호를 가져오는 방법](../../../telephony-sms/get-phone-number.md).
+- Communication Services 리소스에서 가져온 전화 번호입니다. [전화 번호를 가져오는 방법](../../../telephony/get-phone-number.md).
 - 호출 클라이언트를 사용하도록 설정하는 `User Access Token`입니다. [`User Access Token`를 가져오는 방법](../../../access-tokens.md)에 대한 자세한 정보
 - [애플리케이션에 통화 추가 시작](../../getting-started-with-calling.md)에 대한 빠른 시작을 완료합니다.
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 11/30/2021
 ms.author: victorh
-ms.openlocfilehash: c44691496df3610688f13843f3c5ccbfe20f625a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6aa65cc0859894936076f6d0fc1101312eaf3ba6
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004068"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407516"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Key Vault 인증서를 사용한 TLS 종료
 
@@ -43,7 +43,7 @@ Application Gateway Key Vault 비밀 식별자를 사용하여 인증서를 참�
 Azure Portal 비밀이 아닌 Key Vault 인증서만 지원합니다. Application Gateway 여전히 powerShell, Azure CLI, API 및 ARM 템플릿(Azure Resource Manager 템플릿)과 같은 포털이 아닌 리소스를 통해서만 Key Vault 비밀 참조를 지원합니다.
 
 > [!WARNING]
-> Azure Application Gateway 현재 Application Gateway 리소스와 동일한 구독의 Key Vault 계정만 지원합니다. Application Gateway 아닌 다른 구독에서 키 자격 증명 모음을 선택하면 오류가 발생합니다.
+> Azure Application Gateway 현재 Application Gateway 리소스와 동일한 구독의 Key Vault 계정만 지원합니다. Application Gateway 다른 구독에서 키 자격 증명 모음을 선택하면 오류가 발생합니다.
 
 ## <a name="certificate-settings-in-key-vault"></a>Key Vault 인증서 설정
 
@@ -55,23 +55,28 @@ Key Vault Application Gateway 통합은 3단계 구성 프로세스입니다.
 
 ![Application Gateway Key Vault 통합하기 위한 세 단계를 보여 주는 다이어그램](media/key-vault-certs/ag-kv.png)
 
-### <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기
+> [!Note]
+> Azure Application Gateway Key Vault 통합은 자격 증명 모음 액세스 정책 및 Azure 역할 기반 액세스 제어 권한 모델을 모두 지원합니다.
 
-사용자가 할당한 관리 ID를 만들거나 기존 ID를 다시 사용할 수 있습니다. Application Gateway 관리 ID를 사용하여 사용자 대신 Key Vault 인증서를 검색합니다. 자세한 내용은 [Azure Portal을 사용하여 사용자 할당 관리 ID를 생성, 나열, 삭제 또는 할당](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)을 참조하세요. 
+### <a name="obtain-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 얻기
 
-이 단계에서는 Azure Active Directory 테넌트에 새 ID를 만듭니다. ID를 만드는 데 사용되는 구독에서 ID가 신뢰됩니다.
+Application Gateway 관리 ID를 사용하여 사용자 대신 Key Vault 인증서를 검색합니다. 
 
-### <a name="configure-your-key-vault"></a>Key Vault 구성
+새 사용자 할당 관리 ID를 만들거나 기존 을 통합과 함께 다시 사용할 수 있습니다. 새 사용자 할당 관리 ID를 만들려면 [Azure Portal 사용하여 사용자 할당 관리 ID 만들기를](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity)참조하세요. 
+
+### <a name="delegate-user-assigned-managed-identity-to-key-vault"></a>사용자 할당 관리 ID를 Key Vault 위임
 
 키 자격 증명 모음에서 사용자 할당 관리 ID를 사용하도록 액세스 정책을 정의합니다.
-    
-1. Azure Portal **Key Vault** 으로 이동합니다.
-1. 액세스 **정책** 창을 엽니다.
-1. 권한 모델 자격 증명 **모음 액세스 정책:** **+ 액세스 정책 추가를** **선택하고, 비밀 권한에** 대해 **Get을** 선택하고, **보안 주체 선택에서** 사용자 할당 관리 ID를 선택합니다. 그런 다음 **저장** 을 선택합니다.
-   
-   권한 모델 Azure 역할 **기반 액세스 제어를** 사용하는 경우: 사용자 할당 관리 ID에 대한 역할 할당을 비밀 사용자 **Key Vault** 역할에 대한 Azure Key Vault에 추가합니다.
 
-2021년 3월 15일부터 Key Vault Azure Key Vault 인증을 위해 사용자 관리 ID를 활용하여 Application Gateway 신뢰할 수 있는 서비스로 인식합니다.  서비스 엔드포인트를 사용하고 키 자격 증명 모음의 방화벽에 대해 신뢰할 수 있는 서비스 옵션을 사용하도록 설정하면 Azure에서 보안 네트워크 경계를 빌드할 수 있습니다. 모든 네트워크(인터넷 트래픽 포함)에서 Key Vault 트래픽에 대한 액세스를 거부할 수 있지만 구독에서 Application Gateway 리소스에 Key Vault 액세스할 수 있습니다.
+1. Azure Portal **Key Vault** 이동합니다.
+1. 인증서가 포함된 키 자격 증명 모음을 선택합니다.
+1. 권한 모델 자격 증명 **모음 액세스 정책을** 사용하는 경우: **액세스 정책을** **선택하고, + 액세스 정책 추가를** 선택하고, **비밀 권한에** 대해 **Get을** 선택하고, **보안 주체 선택에서** 사용자 할당 관리 ID를 선택합니다. 그런 다음 **저장** 을 선택합니다.
+   
+   권한 모델 Azure 역할 **기반 액세스 제어를** 사용하는 경우: **액세스 제어(IAM)** 를 선택하고 비밀 사용자 역할의 Azure 키 자격 증명 모음에 사용자 할당 관리 ID에 대한 역할 할당 **Key Vault** [추가합니다.](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#assign-a-role-to-a-user-assigned-managed-identity)
+
+### <a name="verify-firewall-permissions-to-key-vault"></a>Key Vault 방화벽 사용 권한 확인
+
+2021년 3월 15일부터 Key Vault Azure Key Vault 인증을 위해 사용자 관리 ID를 활용하여 Application Gateway 신뢰할 수 있는 서비스로 인식합니다.  서비스 엔드포인트를 사용하고 키 자격 증명 모음의 방화벽에 대해 신뢰할 수 있는 서비스 옵션을 사용하도록 설정하면 Azure에서 보안 네트워크 경계를 구축할 수 있습니다. 모든 네트워크(인터넷 트래픽 포함)에서 Key Vault 트래픽에 대한 액세스를 거부할 수 있지만 구독에서 Application Gateway 리소스에 Key Vault 액세스할 수 있습니다.
 
 제한된 키 자격 증명 모음을 사용하는 경우 다음 단계를 사용하여 방화벽 및 가상 네트워크를 사용하도록 Application Gateway 구성합니다. 
 
@@ -82,31 +87,61 @@ Key Vault Application Gateway 통합은 3단계 구성 프로세스입니다.
   
 ![방화벽 및 가상 네트워크를 사용하도록 Application Gateway 구성하기 위한 선택 항목을 보여 주는 스크린샷](media/key-vault-certs/key-vault-firewall.png)
 
-Azure CLI 또는 PowerShell을 사용하여 ARM 템플릿을 통해 또는 Azure Portal 배포된 Azure 애플리케이션을 통해 Application Gateway 인스턴스를 배포하는 경우 SSL 인증서는 키 자격 증명 모음에 Base64로 인코딩된 PFX 파일로 저장됩니다. [배포 중에 Azure Key Vault를 사용하여 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)의 단계를 완료해야 합니다. 
+> [!Note]
+> Azure CLI 또는 PowerShell을 사용하거나 Azure Portal 배포된 Azure 애플리케이션을 통해 ARM 템플릿을 통해 Application Gateway 인스턴스를 배포하는 경우 SSL 인증서는 키 자격 증명 모음에 Base64로 인코딩된 PFX 파일로 저장됩니다. [배포 중에 Azure Key Vault를 사용하여 보안 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)의 단계를 완료해야 합니다. 
+>
+> 특히 `enabledForTemplateDeployment`를 `true`로 설정하는 것이 중요합니다. 인증서에 암호가 있거나 없을 수 있습니다. 암호가 있는 인증서의 경우 다음 예제에서는 Application Gateway ARM `sslCertificates` 템플릿 구성에 대한 의 항목에 대한 가능한 구성을 보여 `properties` 줍니다. 
+>
+> ```
+> "sslCertificates": [
+>      {
+>          "name": "appGwSslCertificate",
+>          "properties": {
+>              "data": "[parameters('appGatewaySSLCertificateData')]",
+>             "password": "[parameters('appGatewaySSLCertificatePassword')]"
+>         }
+>     }
+> ]
+> ```
+>
+> 및 의 `appGatewaySSLCertificateData` `appGatewaySSLCertificatePassword` 값은 동적 ID를 가진 [비밀 참조에](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id)설명된 대로 키 자격 증명 모음에서 조회됩니다. `parameters('secretName')`부터 뒤쪽으로 참조를 따라 이동하면서 조회가 진행되는 방법을 확인합니다. 인증서에 암호가 없는 경우 `password` 항목을 생략합니다.
 
-특히 `enabledForTemplateDeployment`를 `true`로 설정하는 것이 중요합니다. 인증서에 암호가 있거나 없을 수 있습니다. 암호가 있는 인증서의 경우 다음 예제에서는 Application Gateway ARM 템플릿 구성에 대한 의 항목에 대한 가능한 구성을 보여 `sslCertificates` `properties` 줍니다. 
+### <a name="configure-application-gateway-listener"></a>Application Gateway 수신기 구성
 
+#### <a name="key-vault-permission-vault-access-policy-model"></a>Key Vault 권한 자격 증명 모음 액세스 정책 모델
+Azure Portal Application Gateway 이동하여 **수신기** 탭을 선택합니다.  **수신기 추가(또는** 기존 수신기 선택)를 선택하고 프로토콜에 **대해 HTTPS를** 지정합니다.
+
+**인증서 선택에서** **새로 만들기를** 선택한 **다음, Https 설정** **아래의 Key Vault 인증서 선택을 선택합니다.**
+
+인증서 이름에 Key Vault 참조할 인증서의 이름을 입력합니다.  관리 ID, 키 자격 증명 모음 및 인증서를 선택합니다.
+
+선택한 후  **추가(만드는** 경우) 또는 **저장(편집하는** 경우)을 선택하여 참조된 Key Vault 인증서를 수신기에 적용합니다.
+
+#### <a name="key-vault-azure-role-based-access-control-permission-model"></a>Azure 역할 기반 액세스 제어 권한 모델 Key Vault
+Application Gateway 역할 기반 액세스 제어 권한 모델을 통해 Key Vault 참조된 인증서를 지원합니다. 그러나 키 자격 증명 모음을 참조하는 처음 몇 단계는 ARM, Bicep, CLI 또는 PowerShell을 통해 완료해야 합니다. 이 시나리오에 대한 Azure Portal 지원은 아직 제공되지 않습니다.
+
+이 예제에서는 PowerShell을 사용하여 새 Key Vault 인증서를 참조합니다.
 ```
-"sslCertificates": [
-    {
-        "name": "appGwSslCertificate",
-        "properties": {
-            "data": "[parameters('appGatewaySSLCertificateData')]",
-            "password": "[parameters('appGatewaySSLCertificatePassword')]"
-        }
-    }
-]
+# Get the Application Gateway we want to modify
+$appgw = Get-AzApplicationGateway -Name MyApplicationGateway -ResourceGroupName MyResourceGroup
+# Specify the resource id to the user assigned managed identity - This can be found by going to the properties of the managed identity
+Set-AzApplicationGatewayIdentity -ApplicationGateway $appgw -UserAssignedIdentityId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyManagedIdentity"
+# Get the secret ID from key vault
+$secret = Get-AzKeyVaultSecret -VaultName "MyKeyVault" -Name "CertificateName"
+$secretId = $secret.Id # https://<keyvaultname>.vault.azure.net/secrets/<hash>
+# Specify the secret ID from key vault 
+Add-AzApplicationGatewaySslCertificate -KeyVaultSecretId $secretId -ApplicationGateway $appgw -Name $secret.Name
+# Commit the changes to the Application Gateway
+Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
-및 의 `appGatewaySSLCertificateData` `appGatewaySSLCertificatePassword` 값은 동적 ID를 가진 비밀 참조에 설명된 대로 키 자격 [증명 모음에서](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id)조회됩니다. `parameters('secretName')`부터 뒤쪽으로 참조를 따라 이동하면서 조회가 진행되는 방법을 확인합니다. 인증서에 암호가 없는 경우 `password` 항목을 생략합니다.
+명령이 실행되면 Azure Portal Application Gateway 이동하여 수신기 탭을 선택할 수 있습니다.  Lister 추가(또는 기존 항목 선택)를 클릭하고 HTTPS에 대한 프로토콜을 지정합니다.
 
-### <a name="configure-application-gateway"></a>Application Gateway 구성
-
-사용자 할당 관리 ID를 만들고 키 자격 증명 모음을 구성한 후에는 IAM(ID 및 액세스 관리)을 통해 Application Gateway 인스턴스에 대한 관리 ID를 할당할 수 있습니다. PowerShell의 경우 [Set-AzApplicationGatewayIdentity를 참조하세요.](/powershell/module/az.network/set-azapplicationgatewayidentity)
+*인증서 선택에서* 이전 단계에서 명명된 인증서를 선택합니다.  선택한 후  *추가(만드는* 경우) 또는 *저장(편집하는* 경우)을 선택하여 참조된 Key Vault 인증서를 수신기에 적용합니다.
 
 ## <a name="investigating-and-resolving-key-vault-errors"></a>Key Vault 오류 조사 및 해결
 
-Azure Application Gateway 4시간 간격으로 Key Vault 갱신된 인증서 버전을 폴링하는 것이 아닙니다. 또한 오류를 기록하고 Azure Advisor 통합되어 잘못된 구성을 권장 사항으로 제시합니다. 권장 사항에는 문제 및 관련 Key Vault 리소스에 대한 세부 정보가 포함되어 있습니다. 이 정보를 문제 해결 [가이드와](../application-gateway/application-gateway-key-vault-common-errors.md) 함께 사용하여 이러한 구성 오류를 신속하게 해결할 수 있습니다. 
+Azure Application Gateway 4시간 간격으로 Key Vault 갱신된 인증서 버전을 폴링하지 않습니다. 또한 오류를 기록하고 Azure Advisor 통합되어 잘못된 구성을 권장 사항으로 제시합니다. 권장 사항에는 문제 및 관련 Key Vault 리소스에 대한 세부 정보가 포함되어 있습니다. 이 정보를 문제 해결 [가이드와](../application-gateway/application-gateway-key-vault-common-errors.md) 함께 사용하여 이러한 구성 오류를 신속하게 해결할 수 있습니다. 
 
 문제가 검색될 때 [Advisor 경고를](../advisor/advisor-alerts-portal.md) 계속 업데이트하도록 구성하는 것이 좋습니다. 이 특정 사례에 대한 경고를 설정하려면 권장 사항 유형으로 **Application Gateway 대한 Azure Key Vault 문제 해결을** 사용합니다. 
 

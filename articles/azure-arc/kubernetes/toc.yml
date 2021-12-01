@@ -12,10 +12,18 @@
       href: quickstart-connect-cluster.md
 - name: 자습서
   items:
-    - name: GitOps를 사용하여 구성 배포
-      href: tutorial-use-gitops-connected-cluster.md
-    - name: GitOps를 통한 CI/CD 구현
-      href: tutorial-gitops-ci-cd.md
+    - name: GitOps(Flux v1)
+      items:
+        - name: GitOps를 사용하여 구성 배포(Flux v1)
+          href: tutorial-use-gitops-connected-cluster.md
+        - name: GitOps를 통해 CI/CD 구현(Flux v1)
+          href: tutorial-gitops-ci-cd.md
+    - name: GitOps(Flux v2)
+      items:
+        - name: GitOps를 사용하여 구성 배포(Flux v2)
+          href: tutorial-use-gitops-flux2.md
+        - name: GitOps를 통해 CI/CD 구현(Flux v2)
+          href: tutorial-gitops-flux2-ci-cd.md
 - name: 샘플
   items:
     - name: Azure Resource Graph 쿼리
@@ -42,12 +50,20 @@
           href: conceptual-custom-locations.md
     - name: 클러스터에 애플리케이션 배포
       items:
-        - name: 구성 및 GitOps
-          href: conceptual-configurations.md
-        - name: GitOps를 사용하는 CI/CD 워크플로
-          href: conceptual-gitops-ci-cd.md
-        - name: 내부 루프 개발자 환경
-          href: conceptual-inner-loop-gitops.md
+        - name: GitOps(Flux v1)
+          items:
+            - name: 구성 및 GitOps(Flux v1)
+              href: conceptual-configurations.md
+            - name: GitOps를 사용하는 CI/CD 워크플로(Flux v1)
+              href: conceptual-gitops-ci-cd.md
+            - name: 내부 루프 개발자 환경(Flux v1)
+              href: conceptual-inner-loop-gitops.md
+        - name: GitOps(Flux v2)
+          items:
+            - name: 구성 및 GitOps(Flux v2)
+              href: conceptual-gitops-flux2.md
+            - name: GitOps를 사용하는 CI/CD 워크플로(Flux v2)
+              href: conceptual-gitops-flux2-ci-cd.md
     - name: 질문과 대답
       href: faq.md
 - name: 방법 가이드
@@ -62,12 +78,14 @@
       href: azure-rbac.md
     - name: 클러스터에 애플리케이션 배포
       items:
-        - name: GitOps를 사용하여 Helm 차트 배포
-          href: use-gitops-with-helm.md
-        - name: Azure Policy를 사용하여 대규모 구성 배포
-          href: use-azure-policy.md
-        - name: IoT 워크로드 배포
-          href: deploy-azure-iot-edge-workloads.md
+        - name: GitOps(Flux v1)
+          items:
+            - name: GitOps를 사용하여 Helm 차트 배포(Flux v1)
+              href: use-gitops-with-helm.md
+            - name: Azure Policy 사용하여 구성의 대규모 배포(Flux v1)
+              href: use-azure-policy.md
+            - name: IoT 워크로드 배포(Flux v1)
+              href: deploy-azure-iot-edge-workloads.md
     - name: 클러스터 관리
       items:
         - name: 클러스터 확장 배포 및 관리
@@ -80,7 +98,7 @@
           href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
         - name: Azure Arc 지원 Open Service Mesh 배포
           href: tutorial-arc-enabled-open-service-mesh.md
-        - name: Azure Key Vault에서 비밀 액세스
+        - name: Azure Key Vault 비밀에 액세스
           href: tutorial-akv-secrets-provider.md
     - name: Arc 지원 서비스 배포
       items:

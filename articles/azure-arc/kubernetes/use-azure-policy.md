@@ -1,28 +1,31 @@
 ---
-title: Azure Policy를 사용 하 여 규모에 맞게 구성 적용
+title: Azure Policy 사용하여 대규모 구성 적용
 services: azure-arc
 ms.service: azure-arc
 ms.date: 11/23/2021
 ms.topic: article
-description: Azure Policy를 사용 하 여 규모에 맞게 구성 적용
+description: Azure Policy 사용하여 대규모 구성 적용
 keywords: Kubernetes, Arc, Azure, K8s, 컨테이너
-ms.openlocfilehash: 90054662ab3ec39f39871cf7ffb29b6562d9de7a
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: c4d4dd1420db863652c5af1f2624c8d7d9ff4d4e
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133047052"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407421"
 ---
-# <a name="apply-configurations-at-scale-using-azure-policy"></a>Azure Policy를 사용 하 여 규모에 맞게 구성 적용
+# <a name="apply-configurations-at-scale-using-azure-policy"></a>Azure Policy 사용하여 대규모 구성 적용
 
-Azure Policy를 사용 하 여 `Microsoft.KubernetesConfiguration/sourceControlConfigurations` Azure Arc 사용 Kubernetes 클러스터 ()에서 대규모로 구성 (리소스 유형)을 적용할 수 있습니다 `Microsoft.Kubernetes/connectedclusters` .
+Azure Policy 사용하여 Azure Arc `Microsoft.KubernetesConfiguration/sourceControlConfigurations` 지원 Kubernetes 클러스터( )에서 대규모로 구성( 리소스 종류)을 적용할 수 `Microsoft.Kubernetes/connectedclusters` 있습니다.
+
+>[!NOTE]
+>이 문서에서 참조하는 기본 제공 정책은 Flux v1이 있는 GitOps용입니다.
 
 Azure Policy를 사용하려면 기본 제공 GitOps 정책 정의를 선택하고 정책 할당을 만듭니다. 정책 할당을 만들 때:
 1. 할당의 범위를 설정합니다.
     * 이 범위에는 구독 또는 관리 그룹 또는 특정 리소스 그룹의 모든 리소스 그룹이 해당됩니다.
 2. 생성될 GitOps 구성의 매개 변수를 설정합니다. 
 
-할당을 만들면 Azure Policy 엔진은 범위 내에 있는 모든 Azure Arc 사용 Kubernetes 클러스터를 식별 하 고 각 클러스터에 GitOps 구성을 적용 합니다.
+할당이 만들어지면 Azure Policy 엔진은 범위 내에 있는 모든 Azure Arc 지원 Kubernetes 클러스터를 식별하고 GitOps 구성을 각 클러스터에 적용합니다.
 
 문제를 분할하기 위해 각각 다른 Git 리포지토리를 가리키는 다른 GitOps 구성이 있는 여러 정책 할당을 만들 수 있습니다. 예를 들어 클러스터 관리자가 하나의 리포지토리를 사용하고 애플리케이션 팀에서 기타 리포지토리를 사용할 수 있습니다.
 
@@ -55,13 +58,13 @@ Azure Policy를 사용하려면 기본 제공 GitOps 정책 정의를 선택하�
     * 자세한 정보는 [정책 할당 만들기 빠른 시작](../../governance/policy/assign-policy-portal.md) 및 [Azure Policy를 사용하여 비준수 리소스 수정 문서](../../governance/policy/how-to/remediate-resources.md)를 참조하세요.
 1. **검토 + 만들기** 를 선택합니다.
 
-정책 할당을 만든 후에는 정책 할당 범위 내에서 생성 된 새 Azure Arc 사용 Kubernetes 클러스터에 구성이 적용 됩니다.
+정책 할당을 만든 후에는 정책 할당 범위 내에서 만든 새 Azure Arc 지원 Kubernetes 클러스터에 구성이 적용됩니다.
 
 기존 클러스터의 경우 수정 작업을 수동으로 실행해야 합니다. 이 작업에서 정책 할당의 효력이 발생하는 데 일반적으로 10~20분이 소요됩니다.
 
 ## <a name="verify-a-policy-assignment"></a>정책 할당 확인
 
-1. Azure Portal에서 Azure Arc 사용 가능 Kubernetes 클러스터 중 하나로 이동 합니다.
+1. Azure Portal Azure Arc 지원 Kubernetes 클러스터 중 하나로 이동합니다.
 1. 사이드바의 **설정** 섹션에서 **정책** 을 선택합니다. 
     * 목록에서 **준수 상태** 를 *규격* 으로 설정하여 이전에 만든 정책 할당을 확인해야 합니다.
 1. 사이드바의 **설정** 섹션에서 **GitOps** 를 선택합니다.
@@ -72,4 +75,4 @@ Azure Policy를 사용하려면 기본 제공 GitOps 정책 정의를 선택하�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Arc 사용 Kubernetes 클러스터를 사용 하 여 컨테이너에 대 한 Azure Monitor를 설정](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)합니다.
+[Azure Arc 지원 Kubernetes 클러스터를 사용하여 컨테이너에 대한 Azure Monitor 설정합니다.](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md)

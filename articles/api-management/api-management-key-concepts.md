@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 9c0cef1c451183c2f5d31f086d2612bf47ab3f7b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9e4df568696ee4bc1cf2ec2d11b951b53425f5a8
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658985"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407440"
 ---
 # <a name="about-api-management"></a>API Management 정보
 
@@ -59,17 +59,6 @@ API Management를 사용하려면 관리자가 API를 만듭니다. 각 API는 �
   * 대화형 콘솔을 통해 API를 사용해 보세요.
   * 계정을 만들고 구독하여 API 키를 가져옵니다.
   * 자신의 사용량에 대한 분석에 액세스합니다.
-
-자세한 내용은 [클라우드 기반 API Management: API 기능을 활용](https://j.mp/ms-apim-whitepaper) PDF 백서를 참조하세요. CITO Research의 API Management에 대한 이 소개 백서는 다음을 설명합니다. 
- 
- * 공통 API 요구 사항 및 특징
- * API 분리 및 외관 제공
- * 개발자가 시작 및 신속하게 실행
- * 액세스 보안
- * 분석 및 메트릭
- * API Management 플랫폼으로 제어 및 파악
- * 클라우드 대 온-프레미스 솔루션 사용
- * Azure API Management
  
 ## <a name="apis-and-operations"></a><a name="apis"> </a>API 및 작업
 API는 API Management 서비스 인스턴스의 기반입니다. 각 API는 개발자가 사용할 수 있는 작업 집합을 나타냅니다. 각 API에는 API를 구현하는 백 엔드 서비스에 대한 참조가 포함되어 있으며, 해당 작업은 백 엔드 서비스에 의해 구현되는 작업에 매핑됩니다. API Management의 작업은 매우 다양하게 구성할 수 있으며 URL 매핑, 쿼리 및 경로 매개 변수, 요청 및 응답 콘텐츠, 작업 응답 캐싱 등을 더 효율적으로 제어할 수 있습니다. 속도 제한, 할당량 및 IP 제한 정책 또한 API 또는 개별 작업 수준에서 구현할 수 있습니다.
@@ -113,13 +102,6 @@ API Management 정책의 전체 목록을 보려면 [정책 참조][Policy refer
 
 사용자 지정 콘텐츠를 추가하고, 스타일을 사용자 지정하고, 브랜딩을 추가하여 개발자 포털의 모양을 사용자 지정할 수 있습니다.
 
-## <a name="api-management-and-the-api-economy"></a>API Management 및 API 경제
-
-API Management에 대해 자세히 알아보려면 Microsoft Ignite 2017 conference에서 다음 프레젠테이션을 시청하세요.
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2186/player]
-> 
-> 
 
 ## <a name="next-steps"></a>다음 단계
 

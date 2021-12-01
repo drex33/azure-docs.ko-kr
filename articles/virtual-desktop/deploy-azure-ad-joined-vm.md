@@ -6,14 +6,14 @@ author: Heidilohr
 manager: lizross
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 12/01/2021
 ms.author: helohr
-ms.openlocfilehash: 7b4ec084b39d7efde884f0cee0235f6fd3653538
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 2ba0c29d150f643bfd254d43d1fb50d4291cc8b1
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129987103"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133406623"
 ---
 # <a name="deploy-azure-ad-joined-virtual-machines-in-azure-virtual-desktop"></a>Azure Virtual Desktop에서 Azure AD 조인 가상 머신 배포
 
@@ -36,13 +36,13 @@ ms.locfileid: "129987103"
 - Azure Virtual Desktop(클래식)은 Azure AD 조인 VM을 지원하지 않습니다.
 - Azure AD 조인 VM은 현재 외부 사용자를 지원하지 않습니다.
 - Azure AD 조인 VM은 현재 로컬 사용자 프로필만 지원합니다.
-- Azure AD 조인 VM은 FSLogix 또는 MSIX 앱 연결에 대한 Azure Files 파일 공유에 액세스할 수 없습니다. 이러한 기능 중 하나에 액세스하려면 Kerberos 인증이 필요합니다.
+- Azure AD 조인 VM은 FSLogix 또는 MSIX 앱 연결에 대한 Azure Files 파일 공유에 액세스할 수 없습니다. 이러한 기능에 액세스하려면 Kerberos 인증이 필요합니다.
 - Windows Store 클라이언트는 현재 Azure AD 조인 VM을 지원하지 않습니다.
 - 현재 Azure Virtual Desktop은 Azure AD 조인 VM에 대한 Single Sign-On을 지원하지 않습니다.
 
 ## <a name="deploy-azure-ad-joined-vms"></a>Azure AD 조인 VM 배포
 
-[새 호스트 풀을 만들거나](create-host-pools-azure-marketplace.md) [기존 호스트 풀을 확장](expand-existing-host-pool.md)할 때 Azure Portal에서 직접 Azure AD 조인 VM을 배포할 수 있습니다. Virtual Machines 탭에서 VM을 Active Directory 또는 Azure Active Directory에 조인할지 여부를 선택합니다. **Azure Active Directory** 를 선택하면 자동으로 **Intune에 VM을 등록** 할 수 있는 옵션이 제공되므로 [Windows 10 Enterprise](/mem/intune/fundamentals/windows-virtual-desktop) 및 [Windows 10 Enterprise 다중 세션](/mem/intune/fundamentals/windows-virtual-desktop-multi-session) VM을 간편하게 관리할 수 있습니다. Azure Active Directory 옵션은 VM을 구독과 동일한 Azure AD 테넌트에 조인합니다.
+[새 호스트 풀을 만들거나](create-host-pools-azure-marketplace.md) 기존 호스트 풀을 확장할 때 Azure Portal 직접 Azure AD [조인 VM을](expand-existing-host-pool.md)배포할 수 있습니다. Azure AD 조인 VM을 배포하려면 **Virtual Machines** 탭을 열고 VM을 Active Directory에 조인할지 아니면 Azure Active Directory 조인할지를 선택합니다. **Azure Active Directory** 선택하면 Intune에 VM을 자동으로 등록하는 옵션이 제공되어 [Windows 10 Enterprise](/mem/intune/fundamentals/windows-virtual-desktop) 쉽게 관리하고 다중 세션 VM을 [Windows 10 Enterprise](/mem/intune/fundamentals/windows-virtual-desktop-multi-session) 수 있습니다. Azure Active Directory 옵션은 VM을 현재 구독과 동일한 Azure AD 테넌트만 조인합니다.
 
 > [!NOTE]
 > - 호스트 풀에는 동일한 도메인 가입 유형의 VM만 포함되어야 합니다. 예를 들어 AD 조인 VM은 다른 AD VM에만 있어야 하고 그 반대의 경우도 마찬가지입니다.
@@ -84,7 +84,7 @@ Azure Virtual Desktop 앱에서 조건부 액세스 정책을 설정하여 Azure
 
 ## <a name="user-profiles"></a>사용자 프로필
 
-현재 Azure Virtual Desktop은 Azure AD 조인 VM의 로컬 프로필만 지원합니다.
+Azure Files 저장할 때 Azure AD 조인 VM에서 FSLogix 프로필 컨테이너를 사용할 수 있습니다. 자세한 내용은 [Azure Files 및 Azure AD를 사용하여 프로필 컨테이너 만들기를 참조하세요.](create-profile-container-azure-ad.md)
 
 ## <a name="next-steps"></a>다음 단계
 

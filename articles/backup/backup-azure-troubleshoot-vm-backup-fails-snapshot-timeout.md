@@ -2,16 +2,17 @@
 title: 에이전트 및 확장 문제 해결
 description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오류의 증상, 원인 및 해결 방법
 ms.topic: troubleshooting
-ms.date: 11/10/2021
+ms.date: 12/01/2021
 ms.service: backup
+ms.reviewer: geg
 author: v-amallick
 ms.author: v-amallick
-ms.openlocfilehash: 464b2e6ed2c968ea57d5396570d8a928d9d9bace
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 5efc021e37a602a846f0aeaab5eda210bbb6bc4a
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132301953"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407364"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -160,10 +161,19 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **오류 메시지**: 내부 오류가 발생하여 백업하지 못했습니다. 몇 분 후에 작업을 다시 시도하세요. <br>
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅샷을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅샷이 트리거되지 않을 수 있습니다. 스냅샷이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
-**원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**원인 3: [스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**원인 4: [리소스 그룹이 잠겨 있으므로 Backup 서비스에는 이전 복원 지점을 삭제할 수 있는 사용 권한이 없습니다.](#remove_lock_from_the_recovery_point_resource_group)**<br>
+
+- **원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+- **원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+- **원인 3: [스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+- **원인 4: [리소스 그룹이 잠겨 있으므로 Backup 서비스에는 이전 복원 지점을 삭제할 수 있는 사용 권한이 없습니다.](#remove_lock_from_the_recovery_point_resource_group)**
+- **원인 5:** **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\ {extension version} 모듈 \iaasvmprovider.dll** 실행 중인 Windows 버전과 확장 버전/비트가 손상되었거나 일치하지 않습니다. 이 문제를 해결하려면 모듈이 x86(32비트)/x64(64비트) 버전의 _regsvr32.exe_ 호환되는지 확인하고 다음 단계를 수행합니다.
+
+  1. 영향을 받는 VM에서 **제어판**  ->  **프로그램 및 기능** 으로 이동합니다.
+  1. Visual Studio 2013 **Visual C++ 재배포 가능 패키지** **x64를** 제거합니다.
+  1. VM에서 **Visual Studio 2013** **Visual C++ 재배포 가능 패키지** 다시 설치합니다. 설치하려면 다음 단계를 수행합니다.
+     1. **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\ *{LatestVersion}*** 폴더로 이동합니다.
+     1. **vcredist2013_x64** 파일을 검색하고 실행하여 설치합니다.
+  1. 백업 작업을 다시 시도합니다.
 
 ## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize - 구성된 디스크 크기는 현재 Azure Backup에서 지원되지 않습니다.
 
@@ -224,7 +234,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 

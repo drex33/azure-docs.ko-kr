@@ -1,23 +1,26 @@
 ---
-title: Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 Helm 차트 배포
+title: Azure Arc 사용 Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
 ms.topic: article
-description: Azure Arc 지원 클러스터 구성을 위해 Helm과 함께 GitOps 사용
+description: Azure Arc 사용 클러스터 구성에 대 한 투구와 GitOps 사용
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: bc0dc3f0583c346ae909bbb877a6e8a9a9d66a72
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 3e5693bb9bde14eeabf58bab2304ff9f68c4efb5
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132053296"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407383"
 ---
-# <a name="deploy-helm-charts-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 Helm 차트 배포
+# <a name="deploy-helm-charts-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 사용 Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포
+
+> [!NOTE]
+> 이 문서는 Flux v1을 사용 하는 GitOps를 위한 것입니다.  이제 Flux v2를 사용 하는 GitOps를 Azure Arc 사용 Kubernetes 및 AKS (Azure Kubernetes Service) 클러스터의 미리 보기로 사용할 수 있습니다. [Flux v2를 사용 하는 GitOps 자습서로 이동](./tutorial-use-gitops-flux2.md)합니다.
 
 Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. APT 및 Yum과 같은 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
 
-이 문서에서는 Azure Arc 지원 Kubernetes에서 Helm을 구성하고 사용하는 방법을 보여 줍니다.
+이 문서에서는 Azure Arc 사용 Kubernetes를 사용 하 여 투구를 구성 하 고 사용 하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -31,7 +34,7 @@ Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하
   az extension add --name k8s-configuration
   ```
 
-## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes에서 GitOps 및 Helm 사용 개요
+## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Azure Arc 사용 Kubernetes에서 GitOps 및 투구 사용 개요
 
  Helm 연산자는 Helm 차트 릴리스를 자동화하는 Flux에 대한 확장을 제공합니다. Helm 차트 릴리스는 HelmRelease라는 Kubernetes 사용자 지정 리소스를 통해 설명됩니다. Flux는 이러한 리소스를 Git에서 클러스터로 동기화하는 반면 Helm 연산자는 리소스에 지정된 대로 Helm 차트가 릴리스되도록 합니다.
 

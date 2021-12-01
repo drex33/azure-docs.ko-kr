@@ -1,16 +1,16 @@
 ---
-title: 스마트 그룹
+title: 스마트 그룹 (미리 보기)
 description: 스마트 그룹은 경고 노이즈를 줄이는 데 도움이 되는 경고 집계입니다.
 ms.topic: conceptual
 ms.date: 05/15/2018
-ms.openlocfilehash: 8a164fe6e5fd5be58da969d9266329755705ea82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 594e33aeb77e4a3b9c9324de6111d37809e55f7d
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037968"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407687"
 ---
-# <a name="smart-groups"></a>스마트 그룹
+# <a name="smart-groups-preview"></a>스마트 그룹 (미리 보기)
 
 경고를 처리할 때 발생하는 일반적인 문제는 노이즈를 살펴보고 실제로 중요한 사항을 찾아내는 것입니다. 스마트 그룹은 이 문제를 해결하기 위한 것입니다.  
 
@@ -28,7 +28,7 @@ ms.locfileid: "102037968"
 
 | 시스템 상태 | 설명 |
 |:---|:---|
-| 새로 만들기 | 문제가 방금 검색되었으며 아직 검토되지 않았습니다. |
+| 새로 생성 | 문제가 방금 검색되었으며 아직 검토되지 않았습니다. |
 | 승인됨 | 관리자가 스마트 그룹을 검토하고 작업을 시작했습니다. |
 | 종결 | 문제가 해결되었습니다. 스마트 그룹이 닫힌 후 다른 상태로 변경하면 다시 열 수 있습니다. |
 

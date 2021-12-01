@@ -248,10 +248,10 @@
           href: stream-analytics-monitor-jobs-use-vs.md
     - name: 자동화
       items:
-        - name: .NET SDK 사용
+        - name: PowerShell을 사용 하 여 자동 일시 중지
+          href: automation-powershell.md
+        - name: 관리에 .NET SDK 사용
           href: stream-analytics-dotnet-management-sdk.md
-        - name: Azure PowerShell 사용
-          href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
         - name: IoT Edge 작업용 API 사용
           href: stream-analytics-cicd-api.md
         - name: Azure Resource Manager를 사용하여 내보내기 및 배포

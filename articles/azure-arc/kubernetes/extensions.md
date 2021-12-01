@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Azure Arc에서 확장의 수명 주기 배포 및 관리-사용 Kubernetes
-ms.openlocfilehash: 537dc05a4aaf123667298315e416740e26dce6dc
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 5b6c77350e109afe51b58fd1583c465b4bc7556f
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133047100"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407478"
 ---
 # <a name="deploy-and-manage-azure-arc-enabled-kubernetes-cluster-extensions"></a>Azure Arc 사용 Kubernetes 클러스터 확장 배포 및 관리
 
@@ -64,7 +64,8 @@ Kubernetes extensions 기능을 사용 하면 Azure Arc 사용 Kubernetes 클러
 | [Azure Arc의 Azure App Service](../../app-service/overview-arc-integration.md) | Azure Arc 사용 Kubernetes 클러스터를 기반으로 App Service Kubernetes 환경을 프로 비전 할 수 있습니다. |
 | [Kubernetes의 Event Grid](../../event-grid/kubernetes/overview.md) | Azure Arc 사용 Kubernetes 클러스터 위에 토픽 및 이벤트 구독과 같은 event grid 리소스를 만들고 관리 합니다. |
 | [Azure Arc의 Azure API Management](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Azure Arc 사용 Kubernetes 클러스터에서 API Management 게이트웨이를 배포 하 고 관리 합니다. |
-| [Azure Arc-사용 Machine Learning](../../machine-learning/how-to-attach-arc-kubernetes.md) | Azure Arc 사용 Kubernetes 클러스터에서 Azure Machine Learning를 배포하고 실행합니다. |
+| [Azure Arc 지원 Machine Learning](../../machine-learning/how-to-attach-arc-kubernetes.md) | Azure Arc 사용 Kubernetes 클러스터에서 Azure Machine Learning를 배포하고 실행합니다. |
+| [Flux (GitOps)](./conceptual-gitops-flux2.md) | Flux에서 GitOps를 사용 하 여 클러스터 구성 및 응용 프로그램 배포를 관리 합니다. |
 
 ## <a name="usage-of-cluster-extensions"></a>클러스터 확장 사용
 

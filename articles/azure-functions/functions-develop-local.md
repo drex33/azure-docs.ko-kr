@@ -3,12 +3,12 @@ title: 로컬로 Azure Functions 개발 및 실행
 description: Azure Functions에서 실행하기 전에 로컬 컴퓨터에서 Azure Functions를 코딩 및 테스트하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 4568cd1befc31cbec30758a3117c30762e7de406
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 565671fe097b00d57b3892319ad1f4d6bf5a20e4
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830858"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407535"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -65,7 +65,7 @@ local.settings.json 파일은 로컬 개발 도구에서 사용하는 앱 설정
 | 설정      | 설명                            |
 | ------------ | -------------------------------------- |
 | **`IsEncrypted`** | 이 설정이 `true`로 설정된 경우 모든 값은 로컬 머신 키로 암호화됩니다. `func settings` 명령과 함께 사용됩니다. 기본값은 `false`여야 합니다. 서비스 연결 문자열과 같은 비밀이 포함된 경우 로컬 컴퓨터에서 local.settings.json 파일을 암호화할 수 있습니다. 호스트는 실행 시 자동으로 설정의 암호를 해독합니다. 로컬로 암호화된 설정을 읽으려고 시도하기 전에 `func settings decrypt` 명령을 사용합니다. |
-| **`Values`** | 프로젝트가 로컬로 실행될 때 사용되는 애플리케이션 설정의 컬렉션입니다. 이러한 키-값(문자열-문자열) 쌍은 Azure에서 함수 앱의 애플리케이션 설정에 해당합니다(예: [`AzureWebJobsStorage`]). 많은 트리거와 바인딩에는 연결 문자열 앱 설정을 참조하는 속성(예: [Blob Storage 트리거](functions-bindings-storage-blob-trigger.md#configuration)에 대한 `Connection`)이 있습니다. 이러한 속성의 경우 `Values` 배열에 정의된 애플리케이션 설정이 필요합니다. 일반적으로 사용되는 설정 목록은 다음 표를 참조하세요. <br/>값은 JSON 개체 또는 배열이 아닌 문자열이어야 합니다. 설정 이름에는 콜론(`:`) 또는 이중 밑줄(`__`)을 포함할 수 없습니다. 이중 밑줄 문자는 런타임에 예약되고 콜론은 [종속성 주입](functions-dotnet-dependency-injection.md#working-with-options-and-settings)을 지원하도록 예약되어 있습니다. |
+| **`Values`** | 프로젝트가 로컬로 실행될 때 사용되는 애플리케이션 설정의 컬렉션입니다. 이러한 키-값(문자열-문자열) 쌍은 Azure에서 함수 앱의 애플리케이션 설정에 해당합니다(예: [`AzureWebJobsStorage`]). 많은 트리거와 바인딩에는 연결 문자열 앱 설정을 참조하는 속성(예: [Blob Storage 트리거](functions-bindings-storage-blob-trigger.md#configuration)에 대한 `Connection`)이 있습니다. 이러한 속성의 경우 `Values` 배열에 정의된 애플리케이션 설정이 필요합니다. 일반적으로 사용되는 설정 목록은 다음 표를 참조하세요. <br/>값은 JSON 개체 또는 배열이 아닌 문자열이어야 합니다. 설정 이름에는 이중 밑줄()을 포함할 수 `__` 없으며 콜론( )을 포함하면 안 `:` 됩니다. 이중 밑줄 문자는 런타임에 예약되고 콜론은 [종속성 주입](functions-dotnet-dependency-injection.md#working-with-options-and-settings)을 지원하도록 예약되어 있습니다. |
 | **`Host`** | 이 섹션의 설정은 프로젝트를 로컬에서 실행할 때 Functions 호스트 프로세스를 사용자 지정합니다. 이러한 설정은 Azure에서 프로젝트를 실행하는 경우에도 적용되는 host.json 설정과는 별개입니다. |
 | **`LocalHttpPort`** | 로컬 Functions 호스트(`func host start` 및 `func run`)를 실행할 때 사용되는 기본 포트를 설정합니다. `--port` 명령줄 옵션이 이 설정보다 우선합니다. 예를 들어 Visual Studio IDE에서 실행되는 경우 "프로젝트 속성 -> 디버그" 창으로 이동하고 "애플리케이션 인수" 필드에 제공할 수 있는 `host start --port <your-port-number>` 명령에서 포트 번호를 명시적으로 지정하여 포트 번호를 변경할 수 있습니다. |
 | **`CORS`** | [CORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)에 허용된 원본을 정의합니다. 원본은 공백 없이 쉼표로 구분된 목록으로 제공됩니다. 와일드카드 값(\*)이 지원되므로 모든 원본에서 요청할 수 있습니다. |

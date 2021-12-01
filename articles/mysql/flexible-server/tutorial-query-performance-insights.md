@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 10/01/2021
-ms.openlocfilehash: 63cec8fa00af3e4711c4c6383c68cc09d32ce3d3
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 8df26a5baf87b7d991a656db0e7a634c133f8758
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065714"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407858"
 ---
 # <a name="tutorial-query-performance-insight-for-azure-database-for-mysql-flexible-server"></a>자습서: Azure Database for MySQL 유연한 서버에 대한 Query Performance Insight
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
@@ -20,7 +20,7 @@ Query Performance Insight는 데이터베이스에 대한 인텔리전트 쿼리
 
 Query Performance Insight는 다음과 같은 정보를 제공하여 데이터베이스 성능 문제를 해결하는 데 걸리는 시간을 줄이는 데 도움이 되도록 설계되었습니다.
 * 상위 *N* 개의 장기 실행 쿼리 및 해당 추세
-* 쿼리 세부 정보: 쿼리 텍스트와 실행 기록(최소, 최대, 평균 및 표준 편차 쿼리 시간 포함)을 봅니다.
+* 쿼리 세부 정보: 최소, 최대, 평균 및 표준 편차 쿼리 시간으로 실행 기록을 봅니다.
 * 리소스 사용률(CPU, 메모리 및 스토리지).
  
 이 문서에서는 MySQL 느린 쿼리 로그, Log Analytics 도구 및 통합 문서 템플릿을 사용하여 Azure Database for MySQL 유연한 서버에 대한 Query Performance Insight를 시각화하는 방법에 대해 설명합니다.

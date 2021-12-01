@@ -2,12 +2,12 @@
 metadata:
   title: Virtual Network NAT FAQ(질문과 대답)
   description: Azure Virtual Network NAT 사용과 관련한 일반적인 질문에 대한 답변입니다.
-  ms.openlocfilehash: f704faf4dbd391ffaadfa7c633f88758345d66dc
-  ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+  ms.openlocfilehash: 054fe54dcbdd38d91b64ce15eef215e8ef5804c7
+  ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/17/2021
-  ms.locfileid: "132730634"
+  ms.lasthandoff: 12/01/2021
+  ms.locfileid: "133407250"
 title: Azure Virtual Network NAT FAQ(질문과 대답)
 summary: >
   Azure Virtual Network NAT 사용과 관련한 몇 가지 일반적인 질문에 대한 답변입니다.
@@ -24,6 +24,8 @@ sections:
   - question: NAT 게이트웨이 리소스에 여러 공용 IP 주소를 할당하는 경우 IP 주소 중 하나가 제거되면 트래픽이 중단되나요?
     answer: >
       아니요. Virtual Network NAT 게이트웨이 리소스에 여러 공용 IP가 있는 경우 할당된 IP 간에 트래픽 부하를 분산합니다. IP 중 하나를 제거해도 가동 중지 시간이 발생하지 않습니다. NAT 게이트웨이 리소스에서 공용 IP 주소 중 하나를 제거하려는 경우 유지 관리 기간을 사용하여 제거하는 것이 좋습니다.
+  - question: VNet NAT 게이트웨이 리소스에 여러 공용 IP 주소를 할당 하는 경우 서브넷 리소스에서 사용 하는 공용 IP는 무엇입니까?
+    answer: "모든 서브넷 리소스는 아웃 바운드 연결에 대 한 Virtual Network NAT 게이트웨이 리소스에 구성 된 공용 IP 주소를 사용할 수 있습니다. Virtual Network NAT를 통해 새로운 아웃 바운드 연결을 만들 때마다 아웃 바운드 공용 IP가 다를 수 있습니다. \n"
   - question: Virtual Network NAT를 여러 가상 네트워크에 연결할 수 있나요?
     answer: "아니요. Virtual Network NAT를 여러 가상 네트워크에 연결할 수 없습니다.  \n"
   - question: Virtual Network NAT를 여러 서브넷에 연결할 수 있나요?

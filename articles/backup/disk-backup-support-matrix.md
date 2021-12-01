@@ -2,14 +2,17 @@
 title: Azure Disk Backup 지원 매트릭스
 description: Azure Disk Backup 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 12/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8b6ea48a326ec42aaf33af61b0ec1a6a07bae8fe
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
+ms.openlocfilehash: 83ed12b2804a98fc51b34fd02395587580b930a0
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111750932"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407630"
 ---
 # <a name="azure-disk-backup-support-matrix"></a>Azure Disk Backup 지원 매트릭스
 
@@ -17,7 +20,7 @@ ms.locfileid: "111750932"
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Azure Disk Backup은 프랑스 남부, 남아프리카 공화국 서부를 제외한 모든 퍼블릭 클라우드 지역에서 사용할 수 있으며 현재 소버린 클라우드 지역에서는 사용할 수 없습니다. 이러한 지역을 사용할 수 있게 되면 알려 드리겠습니다.
+Azure Disk Backup은 모든 퍼블릭 클라우드 및 소버린 클라우드 지역에서 사용할 수 있습니다.
 
 ## <a name="limitations"></a>제한 사항
 

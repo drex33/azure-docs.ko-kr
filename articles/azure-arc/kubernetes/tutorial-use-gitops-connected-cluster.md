@@ -1,20 +1,23 @@
 ---
 title: '자습서: Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포'
 description: 이 자습서에서는 Azure Arc 지원 Kubernetes 클러스터에 구성을 적용하는 방법을 보여줍니다. 이 프로세스에 대한 개념은 구성 및 GitOps - Azure Arc 지원 Kubernetes 문서를 참조하세요.
-author: shashankbarsin
-ms.author: shasb
+author: csand-msft
+ms.author: csand
 ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
-ms.custom: template-tutorial , devx-track-azurecli
-ms.openlocfilehash: c40720eccde3c075c422d478c1b0cbf493b5196f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: template-tutorial, devx-track-azurecli
+ms.openlocfilehash: 5a15c7f8750e350c35a9fe9a707c0b03a0185027
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124820630"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133407820"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>자습서: Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포 
+
+> [!NOTE]
+> 이 자습서는 Flux v1을 사용 하는 GitOps를 위한 것입니다.  이제 Flux v2를 사용 하는 GitOps를 Azure Arc 사용 Kubernetes 및 AKS (Azure Kubernetes Service) 클러스터의 미리 보기로 사용할 수 있습니다. [Flux v2를 사용 하는 GitOps 자습서로 이동](./tutorial-use-gitops-flux2.md)합니다.
 
 이 자습서에서는 Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성을 적용합니다. 이 문서에서 배울 내용은 다음과 같습니다.
 

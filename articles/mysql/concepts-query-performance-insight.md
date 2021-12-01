@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 4225b7804c2b1308125df116b65a230be7239437
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 3ad5e1e6ef16d54840f67fb211e92cc8f85692a9
+ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642203"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133406509"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Azure Database for MySQL의 Query Performance Insight
 
@@ -32,10 +32,6 @@ Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼�
 
 - 쿼리의 대기 특성 이해
 - 리소스 대기 추세 및 리소스 경쟁이 있는 위치 이해
-
-## <a name="permissions"></a>사용 권한
-
-Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자** 는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

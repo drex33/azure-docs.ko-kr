@@ -4,32 +4,34 @@ description: Communication Services 솔루션 문제를 해결하는 데 필요�
 author: manoskow
 manager: chpalm
 services: azure-communication-services
-ms.author: manoskow
-ms.date: 06/30/2021
+ms.author: prakulka
+ms.date: 11/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 26e62086b12ff6317cf9df9f111e87f764e1a1dc
-ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
+ms.openlocfilehash: dfe29fe520858cfa88ea9520364c111fd059fcb4
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133096889"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133363235"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Azure Communication Services의 문제 해결
 
-이 문서는 Communication Services 솔루션에서 발생할 수 있는 문제를 해결하는 데 도움이 됩니다. SMS 문제를 해결하는 경우 [Event Grid를 통해 전달 보고를 사용](../quickstarts/telephony-sms/handle-sms-events.md)하여 SMS 전달 세부 정보를 캡처할 수 있습니다.
+이 문서는 Communication Services 솔루션에서 발생할 수 있는 문제를 해결하는 데 도움이 됩니다. SMS 문제를 해결하는 경우 [Event Grid를 통해 전달 보고를 사용](../quickstarts/sms/handle-sms-events.md)하여 SMS 전달 세부 정보를 캡처할 수 있습니다.
 
 ## <a name="getting-help"></a>도움말 보기
 
-개발자는 질문을 제출하고, 기능을 제안하고, 문제를 보고하는 것이 좋습니다. 이를 지원하기 위해 지원 옵션이 나열된 [전용 지원 및 도움말 옵션 페이지](../support.md)가 있습니다.
+개발자는 질문을 제출하고, 기능을 제안하고, 문제를 보고하는 것이 좋습니다. 이를 지원하기 위해 지원 옵션이 나열된 [전용 지원 및 도움말 옵션 페이지](../support.md)가 있습니다. 
 
 특정 유형의 문제를 해결하는 데 도움이 되도록 다음 정보 중 하나를 입력하라는 메시지가 표시될 수 있습니다.
 
 * **MS-CV ID**: 이 ID는 호출 및 메시지 문제를 해결하는 데 사용됩니다.
 * **호출 ID**: 이 ID는 Communication Services 호출을 식별하는 데 사용됩니다.
 * **SMS 메시지 ID**: 이 ID는 SMS 메시지를 식별하는 데 사용됩니다.
+* **짧은 코드 프로그램 BRIEF id**:이 id는 짧은 코드 프로그램 brief 응용 프로그램을 식별 하는 데 사용 됩니다.
 * **통화 로그**: 이러한 로그에는 통화 및 네트워크 문제를 해결하는 데 사용할 수 있는 자세한 정보가 포함되어 있습니다.
 
+또한 제한 및 제한 사항에 대 한 자세한 내용은 [서비스 제한](service-limits.md) 설명서를 참조 하세요.
 
 ## <a name="access-your-ms-cv-id"></a>MS CV ID에 액세스
 
@@ -143,6 +145,11 @@ console.log(result); // your message ID will be in the result
 }
 ```
 ---
+## <a name="access-your-short-code-program-brief-id"></a>짧은 코드 프로그램에 대 한 brief ID 액세스
+프로그램 brief ID는 짧은 코드 블레이드의 [Azure Portal](https://portal.azure.com) 에서 찾을 수 있습니다. 
+
+<a name="image-typecontent-sourcemediashort-code-trouble-shootingpng-alt-textscreenshot-showing-a-short-code-program-brief-id"></a>:::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="짧은 코드 프로그램 brief ID를 보여 주는 스크린샷":::
+---
 
 ## <a name="enable-and-access-call-logs"></a>통화 로그 활성화 및 액세스
 
@@ -192,7 +199,7 @@ Windows용으로 개발할 때 로그는 `.blog` 파일에 저장됩니다. 로�
 2. `cmd.exe` 입력
 3. `where /r %USERPROFILE%\AppData acs*.blog` 입력
 4. 애플리케이션의 앱 ID가 이전 명령에서 반환된 ID와 일치하는지 확인합니다.
-5. `start `를 입력한 다음 3단계에서 반환된 경로를 입력하여 로그가 포함된 폴더를 엽니다. 예: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
+5. `start `를 입력한 다음 3단계에서 반환된 경로를 입력하여 로그가 포함된 폴더를 엽니다. `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. 모든 `*.blog` 및 `*.etl` 파일을 Azure 지원 요청에 첨부합니다.
 
 ## <a name="finding-azure-active-directory-information"></a>Azure Active Directory 정보 찾기
@@ -261,6 +268,29 @@ Azure Communication Services 채팅 SDK는 다음 오류 코드를 사용하여 
 | 429 | 너무 많은 요청 | 클라이언트 쪽 애플리케이션이 사용자에게 친숙한 방식으로 이 시나리오를 처리하는지 확인합니다. 오류가 계속되면 지원 요청을 제출하세요. |
 | 503 | 서비스를 사용할 수 없음 | Azure Portal을 통해 지원 요청을 제출합니다. |
 
+## <a name="sms-error-codes"></a>SMS 오류 코드
+
+Azure Communication Services SMS SDK는 다음 오류 코드를 사용 하 여 SMS 문제를 해결 하는 데 도움이 됩니다. 오류 코드는 SMS 배달 보고서의 "DeliveryStatusDetails" 필드를 통해 노출 됩니다. 
+
+| 오류 코드 | Description | 수행할 작업 |
+| -------- | ---------------| ---------------|
+| 2000 | 메시지 배달 성공 |  |
+| 4000 | 사기 감지로 인해 메시지가 거부 됨 | 사용자 수에 대해 허용 되는 최대 메시지 수를 초과 하지 않는지 확인 하세요.|
+| 4001 | 잘못 된 원본/원본 번호 형식으로 인해 메시지가 거부 되었습니다.| To 번호는 E. 164 형식으로 지정 하 고 숫자 형식은 E. 164 또는 Short 코드 형식 인지 확인 합니다. |
+| 4002 | 잘못 된 대상/숫자 형식으로 인해 메시지가 거부 되었습니다.| To number가 E. 164 형식 인지 확인 합니다. |
+| 4003 | 지원 되지 않는 대상으로 인해 메시지를 배달 하지 못했습니다.| 보내려는 대상이 지원 되는지 확인 합니다. |
+| 4004 | 대상/대상 번호가 없으므로 메시지를 배달 하지 못했습니다.| 보내는 대상 번호가 올바른지 확인 합니다. |
+| 4005 | 메시지가 대상 캐리어에 의해 차단 됨|  |
+| 4006 | 대상/대상 번호에 연결할 수 없습니다.| 나중에 메시지를 다시 전송 해 보세요. |
+| 4007 | 대상/대상 번호에서 메시지를 수신 하지 못했습니다.| 숫자에 대 한 추가 메시지를 시도 하지 않도록 대상/대상 번호를 옵트아웃 (opt out)으로 표시 합니다.|
+| 4008 | 프로필에 허용 되는 최대 메시지 수를 초과 했습니다.| 사용자의 수에 대해 허용 되는 최대 메시지 수를 초과 하거나 큐를 사용 하 여 메시지를 일괄 처리 하지 않았는지 확인 합니다. |
+| 5,000 | 메시지를 배달 하지 못했습니다. 자세한 내용은 Microsoft 지원 팀에 문의 하세요.| Azure Portal를 통해 지원 요청을 파일에 만듭니다. |
+| 5001 | 응용 프로그램/시스템을 일시적으로 사용할 수 없기 때문에 메시지를 배달 하지 못했습니다.|  |
+| 5002 | 메시지 배달 제한 시간|  메시지를 다시 전송 해 보세요. |
+| 9999 | 알 수 없는 오류/오류로 인해 메시지를 배달 하지 못했습니다.|  메시지를 다시 전송 해 보세요. |
+
+
 ## <a name="related-information"></a>관련 정보
 - [로그 및 진단](logging-and-diagnostics.md)
 - [메트릭](metrics.md)
+- [서비스 제한](service-limits.md)

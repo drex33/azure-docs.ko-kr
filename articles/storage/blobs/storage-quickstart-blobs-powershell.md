@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell, mode-api
-ms.openlocfilehash: 4c29fc70f2bab8b4cc6b047a80c43a0f3f89194c
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 3f58151e0c417df369b6c8585c18b7ecc3673d46
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133069353"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133357702"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -56,7 +56,7 @@ Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 
 # upload a file to the default account (inferred) access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\Image000.jpg" `
   -Container $containerName `
-  -Blob "Image001.jpg" `
+  -Blob "Image000.jpg" `
   -Context $ctx
 
 # upload a file to the Hot access tier

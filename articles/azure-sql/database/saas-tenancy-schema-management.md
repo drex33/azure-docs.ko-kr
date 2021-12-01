@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 86ddf829f44f18dd7e29ae99aa86a3cad6c2b224
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: eccbb31d02e4148f73c9e35e510eea9229fbe205
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694218"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364527"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database를 사용하여 SaaS 애플리케이션에서 테넌트별 데이터베이스 패턴으로 스키마 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

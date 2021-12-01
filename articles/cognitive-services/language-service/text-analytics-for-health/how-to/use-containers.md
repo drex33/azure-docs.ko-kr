@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/29/2021
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
-ms.openlocfilehash: eb608e1ab53b78faa1591d2bdcaf92b936b69c47
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: 8520088eab71372d0eb35717867c10fa256b5498
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133270836"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368891"
 ---
 # <a name="use-text-analytics-for-health-containers"></a>상태 컨테이너에 Text Analytics 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "133270836"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 상태 컨테이너에 대해 Text Analytics를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
@@ -74,6 +74,8 @@ Text Analytics for Health 컨테이너를 설치하고 실행할 수 있는 여�
 - Azure Portal를 사용 하 여 언어 리소스를 만들고 Docker를 사용 하 여 컨테이너를 가져옵니다.
 - Docker와 함께 Azure VM을 사용하여 컨테이너를 실행합니다. [Azure의 Docker](../../../../docker/index.yml)를 참조하세요.
 - 다음 PowerShell 및 Azure CLI 스크립트를 사용하여 리소스 배포 및 컨테이너 구성을 자동화할 수 있습니다.
+
+상태 컨테이너에 Text Analytics를 사용 하는 경우 API 요청 및 응답에 포함 된 데이터는 Microsoft에 표시 되지 않으며 데이터에 적용 된 모델을 학습 하는 데 사용 되지 않습니다. 
 
 ### <a name="run-the-container-locally"></a>컨테이너를 로컬로 실행
 
@@ -215,7 +217,7 @@ server {
 
 #### <a name="example-docker-compose-file"></a>Docker Compose 파일 예제
 
-아래 예제에서는 NGINX 및 상태 컨테이너를 배포하기 위해 [docker compose](https://docs.docker.com/compose/reference/overview) 파일을 만드는 방법을 보여줍니다.
+아래 예제에서는 NGINX 및 health 컨테이너를 배포 하기 위해 [docker 작성](https://docs.docker.com/compose/reference/overview) 파일을 만드는 방법을 보여 줍니다.
 
 ```yaml
 version: "3.7"
@@ -269,7 +271,7 @@ curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --hea
 
 ```
 
-다음 JSON은 상태 요청의 POST 본문에 대한 Text Analytics 연결된 JSON 파일의 예입니다.
+다음 JSON은 상태 요청의 POST 본문에 대 한 Text Analytics에 연결 된 JSON 파일의 예입니다.
 
 ```json
 example.json
@@ -292,7 +294,7 @@ example.json
 
 ### <a name="container-response-body"></a>컨테이너 응답 본문
 
-다음 JSON은 컨테이너화된 동기 호출의 상태 응답 본문에 대한 Text Analytics 예입니다.
+다음 JSON은 컨테이너 화 된 동기 호출의 상태 응답 본문에 대 한 Text Analytics의 예입니다.
 
 ```json
 {
@@ -433,17 +435,17 @@ example.json
 }
 ```
 
-## <a name="run-the-container-with-client-library-support"></a>클라이언트 라이브러리 지원을 사용하여 컨테이너 실행
+## <a name="run-the-container-with-client-library-support"></a>클라이언트 라이브러리 지원으로 컨테이너를 실행 합니다.
 
-컨테이너 `3.0.017010001-onprem-amd64` 버전(또는 컨테이너를 사용하는 `latest` 경우)부터 클라이언트 [라이브러리](../quickstart.md)를 사용하여 상태 컨테이너에 대한 Text Analytics 실행할 수 있습니다. 이렇게 하려면 명령에 다음 매개 변수를 추가합니다. `docker run`
+컨테이너 버전부터 `3.0.017010001-onprem-amd64` 또는 컨테이너를 사용 하는 경우 `latest` [클라이언트 라이브러리](../quickstart.md)를 사용 하 여 상태 컨테이너에 대 한 Text Analytics를 실행할 수 있습니다. 이렇게 하려면 다음 매개 변수를 명령에 추가 합니다 `docker run` .
 
 `enablelro=true`
 
-나중에 클라이언트 개체를 인증할 때 컨테이너가 실행 중인 엔드포인트를 사용합니다.
+이후에 클라이언트 개체를 인증할 때 컨테이너가 실행 중인 끝점을 사용 합니다.
 
 `http://localhost:5000`
 
-예를 들어 C#을 사용하는 경우 다음 코드를 사용합니다.
+예를 들어 c #을 사용 하는 경우 다음 코드를 사용 합니다.
 
 ```csharp
 var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analytics-key");
@@ -461,18 +463,18 @@ var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analyti
 
 ## <a name="billing"></a>결제
 
-상태 컨테이너에 대한 Text Analytics Azure 계정의 _언어_ 리소스를 사용하여 청구 정보를 Azure로 보냅니다. 
+상태 컨테이너에 대 한 Text Analytics Azure 계정의 _언어_ 리소스를 사용 하 여 azure로 청구 정보를 보냅니다. 
 
 [!INCLUDE [Container's Billing Settings](../../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 상태 컨테이너에 대한 Text Analytics 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
+이 문서에서는 상태 컨테이너에 대 한 Text Analytics를 다운로드, 설치 및 실행 하기 위한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
 
-* 상태 Text Analytics Docker용 Linux 컨테이너 제공
+* 상태에 대 한 Text Analytics는 Docker 용 Linux 컨테이너를 제공 합니다.
 * 컨테이너 이미지는 Microsoft 컨테이너 레지스트리(MCR)에서 다운로드됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
-* REST API 또는 SDK를 사용하여 컨테이너의 호스트 URI를 지정하여 상태 컨테이너에 대한 Text Analytics 작업을 호출할 수 있습니다.
+* 컨테이너의 호스트 URI를 지정 하 여 REST API 또는 SDK를 사용 하 여 상태 컨테이너에 대 한 Text Analytics에서 작업을 호출할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.
 
 > [!IMPORTANT]

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell, devx-track-azurecli, mode-other
-ms.openlocfilehash: 07aa2418d66a709d430a77b20a6577524070908b
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: c8e3315be48c0285d773a06bae5fcccc717df1b0
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133067070"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133358966"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 비밀 클라이언트 라이브러리
 
@@ -76,14 +76,6 @@ Python용 Azure Key Vault 비밀 클라이언트 라이브러리를 시작합니
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
 ```
 
-#### <a name="set-environment-variables"></a>환경 변수 설정
-
-이 애플리케이션은 키 자격 증명 모음 이름을 `KEY_VAULT_NAME`이라는 환경 변수로 사용합니다.
-
-```bash
-export KEY_VAULT_NAME=<your-key-vault-name>
-```
-
 ## <a name="create-the-sample-code"></a>샘플 코드 만들기
 
 Python용 Azure Key Vault 비밀 클라이언트 라이브러리를 사용하면 비밀을 관리할 수 있습니다. 다음 코드 샘플에서는 클라이언트를 만들고, 비밀을 설정하고, 비밀을 검색하고 비밀을 삭제하는 방법을 보여줍니다.
@@ -138,9 +130,9 @@ python kv_secrets.py
 
 ### <a name="authenticate-and-create-a-client"></a>클라이언트 인증 및 만들기
 
-이 빠른 시작에서 로그인한 사용자는 로컬 개발에서 기본적으로 설정되는 방법인 키 자격 증명 모음에 인증하는 데 사용됩니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+이 빠른 시작에서는 로그인한 사용자를 사용하여 키 자격 증명 모음을 인증합니다. 이는 로컬 개발에 선호되는 방법입니다. Azure에 배포된 애플리케이션의 경우 관리 ID를 App Service 또는 Virtual Machine에 할당해야 합니다. 자세한 내용은 [관리 ID 개요를 참조하세요.](../../active-directory/managed-identities-azure-resources/overview.md)
 
-아래 예제에서 키 자격 증명 모음 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 키 자격 증명 모음 URI로 확장됩니다. 이 예제는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) 클래스를 사용합니다. 자세한 내용은 [기본 Azure 자격 증명 인증](/python/api/overview/azure/identity-readme)을 참조하세요. 
+아래 예제에서 키 자격 증명 모음의 이름은 "https:// .vault.azure.net" 형식의 "KVUri" 변수 값을 사용하여 \<your-key-vault-name\> 확장됩니다. 이 예제는 ID를 제공하는 다양한 옵션이 있는 서로 다른 환경에서 동일한 코드를 사용할 수 있도록 하는 ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) 클래스를 사용합니다. 자세한 내용은 [기본 Azure 자격 증명 인증](/python/api/overview/azure/identity-readme)을 참조하세요. 
 
 ```python
 credential = DefaultAzureCredential()
@@ -199,7 +191,6 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Key Vault 개요](../general/overview.md)
-- [Key vault에 대한 액세스 보안](../general/security-features.md)
 - [Azure Key Vault 개발자 가이드](../general/developers-guide.md)
 - [Key Vault 보안 개요](../general/security-features.md)
 - [Key Vault로 인증](../general/authentication.md)

@@ -1,21 +1,21 @@
 ---
-title: 상용 marketplace에 대 한 컨설팅 서비스 제품 목록 세부 정보 구성
-description: 파트너 센터를 사용 하 여 Microsoft 상업적 marketplace에서 컨설팅 서비스 제품 목록 세부 정보를 구성 합니다.
+title: 상업용 Marketplace에 대한 컨설팅 서비스 제안 목록 세부 정보 구성
+description: 파트너 센터 사용하여 Microsoft 상업용 Marketplace에서 컨설팅 서비스 제안 목록 세부 정보를 구성합니다.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: emuench
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.openlocfilehash: b810c78cdbee84c23cb810a4a622b2ddceb19471
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.date: 11/30/2021
+ms.openlocfilehash: ff3c4101181901630d359b16d482cc2f5c076e21
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130039071"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133366945"
 ---
-# <a name="configure-consulting-service-offer-listing-details"></a>컨설팅 서비스 제공 목록 세부 정보 구성
+# <a name="configure-consulting-service-offer-listing-details"></a>컨설팅 서비스 제안 목록 세부 정보 구성
 
 파트너 센터의 **제품 목록** 페이지에서 입력한 정보는 Microsoft 상업용 Marketplace 온라인 스토어에 표시됩니다. 해당 정보에는 제품 이름, 설명, 미디어, 기타 마케팅 자산이 포함됩니다.
 
@@ -51,29 +51,29 @@ ms.locfileid: "130039071"
 
 ### <a name="add-logos"></a>로고 추가
 
-**로고** 에서 216 x 216, 350 x 350픽셀 사이의 PNG 형식으로 **큰** 로고를 업로드합니다. 파트너 센터는 **작은**(48 x 48) 로고를 자동으로 만듭니다. 이 로고는 나중에 바꿀 수 있습니다.
+**로고** 아래에서 216x216~350x350 픽셀 크기의 PNG 형식으로 **큰** 로고를 업로드합니다. 파트너 센터 나중에 바꿀 수  있는 작은(48x48 픽셀) 로고를 자동으로 만듭니다.
 
 두 로고 크기는 온라인 스토어의 여러 위치에서 사용됩니다.
 
 * Azure Marketplace 또는 AppSource의 제품 목록 페이지에 **큰** 로고가 표시됩니다.
 * **작은** 로고는 Azure Marketplace 검색 결과 또는 AppSource 기본 페이지와 검색 결과 페이지에 표시됩니다.
 
-### <a name="add-screenshots"></a>스크린샷 추가
+### <a name="add-promotional-images"></a>프로모션 이미지 추가
 
-제품을 보여 주는 이미지를 최대 5개까지 추가합니다. 이미지들은 각각 1280 x 720픽셀로 .PNG 형식이어야 합니다.
+서비스의 가치 제안, 차별화 및 고객 성공을 강조하는 하나 이상의 이미지와 최대 5개의 이미지를 추가합니다. 여기에는 슬라이드 데크, 팩트 시트, 사례 연구 또는 서비스를 요약하는 마케팅 원 페이저의 스냅샷이 포함될 수 있습니다.  모든 이미지의 크기는 1280x720픽셀이고 PNG 형식이어야 합니다.
 
-1. **스크린샷** 에서 .PNG 파일을 **스크린샷** 상자에 끌어 놓습니다.
+1. **프로모션 이미지** 아래에서 PNG 파일을 **이미지** 상자로 끌어서 놓습니다.
 2.  **이미지 캡션 추가** 옆의 **편집** 아이콘을 선택합니다.
 3.  표시되는 대화 상자에서 캡션을 입력합니다.
-4.  1~3단계를 반복하여 스크린샷 추가
+4.  1~3단계를 반복하여 이미지를 추가합니다.
 
 ### <a name="add-videos-optional"></a>비디오 추가(선택 사항)
 
-제품을 설명하는 YouTube 또는 Vimeo 비디오에 대한 링크를 추가할 수 있습니다. 이러한 비디오는 제품과 함께 고객에게 표시됩니다. 비디오의 썸네일 이미지를 1280 x 720픽셀 크기, .PNG 형식으로 입력해야 합니다. 제품당 비디오를 최대 4개까지 추가합니다.
+제품을 설명하는 YouTube 또는 Vimeo 비디오에 대한 링크를 추가할 수 있습니다. 이러한 비디오는 제품과 함께 고객에게 표시됩니다. 크기가 1280x720픽셀이고 PNG 형식인 비디오의 썸네일 이미지를 입력해야 합니다. 제품당 비디오를 최대 4개까지 추가합니다.
 
 1.  **비디오** 에서 **비디오 추가** 링크를 선택합니다.
 2.  표시되는 상자에 비디오의 이름과 링크를 입력합니다.
-3.  회색 썸네일 상자로 .PNG 파일(1280 x 720픽셀)을 끌어서 놓습니다.
+3.  PNG 파일(1280x720픽셀)을 회색 썸네일 상자로 끌어서 놓습니다.
 4.  다른 비디오를 추가하려면 1~3단계를 반복합니다.
 
 다음 탭: **가격 책정 및 가용성** 으로 계속 진행하기 전에 **초안 저장** 을 선택합니다.

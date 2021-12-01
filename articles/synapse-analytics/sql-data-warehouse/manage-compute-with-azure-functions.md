@@ -2,21 +2,21 @@
 title: '자습서: Azure Functions로 컴퓨팅 관리'
 description: Azure Functions를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)의 컴퓨팅을 관리하는 방법입니다.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/27/2018
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9d471991be570cd5242b5e163409e319e5af4094
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
-ms.translationtype: HT
+ms.openlocfilehash: 9e8a452939ffc37d556178398ad372267dc844c3
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790346"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133365234"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-for-your-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Functions를 사용하여 Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)의 컴퓨팅 리소스 관리
 

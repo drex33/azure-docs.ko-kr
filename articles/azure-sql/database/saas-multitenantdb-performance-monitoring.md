@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: cecd9f262d2a2a968659eb08a1a892bfa330428b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 688c51ec2bf91eea931046bbf16aa174ad4218db
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699058"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133362277"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL Database의 성능 모니터링 및 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

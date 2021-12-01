@@ -7,15 +7,15 @@ ms.subservice: machine-learning
 ms.topic: overview
 ms.reviewer: jrasnick, garye, negust, ruxu
 ms.date: 06/30/2021
-author: rothja
-ms.author: jroth
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e3597ea6f92073300759e46deeac9aea007b0b94
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: 1e288c0cb81b99e3b7c3a925d05380529446aa06
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133267910"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368778"
 ---
 # <a name="cognitive-services-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 Cognitive Services
 

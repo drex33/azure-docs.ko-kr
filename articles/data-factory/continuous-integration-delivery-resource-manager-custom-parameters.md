@@ -1,6 +1,6 @@
 ---
-title: Resource Manager 템플릿의 사용자 지정 매개 변수
-description: Azure Data Factory 연속 통합 및 배달을 통해 Resource Manager 템플릿에서 사용자 지정 매개 변수를 사용하는 방법을 알아봅니다.
+title: 리소스 관리자 템플릿의 사용자 지정 매개 변수
+description: Azure Data Factory에서 지속적인 통합 및 배달과 함께 리소스 관리자 템플릿에서 사용자 지정 매개 변수를 사용 하는 방법에 대해 알아봅니다.
 ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
@@ -9,18 +9,18 @@ ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/24/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6584120a0a66fd1d913fdee86a24ce3d91b2555f
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: a94f421d5f82400ab3ab4fa68d8131ea5f0ab14d
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132519670"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133363392"
 ---
 # <a name="use-custom-parameters-with-the-resource-manager-template"></a>Resource Manager 템플릿에서 사용자 지정 매개 변수 사용
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-개발 인스턴스에 연결된 Git 리포지토리가 있는 경우 템플릿을 게시하거나 내보내서 생성된 Resource Manager 템플릿의 기본 Resource Manager 템플릿 매개 변수를 재정의할 수 있습니다. 다음 시나리오에서 기본 Resource Manager 매개 변수 구성을 재정의할 수 있습니다.
+개발 인스턴스에 연결 된 Git 리포지토리가 있는 경우 템플릿을 게시 하거나 내보내 생성 된 리소스 관리자 템플릿의 기본 리소스 관리자 템플릿 매개 변수를 재정의할 수 있습니다. 다음 시나리오에서 기본 Resource Manager 매개 변수 구성을 재정의할 수 있습니다.
 
 * 자동화 CI/CD를 사용하고 Resource Manager 배포 중에 일부 속성을 변경하려고 하지만 속성은 기본적으로 매개 변수화되지 않습니다.
 * 팩터리가 너무 커서 허용되는 최대 매개 변수(256)를 초과했기 때문에 기본 Resource Manager 템플릿이 유효하지 않습니다.
@@ -68,7 +68,7 @@ Resource Manager 템플릿을 내보낼 때 Data Factory는 협업 분기가 아
  
 ## <a name="sample-parameterization-template"></a>샘플 매개 변수화 템플릿
 
-Resource Manager 매개 변수 구성의 예는 다음과 같습니다.
+리소스 관리자 매개 변수 구성의 예는 다음과 같습니다.  파이프라인 내에서 중첩 된 활동의 매개 변수화 및 연결 된 서비스 매개 변수의 defaultValue를 비롯 한 다양 한 사용 가능한 사용법의 예를 포함 합니다.
 
 ```json
 {
@@ -77,7 +77,14 @@ Resource Manager 매개 변수 구성의 예는 다음과 같습니다.
             "activities": [{
                 "typeProperties": {
                     "waitTimeInSeconds": "-::int",
-                    "headers": "=::object"
+                    "headers": "=::object",
+                    "activities": [
+                        {
+                            "typeProperties": {
+                                "url": "-:-webUrl:string"
+                            }
+                        }
+                    ]
                 }
             }]
         }
@@ -116,6 +123,19 @@ Resource Manager 매개 변수 구성의 예는 다음과 같습니다.
             "properties": {
                 "typeProperties": {
                     "dataLakeStoreUri": "="
+                }
+            }
+        },
+        "AzureKeyVault": {
+            "properties": {
+                "typeProperties": {
+                    "baseUrl": "|:baseUrl:secureString"
+                },
+                "parameters": {
+                    "KeyVaultURL": {
+                        "type": "=",
+                        "defaultValue": "|:defaultValue:secureString"
+                    }
                 }
             }
         }
@@ -163,7 +183,7 @@ Resource Manager 매개 변수 구성의 예는 다음과 같습니다.
 * 데이터 세트에 대해 형식별 사용자 지정을 사용할 수 있지만, 명시적으로 \* 수준으로 구성하지 않고도 구성할 수 있습니다. 이전 예에서 `typeProperties` 아래의 모든 데이터 세트 속성은 매개 변수화됩니다.
 
 > [!NOTE]
-> **Azure 경고 및 행렬이** 파이프라인에 대해 구성된 경우 현재 ARM 배포에 대한 매개 변수로 지원되지 않습니다. 새 환경에서 경고 및 매트릭스를 다시 적용하려면 [Data Factory 모니터링, 경고 및 매트릭스](./monitor-metrics-alerts.md)를 따르세요.
+> 파이프라인에 대해 **Azure 경고 및 매트릭스가** 구성 된 경우 현재 ARM 배포에 대 한 매개 변수로 지원 되지 않습니다. 새 환경에서 경고 및 매트릭스를 다시 적용하려면 [Data Factory 모니터링, 경고 및 매트릭스](./monitor-metrics-alerts.md)를 따르세요.
 > 
 
 ## <a name="default-parameterization-template"></a>기본 매개 변수화 템플릿
@@ -433,8 +453,8 @@ Resource Manager 매개 변수 구성의 예는 다음과 같습니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [연속 통합 및 지속적인 업데이트 개요](continuous-integration-delivery.md)
-- [Azure Pipelines 릴리스를 사용 하 여 연속 통합 자동화](continuous-integration-delivery-automate-azure-pipelines.md)
-- [리소스 관리자 템플릿을 각 환경으로 수동으로 승격](continuous-integration-delivery-manual-promotion.md)
+- [Azure Pipelines 릴리스를 사용하여 연속 통합 자동화](continuous-integration-delivery-automate-azure-pipelines.md)
+- [Resource Manager 템플릿을 각 환경으로 수동으로 승격](continuous-integration-delivery-manual-promotion.md)
 - [연결된 Resource Manager 템플릿](continuous-integration-delivery-linked-templates.md)
 - [핫픽스 프로덕션 환경 사용](continuous-integration-delivery-hotfix-environment.md)
 - [ 샘플 배포 전 및 배포 후 스크립트](continuous-integration-delivery-sample-script.md)

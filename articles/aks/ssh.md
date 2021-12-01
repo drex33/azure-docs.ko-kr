@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 05/17/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 87e548cd39c7c064b11131c28790d8335bd942fb
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
-ms.translationtype: HT
+ms.openlocfilehash: 5bd83bc362898d9a193a01a72eb09fb14e59b187
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122530847"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367947"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH와 연결
 
@@ -55,6 +55,9 @@ root@aks-nodepool1-12345678-vmss000000:/#
 ```
 
 이 권한 있는 컨테이너는 노드에 대한 액세스를 제공합니다.
+
+> [!NOTE]
+> 권한 있는 컨테이너에서 를 실행하여 노드 세션과 상호 작용할 수 `chroot /host` 있습니다.
 
 ## <a name="create-the-ssh-connection-to-a-windows-node"></a>Windows 노드에 대한 SSH 연결 만들기
 

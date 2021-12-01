@@ -2,21 +2,21 @@
 title: Gen2 캐시 최적화
 description: Azure Portal을 사용하여 Gen2 캐시를 모니터링하는 방법에 대해 알아봅니다.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 9de795c54f55295fa69ed7fcb5dd894e2963385b
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
-ms.translationtype: HT
+ms.openlocfilehash: ed5b0be7c9885e6fb84de110b7e9c848e398229c
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566633"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133363891"
 ---
 # <a name="how-to-monitor-the-adaptive-cache"></a>적응형 캐시를 모니터링하는 방법
 

@@ -1,41 +1,40 @@
 ---
-title: Azure Maps Power BI 시각적 개체에 막대형 차트 레이어 추가 | Microsoft Azure Maps
-description: 이 문서에서는 Power BI용 Microsoft Azure Maps 시각적 개체에서 막대형 차트 레이어를 사용하는 방법에 대해 설명합니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/26/2020
+title: Azure 지도 Power BI 시각적 개체에 막대형 차트 계층 추가
+titleSuffix: Microsoft Azure Maps
+description: 이 문서에서는 Microsoft Azure 지도 Power BI 시각적 개체에서 막대형 차트 계층을 사용하는 방법을 알아봅니다.
+author: stevemunk
+ms.author: v-munksteve
+manager: eriklind
+ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
-ms.custom: ''
-ms.openlocfilehash: 7e7ea41a95c2b59e124f8f605be52f3ba774f763
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: b7cdc7cf581be07e57c332d0cfd2c23f716174ba
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998640"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133369175"
 ---
 # <a name="add-a-bar-chart-layer"></a>가로 막대형 차트 레이어 추가
 
 **막대형 차트 레이어는** 맵에서 위치 데이터의 시각화를 3D 막대나 원통 형태로 허용해 다음 차원으로 데이터를 가져오는 데 유용합니다. 거품형 레이어와 마찬가지로 막대형 차트는 추후 색과 상대 높이를 사용해 두 메트릭을 동시에 쉽게 시각화할 수 있습니다. 막대의 높이를 표시하려면 **크기** 버킷에 측정값을 추가해 **필드** 창에 추가해 합니다. 측정값이 제공되지 않은 경우에는 **막대 도형** 옵션에 따라 높이가 없는 막대가 플랫 사각형 또는 원으로 표시됩니다.
 
-> [!div class="mx-imgBorder"]
-> ![막대형 차트 레이어를 사용해 점 데이터를 표시하는 맵](media/power-bi-visual/bar-chart-layer-styled.png)
+:::image type="content" source="./media/power-bi-visual/bar-chart-layer-styled.png" alt-text="막대형 차트 레이어를 사용해 점 데이터를 표시하는 맵":::
 
 사용자는 맵을 기울이거나 회전시켜 여러 관점에서 데이터를 볼 수 있습니다. 다음 방법 중 하나를 사용하여 맵을 기울이거나 피치할 수 있습니다.
 
--   **탐색 컨트롤** 옵션을 **맵 설정** 에서 켜 **서식** 창에서 실행합니다. 그러면 맵을 기울이는 단추가 추가됩니다.
--   마우스 오른쪽 단추를 클릭하고 마우스를 위나 아래로 끕니다.
--   터치 스크린을 사용하여 맵을 두 손가락으로 터치하고 위쪽 또는 아래쪽으로 함께 끕니다.
--   맵에 포커스가 있는 상태에서 **Shift** 키를 누른 채로 **위쪽** 또는 **아래쪽 화살표** 키를 누릅니다.
+- **탐색 컨트롤** 옵션을 **맵 설정** 에서 켜 **서식** 창에서 실행합니다. 그러면 맵을 기울이는 단추가 추가됩니다.
+- 마우스 오른쪽 단추를 클릭하고 마우스를 위나 아래로 끕니다.
+- 터치 스크린을 사용하여 맵을 두 손가락으로 터치하고 위쪽 또는 아래쪽으로 함께 끕니다.
+- 맵에 포커스가 있는 상태에서 **Shift** 키를 누른 채로 **위쪽** 또는 **아래쪽 화살표** 키를 누릅니다.
 
 다음 방법 중 하나를 사용하여 맵을 회전시킬 수 있습니다.
 
--   **탐색 컨트롤** 옵션을 **맵 설정** 에서 켜 **서식** 창에서 실행합니다. 맵을 회전시키는 단추가 추가됩니다.
--   마우스 오른쪽 단추를 누르고 마우스를 왼쪽이나 오른쪽으로 끕니다.
--   터치 스크린을 사용하여 두 손가락으로 맵을 터치하고 회전합니다.
--   맵에 포커스가 있는 상태에서 **Shift** 키를 누른 채 **왼쪽** 또는 **오른쪽 화살표** 키를 누릅니다.
+- **탐색 컨트롤** 옵션을 **맵 설정** 에서 켜 **서식** 창에서 실행합니다. 맵을 회전시키는 단추가 추가됩니다.
+- 마우스 오른쪽 단추를 누르고 마우스를 왼쪽이나 오른쪽으로 끕니다.
+- 터치 스크린을 사용하여 두 손가락으로 맵을 터치하고 회전합니다.
+- 맵에 포커스가 있는 상태에서 **Shift** 키를 누른 채 **왼쪽** 또는 **오른쪽 화살표** 키를 누릅니다.
 
 다음은 **서식** 창의 모든 설정으로, **막대형 차트 레이어** 섹션에서 사용할 수 있습니다.
 

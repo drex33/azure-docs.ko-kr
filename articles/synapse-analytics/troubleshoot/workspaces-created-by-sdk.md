@@ -1,18 +1,18 @@
 ---
 title: '문제 해결: SDK에서 만든 작업 영역에서 Synapse Studio를 시작할 수 없음'
 description: SDK에서 만든 작업 영역에서 Synapse Studio를 시작할 수 없는 문제를 해결하는 단계
-author: julieMSFT
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.topic: troubleshooting
 ms.service: synapse-analytics
 ms.subservice: troubleshooting
 ms.date: 11/24/2020
-ms.openlocfilehash: 54341621e0b696d2bc4b8570c6936d1fae78514e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
-ms.translationtype: HT
+ms.openlocfilehash: 86ebcaa35af5de612a98901771b523e9c5883d81
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139906"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367990"
 ---
 # <a name="troubleshoot-azure-synapse-analytics-workspaces-created-using-sdk"></a>SDK를 사용하여 만든 Azure Synapse Analytics 작업 영역 문제 해결
 

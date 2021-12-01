@@ -1,27 +1,26 @@
 ---
-title: Azure Maps Power BI 시각적 개체에 실시간 트래픽 표시 | Microsoft Azure 맵
-description: 이 문서에서는 Power BI용 Microsoft Azure Maps 시각적 개체에 실시간 트래픽을 표시하는 방법을 알아봅니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/26/2020
+title: Azure Maps Power BI 시각적 개체에 실시간 트래픽 표시
+titleSuffix: Microsoft Azure Maps
+description: 이 문서에서는 Microsoft Azure 지도 Power BI 시각적 개체에 실시간 트래픽을 표시 하는 방법을 알아봅니다.
+author: stevemunk
+ms.author: v-munksteve
+manager: erikland
+ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
-ms.custom: ''
-ms.openlocfilehash: ea6959aef0bf142f630dca576fe40a18329948bd
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 6884e4c9286aacc84e6ee69fa93a009310f4fb42
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428941"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133362444"
 ---
 # <a name="show-real-time-traffic"></a>실시간 트래픽 표시
 
 트래픽 레이어 기능은 지도 위에 실시간 트래픽 데이터를 오버레이합니다. 이 기능을 사용하도록 설정하려면 **형식** 창의 **트래픽 레이어** 슬라이더를 **켜기** 위치로 이동합니다. 그러면 트래픽 흐름 데이터가 색으로 구분된 도로로 오버레이됩니다.
 
-> [!div class="mx-imgBorder"]
-> ![실시간 트래픽 데이터를 표시하는 맵](media/power-bi-visual/traffic-layer.png)
+:::image type="content" source="media/power-bi-visual/traffic-layer.png" alt-text="실시간 트래픽 데이터를 표시 하는 맵입니다.":::
 
 다음 설정은 **트래픽 레이어** 섹션에서 사용할 수 있습니다.
 
@@ -38,4 +37,4 @@ Azure Maps Power BI 시각적 개체에 대해 자세히 알아봅니다.
 > [Azure Maps Power BI 시각적 개체의 레이어 이해](power-bi-visual-understanding-layers.md)
 
 > [!div class="nextstepaction"]
-> [조직 내에서 Azure Maps 시각적 개체 관리](power-bi-visual-manage-access.md)
+> [조직 내에서 Azure Maps Power BI 시각적 개체 관리](power-bi-visual-manage-access.md)

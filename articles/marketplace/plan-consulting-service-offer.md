@@ -1,23 +1,23 @@
 ---
-title: 상업용 Marketplace에 대한 컨설팅 서비스 제안 계획
-description: 파트너 센터 Microsoft AppSource 또는 Azure Marketplace 컨설팅 서비스 제안을 계획합니다.
+title: 상업적 marketplace에 대 한 컨설팅 서비스 제품 계획
+description: 파트너 센터에서 Microsoft AppSource 또는 Azure Marketplace에 대 한 컨설팅 서비스 제품을 계획 합니다.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: emuench
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.openlocfilehash: 29c7460d8d9831a671759f6bf5f1ce3711a1a12d
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.date: 11/30/2021
+ms.openlocfilehash: a87918e65137f47b0c9d6362d5b0da091df1829b
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130041484"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133366086"
 ---
 # <a name="plan-a-consulting-service-offer"></a>컨설팅 서비스 제품 계획
 
-이 문서에서는 상업용 Marketplace에 컨설팅 서비스 제안을 게시하기 위한 다양한 옵션 및 요구 사항을 소개합니다. 파트너 센터 사용하여 게시할 제안을 준비하려면 이 문서를 읽어보세요.
+이 문서에서는 컨설팅 서비스 제품을 상업적 marketplace에 게시 하기 위한 다양 한 옵션 및 요구 사항을 소개 합니다. 파트너 센터를 사용 하 여 게시에 대 한 제품을 준비 하려면이 문서를 참조 하세요.
 
 ## <a name="whats-a-consulting-service"></a>컨설팅 서비스란 무엇인가요?
 
@@ -90,7 +90,7 @@ AppSource와 Azure Marketplace의 차이점을 자세히 알아보려면 [상업
 * **개념 증명**: 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위 구현입니다.
 * **워크샵**: 고객의 시설에서 수행되는 대화형 참여입니다. 고객의 데이터나 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함될 수 있습니다.
 
-서비스에는 최대 12개월의 미리 결정된 기간이 있어야 합니다. 서비스 기간은 제안 목록에서 명시적으로 정의해야 합니다.
+서비스에는 최대 12 개월의 미리 정의 된 기간이 있어야 합니다. 서비스 기간은 제품 목록에 명시적으로 정의 되어 있어야 합니다.
 
 ## <a name="customer-leads"></a>잠재 고객
 
@@ -115,7 +115,7 @@ AppSource와 Azure Marketplace의 차이점을 자세히 알아보려면 [상업
 7. Offer name
 8. 검색 결과 요약
 9. 설명
-10. 스크린샷/비디오
+10. 홍보 미디어
 11. 지원 문서
 
 > [!NOTE]
@@ -160,7 +160,7 @@ HTML 태그를 사용하여 설명의 서식을 지정할 수 있습니다. 이 
 
 **검색 키워드**(선택 사항): 고객이 온라인 스토어에서 제품을 찾는 데 사용할 수 있는 최대 3개의 검색 키워드를 입력합니다. 제품 **이름** 및 **설명** 을 포함할 필요가 없습니다.
 
-**기간:** 컨설팅 서비스 제안에는 최대 12개월의 미리 결정된 기간이 있어야 합니다.
+**기간**: 컨설팅 서비스 제품에는 미리 결정 된 기간 (최대 12 개월)이 있어야 합니다.
 
 **연락처 정보**: 파트너 센터에서 회사에 소속된 두 사람의 이름, 메일 주소, 전화 번호를 입력하라는 메시지가 표시됩니다(자신이 두 연락처 중 하나일 수 있음). 해당 정보를 사용하여 제품에 대한 의견을 교환합니다. 해당 정보는 고객에게 표시되지 않지만, CSP(클라우드 솔루션 공급자) 파트너에게 제공될 수 있습니다.
 
@@ -168,8 +168,8 @@ HTML 태그를 사용하여 설명의 서식을 지정할 수 있습니다. 이 
 
 **Marketplace 미디어 – 로고**: 큰 로고용 PNG 파일을 제공합니다. 파트너 센터에서는 이를 사용하여 작은 로고를 만듭니다. 필요에 따라 작은 로고를 나중에 다른 이미지로 바꿀 수 있습니다.
 
-* 큰 로고(216x216~350x350픽셀, 필수)
-* 작은 로고(48x48픽셀, 선택 사항)
+* 큼 (216x216에서 350x350 픽셀, 필수)
+* Small (48x48 픽셀, 선택 사항)
 
 큰 로고는 Azure Marketplace 또는 AppSource의 제품 목록 페이지에 표시됩니다. 작은 로고는 Azure Marketplace 검색 결과 또는 AppSource 기본 페이지와 검색 결과 페이지에 표시됩니다.
 
@@ -180,9 +180,9 @@ HTML 태그를 사용하여 설명의 서식을 지정할 수 있습니다. 이 
 * 투명한 배경을 사용하는 경우 로고 및 텍스트는 흰색, 검은색 또는 파란색이 아니어야 합니다.
 * 로고 또는 배경에서 그라데이션을 피합니다. 로고에 회사 또는 브랜드 이름을 포함한 텍스트를 놓지 마십시오.
 
-**Marketplace 미디어 – 스크린샷**: 제품을 설명하는 1~5개의 이미지를 추가합니다. 이미지들은 각각 1280 x 720픽셀로 .PNG 형식이어야 합니다.
+**Marketplace 미디어 – 프로 모션 이미지**: 서비스의 가치 제안, 차별화 및 고객 성공 여부를 강조 하는 이미지를 하나 이상 추가 하 고 최대 5 개의 이미지를 추가 합니다. 여기에는 슬라이드 데크, 팩트 시트, 사례 연구 또는 마케팅 원에서 서비스를 요약 한 스냅숏이 포함 될 수 있습니다. 모든 이미지는 크기와 PNG 형식의 1280x720 픽셀 이어야 합니다.
 
-**Marketplace 미디어 – 비디오**(선택 사항): 제품을 설명하는 최대 4개의 비디오를 추가할 수 있습니다. 비디오는 YouTube 또는 Vimeo에서 호스트되고 미리 보기(1280 x 720 PNG 파일)가 있어야 합니다.
+**Marketplace 미디어 – 비디오**(선택 사항): 제품을 설명하는 최대 4개의 비디오를 추가할 수 있습니다. 비디오는 YouTube 또는 Vimeo에서 호스트 되 고 미리 보기 (1280x720 픽셀 PNG 파일)가 있어야 합니다.
 
 ## <a name="pricing-and-availability"></a>가격 책정 및 가용성
 

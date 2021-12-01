@@ -8,16 +8,16 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 952fdeffacf14afaa5fb2845df13cd51558355ec
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 0d7cdc13dabcc7d60ae27c8a20d225446c93d6c3
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694068"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364468"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 애플리케이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

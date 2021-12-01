@@ -1,7 +1,7 @@
 items:
-  - name: Azure 의료 Api (미리 보기) 설명서
+  - name: Azure Healthcare API(미리 보기) 설명서
     href: ../index.yml
-  - name: FHIR 용 Azure API 설명서
+  - name: Azure API for FHIR 설명서
     href: index.yml
   - name: 개요
     expanded: true
@@ -59,13 +59,13 @@ items:
           - name: CMS 상호 운용성 및 환자 액세스 규칙 소개
             href: centers-for-medicare-tutorial-introduction.md
           - name: 파란색 단추에 대한 CARIN 구현 가이드
-            href: ../fhir/carin-implementation-guide-blue-button-tutorial.md
+            href: carin-implementation-guide-blue-button-tutorial.md
           - name: Da Vinci 약품 제조법
-            href: ../fhir/davinci-drug-formulary-tutorial.md
+            href: davinci-drug-formulary-tutorial.md
           - name: Da Vinci PDex
-            href: ../fhir/davinci-pdex-tutorial.md
+            href: davinci-pdex-tutorial.md
           - name: Da Vinci Plan Net
-            href: ../fhir/davinci-plan-net.md
+            href: davinci-plan-net.md
   - name: 방법 가이드
     expanded: true
     items:
@@ -85,7 +85,7 @@ items:
       - name: 설정 구성
         expanded: false
         items:
-          - name: 기타 Azure API 설정 구성
+          - name: 다른 Azure API for FHIR 설정 구성
             href: azure-api-for-fhir-additional-settings.md
           - name: Azure RBAC 구성
             href: configure-azure-rbac.md
@@ -150,7 +150,7 @@ items:
         href: iot-troubleshoot-guide.md
       - name: Azure API for FHIR에 대한 자동 크기 조정
         href: autoscale-azure-api-fhir.md
-      - name: FHIR 용 Azure API에 대 한 재해 복구
+      - name: Azure API for FHIR 재해 복구
         href: disaster-recovery.md
   - name: 개념
     expanded: true
@@ -168,7 +168,7 @@ items:
             href: iot-data-flow.md
           - name: Azure IoT Connector for FHIR(미리 보기) 매핑 템플릿
             href: iot-mapping-templates.md
-      - name: Rest API 기능
+      - name: FHIR Rest API 기능
         href: fhir-rest-api-capabilities.md
       - name: 보안
         items:

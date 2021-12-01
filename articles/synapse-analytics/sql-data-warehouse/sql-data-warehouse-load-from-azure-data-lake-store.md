@@ -2,21 +2,21 @@
 title: '자습서: Azure Data Lake Storage에서 데이터 로드'
 description: COPY 문을 사용하여 Azure Data Lake Storage에서 전용 SQL 풀로 데이터를 로드합니다.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 16f95a86169be04eba202b311fc4437b204ec8b3
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
-ms.translationtype: HT
+ms.openlocfilehash: db821ac31c626545f0bcf80e6fdb2f9c914b599d
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566531"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133358095"
 ---
 # <a name="load-data-from-azure-data-lake-storage-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Data Lake Storage에서 Azure Synapse Analytics의 전용 SQL 풀로 데이터 로드
 

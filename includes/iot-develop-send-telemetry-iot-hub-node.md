@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: e9de31d1902eee0805970524f17a9f85d64c69db
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 8668f45adbb2387cb2b3d0f97392262c9d88c82b
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132876309"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133358068"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
 
@@ -23,7 +23,7 @@ ms.locfileid: "132876309"
 
 - Windows 10
 - Ubuntu 20.04 LTS
-- Raspberry Pi 3 모델 B+에서 실행되는 Raspberry Pi OS 버전 10(Raspian)
+- Raspbian (Raspberry Pi OS) 버전 10, Raspberry Pi 3 모델에서 실행
 
 Raspberry Pi에 대해 명시한 경우를 제외하고는 다음 사전 요구 사항을 개발 컴퓨터에 설치합니다.
 

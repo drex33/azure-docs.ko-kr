@@ -1,27 +1,26 @@
 ---
-title: Azure Maps Power BI 시각적 개체에 거품형 레이어 추가 | Microsoft Azure Maps
-description: 이 문서에서는 Power BI용 Microsoft Azure Maps 시각적 개체를 사용하는 방법을 알아봅니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/26/2020
+title: Azure Maps Power BI 시각적 개체에 거품형 계층 추가
+titleSuffix: Microsoft Azure Maps
+description: 이 문서에서는 Microsoft Azure 지도 Power BI 시각적 개체에서 거품형 계층을 사용 하는 방법에 대해 알아봅니다.
+author: stevemunk
+ms.author: v-munksteve
+manager: erikland
+ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
-ms.custom: ''
-ms.openlocfilehash: 95cfe5b01c80dbf8aaee659735cf416c46cdb585
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5e9534fef24011f3fc3538792a0fc317ce87d7b5
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998621"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133369153"
 ---
 # <a name="add-a-bubble-layer"></a>거품형 레이어 추가
 
 **거품형 레이어** 는 지도에서 위치 데이터를 크기 조정된 원으로 렌더링합니다.
 
-> [!div class="mx-imgBorder"]
-> ![거품형 레이어를 사용하여 지점 데이터를 표시하는 지도](media/power-bi-visual/bubble-layer-with-legend-color.png)
+:::image type="content" source="./media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="거품형 레이어를 사용하여 지점 데이터를 표시하는 지도":::
 
 처음에는 모든 거품이 동일한 색으로 채워져 있습니다. 필드가 **필드** 창의 **범례** 버킷으로 전달되면 해당 분류에 따라 각 거품의 색이 지정됩니다. 거품 윤곽선은 흰색이지만 새로운 색으로 변경하거나 고대비 윤곽선 옵션을 사용하도록 설정할 수 있습니다. **고대비 윤곽선** 옵션은 채우기 색의 고대비 변형인 윤곽선 색을 동적으로 할당합니다. 이렇게 하면 지도의 스타일에 관계없이 거품이 명확하게 표시되도록 할 수 있습니다. 다음은 **거품형 레이어** 섹션에서 사용할 수 있는 **양식** 창의 기본 설정입니다.
 

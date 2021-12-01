@@ -7,15 +7,15 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: guide
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.date: 01/14/2020
-ms.openlocfilehash: 8d870597665b2e59a660d01453ee0f5de05b0545
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 1b61fad9a46e54ca1583b36b0b3d75bc5c68ce15
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110704375"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133362402"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>콘텐츠 참조 구성 및 관리 - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

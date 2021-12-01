@@ -7,12 +7,12 @@ ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 5d08f964899faf9fe438a0df68c6fe4401fd01c7
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 1bef331303d8cde42f5deab596a7e789e0b89c5f
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129859383"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368346"
 ---
 # <a name="pricing-scenarios"></a>가격 책정 시나리오
 
@@ -173,11 +173,11 @@ Rose는 메시지를 확인하고 채팅을 시작했습니다. 잠시 후 Casey
 - 전송된 메시지 수(20 + 30 + 18 + 30 + 25 + 35) x $0.0008 = $0.1264
 
 
-## <a name="telephony-and-sms"></a>전화 통신 및 SMS
+## <a name="telephony"></a>Telephony
 
 ## <a name="price"></a>가격
 
-전화 통신 서비스는 분당 가격이 책정되는 반면 SMS는 메시지별로 가격이 책정됩니다. 가격은 사용 중인 번호의 유형과 위치뿐만 아니라 통화 및 SMS 메시지의 대상에 따라 결정됩니다.
+전화 통신 서비스는 분 단위로 가격이 책정됩니다. 가격 책정은 사용 중인 번호의 유형 및 위치와 호출 대상에 따라 결정됩니다.
 
 ### <a name="telephone-number-leasing"></a>전화 번호 임대
 
@@ -215,12 +215,7 @@ Rose는 메시지를 확인하고 채팅을 시작했습니다. 잠시 후 Casey
 |프랑스     |시작가: $0.016/분   |
 
 
-### <a name="sms"></a>SMS
+## <a name="next-steps"></a>다음 단계
+다음 문서는 사용자에게 유용할 수 있습니다.
 
-SMS는 종량제 가격을 제공합니다. 가격은 메시지 대상을 기준으로 하는 메시지 세그먼트당 요금입니다. 메시지 세그먼트에 대한 자세한 내용은 [여기](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit)를 참조하세요. 수신자 부담 전화 번호로 메시지를 미국 내에 있는 전화 번호로 보낼 수 있습니다. 로컬(지리적) 전화 번호는 SMS 메시지를 보내는 데 사용할 수 없습니다.
-
-다음 가격에는 필요한 통신세 및 요금이 포함됩니다.
-
-|국가   |메시지 보내기|메시지 받기|
-|-----------|------------|------------|
-|USA(수신자 부담)    |$0.0075/메시지 세그먼트  | $0.0075/메시지 세그먼트 |
+- [SMS 가격 책정](./sms-pricing.md)

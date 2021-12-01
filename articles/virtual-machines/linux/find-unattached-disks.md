@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/30/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 64bc85cde09c21c9fe1f6677f0211b6338311941
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: ad93279e886bd4c4ea8d6a2e0f725d5361f30aa0
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690381"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133365833"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks-using-the-azure-cli"></a>Azure CLI를 사용하여 연결되지 않은 Azure 관리 및 비관리 디스크를 찾아서 삭제
 
@@ -74,7 +74,7 @@ do
     for container in ${containers[@]}
     do 
         
-        blobs=$(az storage blob list -c $container --connection-string $connectionString --query "[?properties.blobType=='PageBlob' && ends_with(name,'.vhd')].[name]" -o tsv)
+        blobs=$(az storage blob list --show-next-marker -c $container --connection-string $connectionString --query "[?properties.blobType=='PageBlob' && ends_with(name,'.vhd')].[name]" -o tsv)
         
         for blob in ${blobs[@]}
         do

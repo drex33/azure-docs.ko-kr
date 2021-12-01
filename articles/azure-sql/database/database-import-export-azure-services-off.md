@@ -7,16 +7,16 @@ ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: shkale-msft
-ms.author: shkale
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: mathoma
 ms.date: 01/08/2020
-ms.openlocfilehash: b4c993a98c661cd6f8a93321a49f7eb4da4c95db
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 1b3527fe7b1d8943f4484c9bf70bfc652aad4828
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110705759"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133355359"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Azure 서비스가 서버에 액세스할 수 있도록 허용하지 않고 Azure SQL Database 가져오기 또는 내보내기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

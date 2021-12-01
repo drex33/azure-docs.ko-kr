@@ -120,6 +120,9 @@
           href: concept-rtos-security-module.md
         - name: Azure RTOS 경고 및 권장 사항에 대한 Defender-IoT-micro-agent
           href: concept-rtos-security-alerts-recommendations.md
+    - name: 클라우드 디바이스 인벤토리 관리
+      href: how-to-manage-device-inventory-on-the-cloud.md
+      displayNAme: 'device inventory, device, inventory, EIoT, eiot'
     - name: Classic
       items:
         - name: 어떤 에이전트를 배포해야 하나요?

@@ -5,22 +5,25 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: e06b177ab0a66fecb3f1253bc7290828658320c0
-ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
+ms.openlocfilehash: c2ce1661e33ddc81c4afff38ca99851e75b24027
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132964152"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133359326"
 ---
 # <a name="design-your-private-link-setup"></a>Private Link 설정 설계
 
 Azure Monitor Private Link를 설정하기 전에 네트워크 토폴로지와 특히 DNS 라우팅 토폴로지를 고려합니다.
-[작동 방식](./private-link-security.md#how-it-works)에 설명 된 대로 개인 링크를 설정 하면 모든 Azure Monitor 리소스에 대 한 트래픽에 영향을 줍니다. Application Insights 리소스의 경우 특히 그렇습니다. 또한 개인 끝점에 연결 된 네트워크 뿐만 아니라 동일한 DNS를 공유 하는 다른 모든 네트워크에도 영향을 줍니다.
+
+[작동 방식에서](./private-link-security.md#how-it-works)설명한 대로 Private Link 설정하면 모든 Azure Monitor 리소스에 대한 트래픽에 영향을 미칩니다. Application Insights 리소스의 경우 특히 그렇습니다. 또한 프라이빗 엔드포인트에 연결된 네트워크뿐만 아니라 동일한 DNS를 공유하는 다른 모든 네트워크에도 영향을 미칩니다.
 
 가장 간단하고 안전한 방법은 다음과 같습니다.
 1. 단일 프라이빗 엔드포인트 및 단일 AMPLS를 사용하여 단일 Private Link 연결을 만듭니다. 네트워크가 피어된 경우 공유(또는 허브) VNet에 Private Link 연결을 만듭니다.
 2. *모든* Azure Monitor 리소스(로그 분석 작업 공간 및 Application Insights 구성 요소)를 AMPLS에 연결합니다.
 3. 네트워크 송신 트래픽을 최대한 차단합니다.
+
+모든 Azure Monitor 리소스를 AMPLS에 추가할 수 없는 경우 Private [Links가 네트워크에 적용되는 방식 제어에](./private-link-design.md#control-how-private-links-apply-to-your-networks)설명된 대로 일부 리소스에 Private Link 수 있습니다. 유용하지만 이 방법은 데이터 유출을 방지하지 않으므로 권장되지 않습니다.
 
 
 ## <a name="plan-by-network-topology"></a>네트워크 토폴로지에 관한 계획
@@ -28,7 +31,7 @@ Azure Monitor Private Link를 설정하기 전에 네트워크 토폴로지와 �
 ### <a name="guiding-principle-avoid-dns-overrides-by-using-a-single-ampls"></a>기본 원칙: 단일 AMPLS를 사용하여 DNS 재정의 방지
 일부 네트워크는 여러 VNet이나 다른 연결된 네트워크로 구성됩니다. 이러한 네트워크가 동일한 DNS를 공유하는 경우 해당 네트워크에 대한 Private Link를 설정하면 DNS가 업데이트되고 모든 네트워크의 트래픽에 영향을 줍니다.
 
-아래 다이어그램에서 VNet 10.0.1.x는 먼저 AMPLS1에 연결하고, Azure Monitor 전역 엔드포인트를 해당 범위에서 IP에 매핑합니다. 이후에 VNet 10.0.2.x는 AMPLS2에 연결하고, 범위에서 IP를 사용하여 **동일한 글로벌 엔드포인트** 의 DNS 매핑을 재정의합니다. 이러한 Vnet는 피어링되지 않으므로, 첫 번째 VNet은 이제 이러한 엔드포인트에 도달하지 못합니다.
+아래 다이어그램에서 VNet 10.0.1.x는 10.0.1.x 범위의 IP에 Azure Monitor 엔드포인트를 매핑하는 DNS 항목을 만드는 AMPLS1에 연결합니다. 나중에 VNet 10.0.2.x는 동일한 **글로벌/지역 엔드포인트를** 10.0.2.x 범위의 IP에 매핑하여 동일한 DNS 항목을 재정의하는 AMPLS2에 연결합니다. 이러한 Vnet는 피어링되지 않으므로, 첫 번째 VNet은 이제 이러한 엔드포인트에 도달하지 못합니다.
 
 이 충돌을 방지하려면 DNS당 단일 AMPLS 개체만 만듭니다.
 
@@ -57,7 +60,7 @@ Azure Monitor Private Link를 설정하기 전에 네트워크 토폴로지와 �
 프로덕션 환경에는 이 방법을 권장하지 않습니다.
 
 ## <a name="control-how-private-links-apply-to-your-networks"></a>Private Link가 네트워크에 적용되는 방식 제어
-개인 링크 액세스 모드 (9 월 2021에 도입)를 사용 하 여 개인 링크가 네트워크 트래픽에 영향을 미치는 방식을 제어할 수 있습니다. 이 설정은 AMPLS 개체(연결된 모든 네트워크에 영향을 주도록) 또는 연결된 특정 네트워크에 적용될 수 있습니다.
+Private Link 액세스 모드(2021년 9월에 도입)를 사용하면 Private Links가 네트워크 트래픽에 미치는 영향을 제어할 수 있습니다. 이 설정은 AMPLS 개체(연결된 모든 네트워크에 영향을 주도록) 또는 연결된 특정 네트워크에 적용될 수 있습니다.
 
 적절한 액세스 모드를 선택하면 네트워크 트래픽에 해로운 영향을 미칩니다. 이러한 모드는 각각 다음과 같이 개별적으로 수집과 쿼리에 대해 설정할 수 있습니다.
 
@@ -66,12 +69,12 @@ Azure Monitor Private Link를 설정하기 전에 네트워크 토폴로지와 �
 * 공개 - VNet이 Private Link 리소스와 AMPLS에 없는 리소스에 둘 다 도달할 수 있습니다([공용 네트워크의 트래픽을 수락](./private-link-design.md#control-network-access-to-your-resources)하는 경우). 공개 액세스 모드는 데이터 반출을 방지하지는 않지만 여전히 Private Link의 다른 이점을 제공합니다. Private Link 리소스에 대한 트래픽은 프라이빗 엔드포인트를 통해 전송되고, 유효성이 검사되고, Microsoft 백본을 통해 전송됩니다. 공개 모드는 혼합 작업 모드(공개적으로 일부 리소스에 액세스하고 Private Link를 통해 다른 리소스에 액세스) 또는 점진적 온보딩 프로세스 중에 유용합니다.
 ![AMPLS 공개 액세스 모드의 다이어그램](./media/private-link-security/ampls-open-access-mode.png) 액세스 모드는 수집과 쿼리에 대해 개별적으로 설정됩니다. 예를 들어, 수집에 대해 프라이빗 전용 모드를 설정하고 쿼리에 대해 공개 모드를 설정할 수 있습니다.
 
-액세스 모드를 선택할 때는 주의 해야 합니다. 전용 액세스 모드를 사용 하면 아래에 설명 된 것 처럼 Log Analytics 수집 요청을 제외 하 고 구독 또는 테 넌 트에 관계 없이 동일한 DNS를 공유 하는 모든 네트워크에서 AMPLS 되지 않은 리소스에 대 한 트래픽을 차단 합니다. AMPLS에 모든 Azure Monitor 리소스를 추가할 수 없는 경우 먼저 select resources를 추가 하 고 Open access mode를 적용 합니다. AMPLS에 *모든* Azure Monitor 리소스를 추가한 후에만 최대 보안을 위해 ' 전용 전용 ' 모드로 전환 합니다.
+액세스 모드를 선택할 때는 주의해야 합니다. 프라이빗 전용 액세스 모드를 사용하면 구독 또는 테넌트(아래 설명된 대로 Log Analytics 검색 요청 제외)에 관계없이 동일한 DNS를 공유하는 모든 네트워크에서 AMPLS에 없는 리소스에 대한 트래픽을 차단합니다. 모든 Azure Monitor 리소스를 AMPLS에 추가할 수 없는 경우 선택 리소스를 추가하고 액세스 열기 모드를 적용하여 시작합니다. *모든* Azure Monitor 리소스를 AMPLS에 추가한 후에만 보안을 최대화하기 위해 '프라이빗 전용' 모드로 전환합니다.
 
-구성 세부 정보 및 예제는 [api 및 명령줄 사용](./private-link-configure.md#use-apis-and-command-line) 을 참조 하세요.
+구성 세부 정보 [및 예제는 API 및 명령줄 사용을](./private-link-configure.md#use-apis-and-command-line) 참조하세요.
 
 > [!NOTE]
-> Log Analytics 수집은 리소스 관련 끝점을 사용 합니다. 따라서 AMPLS 액세스 모드를 따르지 않습니다. **Log Analytics 수집 요청에서 AMPLS의 작업 영역에 액세스할 수 없도록 하려면 AMPLS 액세스 모드에 관계 없이 공용 끝점에 대 한 트래픽을 차단 하도록 네트워크 방화벽을 설정** 합니다.
+> Log Analytics ingestion은 리소스별 엔드포인트를 사용합니다. 따라서 AMPLS 액세스 모드를 따르지 않습니다. **Log Analytics에서 요청이 AMPLS 외부의 작업 영역에 액세스할 수 없도록 하려면 AMPLS 액세스 모드에 관계없이 공용 엔드포인트에 대한 트래픽을 차단하도록 네트워크 방화벽을 설정합니다.**
 
 ### <a name="setting-access-modes-for-specific-networks"></a>특정 네트워크에 대한 액세스 모드 설정
 AMPLS 리소스에 설정된 액세스 모드는 모든 네트워크에 영향을 주지만 특정 네트워크에 대해 해당 설정을 재정의할 수 있습니다.
@@ -83,13 +86,16 @@ AMPLS 리소스에 설정된 액세스 모드는 모든 네트워크에 영향�
 ## <a name="consider-ampls-limits"></a>AMPLS 제한 고려
 AMPLS의 제한 개체는 다음과 같습니다.
 * VNet은 1개의 AMPLS 개체 **하나만** 연결할 수 있습니다. 즉, AMPLS 개체는 VNet이 액세스할 수 있어야 하는 모든 Azure Monitor 리소스에 대한 액세스를 제공해야 합니다.
-* 한 AMPLS 개체는 최대 50개의 Azure Monitor 리소스에 연결할 수 있습니다.
+* AMPLS 개체는 최대 300개의 Log Analytics 작업 영역과 1,000개의 애플리케이션 Insights 구성 요소에 연결할 수 있습니다.
 * Azure Monitor 리소스(작업 영역 또는 Application Insights 구성 요소)는 최대 5개의 AMPLS에 연결할 수 있습니다.
 * 한 AMPLS 개체는 최대 10개의 프라이빗 엔드포인트에 연결할 수 있습니다.
 
+> [!NOTE]
+> 2021년 12월 1일 이전에 만든 AMPLS 리소스는 50개의 리소스만 지원합니다.
+
 아래 다이어그램에서 다음을 수행합니다.
 * 각 VNet은 **1개의** AMPLS 개체에만 연결합니다.
-* AMPLS A는 세 개에서 50개의 가능한 Azure Monitor 리소스 연결을 사용하여 두 개의 작업 영역 및 하나의 애플리케이션 정보 구성 요소에 연결합니다.
+* AMPLS A는 가능한 300개의 Log Analytics 작업 영역 중 2개와 연결할 수 있는 1개의 Application Insights 구성 요소 중 1개를 사용하여 두 개의 작업 영역과 하나의 Application Insight 구성 요소에 연결합니다.
 * Workspace2는 다섯 개의 가능한 AMPLS 연결 중 두 가지를 사용하여 AMPLS A 및 AMPLS B에 연결합니다.
 * AMPLS B는 열 개 중 두 개의 프라이빗 엔드포인트를 사용하여 두 Vnet(VNet2 및 VNet3)의 프라이빗 엔드포인트로 연결됩니다.
 
@@ -105,12 +111,12 @@ Log Analytics 작업 영역 또는 Application Insights 구성 요소를 다음�
 
 공용 네트워크의 쿼리를 차단하는 것은 연결된 AMPLS 외부의 클라이언트(머신, SDK 등)가 리소스의 데이터를 쿼리할 수 없다는 것을 의미합니다. 해당 데이터에는 로그, 메트릭, 라이브 메트릭 스트림이 포함됩니다. 공용 네트워크의 쿼리를 차단하면 통합 문서, 대시보드, Azure Portal의 Insights, Azure Portal 외부에서 실행되는 쿼리 등 이러한 쿼리를 실행하는 모든 환경에 영향을 줍니다.
 
-구성 세부 정보에 대 한 [리소스 액세스 플래그 설정](./private-link-configure.md#set-resource-access-flags) 을 참조 하세요.
+구성 세부 정보는 [리소스 액세스 플래그 설정을](./private-link-configure.md#set-resource-access-flags) 참조하세요.
 
 ### <a name="exceptions"></a>예외
 
 #### <a name="diagnostic-logs"></a>진단 로그
-[진단 설정](../essentials/diagnostic-settings.md)을 통해 작업 영역에 업로드된 로그 및 메트릭은 안전한 프라이빗 Microsoft 채널을 통해 이동하며 이러한 설정으로 제어되지 않습니다.
+[진단 설정](../essentials/diagnostic-settings.md) 통해 작업 영역에 업로드된 로그 및 메트릭은 보안 프라이빗 Microsoft 채널을 통해 이동하며 이러한 설정에 의해 제어되지 않습니다.
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
 위에서 설명한 액세스 제한은 리소스의 데이터에 적용됩니다. 이러한 액세스 설정의 켜기 또는 끄기를 포함한 구성 변경은 Azure Resource Manager에서 관리합니다. 이 설정을 제어하려면 적절한 역할, 권한, 네트워크 제어 및 감사를 통해 리소스에 대한 액세스를 제한해야 합니다. 자세한 내용은 [Azure Monitor 역할, 권한 및 보안](../roles-permissions-security.md)을 참조하세요.
@@ -142,7 +148,7 @@ Log Analytics 에이전트는 전역 저장소 계정에 액세스하여 솔루�
 
 프라이빗 링크 설정이 2021년 4월 19일 이전에 생성된 경우에는 프라이빗 링크를 통해 솔루션 팩 저장소에 연결되지 않습니다. 이를 처리하려면 다음 중 하나를 수행할 수 있습니다.
 * AMPLS와 연결된 프라이빗 엔드포인트를 다시 만듭니다.
-* 방화벽 허용 목록에 다음 규칙을 추가하여 에이전트가 공용 엔드포인트를 통해 저장소 계정에 연결할 수 있도록 허용합니다.
+* 방화벽 허용 목록에 다음 규칙을 추가하여 에이전트가 공용 엔드포인트를 통해 스토리지 계정에 연결하도록 허용합니다.
 
     | 클라우드 환경 | 에이전트 리소스 | 포트 | Direction |
     |:--|:--|:--|:--|
@@ -151,7 +157,7 @@ Log Analytics 에이전트는 전역 저장소 계정에 액세스하여 솔루�
     |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | 아웃바운드
 
 ### <a name="collecting-custom-logs-and-iis-log-over-private-link"></a>Private Link를 통한 사용자 지정 로그 및 IIS 로그 수집
-스토리지 계정은 사용자 지정 로그 수집 프로세스에서 사용됩니다. 기본적으로 서비스 관리형 스토리지 계정이 사용됩니다. 그러나 프라이빗 링크에서 사용자 지정 로그를 수집하려면 사용자 고유의 스토리지 계정을 사용하여 Log Analytics 작업 영역에 연결해야 합니다.
+스토리지 계정은 사용자 지정 로그 수집 프로세스에서 사용됩니다. 기본적으로 서비스 관리형 스토리지 계정이 사용됩니다. 그러나 프라이빗 링크에서 사용자 지정 로그를 저장하려면 사용자 고유의 스토리지 계정을 사용하여 Log Analytics 작업 영역에 연결해야 합니다.
 
 사용자 고유의 스토리지 계정 연결에 대한 자세한 내용은 [로그를](private-storage.md) 위한 고객 소유 스토리지 계정 및 특히 [Private Links 사용](private-storage.md#using-private-links) 및 [Log Analytics 작업 영역에 스토리지 계정 연결을 참조하세요.](private-storage.md#link-storage-accounts-to-your-log-analytics-workspace)
 

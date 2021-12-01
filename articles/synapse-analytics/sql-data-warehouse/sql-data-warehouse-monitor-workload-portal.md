@@ -2,20 +2,20 @@
 title: 워크로드 모니터링 - Azure Portal
 description: Azure Portal을 사용하여 Synapse SQL 모니터링
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 02/04/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4f4c50588a67e2e69d0975c9f4414242ecf23617
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
-ms.translationtype: HT
+ms.openlocfilehash: ca386353d76b3445851ce8b3ed16e1df4fb1f2e0
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568270"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367573"
 ---
 # <a name="monitor-workload---azure-portal"></a>워크로드 모니터링 - Azure Portal
 

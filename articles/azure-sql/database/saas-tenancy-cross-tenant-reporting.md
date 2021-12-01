@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e6e9a3e47dd35916a1869d72a2267defe63ec44b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 5e2e62091628b712f55886b036e6b2269527bded
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697466"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133355373"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>분산 쿼리를 사용한 교차 테넌트 보고
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -7,12 +7,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 07/28/2021
 ms.author: srijangupta
-ms.openlocfilehash: 2079e50d92c7253c7c4f642c9a51e56aa1bfae2c
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: c8aaed60107bf0a1854d6af46f79bc57f0043d10
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689802"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133361131"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Azure용 Ubuntu 가상 머신 준비
 
@@ -82,11 +82,11 @@ ms.locfileid: "122689802"
 
 6. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.  보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 
-7. cloud-init(프로비저닝 에이전트)와 Azure Linux 에이전트(게스트 확장 처리기)를 설치합니다. 프로비저닝되고 이후에 부팅되는 도중에 Cloud-init은 `netplan`을 사용하여 시스템 네트워크 구성을 구성합니다.
+7. cloud-init(프로비저닝 에이전트)와 Azure Linux 에이전트(게스트 확장 처리기)를 설치합니다. 클라우드 초기화는를 사용 하 여 `netplan` 시스템 네트워크 구성 (프로 비전 및 각 후속 부팅 중)을 구성 하 고 `gdisk` 리소스 디스크를 분할 합니다.
 
     ```console
     # sudo apt update
-    # sudo apt install cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
+    # sudo apt install cloud-init gdisk netplan.io walinuxagent && systemctl stop walinuxagent
     ```
 
    > [!Note]

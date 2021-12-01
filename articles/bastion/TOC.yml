@@ -56,7 +56,11 @@
     - name: SKU 업그레이드
       href: upgrade-sku.md
     - name: 호스트 크기 조정 구성
-      href: configure-host-scaling.md
+      items:
+        - name: Azure portal
+          href: configure-host-scaling.md
+        - name: Azure PowerShell
+          href: configure-host-scaling-powershell.md
     - name: 네이티브 Windows 클라이언트를 통해 VM에 연결
       href: connect-native-client-windows.md
     - name: 가상 머신 확장 집합에 연결

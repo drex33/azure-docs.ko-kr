@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 9643c58f5c9fa1db3e3eb7ec75ce6d3b41620aa3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0a5b943340353b86d0ae6d2002bd2c0e31d86350
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90900337"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367928"
 ---
 # <a name="sysexternal_streaming_jobs-transact-sql"></a>sys.external_streaming_jobs(Transact-SQL)
 
@@ -35,7 +35,7 @@ ms.locfileid: "90900337"
 |**is_published**|**bit**| 개체가 게시됩니다.|  
 |**is_schema_published**|**bit**|개체의 스키마만 게시됩니다.|
 |**uses_ansi_nulls**|**bit**| 스트림 개체는 SET ANSI_NULLS 데이터베이스 옵션을 ON으로 설정하여 생성되었습니다.|
-|**statement**|**varchar(max)**| 스트리밍 작업에 대한 스트림 분석 쿼리 텍스트입니다. 자세한 내용은 [sp_create_streaming_job](overview.md)을 참조하세요. |
+|**statement**|**nvarchar(max)**| 스트리밍 작업에 대한 스트림 분석 쿼리 텍스트입니다. 자세한 내용은 [sp_create_streaming_job](overview.md)을 참조하세요. |
 |**status**|**int**| 스트리밍 작업의 현재 상태입니다. 사용 가능한 값은 다음과 같습니다. <br /><br /> **Created** = 0. 스트리밍 작업이 만들어졌지만 아직 시작되지 않았습니다. <br /><br /> **Starting** = 1. 스트리밍 작업이 시작 단계에 있습니다. <br /><br /> **Failed** = 6. 스트림 작업이 실패했습니다. 일반적으로 처리하는 동안 치명적인 오류가 발생했음을 나타냅니다. <br /><br /> **Stopped** = 4. 스트리밍 작업이 중지되었습니다. <br /><br /> **Idle** = 7. 스트리밍 작업이 실행 중이지만 처리할 입력이 없습니다. <br /><br /> **Processing** = 8. 스트리밍 작업이 실행 중이며 입력을 처리하고 있습니다. 이 상태는 스트리밍 작업이 정상임을 나타냅니다. <br /><br /> **Degraded** = 9. 스트리밍 작업이 실행 중이지만, 입력을 처리하는 중에 일부 치명적이지 않은 입력/출력 직렬화/역직렬화 오류가 발생했습니다. 입력 작업은 계속 실행되지만 오류가 발생하는 입력은 삭제됩니다.|
 
 ## <a name="permissions"></a>사용 권한

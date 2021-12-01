@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d2fe9cecae13cdd6ff82256466ff1fa045b73189
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7eaeecc4d08d28939ba6930662f01ed65971c1c8
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569317"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133356655"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Windows용 Key Vault 가상 머신 확장
 
@@ -107,6 +107,8 @@ Key Vault VM 확장은 Windows Server 2019 core 설치를 사용하여 Azure에�
 > 'authenticationSettings' 속성은 **사용자 할당 ID** 가 있는 VM에만 **필요** 합니다.
 > 이 속성은 Key Vault에 대한 인증에 사용할 ID를 지정합니다.
 
+> [!IMPORTANT]
+> 'msiClientId'를 지정하는 경우 'msiEndpoint' 속성이 **필요합니다.** 일반적으로 값은 로 설정해야 `http://169.254.169.254/metadata/identity/oauth2/token` 합니다.
 
 ### <a name="property-values"></a>속성 값
 

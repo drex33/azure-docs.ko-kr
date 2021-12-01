@@ -1,19 +1,19 @@
 ---
 title: 비용 계획 및 관리
 description: Azure Portal에서 비용 분석을 사용하여 Azure SQL Database 비용을 계획하고 관리하는 방법을 알아봅니다.
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.custom: subject-cost-optimization
 ms.service: sql-database
 ms.subservice: service-overview
 ms.topic: how-to
 ms.date: 06/30/2021
-ms.openlocfilehash: 5f1464c6fb74bc04dacb230cd2a5993f7566e82a
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 8e4a2a950a11c84b47ee94d838159cb83627b225
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132546883"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133362465"
 ---
 # <a name="plan-and-manage-costs-for-azure-sql-database"></a>Azure SQL Database 비용 계획 및 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "132546883"
 먼저 Azure 가격 계산기를 사용하여 Azure 리소스를 추가하고 예상 비용을 검토합니다. Azure SQL Database 리소스 사용을 시작한 후에는 Cost Management 기능을 사용하여 예산을 설정하고 비용을 모니터링합니다. 예상 비용을 검토하고 지출 추세를 기반으로 작업할 만한 영역을 파악할 수도 있습니다. Azure SQL Database 비용은 Azure 청구서의 월별 비용 중 일부에 불과합니다. 이 문서에서는 Azure SQL Database 비용을 계획하고 관리하는 방법을 설명하지만, 모든 타사 서비스를 포함하여 Azure 구독에 사용되는 모든 Azure 서비스 및 리소스에 대해 요금이 청구됩니다.
 
 > [!div class="nextstepaction"]
-> [Azure SQL 개선하기 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
+> [Azure SQL 개선을 위한 설문 조사](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

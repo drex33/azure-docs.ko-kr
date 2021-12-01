@@ -6,14 +6,14 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 595b42bb924d67a5db3a21d44c670dbcd25c61d7
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: VanMSFT
+ms.author: vanto
+ms.openlocfilehash: 9dc6979c94302a77013673cc7019f550d1fca85b
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064448"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133359189"
 ---
 # <a name="azure-sql-database-append-only-ledger-tables"></a>Azure SQL Database 추가 전용 원장 테이블
 

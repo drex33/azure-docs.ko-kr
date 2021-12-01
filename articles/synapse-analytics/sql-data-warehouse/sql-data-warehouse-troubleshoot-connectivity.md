@@ -2,21 +2,21 @@
 title: 연결 문제 해결
 description: 전용 SQL 풀의 연결 문제 해결(이전 명칭 SQL DW)
 services: synapse-analytics
-author: rothja
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/27/2019
-ms.author: jroth
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 923000d0a0579df2bcdcd82e7c4ad3bf13a1213e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: fcf54181d1fda116374d89e505ddf38c0102c6d6
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114441833"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367592"
 ---
 # <a name="troubleshooting-connectivity-issues-in-dedicated-sql-pool-formerly-sql-dw"></a>전용 SQL 풀의 연결 문제 해결(이전 명칭 SQL DW)
 

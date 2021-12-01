@@ -8,16 +8,16 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=3
 ms.devlang: ''
 ms.topic: overview
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: c6fe1e801578a63df373d67eaa2e81c7e98169ce
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: b5b7c9c08e0d9a70bd98237cd66bacfc07a190bb
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132552825"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364411"
 ---
 # <a name="what-is-azure-sql-database"></a>Azure SQL Database란?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -1,37 +1,37 @@
 ---
-title: Azure Maps Power BI 시각적 개체 시작 | Microsoft Azure Maps
-description: 이 문서에서는 Power BI용 Microsoft Azure Maps 시각적 개체를 사용하는 방법을 알아봅니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 12/07/2020
+title: Azure Maps Power BI 시각적 개체 시작
+titleSuffix: Microsoft Azure Maps
+description: 이 문서에서는 Microsoft Azure 지도 Power BI 시각적 개체를 사용하는 방법을 알아봅니다.
+author: stevemunk
+ms.author: v-munksteve
+manager: erikland
+ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
-ms.custom: ''
-ms.openlocfilehash: 6a26361cc09a4dd420930725b29a1d346769270a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b76abc0194a53febcc70233f5b066e47aa34d3d2
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124744618"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133365478"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Azure Maps Power BI 시각적 개체 시작
 
-**적용 대상:** ![ 녹색 확인 표시입니다.](media/power-bi-visual/yes.png) **_소비자_** 녹색 확인 표시에 대 한 Power BI 서비스 ![ 입니다.](media/power-bi-visual/yes.png) 개발자 & 개발자 녹색 확인 표시를 위한 Power BI 서비스 ![ 입니다.](media/power-bi-visual/yes.png) Power BI Desktop ![ 아니요를 나타내는 X입니다.](media/power-bi-visual/no.png) Pro 또는 Premium 라이선스가 필요 합니다.
+**적용할 내용:** ![ 녹색 확인 표시입니다.](media/power-bi-visual/yes.png) 소비자를 위한 Power BI 서비스 **** ![ 녹색 확인 표시입니다.](media/power-bi-visual/yes.png) 디자이너 & 개발자를 ![ 위한 Power BI 서비스 녹색 확인 표시입니다.](media/power-bi-visual/yes.png) 아니요를 ![ 나타내는 X를 Power BI Desktop.](media/power-bi-visual/no.png) Pro 또는 Premium 라이선스 필요
 
-이 문서에서는 Power BI용 Microsoft Azure Maps 시각적 개체를 사용하는 방법을 보여 줍니다.
+이 문서에서는 Microsoft Azure 지도 Power BI 시각적 개체를 사용하는 방법을 보여줍니다.
 
 > [!NOTE]
 > 이 시각적 개체는 Power BI Desktop과 Power BI 서비스 모두에서 만들고 볼 수 있습니다. 이 문서의 단계와 그림은 모두 Power BI Desktop에 해당합니다.
 
-Power BI용 Azure Maps 시각적 개체는 지도 위에 공간 데이터에 대한 다양한 데이터 시각화 세트를 제공합니다. 비즈니스 데이터의 80% 이상이 위치 컨텍스트를 가지고 있는 것으로 추정됩니다. Azure Maps 시각적 개체를 통해 이 위치 컨텍스트가 비즈니스 데이터와 어떻게 관련되고 영향을 미치는지에 대한 인사이트를 얻습니다.
+Azure 지도 Power BI 시각적 개체는 지도 위에 있는 공간 데이터에 대한 풍부한 데이터 시각화 집합을 제공합니다. 비즈니스 데이터의 80% 이상이 위치 컨텍스트를 가지고 있는 것으로 추정됩니다. Azure 지도 Power BI 시각적 개체를 사용하여 이 위치 컨텍스트가 비즈니스 데이터와 어떻게 관련되고 영향을 미치는지에 대한 인사이트를 얻을 수 있습니다.
 
-![비즈니스 데이터를 표시하는 Azure Maps 시각적 개체가 포함된 Power BI 데스크톱](media/power-bi-visual/azure-maps-visual-hero.png)
+![비즈니스 데이터를 표시하는 Azure 지도 Power BI 시각적 개체를 사용하여 데스크톱 Power BI](media/power-bi-visual/azure-maps-visual-hero.png)
 
 ## <a name="what-is-sent-to-azure"></a>Azure에 전달되는 내용
 
-Azure Maps 시각적 개체는 Azure에서 호스트되는 클라우드 서비스에 연결하여 지도 시각화를 만드는 데 사용되는 지도 이미지 및 좌표와 같은 위치 데이터를 검색합니다.
+Azure 지도 Power BI 시각적 개체는 Azure에서 호스트되는 클라우드 서비스에 연결하여 지도 시각화를 만드는 데 사용되는 지도 이미지 및 좌표와 같은 위치 데이터를 검색합니다.
 
 - 초점이 맞춰진 지도 영역에 대한 세부 정보는 지도 캔버스(지도 타일이라고도 함)를 렌더링하는 데 필요한 이미지를 검색하기 위해 Azure에 전송됩니다.
 - 위치, 위도 및 경도 버킷의 데이터를 Azure로 전송하여 지도 좌표(지오코딩이라는 프로세스)를 검색할 수 있습니다.
@@ -43,49 +43,45 @@ Azure Maps 시각적 개체는 Azure에서 호스트되는 클라우드 서비�
 
 > `https://atlas.microsoft.com`
 
-Azure Maps와 관련된 개인 정보 및 사용 약관에 대해 자세히 알아보려면 [Microsoft Azure 법적 정보](https://azure.microsoft.com/support/legal/)를 참조하세요.
+Azure 지도 Power BI 시각적 개체와 관련된 개인 정보 보호 및 사용 약관에 대한 자세한 내용은 [Microsoft Azure 법적 정보를 참조하세요.](https://azure.microsoft.com/support/legal/)
 
-## <a name="azure-maps-visual-preview-behavior-and-requirements"></a>Azure Maps 시각적 개체(미리 보기) 동작 및 요구 사항
+## <a name="azure-maps-power-bi-visual-preview-behavior-and-requirements"></a>Azure 지도 Power BI 시각적 개체(미리 보기) 동작 및 요구 사항
 
-**Azure Maps** 시각적 개체에 대한 몇 가지 고려 사항 및 요구 사항이 있습니다. :
+Azure 지도 Power BI 시각적 개체에 대한 몇 가지 고려 사항 및 요구 사항이 있습니다.
 
-- Power BI Desktop에서 **Azure Maps** 시각적 개체(미리 보기)를 사용하도록 설정해야 합니다. **Azure Maps** 시각적 개체를 사용하도록 설정하려면 **파일** &gt; **옵션 및 설정** &gt; **옵션** &gt; **미리 보기 기능** 을 선택한 다음 **Azure Maps 시각적 개체** 확인란을 선택합니다. 이 설정 후 Azure Maps 시각적 개체를 사용할 수 없는 경우 관리 포털에서 테넌트 관리자 스위치를 사용하도록 설정해야 할 수 있습니다.
+- Power BI Desktop Azure 지도 Power BI 시각적 개체(미리 보기)를 사용하도록 설정해야 합니다. Azure 지도 Power BI 시각적 개체를 사용하도록 설정하려면 **파일** &gt; **옵션 및 설정** &gt; **옵션** 미리 &gt; **보기 기능을** 선택한 **다음, Azure 지도 Visual** 확인란을 선택합니다. 이 설정 후 Azure Maps 시각적 개체를 사용할 수 없는 경우 관리 포털에서 테넌트 관리자 스위치를 사용하도록 설정해야 할 수 있습니다.
 - 데이터 세트에는 **위도** 및 **경도** 정보를 포함하는 필드가 있어야 합니다.
 
-## <a name="use-the-azure-maps-visual-preview"></a>Azure Maps 시각적 개체(미리 보기) 사용
+## <a name="use-the-azure-maps-power-bi-visual-preview"></a>Azure 지도 Power BI 시각적 개체 사용(미리 보기)
 
-**Azure Maps** 시각적 개체를 사용하도록 설정하면 **시각화** 창에서 **Azure Maps** 아이콘을 선택합니다.
+Azure 지도 Power BI 시각적 개체를 사용하도록 설정하면 시각화 창에서 **Azure 지도** **아이콘을** 선택합니다.
 
-![시각화 창의 Azure Maps 시각적 개체 단추](media/power-bi-visual/azure-maps-in-visualizations-pane.png)
+:::image type="content" source="media/power-bi-visual/azure-maps-in-visualizations-pane.png" alt-text="시각화 창의 Azure 지도 시각적 개체 단추":::
 
 Power BI는 빈 Azure Maps 시각적 개체 디자인 캔버스를 만듭니다. 미리 보기 중에는 추가 부인 사항이 표시됩니다.
 
-![Azure Maps 시각적 개체를 초기 상태로 로드한 Power BI Desktop](media/power-bi-visual/visual-initial-load.png)
+:::image type="content" source="media/power-bi-visual/visual-initial-load.png" alt-text="Azure 지도 시각적 개체가 초기 상태로 로드된 데스크톱을 Power BI.":::
 
 Azure Maps 시각적 개체를 로드하려면 다음 단계를 수행합니다.
 
 1. **필드** 창에서 위도 및 경도 좌표 정보를 포함하는 데이터 필드를 **위도** 및/또는 **경도** 버킷으로 끌어 옵니다. Azure Maps 시각적 개체를 로드하는 데 필요한 최소한의 데이터입니다.
 
-    > [!div class="mx-imgBorder"]
-    > ![위도 및 경도 필드가 제공된 후 지도에 표시되는 요소를 거품으로 표시한 Azure Maps](media/power-bi-visual/bubble-layer.png)
+    :::image type="content" source="media/power-bi-visual/bubble-layer.png" alt-text="Azure 지도 위도 및 경도 필드가 제공된 후 지도에 점을 거품으로 표시하는 시각적 개체입니다.":::
 
 2. 분류에 따라 데이터의 색을 설정하려면 범주 필드를 **필드** 창의 **범례** 버킷으로 끌어 옵니다. 이 예에서는 **Admindistrict** 열(시/도라고도 함)을 사용합니다.  
 
-    > [!div class="mx-imgBorder"]
-    > ![범례 필드를 제공한 후 지도에 색이 지정된 거품으로 요소를 표시하는 Azure Maps 시각적 개체](media/power-bi-visual/bubble-layer-with-legend-color.png)
+    :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="Azure 지도 범례 필드가 제공된 후 지도에 점이 색이 있는 거품으로 표시되는 시각적 개체입니다.":::
 
     > [!NOTE]
     > Power BI에 대한 기본 제공 범례 컨트롤은 현재 이 미리 보기에 표시되지 않습니다.
 
 3. 데이터의 크기를 상대적으로 조정하려면 **필드** 창의 **크기** 버킷에 측정값을 끌어 놓습니다. 이 예에서는 **Sales** 열을 사용합니다.  
 
-    > [!div class="mx-imgBorder"]
-    > ![크기 필드가 제공된 후 지도에 색상이 지정되고 크기가 다른 거품으로 포인터를 표시하는 Azure Maps 시각적 개체](media/power-bi-visual/bubble-layer-with-legend-color-and-size.png)
+    :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png" alt-text="Azure 지도 크기 필드가 제공된 후 지도에 점이 색이 지정되고 크기가 조정된 거품으로 표시되는 시각적 개체입니다.":::
 
 4. **서식** 창의 옵션을 사용하여 데이터가 렌더링되는 방식을 사용자 지정할 수 있습니다. 다음 이미지는 위와 동일한 지도이지만 거품형 계층 채우기 투명도 옵션은 50%로 설정되고 고대비 윤곽선 옵션은 사용하도록 설정됩니다.  
 
-    > [!div class="mx-imgBorder"]
-    > ![사용자 지정 스타일을 사용하여 지도에서 요소를 거품으로 표시한 Azure Maps 시각적 개체](media/power-bi-visual/bubble-layer-styled.png)
+    :::image type="content" source="media/power-bi-visual/bubble-layer-styled.png" alt-text="Azure 지도 사용자 지정 스타일을 통해 지도에 점을 거품으로 표시하는 시각적 개체입니다.":::
 
 ## <a name="fields-pane-buckets"></a>필드 창 버킷
 
@@ -126,7 +122,7 @@ Azure Maps 시각적 개체를 로드하려면 다음 단계를 수행합니다.
 
 ## <a name="considerations-and-limitations"></a>고려 사항 및 제한 사항
 
-Azure Maps 시각적 개체는 다음 서비스 및 애플리케이션에서 사용할 수 있습니다.
+Azure Maps Power BI 시각적 개체는 다음 서비스 및 응용 프로그램에서 사용할 수 있습니다.
 
 | 서비스/앱                              | 가용성 |
 |------------------------------------------|--------------|
@@ -147,7 +143,7 @@ Azure Maps 시각적 개체는 다음 서비스 및 애플리케이션에서 사
 
 이 시각적 개체를 제공하는 다양한 Azure Maps 서비스의 적용 범위에 대한 정보는 [지리적 적용 범위 정보](geographic-coverage.md) 문서를 참조하세요.
 
-**Azure Maps 시각적 개체에서 지원되는 웹 브라우저는 무엇인가요?**
+**Azure Maps Power BI 시각적 개체에서 지원 되는 웹 브라우저는 무엇입니까?**
 
 [Azure Maps 웹 SDK 지원 브라우저](supported-browsers.md)에 대한 자세한 내용은 이 설명서를 참조하세요.
 
@@ -167,7 +163,7 @@ Azure Maps Power BI 시각적 개체에 대해 자세히 알아봅니다.
 > [Azure Maps Power BI 시각적 개체의 레이어 이해](power-bi-visual-understanding-layers.md)
 
 > [!div class="nextstepaction"]
-> [조직 내에서 Azure Maps 시각적 개체 관리](power-bi-visual-manage-access.md)
+> [조직 내에서 Azure Maps Power BI 시각적 개체 관리](power-bi-visual-manage-access.md)
 
 시각적 개체를 사용자 지정합니다.
 

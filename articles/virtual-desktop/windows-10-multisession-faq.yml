@@ -8,12 +8,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: helohr
   manager: femila
-  ms.openlocfilehash: 0546f6186fbf725e14a105b0d735db0b7ecef2cc
-  ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+  ms.openlocfilehash: 159c373763f8e3a4f23909f2e724bae7274f3395
+  ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/05/2021
-  ms.locfileid: "131841605"
+  ms.lasthandoff: 12/01/2021
+  ms.locfileid: "133365777"
 title: Windows 10 Enterprise 다중 세션 FAQ
 summary: 이 문서에서는 Windows 10 Enterprise 다중 세션에 대해 자주 묻는 질문에 답하고 모범 사례에 대해 설명합니다.
 sections:
@@ -32,6 +32,8 @@ sections:
     answer: Windows 10 Enterprise 다중 세션은 Azure용 Azure Virtual Desktop 서비스에 최적화되어 있으므로 온-프레미스 프로덕션 환경에서는 실행할 수 없습니다. 프로덕션 목적으로 Azure 외부에서 Windows 10 Enterprise 다중 세션을 실행하는 것은 라이선스 계약 위반입니다. Windows 10 Enterprise 다중 세션은 온-프레미스 KMS(키 관리 서비스)에 대해 활성화되지 않습니다.
   - question: Windows 10 VM을 Windows 10 Enterprise 다중 세션으로 업그레이드할 수 있나요?
     answer: 아니요. 현재에는 Windows 10 Professional 또는 Enterprise를 실행하는 기존 VM(가상 머신)을 Windows 10 Enterprise 다중 세션으로 업그레이드할 수 없습니다. 또한, Windows 10 Enterprise 다중 세션 VM을 배포하고 제품 키를 다른 버전으로 업데이트하는 경우에는 VM을 다시 Windows 10 Enterprise 다중 세션으로 전환할 수 없으며 VM을 다시 배포해야 합니다. Azure Virtual Desktop VM SKU를 다른 버전으로 변경하는 것은 지원되지 않습니다.
+  - question: Windows 10 Enterprise 다중 세션이 원격 데스크톱 IP 가상화 지원하나요?
+    answer: 아니요. Azure Virtual Desktop [지원 가상 머신 OS 이미지는](overview.md#supported-virtual-machine-os-images) 원격 데스크톱 IP 가상화 지원하지 않습니다.
   - question: 조직에 Windows 10 Enterprise 다중 세션 이미지를 사용자 지정하려면 어떻게 할까요?
     answer: >
       Windows 10 Enterprise 다중 세션을 사용하여 Azure에서 VM을 시작하고 LOB(기간 업무) 애플리케이션, sysprep/일반화를 설치하여 사용자 지정한 다음 Azure Portal을 사용하여 이미지를 만들 수 있습니다.

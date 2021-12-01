@@ -6,14 +6,14 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 3010ba83f8d45083213f3725626f92b111fb839d
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: VanMSFT
+ms.author: vanto
+ms.openlocfilehash: 55b2b8f82ae3a08cc102411ec794eedf25c00d34
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064451"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133361498"
 ---
 # <a name="azure-sql-database-updatable-ledger-tables"></a>Azure SQL Database 업데이트 가능한 원장 테이블
 

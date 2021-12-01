@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
 ms.custom: contperf-fy22q2, mode-other
-ms.openlocfilehash: 9199278ea82a74f7eb190c51c3d7eb9a87537dc3
-ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.openlocfilehash: db80e9a6ed7a62cbd47a32f01d54c8d2af1c3a5e
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133286994"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133359262"
 ---
 # <a name="get-started-with-azure-service-bus-topics-and-subscriptions-net"></a>Azure Service Bus 토픽 및 구독 시작(.NET)
 
@@ -32,7 +32,7 @@ ms.locfileid: "133286994"
 5. 구독에서 해당 메시지를 수신하도록 .NET Core 콘솔 애플리케이션을 작성합니다.
 
 > [!NOTE]
-> 이 빠른 시작에서는 메시지 일괄 처리를 Service Bus 토픽으로 보내고 해당 토픽의 구독에서 해당 메시지를 받는 간단한 시나리오에 대한 단계별 지침을 제공합니다. [GitHub의 .NET용 Azure SDK 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)에서 Azure Service Bus용으로 미리 빌드된 .NET 샘플을 찾을 수 있습니다. 
+> 이 빠른 시작에서는 메시지 일괄 처리를 Service Bus 토픽으로 보내고 해당 토픽의 구독에서 해당 메시지를 받는 간단한 시나리오를 구현하는 단계별 지침을 제공합니다.  기타 고급 시나리오에 대한 자세한 샘플은 [GitHub .NET 샘플 Service Bus](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)참조하세요. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 이 서비스를 처음 사용하는 경우 이 빠른 시작 전에 [Service Bus 개요](service-bus-messaging-overview.md)를 참조하세요. 
@@ -49,6 +49,9 @@ ms.locfileid: "133286994"
 
 ## <a name="send-messages-to-the-topic"></a>토픽에 메시지 보내기
 이 섹션에서는 Service Bus 토픽으로 메시지를 보내는 .NET Core 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. 
+
+> [!NOTE]
+> 이 빠른 시작에서는 메시지 일괄 처리를 Service Bus 토픽으로 보내고 해당 토픽의 구독에서 해당 메시지를 받는 간단한 시나리오를 구현하는 단계별 지침을 제공합니다.  기타 고급 시나리오에 대한 자세한 샘플은 [GitHub .NET 샘플 Service Bus](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)참조하세요.
 
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
@@ -240,6 +243,9 @@ ms.locfileid: "133286994"
     
 ## <a name="receive-messages-from-a-subscription"></a>구독에서 메시지 받기
 이 섹션에서는 Service Bus 토픽에 대한 구독에서 메시지를 받는 .NET Core 콘솔 애플리케이션을 만듭니다. 
+
+> [!NOTE]
+> 이 빠른 시작에서는 메시지 일괄 처리를 Service Bus 토픽으로 보내고 해당 토픽의 구독에서 해당 메시지를 받는 간단한 시나리오를 구현하는 단계별 지침을 제공합니다.  기타 고급 시나리오에 대한 자세한 샘플은 [GitHub .NET 샘플 Service Bus](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)참조하세요.
 
 ### <a name="create-a-project-for-the-receiver"></a>수신기에 대한 프로젝트 만들기
 

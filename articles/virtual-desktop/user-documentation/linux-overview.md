@@ -1,17 +1,17 @@
 ---
-title: Azure Virtual Desktop Thin 클라이언트 지원 - Azure
+title: Azure Virtual Desktop 씬 클라이언트 지원 - Azure
 description: Azure Virtual Desktop의 씬 클라이언트 지원에 대한 간략한 개요입니다.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: eba3360fc1613846b600d47c864961752b2e926d
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: d8d6290f438f2edca15d3501b67c3dd43e56170a
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132761514"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133356636"
 ---
 # <a name="thin-client-support"></a>Thin 클라이언트 지원
 

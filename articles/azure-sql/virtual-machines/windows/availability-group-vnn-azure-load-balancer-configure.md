@@ -4,7 +4,6 @@ description: HADR(고가용성 및 재해 복구)을 위해 Azure VM에서 SQL S
 services: virtual-machines-windows
 documentationcenter: na
 author: rajeshsetlem
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: hadr
@@ -15,20 +14,20 @@ ms.workload: iaas-sql-server
 ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: 7c749744ef6dcad4ca8f233b1a85e07843ba0406
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 13ee070ddc5e4c22000c2fe077283acce5298398
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132158481"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367659"
 ---
 # <a name="configure-load-balancer-for-ag-vnn-listener"></a>AG VNN 수신기에 대해 Load Balancer 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!TIP]
-> 동일한 Azure 가상 네트워크 내에서 [여러 서브넷](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) 에 SQL Server vm을 만들어 AG (Always On availability) 그룹에 대 한 Azure Load Balancer 필요성을 제거 합니다.
+> SQL Server VM을 동일한 Azure 가상 네트워크 내의 [여러 서브넷](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md)에 만들면 AG(Always On 가용성 그룹)에 대한 Azure Load Balancer가 필요하지 않습니다.
 
-Azure Virtual Machines에서 클러스터는 한 번에 하나의 클러스터 노드에 있어야 하는 IP 주소를 저장하는 부하 분산 장치를 사용합니다. 이 솔루션에서 부하 분산 장치는 SQL Server vm이 단일 서브넷에 있는 경우 AG (Always On 가용성 그룹)의 vnn (가상 네트워크 이름) 수신기에 대 한 IP 주소를 보유 합니다. 
+Azure Virtual Machines에서 클러스터는 한 번에 하나의 클러스터 노드에 있어야 하는 IP 주소를 저장하는 부하 분산 장치를 사용합니다. 이 솔루션에서 부하 분산기는 SQL Server VM이 단일 서브넷에 있는 경우 Always On AG(가용성 그룹)의 VNN(가상 네트워크 이름) 수신기에 대한 IP 주소를 보유합니다. 
 
 이 문서에서는 Azure Load Balancer 서비스를 사용하여 부하 분산 장치를 구성하는 방법을 안내합니다. 부하 분산 장치는 HADR(고가용성 및 재해 복구)을 위해 Azure VM의 SQL Server를 사용하여 트래픽을 [AG(가용성 그룹) 수신기](availability-group-overview.md)로 라우팅합니다. 
 

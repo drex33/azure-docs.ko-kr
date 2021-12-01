@@ -5,12 +5,12 @@ ms.topic: article
 ms.custom: references_regions
 ms.date: 08/01/2021
 ms.author: juliako
-ms.openlocfilehash: 7341112e545e4fc0c74de8d32e9c2d54d3461057
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 812fb1d1c56f29bc1196dd703351714f9705c88d
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132491924"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133361478"
 ---
 # <a name="video-analyzer-for-media-release-notes"></a>Video Analyzer for Media 릴리스 정보
 
@@ -34,6 +34,12 @@ ms.locfileid: "132491924"
 ### <a name="peoples-clothing-detection"></a>사람의 옷 검색
 
 고급 비디오 설정을 통해 비디오를 인덱싱할 때 새로운 **사용자의 옷 검색** 기능을 볼 수 있습니다. 미디어 파일에서 검색 된 사용자가 있는 경우 이제 미디어 플레이어를 통해 입고 있는 옷 유형을 볼 수 있습니다. 
+
+### <a name="face-bounding-box-preview"></a>얼굴 경계 상자 (미리 보기)
+
+이제 미디어 파일을 인덱싱하는 동안 검색 된 얼굴에 대 한 경계 상자를 켤 수 있습니다. 글꼴, **기본** 또는 **고급** 인덱싱 기본 설정을 선택 하 여 **파일을 인덱싱할** 때 얼굴 경계 상자 기능을 사용할 수 있습니다.
+
+플레이어를 통해 경계 상자를 사용 하도록 설정할 수 있습니다.
 
 ## <a name="october-2021"></a>2021년 10월
 

@@ -2,20 +2,20 @@
 title: '빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 만들기'
 description: 이 가이드의 단계에 따라 Azure Portal을 사용하여 새 전용 SQL 풀을 만듭니다.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: jrasnick
 ms.custom: mode-portal
-ms.openlocfilehash: 5af393263b70bd778ee4b30cfd6d8fcad7d65d4d
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 4d72ab54152541086f22e4b63beea6a8f5e21756
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133063404"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368218"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 전용 SQL 풀 만들기
 

@@ -7,16 +7,16 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 76f7d0314e382508c6290e80db4960addbc15c24
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: cd91e1c06f56b9ffa13e0d7bd56eab0bc1125183
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688963"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133359611"
 ---
 # <a name="use-the-azure-cli-to-create-a-single-database-and-configure-a-firewall-rule"></a>Azure CLI를 사용하여 단일 데이터베이스 만들고 및 방화벽 규칙을 구성합니다.
 

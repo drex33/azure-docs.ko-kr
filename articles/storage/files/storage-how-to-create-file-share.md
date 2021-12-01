@@ -9,12 +9,12 @@ ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-ms.openlocfilehash: ac4d4ba50b9da33040fc1da27775d72c0156cba2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6eba211a0c72d78eb8af473c859022b2bc737f43
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128547770"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133358562"
 ---
 # <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 Azure 파일 공유를 만들려면 파일 공유를 사용할 방법에 관한 다음 세 가지 질문에 답해야 합니다.
@@ -213,7 +213,7 @@ az storage account update --name <yourStorageAccountName> -g <yourResourceGroup>
 
 - 표준 파일 공유의 경우에는 최종 사용자가 초과할 수 없는 Azure 파일 공유의 상한입니다. 할당량을 지정하지 않으면 표준 파일 공유는 최대 100TiB(또는 스토리지 계정의 대용량 파일 공유 속성을 설정하지 않은 경우 5TiB)까지 확장될 수 있습니다. 대용량 파일 공유를 사용하도록 설정한 스토리지 계정을 만들지 않은 경우 100TiB 파일 공유를 사용하도록 설정하는 방법은 [기존 계정에서 대용량 파일 공유 사용](#enable-large-files-shares-on-an-existing-account)을 참조하세요. 
 
-- 프리미엄 파일 공유의 경우 할당량은 **프로비저닝된 크기** 를 의미합니다. 프로비저닝된 크기는 실제 사용량과 관계없이 요금이 청구되는 양입니다. 프리미엄 파일 공유에서 사용할 수 있는 IOPS 및 처리량은 프로비전된 크기를 기반으로 합니다. 프리미엄 파일 공유를 계획하는 방법에 대한 자세한 내용은 [provisioning premium file shares](understanding-billing.md#provisioned-model)(프리미엄 파일 공유 프로비저닝)를 참조하세요.
+- 프리미엄 파일 공유의 경우 할당량은 **프로비저닝된 크기** 를 의미합니다. 프로비저닝된 크기는 실제 사용량과 관계없이 요금이 청구되는 양입니다. 프리미엄 파일 공유에서 사용할 수 있는 IOPS 및 처리량은 프로 비전 된 크기를 기반으로 합니다. 프리미엄 파일 공유를 계획하는 방법에 대한 자세한 내용은 [provisioning premium file shares](understanding-billing.md#provisioned-model)(프리미엄 파일 공유 프로비저닝)를 참조하세요.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 이제 막 스토리지 계정을 만들었으면 **리소스로 이동** 을 선택하여 배포 화면에서 해당 계정으로 이동할 수 있습니다. 스토리지 계정으로 이동했으면 스토리지 계정의 목차에서 **파일 공유** 를 선택합니다.
@@ -333,7 +333,7 @@ $storageAccountName = "<YourStorageAccountName>"
 $shareName="<YourStorageAccountFileShareName>"
 
 # update quota
-Set-AzRmStorageShare `
+Update-AzRmStorageShare `
     -ResourceGroupName $resourceGroupName `
     -StorageAccountName $storageAccountName `
     -Name $shareName `

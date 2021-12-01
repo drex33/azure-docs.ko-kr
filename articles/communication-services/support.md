@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9fcc67dbcf0cdf6832a4f5ba7718d49c50308c5a
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 6b8f36e78d1218f0b454ec4ac222310c8e8aba39
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458968"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367078"
 ---
 # <a name="help-and-support-options-for-azure-communication-services"></a>Azure Communication Services에 대한 도움말 및 지원 옵션
 
@@ -36,7 +36,11 @@ Microsoft 엔지니어, Azure Mvp (가장 귀중한 전문가) 또는 커뮤니�
 
 [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-communication-services/bd-p/AzureCommunicationServices)는 제품 또는 기술 관련 질문을 할 수 있는 또 다른 장소입니다. Azure Communication Services 팀은 정기적으로 [블로그](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog)를 게시하고 "무엇이든 물어보세요" 이벤트를 호스트합니다.
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback-through-azure-feedback"></a>Azure 피드백을 통해 피드백 제공
+
+커뮤니티의 다른 사람들이 [Azure 피드백 채널](https://feedback.azure.com/d365community/forum/81ff6d2b-0c25-ec11-b6e6-000d3a4f0858)을 통해 공유한 아이디어, 기능 요청 및 피드백을 게시 하 고 사용할 수 있습니다.
+
+## <a name="provide-feedback-through-the-azure-portal"></a>Azure Portal를 통해 피드백 제공
 
 Azure Communication Services가 Azure Portal에서 제공하는 특정 기능에 대한 피드백을 제공하려면 :::image type="content" source="./media/give-feedback-icon.png" alt-text="피드백 보내기 아이콘 이미지":::가 있는 단추 또는 링크를 통해 피드백을 제출합니다. 
 

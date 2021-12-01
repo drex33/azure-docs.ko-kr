@@ -2,19 +2,19 @@
 title: '빠른 시작: Azure Synapse 작업 영역 Azure Resource Manager 템플릿 만들기(ARM 템플릿)'
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Synapse 작업 영역을 만드는 방법을 알아봅니다.
 services: azure-resource-manager
-author: julieMSFT
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
-ms.author: jrasnick
+ms.author: wiassaf
 ms.date: 08/07/2020
-ms.openlocfilehash: 5b75d46cb2481b9509d6f095431f4bd6b91b4366
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 2c92881cff1d773fbf51e10d40de77ef355d4b67
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133070900"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133358739"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Synapse 작업 영역 만들기
 

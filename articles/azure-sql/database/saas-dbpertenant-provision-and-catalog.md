@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 9097ce88ac141bf8c825fb4c720d2a01e0c0029c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 8340285c8dca32e075b5e9f154499e6d1ded389f
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699227"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367611"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록하는 방법 알아보기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

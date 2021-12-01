@@ -7,16 +7,15 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.date: 03/12/2019
-ms.openlocfilehash: f6a67da027ba777c07307ba46169003718c8bdb0
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: f824ce7c28108ec7bc8d3e044da900cf010ecaf8
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690408"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133386801"
 ---
 # <a name="manage-databases-in-azure-sql-database-by-using-azure-automation"></a>Azure Automation을 사용하여 Azure SQL Database의 데이터베이스 관리
 
@@ -45,4 +44,4 @@ Azure Automation을 사용하면 [Azure PowerShell 도구](/powershell/azure/)�
 Azure Automation의 기본 사항과 Azure Automation을 사용하여 Azure SQL Database를 관리하는 방법을 배웠으므로 이제 다음 링크에 따라 Azure Automation에 대해 자세히 알아봅니다.
 
 - [Azure Automation 개요](../../automation/automation-intro.md)
-- [내 첫 번째 runbook](../../automation/learn/automation-tutorial-runbook-graphical.md)
+- [내 첫 번째 runbook](../../automation/learn/powershell-runbook-managed-identity.md)

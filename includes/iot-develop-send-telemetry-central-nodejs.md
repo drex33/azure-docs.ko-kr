@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/17/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: c39c3302ce44a3bb224e5f31e5260b839eca043c
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 8c2e50084fd972cac439a27e54759f281bb56fa4
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132876593"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368977"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
 
@@ -23,7 +23,7 @@ ms.locfileid: "132876593"
 
 - Windows 10
 - Ubuntu 20.04 LTS
-- Raspberry Pi 3 Model B+에서 실행되는 Raspberry Pi OS 버전 10(buster)
+- Raspberry Pi 3 모델 B+에서 실행되는 Raspberry Pi OS(Raspbian) 버전 10
 
 개발 컴퓨터에 다음 필수 구성 요소를 설치합니다.
 

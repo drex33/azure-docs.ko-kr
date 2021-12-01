@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2356235bf70a5fdd3e284c26d421e16ca94fb59
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: f052325b2c73fa5fdcaff8f60de6547d5a7d9e57
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208498"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133359649"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 필터 
 
@@ -62,13 +62,9 @@ ms.locfileid: "129208498"
 
 필터 식에 대한 한도는 요청에 대한 최대 크기 제한입니다. 필터를 포함한 전체 요청은 POST의 경우 최대 16MB, GET의 경우 최대 8KB가 될 수 있습니다. 필터 식의 절 개수에도 제한이 있습니다. 경험에 따르면 수백 개의 절이 있는 경우 제한에 도달할 위험이 있습니다. 애플리케이션을 설계할 때 필터의 크기를 무제한으로 생성하지 않는 것이 좋습니다.
 
-다음 예제는 여러 API의 정형화된 필터 정의를 나타냅니다.
+다음 예제에서는 여러 API의 정형 필터 정의를 나타냅니다.
 
 ```http
-# Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2020-06-30&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
-
-# Option 2: Use filter for POST and pass it in the request body
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "*",

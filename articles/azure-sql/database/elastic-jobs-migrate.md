@@ -7,15 +7,15 @@ ms.subservice: scale-out
 ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.date: 03/13/2019
-ms.openlocfilehash: f7fc52014e8f95ee021097f5f305d0aa60bd52a6
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: f52b8ee1517f3af3b112c4e526011af238a59992
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699539"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368672"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>새 Elastic Database 작업으로 마이그레이션(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -2,19 +2,19 @@
 title: '빠른 시작: Azure CLI를 사용하여 Synapse SQL 풀 만들기'
 description: Azure CLI를 사용하여 서버 수준 방화벽 규칙으로 Synapse SQL 풀을 신속하게 만듭니다.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.custom: azure-synapse, devx-track-azurecli, mode-api
-ms.openlocfilehash: 81944fde56d641c9d09d853ed709c8615f546d69
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 012a29793f9e13b19eab49d80bf370a2cd4a434c
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133070823"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368198"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Synapse SQL 풀 만들기
 

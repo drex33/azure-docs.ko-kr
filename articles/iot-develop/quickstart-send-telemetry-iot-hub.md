@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub에 디바이스 원격 분석 보내기 빠른 시작
-description: 이 빠른 시작에서는 디바이스 개발자에게 디바이스를 Azure IoT Hub에 안전하게 연결하는 방법을 보여 줍니다. C, C#, Python, Node.js 또는 Java용 Azure IoT 디바이스 SDK를 사용하여 Windows, Linux 또는 Raspberry Pi OS(Raspian)용 디바이스 클라이언트를 빌드합니다. 마지막으로 디바이스를 Azure IoT Hub에 연결하고 원격 분석을 보냅니다.
+description: 이 빠른 시작에서는 디바이스 개발자에게 디바이스를 Azure IoT Hub에 안전하게 연결하는 방법을 보여 줍니다. C, C#, Python, Node.js 또는 Java용 Azure IoT 디바이스 SDK를 사용하여 Windows, Linux 또는 Raspberry Pi(Raspbian)용 디바이스 클라이언트를 빌드한 다음 원격 분석을 연결하고 보냅니다.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -9,12 +9,12 @@ ms.date: 08/03/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
 ms.custom: mode-other
-ms.openlocfilehash: 82f54487cb557c89751c9635385da0e407674d9c
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: dcb1e321f56bfd77c76874553b31c85dda02b0e8
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133044078"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133358069"
 ---
 # <a name="quickstart-send-telemetry-from-an-iot-plug-and-play-device-to-azure-iot-hub"></a>빠른 시작: IoT 플러그 앤 플레이 디바이스에서 Azure IoT Hub로 원격 분석 전송
 

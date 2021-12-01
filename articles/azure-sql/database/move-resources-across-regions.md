@@ -8,16 +8,16 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: rothja
-ms.author: jroth
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: 75f30fe7263d14538ad14588a56aafecde96a126
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 862e195b48527257ada62de47d858bdb3a4416fe
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528846"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364650"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>새 지역으로 리소스 이동 - Azure SQL Database 및 Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

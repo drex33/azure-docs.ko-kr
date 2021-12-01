@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: b7fb97bbab252b5a11a1e66e89c717108781b0e2
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: cd69c198154de8a05a01c2cd09560e9a3a380c91
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110699070"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133362335"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>공유 다중 테넌트 Azure SQL Database를 사용하여 SaaS 애플리케이션에 새 테넌트를 프로비저닝하고 카탈로그로 만들기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

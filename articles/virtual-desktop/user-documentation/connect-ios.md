@@ -1,17 +1,17 @@
 ---
-title: iOS에서 Azure Virtual Desktop에 연결 - Azure
+title: IOS 클라이언트를 사용 하 여 Azure 가상 데스크톱에 커넥트-Azure
 description: iOS 클라이언트를 사용하여 Azure Virtual Desktop에 연결하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 02/08/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 50e84abfecfe013de0d538197db3980c76c4e296
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
-ms.translationtype: HT
+ms.openlocfilehash: 743601db061a22ae7fbe91992148558a5dc3fb14
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113034320"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133356597"
 ---
 # <a name="connect-to-azure-virtual-desktop-with-the-ios-client"></a>iOS 클라이언트를 사용하여 Azure Virtual Desktop에 연결
 

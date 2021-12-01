@@ -2,21 +2,21 @@
 title: 전용 SQL 풀에서 Azure Stream Analytics 사용
 description: 실시간 솔루션을 개발하기 위해 Azure Synapse의 전용 SQL 풀에 Azure Stream Analytics를 사용하는 팁입니다.
 services: synapse-analytics
-author: gaursa
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 9/25/2020
-ms.author: gaursa
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 023cf55a01f34277dd5c5707d0d123f54c1674df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 1362d5dc101bd8da7c6584ae1b6fff54de774ade
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600091"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133361277"
 ---
 # <a name="use-azure-stream-analytics-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 Azure Stream Analytics 사용
 
@@ -24,7 +24,7 @@ Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 �
 
 이 문서에서는 처리량이 높은 데이터 수집에 대한 출력 싱크로 Azure Stream Analytics 작업과 전용 SQL 풀을 사용하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Stream Analytics 작업 - Azure Stream Analytics 작업을 만들려면 [Azure Stream Analytics 사용 시작](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) 자습서의 단계를 따르세요.  
 

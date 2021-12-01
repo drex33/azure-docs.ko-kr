@@ -7,16 +7,16 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: guide
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: e3bbba9245ea7aa998a1adecb60e05e9ff7d70c0
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 66964b542dfadaa68892ff044c5098468571758e
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690004"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367836"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스로 빠르게 시작하기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

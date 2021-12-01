@@ -2,20 +2,20 @@
 title: '빠른 시작: 전용 SQL 풀을 사용하여 데이터 대량 로드'
 description: Synapse Studio를 사용하여 Azure Synapse Analytics의 전용 SQL 풀에 데이터를 대량 로드합니다.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
 ms.date: 12/11/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: jrasnick
 ms.custom: mode-other
-ms.openlocfilehash: 8b7c35382a4f17997f1cd8b32545de342249f055
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 4904d13afc385475b7b1b7f82ae1328063d9c468
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133073471"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133363072"
 ---
 # <a name="quickstart-bulk-loading-with-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 대량 로드
 

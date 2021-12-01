@@ -7,16 +7,16 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: f09bd53a8e98b88bcc42ac085240b45d02671bba
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 5cc323180888ad9d939d088218969a9d6daca2b2
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693093"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367790"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 서버 및 단일 데이터베이스 만들기 및 관리
 

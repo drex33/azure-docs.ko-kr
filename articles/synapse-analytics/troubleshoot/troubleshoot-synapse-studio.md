@@ -1,19 +1,19 @@
 ---
 title: Synapse Studio 문제 해결
 description: Synapse Studio 문제 해결
-author: julieMSFT
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: troubleshooting
 ms.date: 04/15/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: jrasnick
-ms.openlocfilehash: fd560856ab087727d73317eaef5de01950281db9
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: 01395a43e25a38017e2346103e50783555ca2401
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132399481"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133361333"
 ---
 # <a name="synapse-studio-troubleshooting"></a>Synapse Studio 문제 해결
 
@@ -118,7 +118,7 @@ wss://{workspace}.dev.azuresynapse.net/jupyterApi/versions/1/sparkPools/{spark-p
 + **{spark-pool}은** 현재 작업 중인 Spark 풀의 이름입니다. 
 + **{kernel-id}는** Notebook 세션을 구분하는 데 사용되는 GUID입니다. 
 
-WebSocket 연결을 설정하는 경우 Synapse Studio WebSocket 요청의 Sec-WebSocket-Protocol 헤더에 액세스 토큰(JWT bearer token)을 포함합니다. 
+WebSocket 연결을 설정하는 경우 Synapse Studio WebSocket 요청의 Sec-WebSocket-Protocol 헤더에 액세스 토큰(JWT Bearer 토큰)이 포함됩니다. 
 
 경우에 따라 WebSocket 요청이 차단되거나 요청 헤더의 JWT 토큰이 네트워크 환경에서 수정될 수 있습니다. 이로 인해 Synapse Notebook에서 서버에 대한 연결을 설정하고 Notebook을 실행할 수 없습니다. 
 

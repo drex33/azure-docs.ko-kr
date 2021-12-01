@@ -6,16 +6,16 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 03/10/2020
-author: julieMSFT
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 5256c6d25a9c7acfc45cdffee05c95fb3407c24a
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
-ms.translationtype: HT
+ms.openlocfilehash: 475babf63e59abf204e66bd0cb07a0d35135b5e9
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568321"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367727"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>할당량 증가 요청 및 Azure Synapse Analytics에 대한 지원 받기
 

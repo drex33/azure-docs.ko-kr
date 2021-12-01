@@ -1,19 +1,20 @@
 ---
 title: Microsoft Azure Maps 개요
 description: Microsoft Azure Maps의 서비스 및 기능으로 무엇이 있으며 애플리케이션에서 어떻게 사용할 수 있는지 알아봅니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 12/07/2020
+author: stevemunk
+ms.author: v-munksteve
+manager: erikland
+ms.date: 11/29/2021
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 339e6059ae1dd55e55dfe143d8ea4dd5dcbb2236
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 8ecef0c6fe7a3c1f9a21c8412f0ab18483eea40e
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003309"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364863"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -195,7 +196,7 @@ Elevation Service를 사용하면 다음 두 가지 형식으로 권한 상승 �
 
 * **GeoTIFF 래스터 형식**. [Render V2 - Get Map Tile API](/rest/api/maps/renderv2)를 사용하여 타일 형식의 권한 상승 데이터를 검색합니다.
 
-* **GeoJSON 형식**. [Elevation API](/rest/api/maps/elevation)를 사용하여 정의된 경계 상자 내 또는 특정 좌표에서 경로를 따라 샘플링된 권한 상승 데이터를 요청합니다. 
+* **GeoJSON 형식**. [Elevation API](/rest/api/maps/elevation)를 사용하여 정의된 경계 상자 내 또는 특정 좌표에서 경로를 따라 샘플링된 권한 상승 데이터를 요청합니다.
 
 :::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="권한 상승 데이터를 포함하는 맵의 예제":::
 
@@ -207,9 +208,9 @@ Azure Maps는 이동성을 위해 빌드되었으며 플랫폼 간 애플리케�
 
 ## <a name="power-bi-visual"></a>Power BI 시각적 개체
 
-Power BI용 Azure Maps 시각적 개체는 지도 위에 공간 데이터에 대한 다양한 데이터 시각화 세트를 제공합니다. 비즈니스 데이터의 80% 이상이 위치 컨텍스트를 가지고 있는 것으로 추정됩니다. Azure Maps 시각적 개체는 이 위치 컨텍스트가 비즈니스 데이터와 어떻게 관련되고 영향을 미치는지에 대한 인사이트를 얻을 수 있는 코드 없는 솔루션을 제공합니다.
+Azure 지도 Power BI 시각적 개체는 지도 위에 있는 공간 데이터에 대한 풍부한 데이터 시각화 집합을 제공합니다. 비즈니스 데이터의 80% 이상이 위치 컨텍스트를 가지고 있는 것으로 추정됩니다. Azure 지도 Power BI 시각적 개체는 이 위치 컨텍스트가 비즈니스 데이터와 어떻게 관련되고 영향을 미치는지에 대한 인사이트를 얻기 위한 코드 없는 솔루션을 제공합니다.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="비즈니스 데이터를 표시하는 Azure Maps 시각적 개체가 포함된 Power BI 데스크톱":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="비즈니스 데이터를 표시하는 Azure 지도 Power BI 시각적 개체를 사용하여 데스크톱 Power BI":::
 
 자세한 내용은 [Azure Maps Power BI 시각적 개체](power-bi-visual-getting-started.md) 시작 설명서를 참조하세요.
 

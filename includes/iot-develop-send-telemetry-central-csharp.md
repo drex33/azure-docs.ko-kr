@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/08/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 1a61f369d0987caac2cc821e37c1e5e1ed7cda40
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: cfa5f6ab02554332f7dd20c24749d07c6c7b1079
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131861246"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368991"
 ---
 [![코드 찾아보기](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/iot-hub/Samples/device/PnpDeviceSamples)
 
@@ -24,7 +24,7 @@ ms.locfileid: "131861246"
 
 - Windows 10
 - Ubuntu 20.04 LTS
-- Raspberry Pi 3 모델 B+에서 실행되는 Raspberry Pi OS 버전 10(Raspian)
+- Raspbian (Raspberry Pi OS) 버전 10, Raspberry Pi 3 모델에서 실행
 
 개발 컴퓨터에 다음 필수 구성 요소를 설치합니다.
 

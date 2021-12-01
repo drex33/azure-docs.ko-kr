@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: f4d7ae6849249fec874d0d5af2df042323c81886
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: c50b79745fab53d0573d698c017e86d83477991b
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708184"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133360131"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-databases"></a>분할된 다중 테넌트 데이터베이스를 사용하는 SaaS 애플리케이션에서 스키마 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

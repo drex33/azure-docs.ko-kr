@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 053c17d8126d79753753e6ab47931e84cf6348b6
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: f47852ad2e78b3d828c2f761870e40778597f0da
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708170"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133362351"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

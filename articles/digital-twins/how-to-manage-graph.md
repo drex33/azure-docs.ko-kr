@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/13/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5c02ad72ace0568f7be1062993adaf154bb31cbf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a8d6c53725d1389bd813aaf9a71ddc26fea4e4e0
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624314"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133359045"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용하여 디지털 트윈의 그래프 관리
 
@@ -37,7 +37,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 [트윈 그래프
 
 관계는 다양한 디지털 트윈이 서로 연결된 방식을 설명하며 트윈 그래프의 기초가 됩니다.
 
-관계는 `CreateOrReplaceRelationshipAsync()` 호출을 사용하여 만듭니다. 
+하나의 (원본) 쌍에서 다른(대상) 쌍으로 만들 수 있는 관계 형식은 원본 쌍의 [DTDL 모델](concepts-models.md#relationships)의 일부로 정의됩니다. `CreateOrReplaceRelationshipAsync()`DTDL 정의를 준수하는 트윈 및 관계 세부 정보가 있는 SDK 호출을 사용하여 관계의 인스턴스를 만들 수 있습니다. 
 
 관계를 만들려면 다음을 지정해야 합니다.
 * 원본 트윈 ID(아래 코드 샘플의 `srcId`): 관계가 시작되는 트윈의 ID입니다.
@@ -72,6 +72,9 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 [트윈 그래프
 즉, 한 번에 두 트윈 사이에 여러 다른 형식의 관계를 표현할 수 있습니다. 예를 들어 트윈 A는 트윈 B와 *저장됨* 관계와 *제조됨* 관계를 모두 가질 수 있습니다.
 
 원하는 경우 동일한 두 트윈 간에 같은 형식의 관계 인스턴스를 여러 개 만들 수도 있습니다. 이 예제에서 트윈 A는 트윈 B와 관계 ID가 서로 다른 두 개의 *저장됨* 관계를 가질 수 있습니다.
+
+> [!NOTE]
+> 관계에 대한 및 의 DTDL 특성은 `minMultiplicity` `maxMultiplicity` 현재 Azure Digital Twins 지원되지 않습니다. 모델의 일부로 정의된 경우에도 서비스에서 적용되지 않습니다. 자세한 내용은 [Azure Digital Twins DTDL 구현 세부 정보를 참조하세요.](concepts-models.md#azure-digital-twins-dtdl-implementation-specifics)
 
 ## <a name="list-relationships"></a>관계 목록
 

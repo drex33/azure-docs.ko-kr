@@ -82,6 +82,8 @@
             - name: 테넌트
               href: deploy-to-tenant.md
               displayName: assign role
+        - name: 배포 스크립트
+          href: deployment-script-bicep.md
         - name: Linter
           items:
             - name: Linter
@@ -108,8 +110,20 @@
           items:
             - name: 구성 집합
               href: patterns-configuration-set.md
+            - name: 논리 매개 변수
+              href: patterns-logical-parameter.md
+            - name: 이름 생성
+              href: patterns-name-generation.md
             - name: 공유 변수 파일
               href: patterns-shared-variable-file.md
+    - name: 시나리오
+      items:
+        - name: Access Control
+          href: scenarios-rbac.md
+        - name: 비밀
+          href: scenarios-secrets.md
+        - name: 가상 네트워크
+          href: scenarios-virtual-networks.md
     - name: 배포
       items:
         - name: 배포 전 검사

@@ -39,7 +39,7 @@
       href: language-identification-model.md
     - name: 라이브 스트림 분석
       href: live-stream-analysis.md
-    - name: 비디오 사용자에서 관찰됨
+    - name: 비디오에서 관찰 된 사람들
       href: observed-people-tracing.md
     - name: 사용자가 검색한 옷
       href: detected-clothing.md

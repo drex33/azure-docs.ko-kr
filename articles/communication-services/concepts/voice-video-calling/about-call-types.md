@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 9fd2de1bdcd89f027db9a3fd74ef40111f540ced
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4f61731fe0041a7587e502e358ba5d442198f759
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635967"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367097"
 ---
 # <a name="voice-and-video-concepts"></a>음성 및 비디오 개념
 
@@ -56,5 +56,5 @@ H.264(MPEG-4) 지원
 
 자세한 내용은 다음 항목을 참조하세요.
 - 일반적인 [통화 흐름](../call-flows.md) 숙지
-- [전화 번호 유형](../telephony-sms/plan-solution.md)
+- [전화 번호 유형](../telephony/plan-solution.md)
 - [Calling SDK 기능](../voice-video-calling/calling-sdk-features.md)에 대해 알아보기

@@ -14,6 +14,37 @@
 - name: 빠른 시작
   expanded: false
   items:
+    - name: 네트워크
+      items:
+        - name: 시스템 필수 구성 요소
+          displayName: 'firewall, proxy, open ports'
+          href: quickstart-system-prerequisites.md
+        - name: Microsoft Defender for IoT 시작
+          displayName: 'getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription'
+          href: getting-started.md
+- name: 자습서
+  expanded: false
+  items:
+    - name: 네트워크
+      items:
+        - name: Microsoft Defender for IoT 평가판 설정
+          href: tutorial-onboarding.md
+        - name: ClearPass 통합
+          href: tutorial-clearpass.md
+        - name: CyberArk 통합
+          href: tutorial-cyberark.md
+        - name: Forescout 통합
+          href: tutorial-forescout.md
+        - name: Fortinet 통합
+          href: tutorial-fortinet.md
+        - name: Palo Alto 통합
+          href: tutorial-palo-alto.md
+        - name: Qradar 통합
+          href: tutorial-qradar.md
+        - name: Splunk 통합
+          href: tutorial-splunk.md
+        - name: ServiceNow 통합
+          href: tutorial-servicenow.md
     - name: 시스템 필수 구성 요소
       displayName: 'firewall, proxy, open ports'
       href: quickstart-system-prerequisites.md
@@ -113,14 +144,24 @@
     - name: 위협 인텔리전스 패키지 작업
       href: how-to-work-with-threat-intelligence-packages.md
       displayName: 'packages, automatic, intelligence, push, threat'
-    - name: 디바이스 인벤토리 정보 작업
+    - name: 장치 인벤토리 관리
       items:
-        - name: 디바이스 인벤토리에서 모든 엔터프라이즈 센서 감지 조사
-          href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
-          displayName: classification
-        - name: 디바이스 인벤토리에서 센서 감지 조사
-          href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-          displayName: 'classification, Windows registry, device, firmware, import, bulk, delete'
+        - name: 네트워크
+          items:
+            - name: 클라우드 장치 인벤토리 관리
+              href: how-to-manage-device-inventory-for-organizations.md
+              displayNAme: 'device inventory, device, inventory, EIoT, eiot'
+            - name: 센서 장치 인벤토리 관리
+              href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+              displayName: 'classification, Windows registry, device, firmware, import, bulk, delete, device inventory'
+            - name: 관리 콘솔 장치 인벤토리 관리
+              href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+              displayName: 'classification, device inventory'
+        - name: Enterprise IoT
+          items:
+            - name: 클라우드 장치 인벤토리 관리
+              href: how-to-manage-device-inventory-for-organizations.md
+              displayNAme: 'device inventory, device, inventory, EIoT, eiot'
     - name: 센서 디바이스 맵 작업
       href: how-to-work-with-the-sensor-device-map.md
       displayName: 'connections, Purdue, zoom, delete device, authorized, unauthorized, programming, filter, groups, custom, zoom, connection, important device, IT network'

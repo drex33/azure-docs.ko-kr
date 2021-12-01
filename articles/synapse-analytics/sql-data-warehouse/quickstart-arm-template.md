@@ -2,18 +2,18 @@
 title: Azure Resource Manager 템플릿을 사용하여 전용 SQL 풀(이전의 SQL DW) 만들기
 description: Azure Resource Manager 템플릿을 사용하여 Azure Synapse Analytics SQL 풀을 만드는 방법을 알아봅니다.
 services: azure-resource-manager
-author: julieMSFT
+author: WilliamDAssafMSFT
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.author: jrasnick
+ms.author: wiassaf
 ms.date: 06/09/2020
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
-ms.openlocfilehash: 9d4cef88c7c112729e720aa679f696364041e9e5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 48982a835febca66523ce02366314f16ead1fc99
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131083273"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133362252"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-dedicated-sql-pool-formerly-sql-dw-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Synapse Analytics 전용 SQL 풀(이전의 SQL DW) 만들기
 

@@ -2,21 +2,21 @@
 title: 전용 SQL 풀에 대한 연속 통합 및 배포
 description: Azure Pipelines를 사용한 연속 통합 및 배포를 기본적으로 지원하는 Azure Synapse Analytics의 전용 SQL 풀을 위한 엔터프라이즈급 데이터베이스 DevOps 환경입니다.
 services: synapse-analytics
-author: gaursa
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw
 ms.date: 02/04/2020
-ms.author: gaursa
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d43039c98e991cd23a8e5c4fb866a8e3dcab6fc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 9087e4730098c201f908b0d705b758ef104e0bbd
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104585641"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368824"
 ---
 # <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 연속 통합 및 배포
 

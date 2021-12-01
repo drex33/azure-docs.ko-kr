@@ -13,13 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 168f0bb17a63dea874f782fdb04906526822de81
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9181f755fd21fe8860c1103b24e077c77d1b2e16
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131071898"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368514"
 ---
 # <a name="what-is-sql-server-on-windows-azure-virtual-machines"></a>Windows Azure Virtual Machines의 SQL Server란 무엇인가요?
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

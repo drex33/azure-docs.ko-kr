@@ -2,20 +2,20 @@
 title: COPY 문을 사용한 인증 메커니즘
 description: 데이터 대량 로드를 위한 인증 메커니즘 개요를 표시합니다.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 07/10/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: jrasnick
 ms.custom: subject-rbac-steps, mode-other
-ms.openlocfilehash: c5e875831c8e73bf00849a730c3c8ef986342ca9
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: abc77f72aa6dfb596e47c64cc71ff272981e1b8f
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133055239"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133365135"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Synapse SQL을 사용하여 안전하게 데이터 로드
 

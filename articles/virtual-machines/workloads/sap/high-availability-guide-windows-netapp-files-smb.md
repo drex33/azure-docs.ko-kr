@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/29/2021
 ms.author: radeltch
-ms.openlocfilehash: 59c977b94efe62489208fca0d2514a5d2e381aff
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: efebeb328b61485edd28e138198d3f203427395c
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803687"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367034"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>SAP 애플리케이션용 Azure NetApp Files(SMB)를 사용하는 Windows의 Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -28,6 +28,7 @@ ms.locfileid: "124803687"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 [high-availability-guide]:high-availability-guide.md
+[dfs-n-reference]:high-availability-guide-windows-dfs.md
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
@@ -239,8 +240,10 @@ SAP ASCS/SCS의 리소스 사용량은 매우 작지만 SQL Server 또는 SAP Ap
 ![그림: Azure NetApp Files SMB를 사용하는 SQL Server Always On 노드의 SAP ASCS/SCS][sap-ha-guide-figure-8007B]
 
 > [!NOTE]
-> 이 그림은 추가 로컬 디스크의 사용을 보여 줍니다. 이것은 OS 드라이브에 애플리케이션 소프트웨어를 설치하지 않는 고객의 경우 선택 사항입니다(C:\)
+> 이 그림은 추가 로컬 디스크의 사용을 보여 줍니다. OS 드라이브(C:\)에 애플리케이션 소프트웨어를 설치하지 않을 고객의 경우 선택 사항입니다.
 >
+### <a name="using-windows-dfs-n-to-support-flexible-sapmnt-share-creation-for-smb-based-file-share"></a>Windows DFS-N을 사용 하 여 SMB 기반 파일 공유에 대 한 유연한 SAPMNT 공유 만들기 지원
+DFS-N을 사용 하면 동일한 Azure 지역 및 구독 내에 배포 된 SAP 시스템에 대해 개별 sapmnt 볼륨을 활용할 수 있습니다. 이 설치에 대 한 설명서는 [여기][dfs-n-reference] 에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

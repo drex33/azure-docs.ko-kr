@@ -3,17 +3,17 @@ title: Azure Virtual Desktop의 새로운 기능 - Azure
 description: Azure Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/27/2021
+ms.date: 11/30/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: 1781a566f84825971ac3728a360b52fcd1270e0a
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 10a6155fa90b0268440f16496dfeef418c141241
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132490234"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367531"
 ---
 # <a name="whats-new-in-azure-virtual-desktop"></a>Azure Virtual Desktop의 새로운 기능
 
@@ -76,6 +76,26 @@ Azure Virtual Desktop 에이전트에서 변경된 내용은 다음과 같습니
 ## <a name="fslogix-updates"></a>FSLogix 업데이트
 
 FSLogix의 최신 업데이트가 궁금하신가요? [FSLogix의 새로운 기능](/fslogix/whats-new)을 확인하세요.
+
+## <a name="november-2021"></a>2021년 11월
+
+11 월 2021에서 변경 된 내용은 다음과 같습니다.
+
+### <a name="azure-virtual-desktop-for-azure-stack-hci"></a>Azure Stack HCI 용 Azure 가상 데스크톱
+
+Azure Stack HCI 용 Azure 가상 데스크톱은 이제 공개 미리 보기로 제공 됩니다. 이 기능은 성능 및 데이터 보안을 위해 온-프레미스에 유지 해야 하는 앱에 대해 데스크톱 가상화를 필요로 하는 고객을 위한 것입니다. 자세한 내용은 [블로그 게시물](https://aka.ms/avd-ignite2021-blogpost) 및 [Azure Stack에 대 한 Azure 가상 데스크톱 HCI 설명서](azure-stack-hci-overview.md)를 참조 하세요.
+
+### <a name="autoscale-public-preview"></a>자동 크기 조정 공개 미리 보기
+
+사용자가 설정한 일정에 따라 자동으로 세션 호스트를 중지 하거나 시작할 수 있도록 하는 새로운 자동 크기 조정 기능을 도입 하 게 되어 기쁘게 생각 합니다. 자동 크기 조정을 사용 하면 공유 또는 풀링된 데스크톱을 실제로 사용 하는 리소스에 대해서만 요금을 부과 하도록 구성 하 여 인프라 비용을 최적화할 수 있습니다. [설명서](autoscale-scaling-plan.md) 를 읽고 [Azure 아카데미 비디오](https://www.youtube.com/watch?v=JolOG7abfa4&ab_channel=AzureAcademy)를 시청 하 여 자동 크기 조정 기능에 대해 자세히 알아볼 수 있습니다.
+
+### <a name="azure-virtual-desktop-starter-kit-for-power-automate"></a>Power Automate에 대 한 Azure 가상 데스크톱 시작 키트
+
+이제 조직에서 Azure 가상 데스크톱 시작 키트를 사용 하 여 RPA (로봇 프로세스 자동화) 작업을 관리할 수 있습니다. 자세한 내용은 [설명서](/power-automate/desktop-flows/avd-overview)를 참조 하세요.
+
+### <a name="tagging-with-azure-virtual-desktop"></a>Azure 가상 데스크톱으로 태그 지정
+
+최근 Azure 가상 데스크톱의 태그를 구성 하 여 비용을 추적 하 고 관리 하는 방법에 대 한 새로운 설명서를 출시 했습니다. 자세한 내용은 [Azure 가상 데스크톱 리소스 태그](tag-virtual-desktop-resources.md)를 참조 하세요.
 
 ## <a name="october-2021"></a>2021년 10월
 

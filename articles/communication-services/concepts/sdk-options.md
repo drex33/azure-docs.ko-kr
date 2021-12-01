@@ -9,12 +9,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f457c08d25bf9e33aa7a51d83a2661c622d2f605
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: 561369101740f0f438d0d7eb05ae3bfa588303c8
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133265617"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368326"
 ---
 # <a name="sdks-and-rest-apis"></a>SDK 및 REST API
 
@@ -142,7 +142,7 @@ v2.05의 릴리스 12개월 안에 호출 SDK의 V2.05 버전으로 업데이트
 
 - [호출 SDK 개요](../concepts/voice-video-calling/calling-sdk-features.md)
 - [채팅 SDK 개요](../concepts/chat/sdk-features.md)
-- [SMS SDK 개요](../concepts/telephony-sms/sdk-features.md)
+- [SMS SDK 개요](../concepts/sms/sdk-features.md)
 
 Azure Communication Services를 시작하려면 다음을 수행하세요.
 

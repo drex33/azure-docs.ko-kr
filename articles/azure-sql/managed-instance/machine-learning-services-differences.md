@@ -7,17 +7,17 @@ ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: mathoma, davidph
 manager: cgronlun
 ms.date: 03/17/2021
-ms.openlocfilehash: 68590dd5eeba49f71c8548389848e0db7ceb7e92
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: 8e2bcb06ba9e5569c6d8f18871968412d8f7f320
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133269734"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368447"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Azure SQL Managed Instance와 SQL Server의 Machine Learning Services에 대한 주요 차이점
 

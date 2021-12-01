@@ -6,14 +6,14 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: df0b87543c213b77a3cf47a7e9020f7f3c0e1866
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: VanMSFT
+ms.author: vanto
+ms.openlocfilehash: b0c22b5fcaa2566d1c12d0b62667e86f44f44c59
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064459"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367890"
 ---
 # <a name="digest-management-and-database-verification"></a>다이제스트 관리 및 데이터베이스 확인
 

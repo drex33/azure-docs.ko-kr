@@ -1,18 +1,18 @@
 ---
 title: DTDL 모델 관리
 titleSuffix: Azure Digital Twins
-description: Azure Digital Twins 내에서 DTDL 모델을 만들고, 편집 하 고, 삭제 하는 방법을 비롯 하 여 DTDL 모델을 관리 하는 방법에 대해 알아봅니다.
+description: Azure Digital Twins 내에서 DTDL 모델을 만들고 편집하고 삭제하는 방법을 포함하여 DTDL 모델을 관리하는 방법을 알아봅니다.
 author: baanders
 ms.author: baanders
 ms.date: 10/20/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7ae5a3293b7b9ba4712c3762b18b6d9c66eab926
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 8b78b6d29c4db94bf5c9afc6c3da769aa1fb2483
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131507173"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367007"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -44,6 +44,9 @@ Azure Digital Twins에 대한 모델은 DTDL로 작성되고 .json 파일로 저
 이 모델은 병실의 이름과 고유 ID, 방문자 수 및 손 씻기 상태를 나타내는 속성을 정의합니다. 이러한 카운터는 동작 센서와 스마트 비누 디스펜서에서 업데이트되며 함께 사용되어 *손씻기 비율* 속성을 계산합니다. 또한 모델은 *hasDevices* 관계를 정의하며 이는 Room 모델을 기반으로 모든 [디지털 트윈](concepts-twins-graph.md)을 실제 디바이스에 연결하는 데 사용됩니다.
 
 이 메서드에 따라 병원의 병동, 구역 또는 병원 자체에 대한 모델을 정의할 수 있습니다.
+
+> [!NOTE]
+> Azure Digital Twins 현재 지원하지 않는 몇 가지 DTDL 기능(속성 및 관계 및 관계 특성 포함)이 `writable` `minMultiplicity` `maxMultiplicity` 있습니다. 자세한 내용은 [Azure Digital Twins DTDL 구현 세부 정보를 참조하세요.](concepts-models.md#azure-digital-twins-dtdl-implementation-specifics)
 
 ### <a name="validate-syntax"></a>구문 유효성 검사
 
@@ -97,10 +100,10 @@ Azure Digital Twins 인스턴스에 저장된 모델을 나열하고 검색할 �
 모델을 업데이트하기 전에 전체 솔루션과 수행하려는 모델 변경의 영향에 대해 전체적으로 생각하는 것이 좋습니다. Azure Digital Twins 솔루션의 모델은 종종 상호 연결되므로 한 모델을 업데이트하려면 다른 여러 모델을 업데이트해야 하는 계단식 변경을 인식하는 것이 중요합니다. 모델 업데이트는 모델을 사용하는 트윈에 영향을 미치며 수신 및 처리 코드, 클라이언트 애플리케이션 및 자동화된 보고서에도 영향을 미칠 수 있습니다.
 
 다음은 모델 전환을 원활하게 관리하는 데 도움이 되는 몇 가지 권장 사항입니다.
-* 모델을 별도 엔터티로 생각 하는 대신 모델 및 해당 관계를 최신 상태로 유지 하는 데 적합 한 경우 전체 모델 집합을 진화 하는 것이 좋습니다.
+* 모델을 별도의 엔터티로 생각하는 대신 모델과 해당 관계를 최신 상태로 유지하기 위해 적절한 경우 전체 모델 집합을 발전시키는 것이 좋습니다.
 * 모델을 원본 코드처럼 취급하고 원본 제어에서 관리합니다. 솔루션의 다른 코드에 적용하는 것과 동일한 엄격함과 주의를 모델 및 모델 변경에 적용합니다.
 
-모델 업데이트 프로세스를 계속할 준비가 되 면이 섹션의 나머지 부분에서는 업데이트를 구현 하는 데 사용할 수 있는 전략에 대해 설명 합니다.
+모델을 업데이트하는 프로세스를 계속할 준비가 되면 이 섹션의 나머지 부분에서 업데이트를 구현하는 데 사용할 수 있는 전략에 대해 설명합니다.
 
 ### <a name="strategies-for-updating-models"></a>모델 업데이트 전략
 
@@ -112,7 +115,7 @@ Azure Digital Twins 인스턴스에 저장된 모델을 나열하고 검색할 �
 * [전략 1: 새 모델 버전 업로드](#strategy-1-upload-new-model-version): 새 버전 번호와 함께 모델을 업로드하고 해당 새 모델을 사용하도록 트윈을 업데이트합니다. 모델의 새 버전과 이전 버전은 모두 삭제할 때까지 인스턴스에 존재합니다.
     - 이 모델을 사용하는 일부 트윈만 업데이트하려는 경우 또는 트윈이 모델을 준수하고 모델 전환을 통해 쓰기 가능한 상태를 유지하도록 하려는 경우에 **이 전략을 사용** 합니다.
 * [전략 2: 이전 모델을 삭제하고 다시 업로드](#strategy-2-delete-old-model-and-reupload): 원래 모델을 삭제하고 그 자리에 동일한 이름과 ID(DTMI 값)를 사용하여 새 모델을 업로드합니다. 기존 모델을 새 모델로 완전히 교체합니다. 
-    - 모델에 대 한 모든 코드 응답 뿐만 아니라 한 번에이 모델을 사용 하는 모든 쌍을 업데이트 하려는 **경우이 전략을 사용** 합니다. 모델 업데이트에 모델 업데이트의 호환성이 손상되는 변경이 포함된 경우 트윈은 이전 모델에서 새 모델로 전환하는 동안 잠시 동안 해당 모델을 준수하지 않습니다. 즉, 새 모델이 업로드되고 트윈이 모델을 준수할 때까지 업데이트를 수행하지 못합니다.
+    - 모델에 반응하는 모든 코드 외에도 이 모델을 사용하는 모든 트윈을 한 번에 업데이트하려는 경우 **이 전략을 사용합니다.** 모델 업데이트에 모델 업데이트의 호환성이 손상되는 변경이 포함된 경우 트윈은 이전 모델에서 새 모델로 전환하는 동안 잠시 동안 해당 모델을 준수하지 않습니다. 즉, 새 모델이 업로드되고 트윈이 모델을 준수할 때까지 업데이트를 수행하지 못합니다.
 
 >[!NOTE]
 > 개발 외에는 모델을 호환성이 손상되는 변경을 만들지 않는 것이 좋습니다.

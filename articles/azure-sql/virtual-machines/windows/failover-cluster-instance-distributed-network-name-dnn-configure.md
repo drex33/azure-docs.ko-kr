@@ -4,7 +4,6 @@ description: Azure VM 장애 조치(failover) 클러스터 인스턴스(FCI)에�
 services: virtual-machines-windows
 documentationcenter: na
 author: rajeshsetlem
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: hadr
@@ -15,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: bc88b1dcebede150ca912244d482a2e926f13e2b
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: 4470fea8caa2ec9132a10b9a0ab7c1e4ee6786cf
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132158148"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367810"
 ---
 # <a name="configure-a-dnn-for-failover-cluster-instance"></a>장애 조치(failover) 클러스터 인스턴스에 대한 DNN 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -214,6 +213,6 @@ Get-ClusterResource "virtual IP address" | Set-ClusterParameter
 
 - [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
 - [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
-- [장애 조치(failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [장애 조치(Failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 - [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)
 

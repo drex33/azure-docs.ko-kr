@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: b51151294450fcef435294b27cc245f88c84c51d
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 8c92aa2c1a4801475f9fbbe77271f874fbcb10f9
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132866559"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367227"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -149,7 +149,7 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
   * 컬렉션의 모든 문서를 삭제해도 분석 저장소 스키마가 다시 설정되지는 않습니다.
   * 스키마의 버전은 관리되지 않습니다. 트랜잭션 저장소에서 유추된 마지막 버전을 분석 저장소에서 볼 수 있습니다.
 
-* 현재 Azure Synapse Spark는 아래에 나열 된 이름에 특수 문자가 포함 된 속성을 읽을 수 없습니다. 서버를 사용 하지 않는 Azure Synapse SQL는 영향을 받지 않습니다.
+* 현재 Azure Synapse Spark는 아래에 나열된 이름에 특수 문자가 포함된 속성을 읽을 수 없습니다. Azure Synapse SQL 서버리스는 영향을 받지 않습니다.
   * :(콜론)
   * `(억음 악센트 기호)
   * ,(쉼표)
@@ -161,11 +161,11 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
   * =(등호)
   * "(따옴표)
  
-* 위에 나열 된 문자를 사용 하는 속성 이름이 있는 경우 대체 방법은 다음과 같습니다.
-   * 이러한 문자를 방지 하기 위해 데이터 모델을 미리 변경 합니다.
-   * 현재 스키마 재설정을 지원 하지 않으므로 응용 프로그램을 변경 하 여 유사한 이름의 중복 속성을 추가 하 여 이러한 문자를 방지할 수 있습니다.
-   * 변경 피드를 사용 하 여 속성 이름에 이러한 문자를 포함 하지 않고 컨테이너의 구체화 된 뷰를 만듭니다.
-   * `dropColumn`데이터 프레임에 데이터를 로드할 때 새 Spark 옵션을 사용 하 여 영향을 받는 열을 무시 합니다. 쉼표를 포함 하는 "FirstName, LastNAme" 이라는 가상 열을 삭제 하는 구문은 다음과 같습니다.
+* 위에 나열된 문자를 사용하는 속성 이름이 있는 경우 대안은 다음과 같습니다.
+   * 이러한 문자를 방지하려면 데이터 모델을 미리 변경합니다.
+   * 현재 스키마 재설정을 지원하지 않기 때문에 애플리케이션을 변경하여 유사한 이름의 중복 속성을 추가하여 이러한 문자를 방지할 수 있습니다.
+   * 변경 피드를 사용하여 속성 이름에 이러한 문자 없이 컨테이너의 구체화된 뷰를 만듭니다.
+   * Spark 옵션을 사용하여 `dropColumn` 영향을 받는 열을 무시하고 다른 모든 열을 DataFrame에 로드합니다. 구문은 다음과 같습니다.
 
 ```Python
 df = spark.read\
@@ -173,43 +173,65 @@ df = spark.read\
      .option("spark.synapse.linkedService","<your-linked-service-name>")\
      .option("spark.synapse.container","<your-container-name>")\
      .option("spark.synapse.dropColumn","FirstName,LastName")\
-     .load()
+     .load()  
+```
+> [!NOTE]
+> 여러 열을 삭제하려면 순서에 따라 옵션을 더 추가하기만 `dropColumn` 합니다. 예:
+> 
+> ```Python
+> df = spark.read\
+>     .format("cosmos.olap")\
+>     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+>     .option("spark.synapse.container","<your-container-name>")\
+>     .option("spark.synapse.dropColumn","FirstName,LastName")\
+>     .option("spark.synapse.dropColumn","StreetName,StreetNumber")\
+>     .load()  
+> ```
+ 
+
+* Azure Synapse Spark는 이제 이름에 공백이 있는 속성을 지원합니다. 이를 위해 Spark 옵션을 사용하여 `allowWhiteSpaceInFieldNames` 영향을 받는 열을 DataFrame에 로드하고 원래 이름을 유지해야 합니다. 구문은 다음과 같습니다.
+
+```Python
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.cosmos.allowWhiteSpaceInFieldNames", "true")\
+    .load()
 ```
 
-* Azure Synapse Spark는 이제 이름에 공백이 있는 속성을 지원합니다.
-
-* 다음 BSON 데이터 형식은 지원 되지 않으며 분석 저장소에 표시 되지 않습니다.
+* 다음 BSON 데이터 형식은 지원되지 않으며 분석 저장소에 표시되지 않습니다.
   * Decimal128
   * 정규식
   * DB 포인터
   * JavaScript
-  * 기호
-  * MinKey/MaxKey 
+  * Symbol
+  * MinKey / MaxKey 
 
-* ISO 8601 UTC 표준을 따르는 DateTime 문자열을 사용 하는 경우 다음 동작을 수행 합니다.
+* ISO 8601 UTC 표준을 따르는 DateTime 문자열을 사용하는 경우 다음과 같은 동작이 예상됩니다.
   * Azure Synapse의 Spark 풀은 이러한 열을 `string`로 나타냅니다.
   * Azure Synapse의 SQL 서버리스 풀은 이러한 열을 `varchar(8000)`로 나타냅니다.
 
-* Azure Synapse에서 서버를 사용 하지 않는 풀 SQL 최대 1000 열을 포함 하는 결과 집합을 지원 하 고 중첩 열을 노출 하면 해당 제한에도 포함 됩니다. 데이터 아키텍처를 디자인 하 고 트랜잭션 데이터를 모델링 하는 경우이 정보를 고려 하세요.
+* Azure Synapse SQL 서버리스 풀은 최대 1000개의 열이 있는 결과 집합을 지원하며 중첩 열을 노출하는 것도 해당 제한에 포함됩니다. 데이터 아키텍처를 디자인하고 트랜잭션 데이터를 모델링할 때 이 정보를 고려하세요.
 
 
 ### <a name="schema-representation"></a>스키마 표현
 
-분석 저장소에는 두 가지 유형의 스키마 표현이 있습니다. 이러한 형식은 데이터베이스 계정에 있는 모든 컨테이너에 대 한 스키마 표현 방법을 정의 하 고 쿼리 환경 및 다형성 스키마에 대 한 보다 포괄적인 칼럼 형식의 편의를 위한 장단점이 있습니다.
+분석 저장소에는 두 가지 유형의 스키마 표현이 있습니다. 이러한 형식은 데이터베이스 계정의 모든 컨테이너에 대한 스키마 표현 메서드를 정의하며, 쿼리 환경의 단순성과 다형 스키마에 대한 보다 포괄적인 열 형식 표현의 편의성 간에 장단점이 있습니다.
 
 * 잘 정의된 스키마 표현(SQL(CORE) API 계정에 대한 기본 옵션) 
 * 전체 충실도 스키마 표현(Azure Cosmos DB API for MongoDB 계정의 기본 옵션)
 
-#### <a name="full-fidelity-schema-for-sql-api-accounts"></a>SQL API 계정에 대 한 전체 충실도 스키마
+#### <a name="full-fidelity-schema-for-sql-api-accounts"></a>SQL API 계정에 대한 전체 충실도 스키마
 
-Cosmos DB 계정에서 Synapse 링크를 사용 하도록 설정할 때 스키마 유형을 설정 하 여 기본 옵션이 아닌 SQL (코어) API 계정에 대해 전체 충실도 스키마를 사용할 수 있습니다. 다음은 기본 스키마 표현 유형 변경에 대 한 고려 사항입니다.
+Cosmos DB 계정에서 처음으로 Synapse Link 사용하도록 설정할 때 스키마 유형을 설정하여 기본 옵션 대신 SQL(Core) API 계정에 대해 전체 충실도 스키마를 사용할 수 있습니다. 기본 스키마 표현 형식 변경에 대한 고려 사항은 다음과 같습니다.
 
- * 이 옵션은 Synapse 링크가 이미 사용 하도록 **설정 된 계정** 에만 유효 합니다.
- * 스키마 표현 유형은 잘 정의 된 것부터 전체 충실도 또는 그 반대로 다시 설정할 수 없습니다.
- * 현재 MongoDB 계정에 대 한 Azure Cosmos DB API는 스키마 표현의 변경 가능성과 호환 되지 않습니다. 모든 MongoDB 계정에는 항상 전체 충실도 스키마 표현 유형이 있습니다.
- * 현재이 변경은 Azure Portal를 통해 수행할 수 없습니다. Azure Portal에서 사용 하도록 설정 된 Synapse LinK의 모든 데이터베이스 계정에는 잘 정의 된 기본 스키마 표현 형식이 있습니다.
+ * 이 옵션은 Synapse Link 사용하도록 **설정되지 않은** 계정에만 유효합니다.
+ * 스키마 표현 형식을 잘 정의된 형식에서 전체 충실도로 또는 그 반대로 다시 설정할 수 없습니다.
+ * 현재 Azure Cosmos DB API for MongoDB 계정은 이 스키마 표현 변경 가능성과 호환되지 않습니다. 모든 MongoDB 계정에는 항상 전체 충실도 스키마 표현 유형이 있습니다.
+ * 현재 이 변경은 Azure Portal 통해 만들 수 없습니다. Azure Portal Synapse LinK를 사용하도록 설정한 모든 데이터베이스 계정에는 기본 스키마 표현 유형인 잘 정의된 스키마가 있습니다.
  
-Azure CLI 또는 PowerShell을 사용 하 여 계정에서 Synapse 링크를 사용 하도록 설정 하는 동시에 스키마 표현 유형 결정을 내려야 합니다.
+Azure CLI 또는 PowerShell을 사용하여 계정에서 Synapse Link 사용하도록 설정되는 동시에 스키마 표현 유형을 결정해야 합니다.
  
  Azure CLI 사용:
  ```cli
@@ -342,11 +364,11 @@ salary: 1000000
 
 ## <a name="partitioning"></a>분할
 
-분석 저장소 분할은 트랜잭션 저장소의 분할과 완전히 독립적입니다. 기본적으로 분석 저장소의 데이터는 분할 되지 않습니다. 분석 쿼리에 자주 사용되는 필터가 있는 경우 더 나은 쿼리 성능을 위해 이러한 필드를 기반으로 분할하는 옵션이 있습니다. 자세한 내용은 [사용자 지정 분할 소개](custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](configure-custom-partitioning.md) 문서를 참조하세요.  
+분석 저장소 분할은 트랜잭션 저장소의 분할과 완전히 독립적입니다. 기본적으로 분석 저장소의 데이터는 분할되지 않습니다. 분석 쿼리에 자주 사용되는 필터가 있는 경우 더 나은 쿼리 성능을 위해 이러한 필드를 기반으로 분할하는 옵션이 있습니다. 자세한 내용은 [사용자 지정 분할 소개](custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](configure-custom-partitioning.md) 문서를 참조하세요.  
 
 ## <a name="security"></a>보안
 
-* **분석 저장소를 사용한 인증** 은 지정된 데이터베이스의 트랜잭션 저장소와 동일합니다. 인증을 위해 기본, 보조 또는 읽기 전용 키를 사용할 수 있습니다. Synapse Studio에서 연결된 서비스를 활용하여 Spark 노트북에 Microsoft Azure Cosmos DB 키 붙여넣기를 방지할 수 있습니다. Azure Synapse SQL 서버리스의 경우 SQL 자격 증명을 사용하여 Azure Cosmos DB 키를 SQL Notebook에 붙여넣지 않도록 방지할 수도 있습니다. 이러한 연결 된 서비스 또는 이러한 SQL 자격 증명에 대 한 액세스는 작업 영역에 액세스할 수 있는 모든 사용자가 사용할 수 있습니다.
+* **분석 저장소를 사용한 인증** 은 지정된 데이터베이스의 트랜잭션 저장소와 동일합니다. 인증에 기본, 보조 또는 읽기 전용 키를 사용할 수 있습니다. Synapse Studio에서 연결된 서비스를 활용하여 Spark 노트북에 Microsoft Azure Cosmos DB 키 붙여넣기를 방지할 수 있습니다. Azure Synapse SQL 서버리스의 경우 SQL 자격 증명을 사용하여 Azure Cosmos DB 키를 SQL Notebook에 붙여넣지 않도록 방지할 수도 있습니다. 이러한 연결된 서비스 또는 이러한 SQL 자격 증명에 대한 액세스는 작업 영역에 대한 액세스 권한이 있는 모든 사용자가 사용할 수 있습니다.
 
 * **프라이빗 엔드포인트를 사용한 네트워크 격리** - 트랜잭션 및 분석 저장소에 있는 데이터에 대한 네트워크 액세스를 독립적으로 제어할 수 있습니다. 네트워크 격리는 Azure Synapse 작업 영역의 관리형 가상 네트워크 내에서 각 저장소마다 별도의 관리형 프라이빗 엔드포인트를 사용하여 수행됩니다. 자세히 알아보려면 [분석 저장소에 대한 프라이빗 엔드포인트 구성](analytical-store-private-endpoints.md) 방법에 대한 문서를 참조하세요.
 
@@ -371,11 +393,11 @@ salary: 1000000
 
 * 분석 읽기 작업: Azure Synapse Analytics Spark 풀 및 서버리스 SQL 풀 런타임에서 분석 저장소에 대해 수행되는 읽기 작업입니다.
 
-분석 저장소 가격은 트랜잭션 저장소 가격 책정 모델과는 별개입니다. 분석 저장소에는 프로비저닝된 RU의 개념이 없습니다. 분석 저장소에 대 한 가격 책정 모델에 대 한 자세한 내용은 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요.
+분석 저장소 가격은 트랜잭션 저장소 가격 책정 모델과는 별개입니다. 분석 저장소에는 프로비저닝된 RU의 개념이 없습니다. 분석 저장소의 가격 책정 모델에 대한 자세한 내용은 [Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) 가격 책정 페이지를 참조하세요.
 
 분석 저장소의 데이터는 Azure Synapse Analytics 런타임(Azure Synapse Apache Spark 풀 및 Azure Synapse 서버리스 SQL 풀)에서 수행되는 Azure Synapse Link를 통해서만 액세스할 수 있습니다. 분석 저장소의 데이터에 액세스하는 [가격 책정](https://azure.microsoft.com/pricing/details/synapse-analytics/) 모델에 대한 자세한 내용은 Azure Synapse Analytics 가격 책정 페이지를 참조하세요.
 
-분석 저장소 관점에서 Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록 설정하는 높은 수준의 예상 비용을 얻으려면 Azure [Cosmos DB Capacity Planner를](https://cosmos.azure.com/capacitycalculator/) 사용하여 분석 스토리지 및 쓰기 작업 비용을 예상할 수 있습니다. 분석 읽기 작업 비용은 분석 워크로드 특성에 따라 달라지지만 대략적으로 어림하여 분석 저장소에서 1TB의 데이터를 검사할 경우 대개 13만개의 분석 읽기 작업이 수행되고 결과적으로 $0.065의 비용이 발생합니다.
+분석 저장소 관점에서 Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록 설정하는 높은 수준의 예상 비용을 얻으려면 [Azure Cosmos DB Capacity Planner를](https://cosmos.azure.com/capacitycalculator/) 사용하여 분석 스토리지 및 쓰기 작업 비용을 예상할 수 있습니다. 분석 읽기 작업 비용은 분석 워크로드 특성에 따라 달라지지만 대략적으로 어림하여 분석 저장소에서 1TB의 데이터를 검사할 경우 대개 13만개의 분석 읽기 작업이 수행되고 결과적으로 $0.065의 비용이 발생합니다.
 
 > [!NOTE]
 > 분석 저장소 읽기 작업 추정치는 분석 워크로드의 기능이므로 Cosmos DB 비용 계산기에 포함되지 않습니다. 위의 추정치는 분석 저장소에서 1TB의 데이터를 검사하는 경우에 대한 것이지만 필터를 적용하면 검사되는 데이터 볼륨이 감소합니다. 이 값은 사용량에 따른 가격 책정 모델에서 정확한 분석 읽기 작업 수를 결정합니다. 분석 워크로드의 개념 증명은 분석 읽기 작업에 대한 보다 정밀한 추정치를 제공합니다. 이 예상치에는 Azure Synapse Analytics 비용이 포함되지 않습니다.

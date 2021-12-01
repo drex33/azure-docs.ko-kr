@@ -1,19 +1,19 @@
 ---
 title: Azure Synapse Analytics 비용 관리 계획
 description: Azure Portal에서 비용 분석을 사용하여 Azure Synapse Analytics에 대한 비용을 계획하고 관리하는 방법을 알아봅니다
-author: julieMSFT
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.custom: subject-cost-optimization
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: bd1e55c216a314bfc6e132979d5a4999d4f363eb
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 834a402e76673a3f6078e3fd8b90b915649255cc
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131850625"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133355168"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Azure Synapse Analytics 계획 및 비용 관리
 
@@ -42,7 +42,7 @@ Azure Synapse Analytics 리소스를 만들거나 사용하는 경우 다음 측
 - 데이터 탐색 및 데이터 웨어하우징 
     - 전용 SQL 풀 - DWU 블록 수와 실행 시간에 따라 요금이 청구됩니다.
     - 저장소 - 저장된 TB 수에 따라 요금이 청구됩니다.
-    - 서버를 사용 하지 않는 SQL 풀-처리 된 TB의 데이터를 기준으로 요금이 청구 됩니다.
+    - 서버리스 SQL 풀 - 처리된 데이터의 TB로 요금이 청구됩니다.
 - Apache Spark 풀 - 인스턴스 수 및 실행 시간에 대한 요금이 청구됩니다.
 - 데이터 통합 
     - 오케스트레이션 활동 실행 - 작업이 실행 수에 따라 요금이 청구됩니다.
@@ -67,9 +67,9 @@ Azure Synapse 리소스를 삭제한 후에도 다음 리소스는 계속 존재
 
 Azure 선불 크레딧을 사용하여 Azure Synapse 요금을 지불할 수 있습니다. 그러나 Azure 선불 크레딧을 사용하여 Azure Marketplace에 있는 항목을 포함한 타사 제품 및 서비스에 대한 요금을 지불할 수는 없습니다.
 
-### <a name="pre-purchase-plan-for-azure-synapse"></a>Azure Synapse에 대 한 사전 구매 계획
+### <a name="pre-purchase-plan-for-azure-synapse"></a>Azure Synapse 대한 사전 구매 계획
 
-1 년 동안 SCU (Azure Synapse commit unit)를 미리 구입 하는 경우 Azure Synapse Analytics 비용을 절감할 수 있습니다. 구매 기간 중에 언제 든 지 사전 구매한 SCUs를 사용할 수 있습니다. 자세한 내용은 [사전 구매 요금제를 사용 하 여 Azure Synapse Analytics 비용 최적화](../cost-management-billing/reservations/synapse-analytics-pre-purchase-plan.md) 를 참조 하세요.
+1년 동안 SCU(Azure Synapse 커밋 단위)를 미리 구매할 때 Azure Synapse Analytics 비용을 절감할 수 있습니다. 구매 기간 동안 언제든지 사전 구매한 SCU를 사용할 수 있습니다. 자세한 내용은 사전 구매 계획을 통해 [Azure Synapse Analytics 비용 최적화를 참조하세요.](../cost-management-billing/reservations/synapse-analytics-pre-purchase-plan.md)
 
 
 ## <a name="review-estimated-costs-in-the-azure-portal"></a>Azure Portal에서 예상 비용 검토

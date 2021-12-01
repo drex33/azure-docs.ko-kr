@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: rothja
-ms.author: jroth
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: mathoma
 ms.date: 03/12/2019
-ms.openlocfilehash: dfa783e456e42eb0f923d28a83c8f423b7bb8cc4
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 999185dfc90ba93a5e5ae3b3ce5c44893d2ff254
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462331"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368706"
 ---
 # <a name="use-powershell-to-copy-a-database-to-a-new-server"></a>PowerShell을 사용하여 데이터베이스를 새 서버에 복사
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

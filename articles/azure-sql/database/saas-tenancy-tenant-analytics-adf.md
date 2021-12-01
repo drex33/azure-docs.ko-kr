@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: dc5240d3b0d4e2fa7b209d5f1a3b8b3f9acd01c7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 91ef2298d6eb781e0a6a71aa3c4d395959043abe
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121738466"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367895"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Azure SQL Database, Azure Synapse Analytics, Data Factory 또는 Power BI를 사용한 SaaS 분석 살펴보기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

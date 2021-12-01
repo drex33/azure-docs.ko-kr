@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7e99e0930fa4afc4d5b9ddf74b8e0f1e4f9b673f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
-ms.translationtype: HT
+ms.openlocfilehash: 9ac3b314c43413a6104befa3b20e440bb24c3d21
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292075"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368075"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>지점 및 사이트 간 VPN 라우팅 정보
 
@@ -127,7 +127,7 @@ Windows 또는 지원되는 다른 OS를 사용하는 클라이언트는 사이�
 
 ### <a name="routes-added"></a>추가된 경로
 
-* Windows 클라이언트에 추가된 경로: 10.1.0.0/16
+* Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 192.168.0.0/24
 
 * 비Windows 클라이언트에 추가된 경로: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 

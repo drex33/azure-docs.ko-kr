@@ -11,13 +11,12 @@ ms.topic: overview
 ms.workload: iaas-sql-server
 ms.date: 10/26/2021
 ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 7bcf2e64643d27822f2f58e56b054e25d3adaca5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bfe65fef96663f424b5319c2913da2c0aed9d068
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080957"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133361539"
 ---
 # <a name="overview-of-sql-server-on-linux-azure-virtual-machines"></a>SQL Server on Linux Azure Virtual Machines 개요
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

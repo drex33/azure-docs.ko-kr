@@ -5,18 +5,18 @@ services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7aba107ac58538245c16f581afa2c493f546ca01
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: da0ace104d89608c3165aacb93694abb20155066
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786948"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133355212"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
 [Azure Container Registry](../container-registry/container-registry-intro.md)는 프라이빗 Docker 컨테이너 이미지를 저장하는 데 사용되는 Azure 기반의 관리형 컨테이너 레지스트리 서비스입니다. 이 문서에서는 Azure Container Instances에 배포할 때 Azure Container Registry에 저장된 컨테이너 이미지를 풀하는 방법에 대해 설명합니다. 레지스트리 액세스를 구성하려면 Azure Active Directory 서비스 주체와 암호를 만들고 Azure 주요 자격 증명 모음에 로그인 자격 증명을 저장하는 것입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 **Azure Container Registry**: 이 문서의 단계를 완료하려면 Azure Container Registry가 필요하고 해당 레지스트리에 하나 이상의 컨테이너 이미지가 있어야 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
 
@@ -55,19 +55,22 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 이제 서비스 주체를 만들고 해당 자격 증명을 주요 자격 증명 모음에 저장합니다.
 
-다음 명령은 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]를 사용하여 서비스 주체를 만들고, [az keyvault secret set][az-keyvault-secret-set]을 사용하여 서비스 주체의 **암호** 를 자격 증명 모음에 저장합니다.
+다음 명령은 [az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만들고 [az keyvault secret set][az-keyvault-secret-set] 을 사용 하 여 서비스 주체의 **암호** 를 자격 증명 모음에 저장 합니다. 만든 후에는 서비스 주체의 **appId** 를 기록해 두어야 합니다.
 
 ```azurecli
-# Create service principal, store its password in vault (the registry *password*)
+# Create service principal
+az ad sp create-for-rbac \
+  --name http://$ACR_NAME-pull \
+  --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
+  --role acrpull
+
+SP_ID=xxxx # Replace with your service principal's appId
+
+# Store the registry *password* in the vault
 az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
-  --value $(az ad sp create-for-rbac \
-                --name http://$ACR_NAME-pull \
-                --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role acrpull \
-                --query password \
-                --output tsv)
+  --value $(az ad sp show --id $SP_ID --query password --output tsv)
 ```
 
 이전 명령의 `--role` 인수는 *acrpull* 역할을 사용하여 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 모두 부여하려면 `--role` 인수를 *acrpush* 로 변경합니다.
@@ -79,7 +82,7 @@ az keyvault secret set \
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
-    --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
+    --value $(az ad sp show --id $SP_ID --query appId --output tsv)
 ```
 
 Azure Key Vault를 만들고 다음 두 비밀을 저장했습니다.

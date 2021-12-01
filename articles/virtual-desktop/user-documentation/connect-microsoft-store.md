@@ -1,17 +1,17 @@
 ---
-title: Microsoft Store 클라이언트에 연결 - Azure
+title: Microsoft Store 클라이언트를 사용하여 Azure Virtual Desktop에 커넥트 - Azure
 description: Microsoft Store 클라이언트를 사용하여 Azure Virtual Desktop에 연결하는 방법.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d48ce1f2d885783901f4b5d74dfaebf1854943ab
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
-ms.translationtype: HT
+ms.openlocfilehash: 57e9bc647a440da39abb78d319f790e05f285c08
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113034325"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133365821"
 ---
 # <a name="connect-with-the-microsoft-store-client"></a>Microsoft Store 클라이언트와 연결
 

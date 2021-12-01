@@ -1,21 +1,21 @@
 ---
 title: DTDL 모델
 titleSuffix: Azure Digital Twins
-description: Azure Digital Twins 사용자 지정 모델을 사용하여 사용자 환경의 엔터티를 설명하는 방법과 DTDL(디지털 트윈 정의 언어)을 사용하여 이러한 모델을 정의하는 방법을 알아봅니다.
+description: Azure 디지털 쌍이 사용자 지정 모델을 사용 하 여 사용자 환경에서 엔터티를 설명 하는 방법과 DTDL (디지털 쌍 정의 언어)를 사용 하 여 이러한 모델을 정의 하는 방법에 대해 알아봅니다.
 author: baanders
 ms.author: baanders
 ms.date: 10/7/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 79931aeb1e2f6fc37ea2cf4030a6b35dc55e6a26
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: e754e78be5b4cff3f69d5f811e4b91def456b5e5
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130130976"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133356723"
 ---
-# <a name="learn-about-twin-models-and-how-to-define-them-in-azure-digital-twins"></a>쌍 모델에 대해 알아보고 Azure Digital Twins
+# <a name="learn-about-twin-models-and-how-to-define-them-in-azure-digital-twins"></a>쌍 모델 및 Azure Digital Twins에서 쌍을 정의 하는 방법에 대해 알아봅니다.
 
 Azure Digital Twins의 주요 특징은 고유한 어휘를 정의하고 자체 정의된 비즈니스 조건에서 트윈 그래프를 작성하는 기능입니다. 이 기능은 사용자 제공 **모델** 을 통해 제공됩니다. 사용자 설명에서 모델을 명사로 간주할 수 있습니다. Azure Digital Twins 모델은 JSON-LD 기반의 **DTDL(디지털 트윈 정의 언어)** 로 표시됩니다. 
 
@@ -25,7 +25,7 @@ Azure Digital Twins의 주요 특징은 고유한 어휘를 정의하고 자체 
 
 Azure Digital Twins의 모델은 DTDL(디지털 트윈 정의 언어)을 사용하여 정의됩니다. 
 
-DTDL에 대한 전체 언어 사양은 GitHub: [DTDL(디지털 트윈 정의 언어) - 버전 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)에서 확인할 수 있습니다. 이 페이지에는 사용자 고유의 DTDL 모델 작성을 시작하는 데 도움이 되는 자세한 DTDL 참조 및 예제가 포함되어 있습니다.
+DTDL에 대한 전체 언어 사양은 GitHub: [DTDL(디지털 트윈 정의 언어) - 버전 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)에서 확인할 수 있습니다. 이 페이지에는 사용자 고유의 DTDL 모델 작성을 시작 하는 데 도움이 되는 자세한 DTDL 참조와 예제가 포함 되어 있습니다.
 
 DTDL은 JSON-LD를 기반으로 하며 프로그래밍 언어와 독립적입니다. DTDL은 Azure Digital Twins에만 국한되는 것이 아니라 [IoT 플러그 앤 플레이](../iot-develop/overview-iot-plug-and-play.md)와 같은 다른 IoT 서비스에서 디바이스 데이터를 표시하는 데도 사용됩니다. Azure Digital Twins는 DTDL **버전 2** 를 사용합니다(Azure Digital Twins에서 DTDL 버전 1은 이제 사용되지 않음). 
 
@@ -33,16 +33,17 @@ DTDL은 JSON-LD를 기반으로 하며 프로그래밍 언어와 독립적입니
 
 ### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Azure Digital Twins DTDL 구현 세부 사항
 
-DTDL을 사용하는 모든 서비스가 DTDL과 똑같은 기능을 구현하는 것은 아닙니다. 예를 들어 IoT 플러그 앤 플레이는 그래프에 해당하는 DTDL 기능을 사용하지 않지만 Azure Digital Twins는 현재 DTDL 명령을 구현하지 않습니다. 
+DTDL을 사용하는 모든 서비스가 DTDL과 똑같은 기능을 구현하는 것은 아닙니다. 다음을 포함 하 여 Azure Digital Twins에서 현재 지원 하지 않는 몇 가지 DTDL 기능이 있습니다.
+* DTDL 명령
+* `writable`속성 또는 관계에 대 한 특성입니다. 이 특성은 DTDL 사양에 따라 설정할 수 있지만 Azure Digital Twins에서 사용되지 않습니다. 대신, 이러한 특성은 항상 Azure Digital Twins 서비스에 대한 일반 쓰기 권한이 있는 외부 클라이언트에서 쓰기 가능으로 처리됩니다.
+* `minMultiplicity` `maxMultiplicity` 관계에 대 한 및 속성입니다. 이러한 특성은 DTDL 사양에 따라 설정할 수 있지만 Azure Digital Twins에 의해 값이 적용 되지 않습니다.
 
-DTDL 모델이 Azure Digital Twins와 호환되려면 다음 요구 사항을 충족해야 합니다.
+DTDL 모델이 Azure Digital Twins와 호환 되려면 다음 요구 사항도 충족 해야 합니다.
 
 * 모델의 모든 최상위 DTDL 요소는 *인터페이스* 형식이어야 합니다. 이 요구 사항의 이유는 Azure Digital Twins 모델 API가 인터페이스 또는 인터페이스 배열을 나타내는 JSON 개체를 받을 수 있기 때문입니다. 따라서 최상위 수준에서 다른 DTDL 요소 형식이 허용되지 않습니다.
 * Azure Digital Twins의 DTDL은 *명령* 을 정의하지 않아야 합니다.
 * Azure Digital Twins는 단일 수준의 구성 요소 중첩만 허용합니다. 즉, 구성 요소로 사용되는 인터페이스는 구성 요소 자체를 가질 수 없습니다. 
 * 인터페이스는 다른 DTDL 인터페이스 내에서 인라인으로 정의될 수 없습니다. 자체 ID를 사용하여 별도의 최상위 엔터티로 정의해야 합니다. 그런 다음 다른 인터페이스가 해당 인터페이스를 구성 요소나 상속을 통해 포함하려는 경우 해당 ID를 참조할 수 있습니다.
-
-또한 Azure Digital Twins는 속성 또는 관계에 대한 `writable` 특성을 관찰하지 않습니다. 이 특성은 DTDL 사양에 따라 설정할 수 있지만 Azure Digital Twins에서 사용되지 않습니다. 대신, 이러한 특성은 항상 Azure Digital Twins 서비스에 대한 일반 쓰기 권한이 있는 외부 클라이언트에서 쓰기 가능으로 처리됩니다.
 
 ## <a name="model-overview"></a>모델 개요
 
@@ -94,6 +95,9 @@ DTDL 모델 인터페이스는 다음의 각 필드를 0개, 1개 또는 여러 
 이 섹션에서는 DTDL 모델의 **속성** 및 **원격 분석** 에 대해 자세히 설명합니다.
 
 속성의 일부로 표시될 수 있는 전체 필드 목록은 [DTDL v2 사양의 속성](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property)을 참조하세요. 원격 분석의 일부로 표시될 수 있는 전체 필드 목록은 [DTDL v2 사양의 원격 분석](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#telemetry)을 참조하세요.
+
+> [!NOTE]
+> `writable`속성의 dtdl 특성은 현재 Azure Digital Twins에서 지원 되지 않습니다. 모델에 추가할 수 있지만 Azure Digital Twins는이를 적용 하지 않습니다. 자세한 내용은 [Azure Digital Twins DTDL 구현 세부](#azure-digital-twins-dtdl-implementation-specifics)정보를 참조 하세요.
 
 ### <a name="difference-between-properties-and-telemetry"></a>속성과 원격 분석의 차이점
 
@@ -154,6 +158,9 @@ DTDL에 따라 **속성** 및 **원격 분석** 특성의 스키마는 표준 �
 이 섹션에서는 DTDL 모델의 **관계** 에 대해 자세히 설명합니다.
 
 관계의 일부로 표시될 수 있는 전체 필드 목록은 [DTDL v2 사양의 관계](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship)를 참조하세요.
+
+> [!NOTE]
+> `writable`관계에 `minMultiplicity` 대한 , 및 `maxMultiplicity` DTDL 특성은 현재 Azure Digital Twins 지원되지 않습니다. 모델에 추가할 수 있지만 Azure Digital Twins 적용하지 않습니다. 자세한 내용은 [Azure Digital Twins DTDL 구현 세부 정보를 참조하세요.](#azure-digital-twins-dtdl-implementation-specifics)
 
 ### <a name="basic-relationship-example"></a>기본 관계 예제
 

@@ -7,15 +7,15 @@ ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.date: 09/02/2020
-ms.openlocfilehash: 63fa26e9b07d3b0b8a92b506c21675477ab3d962
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: a1544a1bbaf8b9f3eb5b016aa6920736087aa83b
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693056"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133369031"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Spark 커넥터를 사용하여 실시간 빅 데이터 분석 가속화
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

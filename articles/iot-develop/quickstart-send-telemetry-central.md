@@ -1,6 +1,6 @@
 ---
 title: 빠른 시작 - 디바이스를 연결하고 Azure IoT Central에 원격 분석 보내기
-description: 이 빠른 시작은 디바이스 개발자에게 디바이스를 Azure IoT Central에 안전하게 연결하는 방법을 보여 줍니다. C, C#, Python, Node.js 또는 Java용 Azure IoT 디바이스 SDK를 사용하여 디바이스에서 클라이언트 앱을 실행한 다음 IoT Central에 연결하고 원격 분석을 전송합니다.
+description: '이 빠른 시작은 디바이스 개발자에게 디바이스를 Azure IoT Central에 안전하게 연결하는 방법을 보여 줍니다. c, c #, Python, Node.js 또는 Java 용 Azure IoT 장치 SDK를 사용 하 여 Windows, Linux 또는 Raspberry Pi (Raspbian)에 대 한 장치 클라이언트를 빌드한 다음, 원격 분석을 연결 하 고 전송 합니다.'
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -9,12 +9,12 @@ ms.date: 04/27/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
 ms.custom: mode-other
-ms.openlocfilehash: 4f6d3c6349ca9cdf37a38329963f017e15672956
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: f0ada446732f6f5a2a8c4cac6591e05c259dcd1c
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133058653"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133369005"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-central"></a>빠른 시작: 디바이스에서 Azure IoT Central로 원격 분석 보내기
 

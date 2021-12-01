@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5954c3083afc73fb25c796086f8fb8809af03ec1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: d280570560b4d2bb991d829321764ce461bb209e
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200659"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133357870"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용하여 에지에 데이터 저장
 
@@ -296,12 +296,6 @@ IoT Edge의 Blob 스토리지 모듈은 Azure Storage SDK를 사용하며, 블�
 ## <a name="release-notes"></a>릴리스 정보
 
 이 모듈에 대한 [docker 허브의 릴리스 정보](https://hub.docker.com/_/microsoft-azure-blob-storage)는 다음과 같습니다. 특정 버전의 릴리스 정보에서 버그 수정 및 업데이트 관리와 관련된 추가 정보를 확인할 수 있습니다.
-
-## <a name="suggestions"></a>제안
-
-사용자의 피드백은 이 모듈 및 해당 기능을 유용하고 사용하기 쉽게 하는 데 중요합니다. 피드백을 공유하고 개선할 수 있는 방법을 알려주세요.
-
-absiotfeedback@microsoft.com으로 문의할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

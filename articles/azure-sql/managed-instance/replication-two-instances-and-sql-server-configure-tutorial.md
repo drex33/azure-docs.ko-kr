@@ -6,16 +6,16 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
-author: rothja
-ms.author: jroth
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 11/21/2019
-ms.openlocfilehash: 83478bc8822a0480fbebda6870b19656b5408755
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 353a47aaccd09b0dad6728844aba9bf75d0804a1
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110795325"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133356905"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>자습서: Azure SQL Managed Instance와 SQL Server 간의 트랜잭션 복제 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: allensu
-ms.openlocfilehash: 28823c997cd974d5061829df88680ed52075caa0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 98bdce2bc141c40666a0798f84c64c5b52332fc0
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98029211"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367518"
 ---
 # <a name="troubleshoot-azure-load-balancer-health-probe-status"></a>Azure Load Balancer 상태 프로브 상태 문제 해결
 
@@ -55,6 +55,10 @@ VM의 방화벽이 프로브 포트를 차단하고 있거나 서브넷 또는 V
 **유효성 검사 및 해결**
 
 1. 방화벽이 사용하도록 설정된 경우 프로브 포트를 허용하도록 구성되어 있는지 확인합니다. 그렇지 않으면 프로브 포트의 트래픽을 허용하도록 방화벽을 구성한 후 다시 테스트합니다.
+- VM 방화벽이 IP 주소에서 발생하는 프로브 트래픽을 차단하지 않는지 확인합니다. `168.63.129.16`
+- `netstat -a`Windows 명령 프롬프트 또는 Linux 터미널에서 를 실행하여 수신 대기 포트를 확인할 수 있습니다. `netstat -l`
+- 방화벽 프로필을 쿼리하여 정책이 Windows 명령 프롬프트에서 실행하거나 Linux 터미널에서 실행하여 들어오는 트래픽을 차단하는지 여부를 `netsh advfirewall show allprofiles | more` `sudo iptables -L` 확인하여 구성된 모든 방화벽 규칙을 볼 수 있습니다.
+- Azure VM의 방화벽 문제 해결에 대한 자세한 내용은 [Azure VM 게스트 OS 방화벽이 인바운드 트래픽을 차단하는 것을 참조하세요.](/azure/virtual-machines/guest-os-firewall-blocking-inbound-traffic)
 2. 네트워크 보안 그룹 목록에서 프로브 포트에서 들어오거나 나가는 트래픽에 간섭에 있는지 확인합니다.
 3. 또한 VM 또는 서브넷의 NIC에 대해 LB 프로브 또는 트래픽을 허용하는 기본 규칙보다 우선 순위가 더 높은 **모두 거부** 네트워크 보안 그룹 규칙이 있는지 확인합니다(네트워크 보안 그룹은 168.63.129.16의 Load Balancer IP를 허용해야 함).
 4. 이러한 규칙에 의해 프로브 트래픽이 차단되는 경우 해당 규칙을 제거한 후 프로브 트래픽을 허용하도록 다시 구성합니다.  

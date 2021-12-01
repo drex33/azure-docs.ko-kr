@@ -4,7 +4,6 @@ description: HADR(고가용성 및 재해 복구)을 위해 Azure VM에서 SQL S
 services: virtual-machines-windows
 documentationcenter: na
 author: rajeshsetlem
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: hadr
@@ -15,18 +14,18 @@ ms.workload: iaas-sql-server
 ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
-ms.openlocfilehash: 0eea2233a2b6b59c92b49ca325378a95301fc962
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.openlocfilehash: c8a4be9469838e2da621f24b4979f34bed2c814d
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132158860"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133365494"
 ---
 # <a name="configure-azure-load-balancer-for-an-fci-vnn"></a>FCI VNN에 대한 Azure Load Balancer 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!TIP]
-> 동일한 Azure 가상 네트워크 내의 여러 서브넷에 SQL Server VM을 만들어 장애 조치(failover) 클러스터 인스턴스에 대한 Azure Load Balancer 필요하지 않습니다.
+> 동일한 Azure 가상 네트워크 내에서 여러 서브넷에 SQL Server vm을 만들어 장애 조치 (failover) 클러스터 인스턴스에 대 한 Azure Load Balancer 필요성을 제거 합니다.
 
 Azure Virtual Machines에서 클러스터는 한 번에 하나의 클러스터 노드에 있어야 하는 IP 주소를 저장하는 부하 분산 장치를 사용합니다. 이 솔루션에서 부하 분산 장치는 Azure의 클러스터형 리소스에서 사용하는 VNN(가상 네트워크 이름)의 IP 주소를 보유합니다. 
 
@@ -276,7 +275,7 @@ Get-ClusterResource yourFCIname | Set-ClusterParameter HostRecordTTL 300
 
 - [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
 - [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
-- [장애 조치(failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [장애 조치(Failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 - [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)
 
 

@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5e6716980ef8f813be49a7cd6d269d432114aeae
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1a1b6995d149307aa0d5cc16677fdd25e6b04b81
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671947"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133363171"
 ---
 # <a name="what-is-azure-communication-services"></a>Azure Communication Services란?
 
@@ -43,8 +43,8 @@ Azure Communication Services 시나리오는 다음과 같습니다.
 | 리소스                               |설명                           |
 |---                                    |---                                   |
 |**[Communication Services 리소스 만들기](./quickstarts/create-communication-resource.md)**|Azure Portal 또는 Communication Services SDK를 통해 첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services 사용을 시작합니다. Communication Services 리소스 연결 문자열이 있으면 첫 번째 사용자 액세스 토큰을 프로비저닝할 수 있습니다.|
-|**[전화 번호 가져오기](./quickstarts/telephony-sms/get-phone-number.md)**|Azure Communication Services를 사용하여 전화 번호를 프로비전하고 해제합니다. 이러한 전화 번호는 전화 통화를 시작하거나 받고 SMS 솔루션을 구축하는 데 사용할 수 있습니다.|
-|**[앱에서 SMS 보내기](./quickstarts/telephony-sms/send.md)**| Azure Communication Services SMS REST API 및 SDK를 사용하면 서비스 애플리케이션에서 SMS 메시지를 보내고 받을 수 있습니다.|
+|**[전화 번호 가져오기](./quickstarts/telephony/get-phone-number.md)**|Azure Communication Services를 사용하여 전화 번호를 프로비전하고 해제합니다. 이러한 전화 번호는 전화 통화를 시작하거나 받고 SMS 솔루션을 구축하는 데 사용할 수 있습니다.|
+|**[앱에서 SMS 보내기](./quickstarts/sms/send.md)**| Azure Communication Services SMS REST API 및 SDK를 사용하면 서비스 애플리케이션에서 SMS 메시지를 보내고 받을 수 있습니다.|
 
 Communication Services 리소스를 만든 후 음성 및 화상 통화 또는 텍스트 채팅 등의 클라이언트 시나리오 빌드를 시작할 수 있습니다.
 
@@ -79,7 +79,7 @@ Communication Services 리소스를 만든 후 음성 및 화상 통화 또는 �
 |**[SDK 라이브러리 및 REST API](./concepts/sdk-options.md)**|Azure Communication Services 기능은 개념적으로 각각 SDK로 표시되는 6가지 영역으로 구성됩니다. 실시간 통신 요구 사항에 따라 사용할 SDK 라이브러리를 결정할 수 있습니다.|
 |**[Calling SDK 개요](./concepts/voice-video-calling/calling-sdk-features.md)**|Communication Services Calling SDK 개요를 검토합니다.|
 |**[채팅 SDK 개요](./concepts/chat/sdk-features.md)**|Communication Services 채팅 SDK 개요를 검토합니다.|
-|**[SMS SDK 개요](./concepts/telephony-sms/sdk-features.md)**|Communication Services SMS SDK 개요를 검토합니다.|
+|**[SMS SDK 개요](./concepts/sms/sdk-features.md)**|Communication Services SMS SDK 개요를 검토합니다.|
 
 ## <a name="other-microsoft-communication-services"></a>기타 Microsoft Communication Services
 

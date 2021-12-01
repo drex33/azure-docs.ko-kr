@@ -7,15 +7,15 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.date: 01/25/2019
-ms.openlocfilehash: b5702cf97c1796e2f3e7b79f61ef76eb6084293d
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 276e1f9b74dc45d2e52d5e6f5591f59e5066c50d
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110708394"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133363572"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>데이터베이스 지역에서 복제를 사용하여 다중 테넌트 SaaS 애플리케이션 재해 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

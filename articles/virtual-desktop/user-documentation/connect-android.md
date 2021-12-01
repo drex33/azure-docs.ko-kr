@@ -1,17 +1,17 @@
 ---
-title: Android에서 Azure Virtual Desktop에 연결 - Azure
+title: Android 클라이언트를 사용하여 Azure Virtual Desktop에 커넥트 - Azure
 description: Android 클라이언트를 사용하여 Azure Virtual Desktop에 연결하는 방법.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c411654983054d5d6993d4cc7d6a8cf66cb045ff
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 32b71ead4f2c15407756e34a3eadee9eb1d073dd
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132806366"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133365756"
 ---
 # <a name="connect-to-azure-virtual-desktop-with-the-android-client"></a>Android 클라이언트를 사용하여 Azure Virtual Desktop에 연결
 

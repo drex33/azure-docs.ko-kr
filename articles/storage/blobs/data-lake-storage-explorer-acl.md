@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 10/28/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 5fc2fbf2b0f55f356f6a2f5c4a3eb0fd2c527449
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 25adc75204a3485810d7f4e3281dde95e0944ecd
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545625"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133363129"
 ---
 # <a name="use-azure-storage-explorer-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리
 
@@ -42,21 +42,25 @@ Storage Explorer를 사용하여 디렉터리 및 파일의 ACL을 확인한 다
 
 ## <a name="sign-in-to-storage-explorer"></a>Storage Explorer에 로그인
 
-Storage Explorer를 처음 시작할 때 **Microsoft Azure Storage Explorer - 연결** 창이 나타납니다. Storage Explorer에서는 몇 가지 방법으로 스토리지 계정에 연결할 수 있지만, 현재는 ACL을 관리하는 한 가지 방법만 지원됩니다.
+Storage Explorer를 처음 시작 하는 경우 **Azure Storage 창에 대 한 Microsoft Azure Storage Explorer 커넥트** 표시 됩니다. Storage Explorer에서는 몇 가지 방법으로 스토리지 계정에 연결할 수 있지만, 현재는 ACL을 관리하는 한 가지 방법만 지원됩니다.
 
-|Task|목적|
-|---|---|
-|Azure 계정 추가 | Azure에 인증하기 위해 조직 로그인 페이지로 리디렉션합니다. ACL을 관리하고 설정하려는 경우 현재 유일하게 지원되는 인증 방법입니다.|
-|연결 문자열 또는 공유 액세스 서명 URI 사용 | SAS 토큰 또는 공유 연결 문자열이 있는 컨테이너 또는 스토리지 계정에 직접 액세스하는 데 사용할 수 있습니다. |
-|스토리지 계정 이름 및 키 사용| 스토리지 계정 이름과 스토리지 계정 키를 사용하여 Azure Storage에 연결합니다.|
+**리소스 선택** 패널에서 **구독** 을 선택합니다.
 
-**Azure 계정 추가** 를 선택하고 **로그인..** 을 클릭합니다. 화면 상의 메시지에 따라 Azure 계정에 로그인합니다.
+:::image type="content" source="./media/data-lake-storage-explorer-acl/storage-explorer-connect-sml.png" alt-text="리소스 Microsoft Azure Storage Explorer 선택 창을 보여 주는 스크린샷" lightbox="./media/data-lake-storage-explorer-acl/storage-explorer-connect-lrg.png":::
 
-![Microsoft Azure Storage Explorer를 보여 주고, Azure 계정 옵션 추가 및 로그인 단추를 강조 표시하는 스크린샷.](media/quickstart-storage-explorer/storage-explorer-connect.png)
+**Azure 환경 선택** 패널에서 로그인할 Azure 환경을 선택합니다. 글로벌 Azure, 국가 클라우드 또는 Azure Stack 인스턴스에 로그인할 수 있습니다. 그런 후 **다음** 을 선택합니다.
+
+:::image type="content" alt-text="Microsoft Azure Storage Explorer 표시 하 고 Azure 환경 선택 옵션을 강조 표시 하는 스크린샷" source="./media/data-lake-storage-explorer-acl/storage-explorer-select-sml.png"  lightbox="./media/data-lake-storage-explorer-acl/storage-explorer-select-sml.png":::
+
+Storage Explorer는 로그인할 웹 페이지를 엽니다.
+
+Azure 계정으로 성공적으로 로그인하면 계정과 계정에 연결된 Azure 구독이 **계정 관리** 아래에 나타납니다. 작업 하려는 Azure 구독을 선택 하 고 **탐색기 열기** 를 선택 합니다.
+
+:::image type="content" alt-text="Microsoft Azure Storage Explorer 표시 하 고 계정 관리 창 및 탐색기 열기 단추를 강조 표시 하는 스크린샷" source="./media/data-lake-storage-explorer-acl/storage-explorer-account-panel-sml.png"  lightbox="./media/data-lake-storage-explorer-acl/storage-explorer-account-panel-sml.png":::
 
 작업이 완료되면 Azure Storage Explorer는 표시된 **탐색기** 탭을 로드합니다. 이 보기는 [Azure Storage 에뮬레이터](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 계정 또는 [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 환경을 통해 구성된 로컬 스토리지뿐만 아니라 모든 Azure Storage 계정에 대한 정보를 제공합니다.
 
-![Microsoft Azure Storage Explorer - 연결 창](media/quickstart-storage-explorer/storage-explorer-main-page.png)
+:::image type="content" alt-text="Microsoft Azure Storage Explorer - 연결 창" source="./media/data-lake-storage-explorer-acl/storage-explorer-main-page-sml.png" lightbox="./media/data-lake-storage-explorer-acl/storage-explorer-main-page-lrg.png":::
 
 ## <a name="manage-an-acl"></a>ACL 관리
 

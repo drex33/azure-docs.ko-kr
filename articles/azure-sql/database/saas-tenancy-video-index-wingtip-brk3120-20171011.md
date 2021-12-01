@@ -4,18 +4,18 @@ description: 이 문서는 2017년 10월 11일에 열린 Ignite 컨퍼런스에�
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.custom: sqldbrb=1
 ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 51ff4193bd8e23e3a6f5cd86d09ac28239eadcd7
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 42ec5dd70ce3090ff7b6ae755e4f6d20ae6f6a47
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693599"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368868"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Azure SQL Database를 사용하여 다중 테넌트 SaaS 앱에 대해 인덱싱되고 주석이 지정된 동영상
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

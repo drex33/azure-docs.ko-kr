@@ -3,20 +3,20 @@ title: Visual Studio 2019 설치
 description: Synapse SQL용 Visual Studio 및 SSDT(SQL Server 개발 도구) 설치
 ms.custom: vs-azure, azure-synapse
 ms.workload: azure-vs
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 05/11/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: igorstan
-ms.openlocfilehash: 378c36f1df7c83c6309be44d24ec671b64e34c08
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 7109219b01f6f19b3356d2185516c46097a21cb1
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131054612"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133361114"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Visual Studio 2019 시작
 

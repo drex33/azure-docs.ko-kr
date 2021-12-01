@@ -7,16 +7,16 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 2e2aed815a8c3bd81df881dbb7a829e95d017e8c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 322deb90960b837794c71bc2787296fc3baf32de
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110691765"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364167"
 ---
 # <a name="use-powershell-to-create-a-single-database-and-configure-a-server-level-firewall-rule"></a>PowerShell을 사용하여 단일 데이터베이스를 만들고 서버 수준 방화벽 규칙을 구성합니다.
 

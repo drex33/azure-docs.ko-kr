@@ -5,16 +5,16 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang: ''
 ms.topic: how-to
-author: rothja
-ms.author: jroth
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: vanto
 ms.date: 09/09/2021
-ms.openlocfilehash: 272138471499cbd62085301df8e518ea47a7ddc3
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 925fb063aeccfc1d82352518e6264275e609fc74
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064457"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133365571"
 ---
 # <a name="verify-a-ledger-table-to-detect-tampering"></a>원장 테이블을 확인하여 변조 감지
 

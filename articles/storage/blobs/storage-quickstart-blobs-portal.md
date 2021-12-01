@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/29/2021
+ms.date: 10/25/2021
 ms.author: tamram
 ms.custom: mode-portal
-ms.openlocfilehash: 35af91c3c49fb520f63ada9daf122cbd2d4e56b9
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 3d79d5ebab0be460f4a2a9ec29ef3203e80775a4
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133049948"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364281"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -30,13 +30,13 @@ ms.locfileid: "133049948"
 Azure Portal에 컨테이너를 만들려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 새 스토리지 계정으로 이동합니다.
-1. 스토리지 계정의 왼쪽 메뉴에서 **데이터 스토리지** 섹션이 나올 때까지 스크롤한 다음, **Blob 컨테이너** 를 선택합니다.
+1. 스토리지 계정의 왼쪽 메뉴에서 **데이터 스토리지** 섹션으로 스크롤한 다음, **컨테이너** 를 선택합니다.
 1. **+ 컨테이너** 단추를 선택합니다.
 1. 새 컨테이너의 이름을 입력합니다. 컨테이너 이름은 소문자여야 하고, 문자 또는 숫자로 시작해야 하며, 문자, 숫자 및 대시(-) 문자만 포함할 수 있습니다. 컨테이너 및 BLOB 이름에 대한 자세한 내용은 [컨테이너, BLOB, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 1. 컨테이너에 대한 공용 액세스 수준을 설정합니다. 기본 수준은 **프라이빗(익명 액세스 없음)** 입니다.
-1. **확인** 을 선택하여 컨테이너를 만듭니다.
+1. **만들기** 를 선택하여 컨테이너를 만듭니다.
 
-    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container.png" alt-text="Azure Portal에서 컨테이너를 만드는 방법을 보여 주는 스크린샷" lightbox="media/storage-quickstart-blobs-portal/create-container.png":::
+    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container-sml.png" alt-text="Azure Portal에서 컨테이너를 만드는 방법을 보여 주는 스크린샷" lightbox="media/storage-quickstart-blobs-portal/create-container-lrg.png":::
 
 ## <a name="upload-a-block-blob"></a>블록 Blob 업로드
 

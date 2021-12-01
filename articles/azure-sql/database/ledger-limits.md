@@ -6,14 +6,14 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 684ca40f1469b826029f1b0bcc51e33ae0d9c9a5
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: VanMSFT
+ms.author: vanto
+ms.openlocfilehash: 8644b699940b300dfe47394ca76bd043a6917566
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064443"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133358995"
 ---
 # <a name="limitations-for-azure-sql-database-ledger"></a>Azure SQL Database 원장에 대한 제한 사항
 

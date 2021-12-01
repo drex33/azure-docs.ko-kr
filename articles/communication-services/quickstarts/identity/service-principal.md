@@ -12,12 +12,12 @@ ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
 ms.custom: mode-other
-ms.openlocfilehash: f254ba09b9048dec705157501c2b5e86d200d95c
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 5212b96ef1e157c62cd7edf91e473992544fcb1f
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133046300"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133356766"
 ---
 # <a name="quickstart-authenticate-using-azure-active-directory"></a>빠른 시작: Azure Active Directory를 사용하여 인증
 
@@ -29,7 +29,7 @@ Azure Active Directory를 사용하여 Azure Communication Services를 시작하
 
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free)
 - 활성 Azure Communication Services 리소스. 없는 경우 [Communication Services 리소스 만들기](../create-communication-resource.md)를 참조하세요.
-- SMS를 보내려면 [전화번호](../telephony-sms/get-phone-number.md)가 필요합니다.
+- SMS를 보내려면 [전화번호](../telephony/get-phone-number.md)가 필요합니다.
 - 개발 환경용 서비스 주체에 대해서는 [관리 ID로 액세스 권한 부여](./service-principal-from-cli.md)를 참조하세요
 
 ::: zone pivot="programming-language-csharp"
@@ -53,6 +53,6 @@ Azure Active Directory를 사용하여 Azure Communication Services를 시작하
 - [Azure 역할 기반 액세스 제어에 대해 자세히 알아보기](../../../../articles/role-based-access-control/index.yml)
 - [.NET용 Azure ID 라이브러리에 대해 자세히 알아보기](/dotnet/api/overview/azure/identity-readme)
 - [사용자 액세스 토큰 만들기](../../quickstarts/access-tokens.md)
-- [SMS 메시지 보내기](../../quickstarts/telephony-sms/send.md)
-- [SMS에 대한 자세한 정보](../../concepts/telephony-sms/concepts.md)
+- [SMS 메시지 보내기](../../quickstarts/sms/send.md)
+- [SMS에 대한 자세한 정보](../../concepts/sms/concepts.md)
 - [테스트를 위해 빠르게 ID 만들기](./quick-create-identity.md).

@@ -10,14 +10,13 @@ ms.service: virtual-machines-sql
 ms.subservice: deployment
 ms.workload: iaas-sql-server
 ms.author: mathoma
-ms.reviewer: jroth
 ms.custom: mode-portal
-ms.openlocfilehash: 7473a94f17cba35c93a5542f07a2d4259fb407f8
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: b28ffa847b7c2057b10c8e5e8d8f8d8fae1ceb21
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133056682"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133361520"
 ---
 # <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Azure Portal에서 SQL Server를 실행하는 Linux 가상 머신 프로비전
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -2,20 +2,20 @@
 title: '빠른 시작: Synapse Studio를 사용하여 전용 SQL 풀 만들기'
 description: 이 가이드의 단계에 따라 Synapse Studio를 사용하여 전용 SQL 풀을 만듭니다.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql
 ms.date: 10/16/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: jrasnick
 ms.custom: mode-other
-ms.openlocfilehash: 26d10b2899e3ac85e16b076e8052063398b96a48
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: a9451cdd08517421e37249da68e4ac68909a21c6
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133043314"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133365896"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>빠른 시작: Synapse Studio를 사용하여 전용 SQL 풀 만들기
 

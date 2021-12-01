@@ -4,15 +4,15 @@ description: Traffic Manager 및 App Service 환경으로 지역 분포를 사�
 author: madsd
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/18/2021
 ms.author: madsd
 ms.custom: seodec18, references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 85b72fa7c0a9f764583f63d6df60a5b209ff6415
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 5de4b9655699c7d4d8b07259e0da8443b191e089
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998821"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133355785"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>App Service Environment로 지역 분산된 규모
 ## <a name="overview"></a>개요
@@ -30,14 +30,14 @@ App Service Environment는 수평적 스케일 아웃에 이상적인 플랫폼�
 
 아래의 개념적 다이어그램은 단일 지역 내에서 세 가지 App Service Environment에 걸쳐 수평으로 확장된 앱을 보여줍니다.
 
-![개념적 아키텍처][ConceptualArchitecture] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/conceptual-architecture.png" alt-text="Traffic Manager 있는 지리적으로 분산된 App Service의 개념 아키텍처 다이어그램.":::
 
 이 항목의 나머지 부분에서는 여러 App Service 환경을 사용하여 샘플 앱에 대한 분산된 토폴로지를 설정하는 단계를 안내합니다.
 
 ## <a name="planning-the-topology"></a>토폴로지 계획
 분산된 앱 공간을 빌드하기 전에 미리 약간 정보가 있는 편이 좋습니다.
 
-* **앱의 사용자 지정 도메인:**  고객이 앱에 액세스하는 데 사용할 사용자 지정 도메인 이름은 무엇인가요?  샘플 앱의 경우 사용자 지정 도메인 이름은 `www.scalableasedemo.com`입니다.
+* **앱의 사용자 지정 도메인:**  고객이 앱에 액세스하는 데 사용할 사용자 지정 도메인 이름은 무엇인가요?  샘플 앱의 경우 사용자 지정 도메인 이름은 `www.asabuludemo.com`입니다.
 * **Traffic Manager 도메인:** [Azure Traffic Manager 프로필][AzureTrafficManagerProfile]을 만들 때 도메인 이름을 선택합니다.  이 이름은 *trafficmanager.net* 접미사와 결합하여 Traffic Manager에서 관리되는 도메인 항목을 등록합니다.  샘플 앱의 경우 선택한 이름은 *scalable-ase-demo* 입니다.  결과적으로 Traffic Manager에서 관리되는 전체 도메인 이름은 *scalable-ase-demo.trafficmanager.net* 입니다.
 * **앱 공간을 크기 조정하는 전략:**  애플리케이션 공간이 단일 Azure 지역의 여러 App Service Environment에 분산되나요?  여러 영역?  두 방법을 혼합 및 일치?  고객 트래픽이 생성될 것으로 예상되는 위치와 백 엔드 인프라를 지원하는 앱의 나머지 부분에서 얼마나 원활하게 스케일링할 수 있는지에 따라 결정해야 합니다.  예를 들어 100% 상태 비저장 애플리케이션의 경우 여러 Azure 지역에 배포된 App Service Environment 수를 곱한 각 Azure 지역의 여러 App Service Environment 조합을 사용하여 앱을 크게 스케일링할 수 있습니다.  선택할 수 있는 전역 Azure 지역이 15개가 넘는 경우 고객은 진정한 의미의 전 세계 하이퍼스케일 애플리케이션 공간을 구축할 수 있습니다.  이 문서에 사용된 샘플 앱의 경우 단일 Azure 지역(미국 중남부)에 세 개의 App Service Environment를 만들었습니다.
 * **App Service Environment에 대한 명명 규칙:**  각 App Service Environment에 고유한 이름이 필요합니다.  App Service Environment가 두 개 또는 세 개 이상인 경우 명명 규칙이 있으면 각 App Service Environment를 식별하는 데 도움이 됩니다.  샘플 앱의 경우 간단한 명명 규칙을 사용했습니다.  세 가지 App Service Environment의 이름은 *fe1ase*, *fe2ase*, 및 *fe3ase* 입니다.
@@ -55,7 +55,7 @@ App Service Environment는 수평적 스케일 아웃에 이상적인 플랫폼�
 첫 번째 단계는 Azure Traffic Manager 프로필을 만드는 것입니다.  아래 코드에서는 샘플 앱에 프로필을 만든 방법을 보여줍니다.
 
 ```azurepowershell-interactive
-$profile = New-AzureTrafficManagerProfile –Name scalableasedemo -ResourceGroupName yourRGNameHere -TrafficRoutingMethod Weighted -RelativeDnsName scalable-ase-demo -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+$profile = New-AzTrafficManagerProfile –Name scalableasedemo -ResourceGroupName yourRGNameHere -TrafficRoutingMethod Weighted -RelativeDnsName scalable-ase-demo -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 ```
 
 *RelativeDnsName* 매개 변수가 어떻게 *scalable-ase-demo* 로 설정되는지 확인합니다.  이 매개 변수로 인해 도메인 이름 *scalable-ase-demo.trafficmanager.net* 이 만들어지고 Traffic Manager 프로필과 연결됩니다.
@@ -66,15 +66,15 @@ $profile = New-AzureTrafficManagerProfile –Name scalableasedemo -ResourceGroup
 
 ```azurepowershell-interactive
 $webapp1 = Get-AzWebApp -Name webfrontend1
-Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
+Add-AzTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
 
 $webapp2 = Get-AzWebApp -Name webfrontend2
-Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
+Add-AzTrafficManagerEndpointConfig –EndpointName webfrontend2 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp2.Id –EndpointStatus Enabled –Weight 10
 
 $webapp3 = Get-AzWebApp -Name webfrontend3
-Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
+Add-AzTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
 
-Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+Set-AzTrafficManagerProfile –TrafficManagerProfile $profile
 ```
 
 개별 응용 프로그램 인스턴스에 *Add-AzureTrafficManagerEndpointConfig* 로 한 개의 호출이 있습니다.  각 Powershell 명령에서 *TargetResourceId* 매개 변수는 세 개의 배포된 앱 인스턴스 중 하나를 참조합니다.  Traffic Manager 프로필은 프로필에 등록된 세 개의 모든 엔드포인트에 걸쳐 부하를 분산합니다.
@@ -82,24 +82,24 @@ Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 세 엔드포인트는 모두 *가중치* 매개 변수에 동일한 값(10)을 사용합니다.  이런 경우 Traffic Manager는 세 개의 앱 인스턴스에서 상대적으로 균일하게 고객 요청을 분산합니다. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Traffic Manager 도메인에서 앱의 사용자 지정 도메인 가리키기
-필요한 마지막 단계는 Traffic Manager 도메인에서 앱의 사용자 지정 도메인을 가리키는 것입니다.  샘플 앱에서는 `scalable-ase-demo.trafficmanager.net`의 `www.scalableasedemo.com`을 가리킵니다.  이 단계는 사용자 지정 도메인을 관리하는 도메인 등록 기관을 사용하여 완료합니다.  
+필요한 마지막 단계는 Traffic Manager 도메인에서 앱의 사용자 지정 도메인을 가리키는 것입니다.  샘플 앱에서는 `scalable-ase-demo.trafficmanager.net`의 `www.asabuludemo.com`을 가리킵니다.  이 단계는 사용자 지정 도메인을 관리하는 도메인 등록 기관을 사용하여 완료합니다.  
 
 등록 기관의 도메인 관리 도구를 사용하여 CNAME 기록은 Traffic Manager 도메인에서 사용자 지정 도메인을 가리키도록 만들어야 합니다.  아래 그림은 해당 CNAME 구성이 다음과 같다는 예를 보여줍니다.
 
-![사용자 지정 도메인에 대한 CNAME][CNAMEforCustomDomain] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/cname-custom-domain.png" alt-text="DNS에서 CNAME 레코드를 구성하는 스크린샷."::: 
 
 이 항목에서 설명하지 않았지만 각 개별 앱 인스턴스도 등록된 사용자 지정 도메인이 있어야 합니다.  그렇지 않은 경우 앱 인스턴스로 요청을 했는데 애플리케이션이 사용자 지정 도메인을 해당 앱으로 등록하지 않았으면 요청은 실패합니다.
 
-이 예제에서 사용자 지정 도메인은 `www.scalableasedemo.com`이며, 각 애플리케이션 인스턴스에는 연결된 사용자 지정 도메인이 있습니다.
+이 예제에서 사용자 지정 도메인은 `www.asabuludemo.com`이며, 각 애플리케이션 인스턴스에는 연결된 사용자 지정 도메인이 있습니다.
 
-![사용자 지정 도메인][CustomDomain] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/custom-domain.png" alt-text="App Service 사용자 지정 도메인 설정의 스크린샷.":::
 
 Azure App Service 앱으로 사용자 지정 도메인을 등록하는 방법에 대한 간단한 내용은 [사용자 지정 도메인 등록][RegisterCustomDomain]을 참조하세요.
 
 ## <a name="trying-out-the-distributed-topology"></a>배포된 토폴로지 사용
-Traffic Manager 및 DNS 구성의 최종 결과는 `www.scalableasedemo.com`에 대한 요청이 다음 시퀀스를 통과하는 것입니다.
+Traffic Manager 및 DNS 구성의 최종 결과는 `www.asabuludemo.com`에 대한 요청이 다음 시퀀스를 통과하는 것입니다.
 
-1. 브라우저 또는 디바이스가 `www.scalableasedemo.com`에 대한 DNS 조회를 수행합니다.
+1. 브라우저 또는 디바이스가 `www.asabuludemo.com`에 대한 DNS 조회를 수행합니다.
 2. 도메인 등록 기관에서 CNAME 항목은 DNS를 조회하여 Azure Traffic Manager로 리디렉션됩니다.
 3. DNS 조회는 Azure Traffic Manager DNS 서버 중 하나에 대한 *scalable-ase-demo.trafficmanager.net* 에 대해 수행합니다.
 4. 앞의 *TrafficRoutingMethod* 매개 변수에서 지정한 부하 분산 정책에 따라 Traffic Manager는 구성된 엔드포인트 중 하나를 선택합니다. 그런 다음 해당 엔드포인트의 FQDN을 브라우저나 디바이스로 반환합니다.
@@ -109,7 +109,7 @@ Traffic Manager 및 DNS 구성의 최종 결과는 `www.scalableasedemo.com`에 
 
 아래 그림의 콘솔은 샘플 앱의 사용자 지정 도메인에 대한 DNS 조회를 보여 줍니다. 이 콘솔에서는 세 개의 샘플 App Service Environment 중 하나(이 경우 세 개의 App Service Environment 중 두 번째)에서 실행되는 앱 인스턴스를 성공적으로 확인합니다.
 
-![DNS 조회][DNSLookup] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/dns-lookup.png" alt-text="DNS 조회 결과의 스크린샷.":::
 
 ## <a name="additional-links-and-information"></a>추가 링크 및 정보
 PowerShell [Azure Resource Manager Traffic Manager 지원][ARMTrafficManager]에 대한 문서입니다.  
@@ -120,10 +120,3 @@ PowerShell [Azure Resource Manager Traffic Manager 지원][ARMTrafficManager]에
 [AzureTrafficManagerProfile]: ../../traffic-manager/traffic-manager-manage-profiles.md
 [ARMTrafficManager]: ../../traffic-manager/traffic-manager-powershell-arm.md
 [RegisterCustomDomain]: ../app-service-web-tutorial-custom-domain.md
-
-
-<!-- IMAGES -->
-[ConceptualArchitecture]: ./media/app-service-app-service-environment-geo-distributed-scale/ConceptualArchitecture-1.png
-[CNAMEforCustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CNAMECustomDomain-1.png
-[DNSLookup]:  ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
-[CustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png 

@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
 ms.custom: contperf-fy22q2, mode-other
-ms.openlocfilehash: 409c14ed388baf955e11dfdfb76554205a5f5a2a
-ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.openlocfilehash: e55ae7a0bb0a39346d9bff54f2ebecf890880319
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133286980"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133366132"
 ---
 # <a name="get-started-with-azure-service-bus-queues-net"></a>Azure Service Bus 큐 시작(.NET)
 
@@ -29,7 +29,7 @@ ms.locfileid: "133286980"
 4. 큐에서 해당 메시지를 수신하도록 .NET Core 콘솔 애플리케이션을 작성합니다.
 
 > [!NOTE]
-> 이 빠른 시작에서는 Service Bus 큐에 메시지 일괄 처리를 보내고 받는 간단한 시나리오에 대한 단계별 지침을 제공합니다. [GitHub의 .NET용 Azure SDK 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)에서 Azure Service Bus용으로 미리 빌드된 .NET 샘플을 찾을 수 있습니다. 
+> 이 빠른 시작에서는 Service Bus 큐에 메시지 일괄 처리를 보내고 받는 간단한 시나리오를 구현 하는 간단한 시나리오를 구현 하는 단계별 지침을 제공 합니다. 다른 시나리오 및 고급 시나리오에 대 한 추가 예제는 [GitHub에서 Service Bus .net 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)을 참조 하세요. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 이 서비스를 처음 사용하는 경우 이 빠른 시작 전에 [Service Bus 개요](service-bus-messaging-overview.md)를 참조하세요. 
@@ -47,7 +47,7 @@ ms.locfileid: "133286980"
 이 섹션에서는 Service Bus 큐로 메시지를 전송하는 .NET Core 콘솔 애플리케이션을 만드는 방법을 보여 줍니다. 
 
 > [!NOTE]
-> 이 빠른 시작에서는 Service Bus 큐에 메시지 일괄 처리를 보내고 받는 간단한 시나리오에 대한 단계별 지침을 제공합니다. [GitHub의 .NET용 Azure SDK 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)에서 Azure Service Bus용으로 미리 빌드된 .NET 샘플을 찾을 수 있습니다. 
+> 이 빠른 시작에서는 Service Bus 큐에 메시지 일괄 처리를 보내고 받는 간단한 시나리오를 구현 하는 간단한 시나리오를 구현 하는 단계별 지침을 제공 합니다. 다른 시나리오 및 고급 시나리오에 대 한 추가 예제는 [GitHub에서 Service Bus .net 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)을 참조 하세요. 
 
 
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
@@ -249,7 +249,7 @@ ms.locfileid: "133286980"
 이 섹션에서는 큐에서 메시지를 수신하는 .NET Core 콘솔 애플리케이션을 만듭니다. 
 
 > [!NOTE]
-> 이 빠른 시작에서는 Service Bus 큐에 메시지 일괄 처리를 보내고 받는 간단한 시나리오에 대한 단계별 지침을 제공합니다. [GitHub의 .NET용 Azure SDK 리포지토리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)에서 Azure Service Bus용으로 미리 빌드된 .NET 샘플을 찾을 수 있습니다. 
+> 이 빠른 시작에서는 Service Bus 큐에 메시지 일괄 처리를 보내고 받는 간단한 시나리오를 구현 하는 간단한 시나리오를 구현 하는 단계별 지침을 제공 합니다. 다른 시나리오 및 고급 시나리오에 대 한 추가 예제는 [GitHub에서 Service Bus .net 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)을 참조 하세요. 
 
 
 ### <a name="create-a-project-for-the-receiver"></a>수신기에 대한 프로젝트 만들기

@@ -284,8 +284,10 @@
               href: sap-high-availability-infrastructure-wsfc-file-share.md
             - name: WSFC 및 SOFS 파일 공유 기능을 사용하여 HA SAP NetWeaver 설치
               href: sap-high-availability-installation-wsfc-file-share.md
-            - name: WSFC 및 파일 공유 기능이 있는 다중 SID
+            - name: WSFC 및 파일 공유를 사용 하는 다중 SID
               href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+            - name: Windows DFS-N을 사용 하 여 SMB 기반 파일 공유에 대 한 유연한 SAPMNT 공유 만들기 지원
+              href: high-availability-guide-windows-dfs.md
 - name: 자동화 프레임워크(Azure VM)
   items:
     - name: 배포 자동화 프레임워크 정보

@@ -9,12 +9,12 @@ author: lrtoyou1223
 ms.author: lle
 ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: 8e0a2110458f57fb5485d982b6114574ac220eb5
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: eff44b5ecdbce8485f0967bcaed73ab50c07556e
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132373368"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133363742"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 
@@ -75,6 +75,9 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 - Parquet, ORC 또는 Avro 형식의 데이터를 추출하는 동안 작업이 실패할 수 있습니다. Parquet에 대한 자세한 내용은 [Azure Data Factory Parquet 형식](./format-parquet.md#using-self-hosted-integration-runtime)을 참조하세요. 파일 생성은 자체 호스팅 통합 머신에서 실행됩니다. 정상적으로 작동하기 위해 파일을 만들려면 다음 필수 구성 요소가 필요합니다.
   - [Visual C++ 2010 재배포 가능](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) 패키지(x64)
   - JRE 공급자(예: [Adopt OpenJDK](https://adoptopenjdk.net/))의 Java Runtime(JRE) 버전 8 JAVA_HOME 환경 변수가 JRE 폴더가 아니라 JDK 폴더로 설정 되어 있는지 확인 합니다.
+  >[!NOTE]
+  >[Parquet format] 설명서 (Parquet # using-runtime-runtime)에 설명 된 대로 메모리 오류가 발생 하는 경우 Java 설정을 조정 해야 할 수 있습니다.
+  
 
 >[!NOTE]
 >정부 클라우드에서 실행하는 경우, [정부 클라우드에 연결](../azure-government/documentation-government-get-started-connect-with-ps.md)을 검토하세요.

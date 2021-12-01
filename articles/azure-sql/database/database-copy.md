@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
-author: rothja
-ms.author: jroth
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: mathoma
 ms.date: 03/10/2021
-ms.openlocfilehash: e425644b279b19b9ea6e894e7e81130742bbf60e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: b62e9a059c2f60aec59a6277260d6deae171ecae
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131432209"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133355286"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Azure SQL Database의 데이터베이스에 대한 트랜잭션 일치 복사본 복사
 

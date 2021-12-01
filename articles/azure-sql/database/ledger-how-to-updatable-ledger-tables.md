@@ -6,14 +6,14 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 39d7373fc3106501588d98c2b2e0177e92dd6176
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: VanMSFT
+ms.author: vanto
+ms.openlocfilehash: 5f33ad5ff4620290b9c857a9c269abc564b3b385
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064465"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367021"
 ---
 # <a name="create-and-use-updatable-ledger-tables"></a>업데이트 가능한 원장 테이블 만들기 및 사용
 

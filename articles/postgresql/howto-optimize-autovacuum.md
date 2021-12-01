@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.openlocfilehash: c47f91d9aed9af4c4fbb1a16c27d59b5a5da5d94
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 1acc6ac899a20136e2f19a36a0699e18bbbf5060
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132136273"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133358846"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 진공 최적화 - 단일 서버
 
@@ -42,7 +42,15 @@ PostgreSQL은 MVCC(다중 버전 동시성 제어)를 사용하여 데이터베�
 XYZ라는 테이블에 있는 데드 및 라이브 튜플 수를 식별하도록 설계된 샘플 쿼리는 다음과 같습니다.
 
 ```sql
-SELECT relname, n_dead_tup, n_live_tup, (n_dead_tup/ n_live_tup) AS DeadTuplesRatio, last_vacuum, last_autovacuum FROM pg_catalog.pg_stat_all_tables WHERE relname = 'XYZ' order by n_dead_tup DESC;
+SELECT relname,
+       n_dead_tup,
+       n_live_tup,
+       (n_dead_tup / n_live_tup) AS DeadTuplesRatio,
+       last_vacuum,
+       last_autovacuum
+FROM pg_catalog.pg_stat_all_tables
+WHERE relname = 'XYZ'
+ORDER BY n_dead_tup DESC;
 ```
 
 ## <a name="autovacuum-configurations"></a>자동 진공 구성
@@ -96,7 +104,7 @@ PostgreSQL을 사용하면 이러한 매개 변수를 테이블 수준 또는 �
 
 진공 프로세스는 물리적 페이지를 읽고 데드 튜플을 확인합니다. shared_buffers의 모든 페이지는 비용이 1(vacuum_cost_page_hit)인 것으로 간주됩니다. 다른 모든 페이지는 데드 튜플이 있는 경우 비용이 20(vacuum_cost_page_dirty), 데드 튜플이 없는 경우 10(vacuum_cost_page_miss)인 것으로 간주됩니다. 프로세스가 autovacuum_vacuum_cost_limit를 초과하면 진공 작업이 중지됩니다.
 
-제한에 도달하면 프로세스가 autovacuum_vacuum_cost_delay 매개 변수에 지정된 기간에 일시 중지되었다가 다시 시작됩니다. 제한에 도달 하지 않으면 autovacuum이 autovacuum_naptime 매개 변수로 지정 된 값 뒤에 시작 됩니다.
+제한에 도달하면 프로세스가 autovacuum_vacuum_cost_delay 매개 변수에 지정된 기간에 일시 중지되었다가 다시 시작됩니다. 제한에 도달하지 않으면 autovacuum_naptime 매개 변수로 지정된 값 이후에 자동 검색이 시작됩니다.
 
 요약하면, autovacuum_vacuum_cost_delay 및 autovacinum_vacuum_cost_limit 매개 변수는 시간 단위당 허용되는 데이터 정리 양을 제어합니다. 기본값은 대부분의 가격 책정 계층에서 너무 낮습니다. 이러한 매개 변수에 대한 최적 값은 가격 책정 계층에 따라 달라지며 이에 따라 적절히 구성해야 합니다.
 

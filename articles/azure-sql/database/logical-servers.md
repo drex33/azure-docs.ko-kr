@@ -8,16 +8,16 @@ ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: dd79dcfd70c38179ca244760bbf3f39b239f9b07
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 7ecd1dcb21960dcb5c0897c9ca5c26dd6280df11
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110694392"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133362857"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Azure SQL Database 및 Azure Synapse에서 논리 SQL 서버란?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

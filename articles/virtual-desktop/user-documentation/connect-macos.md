@@ -1,17 +1,17 @@
 ---
-title: macOS에서 Azure Virtual Desktop에 연결 - Azure
+title: macOS 클라이언트를 사용하여 Azure Virtual Desktop에 커넥트 - Azure
 description: macOS 클라이언트를 사용하여 Azure Virtual Desktop에 연결하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 3626bd66f02b747f079bfd6777c86a7f7bfaba92
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
-ms.translationtype: HT
+ms.openlocfilehash: cdc4e41f20c4cfdb6aa0eeb2c071934e31262f4b
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113034317"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133362964"
 ---
 # <a name="connect-to-azure-virtual-desktop-with-the-macos-client"></a>macOS 클라이언트를 사용하여 Azure Virtual Desktop에 연결
 

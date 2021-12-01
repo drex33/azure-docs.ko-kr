@@ -4,17 +4,17 @@ description: Azure Portal을 사용하여 원장이 활성화된 Azure SQL Datab
 ms.service: sql-database
 ms.subservice: security
 ms.topic: quickstart
-author: rothja
-ms.author: jroth
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: vanto
 ms.date: 09/09/2021
 ms.custom: mode-other
-ms.openlocfilehash: c390731d0559afcff528dfaf82b18608a93e68a4
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: c2cd0660ad8ab77c9e936057e057985c474a6df0
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133075979"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133359335"
 ---
 # <a name="quickstart-create-a-database-in-azure-sql-database-with-ledger-enabled"></a>빠른 시작: 원장이 활성화된 Azure SQL Database에서 데이터베이스 만들기
 

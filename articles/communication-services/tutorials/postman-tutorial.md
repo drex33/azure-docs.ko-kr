@@ -9,12 +9,12 @@ ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.openlocfilehash: ed39dbc991f8aa1e4b8391f10521ca8094c953fe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 16f167a66d0a978edf1b102c5a25b26d2868b7ff
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657788"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133360350"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>자습서: Postman을 사용하여 서명 및 요청
 이 자습서에서는 HTTP를 사용하여 Azure Communication Services에 대해 요청하기 위해 Postman을 설정하고 사용합니다. 이 자습서를 마치면 Communication Services 및 Postman을 사용하여 SMS 메시지를 성공적으로 보낼 수 있습니다. 그런 다음, Postman을 사용하여 Azure Communication Services 내의 다른 API를 탐색할 수 있습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "128657788"
 
 - 활성 구독이 있는 Azure 계정. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요. 체험 계정에는 모든 서비스 조합을 사용해 볼 수 있는 200달러의 Azure 크레딧이 제공됩니다.
 - 활성 Communication Services 리소스 및 연결 문자열입니다. [Communication Services 리소스를 만드는 방법에 대해 자세히 알아보세요](../quickstarts/create-communication-resource.md).
-- SMS 메시지를 보낼 수 있는 ACS 전화 번호는 [전화 번호 받기](../quickstarts/telephony-sms/get-phone-number.md)를 참조하세요.
+- SMS 메시지를 보낼 수 있는 ACS 전화 번호는 [전화 번호 받기](../quickstarts/telephony/get-phone-number.md)를 참조하세요.
 
 ## <a name="downloading-and-installing-postman"></a>Postman 다운로드 및 설치
 
@@ -213,7 +213,7 @@ pm.request.headers.upsert({
 }
 ```
 
-"from" 값의 경우 앞에서 설명한 대로 Azure Communication Services 포털에서 [전화 번호를 가져와야](../quickstarts/telephony-sms/get-phone-number.md) 합니다. 공백 없이 입력하고 국가 코드를 접두사로 사용합니다. 예를 들어 `+15555551234`을 참조하십시오. "message"는 무엇이든 보낼 수 있지만, `Hello from ACS`가 좋은 예입니다. "to" 값은 SMS 메시지를 받을 수 있는 액세스 권한이 있는 전화 번호여야 합니다. 사용자 고유의 모바일을 사용하는 것이 좋습니다.
+"from" 값의 경우 앞에서 설명한 대로 Azure Communication Services 포털에서 [전화 번호를 가져와야](../quickstarts/telephony/get-phone-number.md) 합니다. 공백 없이 입력하고 국가 코드를 접두사로 사용합니다. 예를 들어 `+15555551234`을 참조하십시오. "message"는 무엇이든 보낼 수 있지만, `Hello from ACS`가 좋은 예입니다. "to" 값은 SMS 메시지를 받을 수 있는 액세스 권한이 있는 전화 번호여야 합니다. 사용자 고유의 모바일을 사용하는 것이 좋습니다.
 
 입력되면 이 요청을 이전에 만든 Communication Services 컬렉션에 저장해야 합니다. 그러면 이전에 만든 변수와 사전 요청 스크립트가 선택됩니다. 이렇게 하려면 요청 영역의 오른쪽 위에 있는 "저장" 단추를 클릭합니다.
 

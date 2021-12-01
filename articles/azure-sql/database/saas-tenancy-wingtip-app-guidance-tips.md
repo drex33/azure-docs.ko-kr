@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 6360666b0b5d5b6aaaba5173e766e50bc73f30ad
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: 1e4e9efa23d3908136b1b71041501c0284c4aa93
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693377"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133360031"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip Tickets 샘플 SaaS 앱을 사용하기 위한 일반적인 지침
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -1,18 +1,18 @@
 ---
 title: '문제 해결: 서버리스 SQL 풀을 사용하여 CSV 또는 PARQUET 파일에서 UTF-8 텍스트 읽기'
 description: Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 CSV 또는 PARQUET 파일에서 UTF-8 텍스트 읽기
-author: julieMSFT
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.topic: troubleshooting
 ms.service: synapse-analytics
-ms.subservice: sql
+ms.subservice: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 70ce3c82790db0296d5359b5db2e6a323306c309
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 0fea45d3001700420fbc7bece7168c5ad9048a3b
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96576420"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133361151"
 ---
 # <a name="troubleshoot-reading-utf-8-text-from-csv-or-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 CSV 또는 Parquet 파일에서 UTF-8 텍스트 읽기 문제 해결
 

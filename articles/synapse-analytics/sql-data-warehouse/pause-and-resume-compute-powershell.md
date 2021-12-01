@@ -2,8 +2,8 @@
 title: '빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)에서 컴퓨팅 일시 중지 및 다시 시작'
 description: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)을 일시 중지하고 다시 시작할 수 있습니다. 컴퓨팅 리소스
 services: synapse-analytics
-author: julieMSFT
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 manager: craigg
 ms.reviewer: igorstan
 ms.date: 03/20/2019
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.custom: devx-track-azurepowershell, seo-lt-2019, azure-synapse, mode-api
-ms.openlocfilehash: 5d0aab60ffc11fbc2ef5fe32055403b15f679b30
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 6d02793c5e707920b029f25a8c3c138501bf06e2
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131003507"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133365145"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-formerly-sql-dw-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 전용 SQL 풀(이전의 SQL DW)에서 컴퓨팅 일시 중지 및 다시 시작
 

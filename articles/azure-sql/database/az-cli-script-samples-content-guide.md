@@ -8,17 +8,17 @@ ms.subservice: deployment-configuration
 ms.custom: overview-samples, mvc, sqldbrb=2, devx-track-azurecli, seo-azure-cli
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 09/17/2021
 keywords: sql database, 관리되는 인스턴스, azure cli 샘플, azure cli 예제, azure cli 코드 샘플, azure cli 스크립트 예제
-ms.openlocfilehash: adc7f1db28fa1b0e8cafb2b3363876b1e316f8bd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d3246d1d0b8a7eb33b55e15307448a0fe06568e8
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662156"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368761"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance의 Azure CLI 샘플 
  

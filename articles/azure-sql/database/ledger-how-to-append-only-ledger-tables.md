@@ -6,14 +6,14 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 09b9d4dceabff4b26c586b0035f4c8b8d4c2ba0a
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: VanMSFT
+ms.author: vanto
+ms.openlocfilehash: abd9c259397ff514a78f0bccc40146428cab214f
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064503"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133359078"
 ---
 # <a name="create-and-use-append-only-ledger-tables"></a>추가 전용 원장 테이블 만들기 및 사용
 

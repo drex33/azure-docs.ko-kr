@@ -6,14 +6,13 @@ ms.subservice: hadr
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: a93fc15d35f8bcba7a4c314dd854cd048095f0cd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 502b70c9cceaabb5eaafd35e132ab6388c1561e3
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666783"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368490"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -265,7 +264,7 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
 1. `sudo pcs resource` 명령을 사용하여 클러스터 리소스를 확인합니다. 그러면 이제 주 인스턴스가 `<VM2>`임을 알 수 있습니다.
 
     > [!NOTE]
-    > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *slave* 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+    > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *슬레이브* 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 
     ```output

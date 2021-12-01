@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 11/30/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f6de961bce052818270a949b45ed821d34b19b6c
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 1bdad004a652937e0f12a401f0552c29363e47bb
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131463300"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364207"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -81,7 +81,7 @@ ZRS는 데이터를 일시적으로 사용할 수 없는 경우 탁월한 성능
 | 프리미엄 파일 공유 | 동남아시아<br /> 오스트레일리아 동부<br /> 북유럽<br /> 서유럽<br /> 프랑스 중부 <br /> 일본 동부<br /> 영국 남부 <br /> 미국 동부 <br /> 미국 동부 2 <br /> 미국 서부 2 | 프리미엄 파일 공유 전용 |
 
 <sup>1</sup> 보관 계층은 현재 ZRS 계정에 지원되지 않습니다.<br />
-<sup>2</sup> 가상 컴퓨터에 대한 Azure 관리 디스크를 포함하는 저장소 계정은 항상 LRS를 사용합니다. Azure 비관리 디스크는 LRS도 사용해야 합니다. GRS를 사용하는 Azure 비관리 디스크에 대한 저장소 계정을 만들 수 있지만 비동기 지역에서 복제에 대한 일관성 문제로 인해 권장되지는 않습니다. 관리 디스크 및 비관리 디스크는 모두 ZRS 또는 GZRS를 지원하지 않습니다. 관리 디스크에 대한 자세한 내용은 [Azure 관리 디스크의 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요.
+<sup>2</sup> Azure 관리 되지 않는 디스크 에서도 LRS를 사용 해야 합니다. GRS를 사용하는 Azure 비관리 디스크에 대한 저장소 계정을 만들 수 있지만 비동기 지역에서 복제에 대한 일관성 문제로 인해 권장되지는 않습니다. 관리 되지 않는 디스크는 ZRS 또는 GZRS를 지원 하지 않습니다.
 
 ZRS를 지원하는 지역에 대한 자세한 내용은 [Azure 가용성 영역이란 무엇인가요?](../../availability-zones/az-overview.md)의 **지역별 서비스 지원** 을 참조하세요.
 
@@ -208,10 +208,11 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 
 | LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
 |---|---|---|---|---|---|
-| Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Azure Managed Disks | Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1,</sup><sup>2</sup> | Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1</sup> | Blob Storage <br />Queue Storage <br />Table Storage <br /> | Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1</sup> | Blob Storage <br />Queue Storage <br />Table Storage <br /> |
+| Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Azure Managed Disks | Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Azure Managed Disks<sup>3</sup> | Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1</sup> | Blob Storage <br />Queue Storage <br />Table Storage <br /> | Blob Storage <br />Queue Storage <br />Table Storage <br />Azure Files<sup>1</sup> | Blob Storage <br />Queue Storage <br />Table Storage <br /> |
 
 <sup>1</sup> 표준 파일 공유는 LRS 및 ZRS에서 지원됩니다. 표준 파일 공유는 크기가 5TiB 이하인 경우 GRS 및 GZRS에서 지원됩니다.<br />
 <sup>2</sup> 프리미엄 파일 공유는 LRS 및 ZRS에서 지원됩니다.<br />
+<sup>3</sup> ZRS 관리 디스크에는 몇 가지 제한 사항이 있습니다. 자세한 내용은 관리 디스크에 대한 중복 옵션 문서의 제한 사항 [섹션을](../../virtual-machines/disks-redundancy.md#limitations) 참조하세요.<br />
 
 ### <a name="supported-storage-account-types"></a>지원되는 스토리지 계정 형식
 
@@ -221,7 +222,7 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 |:-|:-|:-|:-|
 | 범용 v2<br /> 범용 v1<br /> Premium 블록 Blob<br /> 레거시 Blob<br /> 프리미엄 파일 공유 | 범용 v2<br /> Premium 블록 Blob<br /> 프리미엄 파일 공유 | 범용 v2<br /> 범용 v1<br /> 레거시 Blob | 범용 v2 |
 
-모든 저장소 계정의 모든 데이터는 저장소 계정에 대한 중복성 옵션에 따라 복사됩니다. 블록 Blob, 추가 Blob, 페이지 Blob, 큐, 테이블 및 파일을 포함하는 개체가 복사됩니다. 보관 계층을 포함하여 모든 계층의 데이터가 복사됩니다. Blob 계층에 대 한 자세한 내용은 [blob 데이터에 대 한 핫, 쿨 및 보관 액세스 계층](../blobs/access-tiers-overview.md)을 참조 하세요.
+모든 저장소 계정의 모든 데이터는 저장소 계정에 대한 중복성 옵션에 따라 복사됩니다. 블록 Blob, 추가 Blob, 페이지 Blob, 큐, 테이블 및 파일을 포함하는 개체가 복사됩니다. 보관 계층을 포함하여 모든 계층의 데이터가 복사됩니다. Blob 계층에 대한 자세한 내용은 [Blob 데이터에 대한 핫, 쿨 및 보관 액세스 계층을 참조하세요.](../blobs/access-tiers-overview.md)
 
 각 중복성 옵션에 대한 가격 책정 정보는 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 

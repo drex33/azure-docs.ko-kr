@@ -8,27 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 11/17/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: edd0f6a5c09172272e8081b5d72681395d8ec291
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: 3867e847aa3beeb37b5eec223324ad55ec30016e
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465455"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133361006"
 ---
 # <a name="detect-color-schemes-in-images"></a>이미지에서 색 구성표 검색
 
-Computer Vision은 이미지의 색을 분석하여 세 가지 특성(주조 전경색, 주조 배경색 및 전체 이미지의 주조색 세트)을 제공합니다. 반환되는 색은 검정, 파랑, 갈색, 회색, 초록, 주황, 분홍, 자주, 청록, 흰색 및 노랑 세트에 속합니다. 
+Computer Vision는 이미지의 색을 분석 하 여 기준 전경색, 주요 배경색 및 이미지의 더 큰 기준 색 집합 이라는 세 가지 특성을 제공 합니다. 반환 가능한 색 집합은 black, blue, 밤색, 회색, 녹색, 주황, 분홍, 자주색, 빨강, 청록, 흰색 및 노랑입니다.
 
-Computer Vision은 주조색과 채도의 조합을 기반으로 하여 이미지에서 가장 선명한 색을 나타내는 강조 색도 추출합니다. 강조 색은 16진수 HTML 색 코드로 반환됩니다. 
+또한 기준 색 집합 및 채도의 조합을 기반으로 하 여 이미지에서 가장 선명한 색을 나타내는 강조 색을 추출 Computer Vision 합니다. 악센트 색은 16 진수 HTML 색 코드 (예:)로 반환 됩니다 `#00CC00` .
 
-또한 Computer Vision은 이미지가 흑백인지 여부를 나타내는 부울 값을 반환합니다.
+또한 Computer Vision는 이미지가 흑백 이미지 인지 여부를 나타내는 부울 값을 반환 합니다.
 
 ## <a name="color-scheme-detection-examples"></a>색 구성표 검색 예제
 
-다음 예제에서는 예제 이미지의 색 구성표를 검색할 때 Computer Vision에서 반환된 JSON 응답을 보여줍니다. 이 경우 예제 이미지는 흑백 이미지가 아니라 기조 전경색 및 배경색이 검은색이고 전체 이미지의 주조색이 검은색과 흰색입니다.
+다음 예제에서는 이미지의 색 구성표를 검색할 때 Computer Vision에서 반환 하는 JSON 응답을 보여 줍니다. 
+
+> [!NOTE]
+> 이 경우 예제 이미지는 흑백 이미지가 아니라 기조 전경색 및 배경색이 검은색이고 전체 이미지의 주조색이 검은색과 흰색입니다.
 
 ![사람의 실루엣이 있는 해질녘의 야외 산](./Images/mountain_vista.png)
 
@@ -69,7 +72,7 @@ Computer Vision은 주조색과 채도의 조합을 기반으로 하여 이미�
 |![녹색 배경의 흰색 꽃](./Images/flower.png) | #C6A205 |
 |![역을 달리는 열차](./Images/train_station.png) | #474A84 |
 
-### <a name="black--white-detection-examples"></a>흑백 검색 예제
+### <a name="black-and-white-detection-examples"></a>블랙 및 흰색 검색 예
 
 다음 표에서는 샘플 이미지의 검은색과 흰색에 대한 Computer Vision의 평가를 보여 줍니다.
 

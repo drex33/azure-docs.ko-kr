@@ -1,19 +1,19 @@
 ---
-title: 미국 정부 고객을 위한 Azure 서비스 클라우드 기능 가용성
-description: 미국 정부 고객용 Microsoft Sentinel과 같은 Azure 보안 서비스에 대한 기능 가용성을 나열합니다.
+title: 상용 및 미국 정부 고객을 위한 클라우드 기능 가용성
+description: 이 문서에서는 Azure 및 Azure Government 클라우드의 보안 기능 가용성을 설명 합니다.
 author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: 651ec7ec4e0fe661330807a856f29eb025087609
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 440844b28e644e6a7d7ae73d7acf42c66d4fc4a2
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132718153"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133359869"
 ---
-# <a name="cloud-feature-availability-for-us-government-customers"></a>미국 정부 고객을 위한 클라우드 기능 가용성
+# <a name="cloud-feature-availability-for-commercial-and-us-government-customers"></a>상용 및 미국 정부 고객을 위한 클라우드 기능 가용성
 
 이 문서는 다음 보안 서비스에 대한 Microsoft Azure 및 Azure Government 클라우드의 기능 가용성을 설명합니다.
 
@@ -58,16 +58,16 @@ AIP(Azure Information Protection)는 조직에서 문서와 이메일의 콘텐�
 
 AIP는 MIP(Microsoft Information Protection) 솔루션의 일부이며 Microsoft 365에서 제공하는 [레이블 지정](/microsoft-365/compliance/sensitivity-labels) 및 [분류](/microsoft-365/compliance/data-classification-overview) 기능을 확장합니다.
 
-자세한 내용은 Azure Information Protection [제품 설명서를 참조하세요.](/azure/information-protection/)
+자세한 내용은 [Azure Information Protection 제품 설명서](/azure/information-protection/)를 참조 하십시오.
 
 - Office 365 GCC는 Azure에서 Azure Active Directory(Azure AD)와 페어링됩니다. Office 365 GCC High와 Office 365 DoD는 Azure Government에서 Azure AD와 페어링됩니다. [상호 운용이 가능한](#microsoft-365-integration) 위치를 이해하려면 Azure 환경에 주의해야 합니다. 다음 표에서는 *지원되지 않는* 상호 운용성을 대시(-)로 표시하여 지원 관계가 없음을 나타낼 수 있습니다.
 
-- GCC-High 및 DoD 고객에게는 추가 구성이 필요합니다. 자세한 내용은 [Azure Information Protection Premium 정부 서비스 설명을 참조하세요.](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description)
+- GCC-High 및 DoD 고객에 대 한 추가 구성이 필요 합니다. 자세한 내용은 [Azure Information Protection Premium 정부 서비스 설명](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description)을 참조 하세요.
 
 > [!NOTE]
-> 정부 고객 지원에 대한 자세한 내용은 표 아래의 각주에 나열되어 있습니다.
+> 정부 고객에 대 한 지원에 대 한 자세한 내용은 표 아래의 각주에 나와 있습니다.
 >
-> GCC High 및 DoD 고객에 대한 Azure Information Protection 구성하려면 추가 단계가 필요합니다. 자세한 내용은 Azure Information Protection Premium [정부 서비스 설명을 참조하세요.](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description)
+> GCC High 및 DoD 고객에 대 한 Azure Information Protection를 구성 하려면 추가 단계가 필요 합니다. 자세한 내용은 [Azure Information Protection Premium 정부 서비스 설명](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description)을 참조 하세요.
 >
 
 |기능/서비스  |Azure  |Azure Government  |
@@ -77,73 +77,73 @@ AIP는 MIP(Microsoft Information Protection) 솔루션의 일부이며 Microsoft
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
 |**관리**     |         |         |
-|[스캐너 관리를 위한 Azure Information Protection 포털](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)     |         |         |
+|[스캐너 관리용 Azure Information Protection 포털](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)     |         |         |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **분류 및 레이블** <sup> [지정 2](#aipnote2)</sup>   |         |         |
-| [온-프레미스 파일 서버/리포지토리의 모든 파일에 *기본 레이블을* 적용하는 AIP 스캐너](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)    |         |         |
+| **분류 및 레이블** 지정 <sup> [2](#aipnote2)</sup>   |         |         |
+| [온-프레미스 파일 서버/리포지토리의 모든 파일에 *기본 레이블을* 적용 하는 aip 스캐너](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)    |         |         |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| [지원되는 온-프레미스 파일의 자동화된 분류, 레이블 지정 및 보호를 위한 AIP 스캐너](/azure/information-protection/deploy-aip-scanner)    |         |         |
+| [지원 되는 온-프레미스 파일의 자동화 된 분류, 레이블 지정 및 보호를 위한 AIP 스캐너](/azure/information-protection/deploy-aip-scanner)    |         |         |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
 | |  |  |
 
-<sup> <a name="aipnote1"></a> 1</sup> 스캐너는 파일만 검사하는 Office 365 없이 작동할 수 있습니다. 스캐너는 Office 365 없이 파일에 레이블을 적용할 수 없습니다.
+<sup> <a name="aipnote1"></a> 1</sup> 스캐너가 파일을 스캔 하는 Office 365 없이 작동할 수 있습니다. 스캐너가 Office 365 없이 파일에 레이블을 적용할 수 없습니다.
 
-<sup> <a name="aipnote2"></a> 2</sup> 분류 및 레이블 지정 추가 기능 은 Professional Plus(ProPlus) 및 C2R(간편 실행) 버전을 포함하여 Microsoft 365 앱(버전 9126.1001 이상)가 있는 정부 고객만 지원됩니다. Office 2010, Office 2013 및 기타 Office 2016 버전은 지원되지 않습니다.
+<sup> <a name="aipnote2"></a> 2</sup> 분류 및 레이블 지정 추가 기능은 Professional 및 (ProPlus) 및 C2R (클릭 하 여 실행) 버전을 포함 하 여 Microsoft 365 앱 (버전 9126.1001 이상)를 사용 하는 정부 고객만 지원 합니다. Office 2010, Office 2013 및 기타 Office 2016 버전은 지원되지 않습니다.
 
 ### <a name="office-365-features"></a>Office 365 기능
 
-|기능/서비스  |Office 365 GCC  |Office 365 GCC High |doD Office 365  |
+|기능/서비스  |Office 365 GCC  |Office 365 GCC High |Office 365 DoD  |
 |---------|---------|---------|---------|
 |**관리**     |         |         | |
-|- [RMS 서비스 관리를 위한 PowerShell](/powershell/module/aipservice/)      |  GA       |    GA     |   GA      |
-|- [AIP UL 클라이언트 대량 작업용 PowerShell](/powershell/module/azureinformationprotection/)      |         |         |         |
+|- [RMS 서비스 관리용 PowerShell](/powershell/module/aipservice/)      |  GA       |    GA     |   GA      |
+|- [AIP UL 용 PowerShell 클라이언트 대량 작업](/powershell/module/azureinformationprotection/)      |         |         |         |
 |**SDK**     |         |         |         |
-|- [MIP 및 AIP SDK(소프트웨어 개발 키트)](/information-protection/develop/)     |     GA       |    GA     |   GA  |
+|- [밉 및 AIP SDK (소프트웨어 개발 키트)](/information-protection/develop/)     |     GA       |    GA     |   GA  |
 |**사용자 지정**     |         |         |         |
 |- [문서 추적 및 해지](/azure/information-protection/rms-client/track-and-revoke-admin)      |   GA      |  사용할 수 없음       |     사용할 수 없음    |
 |**키 관리**      |         |         |         |
-|- [Bring Your Own Key(BYOK)](/azure/information-protection/byok-price-restrictions)      |   GA       |    GA     |   GA   |
-|- [DKE(이중 키 암호화)](/azure/information-protection/plan-implement-tenant-key)     |    GA       |    GA     |   GA    |
+|- [Bring Your Own Key (BYOK)](/azure/information-protection/byok-price-restrictions)      |   GA       |    GA     |   GA   |
+|- [키 암호화 (2 개)](/azure/information-protection/plan-implement-tenant-key)     |    GA       |    GA     |   GA    |
 |**Office 파일** <sup> [3](#aipnote6)</sup>      |         |         |         |
-|- [비즈니스용 Microsoft Exchange Online, Microsoft Office SharePoint Online 및 Microsoft OneDrive 보호](/azure/information-protection/requirements-applications)      |     GA    |  GA <sup> [4](#aipnote3)</sup>       |   GA <sup> [4](#aipnote3)</sup>      |
+|- [비즈니스에 대 한 Microsoft Exchange Online, Microsoft Office SharePoint Online 및 Microsoft OneDrive 보호](/azure/information-protection/requirements-applications)      |     GA    |  GA <sup> [4](#aipnote3)</sup>       |   GA <sup> [4](#aipnote3)</sup>      |
 |- [Rights Management 커넥터를 통해 온-프레미스 Exchange 및 SharePoint 콘텐츠 보호](/azure/information-protection/deploy-rms-connector)     |    GA <sup> [5](#aipnote5)</sup>      |  사용할 수 없음       |     사용할 수 없음         |
 |- [Office 365 메시지 암호화](/microsoft-365/compliance/set-up-new-message-encryption-capabilities)      |     GA       |    GA     |   GA        |
-|- [Outlook 미리 구성된 M/MIME 보호를 자동으로 적용하도록 레이블 설정](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)      |         GA       |    GA     |   GA        |
-|- [Outlook 사용하는 경우 정보의 oversharing 제어](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      GA   |  GA <sup> [6](#aipnote6)</sup>        |    GA <sup> [6](#aipnote6)</sup>      |
-|**분류 및 레이블** <sup> [2](#aipnote2)  /  [7](#aipnote7)</sup>      |         |         |         |
-|- 부서 템플릿을 포함한 사용자 지정 템플릿     |     GA       |    GA     |   GA         |
-|- 수동, 기본 및 필수 문서 분류     |       GA       |    GA     |   GA       |
-|- 자동 및 권장 분류 GA에 대한 조건 구성       |    GA     |   GA        |
-|- [PTXT, PJPG 및 PFILE(일반 보호)을 포함하여 Microsoft Office 파일 형식이 아닌 파일 형식에 대한 보호](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        GA       |    GA     |   GA       |
+|- [Outlook에서 미리 구성 된 M/MIME 보호를 자동으로 적용 하도록 레이블 설정](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)      |         GA       |    GA     |   GA        |
+|- [Outlook를 사용할 때 정보의 과도 한 공유 제어](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      GA   |  GA <sup> [6](#aipnote6)</sup>        |    GA <sup> [6](#aipnote6)</sup>      |
+|**분류 및 레이블** 지정 <sup> [2](#aipnote2)  /  [7](#aipnote7)</sup>      |         |         |         |
+|-부서별 템플릿을 포함 한 사용자 지정 템플릿     |     GA       |    GA     |   GA         |
+|-수동, 기본 및 필수 문서 분류     |       GA       |    GA     |   GA       |
+|-자동 및 권장 분류 GA 조건을 구성 합니다.       |    GA     |   GA        |
+|- [ptxt, pjpg 및 pjpg (일반 보호)을 포함 하 여 Microsoft Office 없는 파일 형식에 대 한 보호](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        GA       |    GA     |   GA       |
 |     |         |         |         |
 
-<sup> <a name="aipnote3"></a> 3</sup> AD RMS 모바일 디바이스 확장은 현재 정부 고객에게 제공되지 않습니다.
+<sup> <a name="aipnote3"></a> 3</sup> AD RMS에 대 한 모바일 장치 확장은 현재 정부 고객에 게 제공 되지 않습니다.
 
-<sup> <a name="aipnote4"></a> 4</sup> SharePoint Online(IRM으로 보호된 사이트 및 라이브러리)과 함께 Rights Management 정보는 현재 사용할 수 없습니다.
+<sup> <a name="aipnote4"></a> 4</sup> SharePoint 온라인 (IRM 보호 된 사이트 및 라이브러리)과 Rights Management 정보는 현재 사용할 수 없습니다.
 
-<sup> <a name="aipnote5"></a> 5</sup> IRM(정보 Rights Management)은 Professional Plus(ProPlus) 및 C2R(간편 실행) 버전을 포함하여 Microsoft 365 앱(버전 9126.1001 이상)에서만 지원됩니다. Office 2010, Office 2013 및 기타 Office 2016 버전은 지원되지 않습니다.
+<sup> <a name="aipnote5"></a> 5</sup> IRM (정보 Rights Management)은 Professional Plus (ProPlus) 및 클릭 하 여 실행 (C2R) 버전을 포함 하 여 Microsoft 365 앱 (버전 9126.1001 이상)에 대해서만 지원 됩니다. Office 2010, Office 2013 및 기타 Office 2016 버전은 지원되지 않습니다.
 
-<sup> <a name="aipnote6"></a> 6</sup> 현재 정부 클라우드에서 상용 클라우드의 사용자로 보호된 문서 및 메일을 공유할 수 없습니다. 상용 클라우드의 Microsoft 365 앱 사용자, 상용 클라우드의 Microsoft 365 앱 사용자 및 개인용 RMS 라이선스가 있는 사용자를 포함합니다.
+<sup> <a name="aipnote6"></a> 6</sup> 정부 클라우드에서 보호 된 문서와 전자 메일을 상용 클라우드의 사용자에 게 공유 하는 것은 현재 사용할 수 없습니다. 상용 클라우드의 사용자, 상용 클라우드의 Microsoft 365 앱 없는 사용자 및 개인용 RMS 라이선스가 있는 사용자 Microsoft 365 앱 포함 됩니다.
 
-<sup> <a name="aipnote7"></a> 7</sup> Microsoft 365 Security & Compliance Center의 [중요한 정보 유형](/microsoft-365/compliance/sensitive-information-type-entity-definitions) 수는 지역에 따라 달라질 수 있습니다.
+<sup> <a name="aipnote7"></a> 7</sup> Microsoft 365 보안 & 규정 준수 센터의 [중요 한 정보 유형](/microsoft-365/compliance/sensitive-information-type-entity-definitions) 수는 지역에 따라 달라질 수 있습니다.
 
 ## <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-Microsoft Defender for Cloud는 데이터 센터의 보안 태세를 강화하고 온-프레미스뿐만 아니라 Azure에 있든 아니든 클라우드의 하이브리드 워크로드에서 고급 위협 방지 기능을 제공하는 통합 인프라 보안 관리 시스템입니다.
+Microsoft Defender for Cloud는 데이터 센터의 보안 상태를 강화 하 고 온-프레미스 뿐만 아니라 Azure에 있든 상관 없이 클라우드의 하이브리드 워크 로드에 대 한 고급 위협 방지 기능을 제공 하는 통합 인프라 보안 관리 시스템입니다.
 
-자세한 내용은 Microsoft [Defender for Cloud 제품 설명서를 참조하세요.](../../defender-for-cloud/defender-for-cloud-introduction.md)
+자세한 내용은 [Microsoft Defender For Cloud 제품 설명서](../../defender-for-cloud/defender-for-cloud-introduction.md)를 참조 하세요.
 
-다음 표에서는 Azure 및 Azure Government 현재 Defender for Cloud 기능 가용성을 표시합니다.
+다음 표는 Azure 및 Azure Government의 클라우드 기능 가용성에 대 한 현재 Defender를 표시 합니다.
 
 | 기능/서비스                                                                                                                                                                      | Azure          | Azure Government               |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
-| **클라우드용 Microsoft Defender 무료 기능**                                                                                                                                       |                |                                |
+| **클라우드 무료 기능을 위한 Microsoft Defender**                                                                                                                                       |                |                                |
 | <li> [연속 내보내기](../../defender-for-cloud/continuous-export.md)                                                                                                                 | GA             | GA                             |
 | <li> [워크플로 자동화](../../defender-for-cloud/workflow-automation.md)                                                                                                               | GA             | GA                             |
 | <li> [권장 사항 제외 규칙](../../defender-for-cloud/exempt-resource.md)                                                                                                      | 공개 미리 보기 | 사용할 수 없음                  |
@@ -156,16 +156,16 @@ Microsoft Defender for Cloud는 데이터 센터의 보안 태세를 강화하�
 | <li> [서버용 Microsoft Defender](../../defender-for-cloud/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             |
 | <li> [Microsoft Defender for App Service](../../defender-for-cloud/defender-for-app-service-introduction.md)                                                                            | GA             | 사용할 수 없음                  |
 | <li> [Microsoft Defender for DNS](../../defender-for-cloud/defender-for-dns-introduction.md)                                                                                            | GA             | GA                             |
-| <li> [컨테이너 레지스트리용 Microsoft Defender](../../defender-for-cloud/defender-for-container-registries-introduction.md) <sup> [1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> |
-| <li> [CI/CD 워크플로에서 이미지를 검사하는 컨테이너 레지스트리용 Microsoft Defender](../../defender-for-cloud/defender-for-container-registries-cicd.md) <sup> [3](#footnote3)</sup> | 공개 미리 보기 | 사용할 수 없음                  |
+| <li> [컨테이너 레지스트리 용 Microsoft Defender](../../defender-for-cloud/defender-for-container-registries-introduction.md) <sup> [1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> |
+| <li> [CI/CD 워크플로의 이미지를 검색 하는 컨테이너 레지스트리를 위한 Microsoft Defender](../../defender-for-cloud/defender-for-container-registries-cicd.md) <sup> [3](#footnote3)</sup> | 공개 미리 보기 | 사용할 수 없음                  |
 | <li> [Microsoft Defender for Kubernetes](../../defender-for-cloud/defender-for-kubernetes-introduction.md) <sup> [4](#footnote4)</sup>                                                   | GA             | GA                             |
-| <li> [Azure Arc 용 Defender 확장 사용 Kubernetes 클러스터](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md) <sup> [5](#footnote5)</sup>                           | 공개 미리 보기 | 사용할 수 없음                  |
+| <li> [Azure Arc 사용하도록 설정된 Kubernetes 클러스터용 Defender 확장](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md) <sup> [5](#footnote5)</sup>                           | 공개 미리 보기 | 사용할 수 없음                  |
 | <li> [Microsoft Defender for Azure SQL 데이터베이스 서버](../../defender-for-cloud/defender-for-sql-introduction.md)                                                                     | GA             | GA                             |
 | <li> [머신의 Microsoft Defender for SQL 서버](../../defender-for-cloud/defender-for-sql-introduction.md)                                                                        | GA             | GA                             |
 | <li> [오픈 소스 관계형 데이터베이스용 Microsoft Defender](../../defender-for-cloud/defender-for-databases-introduction.md)                                                         | GA             | 사용할 수 없음                  |
 | <li> [Microsoft Defender for Key Vault](../../defender-for-cloud/defender-for-key-vault-introduction.md)                                                                                | GA             | 사용할 수 없음                  |
 | <li> [Microsoft Defender for Resource Manager](../../defender-for-cloud/defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             |
-| <li> [Storage 6 용 Microsoft Defender](../../defender-for-cloud/defender-for-storage-introduction.md) <sup> [](#footnote6)</sup>                                                         | GA             | GA                             |
+| <li> [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) <sup> [6](#footnote6)</sup>                                                         | GA             | GA                             |
 | <li> [Cosmos DB에 대한 위협 방지](../../defender-for-cloud/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                              | 공개 미리 보기 | 사용할 수 없음                  |
 | <li> [Kubernetes 워크로드 보호](../../defender-for-cloud/kubernetes-workload-protections.md)                                                                                      | GA             | GA                             |
 | <li> [Sentinel과 양방향 경고 동기화](../../sentinel/connect-azure-security-center.md)                                                                           | 공개 미리 보기 | 사용할 수 없음                  |
@@ -202,40 +202,57 @@ Microsoft Defender for Cloud는 데이터 센터의 보안 태세를 강화하�
 
 ## <a name="microsoft-sentinel"></a>Microsoft Sentinel
 
-Microsoft 센티널은 확장 가능한 클라우드 기본, SIEM (보안 정보 이벤트 관리) 및 대화 충성도 (보안 오케스트레이션 자동화 된 응답) 솔루션입니다. Microsoft 센티널은 엔터프라이즈 전체에서 지능형 보안 분석과 위협 인텔리전스를 제공 하 여 경고 검색, 위협 가시성, 자동 관리 검색 및 위협 대응을 위한 단일 솔루션을 제공 합니다.
+Microsoft Sentinel은 확장 가능한 클라우드 네이티브 SIEM(보안 정보 이벤트 관리) 및 SOAR(보안 오케스트레이션 자동화 응답) 솔루션입니다. Microsoft Sentinel은 엔터프라이즈 전반에 인텔리전트 보안 분석 및 위협 인텔리전스를 제공하며, 경고 검색, 위협 가시성, 사전 예방적 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다.
 
-자세한 내용은 [Microsoft 센티널 제품 설명서](../../sentinel/overview.md)를 참조 하십시오.
+자세한 내용은 Microsoft [Sentinel 제품 설명서를 참조하세요.](../../sentinel/overview.md)
 
-다음 표에서는 Azure 및 Azure Government의 현재 Microsoft 센티널 기능 가용성을 보여 주는 표를 제공 합니다.
+다음 표에서는 Azure 및 Azure Government 현재 Microsoft Sentinel 기능 가용성을 표시합니다.
 
 | 기능 | Azure | Azure Government  |
 | ----- | ----- | ---- |
+| **인시던트** | |
 |- [자동화 규칙](../../sentinel/automate-incident-handling-with-automation-rules.md) | 공개 미리 보기 | 공개 미리 보기 |
-|- [Bring Your Own ML(BYO-ML)](../../sentinel/bring-your-own-ml.md) | 공개 미리 보기 | 공개 미리 보기 |
 | - [테넌트 간/작업 영역 간 인시던트 보기](../../sentinel/multiple-workspace-view.md) |공개 미리 보기 | 공개 미리 보기 |
 | - [엔터티 인사이트](../../sentinel/enable-entity-behavior-analytics.md) | GA | 공개 미리 보기 |
-| - [퓨전](../../sentinel/fusion.md)<br>고급 다단계 공격 탐지<sup>[1](#footnote1)</sup> | GA | GA |
-| - [헌팅](../../sentinel/hunting.md) | GA | GA |
-|- [Notebooks](../../sentinel/notebooks.md) | GA | GA |
 |- [SOC 인시던트 감사 메트릭](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
+| - [인시던트 고급 검색](/azure/sentinel/investigate-cases#search-for-incidents) |GA |GA |
+| - [Microsoft Teams 통합](/azure/sentinel/collaborate-in-microsoft-teams) |공개 미리 보기 |사용할 수 없음 |
+|- [Bring Your Own ML(BYO-ML)](../../sentinel/bring-your-own-ml.md) | 공개 미리 보기 | 공개 미리 보기 |
+| **Notebooks** | | |
+|- [Notebooks](../../sentinel/notebooks.md) | GA | GA |
+| - [Azure Synapse와 노트북 통합](/azure/sentinel/notebooks-with-synapse) | 공개 미리 보기 | 사용할 수 없음|
+| **관심 목록** | | |
 |- [관심 목록](../../sentinel/watchlists.md) | GA | GA |
+| **헌팅** | |
+| - [헌팅](../../sentinel/hunting.md) | GA | GA |
+| **콘텐츠 및 콘텐츠 관리** | | |
+| - [콘텐츠 허브](/azure/sentinel/sentinel-solutions) 및 [솔루션](/azure/sentinel/sentinel-solutions-catalog) | 퍼블릭 미리 보기 | 사용할 수 없음|
+| - [리포지토리에서](/azure/sentinel/ci-cd?tabs=github)  | 퍼블릭 미리 보기 | 사용할 수 없음 |
+| **데이터 수집** | | |
+| - [고급 SIEM 정보 모델 (ASIM)](/azure/sentinel/normalization) | 공개 미리 보기 | 사용할 수 없음 |
 | **위협 인텔리전스 지원** | | |
 | - [위협 인텔리전스 - TAXII 데이터 커넥터](../../sentinel/understand-threat-intelligence.md)  | GA | GA |
 | - [위협 인텔리전스 플랫폼 데이터 페이지](../../sentinel/understand-threat-intelligence.md)  | 공개 미리 보기 | 사용할 수 없음 |
 | - [위협 인텔리전스 리서치 블레이드](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | GA |
 | - [URL 데토네이션](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | 공개 미리 보기 | 사용할 수 없음 |
 | - [위협 인텔리전스 통합 문서](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | GA |
+| - [지리적 위치 및 WhoIs 데이터 보강](/azure/sentinel/work-with-threat-indicators) | 공개 미리 보기 | 사용할 수 없음 |
+| - [위협 인텔리전스 일치 분석](/azure/sentinel/work-with-threat-indicators) | 공개 미리 보기 |사용할 수 없음 |
 |**검색 지원** | | |
+| - [퓨전](../../sentinel/fusion.md)<br>고급 다단계 공격 탐지<sup>[1](#footnote1)</sup> | GA | GA |
+| - [랜 섬 웨어에 대 한 Fusion 검색](/azure/sentinel/fusion#fusion-for-ransomware) | 공개 미리 보기 | 사용할 수 없음 |
+| - [새로운 위협에 대 한 Fusion](/azure/sentinel/fusion#fusion-for-emerging-threats) | 공개 미리 보기 |사용할 수 없음 |
 | - [비정상 Windows 파일 공유 액세스 감지](../../sentinel/fusion.md)  | 공개 미리 보기 | 사용할 수 없음 |
-| - [비정상 RDP 로그인 검색](../../sentinel/connect-windows-security-events.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>기본 제공 ML 검색 | 공개 미리 보기 | 사용할 수 없음 |
+| - [비정상 RDP 로그인 검색](/azure/sentinel/data-connectors-reference.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>기본 제공 ML 검색 | 공개 미리 보기 | 사용할 수 없음 |
 | - [비정상적인 SSH 로그인 검색](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>기본 제공 ML 검색 | 공개 미리 보기 | 사용할 수 없음 |
 | **Azure 서비스 커넥터** |  |  |
 | - [Azure 활동 로그](../../sentinel/data-connectors-reference.md#azure-activity) | GA | GA |
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
 | - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
 | - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
-| - [클라우드용 Microsoft Defender](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [IoT용 Microsoft Defender](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | 공개 미리 보기 | 사용할 수 없음 |
+| - [클라우드 용 Microsoft Defender](../../sentinel/connect-azure-security-center.md) | GA | GA |
+| - [IoT 용 Microsoft Defender](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Microsoft Insider 위험 관리](/azure/sentinel/sentinel-solutions-catalog#domain-solutions) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Azure Firewall](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
 | - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | 공개 미리 보기 | 사용할 수 없음 |
@@ -244,7 +261,7 @@ Microsoft 센티널은 확장 가능한 클라우드 기본, SIEM (보안 정보
 | - [Azure WAF](../../sentinel/data-connectors-reference.md#azure-web-application-firewall-waf) | GA | GA |
 | **Windows 커넥터** |  |  |
 | - [Windows 방화벽](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
-| - [Windows 보안 이벤트](../../sentinel/connect-windows-security-events.md) | GA | GA |
+| - [Windows 보안 이벤트](/azure/sentinel/connect-windows-security-events) | GA | GA |
 | **외부 커넥터** |  |  |
 | - [Agari 피싱 방어 및 브랜드 보호](../../sentinel/data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) | 공개 미리 보기 | 공개 미리 보기 |
 | - [AI Analyst Darktrace](../../sentinel/connect-data-sources.md) | 공개 미리 보기 | 공개 미리 보기 |
@@ -253,6 +270,8 @@ Microsoft 센티널은 확장 가능한 클라우드 기본, SIEM (보안 정보
 | - [Alcide kAudit](../../sentinel/data-connectors-reference.md#alcide-kaudit) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Active Directory용 Alsid](../../sentinel/data-connectors-reference.md#alsid-for-active-directory) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Apache HTTP 서버](../../sentinel/data-connectors-reference.md#apache-http-server) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Arista Networks](/azure/sentinel/sentinel-solutions-catalog) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Armorblox](/azure/sentinel/sentinel-solutions-catalog#armorblox) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Aruba ClearPass](../../sentinel/data-connectors-reference.md#aruba-clearpass-preview) | 공개 미리 보기 | 공개 미리 보기 |
 | - [AWS](../../sentinel/connect-data-sources.md) | GA | GA |
 | - [Barracuda CloudGen 방화벽](../../sentinel/data-connectors-reference.md#barracuda-cloudgen-firewall) | GA | GA |
@@ -260,31 +279,52 @@ Microsoft 센티널은 확장 가능한 클라우드 기본, SIEM (보안 정보
 | - [BETTER Mobile Threat Defense MTD](../../sentinel/data-connectors-reference.md#better-mobile-threat-defense-mtd-preview) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Beyond Security beSECURE](../../sentinel/data-connectors-reference.md#beyond-security-besecure) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Blackberry CylancePROTECT](../../sentinel/connect-data-sources.md) | 공개 미리 보기 | 공개 미리 보기 |
+| - [상자](/azure/sentinel/sentinel-solutions-catalog#box) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Broadcom Symantec DLP](../../sentinel/data-connectors-reference.md#broadcom-symantec-data-loss-prevention-dlp-preview) | 공개 미리 보기 | 공개 미리 보기 |
 | - [Check Point](../../sentinel/data-connectors-reference.md#check-point) | GA | GA |
+| - [Cisco ACI](/azure/sentinel/sentinel-solutions-catalog#cisco) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Cisco ASA](../../sentinel/data-connectors-reference.md#cisco-asa) | GA | GA |
+| - [Cisco Duo 보안](/azure/sentinel/sentinel-solutions-catalog#cisco) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Cisco ISE](/azure/sentinel/sentinel-solutions-catalog#cisco) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Cisco Meraki](../../sentinel/data-connectors-reference.md#cisco-meraki-preview) | 공개 미리 보기 | 공개 미리 보기 |
+| - [Cisco Secure Email Gateway/ESA](/azure/sentinel/sentinel-solutions-catalog#cisco) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Cisco Umbrella](../../sentinel/data-connectors-reference.md#cisco-umbrella-preview) | 공개 미리 보기 | 공개 미리 보기 |
 | - [Cisco UCS](../../sentinel/data-connectors-reference.md#cisco-unified-computing-system-ucs-preview) | 공개 미리 보기 | 공개 미리 보기 |
 | - [Cisco Firepower EStreamer](../../sentinel/connect-data-sources.md) | 공개 미리 보기 | 공개 미리 보기 |
+| - [Cisco WSA (Web Security 어플라이언스)](/azure/sentinel/sentinel-solutions-catalog#cisco) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Citrix Analytics WAF](../../sentinel/data-connectors-reference.md#citrix-web-app-firewall-waf-preview) | GA | GA |
+| - [Cloudflare](/azure/sentinel/sentinel-solutions-catalog#cloudflare) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Common Event Format(CEF)](../../sentinel/connect-common-event-format.md) | GA | GA |
+| - [대비 보안](/azure/sentinel/sentinel-solutions-catalog#contrast-security) | 공개 미리 보기 | 사용할 수 없음 |
+| - [CrowdStrike](/azure/sentinel/sentinel-solutions-catalog#crowdstrike) | 공개 미리 보기 | 사용할 수 없음 |
 | - [CyberArk EPV(Enterprise Password Vault) 이벤트](../../sentinel/data-connectors-reference.md#cyberark-enterprise-password-vault-epv-events-preview) | 공개 미리 보기 | 공개 미리 보기 |
+| - [디지털 보호자](/azure/sentinel/sentinel-solutions-catalog#digital-guardian) | 공개 미리 보기 | 사용할 수 없음 |
 | - [ESET Enterprise Inspector](../../sentinel/connect-data-sources.md)                       | 공개 미리 보기 | 사용할 수 없음      |
 | - [Eset 보안 관리 센터](../../sentinel/connect-data-sources.md)                  | 공개 미리 보기 | 사용할 수 없음      |
 | - [ExtraHop Reveal(x)](../../sentinel/data-connectors-reference.md#extrahop-revealx)                               | GA             | GA             |
 | - [F5 BIG-IP ](../../sentinel/data-connectors-reference.md#f5-big-ip)                                       | GA             | GA             |
 | - [F5 Networks](../../sentinel/data-connectors-reference.md#f5-networks-asm)                                     | GA             | GA             |
+| - [FireEye NX (네트워크 보안)](/azure/sentinel/sentinel-solutions-catalog#fireeye-nx-network-security) | 공개 미리 보기 | 사용할 수 없음 |
+| - [플레어 시스템 불꽃놀이](/azure/sentinel/sentinel-solutions-catalog#flare-systems-framework) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Forcepoint NGFW](../../sentinel/data-connectors-reference.md#forcepoint-cloud-access-security-broker-casb-preview)                                  | 공개 미리 보기 | 공개 미리 보기 |
 | - [Forcepoint CASB](../../sentinel/data-connectors-reference.md#forcepoint-cloud-access-security-broker-casb-preview)                                  | 공개 미리 보기 | 공개 미리 보기 |
 | - [Forcepoint DLP](../../sentinel/data-connectors-reference.md#forcepoint-data-loss-prevention-dlp-preview)                                   | 공개 미리 보기 | 사용할 수 없음      |
+| - [Forescout](/azure/sentinel/sentinel-solutions-catalog#forescout) | 공개 미리 보기 | 사용할 수 없음 |
 | - [CEF용 ForgeRock Common Audit](../../sentinel/connect-data-sources.md)                  | 공개 미리 보기 | 공개 미리 보기 |
 | - [Fortinet](../../sentinel/data-connectors-reference.md#fortinet)                                         | GA             | GA             |
+| - [Google Cloud Platform DNS](/azure/sentinel/sentinel-solutions-catalog#google) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Google Cloud Platform](/azure/sentinel/sentinel-solutions-catalog#google) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Google 작업 영역(G 제품군) ](../../sentinel/data-connectors-reference.md#google-workspace-g-suite-preview)                      | 공개 미리 보기 | 사용할 수 없음      |
 | - [Illusive 공격 관리 시스템](../../sentinel/data-connectors-reference.md#illusive-attack-management-system-ams-preview)                | 공개 미리 보기 | 공개 미리 보기 |
 | - [Imperva WAF 게이트웨이](../../sentinel/data-connectors-reference.md#imperva-waf-gateway-preview)                             | 공개 미리 보기 | 공개 미리 보기 |
+| - [InfoBlox 클라우드](/azure/sentinel/sentinel-solutions-catalog#infoblox) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Infoblox NIOS](../../sentinel/data-connectors-reference.md#infoblox-network-identity-operating-system-nios-preview)                                    | 공개 미리 보기 | 공개 미리 보기 |
+| - [곱 향나무 IDP](/azure/sentinel/sentinel-solutions-catalog#juniper) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Juniper SRX](../../sentinel/data-connectors-reference.md#juniper-srx-preview)                                      | 공개 미리 보기 | 공개 미리 보기 |
+| - [Kaspersky 바이러스 백신](/azure/sentinel/sentinel-solutions-catalog#kaspersky) | 공개 미리 보기 | 사용할 수 없음 |
+| - [모바일 위협 방어](/azure/sentinel/data-connectors-reference#lookout-mobile-threat-defense-preview) | 공개 미리 보기 | 사용할 수 없음 |
+| - [McAfee ePolicy](/azure/sentinel/sentinel-solutions-catalog#mcafee) | 공개 미리 보기 | 사용할 수 없음 |
+| - [McAfee 네트워크 보안 플랫폼](/azure/sentinel/sentinel-solutions-catalog#mcafee) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Morphisec UTPP](../../sentinel/connect-data-sources.md)                                   | 공개 미리 보기 | 공개 미리 보기 |
 | - [Netskope](../../sentinel/connect-data-sources.md)                                         | 공개 미리 보기 | 공개 미리 보기 |
 | - [NXLog Windows DNS](../../sentinel/data-connectors-reference.md#nxlog-dns-logs-preview)                                             | 공개 미리 보기 | 사용할 수 없음      |
@@ -292,15 +332,25 @@ Microsoft 센티널은 확장 가능한 클라우드 기본, SIEM (보안 정보
 | - [Okta Single Sign-On](../../sentinel/data-connectors-reference.md#okta-single-sign-on-preview)                              | 공개 미리 보기 | 공개 미리 보기 |
 | - [Onapsis 플랫폼](../../sentinel/connect-data-sources.md)                                 | 공개 미리 보기 | 공개 미리 보기 |
 | - [One Identity Safeguard](../../sentinel/data-connectors-reference.md#one-identity-safeguard-preview)                          | GA             | GA             |
+| - [Oracle 클라우드 인프라](/azure/sentinel/sentinel-solutions-catalog#oracle)| 공개 미리 보기 | 사용할 수 없음 |
+| - [Oracle Database 감사](/azure/sentinel/sentinel-solutions-catalog#oracle)| 공개 미리 보기 | 사용할 수 없음 |
 | - [보안 경고](../../sentinel/data-connectors-reference.md#orca-security-preview)                            | 공개 미리 보기 | 사용할 수 없음      |
 | - [Palo Alto Networks](../../sentinel/data-connectors-reference.md#palo-alto-networks)                               | GA             | GA             |
 | - [Perimeter 81 활동 로그](../../sentinel/data-connectors-reference.md#perimeter-81-activity-logs-preview)                      | GA             | 사용할 수 없음      |
+| - [Id Ping](/azure/sentinel/sentinel-solutions-catalog#ping-identity) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Proofpoint 온 디맨드 전자 메일 보안](../../sentinel/data-connectors-reference.md#proofpoint-on-demand-pod-email-security-preview)             | 공개 미리 보기 | 사용할 수 없음      |
 | - [Proofpoint TAP](../../sentinel/data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)                                   | 공개 미리 보기 | 공개 미리 보기 |
 | - [Pulse Connect Secure](../../sentinel/data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)                             | 공개 미리 보기 | 공개 미리 보기 |
 | - [Qualys 취약성 관리](../../sentinel/data-connectors-reference.md#qualys-vulnerability-management-vm-preview)                  | 공개 미리 보기 | 공개 미리 보기 |
+| - [Rapid7](/azure/sentinel/sentinel-solutions-catalog#rapid7) | 공개 미리 보기 | 사용할 수 없음 |
+| - [RSA SecurID](/azure/sentinel/sentinel-solutions-catalog#rsa) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Salesforce 서비스 클라우드](../../sentinel/data-connectors-reference.md#salesforce-service-cloud-preview)                         | 공개 미리 보기 | 사용할 수 없음      |
+| - [SAP (SAP에 대 한 지속적인 위협 모니터링)](/azure/sentinel/sap-deploy-solution) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Semperis](/azure/sentinel/sentinel-solutions-catalog#semperis) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Pro](/azure/sentinel/sentinel-solutions-catalog#senserva-pro) | 공개 미리 보기 | 사용할 수 없음 |
+| - [여유 시간 감사](/azure/sentinel/sentinel-solutions-catalog#slack) | 공개 미리 보기 | 사용할 수 없음 |
 | - [SonicWall 방화벽 ](../../sentinel/data-connectors-reference.md#sophos-cloud-optix-preview)                              | 공개 미리 보기 | 공개 미리 보기 |
+| - [Sonrai 보안](/azure/sentinel/sentinel-solutions-catalog#sonrai-security) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Sophos Cloud Optix](../../sentinel/data-connectors-reference.md#sophos-cloud-optix-preview)                               | 공개 미리 보기 | 사용할 수 없음      |
 | - [Sophos XG 방화벽](../../sentinel/data-connectors-reference.md#sophos-xg-firewall-preview)                               | 공개 미리 보기 | 공개 미리 보기 |
 | - [Squadra Technologies secRMM](../../sentinel/data-connectors-reference.md#squadra-technologies-secrmm)               | GA             | GA             |
@@ -309,13 +359,18 @@ Microsoft 센티널은 확장 가능한 클라우드 기본, SIEM (보안 정보
 | - [Symantec ProxySG](../../sentinel/data-connectors-reference.md#symantec-proxysg-preview)                                | 공개 미리 보기 | 공개 미리 보기 |
 | - [Symantec VIP](../../sentinel/data-connectors-reference.md#symantec-vip-preview)                                     | 공개 미리 보기 | 공개 미리 보기 |
 | - [Syslog](../../sentinel/connect-syslog.md)                                           | GA             | GA             |
+| - [Tenable](/azure/sentinel/sentinel-solutions-catalog#tenable) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Thycotic 비밀 서버](../../sentinel/data-connectors-reference.md#thycotic-secret-server-preview)                          | 공개 미리 보기 | 공개 미리 보기 |
 | - [Trend Micro Deep Security](../../sentinel/data-connectors-reference.md#trend-micro-deep-security)                       | GA             | GA             |
 | - [Trend Micro TippingPoint](../../sentinel/data-connectors-reference.md#trend-micro-tippingpoint-preview)                         | 공개 미리 보기 | 공개 미리 보기 |
 | - [Trend Micro XDR](../../sentinel/connect-data-sources.md)                                  | 공개 미리 보기 | 사용할 수 없음      |
+| - [Ubiquiti](/azure/sentinel/sentinel-solutions-catalog#ubiquiti) | 공개 미리 보기 | 사용할 수 없음 |
+| - [vArmour](/azure/sentinel/sentinel-solutions-catalog#varmour) | 공개 미리 보기 | 사용할 수 없음 |
+| - [Vectra](/azure/sentinel/sentinel-solutions-catalog#vectra) | 공개 미리 보기 | 사용할 수 없음 |
 | - [VMware Carbon Black Endpoint Standard](../../sentinel/data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)           | 공개 미리 보기 | 공개 미리 보기 |
 | - [VMware ESXi](../../sentinel/data-connectors-reference.md#vmware-esxi-preview)                                      | 공개 미리 보기 | 공개 미리 보기 |
 | - [WireX 네트워크 포렌식 플랫폼](../../sentinel/data-connectors-reference.md#wirex-network-forensics-platform-preview)                | 공개 미리 보기 | 공개 미리 보기 |
+| - [Zeek Network(Corelight)](/azure/sentinel/sentinel-solutions-catalog#zeek-network) | 공개 미리 보기 | 사용할 수 없음 |
 | - [Zimperium Mobile Threat Defense](../../sentinel/data-connectors-reference.md#zimperium-mobile-thread-defense-preview)                  | 공개 미리 보기 | 사용할 수 없음      |
 | - [Zscaler](../../sentinel/data-connectors-reference.md#zscaler)                                         | GA             | GA             |
 | | | |
@@ -332,6 +387,10 @@ Office 365 GCC는 Azure에서 Azure Active Directory(Azure AD)와 페어링됩�
 
 | 커넥터 | Azure | Azure Government |
 |--|--|--|
+| **[IRM Office](/azure/sentinel/data-connectors-reference#microsoft-365-insider-risk-management-irm-preview)**  |  |  |
+| - Office 365 GCC | 공개 미리 보기 | - |
+| - Office 365 GCC High | - | 사용할 수 없음 |
+| - Office 365 DoD | - | 사용할 수 없음 |
 | **[Dynamics365](../../sentinel/data-connectors-reference.md#dynamics-365)** |  |  |
 | - Office 365 GCC | 공개 미리 보기 | - |
 | - Office 365 GCC High | - | 사용할 수 없음 |
@@ -368,15 +427,19 @@ Office 365 GCC는 Azure에서 Azure Active Directory(Azure AD)와 페어링됩�
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
+| **[Teams](/azure/sentinel/sentinel-solutions-catalog#microsoft)** | | |
+| - Office 365 GCC | 공개 미리 보기 | - |
+| - Office 365 GCC High | - | 사용할 수 없음 |
+| - Office 365 DoD | - | 사용할 수 없음 |
 |  |  |
 
 <a name="azure-defender-for-iot"></a>
 
 ## <a name="microsoft-defender-for-iot"></a>Microsoft Defender for IoT
 
-Microsoft Defender for IoT를 사용하면 모든 IoT/OT 디바이스에서 포괄적인 보안을 통해 IoT/OT 혁신을 가속화할 수 있습니다.최종 사용자 조직의 경우 Microsoft Defender for IoT는 신속하게 배포되고, 다양한 산업 장비와 함께 작동하며, Microsoft Sentinel 및 기타 SOC 도구와 상호 운용되는 에이전트 없는 네트워크 계층 보안을 제공합니다. 온-프레미스 또는 Azure 연결 환경에 배포합니다.IoT 디바이스 빌더의 경우 Microsoft Defender for IoT 보안 에이전트를 사용하면 새 IoT 디바이스 및 Azure IoT 프로젝트에 직접 보안을 구축할 수 있습니다. 마이크로 에이전트는 이진 패키지로 배포하거나 소스 코드를 수정하는 기능을 비롯한 유연한 배포 옵션을 제공합니다. 그리고 마이크로 에이전트는 Linux나 Azure RTOS 같은 표준 IoT 운영 체제에 사용할 수 있습니다. 자세한 내용은 Microsoft [Defender for IoT 제품 설명서를 참조하세요.](../../defender-for-iot/index.yml)
+IoT 용 Microsoft Defender를 사용 하면 모든 IoT/OT 장치에서 포괄적인 보안으로 IoT/OT 혁신을 가속화할 수 있습니다.최종 사용자 조직의 경우 IoT 용 Microsoft Defender는 에이전트 없는, 네트워크 계층 보안을 신속 하 게 배포 하 고, 다양 한 산업 장비에서 작동 하 고, Microsoft 센티널 및 기타 SOC 도구와 상호 운용 하는 기능을 제공 합니다. 온-프레미스 또는 Azure 연결 환경에 배포합니다.iot 장치 빌더의 경우 iot 용 Microsoft Defender 보안 에이전트를 사용 하 여 새 iot 장치 및 Azure IoT 프로젝트에 직접 보안을 빌드할 수 있습니다. 마이크로 에이전트는 이진 패키지로 배포하거나 소스 코드를 수정하는 기능을 비롯한 유연한 배포 옵션을 제공합니다. 그리고 마이크로 에이전트는 Linux나 Azure RTOS 같은 표준 IoT 운영 체제에 사용할 수 있습니다. 자세한 내용은 [IoT 용 Microsoft Defender 제품 설명서](../../defender-for-iot/index.yml)를 참조 하세요.
 
-다음 표에는 Azure의 현재 Microsoft Defender for IoT 기능 가용성 및 Azure Government 표시됩니다.
+다음 표에서는 Azure에서 제공 되는 IoT 용 Microsoft Defender 기능 가용성 및 Azure Government을 보여 줍니다.
 
 ### <a name="for-organizations"></a>조직용
 
@@ -384,7 +447,7 @@ Microsoft Defender for IoT를 사용하면 모든 IoT/OT 디바이스에서 포�
 |--|--|--|
 | [온-프레미스 디바이스 검색 및 인벤토리](../../defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md) | GA | GA |
 | [취약점 관리](../../defender-for-iot/how-to-create-risk-assessment-reports.md) | GA | GA |
-| [IoT를 사용하여 위협 탐지 및 OT 동작 분석](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
+| [IoT 및 OT 동작 분석을 사용한 위협 감지](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
 | [수동 및 자동 위협 인텔리전스 업데이트](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **SIEM, SOAR 및 XDR을 사용하여 IT 및 OT 보안 통합** |  |  |
 | [Active Directory](../../defender-for-iot/organizations/how-to-create-and-manage-users.md#integrate-with-active-directory-servers) | GA | GA |
@@ -401,39 +464,39 @@ Microsoft Defender for IoT를 사용하면 모든 IoT/OT 디바이스에서 포�
 | [ServiceNow (경고 & 인벤토리)](../../defender-for-iot/organizations/tutorial-servicenow.md) | GA | GA |
 | [SNMP MIB 모니터링](../../defender-for-iot/organizations/how-to-set-up-snmp-mib-monitoring.md) | GA | GA |
 | [Splunk](../../defender-for-iot/organizations/tutorial-splunk.md) | GA | GA |
-| [SYSLOG 서버 (CEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버 (LEEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버 (개체)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG 서버 (문자 메시지)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [웹 콜백 (Webhook)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
+| [SYSLOG 서버(CEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(LEEF 형식)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(개체)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [SYSLOG 서버(문자 메시지)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [웹 콜백(웹후크)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
 
 ### <a name="for-device-builders"></a>디바이스 빌더의 경우
 
 | 기능 | Azure | Azure Government |
 |--|--|--|
 | [Azure RTOS용 마이크로 에이전트](../../defender-for-iot/iot-security-azure-rtos.md) | GA | GA |
-| [IoT 용 Microsoft Defender를 사용 하 여 센티널 구성](../../defender-for-iot/how-to-configure-with-sentinel.md) | 공개 미리 보기 | 공개 미리 보기 |
+| [Microsoft Defender for IoT를 사용하여 Sentinel 구성](../../defender-for-iot/how-to-configure-with-sentinel.md) | 공개 미리 보기 | 공개 미리 보기 |
 | **Linux용 독립 실행형 마이크로 에이전트** |  |  |
 | [독립 실행형 에이전트 이진 설치](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | 공개 미리 보기 | 공개 미리 보기 |
 
 ## <a name="azure-attestation"></a>Azure Attestation
 
-Microsoft Azure Attestation은 플랫폼의 신뢰성과 플랫폼 내부에서 실행되는 이진 파일의 무결성을 원격으로 확인하기 위한 통합 솔루션입니다. 서비스는 플랫폼에서 증명 정보를 수신 하 고, 보안 표준을 사용 하 여 유효성을 검사 하 고, 구성 가능한 정책에 대해 평가 하 고, 클레임 기반 응용 프로그램 (예: 신뢰 당사자, 감사 기관)에 대 한 증명 토큰을 생성 합니다. 
+Microsoft Azure Attestation은 플랫폼의 신뢰성과 플랫폼 내부에서 실행되는 이진 파일의 무결성을 원격으로 확인하기 위한 통합 솔루션입니다. 서비스는 플랫폼에서 증거를 수신하고, 보안 표준으로 유효성을 검사하고, 구성 가능한 정책에 대해 평가하고, 클레임 기반 애플리케이션(예: 신뢰 당사자, 감사 기관)에 대한 증명 토큰을 생성합니다. 
 
-Azure 증명은 현재 Azure 공용 및 정부 클라우드의 여러 지역에서 사용할 수 있습니다. Azure Government에서는 US Gov 버지니아 및 US Gov 애리조나에서 서비스를 미리 보기 상태로 사용할 수 있습니다. 
+Azure Attestation 현재 Azure 퍼블릭 및 정부 클라우드의 여러 지역에서 사용할 수 있습니다. Azure Government 서비스는 US Gov 버지니아 및 US Gov 애리조나 미리 보기 상태로 제공됩니다. 
 
-자세한 내용은 Azure 증명 [공개 설명서](../../attestation/overview.md)를 참조 하세요. 
+자세한 내용은 [Azure Attestation 공용 설명서를 참조하세요.](../../attestation/overview.md) 
 
 | 기능 | Azure | Azure Government |
 |--|--|--|
-| 제어 평면 및 데이터 평면 작업을 수행 하기 위한 [포털 환경](../../attestation/quickstart-portal.md) | GA | - |
-| 제어 평면 및 데이터 평면 작업을 수행 하기 위한 [PowerShell 환경](../../attestation/quickstart-powershell.md)  | GA | GA |
+| 제어 평면 및 데이터 평면 작업을 수행하는 [포털 환경](../../attestation/quickstart-portal.md) | GA | - |
+| 컨트롤 플레인 및 데이터 평면 작업을 수행하는 [PowerShell 환경](../../attestation/quickstart-powershell.md)  | GA | GA |
 | TLS 1.2 적용   | GA | GA |
 | BCDR 지원   | GA | - |
 | [서비스 태그 통합](../../virtual-network/service-tags-overview.md) | GA | GA |
-| [변경할 수 없는 로그 저장소](../../attestation/audit-logs.md) | GA | GA |
-| 개인 링크를 사용 하 여 네트워크 격리 | 공개 미리 보기 | - |
-| [FedRAMP 높은 인증](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) | GA | - |
+| [불변 로그 스토리지](../../attestation/audit-logs.md) | GA | GA |
+| 프라이빗 링크를 사용하여 네트워크 격리 | 공개 미리 보기 | - |
+| [FedRAMP High 인증](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) | GA | - |
 | 고객 lockbox | GA | - |
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 410b0926faf2e5c6b8885c91cdf08343c3000469
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: da05491cdc17558d70b40eaf123b3608866d480e
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362331"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133363270"
 ---
 # <a name="calling-sdk-overview"></a>통화 SDK 개요
 
@@ -30,7 +30,7 @@ Calling SDK의 주요 기능:
 - **주소 지정** - Azure Communication Services는 통신 엔드포인트의 주소를 지정하는 데 사용되는 일반 [ID](../identity-model.md)를 제공합니다. 클라이언트는 이러한 ID를 사용하여 서비스에 대해 인증하고 서로 통신합니다. 이러한 ID는 통화에 연결된 사용자를 클라이언트가 볼 수 있도록 하는 통화 API를 호출하는 데 사용됩니다(명단).
 - **암호화** - Calling SDK는 트래픽을 암호화하고 네트워크 변조를 방지합니다. 
 - **디바이스 관리 및 미디어** - Calling SDK는 오디오 및 비디오 디바이스에 바인딩하는 기능을 제공하고, 통신 데이터 평면에서의 효율적인 전송을 위해 콘텐츠를 인코딩하며, 지정한 출력 디바이스 및 보기로 콘텐츠를 렌더링합니다. API는 화면 및 애플리케이션 공유에도 제공됩니다.
-- **PSTN** - Calling SDK는 [Azure Portal에서 얻은 전화 번호를 사용하거나](../../quickstarts/telephony-sms/get-phone-number.md) 프로그래밍 방식으로 기존에 공개적으로 전환된 전화 시스템을 통해 음성 통화를 수신하고 시작할 수 있습니다.
+- **PSTN** - Calling SDK는 [Azure Portal에서 얻은 전화 번호를 사용하거나](../../quickstarts/telephony/get-phone-number.md) 프로그래밍 방식으로 기존에 공개적으로 전환된 전화 시스템을 통해 음성 통화를 수신하고 시작할 수 있습니다.
 - **Teams 미팅** - Calling SDK는 [Teams 미팅에 조인](../../quickstarts/voice-video-calling/get-started-teams-interop.md)하고 Teams 음성 및 비디오 평면과 상호 작용할 수 있습니다. 
 - **알림** - Calling SDK는 클라이언트가 들어오는 호출에 대한 알림을 받을 수 있도록 하는 API를 제공합니다. 앱이 포그라운드에서 실행되지 않는 상황에서, 패턴을 사용하여 최종 사용자에게 들어오는 호출을 알리기 위해 [팝업 알림](../notifications.md)(“알림”)을 실행할 수 있습니다. 
 
@@ -164,4 +164,4 @@ Iframe을 사용하여 다른 도메인에서 앱의 일부를 호스팅하려�
 자세한 내용은 다음 항목을 참조하세요.
 - 일반적인 [통화 흐름](../call-flows.md) 숙지
 - [통화 형식](../voice-video-calling/about-call-types.md)에 대한 자세한 정보
-- [PSTN 솔루션 계획](../telephony-sms/plan-solution.md)
+- [PSTN 솔루션 계획](../telephony/plan-solution.md)

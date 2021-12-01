@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4fe44c7880420d7f2bc89f479e152a23f22909e8
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 935838f6ac6c0889826f6895ae92c4ddcceb9b1f
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129670217"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133363824"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux용 Key Vault 가상 머신 확장
 
@@ -118,8 +118,12 @@ Key Vault VM 확장은 다음 Linux 배포를 지원합니다.
 > `/secrets` 경로가 프라이빗 키를 포함하여 전체 인증서를 반환하지만 `/certificates` 경로에서는 반환하지 않기 때문입니다. 인증서에 대한 자세한 내용은 여기에서 찾을 수 있습니다. [Key Vault 인증서](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> 'authenticationSettings' 속성은 **사용자 할당 ID** 가 있는 VM에만 **필요** 합니다.
-> 이 속성은 Key Vault에 대한 인증에 사용할 ID를 지정합니다.
+> **사용자 할당 ID가** 인 VM에는 'authenticationSettings' 속성이 **필요합니다.**
+> msiClientId를 Key Vault 인증할 ID로 설정합니다.
+> 
+> **Azure Arc 사용 가능한 VM에도 필요합니다.** 
+> msiEndpoint를 `http://localhost:40342/metadata/identity` 로 설정합니다.
+
 
 
 ### <a name="property-values"></a>속성 값

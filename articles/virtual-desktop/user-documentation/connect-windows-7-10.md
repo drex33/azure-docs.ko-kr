@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Desktop Windows 10 또는 7에 연결 - Azure
+title: Windows 데스크톱 클라이언트를 사용 하 여 azure 가상 데스크톱에 커넥트-azure
 description: Windows Desktop 클라이언트를 사용하여 Azure Virtual Desktop에 연결하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
@@ -7,12 +7,12 @@ ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
 ms.custom: template-how-to
-ms.openlocfilehash: 64d091076d73e131401e7f7a143e1cc8bdca2b34
-ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
+ms.openlocfilehash: 8050e42faed882e06d5f62a36bfdd0b7321e26b9
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133312667"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133365853"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Windows Desktop 클라이언트와 연결
 

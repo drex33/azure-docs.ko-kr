@@ -6,14 +6,14 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: f5273208104853a276ae78e8debc685fa2a05c4d
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: VanMSFT
+ms.author: vanto
+ms.openlocfilehash: fefbe21ec6a40096773517fb5b6597b537caf9af
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064471"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364634"
 ---
 # <a name="what-is-the-database-ledger"></a>데이터베이스 원장이란?
 

@@ -1,21 +1,21 @@
 ---
-title: 상업용 Marketplace에 대한 컨설팅 서비스 가격 책정 및 가용성 구성
-description: 파트너 센터 사용하여 Microsoft 상업용 Marketplace에서 컨설팅 서비스 제안 가격 정보 및 시장 가용성을 구성합니다.
+title: 상업적 marketplace에 대 한 컨설팅 서비스 가격 책정 및 가용성 구성
+description: 파트너 센터를 사용 하 여 Microsoft 상업적 marketplace에서 컨설팅 서비스 제공 가격 세부 정보 및 시장 가용성을 구성 합니다.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: emuench
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.openlocfilehash: cf6290632a1c9d78265961ccaa47b25fc1734a1b
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.date: 11/30/2021
+ms.openlocfilehash: 5a01216276c34ff6ab197166b2e9f0e9f13b82b8
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130065961"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133357755"
 ---
-# <a name="configure-consulting-service-offer-pricing-and-availability"></a>컨설팅 서비스 제품 가격 책정 및 가용성 구성
+# <a name="configure-consulting-service-offer-pricing-and-availability"></a>컨설팅 서비스 제공 가격 책정 및 가용성 구성
 
 이 문서에서는 Microsoft 상용 마켓플레이스에서 컨설팅 서비스 제품에 대한 시장 가용성 및 가격 책정 세부 정보를 정의하는 방법을 설명합니다.
 

@@ -4,16 +4,16 @@ description: 이 항목에서는 비디오 개념에서 관찰된 사람 추적�
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: juliako
-ms.openlocfilehash: 6726c67cf5274ba252b86ace9165330dc296afb4
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 74bc191b2604c64f126cd34bc6f7e3102ccd0dee
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132491946"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133359975"
 ---
-# <a name="trace-observed-people-in-a-video-preview"></a>비디오에서 관찰된 사람 추적(미리 보기)
+# <a name="trace-observed-people-in-a-video-preview"></a>비디오에서 관찰 된 사람들 추적 (미리 보기)
 
-Video Indexer는 비디오에서 관찰된 사람을 감지하고 비디오 프레임에서 사람의 위치 및 사람이 나타나는 시간의 정확한 타임스탬프(시작, 종료)와 같은 정보를 제공합니다. API는 감지 신뢰도를 포함하여 감지된 각 사람 인스턴스에 대한 경계 상자 좌표(픽셀 단위)를 반환합니다.  
+미디어에 대 한 Azure 비디오 분석기 (이전 Video Indexer)는 비디오에서 관찰 된 사람들을 검색 하 고, 사용자가 표시 되 면 비디오 프레임의 사용자 위치와 정확한 타임 스탬프 (시작, 끝)와 같은 정보를 제공 합니다. API는 감지 신뢰도를 포함하여 감지된 각 사람 인스턴스에 대한 경계 상자 좌표(픽셀 단위)를 반환합니다.  
  
 이 기능이 유용할 수 있는 몇 가지 시나리오는 다음과 같습니다.
 

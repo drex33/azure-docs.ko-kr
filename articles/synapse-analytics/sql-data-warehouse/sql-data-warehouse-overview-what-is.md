@@ -2,20 +2,20 @@
 title: 전용 SQL 풀(이전의 SQL DW)이란?
 description: Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)은 Azure Synapse Analytics의 엔터프라이즈 데이터 웨어하우징 기능입니다.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
 ms.date: 01/22/2021
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: igorstan
-ms.openlocfilehash: 6d4c11db5fd2367fa29475e46b4afa23dc540035
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 79d462dd8c16bfdcb79664fbae2b59f553c46f1c
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131433064"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364967"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)이란?
 

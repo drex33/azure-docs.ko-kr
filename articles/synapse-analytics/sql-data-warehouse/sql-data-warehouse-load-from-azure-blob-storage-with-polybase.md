@@ -2,21 +2,21 @@
 title: 전용 SQL 풀로 Contoso 소매 데이터 로드
 description: Contoso 소매 데이터에서 전용 SQL 풀로 두 개의 테이블을 로드하기 위해 PolyBase와 T-SQL 명령을 사용합니다.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c6abbecfa7bc2946dc68b5acb530c5d2bbd2e700
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
-ms.translationtype: HT
+ms.openlocfilehash: 4a9a2e48a0a0e555d6f5d04cee4e80e3aea5610c
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112540477"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133362204"
 ---
 # <a name="load-contoso-retail-data-into-dedicated-sql-pools-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 Contoso 소매 데이터 로드
 
@@ -340,7 +340,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 
 ## <a name="achievement-unlocked"></a>목표를 달성했습니다!
 
-데이터 웨어하우스에 퍼블릭 데이터를 성공적으로 로드했습니다. 잘하셨습니다!
+데이터 웨어하우스에 퍼블릭 데이터를 성공적으로 로드했습니다. 잘했습니다.
 
 이제 테이블 쿼리를 시작하여 데이터를 탐색할 수 있습니다. 다음 쿼리를 실행하여 브랜드별 총 판매량을 확인할 수 있습니다.
 

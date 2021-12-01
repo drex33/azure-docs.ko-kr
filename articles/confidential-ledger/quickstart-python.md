@@ -7,12 +7,12 @@ ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell, mode-other
-ms.openlocfilehash: d0bb70e26d1df61ae8f2165f3326924dff85a214
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 9a838df7399fccf364252e0c3e13150e65849e4c
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133044556"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133360329"
 ---
 # <a name="quickstart-microsoft-azure-confidential-ledger-client-library-for-python"></a>빠른 시작: Python용 Microsoft Azure 기밀 원장 클라이언트 라이브러리
 
@@ -203,6 +203,7 @@ print(entry.contents)
 ## <a name="full-sample-code"></a>전체 샘플 코드
 
 ```python
+import time
 from azure.identity import DefaultAzureCredential
 
 ## Import control plane sdk
@@ -214,6 +215,7 @@ from azure.mgmt.confidentialledger.models import ConfidentialLedger
 
 from azure.confidentialledger import ConfidentialLedgerClient
 from azure.confidentialledger.identity_service import ConfidentialLedgerIdentityServiceClient
+from azure.confidentialledger import TransactionState
 
 # Set variables
 
@@ -222,7 +224,7 @@ ledger_name = "<unique-ledger-name>"
 subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
-ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
+ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com"
 
 # Authentication
 
@@ -254,6 +256,9 @@ ledger_properties = ConfidentialLedger(**properties)
 # Create a ledger
 
 foo = confidential_ledger_mgmt.ledger.begin_create(rg, ledger_name, ledger_properties)
+  
+# wait until ledger is created
+foo.wait()
 
 # Get the details of the ledger you just created
 
@@ -289,6 +294,14 @@ ledger_client = ConfidentialLedgerClient(
 # Write to the ledger
 append_result = ledger_client.append_to_ledger(entry_contents="Hello world!")
 print(append_result.transaction_id)
+  
+# Wait until transaction is committed on the ledger
+while True:
+    commit_result = ledger_client.get_transaction_status(append_result.transaction_id)
+    print(commit_result.state)
+    if (commit_result.state == TransactionState.COMMITTED):
+        break
+    time.sleep(1)
 
 # Read from the ledger
 entry = ledger_client.get_ledger_entry(transaction_id=append_result.transaction_id)

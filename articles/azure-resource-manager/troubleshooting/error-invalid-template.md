@@ -3,12 +3,12 @@ title: 잘못된 템플릿 오류
 description: Bicep 파일 또는 ARM 템플릿(Azure Resource Manager 템플릿)을 배포할 때 잘못된 템플릿 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 11/15/2021
-ms.openlocfilehash: d5bd7494300ac8861ebd85478e380132acbac007
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: fe1cec024cee191575529afc8d9095bad741d8a6
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132550668"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364606"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -82,7 +82,7 @@ part of the allowed values
 
 <a id="too-many-resource-groups"></a>
 
-## <a name="solution-4---too-many-target-resource-groups"></a>해결 방법 4 - 너무 많은 대상 리소스 그룹
+## <a name="solution-4---too-many-target-resource-groups"></a>솔루션 4 - 대상 리소스 그룹이 너무 많습니다.
 
 단일 배포에서는 5개의 대상 리소스 그룹으로 제한되어 있기 때문에 이전 배포에서 이 오류가 표시될 수 있습니다. 2020년 5월, 이 제한이 800개의 리소스 그룹으로 증가되었습니다. 자세한 내용은 [Bicep](../bicep/deploy-to-resource-group.md#deploy-to-multiple-resource-groups) 또는 ARM 템플릿에 대한 여러 리소스 그룹에 배포하는 방법을 [참조하세요.](../templates/deploy-to-resource-group.md#deploy-to-multiple-resource-groups)
 

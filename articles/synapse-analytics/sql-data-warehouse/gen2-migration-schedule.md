@@ -2,8 +2,8 @@
 title: 전용 SQL 풀(이전의 SQL DW)을 Gen2로 마이그레이션
 description: 기존 전용 SQL 풀(이전의 SQL DW)을 Gen2로 마이그레이션하는 방법 및 지역별 마이그레이션 일정에 대한 지침입니다.
 services: synapse-analytics
-author: rothja
-ms.author: jroth
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
@@ -12,12 +12,12 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 59ebd89701f23979a8a359fecfd68a4796bf6d9c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 60a557be66760531e843050ee3f95d0e64ab2993
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472114"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133355145"
 ---
 # <a name="upgrade-your-dedicated-sql-pool-formerly-sql-dw-to-gen2"></a>전용 SQL 풀(이전의 SQL DW)을 Gen2로 업그레이드
 

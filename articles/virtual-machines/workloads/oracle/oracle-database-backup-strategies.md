@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 5be1a70ecd9a5eefdd1df29a5305747cee09ddaa
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 0fd042520e032459807d0416ed444f3288423baf
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523755"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133360290"
 ---
 # <a name="oracle-database-in-azure-linux-vm-backup-strategies"></a>Azure Linux VM 백업 전략에서 Oracle Database
 
@@ -59,11 +59,11 @@ Azure Storage 플랫폼에는 Oracle 데이터베이스용 백업 미디어로 �
 
 #### <a name="blob-storage-and-file-storage"></a>Blob Storage 및 File Storage
 
-SMB 또는 NFS 4.1 프로토콜과 함께 Azure Files를 사용 하 여 백업 저장소로 탑재 하는 경우 Azure Files은 읽기 액세스 지역 중복 저장소 (RA-GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GZRS)를 지원 하지 않습니다. 
+SMB 또는 NFS 4.1 프로토콜과 함께 Azure Files 사용하여 백업 스토리지로 탑재하는 경우 Azure Files RA-GRS(읽기 액세스 지역 중복 스토리지) 및 RA-GZRS(읽기 액세스 지역 영역 중복 스토리지)를 지원하지 않습니다. 
 
 또한 백업 스토리지 요구 사항이 5TiB보다 큰 경우 GRS 또는 GZRS 중복도를 지원하지 않고 LRS만 지원하는[대용량 파일 공유 기능](../../../storage/files/storage-files-planning.md)을 사용하도록 설정해야 Azure Files를 사용할 수 있습니다. 
 
-NFS 3.0 프로토콜을 사용 하 여 탑재 된 Azure Blob는 현재 LRS 및 ZRS 중복성만 지원 합니다.  
+NFS 3.0 프로토콜을 사용하여 탑재된 Azure Blob은 현재 LRS 및 ZRS 중복성만 지원합니다.  
 
 모든 중복도 옵션으로 구성된 Azure Blob은 Blobfuse를 사용하여 탑재할 수 있습니다.
 
@@ -84,9 +84,9 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 사용�
 
 모든 Azure 지역에서 사용 가능하고 범용 v1/v2 및 Azure Data Lake Store Gen2를 비롯한 모든 스토리지 계정 형식에서 작동하지만 Blobfuse에서 제공되는 성능은 SMB 또는 NFS와 같은 대체 프로토콜보다 떨어지는 것으로 나타났습니다. 데이터베이스 백업 미디어로 사용하기에 적합하도록 SMB 또는 [NFS](../../../storage/blobs/storage-how-to-mount-container-linux.md) 프로토콜을 사용하여 Azure Blob Storage를 탑재하는 것이 좋습니다. 
 
-#### <a name="azure-blob-nfs-v30"></a>Azure Blob NFS v 3.0
+#### <a name="azure-blob-nfs-v30"></a>Azure Blob NFS v3.0
 
-이제 NFS (네트워크 파일 시스템) v 3.0 프로토콜에 대 한 Azure 지원을 사용할 수 있습니다. [NFS](../../../storage/blobs/network-file-system-protocol-support.md) 지원을 사용하면 Windows 및 Linux 클라이언트에서 Blob 스토리지 컨테이너를 Azure VM에 탑재할 수 있습니다. 
+이제 NFS(네트워크 파일 시스템) v3.0 프로토콜에 대한 Azure 지원을 사용할 수 있습니다. [NFS](../../../storage/blobs/network-file-system-protocol-support.md) 지원을 사용하면 Windows 및 Linux 클라이언트에서 Blob 스토리지 컨테이너를 Azure VM에 탑재할 수 있습니다. 
 
 네트워크 보안을 유지하려면 NFS 탑재에 사용되는 스토리지 계정이 VNet 내에 포함되어야 합니다. Azure AD(Active Directory) 보안 및 ACL(액세스 제어 목록)은 NFS 3.0 프로토콜 지원을 사용하도록 설정된 계정에서 아직 지원되지 않습니다.
 
@@ -94,13 +94,13 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 사용�
 
 [Azure Files](../../../storage/files/storage-files-introduction.md)는 온-프레미스 또는 클라우드 기반 Windows, Linux 또는 macOS 클라이언트에 탑재할 수 있는 클라우드 기반의 완전 관리형 분산 파일 시스템입니다.
 
-Azure Files은 SMB (서버 메시지 블록) 프로토콜 및 NFS (네트워크 파일 시스템) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리 되는 플랫폼 간 파일 공유를 제공 합니다. Azure Files는 현재 다중 프로토콜 액세스를 지원하지 않으므로, NFS 공유 또는 SMB 공유 중 하나만 사용하여 공유할 수 있습니다. Azure 파일 공유를 만들기 전에, 어느 프로토콜이 요구 사항에 가장 적합한지 결정하는 것이 좋습니다.
+Azure Files SMB(서버 메시지 블록) 프로토콜 및 NFS(네트워크 파일 시스템) 프로토콜을 통해 액세스할 수 있는 완전히 관리되는 플랫폼 간 파일 공유를 클라우드에서 제공합니다. Azure Files는 현재 다중 프로토콜 액세스를 지원하지 않으므로, NFS 공유 또는 SMB 공유 중 하나만 사용하여 공유할 수 있습니다. Azure 파일 공유를 만들기 전에, 어느 프로토콜이 요구 사항에 가장 적합한지 결정하는 것이 좋습니다.
 
 또한 Azure 파일 공유는 Recovery Services 자격 증명 모음에 대한 Azure Backup을 통해 보호할 수 있으므로 Oracle RMAN 백업에 대한 추가 보호 계층을 제공합니다.
 
-#### <a name="azure-files-nfs-v41"></a>Azure Files NFS v 4.1
+#### <a name="azure-files-nfs-v41"></a>NFS v4.1 Azure Files
 
-Azure 파일 공유는 NFS(네트워크 파일 시스템) v4.1 프로토콜을 사용하여 Linux 배포판에 탑재할 수 있습니다. 지원 되는 기능에는 몇 가지 제한 사항이 있습니다. 자세한 내용은 [Azure Storage 기능에 대 한 지원](../../../storage/files/files-nfs-protocol.md#support-for-azure-storage-features)을 참조 하세요. 
+Azure 파일 공유는 NFS(네트워크 파일 시스템) v4.1 프로토콜을 사용하여 Linux 배포판에 탑재할 수 있습니다. 지원되는 기능에는 여러 가지 제한이 있습니다. 자세한 내용은 [Azure Storage 기능 지원을 참조하세요.](../../../storage/files/files-nfs-protocol.md#support-for-azure-storage-features) 
 
 [!INCLUDE [files-nfs-regional-availability](../../../../includes/files-nfs-regional-availability.md)]
 
@@ -135,7 +135,7 @@ GRS 중복도를 사용하여 만든 자격 증명 모음에는 [지역 간 복�
 
 Azure Backup 서비스는 애플리케이션 일관성 스냅샷이라고 하는, Oracle, MySQL, Mongo DB, SAP HANA 및 PostGreSQL과 같은 다양한 애플리케이션에 대해 Windows 및 Linux VM을 백업하는 동안 애플리케이션 일관성을 얻기 위한 [프레임워크](../../../backup/backup-azure-linux-app-consistent.md)를 제공합니다. 여기에는 디스크 스냅샷을 만들기 전에 사전 스크립트(애플리케이션 정지)를 호출하고 스냅샷이 완료된 후 사후 스크립트(애플리케이션 정지 해제 명령)를 호출하여 애플리케이션을 정상 모드로 되돌리는 작업이 포함됩니다. 사전 스크립트 및 사후 스크립트 샘플은 GitHub에서 제공되지만, 이러한 스크립트를 만들고 유지 관리하는 것은 사용자의 책임입니다. Oracle의 경우 데이터베이스는 온라인 백업을 허용하는 archivelog 모드에 있어야 하며, 적절한 데이터베이스 시작 및 종료 백업 명령은 사용자가 만들고 유지 관리해야 하는 사전 및 사후 스크립트에서 실행됩니다. 
 
-이제 Azure Backup은 [향상된 사전 스크립트 및 사후 스크립트 프레임워크](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts)(현재 미리 보기 상태)를 제공합니다. 여기서 Azure Backup 서비스는 선택한 애플리케이션에 대해 패키지된 사전 스크립트 및 사후 스크립트를 제공합니다. Azure Backup 사용자는 애플리케이션 이름만 지정하면 됩니다. 그러면 Azure VM 백업에서 관련 사전 스크립트 및 사후 스크립트를 자동으로 호출합니다. 패키지된 사전 스크립트 및 사후 스크립트는 Azure Backup 팀에서 유지 관리하므로 사용자는 이러한 스크립트의 지원, 소유권 및 유효성을 보장할 수 있습니다. 현재 향상된 프레임워크에 대해 지원되는 애플리케이션은 Oracle 및 MySQL이며 나중에 더 많은 애플리케이션 유형이 지원될 예정입니다. 스냅샷은 증분 또는 쓰기 중 복사 스냅샷이 아니라 스토리지의 전체 복사본이므로 데이터베이스를 복원할 수 있는 효과적인 매체입니다.
+이제 Azure Backup는 향상 된 [사전 스크립트 및 사후 스크립트 프레임 워크](../../../backup/backup-azure-linux-database-consistent-enhanced-pre-post.md)를 제공 하 고 있습니다 .이 프레임 워크는 이제 Azure Backup 서비스가 패키지 된 사전 스크립트와 선택한 응용 프로그램에 대 한 사후 스크립트를 제공 합니다. Azure Backup 사용자는 애플리케이션 이름만 지정하면 됩니다. 그러면 Azure VM 백업에서 관련 사전 스크립트 및 사후 스크립트를 자동으로 호출합니다. 패키지된 사전 스크립트 및 사후 스크립트는 Azure Backup 팀에서 유지 관리하므로 사용자는 이러한 스크립트의 지원, 소유권 및 유효성을 보장할 수 있습니다. 현재 향상된 프레임워크에 대해 지원되는 애플리케이션은 Oracle 및 MySQL이며 나중에 더 많은 애플리케이션 유형이 지원될 예정입니다. 스냅샷은 증분 또는 쓰기 중 복사 스냅샷이 아니라 스토리지의 전체 복사본이므로 데이터베이스를 복원할 수 있는 효과적인 매체입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

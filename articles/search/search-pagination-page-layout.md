@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/29/2021
-ms.openlocfilehash: 8a1707460ac4543d80909ad11e48267819c00aae
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: 88c5efa3192c6cce63c4fc46df4bab0940add167
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133265079"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133357682"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 결과 작업 방법
 
@@ -93,9 +93,9 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 
 ## <a name="ordering-results"></a>결과 정렬
 
-Azure Cognitive Search에서는 검색 점수, 의미 체계 점수 ( [의미 체계 검색](semantic-search-overview.md)을 사용 하는 경우) 또는 **`$orderby`** 쿼리 요청에서 식에 따라 결과의 순위를 지정할 수 있습니다.
+전체 텍스트 검색 쿼리에서 결과는 검색 점수, 의미 체계 다시 ranker 점수 ( [의미 체계 검색](semantic-search-overview.md)을 사용 하는 경우) 또는 **`$orderby`** 쿼리 요청에서 식으로 순위를 지정할 수 있습니다.
 
-@search.score1.00에 해당 하는 결과 집합은 점수가 매겨지지 않거나 순위가 지정 되지 않은 결과 집합을 나타냅니다. 여기서 1.0 점수는 모든 결과에서 균일 합니다. 점수를 매긴 결과는 쿼리 양식이 유사 항목 검색, 와일드 카드 또는 regex 쿼리 또는 필터 식일 때 발생 합니다. 점수를 매긴 결과에 대해 순위 구조를 적용 해야 하는 경우 **`$orderby`** 식이 해당 목표를 달성 하는 데 도움이 됩니다.
+@search.score1.00에 해당 하는 결과 집합은 점수가 매겨지지 않거나 순위가 지정 되지 않은 결과 집합을 나타냅니다. 여기서 1.0 점수는 모든 결과에서 균일 합니다. 점수를 매긴 결과는 쿼리 양식이 유사 항목 검색, 와일드 카드 또는 regex 쿼리 또는 빈 검색 () 인 경우에 발생 `search=*` 합니다. 점수를 매긴 결과에 대해 순위 구조를 적용 해야 하는 경우 **`$orderby`** 식이 해당 목표를 달성 하는 데 도움이 됩니다.
 
 전체 텍스트 검색 쿼리의 경우 문서의 용어 빈도 및 근접성([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)에서 파생)에 따라 계산된 검색 점수에 따라 결과의 순위를 자동으로 지정하며, 검색어와 일치 항목이 더 많거나 일치 수준이 높을수록 문서에 더 높은 점수를 부여합니다.
 
@@ -143,7 +143,7 @@ POST /indexes/good-books/docs/search?api-version=2020-06-30
 
 2020 년 7 월 15 일 이전에 생성 된 검색 서비스는 구 쿼리를 위한 다양 한 강조 표시 환경을 구현 합니다.
 
-2020년 7월 이전에는 구의 용어가 강조 표시되어 있습니다.
+7 월 2020 이전에는 구의 모든 용어가 강조 표시 됩니다.
 
   ```json
   "@search.highlights": {
@@ -152,7 +152,7 @@ POST /indexes/good-books/docs/search?api-version=2020-06-30
      ]
   ```
 
-2020년 7월 이후에는 전체 구 쿼리와 일치하는 구문만 " @search.highlights ":
+7 월 2020 일 후에는 전체 구 쿼리와 일치 하는 구가 ""로 반환 됩니다 @search.highlights .
 
   ```json
   "@search.highlights": {
@@ -167,6 +167,6 @@ POST /indexes/good-books/docs/search?api-version=2020-06-30
 
 + 포털에서 [애플리케이션 생성기](search-create-app-portal.md)는 검색 창 및 패싯 탐색과, 이미지가 있는 결과 영역을 포함하는 HTML 페이지를 만듭니다.
 
-+ [C#에서 첫 번째 앱 만들기는](tutorial-csharp-create-first-app.md) 기능 클라이언트를 빌드하는 자습서 및 코드 샘플입니다. 샘플 코드는 페이지가 매겨진 쿼리, 적중 항목 강조 표시 및 정렬을 보여줍니다.
++ [C #에서 첫 번째 앱 만들기](tutorial-csharp-create-first-app.md) 는 함수형 클라이언트를 빌드하는 자습서 및 코드 샘플입니다. 샘플 코드는 페이지가 매겨진 쿼리, 적중 항목 강조 표시 및 정렬을 보여줍니다.
 
-+ [웹앱에 검색 추가는](tutorial-csharp-overview.md) 사용자 환경을 위해 React JavaScript 라이브러리를 사용하는 자습서 및 코드 샘플입니다. 앱은 Azure Static Web Apps 사용하여 배포됩니다.
++ [웹 앱에 검색 추가](tutorial-csharp-overview.md) 는 사용자 환경에 React JavaScript 라이브러리를 사용 하는 자습서 및 코드 샘플입니다. 앱은 Azure Static Web Apps를 사용 하 여 배포 됩니다.

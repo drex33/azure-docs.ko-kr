@@ -2,21 +2,21 @@
 title: 전용 SQL 풀 Azure Advisor 권장 사항
 description: Synapse SQL 권장 사항 및 생성 방법에 대해 알아보기
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 06/26/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e747c6ab94f76411cf727bc46637798e903772b6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 4878a32fa9c10b8abed8beb4949afbf4c3e722dc
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123537691"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133356617"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀에 대한 Azure Advisor 권장 사항
 

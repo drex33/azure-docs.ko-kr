@@ -2,20 +2,20 @@
 title: '빠른 시작: Azure PowerShell을 사용하여 Synapse 작업 영역 만들기'
 description: 이 가이드의 단계에 따라 Azure PowerShell을 사용하여 Azure Synapse 작업 영역을 만듭니다.
 services: synapse-analytics
-author: rothja
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 10/19/2020
-ms.author: jroth
+ms.author: wiassaf
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell, mode-api
-ms.openlocfilehash: f3b04761630dae5f3f336ff4493985665789a7a4
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 79eb7d5aec5f182151bfea7bc054a8e91d8b2389
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133073451"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133359912"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Synapse 작업 영역 만들기
 

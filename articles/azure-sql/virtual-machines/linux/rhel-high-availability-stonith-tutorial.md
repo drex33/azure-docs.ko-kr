@@ -6,14 +6,13 @@ ms.subservice: ''
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 66e07130084b6a17521c215e8727df2bfd5ac326
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a8c41cd6ece86e73e6a1da2084b45c04a593b86e
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661358"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364445"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -948,7 +947,7 @@ SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.d
 [Pacemaker 클러스터에서 가용성 그룹 리소스 만들기](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only)의 지침을 따릅니다.
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *slave* 에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *슬레이브* 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 ### <a name="create-the-ag-cluster-resource"></a>AG 클러스터 리소스 만들기
 

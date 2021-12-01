@@ -6,14 +6,14 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.openlocfilehash: 18e3c5ef5d9cb0316118e38f2ffb8dccc8c06fd7
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+author: VanMSFT
+ms.author: vanto
+ms.openlocfilehash: a00e783979d9d4b2d10eaaec2fa8836c597e6841
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132064468"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133355360"
 ---
 # <a name="azure-sql-database-audit-events-with-ledger-enabled-tables"></a>원장 사용 테이블이 포함된 Azure SQL Database 감사 이벤트
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 11/15/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 326e014402a43c1adf9f44aa10bc6d4c477a1cd1
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 9714c83af2f62cb12ddb31b5290edeef6a2663bf
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132940110"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133358371"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>블록 BLOB에 대한 특정 시점 복원
 
@@ -84,6 +84,7 @@ Azure Storage는 요청된 복원 지점(UTC 시간)과 현재 시점 사이의 
 - 불변성 정책을 구성한 경우 복원 작업을 시작할 수 있지만, 불변성 정책에 따라 보호되는 모든 Blob은 수정되지 않습니다. 이 경우 복원 작업 시 지정된 날짜 및 시간에 일관된 상태로 복원되지 않습니다.
 - [블록 배치](/rest/api/storageservices/put-block) 또는 [URL의 블록 배치](/rest/api/storageservices/put-block-from-url)를 통해 업로드되었지만 [블록 목록 배치](/rest/api/storageservices/put-block-list)를 통해 커밋되지는 않은 블록은 BLOB의 일부가 아니므로 복원 작업의 일부로 복원되지 않습니다.
 - 활성 임대가 있는 BLOB은 복원할 수 없습니다. 활성 임대가 있는 BLOB이 복원할 BLOB 범위에 포함된 경우 복원 작업이 원자 방식으로 실패합니다. 복원 작업을 시작하기 전에 활성 임대를 중단합니다.
+- 스토리지 계정에서 고객 관리 장애 조치(failover)를 수행하면 해당 스토리지 계정에 대해 가능한 가장 빠른 복원 지점이 다시 설정됩니다. 예를 들어 보존 기간을 30일로 설정했다고 가정합니다. 장애 조치(failover) 이후 30일이 경과한 경우 해당 30일 내의 모든 지점으로 복원할 수 있습니다. 그러나 장애 조치(failover) 이후 30일 미만이 경과한 경우 보존 기간에 관계없이 장애 조치(failover) 이전 시점으로 복원할 수 없습니다. 예를 들어 장애 조치(failover) 후 10일이 지난 경우 가능한 가장 빠른 복원 지점은 과거의 30일이 아닌 10일입니다.  
 - 스냅샷은 복원 작업의 일부로 생성되거나 삭제되지 않습니다. 기본 BLOB만 이전 상태로 복원됩니다.
 - Azure Data Lake Storage Gen2 플랫 및 계층 구조 네임스페이스 복원은 지원되지 않습니다.
 
@@ -99,7 +100,7 @@ Azure Storage는 요청된 복원 지점(UTC 시간)과 현재 시점 사이의 
 | 표준 범용 v2 | ![예](../media/icons/yes-icon.png) |![아니요](../media/icons/no-icon.png)              | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 | Premium 블록 Blob          | ![아니요](../media/icons/no-icon.png)|![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) | ![아니요](../media/icons/no-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2, NFS (네트워크 파일 시스템) 3.0 프로토콜 및 SFTP (SSH 파일 전송 프로토콜)는 계층 네임 스페이스가 사용 하도록 설정 된 저장소 계정이 필요 합니다.
+<sup>1</sup> Data Lake Storage Gen2, NFS(네트워크 파일 시스템) 3.0 프로토콜 및 SFTP(SSH 파일 전송 프로토콜) 지원은 모두 계층 구조 네임스페이스를 사용하도록 설정된 스토리지 계정이 필요합니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
@@ -115,5 +116,5 @@ Azure Storage는 요청된 복원 지점(UTC 시간)과 현재 시점 사이의 
 
 - [블록 BLOB 데이터에 특정 시점 복원 수행](point-in-time-restore-manage.md)
 - [Azure Blob Storage의 변경 피드 지원](storage-blob-change-feed.md)
-- [Blob에 일시 삭제를 사용하도록 설정](./soft-delete-blob-enable.md)
+- [Blob에 일시 삭제를 사용하도록 설정](soft-delete-blob-enable.md)
 - [Blob 버전 관리 설정 및 관리](versioning-enable.md)

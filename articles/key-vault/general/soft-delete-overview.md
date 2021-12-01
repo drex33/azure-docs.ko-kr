@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 03/31/2021
-ms.openlocfilehash: 88541f8467edacb2e1f757ede82c00d70fea845d
-ms.sourcegitcommit: 591ffa464618b8bb3c6caec49a0aa9c91aa5e882
+ms.openlocfilehash: b1b8f26280f23c055910f40858ebde1a3787241e
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2021
-ms.locfileid: "131893864"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133364160"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 일시 삭제 개요
 
@@ -20,7 +20,7 @@ ms.locfileid: "131893864"
 > 키 자격 증명 모음에서 일시 삭제를 사용하도록 즉시 설정해야 합니다. 일시 삭제를 옵트아웃하는 기능은 곧 사용되지 않습니다. 전체 세부 정보는 [여기](soft-delete-change.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 일시 삭제된 자격 증명 모음은 Key Vault 서비스(예: Azure RBAC 역할 할당, Event Grid 구독)와 통합하기 위한 삭제 설정을 트리거합니다. 일시 삭제한 키 자격 증명 모음을 복구하고 나면 통합 서비스에 대한 Key Vault 설정을 수동으로 다시 만들어야 합니다. 
+> Key Vault 일시 삭제 되 면 Key Vault와 통합 된 서비스가 삭제 됩니다. 예: Azure RBAC 역할 할당 및 Event Grid 구독. 일시 삭제 된 Key Vault를 복구 해도 이러한 서비스는 복원 되지 않습니다. 다시 만들어야 합니다.
 
 Key Vault의 일시 삭제 기능을 이용하면 삭제한 자격 증명 모음과 삭제한 자격 증명 모음 개체(예: 키, 비밀, 인증서)을 복구할 수 있으며, 이러한 삭제를 일시 삭제라고 합니다. 구체적으로 이 기능은 다음 시나리오를 해결합니다 .이 보호 장치는 다음과 같은 보호 기능을 제공합니다.
 
@@ -44,7 +44,7 @@ Azure Key Vault는 Azure Resource Manager에서 관리하는 추적된 리소스
 
 일시 삭제를 사용하도록 설정하면 삭제된 리소스로 표시된 리소스는 지정된 기간(기본값은 90일) 동안 보존됩니다. 또한 서비스는 삭제된 개체를 복구하고 기본적으로 삭제를 취소하는 메커니즘을 제공합니다.
 
-새 키 자격 증명 모음을 만들 때 일시 삭제는 기본적으로 사용 설정됩니다. 키 자격 증명 모음에서 일시 삭제를 사용하도록 설정하면 사용하지 않도록 설정할 수 없습니다.
+새 키 자격 증명 모음을 만들 때 일시 삭제는 기본적으로 사용 설정됩니다. 키 자격 증명 모음에 대해 일시 삭제를 사용 하도록 설정 하면 사용 하지 않도록 설정할 수 없습니다.
 
 기본 보존 기간은 90일이지만 키 자격 증명 모음을 만드는 동안 Azure Portal에서 보존 정책 간격을 7일에서 90일 사이의 값으로 설정할 수 있습니다. 제거 보호 보존 정책은 동일한 간격을 사용합니다. 설정되면 보존 정책 간격을 변경할 수 없습니다.
 

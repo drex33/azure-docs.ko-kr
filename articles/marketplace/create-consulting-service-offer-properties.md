@@ -3,17 +3,17 @@ title: 상업용 Marketplace에 대한 컨설팅 서비스 제안 속성 구성
 description: 파트너 센터 사용하여 상업용 Marketplace에서 컨설팅 서비스 제안 속성을 구성합니다.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: emuench
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.openlocfilehash: ec57245e1f3c0381bb362183122904b86af70473
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.date: 11/30/2021
+ms.openlocfilehash: aa3b52e4a238c1e5dbb1bcb91afc0329c2ba769d
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131015222"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133366907"
 ---
 # <a name="configure-consulting-service-offer-properties"></a>컨설팅 서비스 제안 속성 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "131015222"
 
 ## <a name="select-the-primary-product"></a>기본 제품 선택
 
-**기본 제품** 드롭다운 목록에서 컨설팅 서비스 제품에 중점을 둘 Microsoft 제품을 선택합니다. 선택한 제품에 따라 제품을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 여부가 결정됩니다. 제안을 정확하게 표시하면 고객이 제안을 더 쉽게 찾을 수 있습니다. 선택한 제품에 대한 자격 [요구 사항을](./plan-consulting-service-offer.md#eligibility-requirements) 충족해야 합니다. 
+**기본 제품** 드롭다운 목록에서 컨설팅 서비스 제품에 중점을 둘 Microsoft 제품을 선택합니다. 선택한 제품에 따라 제품을 Microsoft AppSource 또는 Azure Marketplace에 게시할지 여부가 결정됩니다. 제안을 정확하게 표현하면 고객이 제안을 더 쉽게 찾을 수 있습니다. 선택한 제품에 대한 자격 [요구 사항을](./plan-consulting-service-offer.md#eligibility-requirements) 충족해야 합니다. 
 
 - Azure를 선택하면 제품이 Azure Marketplace에 나열됩니다. 제안을 가장 잘 나타내는 최대 3개의 **솔루션 영역을** 선택합니다.
 - Microsoft 365 선택하는 경우 제안을 가장 잘 나타내는 최대 3개의 **솔루션 영역도** 선택합니다. 이 제안은 Microsoft AppSource 나열됩니다.

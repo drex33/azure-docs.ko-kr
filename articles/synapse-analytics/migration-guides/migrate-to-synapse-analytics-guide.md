@@ -6,16 +6,16 @@ ms.subservice: sql
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: julieMSFT
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: fcd2b4adf6387398d05a26abefd567c1375c92f2
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: b81b9898be4e6d02465f7e86fa887d4cfc490a0e
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619296"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133366926"
 ---
 # <a name="migrate-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀로 데이터 웨어하우스 마이그레이션
 

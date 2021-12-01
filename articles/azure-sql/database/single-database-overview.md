@@ -7,16 +7,16 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: fb607461e446ee44a92cee8e6dff60e8c2e6dd45
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: e928e7e3efca2af735d1f6378e5c57cfc6cd4a87
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132546497"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133367746"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

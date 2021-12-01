@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/30/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 5a388464775f623c06c40edfdac7f1a1105cee0a
-ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
+ms.openlocfilehash: 3c0792c549541e3ac437283dc36f8b1b568c09f6
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133312838"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133356794"
 ---
 # <a name="access-your-application-in-a-private-network"></a>개인 네트워크에서 애플리케이션에 액세스
 
@@ -207,7 +207,7 @@ az spring-cloud app update \
 
 ## <a name="access-application-private-fqdn"></a>애플리케이션 프라이빗 FQDN 액세스
 
-할당 후 개인 네트워크에서 응용 프로그램의 개인 FQDN에 액세스할 수 있습니다. 예를 들어 동일한 가상 네트워크 또는 피어 링 가상 네트워크에서 jumpbox 컴퓨터를 만들 수 있습니다. 그런 다음 해당 jumpbox 또는 가상 머신에서 개인 FQDN에 액세스할 수 있습니다.
+할당 후 개인 네트워크의 응용 프로그램의 개인 FQDN에 액세스할 수 있습니다. 예를 들어 동일한 가상 네트워크 또는 피어 링 가상 네트워크에서 jumpbox 컴퓨터를 만들 수 있습니다. 그런 다음 해당 jumpbox 또는 가상 머신에서 개인 FQDN에 액세스할 수 있습니다.
 
 ![VNet에서 프라이빗 엔드포인트 액세스](media/spring-cloud-access-app-vnet/access-private-endpoint.png)
 

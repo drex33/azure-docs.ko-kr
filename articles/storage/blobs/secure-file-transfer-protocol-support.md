@@ -9,12 +9,12 @@ ms.date: 11/15/2021
 ms.custom: references_regions
 ms.author: normesta
 ms.reviewer: ylunagaria
-ms.openlocfilehash: 1396c811bb2c18366c7690ba587a893401430af9
-ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.openlocfilehash: 96f61b790b2742ab64dcc7bebed40ad9230378c3
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133288584"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133361171"
 ---
 # <a name="ssh-file-transfer-protocol-sftp-support-for-azure-blob-storage-preview"></a>Azure Blob Storage(미리 보기)에 대한 SFTP(SSH 파일 전송 프로토콜) 지원
 
@@ -110,8 +110,6 @@ SFTP 지원은 다음 지역에서 제공 됩니다.
 
 - 미국 중북부
 - 미국 동부 2
-- 미국 동부 2 EUAP (EUAP 프로그램에 참여 해야 합니다. CSA 또는 CSAM에 연결)
-- 미국 중부 EUAP (EUAP 프로그램에 참여 해야 합니다.-CSA 또는 CSAM에 연결)
 - 캐나다 동부
 - 캐나다 중부
 - 북유럽
@@ -128,7 +126,7 @@ SFTP 지원은 다음 지역에서 제공 됩니다.
 
 트랜잭션 및 저장소 비용은 저장소 계정 유형, 저장소 계정에 데이터를 전송 하는 데 사용 하는 끝점 등의 요소를 기반으로 합니다. 자세히 알아보려면 [Azure Blob Storage의 전체 청구 모델 이해](../common/storage-plan-manage-costs.md#understand-the-full-billing-model-for-azure-blob-storage)를 참조 하세요.
 
-## <a name="see-also"></a>추가 정보
+## <a name="see-also"></a>참조
 
 - [Azure Blob Storage 커넥트 파일 전송 프로토콜 (SFTP) (미리 보기)를 사용 하 여](secure-file-transfer-protocol-support-how-to.md)
 - [Azure Blob Storage (미리 보기)에서 제공 되는 파일 전송 프로토콜 (SFTP)의 알려진 문제](secure-file-transfer-protocol-known-issues.md)

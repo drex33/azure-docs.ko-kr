@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: e89f449d62a86d8a935647d0a60af25415f65b85
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 5ed6abf150e6660b7acd96e91fd22622a69a1373
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132058338"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133357116"
 ---
 # <a name="create-a-query-that-invokes-semantic-ranking-and-returns-semantic-captions"></a>의미론적 순위를 호출하고 의미론적 캡션을 반환하는 쿼리 만들기
 
@@ -98,7 +98,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 다음 테이블은 의미 체계 쿼리에서 사용되는 매개 변수를 요약합니다. 요청 내 모든 매개 변수 목록은 [문서 검색(REST 미리 보기)](/rest/api/searchservice/preview-api/search-documents)을 참조하세요.
 
-| 매개 변수 | 형식 | Description |
+| 매개 변수 | Type | Description |
 |-----------|-------|-------------|
 | queryType | String | 유효한 값은 simple, full, semantic입니다. 의미 체계 쿼리에는 "semantic" 값이 필요합니다. |
 | queryLanguage | String | 의미 체계 쿼리에 필요합니다. 지정한 어휘집은 의미 체계 순위 지정, 캡션, 답변, 맞춤법 검사에 동일하게 적용됩니다. 자세한 내용은 [지원되는 언어(REST API 참조)](/rest/api/searchservice/preview-api/search-documents#queryLanguage)를 참조하세요. |
@@ -165,11 +165,11 @@ SearchFields 설정 시, 다음의 [지원되는 데이터 형식](/rest/api/sea
 
 #### <a name="step-3-remove-or-bracket-query-features-that-bypass-relevance-scoring"></a>3단계: 관련성 점수 매기기를 바이패스하는 쿼리 기능을 제거하거나 대괄호로 묶습니다.
 
-Cognitive Search의 여러 쿼리 기능은 관련성 점수 매기기를 거치지 않으며 일부 쿼리 기능은 전체 텍스트 검색 엔진을 모두 무시합니다. 쿼리 논리에 다음 기능이 포함된 경우 결과에 대한 관련성 점수 또는 의미 체계 순위 지정을 받을 수 없습니다.
+Cognitive Search의 여러 쿼리 기능은 관련성 점수 매기기를 거치지 않으며 일부 쿼리 기능은 전체 텍스트 검색 엔진을 모두 무시합니다. 쿼리 논리에 다음과 같은 기능이 포함된 경우 결과의 의미 체계 재순위 순위에 포함되는 관련성 점수가 퇴사되지 않습니다.
 
-+ 필터, 모호성 검색 쿼리 및 정규식은 토큰화되지 않은 텍스트를 반복하여 콘텐츠에서 축자와 일치하는 항목을 검색합니다. 위의 모든 쿼리 형식에 대한 검색 점수는 균일한 1.0이며 의미 체계 순위 지정을 위한 의미 있는 입력을 제공하지 않습니다.
++ 빈 검색( `search=0` ), 와일드카드 검색, 모호성 검색 및 정규식은 토큰화되지 않은 텍스트를 반복하여 콘텐츠에서 축자와 일치하는 항목을 검색하고 점수가 매칭되지 않은 결과 집합을 반환합니다. 점수가 없는 결과 집합은 각 일치에서 균일한 1.0을 할당하며 의미 체계 순위에 의미 있는 입력을 제공하지 않습니다. 최대 50개 문서가 여전히 순위 다시 매기기로 전달되지만 문서 선택은 임의로 지정됩니다.
 
-+ 특정 필드에 대한 정렬(orderBy 절)도 검색 점수 및 의미 체계 점수를 재정의합니다. 의미 체계 점수를 사용 하 여 결과를 정렬 하는 경우 명시적 정렬 논리를 비롯 하 여 HTTP 400 오류가 반환 됩니다.
++ 특정 필드에 대한 정렬(orderBy 절)도 검색 점수 및 의미 체계 점수를 재정의합니다. 의미 체계 점수가 결과를 정렬하는 데 사용된다는 점을 고려할 때 명시적 정렬 논리를 포함하면 HTTP 400 오류가 반환됩니다.
 
 #### <a name="step-4-add-answers"></a>4단계: 답변 추가
 

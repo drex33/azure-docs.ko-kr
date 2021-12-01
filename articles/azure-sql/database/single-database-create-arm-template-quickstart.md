@@ -6,15 +6,15 @@ ms.service: sql-database
 ms.subservice: deployment-configuration
 ms.custom: subject-armqs sqldbrb=1, devx-track-azurepowershell, mode-arm
 ms.topic: quickstart
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.date: 06/24/2020
-ms.openlocfilehash: a2c94a9ae46da5fb6be2cbc51a418af45bddf880
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: c002660d93ab1e43f6b4ef6fab9827aa0ef18ed7
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133068556"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133358873"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 

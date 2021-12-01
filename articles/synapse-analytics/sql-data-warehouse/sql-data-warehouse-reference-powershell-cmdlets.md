@@ -2,21 +2,21 @@
 title: 전용 SQL 풀(이전의 SQL DW)용 PowerShell 및 REST API
 description: 데이터베이스를 일시 중지하고 계속하는 방법을 포함한 Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 주요 PowerShell cmdlets.
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/17/2018
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 8a056be34b9771188fb88e4d1f7db78eb82d1b4e
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
-ms.translationtype: HT
+ms.openlocfilehash: 2847283262630e539eea3ce691229075320da03d
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162404"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133368174"
 ---
 # <a name="powershell--rest-apis-for-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics용 전용 SQL 풀(이전의 SQL DW)을 위한 PowerShell 및 REST API
 

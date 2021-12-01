@@ -2,13 +2,13 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 11/09/2021
-ms.openlocfilehash: 868fa30779048447014fa0e7b048d6de8051931c
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.date: 11/30/2021
+ms.openlocfilehash: 8149f921bf44f6b807412fee51832de711840520
+ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132137543"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133355646"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
@@ -28,7 +28,7 @@ ms.locfileid: "132137543"
 * **0**~**9**(숫자)
 
 > [!NOTE]
-> 퍼블릭 엔드포인트가 있는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단된 단어 목록은 [예약된 리소스 이름 오류 해결을 참조하세요.](../templates/error-reserved-resource-name.md)
+> 공용 끝점을 사용 하는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단 된 단어 목록은 [예약 된 리소스 이름 오류 해결](../templates/error-reserved-resource-name.md)을 참조 하세요.
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
@@ -195,7 +195,7 @@ ms.locfileid: "132137543"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | communicationServices | 글로벌 | 1-63 | 영숫자 및 하이픈<br><br>밑줄을 사용할 수 없습니다. |
+> | communicationServices | 글로벌 | 1-63 | 영숫자 및 하이픈<br><br>밑밑을 사용할 수 없습니다. |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -757,10 +757,10 @@ ms.locfileid: "132137543"
 > [!NOTE]
 > 웹 사이트에는 전역적으로 고유한 URL이 있어야 합니다. 호스팅 계획을 사용하는 웹 사이트를 만드는 경우 URL은 `http://<app-name>.azurewebsites.net`입니다. 앱 이름은 전역적으로 고유해야 합니다. App Service Environment를 사용하는 웹 사이트를 만들 때 앱 이름은 [App Service Environment용 도메인](../../app-service/environment/using-an-ase.md#app-access)내에서 고유해야 합니다. 두 경우 모두 사이트의 URL은 전역적으로 고유합니다.
 >
-> Azure Functions에는 Microsoft.Web/sites와 동일한 명명 규칙 및 제한 사항이 있습니다.
+> Azure Functions에는 Microsoft.Web/sites와 동일한 명명 규칙 및 제한 사항이 있습니다. 그러나 Azure Functions Core Tools 버전 4.x 이전에는 호스트 ID를 생성할 때 함수 이름이 32 자로 잘렸습니다. 버전 4.x의 경우에는이 제한이 더 이상 적용 되지 않습니다. 이전 버전의 경우 이름 충돌을 방지 하기 위해 함수 이름을 32 자로 제한 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 리소스 이름을 표시하는 방법에 대한 권장 사항은 [준비: 권장 명명 및 태그 지정 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요.
 
-* 퍼블릭 엔드포인트가 있는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단된 단어 목록은 [예약된 리소스 이름 오류 해결을 참조하세요.](../templates/error-reserved-resource-name.md)
+* 공용 끝점을 사용 하는 모든 리소스는 이름에 예약어 또는 상표를 포함할 수 없습니다. 차단 된 단어 목록은 [예약 된 리소스 이름 오류 해결](../templates/error-reserved-resource-name.md)을 참조 하세요.

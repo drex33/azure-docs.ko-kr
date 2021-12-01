@@ -8,12 +8,12 @@ ms.author: nicktrog
 ms.custom: include file
 ms.topic: include
 ms.date: 11/30/2021
-ms.openlocfilehash: c93dfacbe5a495ef3fad7729cce75934594d9921
-ms.sourcegitcommit: 845eb7b0ed05ef2f0dfa6f054eaf5f32c780567c
+ms.openlocfilehash: 70a5342285bba1afc11f776d923997b11eee6a13
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/30/2021
-ms.locfileid: "133304140"
+ms.locfileid: "133316109"
 ---
 1. Azure 구독에 대한 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -65,3 +65,4 @@ ms.locfileid: "133304140"
 
     > [!IMPORTANT]
     > Azure 역할을 할당 하려면 `Microsoft.Authorization/roleAssignments/write` [사용자 액세스 관리자](/azure/role-based-access-control/built-in-roles#user-access-administrator) 또는 [소유자](/azure/role-based-access-control/built-in-roles#owner)와 같은 사용 권한이 있어야 합니다.
+    > 계정에 대해 역할 할당을 활성화 하는 데 몇 분 정도 걸릴 수 있습니다. 업데이트 된 사용 권한을 반영 하도록 사용자 인터페이스에 대 한 웹 페이지를 새로 고칩니다.

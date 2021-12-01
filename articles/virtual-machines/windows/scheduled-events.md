@@ -11,12 +11,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f39cefa300b334c3df433461fa5ea1bb2c84eb8a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 8ed40d10cf088c3d4f577013462358f1141486b2
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698656"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133312648"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata 서비스: Windows VM의 예약된 이벤트
 
@@ -245,3 +245,4 @@ if __name__ == '__main__':
 - [Azure 인스턴스 메타데이터 예약된 이벤트 GitHub 리포지토리](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)에서 예약된 이벤트 코드 샘플을 검토합니다.
 - [인스턴스 메타데이터 서비스](instance-metadata-service.md)에서 사용 가능한 API에 대해 자세히 알아봅니다.
 - [Azure에서 Windows 가상 머신에 대한 계획된 유지 관리](../maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json)에 대해 알아봅니다.
+- [Log Analytics를 통해 vm에 대 한 예약 된 이벤트를 모니터링](./scheduled-event-service.md)하는 방법을 알아봅니다.

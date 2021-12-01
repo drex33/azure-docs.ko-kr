@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: cynthn
 ms.subservice: cloud-init
-ms.openlocfilehash: a5bd15f19cd641ce7c10ea932084d36cca0d7901
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: bee48747ffbc293783bb8a5c061bfb68329f40f1
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687903"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133312515"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>cloud-init를 사용하여 Azure의 Linux VM에서 패키지 업데이트 및 설치
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location eastus
 az vm create \
   --resource-group myResourceGroup \
   --name centos74 \
-  --image OpenLogic:CentOS:7-CI:latest \
+  --image OpenLogic:CentOS:7.5:latest \
   --custom-data cloud_init_upgrade.txt \
   --generate-ssh-keys 
 ```

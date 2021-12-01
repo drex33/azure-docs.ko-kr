@@ -8,16 +8,19 @@ ms.author: ninallam
 author: ninallam
 ms.date: 11/30/2021
 ms.topic: tutorial
-ms.openlocfilehash: a713c20a30610188a15a6b6f9f5a11dfcd2e40e4
-ms.sourcegitcommit: 845eb7b0ed05ef2f0dfa6f054eaf5f32c780567c
+ms.openlocfilehash: accbdc57c796cf7c88e993d28829e5327d96a194
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/30/2021
-ms.locfileid: "133304100"
+ms.locfileid: "133312762"
 ---
 # <a name="tutorial-identify-performance-regressions-with-github-actions-and-azure-load-testing-preview"></a>자습서: GitHub 작업 및 Azure 부하 테스트 미리 보기를 사용 하 여 성능 재발 식별
 
 이 자습서에서는 Azure 부하 테스트 미리 보기 및 GitHub 작업을 사용 하 여 성능 재발 테스트를 자동화 하는 방법을 알아봅니다. GitHub 작업 CI/CD 워크플로를 구성 하 여 샘플 웹 응용 프로그램에 대 한 부하 테스트를 실행 한 다음 결과를 사용 하 여 성능 재발을 식별 합니다.
+
+> [!IMPORTANT]
+> Azure 부하 테스트에 대 한 GitHub 작업에 알려진 문제가 있으며,이로 인해 GitHub 작업 워크플로가 실패 합니다. 최신 상태 업데이트에 대 한 [Azure 부하 테스트의 알려진 문제](https://github.com/microsoft/azure-load-testing/wiki/Known-Issues-for-public-preview#error-unable-to-resolve-action-azureload-testing-repository-not-found-while-running-github-action-for-azure-load-testing) 를 확인 합니다.
 
 CI/CD 워크플로에 대 한 Azure Pipelines를 사용 하는 경우 해당 [Azure Pipelines 자습서](./tutorial-cicd-azure-pipelines.md)를 참조 하세요.
 

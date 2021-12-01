@@ -7,16 +7,16 @@ ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
 ms.custom: template-how-to
-ms.openlocfilehash: 644572ccfcc8ee0218e472757073588f2b47d4c5
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 64d091076d73e131401e7f7a143e1cc8bdca2b34
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114452682"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133312667"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Windows Desktop 클라이언트와 연결
 
-Windows 데스크톱 클라이언트를 사용하여 Windows 10, Windows 10 IoT Enterprise, Windows 7이 설치된 디바이스의 Azure Virtual Desktop 리소스에 액세스할 수 있습니다. 
+Windows 데스크톱 클라이언트를 사용 하 여 Windows 11, Windows 10, Windows 10 IoT Enterprise 및 Windows 7 인 장치에서 Azure 가상 데스크톱 리소스에 액세스할 수 있습니다. 
 
 > [!IMPORTANT]
 > Windows 8 또는 Windows 8.1은 이 방법에서 지원되지 않습니다.

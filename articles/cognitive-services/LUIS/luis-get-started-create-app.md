@@ -6,12 +6,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/20/2021
 ms.custom: ignite-fall-2021, mode-other
-ms.openlocfilehash: 5c85332cf4b3a62ece353e9111c6c981225ba679
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 8b570cc8443c9470b2cadad893a510262d8ea902
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133076126"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133312686"
 ---
 # <a name="quickstart-build-your-app-in-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 빌드
 
@@ -116,7 +116,7 @@ LUIS는 애플리케이션을 시작하는 데 도움이 될 수 있는 미리 �
 
 1. 왼쪽 탐색 메뉴에서 **엔터티** 를 선택합니다.
 2. **만들기** 를 선택합니다.
-3. 의도 이름(`HomeAutomation.DeviceAlias`)을 입력하고 **유형** 에서 학습한 머신을 선택한 다음, **만들기** 를 선택합니다.
+3. 엔터티 이름을 입력 하 `HomeAutomation.DeviceAlias` 고 **유형** 에서 얻은 컴퓨터를 선택한 다음 **만들기** 를 선택 합니다.
 
 ### <a name="add-example-utterances"></a>예제 발화 추가
 

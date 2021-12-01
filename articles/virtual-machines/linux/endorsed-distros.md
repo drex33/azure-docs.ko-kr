@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: guybo
-ms.openlocfilehash: e8694e218bdab1085a35ed65f7a8b1d09d7b0fc4
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 4774f1262cdf1952128ebf387a2168c2db9bc5f5
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455629"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133312496"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Azure 보증 Linux 배포판
 
@@ -77,10 +77,7 @@ credativ는 무료 소프트웨어를 사용하여 전문 솔루션의 개발 �
 ### <a name="kinvolk"></a>Kinvolk
 [https://www.flatcar-linux.org/](https://www.flatcar-linux.org/)
 
-Kinvolk는 Flatcar Container Linux를 지원하는 회사로, 컨테이너화된 애플리케이션에 대한 최소, 변경 불가, 자동 업데이트를 위해 기존 CoreOS 비전을 계속 사용합니다. 최소 배포판인 Flatcar에는 컨테이너를 배포하는 데 필요한 패키지만 포함되어 있습니다. 변경 불가 파일 시스템은 일관성과 보안을 보장하는 반면, 자동 업데이트 기능을 사용하면 최신 보안 픽스를 사용하여 항상 최신 상태로 유지할 수 있습니다. 
-
-Flatcar Container Linux는 연중무휴 응답, 보안 및 기술 경고, 장기 지원 채널을 포함한 Azure에 최적화된 전용 이미지를 포함하는 선택적 상용 지원 구독을 제공하는 Kinvolk의 Linux 및 컨테이너 기술 전문가로 구성된 글로벌 팀이 지원합니다.
-
+Kinvolk는 Flatcar Container Linux를 기반으로 하는 팀으로, 컨테이너 화 된 응용 프로그램에 대 한 변경 불가능 한 최소 및 자동 업데이트 기반에 대해 원래 CoreOS 비전을 계속 합니다. 최소 배포판인 Flatcar에는 컨테이너를 배포하는 데 필요한 패키지만 포함되어 있습니다. 변경 불가 파일 시스템은 일관성과 보안을 보장하는 반면, 자동 업데이트 기능을 사용하면 최신 보안 픽스를 사용하여 항상 최신 상태로 유지할 수 있습니다. Kinvolk는 2021년 4월에 [Microsoft에서 인수되었으며,](https://azure.microsoft.com/blog/microsoft-acquires-kinvolk-to-accelerate-containeroptimized-innovation/) 인수 후 Flatcar Container Linux 커뮤니티를 지원하기 위한 임무를 계속 수행합니다.
 
 ### <a name="oracle"></a>Oracle
 

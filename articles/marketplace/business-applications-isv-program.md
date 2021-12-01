@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 11/19/2020
-ms.openlocfilehash: 233fc2d15ce4e80ed305fd38006b5a0fd9d3c5ab
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 11/29/2021
+ms.openlocfilehash: ad3afa54c98bc860a8d65da5b854ad46983d427a
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867006"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133312914"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) 연결 프로그램 온보딩 가이드
 

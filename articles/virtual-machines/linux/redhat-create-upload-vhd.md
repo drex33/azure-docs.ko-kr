@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.author: srijangupta
-ms.openlocfilehash: 63821abd7c17465286650fd61d552ba80d290099
-ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
+ms.openlocfilehash: fe90ddec29d65beb6ba2add23c2389108c4afd01
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132964228"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133312800"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure용 RedHat 기반 가상 머신 준비
 
@@ -240,7 +240,7 @@ ms.locfileid: "132964228"
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. 다음 명령을 실행하여 Azure Linux 에이전트, cloud-init, 기타 필요한 유틸리티를 설치합니다.
+1. 다음 명령을 실행 하 여 Azure Linux 에이전트, 클라우드 초기화 및 기타 필요한 유틸리티를 설치 합니다.
 
     ```console
     # sudo yum install -y WALinuxAgent cloud-init cloud-utils-growpart gdisk hyperv-daemons
@@ -429,7 +429,7 @@ ms.locfileid: "132964228"
     ClientAliveInterval 180
     ```
 
-1. 다음 명령을 실행하여 Azure Linux 에이전트, cloud-init, 기타 필요한 유틸리티를 설치합니다.
+1. 다음 명령을 실행하여 Azure Linux 에이전트, cloud-init 및 기타 필요한 유틸리티를 설치합니다.
 
     ```console
     # sudo yum install -y WALinuxAgent cloud-init cloud-utils-growpart gdisk hyperv-daemons
@@ -1360,8 +1360,7 @@ ms.locfileid: "132964228"
     yum install -y cloud-init cloud-utils-growpart gdisk hyperv-daemons
 
     # Configure waagent for cloud-init
-    sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
-    sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
+    sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-init/g' /etc/waagent.conf
     sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
 

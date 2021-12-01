@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 2d99dd4379251c66164637871e52a90c5d4413d4
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 2afd90281cd0b765c208a4d560306b048cf43c78
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132755244"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133312876"
 ---
 # <a name="prepare-a-sles-or-opensuse-leap-virtual-machine-for-azure"></a>Azure용 SLES 또는 openSUSE Leap 가상 머신 준비
 
@@ -78,7 +78,7 @@ ms.locfileid: "132755244"
 8. /etc/default/grub 파일을 편집하여 콘솔 로그가 직렬 포트로 전송되는지 확인한 다음 grub2-mkconfig -o /boot/grub2/grub.cfg를 사용하여 주 구성 파일을 업데이트합니다.
 
     ```config-grub
-    console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+    console=ttyS0 earlyprintk=ttyS0 
     ```
     이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다.
     
@@ -204,7 +204,7 @@ ms.locfileid: "132755244"
 6. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 작업을 수행하려면 "/boot/grub/menu.lst"를 텍스트 편집기에서 열고 다음 매개 변수가 기본 커널에 포함되어 있는지 확인합니다.
 
     ```config-grub
-     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+     console=ttyS0 earlyprintk=ttyS0 
     ```
 
    이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데 도움이 될 수 있습니다. 또한 커널 부팅 줄에 다음 매개 변수가 있는 경우 해당 매개 변수를 제거합니다.

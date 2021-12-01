@@ -4,12 +4,12 @@ description: 사용자 지정 Linux 컨테이너에서 첫 번째 함수 앱을 
 ms.topic: quickstart
 ms.date: 05/11/2021
 ms.custom: mode-other
-ms.openlocfilehash: 169f50ceefa96e36f96a0a0fdca679941930fc24
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: f450d2c55fcb70222b49a3565343cb37a6499e24
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133049321"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133312952"
 ---
 # <a name="create-your-first-function-on-azure-arc-using-a-custom-container-preview"></a>사용자 지정 컨테이너를 사용하여 Azure Arc 첫 번째 함수 만들기(미리 보기)
 
@@ -25,7 +25,7 @@ ms.locfileid: "133049321"
 # <a name="c"></a>[C\#](#tab/csharp)
 
 + [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.0.3245 이상.
++ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.0.3245.
 + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)
@@ -33,7 +33,7 @@ ms.locfileid: "133049321"
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 + [Node.js](https://nodejs.org/) 버전 12. Node.js 버전 10도 지원됩니다.
-+ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.0.3245 이상.
++ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.0.3245.
 + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)
@@ -41,7 +41,7 @@ ms.locfileid: "133049321"
 # <a name="python"></a>[Python](#tab/python)
 
 + [Azure Functions에서 지원하는 Python 버전](supported-languages.md#languages-by-runtime-version)
-+ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.0.3245 이상.
++ [Azure Functions Core Tools](functions-run-local.md#v2) 버전 3.0.3245.
 + [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상.
 + [Docker](https://docs.docker.com/install/)  
 + [Docker ID](https://hub.docker.com/signup)

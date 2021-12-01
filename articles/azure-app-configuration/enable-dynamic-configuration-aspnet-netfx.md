@@ -9,18 +9,18 @@ ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 10/12/2021
 ms.author: zhenlwa
-ms.openlocfilehash: 9631d083353382177afbb284cd92de53e44e94a4
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 8fda97a0313563fc432caf95d6b05663ba7e4c4b
+ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132301934"
+ms.lasthandoff: 11/30/2021
+ms.locfileid: "133312572"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-web-application-net-framework"></a>자습서: ASP.NET 웹 애플리케이션에서 동적 구성 사용(.NET Framework)
 
 App Configuration의 데이터는 .NET Framework 애플리케이션에서 앱 설정으로 로드할 수 있습니다. 자세한 내용은 [빠른 시작](./quickstart-dotnet-app.md)을 참조하세요. 그러나 .NET Framework에서 설계한 대로 앱 설정은 애플리케이션을 다시 시작할 때만 새로 고칠 수 있습니다. App Configuration .NET 공급자는 .NET Standard 라이브러리입니다. 애플리케이션을 다시 시작하지 않고 동적으로 구성을 캐싱 및 새로 고치도록 지원합니다. 이 자습서에서는 ASP.NET Web Forms 애플리케이션에서 동적 구성 업데이트를 구현하는 방법을 보여 줍니다. 동일한 기술이 .NET Framework MVC 애플리케이션에 적용됩니다.
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * App Configuration 저장소의 변경에 따라 해당 구성을 업데이트하도록 ASP.NET 웹 애플리케이션을 설정합니다.
@@ -84,12 +84,12 @@ App Configuration의 데이터는 .NET Framework 애플리케이션에서 앱 �
         builder.AddAzureAppConfiguration(options =>
         {
             options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                    // Load all keys that start with `TestApp:`.
+                    // Load all keys that start with `TestApp:` and have no label.
                     .Select("TestApp:*")
                     // Configure to reload configuration if the registered key 'TestApp:Settings:Sentinel' is modified.
                     .ConfigureRefresh(refresh => 
                     {
-                        refresh.Register("TestApp:Settings:Sentinel", refreshAll:true);
+                        refresh.Register("TestApp:Settings:Sentinel", refreshAll:true)
                                .SetCacheExpiration(new TimeSpan(0, 5, 0));
                     });
             _configurationRefresher = options.GetRefresher();

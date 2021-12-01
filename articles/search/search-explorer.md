@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 08/24/2021
+ms.date: 12/01/2021
 ms.custom: mode-other
-ms.openlocfilehash: c13f9d1c5bf94394cca4bdf4395b7e3e4c3c77bc
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 3e9992bc5acf18348243e5a7dcad843dd776431c
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133050437"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133426110"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>빠른 시작: 포털에서 검색 탐색기를 사용하여 쿼리 실행
 
@@ -30,7 +30,9 @@ ms.locfileid: "133050437"
 
 + Azure Cognitive Search 서비스 [서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
-+ *realestate-us-sample-index* 는 이 빠른 시작에 사용됩니다. [빠른 시작: 인덱스 만들기](search-import-data-portal.md)를 통해 기본값을 사용하여 인덱스를 만듭니다. Microsoft에서 호스팅하는 기본 제공 샘플 데이터 원본(**realestate-us-sample**)이 데이터를 제공합니다.
++ *realestate-us-sample-index* 는 이 빠른 시작에 사용됩니다. 인덱스를 만들려면 [**데이터 가져오기 마법사**](search-import-data-portal.md)를 사용 하 여 샘플 데이터를 선택 하 고 모든 기본값을 사용 하 여 마법사의 단계를 진행 합니다.
+
+  :::image type="content" source="media/search-explorer/search-explorer-sample-data.png" alt-text="데이터 가져오기 마법사에서 사용할 수 있는 예제 데이터 집합의 스크린샷" border="true":::  
 
 ## <a name="start-search-explorer"></a>검색 탐색기 시작
 
@@ -126,7 +128,7 @@ Azure Cognitive Search는 검색 순위에 따라 상위 50개의 일치 항목�
 
    :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="조건으로 필터링" border="true":::
 
-## <a name="order-by-expressions"></a>Order-by 식
+## <a name="sorting-results"></a>결과 정렬
 
 검색 점수 이외의 필드를 기준으로 결과를 정렬하려면 [ **$orderby**](search-query-odata-orderby.md)를 추가합니다. 인덱스에서 **정렬 가능** 하도록 필드 특정을 지정해야 합니다. 다음은 이 출력을 테스트하는 데 사용할 수 있는 예제 식입니다.
 
@@ -148,11 +150,11 @@ Azure Cognitive Search는 검색 순위에 따라 상위 50개의 일치 항목�
 
 + 결과는 자세한 JSON 문서로 반환되므로 문서 생성 및 콘텐츠를 완전히 볼 수 있습니다. 쿼리 식의 **$select** 매개 변수는 반환되는 필드를 제한할 수 있습니다.
 
-+ 문서는 인덱스에서 **검색 가능** 으로 표시되는 모든 필드로 구성됩니다. 포털에서 인덱스 특성을 보려면 검색 개요 페이지의 *인덱스* 목록에서 **realestate-us-sample** 을 클릭합니다.
++ 검색 결과는 인덱스에서 **검색할** 수 있는 것으로 표시 된 모든 필드로 구성 됩니다. 포털에서 필드 특성을 보려면 검색 개요 페이지의 **인덱스** 목록에서 *realestate-us-sample-us-sample* 을 클릭 한 후 **필드** 탭을 엽니다.
 
-+ 상용 웹 브라우저에서 입력할 수 있는 것과 비슷한 자유 형식 쿼리는 최종 사용자 환경을 테스트하는 데 유용합니다. 예를 들어, 기본 제공 부동산 샘플 인덱스를 가정할 경우 "Seattle apartments lake washington"을 입력한 후 Ctrl+F를 사용하여 검색 결과 내에서 용어를 찾을 수 있습니다. 
++ 키워드 검색은 상용 웹 브라우저에서 입력할 수 있는 것과 마찬가지로 최종 사용자 환경을 테스트 하는 데 유용 합니다. 예를 들어 기본 제공 부동산 샘플 인덱스를 사용 하는 경우 "시애틀 아파트 lake 워싱턴"을 입력 한 다음 Ctrl + F를 사용 하 여 검색 결과 내에서 용어를 찾을 수 있습니다. 
 
-+ 쿼리 및 필터 식은 Azure Cognitive Search에서 구현된 구문으로 표현됩니다. 기본 구문은 [간단한 구문](/rest/api/searchservice/simple-query-syntax-in-azure-search)이지만 필요에 따라 보다 강력한 쿼리를 위해 [전체 Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)을 사용할 수 있습니다. [필터 식](/rest/api/searchservice/odata-expression-syntax-for-azure-search)은 OData 구문입니다.
++ 쿼리 및 필터 식은 Azure Cognitive Search에서 구현된 구문으로 표현됩니다. 기본 구문은 [간단한 구문](/rest/api/searchservice/simple-query-syntax-in-azure-search)이지만 필요에 따라 보다 강력한 쿼리를 위해 [전체 Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)을 사용할 수 있습니다. [필터 식은](/rest/api/searchservice/odata-expression-syntax-for-azure-search) OData 구문에서 더 이상 사용할 수 없습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

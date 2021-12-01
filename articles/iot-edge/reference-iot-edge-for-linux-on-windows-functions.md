@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: d352811cb8cf911434cede1c7110beb1d529ddf1
-ms.sourcegitcommit: 3a063c59bb9396ce1d4b9a3565b194edf30393a2
+ms.openlocfilehash: 77e95c2e2d0024336734366a51f5911ec82ee020
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132964948"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133425603"
 ---
 # <a name="powershell-functions-for-iot-edge-for-linux-on-windows"></a>IoT Edge for Linux on Windows용 PowerShell 함수
 
@@ -21,7 +21,7 @@ ms.locfileid: "132964948"
 
 IoT Edge for Linux on Windows(EFLOW) 가상 머신을 배포, 프로비저닝하고 상태를 확인하는 PowerShell 함수를 이해합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에 설명된 명령은 `AzureEFLOW.psm1` 파일에서 가져온 것입니다. 이 파일은 `C:\Program Files\WindowsPowerShell\Modules\AzureEFLOW` 아래의 `WindowsPowerShell` 디렉터리에 있는 시스템에서 찾을 수 있습니다.
 
@@ -49,6 +49,45 @@ PowerShell 디렉터리에 **AzureEflow** 폴더가 없는 경우 다음 단계�
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
+## <a name="add-eflownetwork"></a>Add-EflowNetwork
+
+**추가 EflowNetwork** 명령은 eflow 가상 컴퓨터에 새 네트워크를 추가 합니다. 해당 명령은 두 개의 매개 변수를 사용합니다. 
+
+| 매개 변수 | 허용되는 값 | 의견 |
+| --------- | --------------- | -------- |
+| vswitchName | 가상 스위치의 이름 |  EFLOW VM에 할당된 가상 스위치의 이름입니다. |
+| vswitchType | **내부** 또는 **외부** | EFLOW VM에 할당된 가상 스위치의 유형입니다. |
+
+네 가지 속성이 포함된 개체를 반환합니다.
+
+* Name
+* AllocationMethod
+* R
+* 유형
+
+자세한 내용을 보려면 `Get-Help Add-EflowNetwork -full` 명령을 사용하세요.
+
+## <a name="add-eflowvmendpoint"></a>Add-EflowVmEndpoint
+
+**EflowVmEndpoint 추가** 명령은 eflow 가상 컴퓨터에 새 네트워크 끝점을 추가 합니다. 선택적 매개 변수를 사용 하 여 고정 IP를 설정 합니다.
+
+| 매개 변수 | 허용되는 값 | 의견 |
+| --------- | --------------- | -------- |
+| vswitchName | 가상 스위치의 이름 |  EFLOW VM에 할당된 가상 스위치의 이름입니다. |
+| vendpointName | 가상 끝점의 이름입니다. | EFLOW VM에 할당 된 가상 끝점의 이름입니다. |
+| ip4Address | DHCP 서버 범위의 IPv4 주소 | EFLOW VM의 고정 IPv4 주소입니다. |
+| ip4PrefixLength | 서브넷의 IPv4 접두사 길이 | IPv4 서브넷 접두사 길이, 고정 IPv4 주소가 지정된 경우에만 유효합니다. |
+| ip4GatewayAddress | 서브넷 게이트웨이의 IPv4 주소 | 게이트웨이 IPv4 주소, 고정 IPv4 주소가 지정된 경우에만 유효합니다. |
+
+네 가지 속성이 포함된 개체를 반환합니다.
+
+* Name
+* MacAddress
+* HealthStatus
+* IpConfiguration
+
+자세한 내용을 보려면 `Get-Help Add-EflowVmEndpoint -full` 명령을 사용하세요.
+
 ## <a name="connect-eflowvm"></a>Connect-EflowVm
 
 **커넥트-eflowvm** 명령은 SSH를 사용 하 여 가상 머신에 연결 합니다. SSH를 가상 머신에 허용하는 유일한 계정은 가상 머신을 만든 사용자입니다.
@@ -59,7 +98,7 @@ PowerShell 디렉터리에 **AzureEflow** 폴더가 없는 경우 다음 단계�
 
 ## <a name="copy-eflowvmfile"></a>Copy-EflowVmFile
 
-**Copy-EflowVmFile** 명령은 SCP를 사용하여 가상 머신 간에 파일을 복사합니다. 선택적 매개 변수를 사용하여 원본 및 대상 파일 경로와 복사 방향을 지정합니다.
+**Copy-EflowVmFile** 명령은 SCP를 사용하여 가상 머신 간에 파일을 복사합니다. 선택적 매개 변수를 사용 하 여 원본 및 대상 파일 경로와 복사 방향을 지정 합니다.
 
 사용자 **iotedge-user** 는 모든 원본 디렉터리에 대한 읽기 권한이나 가상 머신의 모든 대상 디렉터리에 대한 쓰기 권한이 있어야 합니다.
 
@@ -110,6 +149,23 @@ PowerShell 디렉터리에 **AzureEflow** 폴더가 없는 경우 다음 단계�
 
 자세한 내용을 보려면 `Get-Help Get-EflowLogs -full` 명령을 사용하세요.
 
+## <a name="get-eflownetwork"></a>Get-EflowNetwork
+
+**Get-EflowNetwork** 명령은 EFLOW 가상 머신에 할당된 네트워크 목록을 반환합니다. 선택적 매개 변수를 사용하여 특정 네트워크를 얻습니다. 
+
+| 매개 변수 | 허용되는 값 | 의견 |
+| --------- | --------------- | -------- |
+| vswitchName | 가상 스위치의 이름 |  EFLOW VM에 할당된 가상 스위치의 이름입니다. |
+
+다음 네 가지 속성을 포함하는 개체 목록을 반환합니다.
+
+* 이름
+* AllocationMethod
+* Cidr
+* 유형
+
+자세한 내용을 보려면 `Get-Help Get-EflowNetwork -full` 명령을 사용하세요.
+
 ## <a name="get-eflowvm"></a>Get-EflowVm
 
 **Get-EflowVm** 명령은 가상 머신의 현재 구성을 반환합니다. 이 명령은 매개 변수를 사용하지 않습니다. 네 가지 속성이 포함된 개체를 반환합니다.
@@ -133,6 +189,25 @@ Get-EflowVM | Select -ExpandProperty VmConfiguration | Format-List
 **Get-EflowVmAddr** 명령은 가상 머신의 현재 IP 및 MAC 주소를 쿼리하는 데 사용됩니다. 이 명령은 IP 및 MAC 주소가 시간이 지남에 따라 변경될 수 있다는 사실을 고려하기 위해 존재합니다.
 
 추가 정보를 보려면 `Get-Help Get-EflowVmAddr -full` 명령을 사용하세요.
+
+
+## <a name="get-eflowvmendpoint"></a>Get-EflowVmEndpoint
+
+**Get-EflowVmEndpoint** 명령은 EFLOW 가상 머신에 할당된 네트워크 엔드포인트 목록을 반환합니다. 선택적 매개 변수를 사용하여 특정 네트워크 엔드포인트를 얻습니다. 
+
+| 매개 변수 | 허용되는 값 | 의견 |
+| --------- | --------------- | -------- |
+| vswitchName | 가상 스위치의 이름 |  EFLOW VM에 할당된 가상 스위치의 이름입니다. |
+
+다음 네 가지 속성을 포함하는 개체 목록을 반환합니다.
+
+* Name
+* MacAddress
+* HealthStatus
+* IpConfiguration
+
+자세한 내용을 보려면 `Get-Help Get-EflowVmEndpoint -full` 명령을 사용하세요.
+
 
 ## <a name="get-eflowvmfeature"></a>Get-EflowVmFeature
 
@@ -195,6 +270,27 @@ Get-EflowVM | Select -ExpandProperty VmConfiguration | Format-List
 | identityPrivKeyPath | 디렉터리 경로 | Windows 호스트 시스템에 있는 ID 프라이빗 키의 절대 원본 경로(**ManualX509**, **DpsX509**). |
 
 자세한 내용을 보려면 `Get-Help Provision-EflowVm -full` 명령을 사용하세요.
+
+## <a name="remove-eflownetwork"></a>Remove-EflowNetwork
+
+**Remove-EflowNetwork** 명령은 EFLOW 가상 머신에 연결된 기존 네트워크를 제거합니다. 이 명령은 하나의 매개 변수를 취합니다. 
+
+| 매개 변수 | 허용되는 값 | 의견 |
+| --------- | --------------- | -------- |
+| vswitchName | 가상 스위치의 이름 |  EFLOW VM에 할당된 가상 스위치의 이름입니다. |
+
+자세한 내용을 보려면 `Get-Help Remove-EflowNetwork -full` 명령을 사용하세요.
+
+## <a name="remove-eflowvmendpoint"></a>Remove-EflowVmEndpoint
+
+**Remove-EflowVmEndpoint** 명령은 EFLOW 가상 머신에 연결된 기존 네트워크 엔드포인트를 제거합니다. 이 명령은 하나의 매개 변수를 취합니다. 
+
+| 매개 변수 | 허용되는 값 | 의견 |
+| --------- | --------------- | -------- |
+| vendpointName | 가상 엔드포인트의 이름 | EFLOW VM에 할당된 가상 엔드포인트의 이름입니다. |
+
+자세한 내용을 보려면 `Get-Help Remove-EflowVmEndpoint -full` 명령을 사용하세요.
+
 
 ## <a name="set-eflowvm"></a>Set-EflowVM
 

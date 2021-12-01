@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc, mode-other
-ms.openlocfilehash: b8fe83e339e00c7e2a3fa554abf8c126241bda64
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: d865046cde76aa556c6343f0f25e7a1dc4c286d0
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133063750"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133425774"
 ---
 # <a name="quickstart-export-data-from-an-iot-central-application"></a>빠른 시작 - IoT Central 애플리케이션에서 데이터 내보내기
 
@@ -66,7 +66,7 @@ az kusto database create --cluster-name $clustername \
     --resource-group $resourcegroup
 
 # Create a service principal to use when authenticating from IoT Central
-SP_JSON=$(az ad sp create-for-rbac --skip-assignment --name spforiotcentral)
+SP_JSON=$(az ad sp create-for-rbac --skip-assignment --appId spforiotcentral)
 
 az kusto database-principal-assignment create --cluster-name $clustername \
                                               --database-name $databasename \

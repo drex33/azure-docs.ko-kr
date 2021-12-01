@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: overview
 ms.date: 08/10/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 5e2d200e7133074ffc1dc2732cdedb692c1ea30c
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: df99b1fe107dedb8d61eb0969ef74b47034d3906
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698332"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133425356"
 ---
 # <a name="updates-and-maintenance-overview"></a>업데이트 및 유지 관리 개요
 
@@ -36,7 +36,7 @@ ms.locfileid: "122698332"
 - 자동 OS 이미지 업그레이드는 모든 크기의 확장 집합에서 사용하도록 설정할 수 있습니다.
 
 
-## <a name="automatic-vm-guest-patching-preview"></a>자동 VM 게스트 패치(미리 보기)
+## <a name="automatic-vm-guest-patching"></a>자동 VM 게스트 패치 
 
 [자동 VM 게스트 패치](automatic-vm-guest-patching.md)를 Azure VM에 사용하도록 설정하면 보안 규정 준수를 유지하기 위해 가상 머신을 안전하게 자동으로 패치하여 업데이트를 쉽게 관리할 수 있습니다.
 

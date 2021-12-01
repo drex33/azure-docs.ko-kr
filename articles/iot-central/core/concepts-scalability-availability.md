@@ -7,12 +7,12 @@ ms.date: 10/14/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: bea4e5d7dcb4349f17a4a967d8e0ef15e6f737b4
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: bb58191c9725c0b74b3687d84964bb93435b49b1
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103001"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133425812"
 ---
 # <a name="scalability-and-high-availability"></a>확장성 및 고가용성
 
@@ -60,4 +60,4 @@ IoT Central 응용 프로그램은 다른 사용자 구성 서비스를 사용 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT central의 확장성 및 고가용성에 대해 알아보았습니다. 다음 단계에서는 Azure IoT central의 [장치 연결](concepts-get-connected.md) 에 대해 알아봅니다.
+Azure IoT central의 확장성 및 고가용성에 대해 알아보았습니다. 이제 권장 되는 다음 단계는 Azure IoT central의 [할당량 및 제한](concepts-quotas-limits.md) 에 대해 학습 하는 것입니다.

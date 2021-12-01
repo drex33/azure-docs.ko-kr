@@ -2,16 +2,16 @@
 title: 자습서 - 템플릿 만들기 및 배포
 description: 첫 번째 ARM 템플릿(Azure Resource Manager 템플릿)을 만듭니다. 이 자습서에서는 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-ms.date: 10/20/2021
+ms.date: 12/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ef50a1136080358fc6de27da1ab42467c337f252
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ceffb4fe49b1e1c24d60560ac3a21dc667d1b683
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130239736"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133426078"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>자습서: 첫 번째 ARM 템플릿 만들기 및 배포
 
@@ -22,6 +22,9 @@ ms.locfileid: "130239736"
 템플릿을 사용하면 얻을 수 있는 이점과 템플릿을 사용하여 배포를 자동화해야 하는 이유에 대해 알아보려면 [ARM 템플릿](overview.md)을 참조하세요. Microsoft Learn의 단계별 모듈 세트를 통한 ARM 템플릿에 대한 자세한 내용은 [ARM 템플릿을 사용하여 Azure에서 리소스 배포 및 관리](/learn/paths/deploy-manage-resource-manager-templates/)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+> [!TIP]
+> ARM 템플릿을 접하는 경우 Bicep을 대신 학습하는 것이 좋습니다. Bicep은 ARM 템플릿과 동일한 기능을 제공하지만 사용하기 쉬운 구문을 제공하는 새로운 언어입니다. Bicep 학습을 시작하려면 [빠른 시작: Visual Studio Code 사용하여 Bicep 파일 만들기를](../bicep/quickstart-create-bicep-use-visual-studio-code.md)참조하세요.
 
 ## <a name="get-tools"></a>도구 가져오기
 

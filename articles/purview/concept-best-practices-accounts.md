@@ -7,22 +7,16 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.openlocfilehash: 5e6faa2eb9556207aae7583044755bc9d01b0502
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 83e9f9970cc96c7484d828959c16e373acde6462
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132721844"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133426287"
 ---
 # <a name="azure-purview-accounts-architectures-and-best-practices"></a>Azure Purview 계정 아키텍처 및 모범 사례  
 
 Azure Purview는 통합 데이터 거버넌스 솔루션입니다. Azure Purview 계정을 배포하여 클라우드 및 온-프레임 환경 둘 다에 걸쳐 데이터 자산 전체에서 데이터 거버넌스를 중앙에서 관리합니다. Azure Purview를 중앙 집중식 데이터 거버넌스 솔루션으로 사용하려면 Azure 구독 내에 하나 이상의 Purview 계정을 배포해야 합니다. Purview 인스턴스 수를 최소한으로 유지하는 것이 좋습니다. 그러나 비즈니스 보안 및 규정 준수 요구 사항을 충족하기 위해 더 많은 Purview 인스턴스가 필요한 경우도 있습니다.
-
-## <a name="intended-audience"></a>대상 그룹
-
-- 데이터 아키텍처 팀
-- 데이터 거버넌스 및 관리 팀
-- 데이터 보안 팀
 
 ## <a name="single-purview-account"></a>단일 Purview 계정
 

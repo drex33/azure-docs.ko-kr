@@ -6,14 +6,14 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 10/28/2021
+ms.date: 12/01/2021
 ms.author: banders
-ms.openlocfilehash: 0cfe2d88cc8d6a6373459127ab454b2f1e44cfca
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: cd05da1d9031367e2f8c3c0b8e6da81e49c0e190
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131454106"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133426268"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Azure 등록 시 거부된 카드 문제 해결
 
@@ -30,7 +30,7 @@ Microsoft Azure Portal에서 Azure 등록 시 신용 카드가 거부되는 문�
 
 ## <a name="youre-using-a-virtual-or-prepaid-card"></a>가상 카드 또는 선불 카드를 사용하고 있습니다.
 
-가상 카드, 선불 카드 또는 직불 카드는 Azure 구독의 지불 옵션으로 허용되지 않습니다.
+선불 및 가상 카드는 Azure 구독에 대한 지불로 허용되지 않습니다.
 
 ## <a name="your-credit-information-is-inaccurate-or-incomplete"></a>신용 카드 정보가 부정확하거나 불완전합니다.
 

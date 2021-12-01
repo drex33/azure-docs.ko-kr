@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
-ms.openlocfilehash: 5784ae0b74762ae4dbcd512e92df4f81f9f70ec5
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 00701ee34e13c3a20972b2ab79d936d7b3c1c7b1
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132871512"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133425223"
 ---
 # <a name="connect-to-and-manage-hive-metastore-databases-in-azure-purview"></a>Azure Purview에서 Hive Metastore 데이터베이스에 연결 및 관리
 
@@ -88,7 +88,7 @@ Hive 메타스토어 데이터베이스에 대해 유일하게 지원되는 인�
 
 ### <a name="create-and-run-scan"></a>검사 만들기 및 실행
 
-1. 관리 센터에서 통합 런타임을 선택합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md]에 설명된 단계를 사용하여 자체 호스팅 통합 런타임을 설정합니다.
+1. 관리 센터에서 통합 런타임을 선택합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 설정합니다.
 
 1. **원본** 으로 이동합니다.
 
@@ -140,7 +140,10 @@ Hive 메타스토어 데이터베이스에 대해 유일하게 지원되는 인�
        :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
 
        > [!NOTE]
-       > *hive-site.xml* 에서 URL을 복사할 때 문자열에서 `amp;`를 제거해야 합니다. 그렇지 않으면 검사가 실패합니다. 이 URL에 대해 VM에서 SSL 인증서가 배치된 위치에 경로를 추가합니다. [SSL 인증서를 다운로드](../mysql/howto-configure-ssl.md)할 수 있습니다. Windows 경로 구분 문자를 `\`에서 `/`로 변경해야 합니다. 예를 들어, MariaDB JAR 파일이 *C:\mariadb-jdbc.jar* 인 경우 *C:/mariadb-jdbc.jar* 로 변경합니다. Metastore JDBC URL `sslCA` 매개 변수를 동일하게 변경합니다. *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem* 에서 *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem* 으로 변경합니다.
+       > *hive-site.xml* URL을 복사하면 문자열에서 를 `amp;` 제거하면 검색이 실패합니다. 그런 다음 SSL 인증서에 대 한 경로를 URL에 추가 합니다. VM의 SSL 인증서 위치에 대 한 경로입니다. [SSL 인증서를 다운로드](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem)합니다.
+       >
+       > 부서의 범위 Studio scan 구성에서 로컬 파일 시스템 경로를 입력 하는 경우 Windows 경로 구분 문자를에서로 변경 해야 `\` `/` 합니다. 예를 들어, caadb JAR 파일이 *C:\aaadb-jdbc.jar* 인 경우 *C:/mariadb-jdbc* 로 변경 합니다. Metastore JDBC URL 매개 변수를 동일 하 게 변경 합니다 `sslCA` . 예를 들어 로컬 파일 시스템 경로 *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem* 에 배치 되는 경우 *D:/Drivers/SSLCert/baltimorecybertrustroot.crt.pem* 로 변경 합니다.
+
 
        **메타스토어 JDBC URL** 은 다음 예제와 같습니다.
 

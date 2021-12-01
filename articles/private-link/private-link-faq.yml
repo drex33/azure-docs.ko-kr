@@ -8,12 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 10/05/2019
   ms.author: allensu
-  ms.openlocfilehash: 3b7bfebbb8687b0ff732bd3c163e42099d2aa345
-  ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+  ms.openlocfilehash: f02b4dfc96075b1c119823ab5b7ad2442cbc5950
+  ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/16/2021
-  ms.locfileid: "112204872"
+  ms.lasthandoff: 12/01/2021
+  ms.locfileid: "133425451"
 title: Azure Private Link FAQ(질문과 대답)
 summary: ''
 sections:
@@ -58,6 +58,10 @@ sections:
   - question: >
       지역 장애가 발생하는 경우 프라이빗 엔드포인트를 사용하는 동안 가용성을 어떻게 달성할 수 있나요?
     answer: "프라이빗 엔드포인트는 99.99% SLA[[Azure Private Link용 SLA]](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/)를 지원하는 고가용성 리소스입니다. 그러나 이러한 리소스는 지역 리소스이므로 Azure 지역에서 발생하는 중단이 가용성에 영향을 줄 수 있습니다. 지역 장애가 발생하는 경우 가용성을 달성하기 위해 동일한 대상 리소스에 연결된 여러 PE를 다른 지역에 배포할 수 있습니다. 이러한 방식으로 한 지역이 다운되면 다른 지역의 PE를 통해 복구 시나리오를 위한 트래픽을 라우팅할 수 있으므로 대상 리소스에 액세스할 수 있습니다. 대상 서비스 쪽에서 지역 장애를 처리하는 방법에 대한 자세한 내용은 장애 조치(failover) 및 복구에 대한 서비스 설명서를 검토하세요. Private LInk의 트래픽은 대상 엔드포인트에 대한 Azure DNS 해결 방법을 따릅니다. \n"
+  - question: >
+      가용성 영역 오류가 발생할 경우 개인 끝점을 사용 하는 동안 가용성을 달성할 어떻게 할까요? 있나요?
+    answer: >
+      개인 끝점은 [Azure 개인 링크에 대 한 sla](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/)에 따라 sla를 사용 하는 항상 사용 가능한 리소스입니다. 전용 끝점은 영역에 구애 받지 않습니다. 개인 끝점의 지역에서 가용성 영역 오류가 발생 해도 개인 끝점의 가용성에는 영향을 주지 않습니다.
 - name: Private Link Service
   questions:
   - question: "Private Link 서비스를 만들기 위한 필수 구성 요소는 무엇인가요? \n"

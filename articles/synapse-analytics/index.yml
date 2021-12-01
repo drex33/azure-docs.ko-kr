@@ -9,15 +9,15 @@ metadata:
   ms.subservice: overview
   ms.topic: landing-page
   ms.collection: collection
-  author: julieMSFT
-  ms.author: jrasnick
+  author: WilliamDAssafMSFT
+  ms.author: wiassaf
   ms.date: 12/01/2020
-  ms.openlocfilehash: d1cecd0ae685e7a55b4b9069ed4c3afb2aa80c40
-  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+  ms.openlocfilehash: 43243729c266b0b09a1b5ec097a94c8722cc6f26
+  ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/03/2021
-  ms.locfileid: "131502676"
+  ms.lasthandoff: 12/01/2021
+  ms.locfileid: "133426325"
 landingContent:
 - title: Azure Synapse Analytics 정보
   linkLists:

@@ -5,12 +5,12 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.openlocfilehash: 4ff07c748b0af4f71c6a78775a34f884cef9d7ec
-ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
+ms.openlocfilehash: 24525bffdd20df7ded710aa89233a796826bcc0a
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2021
-ms.locfileid: "133407775"
+ms.locfileid: "133426344"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Azure Monitor 경고 문제 해결
 
@@ -37,7 +37,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
     포털에서 발생한 경고를 클릭하여 확인하고 표시되지 않은 [작업 그룹](./action-groups.md)에 대해 기록 탭을 확인합니다.
 
-    ![경고 처리 규칙의 비 표시를 포함 하는 경고 기록 탭](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+    ![경고 처리 규칙의 비 표시를 포함 하는 경고 기록 탭의 스크린샷](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
 1. **"Azure Resource Manager 역할에 이메일 보내기" 작업 유형인가요?**
 
@@ -67,11 +67,11 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
     1. 포털에서 작업 그룹을 열고 상태 열을 확인합니다.
 
-    ![작업 그룹 상태 열](media/alerts-troubleshoot/action-group-status.png)
+    ![작업 그룹 상태 열의 스크린샷](media/alerts-troubleshoot/action-group-status.png)
 
     2. 이메일에서 수신 거부 확인을 검색합니다.
 
-    ![경고 작업 그룹에서 수신 거부됨](media/alerts-troubleshoot/unsubscribe-action-group.png)
+    ![경고 작업 그룹에서 구독 취소에 대 한 전자 메일의 스크린샷](media/alerts-troubleshoot/unsubscribe-action-group.png)
 
     다시 수신하려면 받은 수신 거부 확인 이메일의 링크를 사용하거나 작업 그룹에서 이메일 주소를 제거한 다음 다시 추가합니다. 
  
@@ -79,7 +79,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
     이메일 주소마다 시간당 이메일 100개 이하로 [제한됩니다](alerts-rate-limiting.md). 이 임계값을 초과하면 추가 이메일 알림이 삭제됩니다.  이메일 주소가 일시적으로 제한되었음을 나타내는 메시지를 받았는지 확인합니다. 
  
-   ![이메일 비율 제한됨](media/alerts-troubleshoot/email-paused.png)
+   ![요금 제한이 있는 전자 메일의 스크린샷](media/alerts-troubleshoot/email-paused.png)
 
    비율 제한 없이 많은 양의 알림을 받으려면 비율 제한이 없는 웹후크, 논리 앱, Azure 함수 또는 자동화 Runbook과 같은 다른 작업을 사용하는 것이 좋습니다. 
 
@@ -91,7 +91,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
     포털에서 발생한 경고를 클릭하여 확인하고 표시되지 않은 [작업 그룹](./action-groups.md)에 대해 기록 탭을 확인합니다. 
 
-    ![경고 처리 규칙의 비 표시를 포함 하는 경고 기록 탭](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+    ![경고 처리 규칙의 비 표시를 포함 하는 경고 기록 탭의 스크린샷](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
    의도 하지 않은 경우 경고 처리 규칙을 수정 하거나, 사용 하지 않도록 설정 하거나, 삭제할 수 있습니다.
  
@@ -124,7 +124,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
     포털에서 발생한 경고를 클릭하여 확인하고 표시되지 않은 [작업 그룹](./action-groups.md)에 대해 기록 탭을 확인합니다.
 
-    ![경고 처리 규칙의 비 표시를 포함 하는 경고 기록 탭](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+    ![경고 처리 규칙의 비 표시를 포함 하는 경고 기록 탭의 스크린샷](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
  
     의도 하지 않은 경우 경고 처리 규칙을 수정 하거나, 사용 하지 않도록 설정 하거나, 삭제할 수 있습니다.
 
@@ -159,9 +159,9 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
     경고가 발생하면 각 작업 그룹은 독립적으로 처리됩니다. 따라서 여러 개의 트리거된 작업 그룹에 작업(예: 이메일 주소)이 표시되면 작업 그룹당 한 번씩 호출됩니다. 
 
-    트리거된 작업 그룹을 확인 하려면 경고 기록 탭을 선택 합니다. 경고 규칙에 정의 된 작업 그룹 및 경고 처리 규칙에 따라 경고에 추가 된 작업 그룹이 표시 됩니다. 
+    트리거된 작업 그룹을 확인하려면 경고 기록 탭을 확인합니다. 경고 규칙에 정의된 작업 그룹과 경고 처리 규칙에 의해 경고에 추가된 작업 그룹이 모두 표시됩니다. 
 
-    ![여러 작업 그룹에서 반복되는 작업](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
+    ![경고의 여러 작업 그룹 스크린샷.](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
 
 ## <a name="action-or-notification-has-an-unexpected-content"></a>작업 또는 알림에 예기치 않은 콘텐츠가 있음
 
@@ -173,7 +173,7 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
     예를 들어 웹후크 작업의 경우 다음과 같습니다. 
 
-    ![웹후크 작업 스키마 옵션](media/alerts-troubleshoot/webhook.png)
+    ![webhook 작업 스키마 옵션의 스크린샷.](media/alerts-troubleshoot/webhook.png)
 
     작업 수준에 지정된 형식이 원하는 형식인지 확인합니다. 예를 들어 어떤 형식을 기대하며 경고에 응답하는 코드(웹후크, 함수, 논리 앱 등)를 개발했지만 나중에 해당 사용자 또는 다른 사용자가 다른 형식을 지정했습니다.  
 
@@ -184,38 +184,38 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
     [활동 로그 경고](./activity-log-alerts.md)는 Azure 리소스 만들기, 업데이트 또는 삭제에 대한 이벤트, 서비스 상태 및 리소스 상태 이벤트, Azure Advisor 및 Azure Policy의 결과 등 Azure 활동 로그에 기록된 이벤트를 기반으로 하는 경고입니다. 활동 로그를 기반으로 경고를 받았지만 필요한 일부 필드가 누락되거나 잘못된 경우 활동 로그 자체의 이벤트를 먼저 확인합니다. Azure 리소스가 활동 로그 이벤트에서 찾고 있는 필드를 작성하지 않은 경우 해당 필드는 해당 경고에 포함되지 않습니다. 
 
-## <a name="alert-processing-rule-is-not-working-as-expected"></a>경고 처리 규칙이 예상 대로 작동 하지 않습니다. 
+## <a name="alert-processing-rule-is-not-working-as-expected"></a>경고 처리 규칙이 예상대로 작동하지 않음 
 
-포털에서 발생 한 경고를 볼 수 있지만 관련 된 경고 처리 규칙이 예상 대로 작동 하지 않는 경우 다음 단계를 수행 합니다. 
+포털에서 발생한 경고를 볼 수 있지만 관련 경고 처리 규칙이 예상대로 작동하지 않는 경우 다음 단계를 수행합니다. 
 
 1. **경고 처리 규칙을 사용할 수 있나요?** 
 
-   경고 처리 규칙 상태 필드를 확인 하 여 관련 작업 역할이 사용 하도록 설정 되어 있는지 확인 합니다. 기본적으로 포털 규칙 목록은 사용 하도록 설정 된 규칙만 표시 하지만 필터를 변경 하 여 모든 규칙을 표시할 수 있습니다. 
+   경고 처리 규칙 상태 필드를 확인하여 관련 작업 역할이 사용하도록 설정되어 있는지 확인합니다. 기본적으로 포털 규칙 목록에는 사용하도록 설정된 규칙만 표시되지만 모든 규칙을 표시하도록 필터를 변경할 수 있습니다. 
 
-    ![그래픽](media/alerts-troubleshoot/alerts-troubleshoot-alert-processing-rules-status.png) 
+    ![상태 필드 및 상태 필터를 강조 표시한 경고 처리 규칙 목록의 스크린샷.](media/alerts-troubleshoot/alerts-troubleshoot-alert-processing-rules-status.png) 
 
-    사용 하도록 설정 되지 않은 경우 경고 처리 규칙을 선택 하 고 사용을 클릭 하 여 해당 규칙을 사용 하도록 설정할 수 있습니다. 
+    사용하도록 설정되지 않은 경우 경고를 선택하고 사용을 클릭하여 경고 처리 규칙을 사용하도록 설정할 수 있습니다. 
 
 1. **서비스 상태 경고인가요?** 
 
-    서비스 상태 경고 (monitor service = "Service Health")는 경고 처리 규칙의 영향을 받지 않습니다. 
+    서비스 상태 경고(모니터 서비스 = "Service Health")는 경고 처리 규칙의 영향을 받지 않습니다. 
 
-1. **경고 처리 규칙이 경고에 대해 작용 했습니까?** 
+1. **경고 처리 규칙이 경고에 대해 작동했나요?** 
 
-    포털에서 발생 한 경고를 클릭 하 여 경고 처리 규칙이 경고를 처리 했는지 확인 하 고 기록 탭을 확인 합니다.
+    포털에서 발생된 경고를 클릭하여 경고 처리 규칙이 경고를 처리했는지 확인하고 기록 탭을 확인합니다.
 
-    다음은 모든 작업 그룹을 억제 하는 경고 처리 규칙의 예입니다. 
+    다음은 모든 작업 그룹을 표시하지 않고 경고 처리 규칙의 예입니다. 
  
-     ![경고 처리 규칙의 비 표시를 포함 하는 경고 기록 탭](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+     ![경고 처리 규칙에서 제거가 있는 경고 기록 탭의 스크린샷.](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
-    다른 작업 그룹을 추가 하는 경고 처리 규칙의 예는 다음과 같습니다.
+    다른 작업 그룹을 추가하는 경고 처리 규칙의 예는 다음과 같습니다.
 
-    ![여러 작업 그룹에서 반복되는 작업](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
+    ![여러 작업 그룹에서 반복되는 작업의 스크린샷.](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
  
 
-1. **경고 처리 규칙 범위와 필터가 발생 한 경고와 일치 합니까?** 
+1. **경고 처리 규칙 범위 및 필터가 발생된 경고와 일치하나요?** 
 
-    경고 처리 규칙이 발생 했지만 실패 했거나 발생 하지 않은 것으로 생각 되는 경우 경고 처리 규칙 범위와 필터 조건 및 발생 한 경고의 속성을 주의 깊게 검토 합니다. 
+    경고 처리 규칙이 발생했지만 발생하지 않았거나 발생하지 않았어야 한다고 생각되는 경우 경고 처리 규칙 범위 및 필터 조건과 발생된 경고의 속성을 신중하게 검토합니다. 
 
 
 ## <a name="how-to-find-the-alert-id-of-a-fired-alert"></a>발생한 경고의 경고 ID를 찾는 방법
@@ -230,21 +230,21 @@ Azure Portal에서 발생한 경고를 볼 수 있지만 이에 대한 이메일
 
 1. 첫 번째 탭의 경고 필드(요약 탭)를 찾을 때까지 아래로 스크롤하여 복사합니다. 이 필드에는 사용할 수 있는 "클립보드로 복사" 도우미 단추도 포함되어 있습니다.  
 
-    ![경고 ID 찾기](media/alerts-troubleshoot/get-alert-id.png)
+    ![경고 요약 탭에서 경고 ID 필드를 찾는 스크린샷.](media/alerts-troubleshoot/get-alert-id.png)
 
-## <a name="problem-creating-updating-or-deleting-alert-processing-rules-in-the-azure-portal"></a>Azure Portal에서 경고 처리 규칙을 생성, 업데이트 또는 삭제 하는 데 문제가 있습니다.
+## <a name="problem-creating-updating-or-deleting-alert-processing-rules-in-the-azure-portal"></a>Azure Portal 경고 처리 규칙 만들기, 업데이트 또는 삭제 문제
 
-[경고 처리 규칙](../alerts/alerts-action-rules.md)을 만들거나 업데이트 하거나 삭제 하는 동안 오류가 발생 한 경우 다음 단계를 수행 합니다. 
+[경고 처리 규칙을](../alerts/alerts-action-rules.md)만들거나 업데이트하거나 삭제하는 동안 오류가 발생하면 다음 단계를 수행합니다. 
 
 1. **권한 오류를 받으셨나요?**  
 
-     [모니터링 참여자 기본 제공 역할](../../role-based-access-control/built-in-roles.md#monitoring-contributor)또는 경고 처리 규칙 및 경고와 관련 된 특정 사용 권한이 있어야 합니다.
+     [모니터링 기여자 기본 제공 역할](../../role-based-access-control/built-in-roles.md#monitoring-contributor)또는 경고 처리 규칙 및 경고와 관련된 특정 권한이 있어야 합니다.
 
-1. **경고 처리 규칙 매개 변수를 확인 했나요?**  
+1. **경고 처리 규칙 매개 변수를 확인했나요?**  
 
-    [경고 처리 규칙 설명서](../alerts/alerts-action-rules.md)또는 [경고 처리 규칙 PowerShell AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) 명령을 확인 합니다. 
+    경고 [처리 규칙 설명서](../alerts/alerts-action-rules.md)또는 [경고 처리 규칙 PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) 명령을 확인합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
 - 로그 경고를 사용하는 경우 [로그 경고 문제 해결](./alerts-troubleshoot-log.md)도 참조하세요.
-- [Azure Portal](https://portal.azure.com) 로 돌아가서 위의 지침에 따라 문제를 해결 했는지 확인 합니다.
+- Azure Portal [돌아가기](https://portal.azure.com) 위의 지침으로 문제를 해결했는지 확인합니다.

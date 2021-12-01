@@ -7,12 +7,12 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.openlocfilehash: f345c3138891cef9d83000d1e64b950cd33747b4
-ms.sourcegitcommit: c434baa76153142256d17c3c51f04d902e29a92e
+ms.openlocfilehash: c4020cc9c0942cecef3a1cece768eab20bb958b6
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132179567"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133425489"
 ---
 # <a name="publish-revisions-with-github-actions-in-azure-container-apps-preview"></a>Azure Container Apps 미리 보기에서 GitHub 작업을 통해 수정 버전 게시
 
@@ -70,8 +70,10 @@ az containerapp github-action add \
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" \
   --docker-file-path "./dockerfile" \
   --branch <BRANCH_NAME> \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
   --registry-url <URL_TO_CONTAINER_REGISTRY> \
-  --registry-user-name <REGISTRY_USER_NAME> \
+  --registry-username <REGISTRY_USER_NAME> \
   --registry-password <REGISTRY_PASSWORD> \
   --service-principal-client-id <CLIENT_ID> \
   --service-principal-client-secret <CLIENT_SECRET> \
@@ -86,8 +88,10 @@ az containerapp github-action add `
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" `
   --docker-file-path "./dockerfile" `
   --branch <BRANCH_NAME> `
+  --name <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP> `
   --registry-url <URL_TO_CONTAINER_REGISTRY> `
-  --registry-user-name <REGISTRY_USER_NAME> `
+  --registry-username <REGISTRY_USER_NAME> `
   --registry-password <REGISTRY_PASSWORD> `
   --service-principal-client-id <CLIENT_ID> `
   --service-principal-client-secret <CLIENT_SECRET> `
@@ -127,14 +131,14 @@ az containerapp github-action show `
 
 이 명령은 GitHub Actions 통합 구성 설정이 있는 JSON 페이로드를 반환합니다.
 
-## <a name="delete"></a>삭제
+## <a name="delete"></a>DELETE
 
-`containerapp github-action remove`명령은 컨테이너 앱에서 GitHub Actions를 제거합니다.
+`containerapp github-action delete`명령은 컨테이너 앱에서 GitHub Actions를 제거합니다.
 
 # <a name="bash"></a>[Bash](#tab/bash)
 
 ```azurecli
-az containerapp github-action remove \
+az containerapp github-action delete \
   --resource-group <RESOURCE_GROUP_NAME> \
   --name <CONTAINER_APP_NAME> \
   --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
@@ -143,7 +147,7 @@ az containerapp github-action remove \
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```azurecli
-az containerapp github-action remove `
+az containerapp github-action delete `
   --resource-group <RESOURCE_GROUP_NAME> `
   --name <CONTAINER_APP_NAME> `
   --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>

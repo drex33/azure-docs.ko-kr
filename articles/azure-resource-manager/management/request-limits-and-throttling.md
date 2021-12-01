@@ -2,14 +2,14 @@
 title: 요청 제한
 description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제한을 사용하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 12/01/2021
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 781c958e1a75e87c3f042e80282909e132730978
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: b86ed1d6b8409ab25d50f5fae7dc17054d94f3bf
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523391"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133426189"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
@@ -25,7 +25,7 @@ ms.locfileid: "132523391"
 
 시간당 기본 제한 한도는 다음 표에 나와 있습니다.
 
-| 범위 | 작업 | 제한 |
+| Scope | 작업 | 제한 |
 | ----- | ---------- | ------- |
 | Subscription | reads | 12000 |
 | Subscription | deletes | 15000 |
@@ -59,7 +59,7 @@ Microsoft. Network 리소스 공급자는 다음과 같은 제한 한도를 적�
 | 읽기(GET) | 5분당 10000개 |
 
 > [!NOTE]
-> **Azure 프라이빗 DNS** 에는 5분당 500개의 읽기(GET) 작업 제한이 있습니다.
+> **Azure DNS** 및 **Azure 사설 DNS** 에는 5 분 마다 500 읽기 (GET) 작업이 제한 됩니다.
 >
 
 ### <a name="compute-throttling"></a>계산 제한

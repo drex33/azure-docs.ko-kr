@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
-ms.date: 10/07/2019
+ms.date: 12/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 514db29c69edb8ab86dfd916007fe4fe99db85f1
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
-ms.translationtype: HT
+ms.openlocfilehash: a56a0ebc795e66d057f825a762eadbcd840323aa
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110707348"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133426230"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Azure SQL Managed Instance 연결 형식
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,8 +27,8 @@ ms.locfileid: "110707348"
 
 Azure SQL Managed Instance는 다음 두 가지 연결 형식을 지원합니다.
 
-- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 리디렉션을 사용하여 연결하려면 포트 1433 및 11000-11999에서 액세스할 수 있도록 방화벽 및 NSG(네트워크 보안 그룹)를 열어야 합니다. 패킷은 데이터베이스로 직접 이동하므로 프록시를 통한 리디렉션을 사용하여 대기 시간 및 처리량 성능이 향상됩니다.
-- **프록시(기본값):** 이 모드에서는 모든 연결이 프록시 게이트웨이 구성 요소를 사용합니다. 연결을 사용하도록 설정하려면 프라이빗 네트워크용 포트 1433과 공용 연결용 포트 3342만 열어야 합니다. 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 높은 처리량을 위해 프록시 연결 정책을 통해 리디렉션 연결 정책을 사용하는 것이 좋습니다.
+- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 리디렉션을 사용하여 연결하려면 포트 1433 및 11000-11999에서 액세스할 수 있도록 방화벽 및 NSG(네트워크 보안 그룹)를 열어야 합니다. 패킷은 데이터베이스로 직접 이동하므로 프록시를 통한 리디렉션을 사용하여 대기 시간 및 처리량 성능이 향상됩니다. 게이트웨이 구성 요소의 계획된 유지 관리 이벤트의 영향도 프록시에 비해 리디렉션 연결 형식으로 최소화됩니다. 연결이 설정되면 게이트웨이에 종속되지 않습니다. 
+- **프록시(기본값):** 이 모드에서는 모든 연결이 프록시 게이트웨이 구성 요소를 사용합니다. 연결을 사용하도록 설정하려면 프라이빗 네트워크용 포트 1433과 공용 연결용 포트 3342만 열어야 합니다. 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 또한 게이트웨이 구성 요소의 계획된 유지 관리 이벤트는 프록시 모드에서 모든 라이브 연결을 중단합니다. 가장 낮은 대기 시간, 가장 높은 처리량 및 계획된 유지 관리의 최소화된 영향을 위해 프록시 연결 정책에 대한 리디렉션 연결 정책을 권장합니다.
 
 ## <a name="redirect-connection-type"></a>리디렉션 연결 형식
 

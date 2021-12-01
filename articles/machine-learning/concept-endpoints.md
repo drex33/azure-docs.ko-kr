@@ -11,12 +11,12 @@ author: rsethur
 ms.reviewer: laobri
 ms.custom: devplatv2, ignite-fall-2021
 ms.date: 10/21/2021
-ms.openlocfilehash: 3025b1a6111f20ccfa038fe8c4d248c57d87e80c
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 9da76d2a34cfcc98f470b42550e3a6a1b8d58a46
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132807676"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133426363"
 ---
 # <a name="what-are-azure-machine-learning-endpoints-preview"></a>Azure Machine Learning 엔드포인트(미리 보기)란? 
 
@@ -29,7 +29,7 @@ Azure Machine Learning 엔드포인트(미리 보기)를 사용하여 실시간 
 > * 엔드포인트
 > * 배포
 > * 관리형 온라인 엔드포인트
-> * Kubernetes online 끝점
+> * Kubernetes 온라인 엔드포인트
 > * 일괄 처리 유추 엔드포인트
 
 ## <a name="what-are-endpoints-and-deployments-preview"></a>엔드포인트 및 배포(미리 보기)란?
@@ -65,11 +65,11 @@ Azure Machine Learning은 엔드포인트 및 배포 개념을 사용하여 [온
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="트래픽을 두 배포로 분할하는 엔드포인트를 보여주는 다이어그램":::
 
-### <a name="online-endpoints-requirements"></a>온라인 엔드포인트 요구 사항
+### <a name="online-deployments-requirements"></a>온라인 배포 요구 사항
 
-온라인 끝점을 만들려면 다음 요소를 지정 해야 합니다.
+온라인 엔드포인트를 만들려면 다음 요소를 지정해야 합니다.
 - 모델 파일(또는 작업 영역에서 등록된 모델 지정) 
-- 점수 매기기 스크립트-점수 매기기/추론을 수행 하는 데 필요한 코드
+- 채점 스크립트 - 채점/유추를 수행하는 데 필요한 코드
 - 환경 - Conda 종속성이 있는 Docker 이미지 또는 dockerfile 
 - 컴퓨팅 인스턴스 및 크기 조정 설정 
 
@@ -122,16 +122,16 @@ Visual Studio Code를 사용 하면 끝점을 대화형으로 디버그할 수 �
 
 다음 표에서는 관리 되는 온라인 끝점과 Kubernetes online 끝점의 주요 차이점을 보여 줍니다. 
 
-|  | 관리형 온라인 엔드포인트 | Kubernetes online 끝점 |
+|  | 관리형 온라인 엔드포인트 | Kubernetes 온라인 엔드포인트 |
 |-|-|-|
-| **권장 사용자** | 관리 모델 배포 및 향상된 MLOps 환경을 원하는 사용자 | Kubernetes를 선호 하 고 인프라 요구 사항을 자체 관리 하는 사용자 |
+| **권장 사용자** | 관리 모델 배포 및 향상된 MLOps 환경을 원하는 사용자 | Kubernetes를 기본 설정하고 인프라 요구 사항을 자체 관리할 수 있는 사용자 |
 | **인프라 관리** | 관리형 컴퓨팅 프로비전, 크기 조정, 호스트 OS 이미지 업데이트 및 보안 강화 | 사용자 책임 |
-| **컴퓨팅 형식** | 관리(AmlCompute) | Kubernetes 클러스터 (Kubernetes) |
+| **컴퓨팅 형식** | 관리(AmlCompute) | Kubernetes 클러스터(Kubernetes) |
 | **기본 모니터링** | [Azure 모니터링](how-to-monitor-online-endpoints.md) <br> (대기 시간 및 처리량과 같은 주요 메트릭 포함) | 지원되지 않음 |
-| **기본 로깅** | [엔드포인트 수준의 Azure Logs 및 Log Analytics](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | 지원 여부 |
+| **기본 로깅** | [엔드포인트 수준의 Azure Logs 및 Log Analytics](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | 지원됨 |
 | **Application Insights** | 지원 여부 | 지원 여부 |
-| **관리 ID** | [지원됨](how-to-access-resources-from-endpoints-managed-identities.md) | 지원 여부 |
-| **Virtual Network(VNET)** | 아직 지원 되지 않음 (작업 중) | 지원 여부 |
+| **관리 ID** | [지원됨](how-to-access-resources-from-endpoints-managed-identities.md) | 지원됨 |
+| **Virtual Network(VNET)** | 아직 지원되지 않음(작업 중) | 지원됨 |
 | **비용 보기** | [엔드포인트 및 배포 수준](how-to-view-online-endpoints-costs.md) | 클러스터 수준 |
 
 ### <a name="managed-online-endpoints"></a>관리형 온라인 엔드포인트
@@ -167,11 +167,11 @@ Visual Studio Code를 사용 하면 끝점을 대화형으로 디버그할 수 �
 
 ### <a name="batch-deployment-requirements"></a>Batch 배포 요구 사항
 
-일괄 처리 배포를 만들려면 다음 요소를 지정 해야 합니다.
+일괄 배포를 만들려면 다음 요소를 지정해야 합니다.
 
-- 모델 파일 (또는 작업 영역에 등록 된 모델 지정)
+- 모델 파일(또는 작업 영역에 등록된 모델 지정)
 - Compute
-- 점수 매기기 스크립트-점수 매기기/추론을 수행 하는 데 필요한 코드
+- 채점 스크립트 - 채점/유추를 수행하는 데 필요한 코드
 - 환경 - Conda 종속성이 있는 Docker 이미지
 
 [Mlflow 모델](how-to-train-cli.md#model-tracking-with-mlflow)을 배포 하는 경우에는 두 가지 모두 자동 생성 되므로 점수 매기기 스크립트 및 실행 환경을 제공할 필요가 없습니다.

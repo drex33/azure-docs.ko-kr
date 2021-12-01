@@ -2,19 +2,24 @@
 title: 템플릿 구조 및 구문
 description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿(ARM 템플릿)의 구조와 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 08/16/2021
-ms.openlocfilehash: ee60651da5cee986a19cba9940c068679b342c53
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
-ms.translationtype: HT
+ms.date: 12/01/2021
+ms.openlocfilehash: 07bd58b6037976e81450dbd113c768207b76e50f
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122530302"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133426059"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>ARM 템플릿의 구조 및 구문 이해
 
 이 문서에서는 Azure Resource Manager 템플릿(ARM 템플릿)의 구조에 대해 설명합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다.
 
 이 문서는 ARM 템플릿에 대해 어느 정도 알고 있는 사용자를 위한 것입니다. 여기에서는 템플릿의 구조에 대한 자세한 정보를 제공합니다. 템플릿 만들기 프로세스를 안내하는 단계별 자습서는 [자습서: 첫 번째 ARM 템플릿 만들기 및 배포](template-tutorial-create-first-template.md)를 참조하세요. Microsoft Learn의 단계별 모듈 세트를 통한 ARM 템플릿에 대한 자세한 내용은 [ARM 템플릿을 사용하여 Azure에서 리소스 배포 및 관리](/learn/paths/deploy-manage-resource-manager-templates/)를 참조하세요.
+
+> [!TIP]
+> Bicep는 ARM 템플릿과 같은 기능을 제공 하지만 사용 하기 쉬운 구문을 사용 하는 새로운 언어입니다. 인프라를 코드 옵션으로 고려 하는 경우 Bicep을 살펴보는 것이 좋습니다.
+>
+> Bicep 파일의 요소에 대 한 자세한 내용은 [Bicep 파일의 구조 및 구문 이해](../bicep/file.md)를 참조 하세요.
 
 ## <a name="template-format"></a>템플릿 형식
 
@@ -33,7 +38,7 @@ ms.locfileid: "122530302"
 }
 ```
 
-| 요소 이름 | 필수 | 설명 |
+| 요소 이름 | 필수 | Description |
 |:--- |:--- |:--- |
 | $schema |예 |템플릿 언어의 버전을 설명하는 JSON(JavaScript Object Notation) 스키마 파일의 위치입니다. 사용할 버전 번호는 배포 범위 및 JSON 편집기에 따라 다릅니다.<br><br>[Azure Resource Manager 도구 확장과 함께 Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md)를 사용하는 경우, 최신 버전의 리소스 그룹 배포를 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>다른 편집기(Visual Studio 포함)로는 스키마를 처리하지 못할 수 있습니다. 이러한 편집기의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>구독 배포의 경우 을 사용합니다.<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>관리 그룹 배포의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>테넌트 배포의 경우 다음을 사용합니다.<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |예 |템플릿의 버전입니다(예: 1.0.0.0). 이 요소에 값을 제공할 수 있습니다. 이 값을 사용하여 템플릿에서 중요한 변경 내용을 문서화할 수 있습니다. 템플릿을 사용하여 리소스를 배포할 때 이 값을 사용하면 정확한 템플릿이 사용되도록 할 수 있습니다. |
@@ -230,7 +235,7 @@ ms.locfileid: "122530302"
 ]
 ```
 
-| 요소 이름 | 필수 | 설명 |
+| 요소 이름 | 필수 | Description |
 |:--- |:--- |:--- |
 | condition(조건) | 예 | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. [조건](conditional-resource-deployment.md)을 참조하세요. |
 | type |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 유형의 조합(예: `Microsoft.Storage/storageAccounts`)입니다. 사용 가능한 값을 확인하려면 [템플릿 참조](/azure/templates/)를 참조하세요. 하위 리소스의 경우 유형의 형식은 상위 리소스 내에 중첩되어 있는지, 상위 리소스 외부에 정의되어 있는지에 따라 달라집니다. [자식 리소스에 대한 이름 및 형식 설정](child-resource-name-type.md)을 참조하세요. |

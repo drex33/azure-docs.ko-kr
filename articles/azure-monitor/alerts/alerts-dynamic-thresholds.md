@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/12/2021
-ms.openlocfilehash: 3e88baf4cae139e963756eca3bacc94f25e393fa
-ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
+ms.openlocfilehash: 74f4305031d8a9103d4c567c8d847e80f12ccf1a
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2021
-ms.locfileid: "133407307"
+ms.locfileid: "133425394"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Azure Monitor에서 동적 임계값을 사용하는 메트릭 경고
 
@@ -74,7 +74,7 @@ ms.locfileid: "133407307"
 **다음 이전의 데이터 무시:** -사용자는 경우에 따라 시스템에서 임계값 계산을 시작하는 시작 날짜를 정의할 수도 있습니다. 일반적인 사용 사례는 리소스가 테스트 모드에서 실행되고 있었으나 이제 프로덕션 워크로드를 제공하도록 승격되므로, 테스트 단계 동안의 메트릭 동작을 무시해야 하는 경우일 수 있습니다.
 
 > [!NOTE]
-> 평가는 규칙 구성 ( **실패 한 기간** 매개 변수 포함)을 기준으로 비정상으로 간주 되는 경우에 발생 하며, 메트릭 동작이 임계값 범위 내에 있는 경우 (비정상으로 간주 되지 않음) 세 번의 연속 평가 후에 경고가 발생 합니다. 
+> 규칙이 평가 되 고 결과가 비정상으로 표시 되는 경우 경고가 발생 합니다. 규칙을 평가 하 고 행에 비정상을 세 번 표시 하지 않으면 경고가 해결 됩니다.
 
 ## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>동적 임계값 경고가 트리거되는 이유를 어떻게 알 수 있나요?
 

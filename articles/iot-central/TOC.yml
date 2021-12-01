@@ -115,6 +115,8 @@
       href: core/concepts-architecture.md
     - name: 확장성 및 고가용성
       href: core/concepts-scalability-availability.md
+    - name: 할당량 및 제한
+      href: core/concepts-quotas-limits.md
     - name: 디바이스 개발자 가이드
       href: core/overview-iot-central-developer.md
     - name: 솔루션 작성기 가이드

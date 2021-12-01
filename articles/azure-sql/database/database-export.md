@@ -5,18 +5,18 @@ description: Azure Portal을 사용하여 데이터베이스를 BACPAC 파일로
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: data-movement
-author: cawrites
+author: LitKnd
 ms.custom: sqldbrb=2
-ms.author: chadam
+ms.author: kendralittle
 ms.reviewer: ''
 ms.date: 11/01/2021
 ms.topic: how-to
-ms.openlocfilehash: 52342bded2ac0af55dd0cdd4b7670b05f5f0b249
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9c3089f62dfe5ecd1f651facbc4aa9ee001501e8
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132710504"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133425427"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>BACPAC 파일로 내보내기 - Azure SQL Database 및 Azure SQL Managed Instance
 
@@ -30,7 +30,7 @@ ms.locfileid: "132710504"
 - Blob Storage로 내보내는 경우 BACPAC 파일의 최대 크기는 200GB입니다. 더 큰 BACPAC 파일을 보관하려면 로컬 스토리지로 내보냅니다.
 - 이 문서에서 설명하는 방법을 사용하여 Azure Premium Storage에서 BACPAC 파일을 내보낼 수는 없습니다.
 - 방화벽 뒤의 스토리지는 현재 지원되지 않습니다.
-- 변경할 수 없는 저장소는 현재 지원 되지 않습니다.
+- 현재는 불변 가능한 스토리지가 지원되지 않습니다.
 - StorageURI의 스토리지 파일 이름 또는 입력 값은 길이가 128자 미만이어야 하며 '. '로 끝날 수 없으며 공백 문자 또는 '<,>,*,%,&,:,\,/,?'.와 같은 특수 문자를 포함할 수 없습니다. 
 - 내보내기 작업이 20시간을 초과하면 취소될 수 있습니다. 내보내는 중에 성능을 향상시키기 위해 다음을 수행할 수 있습니다.
 
@@ -48,7 +48,7 @@ Azure Portal를 사용하여 [Azure SQL Managed Instance](../managed-instance/sq
 > [!NOTE]
 > Azure Portal 또는 PowerShell을 통해 제출된 가져오기/내보내기 요청을 처리하는 머신은 BACPAC 파일뿐만 아니라 DacFX(데이터 계층 애플리케이션 프레임워크)에서 생성한 임시 파일도 저장해야 합니다. 필요한 디스크 공간은 동일한 크기의 데이터베이스 간에도 크게 다르며, 데이터베이스 크기의 최대 3배까지 디스크 공간이 필요할 수 있습니다. 가져오기/내보내기 요청을 실행하는 머신에는 450GB의 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 `There is not enough space on the disk` 오류와 함께 실패할 수 있습니다. 이 경우 해결 방법은 충분한 로컬 디스크 공간이 있는 머신에서 sqlpackage.exe를 실행하는 것입니다. 이 문제를 방지하려면 [SqlPackage](#sqlpackage-utility)를 사용하여 150GB보다 큰 데이터베이스를 가져오거나 내보내는 것이 좋습니다.
 
-1. [Azure Portal](https://portal.azure.com)를 사용 하 여 데이터베이스를 내보내려면 데이터베이스의 페이지를 열고 도구 모음에서 **내보내기** 를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)사용하여 데이터베이스를 내보내려면 데이터베이스에 대한 페이지를 열고 도구 모음에서 **내보내기를** 선택합니다.
 
    ![내보내기 단추를 강조 표시하는 스크린샷.](./media/database-export/database-export1.png)
 
@@ -58,7 +58,7 @@ Azure Portal를 사용하여 [Azure SQL Managed Instance](../managed-instance/sq
 
 3. **확인** 을 선택합니다.
 
-4. 내보내기 작업의 진행률을 모니터링하려면 내보낼 데이터베이스가 포함된 서버에 대한 페이지를 엽니다. **데이터 관리** 에서 **Import/Export 기록** 을 선택 합니다.
+4. 내보내기 작업의 진행률을 모니터링하려면 내보낼 데이터베이스가 포함된 서버에 대한 페이지를 엽니다. **데이터 관리에서** **기록 Import/Export** 선택합니다.
 
 ## <a name="sqlpackage-utility"></a>SQLPackage 유틸리티
 

@@ -9,12 +9,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.openlocfilehash: b03779f9c56d2ebcc4d070165cdf29a54e78d269
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: eb2bce55495b784b6f4d6849cc80a8b32db74187
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2021
-ms.locfileid: "133386902"
+ms.locfileid: "133425185"
 ---
 # <a name="azure-direct-routing-infrastructure-requirements"></a>Azure 직접 라우팅 인프라 요구 사항 
 
@@ -123,7 +123,7 @@ FQDN – sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com 및 sip3.pstnhub.
 - `52.112.0.0/14 (IP addresses from 52.112.0.1 to 52.115.255.254)`
 - `52.120.0.0/14 (IP addresses from 52.120.0.1 to 52.123.255.254)`
 
-신호 처리를 위해 이러한 모든 IP 주소 범위에 대한 방화벽 포트를 열어 해당 주소에서 들어오고 나가는 트래픽을 허용합니다. 방화벽에서 DNS 이름을 지원하는 경우 FQDN `sip-all.pstnhub.microsoft.com`은 이러한 모든 IP 주소를 확인합니다. 
+신호 처리를 위해 이러한 모든 IP 주소 범위에 대한 방화벽 포트를 열어 해당 주소에서 들어오고 나가는 트래픽을 허용합니다.
 
 ## <a name="sip-signaling-ports"></a>SIP 신호: 포트
 

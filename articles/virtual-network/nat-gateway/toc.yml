@@ -51,7 +51,7 @@ items:
         href: /javascript/azure#azure-sdk
       - name: Python
         href: 'https://azure.microsoft.com/develop/python/'
-      - name: REST
+      - name: REST (영문)
         href: /rest/api/virtualnetwork/nat-gateways
       - name: Resource Manager 템플릿
         href: /azure/templates/microsoft.network/allversions

@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure Lighthouse는 여러 Azure 서비스에서 테넌트 간 환경을 사용하도록 설정하고 개선합니다.
-ms.date: 11/11/2021
+ms.date: 12/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 07a0e2e9a42ace65cc159e0363a8ba86f4291cca
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 11d2442aa9cf2a4b529a6f567b77e86f3e823027
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492837"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133425831"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -55,7 +55,7 @@ Azure REST API의 [Subscriptions-Get](/rest/api/resources/subscriptions/get) 및
   - Azure Policy 및 태그 지정과 같은 Azure 구문을 사용하여 연결된 컴퓨터 관리
   - 고객의 하이브리드 환경에 동일한 정책 집합이 적용되는지 확인
   - 클라우드 용 Microsoft Defender를 사용 하 여 고객의 하이브리드 환경에서 호환성 모니터링
-- 대규모로 하이브리드 Kubernetes 클러스터 관리- [Azure Arc 사용 Kubernetes (미리 보기)](../../azure-arc/kubernetes/overview.md):
+- 규모에 맞게 하이브리드 Kubernetes 클러스터 관리- [Azure Arc 사용 Kubernetes](../../azure-arc/kubernetes/overview.md):
   - Azure에서 위임된 구독 및/또는 리소스 그룹에 [연결된 Kubernetes 클러스터 관리](../../azure-arc/kubernetes/quickstart-connect-cluster.md)
   - 연결된 클러스터에 [GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) 사용
   - 연결된 클러스터에서 정책 적용

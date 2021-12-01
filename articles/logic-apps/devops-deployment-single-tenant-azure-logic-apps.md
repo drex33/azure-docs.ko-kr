@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.openlocfilehash: b7e418c6e8fd282bc04f7a4a95c90d085e86deae
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: d9f0526d32c5ffe84c5827da65ffe2faad9e3338
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067082"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133426211"
 ---
 # <a name="devops-deployment-for-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps용 DevOps 배포
 
@@ -69,7 +69,7 @@ Azure Logic Apps(표준) 확장과 함께 Visual Studio Code를 사용하는 경
 
 ### <a name="container-deployment"></a>컨테이너 배포
 
-단일 테넌트 Azure Logic Apps 컨테이너에 대한 배포를 지원합니다. 즉, 논리 앱 워크플로를 컨테이너화하고 컨테이너를 실행할 수 있는 곳에서 실행할 수 있습니다. 앱을 컨테이너화한 후 배포는 배포하고 관리하는 다른 컨테이너와 거의 동일하게 작동합니다.
+단일 테넌트 Azure Logic Apps 컨테이너에 대한 배포를 지원합니다. 즉, 논리 앱 워크플로를 컨테이너화하고 컨테이너를 실행할 수 있습니다. 앱을 컨테이너화한 후 배포는 배포하고 관리하는 다른 컨테이너와 거의 동일하게 작동합니다.
 
 Azure DevOps를 포함하는 예제는 [컨테이너에 대한 CI/CD](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/)를 검토하세요.
 
@@ -77,7 +77,7 @@ Azure DevOps를 포함하는 예제는 [컨테이너에 대한 CI/CD](https://az
 
 ### <a name="app-settings-and-parameters"></a>앱 설정 및 매개 변수
 
-다중 테넌트 Azure Logic Apps에서 ARM 템플릿은 다양한 개발, 테스트 및 프로덕션 환경에서 논리 앱에 대한 환경 변수를 유지 관리해야 할 때 어려움을 유발합니다. ARM 템플릿의 모든 항목은 배포 시 정의됩니다. 단일 변수만 경 해야 하는 경우 모든 항목을 다시 배포해야 합니다.
+다중 테넌트 Azure Logic Apps ARM 템플릿은 다양한 개발, 테스트 및 프로덕션 환경에서 논리 앱에 대한 환경 변수를 유지 관리해야 할 때 문제가 됩니다. 배포 시 ARM 템플릿의 모든 항목이 정의됩니다. 단일 변수만 경 해야 하는 경우 모든 항목을 다시 배포해야 합니다.
 
 단일 테넌트 Azure Logic Apps에서 앱 설정 및 매개 변수를 사용하여 런타임에 환경 변수를 호출하고 참조할 수 있으므로 자주 다시 배포할 필요가 없습니다.
 

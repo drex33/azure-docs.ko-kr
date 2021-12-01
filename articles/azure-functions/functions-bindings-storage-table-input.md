@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4fc2426189384856d2d2e95887cdabd2f9e9ebea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 95fc02024b15b44f73ed90025a201af9de72e88a
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98033781"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133425299"
 ---
 # <a name="azure-table-storage-input-bindings-for-azure-functions"></a>Azure Functions에 대한 Azure Table Storage 입력 바인딩
 
@@ -501,6 +501,8 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
     message = json.loads(messageJSON)
     return func.HttpResponse(f"Table row: {messageJSON}")
 ```
+
+이 간단한 바인딩을 사용하면 행 키 ID가 있는 행을 찾을 수 없는 경우를 프로그래밍 방식으로 처리할 수 없습니다. 보다 세분화된 데이터를 선택하기 위해 [스토리지 SDK](/azure/developer/python/azure-sdk-example-storage-use?tabs=cmd)를 사용합니다.
 
 ---
 

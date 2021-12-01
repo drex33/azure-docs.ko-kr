@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 09/29/2021
-ms.openlocfilehash: 04121992c3de5e061e54687c8d23469850607870
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 1848e05a1e5e0dd3b4fdc6bafc69c7176c563a09
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073984"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133426249"
 ---
 # <a name="azure-purview-network-architecture-and-best-practices"></a>Azure 부서의 범위 네트워크 아키텍처 및 모범 사례
 
@@ -31,12 +31,6 @@ Azure 부서의 범위는 데이터 관리를 위한 PaaS (platform as a service
 - [개인 끝점을 사용 하 고 동일한 Azure 부서의 범위 계정에 대 한 공용 액세스를 허용](#option-3-use-both-private-and-public-endpoints)합니다. 
 
 이 가이드는 Azure 부서의 범위에 대 한 가장 일반적인 몇 가지 네트워크 아키텍처 시나리오를 설명 합니다. 이러한 시나리오를 제한 하지는 않지만 Azure 부서의 범위 계정에 대 한 네트워킹을 계획할 때 서비스의 [제한](#current-limitations) 사항을 염두에 두십시오. 
-
-이 가이드의 대상 사용자는 다음을 포함 합니다.
-
-- 데이터 아키텍처 팀 
-- 네트워크 팀  
-- 데이터 보안 팀 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -105,7 +99,7 @@ Azure 부서의 범위에서 데이터 원본을 검색 하는 경우 자격 증
 
 - **검색에 사용 되는 런타임 형식** 입니다. 현재는 자체 호스팅 통합 런타임에서 Azure 부서의 범위 관리 id를 사용할 수 없습니다. 
 
-### <a name="additional-considerations"></a>기타 고려 사항  
+### <a name="additional-considerations"></a>추가 고려 사항  
 
 - 공용 끝점을 사용 하 여 데이터 원본을 검색 하도록 선택 하는 경우 온-프레미스 또는 VM 기반 데이터 원본에서 Azure 끝점에 대 한 아웃 바운드 연결을 사용 해야 합니다. 
 

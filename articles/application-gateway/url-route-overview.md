@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 11/18/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 6e2f553fd09f7036eb3f393502fb7e674935d48f
-ms.sourcegitcommit: 11ca7ba5a017429c22a6b0bc02acb70b83a2984a
+ms.openlocfilehash: 6b23a96beca6544347193fff4b9c0d3223b8330e
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132813997"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438539"
 ---
 # <a name="url-path-based-routing-overview"></a>URL 경로 기반 라우팅 개요
 
@@ -44,7 +44,7 @@ urlPathMap 요소는 백 엔드 서버 풀 매핑에 대한 경로 패턴을 지
             "id": "/subscriptions/    {subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendAddressPools/{poolName1}"
         },
         "defaultBackendHttpSettings": {
-            "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpSettingsList/{settingname1}"
+            "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpSettingsCollection/{settingname1}"
         },
         "pathRules": [{
             "name": "{pathRuleName}",
@@ -56,7 +56,7 @@ urlPathMap 요소는 백 엔드 서버 풀 매핑에 대한 경로 패턴을 지
                     "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendAddressPools/{poolName2}"
                 },
                 "backendHttpsettings": {
-                    "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpsettingsList/{settingName2}"
+                    "id": "/subscriptions/{subscriptionId}/../microsoft.network/applicationGateways/{gatewayName}/backendHttpSettingsCollection/{settingName2}"
                 }
             }
         }]

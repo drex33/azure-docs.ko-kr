@@ -6,12 +6,12 @@ ms.author: sukoppul
 ms.service: purview
 ms.topic: how-to
 ms.date: 04/23/2021
-ms.openlocfilehash: a5b06b204cf0124a73639a9c2c59a2bc05712cb7
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: b77d4594b0376c0525ef8a1ec15189d41a3b5193
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214297"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440223"
 ---
 # <a name="disaster-recovery-for-purview"></a>Purview 재해 복구
 
@@ -50,7 +50,7 @@ Azure Purview 인스턴스의 BCDR(비즈니스 연속성 및 재해 복구)은 
 
 ## <a name="related-information"></a>관련 정보
 
-- [비즈니스 연속성 및 재해 복구](../best-practices-availability-paired-regions.md)
+- [비즈니스 연속성 및 재해 복구](../availability-zones/cross-region-replication-azure.md)
 - [BCDR 전략에 고가용성 구축](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 - [Azure 상태](https://status.azure.com/status)
 

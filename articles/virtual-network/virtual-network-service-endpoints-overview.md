@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: bbd27f7457b01386ddb1b207c10dcab87ffd4cd6
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
-ms.translationtype: HT
+ms.openlocfilehash: f29ea867a18682ae4f6973d0b3087d5acc500751
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122567652"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440071"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -65,7 +65,7 @@ VNet(가상 네트워크) 서비스 엔드포인트는 Azure 백본 네트워크
 
 - 이 기능은 Azure Resource Manager 배포 모델을 통해 배포된 가상 네트워크에만 사용할 수 있습니다.
 - 엔드포인트는 Azure 가상 네트워크에서 구성된 서브넷에서 활성화됩니다. 프레미스에서 Azure 서비스로의 트래픽에 엔드포인트를 사용할 수 없습니다. 자세한 내용은 [온-프레미스에서 Azure 서비스 액세스 보안 유지](#secure-azure-services-to-virtual-networks)를 참조하세요.
-- Azure SQL의 경우 서비스 엔드포인트는 가상 네트워크의 지역 내에서 Azure 서비스 트래픽에만 적용됩니다. Azure Storage 경우 엔드포인트는 RA-GRS(읽기 액세스 지역 중복 스토리지) 및 GRS(지역 중복 스토리지) 트래픽을 지원하기 위해 쌍을 이뤄 가상 네트워크를 배포하는 지역을 포함하도록 확장됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)을 참조하세요.
+- Azure SQL의 경우 서비스 엔드포인트는 가상 네트워크의 지역 내에서 Azure 서비스 트래픽에만 적용됩니다. Azure Storage 경우 엔드포인트는 RA-GRS(읽기 액세스 지역 중복 스토리지) 및 GRS(지역 중복 스토리지) 트래픽을 지원하기 위해 쌍을 이뤄 가상 네트워크를 배포하는 지역을 포함하도록 확장됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 - Azure Data Lake Storage(ADLS) Gen 1의 경우 VNet 통합 기능은 동일한 지역 내의 가상 네트워크에서만 사용할 수 있습니다. ADLS Gen1에 대한 가상 네트워크 통합에서는 가상 네트워크와 Azure AD(Azure Active Directory) 간에 가상 네트워크 서비스 엔드포인트 보안을 사용하여 액세스 토큰에서 추가 보안 클레임을 생성하게 됩니다. 그런 다음, 이러한 클레임을 사용하여 Data Lake Storage Gen1 계정에 대해 가상 네트워크를 인증하고 액세스를 허용합니다. 서비스 엔드포인트를 지원하는 서비스에 나열된 *Microsoft.AzureActiveDirectory* 태그는 ADLS Gen 1에 서비스 엔드포인트를 지원하는 데 사용됩니다. Azure AD는 기본적으로 서비스 엔드포인트를 지원하지 않습니다. Azure Data Lake Store Gen1 VNet 통합에 대한 자세한 내용은 [Azure Data Lake Storage Gen1 네트워크 보안](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
 ## <a name="secure-azure-services-to-virtual-networks"></a>가상 네트워크에 대한 Azure 서비스 보호

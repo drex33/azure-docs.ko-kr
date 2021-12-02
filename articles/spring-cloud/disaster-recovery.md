@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: 33ff5a9e2dcf0d4e8f62d38bc36811548f9d3b3c
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 64275d3b85fe9a045941b6211227a42db9fba306
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132484834"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438138"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Azure Spring Cloud 재해 복구
 
@@ -22,9 +22,9 @@ ms.locfileid: "132484834"
 
 ## <a name="plan-your-application-deployment"></a>애플리케이션 배포 계획
 
-Azure 스프링 클라우드의 응용 프로그램은 특정 지역에서 실행 됩니다.  Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치는 하나 이상의 Azure 지역을 포함하는 전 세계의 정의된 영역입니다. Azure 지역은 하나 이상의 데이터 센터를 포함하는 지리적 위치 내의 영역입니다.  각 Azure 지역은 동일한 지리적 위치 내의 다른 지역과 쌍을 이루어 함께 지역 쌍을 만듭니다. Azure는 지역 쌍에서 플랫폼 업데이트(계획된 유지 관리)를 직렬화하여 한 번에 각 쌍의 한 지역만 업데이트되도록 합니다. 여러 지역에 영향을 주는 중단의 경우 각 쌍에서 하나 이상의 지역에 복구 우선 순위가 지정됩니다.
+Azure 스프링 클라우드의 응용 프로그램은 특정 지역에서 실행 됩니다.  Azure는 전 세계 여러 지역에서 운영됩니다. Azure 지리적 위치는 하나 이상의 Azure 지역을 포함하는 전 세계의 정의된 영역입니다. Azure 지역은 하나 이상의 데이터 센터를 포함하는 지리적 위치 내의 영역입니다.  각 Azure 지역은 동일한 지리적 위치 내의 다른 지역과 쌍을 이루어 함께 지역 쌍을 만듭니다. Azure는 지역 쌍에서 플랫폼 업데이트(계획된 유지 관리)를 직렬화하여 한 번에 각 쌍의 한 지역만 업데이트되도록 합니다. 여러 지역에 영향을 주는 중단의 경우 각 쌍에서 하나 이상의 지역에 복구 우선 순위가 지정됩니다.
 
-고가용성 및 재해 방지를 보장하려면 Spring Cloud 애플리케이션을 여러 지역에 배포해야 합니다.  Azure는 지역 쌍에 Spring Cloud 배포를 계획할 수 있도록 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md) 목록을 제공합니다.  마이크로 서비스 아키텍처를 디자인할 때 지역 가용성, Azure 쌍을 이루는 지역 및 서비스 가용성의 세 가지 주요 요소를 고려하는 것이 좋습니다.
+고가용성 및 재해 방지를 보장하려면 Spring Cloud 애플리케이션을 여러 지역에 배포해야 합니다.  Azure는 지역 쌍에 Spring Cloud 배포를 계획할 수 있도록 [쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md) 목록을 제공합니다.  마이크로 서비스 아키텍처를 디자인할 때 지역 가용성, Azure 쌍을 이루는 지역 및 서비스 가용성의 세 가지 주요 요소를 고려하는 것이 좋습니다.
 
 * 지역 가용성:  네트워크 지연 및 전송 시간을 최소화하기 위해 사용자에게 가까운 지리적 영역을 선택합니다.
 * Azure 쌍을 이루는 지역:  선택한 지리적 영역 내에서 쌍을 이루는 지역을 선택하여 필요한 경우 조정된 플랫폼 업데이트 및 우선 순위가 지정된 복구 작업을 보장합니다.

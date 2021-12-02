@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/16/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 00f371c18682ed9e4c82d23627a4a36118b64a45
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: ac901e375c5d3d5dd2b5c1a67a161bd564dcab1e
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132754661"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440413"
 ---
 # <a name="configure-azure-cosmos-db-account-with-periodic-backup"></a>정기 백업을 사용하여 Azure Cosmos DB 계정 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ Azure Cosmos DB는 자동으로 데이터의 백업을 정기적으로 수행합
 
 * Azure Cosmos DB에서 실제 데이터는 Azure Cosmos DB 내에 로컬로 상주하는 반면, 이러한 백업은 Azure Blob Storage에 저장됩니다.
 
-* 낮은 대기 시간을 보장하기 위해 백업 스냅샷이 현재 쓰기 지역(또는 다중 지역 쓰기 구성이 있는 경우 쓰기 지역 중 **한 곳**)과 동일한 지역에 있는 Azure Blob Storage에 저장됩니다. 지역적 재해에 대비한 복구를 위해 Azure Blob Storage에 있는 백업 데이터의 각 스냅샷은 GRS(지역 중복 스토리지)를 통해 다른 지역으로 다시 복제됩니다. 백업이 복제되는 지역은 원본 지역 및 원본 지역에 연결된 지역 쌍을 기반으로 합니다. 자세한 내용은 [Azure 지역의 지역 중복 쌍 목록](../best-practices-availability-paired-regions.md) 문서를 참조하세요. 이 백업에 직접 액세스할 수 없습니다. Azure Cosmos DB 팀은 지원 요청을 통해 요청하는 경우 백업을 복원합니다.
+* 낮은 대기 시간을 보장하기 위해 백업 스냅샷이 현재 쓰기 지역(또는 다중 지역 쓰기 구성이 있는 경우 쓰기 지역 중 **한 곳**)과 동일한 지역에 있는 Azure Blob Storage에 저장됩니다. 지역적 재해에 대비한 복구를 위해 Azure Blob Storage에 있는 백업 데이터의 각 스냅샷은 GRS(지역 중복 스토리지)를 통해 다른 지역으로 다시 복제됩니다. 백업이 복제되는 지역은 원본 지역 및 원본 지역에 연결된 지역 쌍을 기반으로 합니다. 자세한 내용은 [Azure 지역의 지역 중복 쌍 목록](../availability-zones/cross-region-replication-azure.md) 문서를 참조하세요. 이 백업에 직접 액세스할 수 없습니다. Azure Cosmos DB 팀은 지원 요청을 통해 요청하는 경우 백업을 복원합니다.
 
   다음 이미지는 미국 서부의 기본 실제 파티션 3개를 모두 포함하는 Azure Cosmos 컨테이너가 미국 서부의 원격 Azure Blob Storage 계정에 백업된 다음, 미국 동부에 복제되는 과정을 보여줍니다.
 
@@ -36,7 +36,7 @@ Azure Cosmos DB는 자동으로 데이터의 백업을 정기적으로 수행합
 
 ## <a name="backup-storage-redundancy"></a><a id="backup-storage-redundancy"></a>백업 스토리지 중복성
 
-기본적으로 Azure Cosmos DB는 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md)으로 복제되는 지역 중복 [Blob Storage](../storage/common/storage-redundancy.md)에 정기 모드 백업 데이터를 저장합니다. Azure PowerShell 또는 CLI를 사용하여 이 기본값을 업데이트하고 특정 스토리지 중복 옵션을 적용하는 Azure 정책을 정의할 수 있습니다. 자세한 내용은 [백업 스토리지 중복 업데이트](update-backup-storage-redundancy.md) 문서를 참조하세요.
+기본적으로 Azure Cosmos DB는 [쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md)으로 복제되는 지역 중복 [Blob Storage](../storage/common/storage-redundancy.md)에 정기 모드 백업 데이터를 저장합니다. Azure PowerShell 또는 CLI를 사용 하 여이 기본값을 업데이트 하 고 Azure 정책을 정의 하 여 특정 저장소 중복성 옵션을 적용할 수 있습니다. 자세히 알아보려면 [백업 저장소 중복성 업데이트](update-backup-storage-redundancy.md) 문서를 참조 하세요.
 
 백업 데이터가 Azure Cosmos DB 계정이 프로비전된 동일한 지역 내에 유지되도록 하려면 기본 지역 중복 백업 스토리지를 변경하고 로컬 중복 또는 영역 중복 스토리지를 구성할 수 있습니다. 스토리지 중복성 메커니즘은 계획된 이벤트 그리고 일시적인 하드웨어 오류, 네트워크 또는 정전, 대규모 자연 재해 등의 계획되지 않은 이벤트로부터 백업을 보호하기 위해 여러 복사본을 저장합니다.
 
@@ -44,9 +44,9 @@ Azure Cosmos DB는 자동으로 데이터의 백업을 정기적으로 수행합
 
 * **지역 중복 백업 스토리지:** 이 옵션은 쌍을 이루는 지역 간에 데이터를 비동기적으로 복사합니다.
 
-* **영역 중복 백업 스토리지:** 이 옵션은 주 지역의 세 Azure 가용성 영역에서 데이터를 동기적으로 복사합니다. 자세한 내용은 [영역 중복 스토리지를 참조하세요.](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region)
+* **영역 중복 백업 저장소:** 이 옵션은 주 지역의 세 Azure 가용성 영역에 걸쳐 동기식으로 데이터를 복사 합니다. 자세한 내용은 [영역 중복 저장소](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) 를 참조 하세요.
 
-* **로컬 중복 백업 스토리지:** 이 옵션은 주 지역의 단일 물리적 위치 내에서 데이터를 동기적으로 세 번 복사합니다. 자세한 내용은 [로컬 중복 스토리지를 참조하세요.](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region)
+* **로컬 중복 백업 저장소:** 이 옵션은 주 지역의 단일 물리적 위치 내에서 데이터를 동기적으로 세 번 복사 합니다. 자세한 내용은 [로컬 중복 저장소](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region) 를 참조 하세요.
 
 > [!NOTE]
 > 영역 중복 스토리지는 현재 [특정 지역](high-availability.md#availability-zone-support)에서만 사용할 수 있습니다. 새 계정에 대해 선택한 지역 또는 기존 계정에 대해 보유한 지역에 따라 영역 중복 옵션을 사용할 수 없습니다.
@@ -72,10 +72,10 @@ Azure Cosmos DB는 4시간마다 자동으로 데이터의 전체 백업을 수�
 
    * **보존된 데이터 복사본** - 기본적으로 데이터의 백업 복사본 2개가 무료로 제공됩니다. 복사본이 2개보다 많이 필요한 경우 추가 요금이 부과됩니다. 추가 복사본의 정확한 가격을 알아보려면 [가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/) 페이지에서 사용된 스토리지 섹션을 참조하세요.
 
-   * **백업 스토리지 중복성** -필요한 스토리지 중복성 옵션을 선택합니다. 사용 가능한 옵션은 [백업 스토리지 중복성](#backup-storage-redundancy) 섹션을 참조하세요. 기본적으로 계정이 프로비전되는 지역에서 지원하는 경우 기존 정기 백업 모드 계정에 지역 중복 스토리지가 있습니다. 그렇지 않으면 계정이 사용 가능한 가장 높은 중복성 옵션으로 대체됩니다. 백업이 다른 지역으로 복제되지 않도록 로컬 중복 등의 다른 스토리지를 선택할 수 있습니다. 기존 계정의 변경 내용은 이후 백업에만 적용됩니다. 기존 계정의 백업 스토리지 중복성이 업데이트된 후에는 변경 내용이 적용되는 데 백업 간격 시간을 2배까지 걸릴 수 있으며 **이전 백업을 즉시 복원하는 액세스 권한을 잃게 됩니다.**
+   * **백업 스토리지 중복성** -필요한 스토리지 중복성 옵션을 선택합니다. 사용 가능한 옵션은 [백업 스토리지 중복성](#backup-storage-redundancy) 섹션을 참조하세요. 기본적으로 기존 정기 백업 모드 계정에는 계정이 프로 비전 되는 지역에서 지원할 경우 지역 중복 저장소가 있습니다. 그렇지 않으면 계정에서 사용 가능한 가장 높은 중복성 옵션으로 대체 합니다. 백업이 다른 지역으로 복제되지 않도록 로컬 중복 등의 다른 스토리지를 선택할 수 있습니다. 기존 계정의 변경 내용은 이후 백업에만 적용됩니다. 기존 계정의 백업 스토리지 중복성이 업데이트된 후에는 변경 내용이 적용되는 데 백업 간격 시간을 2배까지 걸릴 수 있으며 **이전 백업을 즉시 복원하는 액세스 권한을 잃게 됩니다.**
 
    > [!NOTE]
-   > 백업 스토리지 중복성을 구성하려면 구독 수준에서 Azure [Cosmos DB 운영자 역할 역할이](../role-based-access-control/built-in-roles.md#cosmos-db-operator) 할당되어 있어야 합니다.
+   > 백업 저장소 중복성을 구성 하려면 구독 수준에서 Azure [Cosmos DB Operator 역할](../role-based-access-control/built-in-roles.md#cosmos-db-operator) 역할이 할당 되어야 합니다.
 
    :::image type="content" source="./media/configure-periodic-backup-restore/configure-backup-options-existing-accounts.png" alt-text="기존 Azure Cosmos 계정에 대한 백업 간격, 보존 및 스토리지 중복성을 구성합니다." border="true":::
 

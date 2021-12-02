@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: cauribeg
-ms.openlocfilehash: 989284bd10fc5d452a738d027c693a15f7871b9b
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 30e8acc71b68be695aca3da2b04699a33c200ffd
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730009"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435794"
 ---
 # <a name="configure-geo-replication-for-premium-azure-cache-for-redis-instances"></a>프리미엄 Azure Cache for Redis 인스턴스에 대한 지역에서 복제 구성
 
@@ -149,22 +149,22 @@ ms.locfileid: "129730009"
 
 ### <a name="can-i-use-geo-replication-with-my-caches-in-a-vnet"></a>VNet에서 내 캐시와 함께 지역에서 복제를 사용할 수 있나요?
 
-예, VNet에서 캐시의 지역 복제는 다음과 같은 주의 사항과 함께 지원됩니다.
+예, VNet에서 캐시의 지역에서 복제는 다음과 같은 주의 사항과 함께 지원됩니다.
 
 - 동일한 VNet의 캐시 간에 지역에서 복제가 지원됩니다.
-- 다른 VNet의 캐시 간 지역에서 복제도 지원됩니다.
-  - VNet이 동일한 지역에 있는 경우 [VNet 피어링](../virtual-network/virtual-network-peering-overview.md) 또는 VPN Gateway [VNet-VNet 연결을](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)사용하여 연결할 수 있습니다.
-  - VNet이 다른 지역에 있는 경우 VNet 피어링을 사용한 지역에서 복제가 지원되지만 VNet 1(지역 1)의 클라이언트 VM은 기본 내부 부하 분산 장치를 사용하는 제약 조건으로 인해 DNS 이름을 사용하여 VNet 2(지역 2)의 캐시에 액세스할 수 없습니다. VNet 피어링 제약 조건에 대한 자세한 내용은 [Virtual Network - 피어링 - 요구 사항 및 제약 조건을 참조하세요.](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) VPN Gateway VNet 대 VNet 연결을 사용하는 것이 좋습니다.
+- 서로 다른 Vnet 캐시 간의 지역에서 복제도 지원 됩니다.
+  - Vnet이 동일한 지역에 있는 경우 [vnet 피어 링](../virtual-network/virtual-network-peering-overview.md) 또는 [VPN Gateway vnet 간 연결](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)을 사용 하 여 연결할 수 있습니다.
+  - Vnet 서로 다른 지역에 있는 경우 VNet 피어 링을 사용 하는 지역에서 복제가 지원 되지만 VNet 1 (지역 1)의 클라이언트 VM은 기본 내부 부하 분산 장치를 포함 하는 제약 조건으로 인해 VNet 2 (지역 2)의 캐시에 해당 DNS 이름을 사용 하 여 액세스할 수 없습니다. VNet 피어 링 제약 조건에 대 한 자세한 내용은 [Virtual Network-피어 링-요구 사항 및 제약 조건](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)을 참조 하세요. VPN Gateway VNet 간 연결을 사용 하는 것이 좋습니다.
   
-[이 Azure 템플릿](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/)를 사용하면 VPN Gateway VNet 간 연결로 연결된 VNet에 두 개의 지역 복제 캐시를 신속하게 배포할 수 있습니다.
+[이 Azure 템플릿을](https://azure.microsoft.com/resources/templates/redis-vnet-geo-replication/)사용 하 여 VPN Gateway vnet 간 연결로 연결 된 vnet에 두 개의 지역에서 복제 된 캐시를 신속 하 게 배포할 수 있습니다.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Redis 지역에서 복제의 복제 일정이란?
 
-복제는 연속적이고 비동기입니다. 특정 일정에 따라 발생하지 않습니다. 기본 복제본에 대해 수행된 모든 쓰기는 보조 복제본에 즉시 비동기적으로 복제됩니다.
+복제는 지속적이 고 비동기식입니다. 특정 일정에서 발생 하지 않습니다. 기본 복제본에 대해 수행된 모든 쓰기는 보조 복제본에 즉시 비동기적으로 복제됩니다.
 
 ### <a name="how-long-does-geo-replication-replication-take"></a>지역에서 복제에 걸리는 기간은 얼마나 되나요?
 
-복제는 점진적이고, 비동기적이고, 연속되며, 소요되는 시간은 지역 간 대기 시간과는 크게 다르지 않습니다. 특정 상황에서는 주 캐시에서 데이터의 전체 동기화를 수행하는 데 보조 캐시가 필요할 수 있습니다. 이 경우 복제 시간은 주 캐시의 로드, 사용 가능한 네트워크 대역폭 및 지역 간 대기 시간과 같은 여러 요인에 따라 달라집니다. 전체 53GB의 지역에서 복제 쌍에 대한 복제 시간이 5분에서 10분 사이인 것으로 확인했습니다.
+복제는 점진적이고, 비동기적이고, 연속되며, 소요되는 시간은 지역 간 대기 시간과는 크게 다르지 않습니다. 특정 상황에서는 보조 캐시가 주 데이터베이스의 데이터 전체 동기화를 수행 하는 데 필요할 수 있습니다. 이 경우의 복제 시간은 기본 캐시에 로드, 사용 가능한 네트워크 대역폭 및 지역 간 대기 시간과 같은 다양 한 요소에 따라 다릅니다. 전체 53GB의 지역에서 복제 쌍에 대한 복제 시간이 5분에서 10분 사이인 것으로 확인했습니다.
 
 ### <a name="is-the-replication-recovery-point-guaranteed"></a>복제 복구 지점이 보장되나요?
 
@@ -186,7 +186,7 @@ ms.locfileid: "129730009"
 
 ### <a name="what-region-should-i-use-for-my-secondary-linked-cache"></a>보조 연결된 캐시에는 어떤 지역을 사용해야 하나요?
 
-일반적으로 캐시는 해당 캐시에 액세스하는 애플리케이션과 동일한 Azure 지역에 있는 것이 좋습니다. 애플리케이션에 별도의 기본 및 대체 지역이 있는 경우에도 기본 및 보조 캐시가 동일한 지역에 존재하는 것이 좋습니다. 쌍을 이루는 지역에 대한 자세한 내용은 [모범 사례 - Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
+일반적으로 캐시는 해당 캐시에 액세스하는 애플리케이션과 동일한 Azure 지역에 있는 것이 좋습니다. 애플리케이션에 별도의 기본 및 대체 지역이 있는 경우에도 기본 및 보조 캐시가 동일한 지역에 존재하는 것이 좋습니다. 쌍을 이루는 지역에 대한 자세한 내용은 [모범 사례 - Azure 쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md)을 참조하세요.
 
 ### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>보조 연결된 캐시로 장애 조치(failover)는 어떻게 작동하나요?
 

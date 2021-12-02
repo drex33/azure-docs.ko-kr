@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: 1e655b20d2f6295f0d6cfe8008fee7b360525611
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
-ms.translationtype: HT
+ms.openlocfilehash: 62b976e44e08d6d55b4e334b6809f985179fe0ae
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774290"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437670"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>가상 네트워크 서브넷 추가, 변경 또는 삭제
 
@@ -30,7 +30,7 @@ ms.locfileid: "107774290"
 
 - **포털 사용자**: Azure 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-- **PowerShell 사용자**: [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 또는 사용자의 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. Azure Cloud Shell 브라우저 탭에서 **환경 선택** 드롭다운 목록을 찾은 다음 **PowerShell** 을 선택합니다(아직 선택하지 않은 경우).
+- **PowerShell 사용자**: [Azure Cloud Shell](https://shell.azure.com/powershell)에서 명령을 실행하거나 사용자의 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. Azure Cloud Shell 브라우저 탭에서 **환경 선택** 드롭다운 목록을 찾은 다음 **PowerShell** 을 선택합니다(아직 선택하지 않은 경우).
 
     PowerShell을 로컬로 실행하는 경우 Azure PowerShell 모듈 버전 1.0.0 이상을 사용하세요. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az.Network`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. `Connect-AzAccount`을 실행하여 Azure와 연결합니다.
 
@@ -54,7 +54,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
     | **주소 범위** | <p>범위는 가상 네트워크의 주소 공간 내에서 고유해야 합니다. 범위는 가상 네트워크 내에서 다른 서브넷 주소 범위와 겹쳐서는 안 됩니다. CIDR(Classless Inter-Domain Routing) 표기법을 사용하여 주소 공간을 지정해야 합니다.</p><p>예를 들어 주소 공간이 *10.0.0.0/16* 인 가상 네트워크에서 서브넷 주소 공간을 *10.0.0.0/22* 로 정의할 수 있습니다. 지정할 수 있는 최소 범위는 */29* 이며, 서브넷에 대해 8개의 IP 주소를 제공합니다. Azure는 프로토콜 준수를 위해 각 서브넷의 첫 번째 및 마지막 주소를 예약합니다. 세 개의 추가 주소가 Azure 서비스를 사용하기 위해 예약되어 있습니다. 결과적으로 주소 범위가 */29* 인 서브넷을 정의할 경우 서브넷에 사용할 수 있는 3개의 IP 주소가 만들어지게 됩니다.</p><p>가상 네트워크를 VPN Gateway에 연결하려면 게이트웨이 서브넷을 만들어야 합니다. [게이트웨이 서브넷에 대한 특정 주소 범위 고려 사항](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에서 대해 자세히 알아보세요. 특정 조건에서는 서브넷을 추가한 후에 주소 범위를 변경할 수 있습니다. 서브넷 주소 범위를 변경하는 방법에 대한 자세한 내용은 [서브넷 설정 변경](#change-subnet-settings)을 참조하세요.</p> |
     | **네트워크 보안 그룹** | 기존 네트워크 보안 그룹을 서브넷에 연결하여 서브넷에 대한 인바운드 및 아웃바운드 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 보안 그룹은 가상 네트워크와 동일한 구독 및 위치에 있어야 합니다. [네트워크 보안 그룹](./network-security-groups-overview.md) 및 [네트워크 보안 그룹을 만드는 방법](tutorial-filter-network-traffic.md)에 대해 알아봅니다. |
     | **경로 테이블** | 선택적으로 기존 네트워크 경로 테이블을 서브넷에 연결하여 다른 네트워크에 대한 네트워크 트래픽 라우팅을 제어할 수 있습니다. 경로 테이블은 가상 네트워크와 동일한 구독 및 위치에 있어야 합니다. [Azure 라우팅](virtual-networks-udr-overview.md) 및 [경로 테이블을 만드는 방법](tutorial-create-route-table-portal.md)에 대한 자세한 정보. |
-    | **서비스 엔드포인트** | <p>서브넷은 선택적으로 하나 이상의 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. 서비스에 대해 서비스 엔드포인트를 사용하려면 **서비스** 목록에서 서비스 엔드포인트를 사용할 서비스를 선택합니다. Azure는 엔드포인트에 대한 위치를 자동으로 구성합니다. 기본적으로 Azure는 가상 네트워크의 하위 지역에 서비스 엔드포인트를 구성합니다. 하위 지역 장애 조치(Failover) 시나리오를 지원하기 위해 Azure는 Azure Storage에 대해 [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions)으로 엔드포인트를 자동 구성합니다.</p><p>서비스 엔드포인트를 제거하려면 서비스 엔드포인트를 제거할 서비스를 선택 취소합니다. 서비스 엔드포인트 및 서비스 엔드포인트를 사용할 수 있는 서비스에 대한 자세한 정보는 [가상 네트워크 서비스 엔드포인트](virtual-network-service-endpoints-overview.md)를 참조하세요. 서비스에 대한 서비스 엔드포인트를 사용하도록 설정하면 서비스를 사용하여 만든 리소스의 서브넷에 대해서도 네트워크 액세스를 사용하도록 설정해야 합니다. 예를 들어 **Microsoft.Storage** 에 대해 서비스 엔드포인트를 사용하도록 설정하면 네트워크 액세스 권한을 부여할 모든 Azure Storage 계정에 대해서도 네트워크 액세스를 사용하도록 설정해야 합니다. 서비스 엔드포인트를 사용하도록 설정한 서브넷에 대해 네트워크 액세스를 사용하는 방법은 서비스 엔드포인트를 사용하도록 설정한 개별 서비스에 대한 설명서를 참조하세요.</p><p>서브넷에 대해 서비스 엔드포인트를 사용할 수 있는지 검증하려면 서브넷에 있는 임의 네트워크 인터페이스의 [유효 경로](diagnose-network-routing-problem.md)를 확인합니다. 엔드포인트를 구성한 경우 서비스의 주소 접두사와 **VirtualNetworkServiceEndpoint** 의 다음 홉 유형으로 구성된 *기본* 경로가 표시됩니다. 라우팅에 대한 자세한 정보는 [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)을 참조하세요.</p> |
+    | **서비스 엔드포인트** | <p>서브넷은 선택적으로 하나 이상의 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. 서비스에 대해 서비스 엔드포인트를 사용하려면 **서비스** 목록에서 서비스 엔드포인트를 사용할 서비스를 선택합니다. Azure는 엔드포인트에 대한 위치를 자동으로 구성합니다. 기본적으로 Azure는 가상 네트워크의 하위 지역에 서비스 엔드포인트를 구성합니다. 하위 지역 장애 조치(Failover) 시나리오를 지원하기 위해 Azure는 Azure Storage에 대해 [Azure 쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md?toc=%2fazure%2fvirtual-network%2ftoc.json)으로 엔드포인트를 자동 구성합니다.</p><p>서비스 엔드포인트를 제거하려면 서비스 엔드포인트를 제거할 서비스를 선택 취소합니다. 서비스 엔드포인트 및 서비스 엔드포인트를 사용할 수 있는 서비스에 대한 자세한 정보는 [가상 네트워크 서비스 엔드포인트](virtual-network-service-endpoints-overview.md)를 참조하세요. 서비스에 대한 서비스 엔드포인트를 사용하도록 설정하면 서비스를 사용하여 만든 리소스의 서브넷에 대해서도 네트워크 액세스를 사용하도록 설정해야 합니다. 예를 들어 **Microsoft.Storage** 에 대해 서비스 엔드포인트를 사용하도록 설정하면 네트워크 액세스 권한을 부여할 모든 Azure Storage 계정에 대해서도 네트워크 액세스를 사용하도록 설정해야 합니다. 서비스 엔드포인트를 사용하도록 설정한 서브넷에 대해 네트워크 액세스를 사용하는 방법은 서비스 엔드포인트를 사용하도록 설정한 개별 서비스에 대한 설명서를 참조하세요.</p><p>서브넷에 대해 서비스 엔드포인트를 사용할 수 있는지 검증하려면 서브넷에 있는 임의 네트워크 인터페이스의 [유효 경로](diagnose-network-routing-problem.md)를 확인합니다. 엔드포인트를 구성한 경우 서비스의 주소 접두사와 **VirtualNetworkServiceEndpoint** 의 다음 홉 유형으로 구성된 *기본* 경로가 표시됩니다. 라우팅에 대한 자세한 정보는 [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md)을 참조하세요.</p> |
     | **서브넷 위임** | 서브넷은 선택적으로 하나 이상의 위임을 사용하도록 설정할 수 있습니다. 서브넷 위임은 서비스를 배포할 때 고유 식별자를 사용하여 서브넷에서 서비스 특정 리소스를 만들 수 있는 서비스에 대한 명시적 권한을 제공합니다. 서비스를 위임하려면 **서비스** 목록에서 위임할 서비스를 선택합니다. |
 
 5. 선택한 가상 네트워크에 서브넷을 추가하려면 **확인** 을 선택합니다.
@@ -120,7 +120,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 서브넷에 대한 작업을 수행하려면 다음 표의 적절한 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Network Contributor 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)에 계정이 할당되어야 합니다.
 
-|작업                                                                   |   Name                                       |
+|작업                                                                   |   이름                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   가상 네트워크 서브넷 읽기              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   가상 네트워크 서브넷 만들기 또는 업데이트  |

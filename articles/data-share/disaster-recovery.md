@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 1d7c9935d7e0d6bb2d457aa4c08f9b2b3e5fa910
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: baf968c02043d84d89c1c0affe70a6adf29ad99c
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92218700"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440337"
 ---
 # <a name="disaster-recovery-for-azure-data-share"></a>Azure Data Share에 대한 재해 복구
 
@@ -29,7 +29,7 @@ ms.locfileid: "92218700"
 
 ## <a name="related-information"></a>관련 정보
 
-- [비즈니스 연속성 및 재해 복구](../best-practices-availability-paired-regions.md)
+- [비즈니스 연속성 및 재해 복구](../availability-zones/cross-region-replication-azure.md)
 - [BCDR 전략에 고가용성 구축](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: jbeauregardb
-ms.openlocfilehash: 6671cd542ece13385c99a7c3b5787d37703894af
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: b4e5bc39bfbd3faf0bee231d75be54f6e8ffd70d
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114292377"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133444950"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -70,7 +70,7 @@ pip install azure-monitor-opentelemetry-exporter --pre
 
 ```python
 connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
-client = CommunicationIdentityClient.from_connection_string(connection_string)
+identity_client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
 먼저 Azure Monitor에서 요청을 추적할 수 있는 범위를 만들기 위해 `AzureMonitorTraceExporter` 개체의 인스턴스를 만들어야 합니다. Application Insights 리소스에서 연결 문자열을 제공해야 합니다.

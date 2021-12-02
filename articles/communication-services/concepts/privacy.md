@@ -8,12 +8,13 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 726bee60d88681fac2018b62bb86f2c0b2033d50
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.custom: references_regions
+ms.openlocfilehash: b2a09c1cb4185bffc8891f91d37572afcaca9146
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133267872"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434561"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
 
@@ -21,7 +22,22 @@ Azure Communication Services는 개인 정보 및 개인 데이터 요구 사항
 
 ## <a name="data-residency"></a>데이터 상주
 
-Communication Services 리소스를 만들 때 **지역**(Azure 데이터 센터가 아님)을 지정합니다. Communication Services에서 저장한 휴지 상태의 모든 채팅 메시지 및 리소스 데이터는 Communication Services에서 내부적으로 선택한 데이터 센터의 해당 지역에 보존됩니다. 데이터는 다른 지역에서 전송되거나 처리될 수 있습니다. 이러한 글로벌 엔드포인트는 위치에 관계없이 최종 사용자에게 대기 시간이 짧은 고성능 환경을 제공하는 데 필요합니다.
+Azure Communication Services 리소스를 [만들](../quickstarts/create-communication-resource.md) 때 **지리(Azure** 데이터 센터가 아닌)를 지정합니다. Communication Services에서 저장한 휴지 상태의 모든 채팅 메시지 및 리소스 데이터는 Communication Services에서 내부적으로 선택한 데이터 센터의 해당 지역에 보존됩니다. 데이터는 다른 지역에서 전송되거나 처리될 수 있습니다. 이러한 글로벌 엔드포인트는 위치에 관계없이 최종 사용자에게 대기 시간이 짧은 고성능 환경을 제공하는 데 필요합니다.
+
+선택할 수 있는 지역 목록에는 다음이 포함됩니다.
+- 아프리카
+- 아시아 태평양
+- 오스트레일리아
+- 브라질
+- 캐나다
+- 유럽
+- 프랑스
+- 독일
+- 인도
+- 일본
+- 한국
+- 영국
+- 미국
 
 > [!NOTE]
 > PSTN 및 SMS의 경우 서비스의 운영 및 요금 청구에 필요한 통화 및 메시지 데이터 레코드를 미국에 저장할 수 있습니다.

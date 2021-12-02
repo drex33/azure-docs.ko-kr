@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.openlocfilehash: 3f486e1f46cc4ed21dc3da89d242d50010178e7d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 84cea1c58c448fcd7a54bbb5d28a1ccbdf366456
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536281"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437375"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Azure Logic Apps의 비즈니스 연속성 및 재해 복구
 
@@ -38,13 +38,13 @@ ms.locfileid: "122536281"
 
 이 재해 복구 전략은 Azure Logic Apps도 사용할 수 있는 대체 위치에서 대기 또는 백업 논리 앱으로 ‘[장애 조치(failover)](https://en.wikipedia.org/wiki/Failover)’하도록 주 논리 앱을 설정하는 데 중점을 둔 것입니다. 이렇게 하면 주 논리 앱이 손실, 중단 또는 실패하는 경우 보조 논리 앱에서 작업을 수행할 수 있습니다. 이 전략을 사용하려면 보조 논리 앱 및 종속 리소스가 대체 위치에 이미 배포되고 준비되어 있어야 합니다.
 
-DevOps 모범 사례를 따르는 경우 이미 [Azure Resource Manager 템플릿](../azure-resource-manager/management/overview.md)을 사용하여 논리 앱 및 해당 종속 리소스를 정의하고 배포한 것입니다. Resource Manager 템플릿은 단일 배포 정의를 사용하고 매개 변수 파일을 사용하여 각 배포 대상에 사용할 구성 값을 제공하는 기능을 제공합니다. 이 기능은 동일한 논리 앱을 개발, 테스트, 프로덕션 등의 다양한 환경에 배포할 수 있음을 의미합니다. 또한 동일한 논리 앱을 다양한 Azure 지역 또는 ISE에 배포하여 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 사용하는 재해 복구 전략을 지원할 수 있습니다.
+DevOps 모범 사례를 따르는 경우 이미 [Azure Resource Manager 템플릿](../azure-resource-manager/management/overview.md)을 사용하여 논리 앱 및 해당 종속 리소스를 정의하고 배포한 것입니다. Resource Manager 템플릿은 단일 배포 정의를 사용하고 매개 변수 파일을 사용하여 각 배포 대상에 사용할 구성 값을 제공하는 기능을 제공합니다. 이 기능은 동일한 논리 앱을 개발, 테스트, 프로덕션 등의 다양한 환경에 배포할 수 있음을 의미합니다. 또한 동일한 논리 앱을 다양한 Azure 지역 또는 ISE에 배포하여 [쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md)을 사용하는 재해 복구 전략을 지원할 수 있습니다.
 
 장애 조치(failover) 전략의 경우 논리 앱 및 위치는 다음 요구 사항을 충족해야 합니다.
 
 * 보조 논리 앱 인스턴스는 주 논리 앱 인스턴스와 동일한 앱, 서비스, 시스템에 액세스할 수 있습니다.
 
-* 두 논리 앱 인스턴스가 동일한 호스트 유형을 갖습니다. 따라서 두 인스턴스 모두 글로벌 다중 테넌트 Azure의 지역에 배포되거나 두 인스턴스 모두 ISE에 배포되어 논리 앱이 Azure 가상 네트워크의 리소스에 직접 액세스할 수 있습니다. 모범 사례 및 BCDR을 위한 쌍을 이루는 지역에 대한 자세한 내용은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
+* 두 논리 앱 인스턴스가 동일한 호스트 유형을 갖습니다. 따라서 두 인스턴스 모두 글로벌 다중 테넌트 Azure의 지역에 배포되거나 두 인스턴스 모두 ISE에 배포되어 논리 앱이 Azure 가상 네트워크의 리소스에 직접 액세스할 수 있습니다. BCDR에 대 한 쌍을 이루는 지역에 대 한 모범 사례 및 자세한 내용은 [Azure에서 지역 간 복제: 비즈니스 연속성 및 재해 복구](../availability-zones/cross-region-replication-azure.md)를 참조 하세요.
 
   예를 들어 주 논리 앱이 ISE에서 실행되고 [ISE 버전의 커넥터](../connectors/managed.md#ise-connectors), Azure 가상 네트워크에서 리소스를 호출하는 HTTP 작업 또는 둘 다를 사용하는 경우 주 위치와 보조 위치 모두 ISE여야 합니다. 이 시나리오에서 보조 논리 앱에는 주 논리 앱과 유사한 설정이 보조 위치에 있어야 합니다.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 0fd042520e032459807d0416ed444f3288423baf
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: cf8e90a1d7d94bd2ae427dd9b83ee44c8ccce280
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133360290"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440171"
 ---
 # <a name="oracle-database-in-azure-linux-vm-backup-strategies"></a>Azure Linux VM 백업 전략에서 Oracle Database
 
@@ -59,11 +59,11 @@ Azure Storage 플랫폼에는 Oracle 데이터베이스용 백업 미디어로 �
 
 #### <a name="blob-storage-and-file-storage"></a>Blob Storage 및 File Storage
 
-SMB 또는 NFS 4.1 프로토콜과 함께 Azure Files 사용하여 백업 스토리지로 탑재하는 경우 Azure Files RA-GRS(읽기 액세스 지역 중복 스토리지) 및 RA-GZRS(읽기 액세스 지역 영역 중복 스토리지)를 지원하지 않습니다. 
+SMB 또는 NFS 4.1 프로토콜과 함께 Azure Files를 사용 하 여 백업 저장소로 탑재 하는 경우 Azure Files은 읽기 액세스 지역 중복 저장소 (RA-GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GZRS)를 지원 하지 않습니다. 
 
 또한 백업 스토리지 요구 사항이 5TiB보다 큰 경우 GRS 또는 GZRS 중복도를 지원하지 않고 LRS만 지원하는[대용량 파일 공유 기능](../../../storage/files/storage-files-planning.md)을 사용하도록 설정해야 Azure Files를 사용할 수 있습니다. 
 
-NFS 3.0 프로토콜을 사용하여 탑재된 Azure Blob은 현재 LRS 및 ZRS 중복성만 지원합니다.  
+NFS 3.0 프로토콜을 사용 하 여 탑재 된 Azure Blob는 현재 LRS 및 ZRS 중복성만 지원 합니다.  
 
 모든 중복도 옵션으로 구성된 Azure Blob은 Blobfuse를 사용하여 탑재할 수 있습니다.
 
@@ -72,7 +72,7 @@ NFS 3.0 프로토콜을 사용하여 탑재된 Azure Blob은 현재 LRS 및 ZRS 
 Recovery Services 자격 증명 모음은 시간이 지남에 따라 만들어지는 복구 지점을 저장하고 백업 관련 작업을 수행하기 위한 인터페이스를 제공하는 관리 엔터티입니다. 여기에는 주문형 백업 수행, 복원 수행 및 백업 정책 만들기가 포함됩니다.
 Azure Backup은 자격 증명 모음에 대한 스토리지를 자동으로 처리합니다. 스토리지를 만들 때 복제하는 방법을 지정해야 합니다. 항목을 자격 증명 모음에서 보호한 후에는 변경할 수 없습니다. 지역 중복도의 경우 지역 중복 설정을 선택하십시오.
 
-보조 지역으로 복원하려는 경우 [Azure 쌍을 이루는 지역](../../../best-practices-availability-paired-regions.md)은 [지역 간 복원](../../../backup/backup-create-rs-vault.md) 기능을 사용하도록 설정되어야 합니다. 지역 간 복원을 사용하도록 설정한 경우 백업 스토리지는 GRS에서 RA-GRS(읽기 액세스 지역 중복 스토리지)로 이동됩니다. 
+보조 지역으로 복원하려는 경우 [Azure 쌍을 이루는 지역](../../../availability-zones/cross-region-replication-azure.md)은 [지역 간 복원](../../../backup/backup-create-rs-vault.md) 기능을 사용하도록 설정되어야 합니다. 지역 간 복원을 사용하도록 설정한 경우 백업 스토리지는 GRS에서 RA-GRS(읽기 액세스 지역 중복 스토리지)로 이동됩니다. 
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
@@ -84,9 +84,9 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 사용�
 
 모든 Azure 지역에서 사용 가능하고 범용 v1/v2 및 Azure Data Lake Store Gen2를 비롯한 모든 스토리지 계정 형식에서 작동하지만 Blobfuse에서 제공되는 성능은 SMB 또는 NFS와 같은 대체 프로토콜보다 떨어지는 것으로 나타났습니다. 데이터베이스 백업 미디어로 사용하기에 적합하도록 SMB 또는 [NFS](../../../storage/blobs/storage-how-to-mount-container-linux.md) 프로토콜을 사용하여 Azure Blob Storage를 탑재하는 것이 좋습니다. 
 
-#### <a name="azure-blob-nfs-v30"></a>Azure Blob NFS v3.0
+#### <a name="azure-blob-nfs-v30"></a>Azure Blob NFS v 3.0
 
-이제 NFS(네트워크 파일 시스템) v3.0 프로토콜에 대한 Azure 지원을 사용할 수 있습니다. [NFS](../../../storage/blobs/network-file-system-protocol-support.md) 지원을 사용하면 Windows 및 Linux 클라이언트에서 Blob 스토리지 컨테이너를 Azure VM에 탑재할 수 있습니다. 
+이제 NFS (네트워크 파일 시스템) v 3.0 프로토콜에 대 한 Azure 지원을 사용할 수 있습니다. [NFS](../../../storage/blobs/network-file-system-protocol-support.md) 지원을 사용하면 Windows 및 Linux 클라이언트에서 Blob 스토리지 컨테이너를 Azure VM에 탑재할 수 있습니다. 
 
 네트워크 보안을 유지하려면 NFS 탑재에 사용되는 스토리지 계정이 VNet 내에 포함되어야 합니다. Azure AD(Active Directory) 보안 및 ACL(액세스 제어 목록)은 NFS 3.0 프로토콜 지원을 사용하도록 설정된 계정에서 아직 지원되지 않습니다.
 
@@ -94,13 +94,13 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하는 데 사용�
 
 [Azure Files](../../../storage/files/storage-files-introduction.md)는 온-프레미스 또는 클라우드 기반 Windows, Linux 또는 macOS 클라이언트에 탑재할 수 있는 클라우드 기반의 완전 관리형 분산 파일 시스템입니다.
 
-Azure Files SMB(서버 메시지 블록) 프로토콜 및 NFS(네트워크 파일 시스템) 프로토콜을 통해 액세스할 수 있는 완전히 관리되는 플랫폼 간 파일 공유를 클라우드에서 제공합니다. Azure Files는 현재 다중 프로토콜 액세스를 지원하지 않으므로, NFS 공유 또는 SMB 공유 중 하나만 사용하여 공유할 수 있습니다. Azure 파일 공유를 만들기 전에, 어느 프로토콜이 요구 사항에 가장 적합한지 결정하는 것이 좋습니다.
+Azure Files은 SMB (서버 메시지 블록) 프로토콜 및 NFS (네트워크 파일 시스템) 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리 되는 플랫폼 간 파일 공유를 제공 합니다. Azure Files는 현재 다중 프로토콜 액세스를 지원하지 않으므로, NFS 공유 또는 SMB 공유 중 하나만 사용하여 공유할 수 있습니다. Azure 파일 공유를 만들기 전에, 어느 프로토콜이 요구 사항에 가장 적합한지 결정하는 것이 좋습니다.
 
 또한 Azure 파일 공유는 Recovery Services 자격 증명 모음에 대한 Azure Backup을 통해 보호할 수 있으므로 Oracle RMAN 백업에 대한 추가 보호 계층을 제공합니다.
 
-#### <a name="azure-files-nfs-v41"></a>NFS v4.1 Azure Files
+#### <a name="azure-files-nfs-v41"></a>Azure Files NFS v 4.1
 
-Azure 파일 공유는 NFS(네트워크 파일 시스템) v4.1 프로토콜을 사용하여 Linux 배포판에 탑재할 수 있습니다. 지원되는 기능에는 여러 가지 제한이 있습니다. 자세한 내용은 [Azure Storage 기능 지원을 참조하세요.](../../../storage/files/files-nfs-protocol.md#support-for-azure-storage-features) 
+Azure 파일 공유는 NFS(네트워크 파일 시스템) v4.1 프로토콜을 사용하여 Linux 배포판에 탑재할 수 있습니다. 지원 되는 기능에는 몇 가지 제한 사항이 있습니다. 자세한 내용은 [Azure Storage 기능에 대 한 지원](../../../storage/files/files-nfs-protocol.md#support-for-azure-storage-features)을 참조 하세요. 
 
 [!INCLUDE [files-nfs-regional-availability](../../../../includes/files-nfs-regional-availability.md)]
 

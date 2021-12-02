@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: e8e6cf62e2d6c09059af00fc7fa3d5f2c447ae2a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: e45b2c135634eaf5c674479e77353bb05ef5cab1
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131069219"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436649"
 ---
 # <a name="configure-qna-maker-resources"></a>QnA Maker 리소스 구성
 
@@ -100,7 +100,7 @@ App Service [일반 설정](../../../app-service/configure-common.md#configure-g
 
 위에 표시된 것처럼 대략적인 아이디어는 다음과 같습니다.
 
-1. [Azure 쌍을 이루는 지역](../../../best-practices-availability-paired-regions.md)에서 두 개의 병렬 [QnA Maker 서비스](set-up-qnamaker-service-azure.md)를 설정합니다.
+1. [Azure 쌍을 이루는 지역](../../../availability-zones/cross-region-replication-azure.md)에서 두 개의 병렬 [QnA Maker 서비스](set-up-qnamaker-service-azure.md)를 설정합니다.
 
 1. 기본 QnA Maker App Service를 [백업](../../../app-service/manage-backup.md)하고 보조 설정에서 [복원](../../../app-service/web-sites-restore.md)합니다. 이렇게 하면 두 설정이 동일한 호스트 이름 및 키로 작동합니다.
 

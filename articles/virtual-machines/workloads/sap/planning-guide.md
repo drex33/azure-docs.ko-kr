@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b6d31f3a55338a9a92549954dd8ae1a3367c3da4
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 134eca39f634ab6ba0906ad2bbe0629bce79eee5
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131428067"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133439554"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -447,7 +447,7 @@ Azure 가용성 집합의 개념 및 가용성 집합이 장애 도메인 및 �
 > Azure 가용성 영역과 Azure 가용성 집합의 개념은 함께 사용할 수 없습니다. 즉, 한 쌍 또는 여러 VM을 특정 가용성 영역 또는 Azure 가용성 집합에 배포할 수 있지만 두 개에 모두 배포할 수는 없다는 의미입니다.
 
 ### <a name="azure-paired-regions"></a>Azure 쌍을 이루는 지역
-Azure는 이러한 고정된 지역 쌍 간에 특정 데이터의 복제를 사용하도록 설정하는 Azure 지역 쌍을 제공합니다. 지역 페어링은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 지역 쌍](../../../best-practices-availability-paired-regions.md) 문서에 설명되어 있습니다. 이 문서에서 설명하는 것처럼, 데이터 복제는 지역 쌍에 복제하기 위해 구성할 수 있는 Azure 스토리지 형식에 따라 달라집니다. 또한 [보조 지역의 스토리지 중복](../../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 문서를 참조하세요. 이러한 복제를 허용하는 스토리지 유형은 스토리지 유형이며 DBMS 워크로드에 적합하지 않습니다. 따라서 Azure Storage 복제는 Azure Blob Storage(예: 백업 목적) 또는 기타 대기 시간이 긴 스토리지 시나리오에만 유용합니다. 지역 쌍과 기본 또는 보조 지역으로 사용할 서비스를 확인할 때, 기본 지역에서 사용하려는 Azure 서비스 및/또는 VM 유형을 지역 쌍에서 사용할 수 없는 상황이 발생할 수 있습니다. 또는 데이터 규정 준수 위반 때문에 Azure 지역 쌍이 허용되지 않는 상황이 발생할 수 있습니다. 이러한 상황에서는 쌍을 이루지 않는 지역을 보조/재해 복구 지역으로 사용해야 합니다. 이 경우 Azure에서 복제한 일부 데이터의 복제를 직접 처리해야 합니다. Active Directory 및 DNS를 재해 복구 지역에 복제하는 방법에 대한 예제는 [Active Directory 및 DNS의 재해 복구 설정](../../../site-recovery/site-recovery-active-directory.md) 문서에 설명되어 있습니다.
+Azure는 이러한 고정된 지역 쌍 간에 특정 데이터의 복제를 사용하도록 설정하는 Azure 지역 쌍을 제공합니다. 지역 페어링은 [Azure의 지역 간 복제: 비즈니스 연속성 및 재해 복구](../../../availability-zones/cross-region-replication-azure.md)문서에 설명되어 있습니다. 이 문서에서 설명하는 것처럼, 데이터 복제는 지역 쌍에 복제하기 위해 구성할 수 있는 Azure 스토리지 형식에 따라 달라집니다. 또한 [보조 지역의 스토리지 중복](../../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 문서를 참조하세요. 이러한 복제를 허용하는 스토리지 유형은 스토리지 유형이며 DBMS 워크로드에 적합하지 않습니다. 따라서 Azure Storage 복제는 Azure Blob Storage(예: 백업 목적) 또는 기타 대기 시간이 긴 스토리지 시나리오에만 유용합니다. 지역 쌍과 기본 또는 보조 지역으로 사용할 서비스를 확인할 때, 기본 지역에서 사용하려는 Azure 서비스 및/또는 VM 유형을 지역 쌍에서 사용할 수 없는 상황이 발생할 수 있습니다. 또는 데이터 규정 준수 위반 때문에 Azure 지역 쌍이 허용되지 않는 상황이 발생할 수 있습니다. 이러한 상황에서는 쌍을 이루지 않는 지역을 보조/재해 복구 지역으로 사용해야 합니다. 이 경우 Azure에서 복제한 일부 데이터의 복제를 직접 처리해야 합니다. Active Directory 및 DNS를 재해 복구 지역에 복제하는 방법에 대한 예제는 [Active Directory 및 DNS의 재해 복구 설정](../../../site-recovery/site-recovery-active-directory.md) 문서에 설명되어 있습니다.
 
 
 ## <a name="azure-virtual-machine-services"></a>Azure Virtual Machine 서비스
@@ -455,7 +455,7 @@ Azure는 배포에 선택할 수 있는 다양한 가상 머신을 제공합니�
 
 ![Microsoft Azure Virtual Machine 서비스 위치 지정][planning-guide-figure-400]
 
-Microsoft에서는 Azure Virtual Machine으로 사용자 지정 서버 이미지를 Azure에 IaaS 인스턴스로 배포하도록 지원합니다. 또는 Azure Marketplace 다양한 사용 가능한 운영 체제 이미지 중에서 선택할 수 있습니다.
+Microsoft에서는 Azure Virtual Machine으로 사용자 지정 서버 이미지를 Azure에 IaaS 인스턴스로 배포하도록 지원합니다. 또는 Azure Marketplace에서 다양 한 기능을 갖춘 운영 체제 이미지를 선택할 수 있습니다.
 
 운영 측면에서 Azure Virtual Machine 서비스는 온-프레미스에 배포된 가상 머신과 유사한 환경을 제공합니다. 사용자는 Azure VM에서 실행되는 운영 체제와 해당 VM에 설치된 애플리케이션의 관리, 운영 및 패칭에 대한 책임이 있습니다. Microsoft는 Azure 인프라에서 해당 VM을 호스팅하는 것 이상의 서비스는 제공하지 않습니다(서비스형 인프라 - IaaS). 고객으로서 배포하고자 하는 SAP 워크로드에 대해서 Microsoft는 IaaS 상품 이외에 다른 상품을 제공하지 않습니다.
 
@@ -888,7 +888,7 @@ Azure Portal을 통해서는 Azure에 VM 이미지와 디스크를 업로드할 
 
 * *Connect-AzAccount* 를 사용하여 구독에 로그인
 * *Set-AzContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName을 통해 컨텍스트의 구독 설정 - [Set-AzContext](/powershell/module/az.accounts/set-azcontext) 참조
-* *Add-AzVhd를* 사용하여 VHD를 Azure Storage 계정에 업로드 - [Add-AzVhd](/powershell/module/az.compute/add-azvhd) 참조
+* *Add-AzVhd를* 사용하여 VHD를 Azure Storage 계정에 업로드 - [Add-AzVhd를](/powershell/module/az.compute/add-azvhd) 참조하세요.
 * (선택 사항) *New-AzDisk를* 사용하여 VHD에서 관리 디스크 만들기 - [New-AzDisk](/powershell/module/az.compute/new-azdisk) 참조
 * *Set-AzVMOSDisk를* 사용하여 새 VM 구성의 OS 디스크를 VHD 또는 Managed Disk로 설정합니다. [Set-AzVMOSDisk를](/powershell/module/az.compute/set-azvmosdisk) 참조하세요.
 * *New-AzVM을* 사용하여 VM 구성에서 새 VM 만들기 - [New-AzVM](/powershell/module/az.compute/new-azvm) 참조
@@ -915,7 +915,7 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 * Windows의 *sysprep* 또는 Linux의 *waagent -deprovision* 을 사용하여 VM 일반화 - [Sysprep 기술 참조](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10))(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
 * *Connect-AzAccount* 를 사용하여 구독에 로그인
 * *Set-AzContext* 및 매개 변수 SubscriptionId 또는 SubscriptionName을 통해 컨텍스트의 구독 설정 - [Set-AzContext](/powershell/module/az.accounts/set-azcontext) 참조
-* *Add-AzVhd를* 사용하여 VHD를 Azure Storage 계정에 업로드 - [Add-AzVhd](/powershell/module/az.compute/add-azvhd) 참조
+* *Add-AzVhd를* 사용하여 VHD를 Azure Storage 계정에 업로드 - [Add-AzVhd를](/powershell/module/az.compute/add-azvhd) 참조하세요.
 * (선택 사항) *New-AzImage를* 사용하여 VHD에서 관리 디스크 이미지 만들기 - [New-AzImage](/powershell/module/az.compute/new-azimage) 참조
 * 새 VM 구성의 OS 디스크를
   * *Set-AzVMOSDisk -SourceImageUri -CreateOption fromImage를* 사용하여 VHD - [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) 참조
@@ -928,7 +928,7 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 * *az login* 을 사용하여 구독에 로그인
 * *az account set --subscription `<subscription name or id`>* 를 사용하여 구독 선택
 * *az storage blob upload* 를 사용하여 VHD 업로드 - [Azure Storage에서 Azure CLI 사용][storage-azure-cli] 참조
-* (선택 사항) *az image create를* 사용하여 VHD에서 관리 디스크 이미지 만들기 - [az image를 참조하세요.](/cli/azure/image)
+* (선택 사항) *az image create를* 사용하여 VHD에서 관리 디스크 이미지 만들기 - [az image를](/cli/azure/image)참조하세요.
 * *az vm create* 및 매개 변수 *--image* 를 사용하여 업로드한 VHD 또는 관리 디스크 이미지를 OS 디스크로 지정해 새 VM 만들기
 
 **템플릿**
@@ -1259,7 +1259,7 @@ Azure Resource Manager를 사용할 경우 더 이상 이전의 클래식 모델
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>인터넷을 통해 SAP 시스템 및 SAP GUI 연결 구성
 
-Azure에서 [SAP 시스템에 연결할 때 SAP GUI 연결이 닫힘 항목에](/archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure) 대한 세부 정보를 설명하는 이 문서를 참조하세요.
+이 항목에 대 한 세부 정보를 설명 하는이 문서를 참조 하세요. [Azure에서 sap 시스템에 연결할 때 SAP GUI 연결이 닫혔습니다](/archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure) .
 
 #### <a name="changing-firewall-settings-within-vm"></a>VM 내의 방화벽 설정 변경
 
@@ -1689,12 +1689,12 @@ SAP Change and Transport System(TMS)은 지형 내에서 시스템 간에 전송
 
 사이트 간에 연결된 크로스-프레미스 시나리오에서 온-프레미스와 Azure 간의 대기 시간이 여전히 길 수 있습니다. 개발 및 테스트 시스템에서 프로덕션으로 개체를 전송하는 순서를 따르거나 전송 또는 지원 패키지를 다른 시스템에 적용하려는 경우 중앙 전송 디렉터리의 위치에 따라, 일부 시스템에서 중앙 전송 디렉터리에서 데이터를 읽거나 쓸 때 긴 대기 시간이 발생합니다. 이러한 상황은 데이터 센터 간에 멀리 떨어져 있는 서로 다른 데이터 센터에 여러 다른 시스템이 분산되어 있는 SAP 지형 구성과 유사합니다.
 
-이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용 1개와 Azure의 시스템을 포함하는 1개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서이 개념의 원칙을 설명 하는이 [설명서](https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm)를 확인 하세요.
+이러한 대기 시간 문제를 해결하고 시스템이 더 빠르게 전송 디렉터리에서 읽거나 전송 디렉터리로 쓸 수 있도록 하려면 두 개의 STMS 전송 도메인(온-프레미스용 1개와 Azure의 시스템을 포함하는 1개)을 설정하고 전송 도메인을 연결할 수 있습니다. SAP TMS에서 이 개념의 원칙을 설명하는 이 [설명서를](https://help.sap.com/saphelp_me60/helpdata/en/c4/6045377b52253de10000009b38f889/content.htm?frameset=/en/57/38dd924eb711d182bf0000e829fbfe/frameset.htm)확인하세요.
 
 
 방법:
 
-* 트랜잭션 STMS를 사용 하 여 각 위치 (온-프레미스 및 Azure)에서 [전송 도메인 설정](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain)
+* 트랜잭션 STMS를 사용하여 각 위치(온-프레미스 및 Azure)에서 [전송 도메인 설정](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain)
 * [도메인 링크를 사용하여 도메인을 연결](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/14c795388d62e450e10000009b38f889.html?q=Link%20the%20domains%20with%20a%20domain%20link)하고 두 도메인 간의 연결을 확인합니다.
 * 연결된 시스템으로 구성을 배포합니다.
 

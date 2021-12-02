@@ -9,12 +9,12 @@ ms.date: 10/31/2020
 ms.topic: how-to
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 49357c5098a4e9a9dc35e3abd910a33efe6411ca
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: af23ab785c32062f3ff70bd6d100fe2948138bc2
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691041"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438672"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -59,6 +59,9 @@ Windows 10의 최신 버전에는 SSH 키를 생성 및 사용하고 PowerShell 
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
+> [!NOTE]
+> [SSH 키 생성 및 저장에](../ssh-keys-azure-cli.md)설명된 대로 [az sshkey create](/cli/azure/sshkey#az_sshkey_create) 명령을 사용하여 [Azure CLI](/cli/azure) 키 쌍을 만들 수도 있습니다.
+
 ## <a name="create-a-vm-using-your-key"></a>키를 사용하여 VM 만들기
 
 SSH 키를 사용해 인증하는 Linux VM을 만들려면 VM을 만들 때 SSH 공개 키를 제공하세요.
@@ -100,7 +103,9 @@ VM이 Just-In-Time 액세스 정책을 사용하는 경우에는 액세스 권�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Portal의 SSH 키에 대한 자세한 내용은 포털에서 VM을 만들 때 사용할 [Azure Portal의 SSH 키 생성 및 저장](../ssh-keys-portal.md)을 참조하세요.
+- VM을 만들 때 사용할 Azure Portal SSH 키에 대한 자세한 내용은 [Azure Portal SSH 키 생성 및 저장을](../ssh-keys-portal.md)참조하세요.
+
+- VM을 만들 때 사용할 Azure CLI SSH 키에 대한 자세한 내용은 [Azure CLI 사용하여 SSH 키 생성 및 저장을](../ssh-keys-azure-cli.md)참조하세요.
 
 - 자세한 단계, 옵션 및 SSH 키로 작업하는 고급 예제는 [SSH 키 쌍을 만드는 자세한 단계](create-ssh-keys-detailed.md)를 참조하세요.
 

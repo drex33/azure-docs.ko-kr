@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 11/19/2021
 ms.topic: how-to
-ms.openlocfilehash: a9d9ac6b2e988b564a6c782710876cdc48443779
-ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.openlocfilehash: ee99c97ef63021b1f861646dea7a65fe42702358
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132958780"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436060"
 ---
 # <a name="create-cluster-on-aks"></a>AKS에서 클러스터 만들기
 
@@ -64,14 +64,13 @@ az aks create --resource-group <resource_group_name> --name <cluster_name> --nod
 kubectl get nodes
 ```
 
-이 명령은 노드 목록을 반환 합니다. 다음은 그 예입니다.
+이 명령은 노드 목록을 반환 합니다. 예를 들면 다음과 같습니다.
 
 ```output
 NAME                                STATUS   ROLES   AGE     VERSION
 aks-nodepool1-34164736-vmss000000   Ready    agent   4h28m   v1.20.9
 aks-nodepool1-34164736-vmss000001   Ready    agent   4h28m   v1.20.9
 aks-nodepool1-34164736-vmss000002   Ready    agent   4h28m   v1.20.9
-aks-nodepool1-34164736-vmss000003   Ready    agent   4h28m   v1.20.9
 ```
 
 ## <a name="next-steps"></a>다음 단계

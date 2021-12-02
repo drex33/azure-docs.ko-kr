@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 08/27/2019
-ms.openlocfilehash: 5552faa01df1fd21af75c638549770c737920d9d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 40a33405cd2e285bce501cf36885c94ccd86145e
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031445"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435756"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>자습서: 장애 조치(failover) 그룹에 SQL Managed Instance 추가
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ Azure SQL Managed Instance의 관리되는 인스턴스를 장애 조치(failove
 
 이 단계에서는 Azure Portal 또는 PowerShell을 사용하여 장애 조치(failover) 그룹에 대한 기본 관리형 인스턴스 및 리소스 그룹을 만듭니다. 
 
-성능 상의 이유로 두 관리형 인스턴스를 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 배포합니다. 지리적으로 쌍을 이루는 지역에 상주하는 관리되는 인스턴스는 쌍을 이루지 않는 지역에 비해 훨씬 더 나은 성능을 제공합니다. 
+성능 상의 이유로 두 관리형 인스턴스를 [쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)에 배포합니다. 지리적으로 쌍을 이루는 지역에 상주하는 관리되는 인스턴스는 쌍을 이루지 않는 지역에 비해 훨씬 더 나은 성능을 제공합니다. 
 
 
 # <a name="portal"></a>[포털](#tab/azure-portal) 

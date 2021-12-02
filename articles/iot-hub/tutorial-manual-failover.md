@@ -11,12 +11,12 @@ ms.author: lizross
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 2687316551f7f1a7f11cd035130823c19d10b01a
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: 62fe86bbec094808a970709b0b69aea63c3806da
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132550442"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438981"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행
 
@@ -54,7 +54,7 @@ IoT Hub를 사용한 수동 장애 조치(failover) 및 Microsoft 시작 장애 
 
 :::image type="content" source="./media/tutorial-manual-failover/trigger-failover-01.png" alt-text="IoT Hub 속성 창을 보여주는 스크린샷":::
 
-1. 수동 장애 조치(failover) 창에 **현재 위치** 및 **장애 조치(failover) 위치** 가 표시됩니다. 현재 위치는 항상 허브가 현재 활성 상태인 위치를 나타냅니다. 장애 조치(failover) 위치는 현재 위치에 페어링된 표준 [Azure 지역 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)입니다. 위치 값을 변경할 수 없습니다. 이 자습서의 경우 현재 위치가 `West US 2`이며 장애 조치(failover) 위치는 `West Central US`입니다.
+1. 수동 장애 조치(failover) 창에 **현재 위치** 및 **장애 조치(failover) 위치** 가 표시됩니다. 현재 위치는 항상 허브가 현재 활성 상태인 위치를 나타냅니다. 장애 조치(failover) 위치는 현재 위치에 페어링된 표준 [Azure 지역 쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md)입니다. 위치 값을 변경할 수 없습니다. 이 자습서의 경우 현재 위치가 `West US 2`이며 장애 조치(failover) 위치는 `West Central US`입니다.
 
    ![수동 장애 조치 창을 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-02.png)
 

@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 09/22/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 3e5aab3d38e4f981e27ceb59db1511c54ed89381
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 4d48049f27cf73309a3f2922bf686996c5d8d340
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537234"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435131"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Azure App Service의 코드에서 TLS/SSL 인증서 사용
 
@@ -135,7 +135,7 @@ Node.js, PHP, Python, Java 또는 Ruby의 파일에서 TLS/SSL 인증서를 로�
 
 ## <a name="load-certificate-in-linuxwindows-containers"></a>Linux/Windows 컨테이너에서 인증서 로드
 
-`WEBSITE_LOAD_CERTIFICATES` 앱 설정을 사용하면 지정된 인증서를 Windows 또는 Linux 컨테이너 앱(기본 제공 Linux 컨테이너 포함)에서 파일로 액세스할 수 있습니다. 파일은 다음 디렉터리에 있습니다.
+`WEBSITE_LOAD_CERTIFICATES`앱 설정을 사용하면 Windows 또는 Linux 사용자 지정 컨테이너(기본 제공 Linux 컨테이너 포함)에서 지정된 인증서에 파일로 액세스할 수 있습니다. 파일은 다음 디렉터리에 있습니다.
 
 | 컨테이너 플랫폼 | 공용 인증서 | 프라이빗 인증서 |
 | - | - | - |

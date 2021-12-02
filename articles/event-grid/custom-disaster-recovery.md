@@ -4,12 +4,12 @@ description: 이 자습서에서는 지역에서 Event Grid 서비스가 비정�
 ms.topic: tutorial
 ms.date: 04/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 052b47430ca7a0123efb3abc8219e7188d90ae91
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: c55ab3df89916a2e1caba8c11836a0816ec780fe
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132293215"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436974"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Event Grid에서 사용자 지정 항목용 자체 재해 복구 빌드
 재해 복구는 애플리케이션 기능의 심각한 손실에서 복구하는 데 집중합니다. 이 자습서에서는 특정 지역에서 Event Grid 서비스가 비정상 상태가 될 경우 복구되도록 이벤트 아키텍처를 설정하는 방법을 안내합니다.
@@ -74,7 +74,7 @@ ms.locfileid: "132293215"
 
      !["이름", "엔드포인트 유형" 및 "엔드포인트" 값이 강조 표시된 "이벤트 구독 - 기본 사항 만들기" 페이지를 보여주는 스크린샷.](./media/custom-disaster-recovery/create-primary-es.png)
 
-1. 동일한 흐름을 반복하여 주 항목 및 구독을 만듭니다. 이번에는 더 쉽게 추적할 수 있도록 "-primary" 접미사를 "-secondary"로 바꿉니다. 마지막으로, 다른 Azure 지역에 배치해야 합니다. 원하는 모든 위치에 배치할 수 있지만 [Azure 지역 쌍](../best-practices-availability-paired-regions.md)을 사용하는 것이 좋습니다. 보조 항목과 구독을 다른 지역에 배치하면 주 지역이 다운되더라도 새 이벤트가 진행되도록 할 수 있습니다.
+1. 동일한 흐름을 반복하여 주 항목 및 구독을 만듭니다. 이번에는 더 쉽게 추적할 수 있도록 "-primary" 접미사를 "-secondary"로 바꿉니다. 마지막으로, 다른 Azure 지역에 배치해야 합니다. 원하는 모든 위치에 배치할 수 있지만 [Azure 지역 쌍](../availability-zones/cross-region-replication-azure.md)을 사용하는 것이 좋습니다. 보조 항목과 구독을 다른 지역에 배치하면 주 지역이 다운되더라도 새 이벤트가 진행되도록 할 수 있습니다.
 
 지금까지 다음을 구현했습니다.
 

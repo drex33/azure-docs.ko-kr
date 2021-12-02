@@ -5,12 +5,12 @@ author: batrived
 ms.topic: article
 ms.date: 09/28/2021
 ms.author: batrived
-ms.openlocfilehash: ddfc0d177f9415807ec07c63dfedf5742c20178f
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 43f1dd6b048e26380d91bb419657a3b697e328a7
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132806385"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133439803"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-grid"></a>연결 문제 해결 - Azure Event Grid
 
@@ -50,7 +50,7 @@ telnet {sampletopicname}.{region}-{suffix}.eventgrid.azure.net 443
 
 Azure를 사용하는 경우 회사 방화벽 또는 프록시의 특정 IP 주소 범위 또는 URL에서 사용 중이거나 사용하려는 모든 Azure 서비스에 액세스하도록 허용해야 하는 경우가 있습니다. Event Grid에서 사용하는 IP 주소에서 트래픽이 허용되는지 확인합니다. Azure Event Grid에서 사용하는 IP 주소에 대해서는 [Azure IP 범위 및 서비스 태그 - 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519) 및 [서비스 태그 - AzureEventGrid](network-security.md#service-tags)를 참조하세요.
 
-[Azure IP 범위 및 서비스 태그 - 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519) 문서에는 **지역별** IP 주소도 나열됩니다. 회사 방화벽 또는 프록시에서 **항목의 지역** 과 **쌍을 이루는 지역** 에 대한 주소 범위를 허용할 수 있습니다. 지역에 대해 쌍을 이루는 지역의 경우 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요. 
+[Azure IP 범위 및 서비스 태그 - 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519) 문서에는 **지역별** IP 주소도 나열됩니다. 회사 방화벽 또는 프록시에서 **항목의 지역** 과 **쌍을 이루는 지역** 에 대한 주소 범위를 허용할 수 있습니다. 지역에 대 한 쌍을 이루는 지역의 경우 [Azure에서 지역 간 복제: 비즈니스 연속성 및 재해 복구](../availability-zones/cross-region-replication-azure.md)를 참조 하세요. 
 
 > [!NOTE]
 > 일반적이지는 않지만, 새 IP 주소는 AzureEventGrid 서비스 태그에 추가할 수 있습니다. 따라서 서비스 태그를 매주 확인하는 것이 좋습니다.

@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: afadabb0503cde997858fce1ff9d1e82ac6d2f89
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
-ms.translationtype: HT
+ms.openlocfilehash: 715c352a0c81ce2fe3abceaef04e85d89383fa58
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112679523"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133439763"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 설정
 
 액세스 제한을 설정하여 앱에 대한 네트워크 액세스를 제어하는 ​​우선 순위가 지정된 허용/거부 목록을 정의할 수 있습니다. 이 목록에는 IP 주소나 Azure Virtual Network 서브넷이 포함될 수 있습니다. 하나 이상의 항목이 있는 경우 목록 끝에 암시적 *모두 거부* 가 표시됩니다.
 
-액세스 제한 기능은 모든 Azure App Service 호스팅 워크로드와 함께 작동합니다. 워크로드에는 웹앱, API 앱, Linux 앱, Linux 컨테이너 앱 및 Functions가 포함될 수 있습니다.
+액세스 제한 기능은 모든 Azure App Service 호스팅 워크로드와 함께 작동합니다. 워크로드에는 웹앱, API 앱, Linux 앱, Linux 사용자 지정 컨테이너 및 Functions가 포함될 수 있습니다.
 
 앱에 대한 요청이 수행될 경우 액세스 제한 목록 규칙과 비교하여 FROM 주소를 평가합니다. FROM 주소가 Microsoft.Web에 대한 서비스 엔드포인트로 구성된 서브넷에 있는 경우 원본 서브넷을 액세스 제한 목록의 가상 네트워크 규칙과 비교합니다. 주소가 목록의 규칙을 기준으로 허용되지 않을 경우 서비스는 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 상태 코드로 답변합니다.
 

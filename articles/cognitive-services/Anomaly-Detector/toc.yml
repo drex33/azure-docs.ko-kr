@@ -19,7 +19,7 @@
       href: ./quickstarts/client-libraries-multivariate.md
 - name: 샘플
   items:
-    - name: 데모 웹 애플리케이션(일변량)
+    - name: 데모 웹 애플리케이션(일변량 및 다변량)
       href: 'https://aka.ms/adDemo'
     - name: Jupyter 노트북
       href: 'https://github.com/Azure-Samples/AnomalyDetector/tree/master/ipython-notebook'

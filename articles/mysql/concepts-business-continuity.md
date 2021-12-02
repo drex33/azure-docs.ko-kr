@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: a02457c177e509280a93d7e6939143da3f7e9a84
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: df9ee4d51cc3e60ed49ae7b95fd029eb995fb68a
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122642213"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437356"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---single-server"></a>Azure Database for MySQL - 단일 서버의 비즈니스 연속성 개요
 
@@ -47,7 +47,7 @@ Azure Database for MySQL 단일 서버는 지역 복원을 시작할 수 있는 
 특정 시점 복원을 수행하면 알려진 특정 시점에서 서버의 복사본을 만들 수 있습니다. 이 특정 시점은 서버에 대해 구성한 백업 보존 기간 내에 있어야 합니다. 데이터가 새 서버로 복원된 후에는 원래 서버를 새로 복원된 서버로 바꾸거나 복원된 서버에서 원래 서버로 필요한 데이터를 복사할 수 있습니다.
 
 > [!IMPORTANT]
-> 삭제된 서버는 백업이 삭제된 날짜부터 **5일** 내에만 복원될 수 있습니다. 데이터베이스 백업은 서버를 호스트하는 Azure 구독에서만 액세스하고 복원할 수 있습니다. 삭제된 서버를 복원하려면 [설명 단계](howto-restore-dropped-server.md)를 참조하세요. 배포 후에 실수로 인한 삭제 또는 예기치 않은 변경에서 서버 리소스를 보호하려면 관리자는 [관리 잠금](../azure-resource-manager/management/lock-resources.md)을 활용할 수 있습니다.
+> 삭제된 서버는 백업이 삭제된 후 **5일** 내에 복원될 수 있습니다. 데이터베이스 백업은 서버를 호스트하는 Azure 구독에서만 액세스하고 복원할 수 있습니다. 삭제된 서버를 복원하려면 [설명 단계](howto-restore-dropped-server.md)를 참조하세요. 배포 후에 실수로 인한 삭제 또는 예기치 않은 변경에서 서버 리소스를 보호하려면 관리자는 [관리 잠금](../azure-resource-manager/management/lock-resources.md)을 활용할 수 있습니다.
 
 ## <a name="recover-from-an-azure-regional-data-center-outage"></a>Azure 지역 데이터 센터 중단에서 복구
 
@@ -57,7 +57,7 @@ Azure Database for MySQL 단일 서버는 지역 복원을 시작할 수 있는 
 
 ## <a name="geo-restore"></a>지역 복원
 
-지역 복원 기능은 지역 중복 백업을 사용하여 서버를 복원합니다. 백업은 서버의 [페어링된 지역](../best-practices-availability-paired-regions.md)에서 호스팅됩니다. 이러한 백업은 서버를 호스트하는 지역이 오프라인인 경우에도 액세스가 가능합니다. 이러한 백업에서 다른 지역으로 복원하여 서버를 다시 온라인 상태로 만들 수 있습니다. [백업 및 복원 개념 문서](concepts-backup.md)에서 지역 복원에 대해 자세히 알아보세요.
+지역 복원 기능은 지역 중복 백업을 사용하여 서버를 복원합니다. 백업은 서버의 [페어링된 지역](../availability-zones/cross-region-replication-azure.md)에서 호스팅됩니다. 이러한 백업은 서버를 호스트하는 지역이 오프라인인 경우에도 액세스가 가능합니다. 이러한 백업에서 다른 지역으로 복원하여 서버를 다시 온라인 상태로 만들 수 있습니다. [백업 및 복원 개념 문서](concepts-backup.md)에서 지역 복원에 대해 자세히 알아보세요.
 
 > [!IMPORTANT]
 > 지역 복원은 지역 중복 백업 스토리지로 서버를 프로비전한 경우에만 가능합니다. 기존 서버에 대한 로컬 중복 백업을 지역 중복 백업으로 전환하려는 경우 mysqldump를 사용하여 기존 서버를 덤프한 후 지역 중복 백업으로 구성된 새로 만든 서버로 복원해야 합니다.

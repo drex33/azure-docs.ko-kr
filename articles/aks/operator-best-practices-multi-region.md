@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: eda7816050aedc0ff910d975f920d79771f7d0b4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.openlocfilehash: eba7d2eeaff11e16566faf2388f449badc805404
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461625"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435883"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
@@ -38,7 +38,7 @@ AKS 클러스터는 단일 Azure 지역에 배포됩니다. 지역 실패로부�
 * [**AKS 지역 가용성**](./quotas-skus-regions.md#region-availability)
     * 사용자에게 가까운 Azure 지역을 선택합니다. 
     * AKS는 계속해서 새 지역으로 확장됩니다.
-* [**Azure 쌍을 이루는 지역**](../best-practices-availability-paired-regions.md)
+* [**Azure 쌍을 이루는 지역**](../availability-zones/cross-region-replication-azure.md)
     * 사용자의 지리적 영역에 대해, 쌍을 이루는 두 지역을 선택합니다.
     * AKS 플랫폼 업데이트(계획된 유지 관리)는 쌍을 이루는 지역 간에 최소 24시간 지연으로 직렬화됩니다. 
     * 쌍을 이루는 지역에 대한 복구 활동은 필요에 따라 우선 순위가 지정됩니다. 

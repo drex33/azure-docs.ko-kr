@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/24/2021
-ms.openlocfilehash: c9d25e8b70352a574eef99e7c64c2421452c3ca0
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: 2f3d30e27abde8cf597b2be1361befc69828b4be
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132811172"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438865"
 ---
 # <a name="create-an-azure-cognitive-search-service-in-the-portal"></a>포털에서 Azure Cognitive Search서비스 만들기
 
@@ -95,7 +95,7 @@ Azure Cognitive Search는 [지역별 사용 가능한 제품](https://azure.micr
 
   :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="국가별 가용성" border="true":::
 
-+ BCDR(비즈니스 연속성 및 재해 복구) 요구 사항은 [지역 쌍](../best-practices-availability-paired-regions.md#azure-regional-pairs)으로 여러 검색 서비스를 만들어 충족해야 합니다. 예를 들어 북아메리카에서 작업하는 경우 각 검색 서비스에 대해 미국 동부 및 미국 서부, 미국 중북부 및 미국 중남부를 선택할 수 있습니다.
++ BCDR(비즈니스 연속성 및 재해 복구) 요구 사항은 [지역 쌍](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies)으로 여러 검색 서비스를 만들어 충족해야 합니다. 예를 들어 북아메리카에서 작업하는 경우 각 검색 서비스에 대해 미국 동부 및 미국 서부, 미국 중북부 및 미국 중남부를 선택할 수 있습니다.
 
 지역을 기준으로 가용성을 제한한 기능이 아래에 나열되어 있습니다. 지원되는 지역은 기능 문서에 나와 있습니다. 
 
@@ -161,7 +161,7 @@ Azure Cognitive Search는 현재 [여러 가격 책정 계층](https://azure.mic
 
 대부분의 고객이 하나의 서비스만 사용하지만 운영과 관련해서 다음과 같은 사항이 요구될 경우 서비스 중복성이 필요할 수 있습니다.
 
-+ [BCDR(비즈니스 연속성 및 재해 복구)](../best-practices-availability-paired-regions.md) Azure Cognitive Search는 가동 중단 시 즉각적인 장애 조치(failover)를 제공하지 않습니다.
++ [BCDR(비즈니스 연속성 및 재해 복구)](../availability-zones/cross-region-replication-azure.md) Azure Cognitive Search는 가동 중단 시 즉각적인 장애 조치(failover)를 제공하지 않습니다.
 
 + [다중 테넌트 아키텍처](search-modeling-multitenant-saas-applications.md)는 때로 두 개 이상의 서비스를 호출하는 경우도 있습니다.
 

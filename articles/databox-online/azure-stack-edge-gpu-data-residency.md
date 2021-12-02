@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 01f1a0ca013dad76510df99b70a462b96bec07a6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: dd7b6b4738c4894cc67250ae68030ca860716a1f
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131078658"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434599"
 ---
-# <a name="data-residency-and-resiliency-for-azure-stack-edge"></a>Azure Stack Edge 대한 데이터 상주 및 복원력 
+# <a name="data-residency-and-resiliency-for-azure-stack-edge"></a>Azure Stack Edge에 대 한 데이터 상주 및 복원 력 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -23,7 +23,7 @@ ms.locfileid: "131078658"
 
 ## <a name="about-data-residency-for-azure-stack-edge"></a>Azure Stack Edge에 대한 데이터 보존 정보 
 
-Azure Stack Edge 서비스는 서비스가 제공되는 모든 지리적 위치에서 고객 데이터를 저장하고 처리할 때 [Azure 지역 쌍](../best-practices-availability-paired-regions.md#azure-regional-pairs)을 사용합니다. 동남 아시아(싱가포르) 지역의 경우 서비스가 현재 홍콩과 쌍을 이룹니다. Azure 지역 쌍은 싱가포르에 저장된 데이터가 홍콩에 복제됨을 의미합니다. 싱가포르에는 고객 데이터가 국가 경계를 벗어나지 않도록 요구하는 법률이 적용됩니다. 
+Azure Stack Edge 서비스는 서비스가 제공되는 모든 지리적 위치에서 고객 데이터를 저장하고 처리할 때 [Azure 지역 쌍](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies)을 사용합니다. 동남 아시아(싱가포르) 지역의 경우 서비스가 현재 홍콩과 쌍을 이룹니다. Azure 지역 쌍은 싱가포르에 저장된 데이터가 홍콩에 복제됨을 의미합니다. 싱가포르에는 고객 데이터가 국가 경계를 벗어나지 않도록 요구하는 법률이 적용됩니다. 
 
 고객 데이터가 단일 지역에만 상주되도록 하기 위해 Azure Stack Edge 서비스에서 새로운 옵션이 사용됩니다. 이 옵션을 선택하면 서비스가 싱가포르 지역 내에서만 고객 데이터를 저장하고 처리할 수 있습니다. 고객 데이터는 홍콩으로 복제되지 않습니다. 민감한 데이터가 아닌 서비스 특정 메타데이터는 쌍으로 지정된 지역으로 계속 복제됩니다.  
 
@@ -77,11 +77,11 @@ For more information, see [Use the Kubernetes dashboard to monitor the Kubernete
 
 ## <a name="azure-stack-edge-dependent-services"></a>Azure Stack Edge 종속 서비스
 
-Azure Arc 지원 Kubernetes, Azure IoT Hub 및 Azure IoT Edge 및 Azure Key Vault Azure Stack Edge 통합되는 서비스입니다.
+Azure Arc 사용 Kubernetes, Azure IoT 허브 및 Azure IoT edge, Azure Key Vault는 Azure Stack edge와 통합 되는 서비스입니다.
 
 ### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes 
 
-Azure Arc 지원 Kubernetes는 Azure Stack Edge 대한 추가 기능으로 사용할 수 있습니다. 싱가포르(동남아시아)의 경우 Azure Arc 데이터는 싱가포르 내에만 보존되고 홍콩으로 복제되지 않습니다. <!--If there is a region-wide outage, the service is not resilient.-->
+Azure Arc 사용 Kubernetes는 Azure Stack Edge에 대 한 추가 기능으로 사용할 수 있습니다. 싱가포르(동남아시아)의 경우 Azure Arc 데이터는 싱가포르 내에만 보존되고 홍콩으로 복제되지 않습니다. <!--If there is a region-wide outage, the service is not resilient.-->
 
 <!--For all other regions, Azure Arc supports Azure Regional Pair and is resilient to any region-wide outages.--> 
 <!--For more information, see [Data residency and resiliency for Azure Arc-enabled Kubernetes clusters]().-->

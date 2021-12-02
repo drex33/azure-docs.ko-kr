@@ -10,12 +10,12 @@ metadata:
   ms.date: 08/31/2021
   ms.author: alkohli
   ms.custom: references_regions
-  ms.openlocfilehash: b2aed039a735ff9124fe19c61992ec184879c0b7
-  ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+  ms.openlocfilehash: b3a6559885eb9e87244af67ca152a7dcb66edc8f
+  ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/09/2021
-  ms.locfileid: "132059295"
+  ms.lasthandoff: 12/02/2021
+  ms.locfileid: "133437329"
 title: 'Azure Data Box: 질문과 대답'
 summary: >
   Microsoft Azure Data Box 하이브리드 솔루션을 사용하면 이전 디바이스를 통해 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 보낼 수 있습니다. 이 FAQ에는 Azure Portal에서 Data Box를 사용할 때 제기될 수 있는 질문과 대답이 포함되어 있습니다.
@@ -66,7 +66,7 @@ sections:
   - question: >
       전체 지역에 오류가 발생하면 어떻게 데이터를 복구할 수 있나요?
     answer: >
-      중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. 동일한 국가 또는 상거래 경계 내에 있는 경우 장애 조치 지역을 통해 주문을 처리합니다. 그러나 일부 Azure 지역에는 동일한 지리적 또는 상거래 경계에 쌍을 이루는 지역이 없습니다. 해당 지역에 재해가 발생한 경우 사용할 수 있는 다른 지역에서 Data Box 주문을 다시 만들고 새 지역의 Azure에 데이터를 복사해야 합니다. 자세한 내용은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
+      중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. 동일한 국가 또는 상거래 경계 내에 있는 경우 장애 조치 지역을 통해 주문을 처리합니다. 그러나 일부 Azure 지역에는 동일한 지리적 또는 상거래 경계에 쌍을 이루는 지역이 없습니다. 해당 지역에 재해가 발생한 경우 사용할 수 있는 다른 지역에서 Data Box 주문을 다시 만들고 새 지역의 Azure에 데이터를 복사해야 합니다. 자세한 내용은 [Azure의 지역 간 복제: 비즈니스 연속성 및 재해 복구를 참조하세요.](../availability-zones/cross-region-replication-azure.md)
   - question: >
       Data Box 문제가 발생하면 어디에 문의해야 하나요?
     answer: >

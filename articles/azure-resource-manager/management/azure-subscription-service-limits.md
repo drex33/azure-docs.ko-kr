@@ -2,13 +2,13 @@
 title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최댓값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다.
 ms.topic: conceptual
-ms.date: 09/21/2021
-ms.openlocfilehash: a4243104b021e403e4a6b46ffce7eb74671952cd
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.date: 12/01/2021
+ms.openlocfilehash: 9d43a81c8073bfd20c6c11f296ac918c7cb9c6ef
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133365349"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440489"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -80,10 +80,6 @@ Azure Resource Manager 및 Azure 리소스 그룹을 사용하는 경우 다음 
 
 [!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
-## <a name="azure-api-for-fhir-service-limits"></a>Azure API for FHIR 서비스 제한
-
-[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
-
 ## <a name="azure-cache-for-redis-limits"></a>Azure Cache for Redis 제한
 
 [!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
@@ -136,9 +132,15 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 
 자세한 내용은 [Functions 호스팅 플랜 비교](../../azure-functions/functions-scale.md)를 참조하세요.
 
-## <a name="azure-healthcare-apis-limits"></a>Azure 의료 Api 제한
+## <a name="azure-healthcare-apis"></a>Azure Healthcare API
+
+### <a name="healthcare-apis-service-limits"></a>의료 Api 서비스 제한
 
 [!INCLUDE [functions-limits](../../../includes/azure-healthcare-api-limits.md)]
+
+### <a name="azure-api-for-fhir-service-limits"></a>Azure API for FHIR 서비스 제한
+
+[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
 
 ## <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes Service 제한
 

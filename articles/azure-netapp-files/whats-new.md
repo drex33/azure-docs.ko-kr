@@ -3,7 +3,7 @@ title: Azure NetApp Files의 새로운 기능 | Microsoft Docs
 description: Azure NetApp Files의 새로운 최신 기능 및 향상된 기능에 대한 요약을 제공합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 11/19/2021
-ms.author: b-juche
-ms.openlocfilehash: be9f4963c74fe5acb26c9418e033155c40267860
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.author: b-hchen
+ms.openlocfilehash: 66afb9d4b13354cbc0532071413ca83402f56f18
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133269798"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438114"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
@@ -27,9 +27,9 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
 ## <a name="november-2021"></a>2021년 11월
 
-* [SAP HANA 애플리케이션 볼륨 그룹](application-volume-group-introduction.md)
+* [SAP HANA에 대 한 응용 프로그램 볼륨 그룹](application-volume-group-introduction.md) (미리 보기)
 
-    SAP HANA 대한 AVG(애플리케이션 볼륨 그룹)를 사용하면 VM과 함께 PPG(근접 배치 그룹)를 사용하여 대기 시간이 짧은 자동화된 배포를 달성하는 등 모범 사례에 따라 SAP HANA 데이터베이스를 설치하고 운영하는 데 필요한 모든 볼륨을 배포할 수 있습니다. SAP HANA 애플리케이션 볼륨 그룹은 전체 프로세스를 단순화하고 표준화하여 SAP HANA 볼륨 배포를 간소화하는 데 도움이 되는 많은 기술 향상을 구현했습니다. 
+    SAP HANA에 대 한 응용 프로그램 볼륨 그룹 (AVG)을 사용 하면 자동화 되 고 대기 시간이 짧은 배포를 수행 하기 위해 Vm과 함께 PPG (근접 배치 그룹)를 사용 하는 등의 모범 사례에 따라 SAP HANA 데이터베이스를 설치 하 고 작동 하는 데 필요한 모든 볼륨을 배포할 수 있습니다. SAP HANA의 응용 프로그램 볼륨 그룹은 SAP HANA에 대 한 볼륨 배포를 간소화 하는 데 도움이 되는 전체 프로세스를 간소화 하 고 표준화 하는 여러 기술적 향상을 구현 했습니다. 
  
 ## <a name="october-2021"></a>2021년 10월
 

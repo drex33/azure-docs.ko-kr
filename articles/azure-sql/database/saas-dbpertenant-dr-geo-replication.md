@@ -10,12 +10,12 @@ ms.topic: tutorial
 author: LitKnd
 ms.author: kendralittle
 ms.date: 01/25/2019
-ms.openlocfilehash: 276e1f9b74dc45d2e52d5e6f5591f59e5066c50d
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: efe860a4595cb97572bc4f237ba88cde362bc512
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133363572"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438019"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>데이터베이스 지역에서 복제를 사용하여 다중 테넌트 SaaS 애플리케이션 재해 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 나중에, 별도의 송환 단계에서 복구 지역의 카탈로그 및 테넌트 데이터베이스를 원래 지역으로 장애 조치(Failover)합니다. 애플리케이션 및 데이터베이스는 송환이 진행되는 동안 계속 사용할 수 있습니다. 완료되면 애플리케이션은 원래 지역에서 완벽하게 작동합니다.
 
 > [!Note]
-> 애플리케이션은 해당 애플리케이션이 배포된 지역과 _쌍을 이루는 지역_ 에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요.
+> 애플리케이션은 해당 애플리케이션이 배포된 지역과 _쌍을 이루는 지역_ 에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)을 참조하세요.
 
 ## <a name="review-the-healthy-state-of-the-application"></a>애플리케이션의 정상 상태 검토
 
@@ -185,7 +185,7 @@ Azure 지역 맵에서 원래 지역의 주 복제본과 복구 지역의 보조
 
 2. **F5** 키를 눌러 스크립트를 실행합니다.  
     * 스크립트가 새 PowerShell 창에서 열리고, 병렬로 실행되는 일련의 PowerShell 작업이 시작됩니다. 이러한 작업은 테넌트 데이터베이스를 복구 지역으로 장애 조치(Failover)합니다.
-    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 _쌍을 이루는 지역_ 입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요. 
+    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 _쌍을 이루는 지역_ 입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)을 참조하세요. 
 
 3. PowerShell 창에서 복구 프로세스의 상태를 모니터링합니다.
     ![장애 조치(Failover) 프로세스](./media/saas-dbpertenant-dr-geo-replication/failover-process.png)

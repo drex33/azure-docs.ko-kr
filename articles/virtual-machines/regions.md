@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 3/8/2021
-ms.openlocfilehash: 168bafe6991e6b661af9a389e2b29324f2bfdb1d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: a31e5fc2d5205146e66b8cf98af199be77a8c46d
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694223"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434789"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Azure에서 가상 머신의 지역
 
@@ -52,7 +52,7 @@ Azure에는 규정 준수 또는 법적 목적에 맞게 애플리케이션을 �
 | 북유럽 |서유럽 |
 | 동남아시아 |동아시아 |
 
-[여기에서 전체 지역 쌍 목록](../best-practices-availability-paired-regions.md#what-are-paired-regions)을 확인할 수 있습니다.
+[여기에서 전체 지역 쌍 목록](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies)을 확인할 수 있습니다.
 
 ## <a name="feature-availability"></a>기능 가용성
 일부 서비스 또는 VM 기능(예: 특정 VM 크기 또는 스토리지 형식)은 특정 지역에서만 사용할 수 있습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), [Traffic Manager](../traffic-manager/traffic-manager-overview.md) 또는 [Azure DNS](../dns/dns-overview.md)와 같이 특정 지역을 선택하지 않아도 되는 전역 Azure 서비스도 있습니다. 애플리케이션 환경 설계에 도움이 되도록 [각 지역의 Azure 서비스 가용성](https://azure.microsoft.com/regions/#services)을 확인할 수 있습니다. [각 지역에서 지원되는 VM 크기 및 제한을 프로그래밍 방식으로 쿼리](../azure-resource-manager/templates/error-sku-not-available.md)할 수도 있습니다.

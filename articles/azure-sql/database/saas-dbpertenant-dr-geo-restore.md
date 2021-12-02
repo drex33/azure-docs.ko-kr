@@ -10,12 +10,12 @@ ms.topic: tutorial
 author: LitKnd
 ms.author: kendralittle
 ms.date: 01/14/2019
-ms.openlocfilehash: e9dff2458f0df7b21320720acdb6427b2fa7b468
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: 0e9ec15615944d906b7a9e44c867c5255f3d414d
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133363537"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437069"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -57,7 +57,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
  * 가동 중단이 해결되면 테넌트에 미치는 영향을 최소화하면서 원래 지역으로 데이터베이스를 송환합니다.  
 
 > [!NOTE]
-> 애플리케이션은 해당 애플리케이션이 배포된 지역과 쌍을 이루는 지역에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요.   
+> 애플리케이션은 해당 애플리케이션이 배포된 지역과 쌍을 이루는 지역에 복구됩니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)을 참조하세요.   
 
 이 자습서에서는 Azure SQL Database 및 Azure 플랫폼의 기능을 사용하여 다음 과제를 해결합니다.
 
@@ -179,7 +179,7 @@ PowerShell 창을 백그라운드에서 실행 중인 상태로 두고 이 자�
 
     * 스크립트가 새 PowerShell 창에서 열리고, 병렬로 실행되는 일단의 PowerShell 작업이 시작됩니다. 이러한 작업은 서버, 풀 및 데이터베이스를 복구 지역에 복원합니다.
 
-    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 쌍을 이루는 지역입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요. 
+    * 복구 지역은 애플리케이션을 배포한 Azure 지역과 연결된 쌍을 이루는 지역입니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)을 참조하세요. 
 
 3. PowerShell 창에서 복구 프로세스의 상태를 모니터링합니다.
 

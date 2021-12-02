@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/05/2021
-ms.openlocfilehash: 40652feccd86c5c88ab4624d2eeaad012851ed0a
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: e21e431e35aa3b611e989fa94a1b7673a7fe6bb3
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132719322"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437689"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -40,7 +40,7 @@ Azure Machine Learning은 학습된 기계 학습 모델을 Azure Kubernetes Ser
     
     AML 컨트롤 플레인은 이 공용 IP와 통신하지 않습니다. 이는 배포를 위해 AKS 컨트롤 플레인과 통신합니다. 
 
-- [API 서버에 액세스할 수 있는 권한 있는 IP 범위가 사용하도록 설정](../aks/api-server-authorized-ip-ranges.md)된 AKS 클러스터를 **연결** 하는 경우 AML 컨트롤 플레인 IP 범위를 AKS 클러스터에 사용하도록 설정합니다. AML 컨트롤 플레인은 쌍으로 연결된 지역에 배포되고, 추론 Pod를 AKS 클러스터에 배포합니다. API 서버에 대한 액세스 권한이 없으면 추론 Pod를 배포할 수 없습니다. AKS 클러스터에서 IP 범위를 사용하도록 설정하는 경우 [IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=56519)를 [쌍으로 연결된 두 지역](../best-practices-availability-paired-regions.md) 모두에 사용합니다.
+- [API 서버에 액세스할 수 있는 권한 있는 IP 범위가 사용하도록 설정](../aks/api-server-authorized-ip-ranges.md)된 AKS 클러스터를 **연결** 하는 경우 AML 컨트롤 플레인 IP 범위를 AKS 클러스터에 사용하도록 설정합니다. AML 컨트롤 플레인은 쌍으로 연결된 지역에 배포되고, 추론 Pod를 AKS 클러스터에 배포합니다. API 서버에 대한 액세스 권한이 없으면 추론 Pod를 배포할 수 없습니다. AKS 클러스터에서 IP 범위를 사용하도록 설정하는 경우 [IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=56519)를 [쌍으로 연결된 두 지역](../availability-zones/cross-region-replication-azure.md) 모두에 사용합니다.
 
     권한 있는 IP 범위는 표준 Load Balancer에서만 작동합니다.
 
@@ -48,7 +48,7 @@ Azure Machine Learning은 학습된 기계 학습 모델을 Azure Kubernetes Ser
 
 - 프라이빗 AKS 클러스터를 사용하려면(Azure Private Link 사용) 먼저 클러스터를 만든 다음, 작업 영역에 **연결** 해야 합니다. 자세한 내용은 [프라이빗 Azure Kubernetes Service 클러스터 만들기](../aks/private-clusters.md)를 참조하세요.
 
-- Azure Machine learning [에서는 개인 AKS 클러스터와 함께 공용 FQDN (정규화 된 도메인 이름)](../aks/private-clusters.md#create-a-private-aks-cluster-with-a-public-fqdn) 을 사용할 __수 없습니다__ . 
+- 프라이빗 [AKS 클러스터와 함께 공용 FQDN(정규화된 도메인 이름)을](../aks/private-clusters.md) 사용하는 것은 Azure Machine Learning에서 __지원되지 않습니다.__ 
 
 - AKS 클러스터에 대한 컴퓨팅 이름은 Azure ML 작업 영역 내에서 고유해야 합니다. 문자, 숫자 및 대시를 포함할 수 있습니다. 문자로 시작하여 문자 또는 숫자로 끝나야 하며, 길이는 3~24자여야 합니다.
  
@@ -59,7 +59,7 @@ Azure Machine Learning은 학습된 기계 학습 모델을 Azure Kubernetes Ser
     > [!IMPORTANT]
     > __개발-테스트__ 클러스터는 프로덕션 수준 트래픽에 적합하지 않으며, 추론 시간이 늘어날 수 있습니다. 또한 개발/테스트 클러스터는 내결함성을 보장하지 않습니다.
 
-- 클러스터를 만들거나 연결할 때 클러스터가 __프로덕션__ 에 사용 되는 경우 3 개 이상의 __노드__ 를 포함 해야 합니다. __개발-테스트__ 클러스터의 경우 노드를 하나 이상 포함 해야 합니다.
+- 클러스터를 만들거나 연결할 때 클러스터가 __프로덕션__ 에 사용되는 경우 __3개__ 이상의 노드를 포함해야 합니다. 개발 __테스트__ 클러스터의 경우 노드가 1개 이상 포함되어야 합니다.
 
 - Azure Machine Learning SDK는 AKS 클러스터 크기 조정을 지원하지 않습니다. 클러스터 노드의 크기를 조정하려면 Azure Machine Learning 스튜디오에서 AKS 클러스터에 대한 UI를 사용합니다. 클러스터의 VM 크기가 아니라 노드 수만 변경할 수 있습니다. AKS 클러스터의 노드 크기를 조정하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

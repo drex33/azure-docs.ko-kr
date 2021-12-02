@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/22/2021
 ms.author: lizross
-ms.openlocfilehash: c4a5cd750408110c3e4b264ee22fc3b39927534e
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 2ec937519412daa905d18fe0d6aa589cd0c0dea0
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132939579"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435433"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 
@@ -36,16 +36,16 @@ IoT Hub 서비스는 거의 모든 서비스 계층에서 중복성을 구현하
 
 ## <a name="availability-zones"></a>가용성 영역
 
-IoT Hub에 99.9% Service Level Agreement(서비스 수준 약정) 있으며 [SLA를 읽을](https://azure.microsoft.com/support/legal/sla/iot-hub/)수 있습니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
+IoT Hub 대한 99.9% Service Level Agreement(서비스 수준 약정) [SLA를 읽을](https://azure.microsoft.com/support/legal/sla/iot-hub/)수 있습니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
-IoT Hub는 [가용성 영역](../availability-zones/az-overview.md)를 지원 합니다. 가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 제품입니다. 가용성 영역을 지 원하는 지역은 해당 지역을 지 원하는 세 가지 영역으로 구성 됩니다. 각 영역은 독립 된 전원, 냉각 및 네트워킹을 통해 각각 고유한 물리적 위치에 하나 이상의 데이터 센터를 제공 합니다. 이를 통해 지역 내에서 복제 및 중복성을 제공 합니다. IoT Hub에 대 한 가용성 영역 지원은 다음 Azure 지역에서 만든 새 IoT Hub 리소스에 대해 자동으로 사용 하도록 설정 됩니다.
+IoT Hub [가용성 영역](../availability-zones/az-overview.md)지원합니다. 가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 제품입니다. 가용성 영역이 지원되는 지역은 해당 지역을 지원하는 세 개의 영역으로 구성됩니다. 각 영역은 독립적인 전원, 냉각 및 네트워킹이 있는 고유한 물리적 위치에 각각 하나 이상의 데이터 센터를 제공합니다. 이를 통해 지역 내에서 복제 및 중복성이 제공됩니다. IoT Hub 대한 가용성 영역 지원은 다음 Azure 지역에서 만든 새 IoT Hub 리소스에 대해 자동으로 사용하도록 설정됩니다.
 
 - 오스트레일리아 동부
 - 브라질 남부
 - 캐나다 중부
 - 미국 중부
 - 프랑스 중부
-- 미국 서 부 2
+- 미국 서부 2
 - 일본 동부
 - 북유럽
 - 동남아시아
@@ -55,7 +55,7 @@ IoT Hub는 [가용성 영역](../availability-zones/az-overview.md)를 지원 �
 
 데이터 센터에서 정전 또는 물리적 자산 관련 오류로 인해 중단 시간이 늘어나는 경우도 드물지만 있을 수 있습니다. 이러한 이벤트는 드물며, 위에서 설명한 역내 HA가 도움이 되지 못할 수도 있습니다. IoT Hub는 이렇게 늘어난 가동 중단에서의 복구를 위한 여러 솔루션을 제공합니다. 
 
-이런 상황에서 고객이 사용할 수 있는 복구 옵션은 [Microsoft 시작 장애 조치(failover)](#microsoft-initiated-failover) 및 [수동 장애 조치(failover)](#manual-failover)입니다. 두 옵션 사이의 기본적인 차이점은 전자는 Microsoft가, 후자는 사용자가 시작하는 점입니다. 또한 수동 장애 조치(failover)는 Microsoft 시작 장애 조치(failover)보다 RTO(복구 시간 목표)가 더 낮습니다. 각 옵션에서 제공하는 특정 RTO는 아래 섹션에서 설명합니다. 이 옵션 중 하나가 주 지역의 IoT Hub 장애 조치(failover)를 실행할 때 허브는 해당 [Azure 지역과 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)에서 완전히 작동하게 됩니다.
+이런 상황에서 고객이 사용할 수 있는 복구 옵션은 [Microsoft 시작 장애 조치(failover)](#microsoft-initiated-failover) 및 [수동 장애 조치(failover)](#manual-failover)입니다. 두 옵션 사이의 기본적인 차이점은 전자는 Microsoft가, 후자는 사용자가 시작하는 점입니다. 또한 수동 장애 조치(failover)는 Microsoft 시작 장애 조치(failover)보다 RTO(복구 시간 목표)가 더 낮습니다. 각 옵션에서 제공하는 특정 RTO는 아래 섹션에서 설명합니다. 이 옵션 중 하나가 주 지역의 IoT Hub 장애 조치(failover)를 실행할 때 허브는 해당 [Azure 지역과 쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md)에서 완전히 작동하게 됩니다.
 
 두 장애 조치(failover) 옵션 모두 다음 RPO(복구 지점 목표)를 제공합니다.
 

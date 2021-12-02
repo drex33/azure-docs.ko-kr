@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/29/2021
-ms.openlocfilehash: 635a90b70c044e1f8c49518c42b49c521dbb317e
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
-ms.translationtype: HT
+ms.openlocfilehash: 383700778c2cac67b8aebf6cf817a22c7b8a5825
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110781891"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435188"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 읽기 복제본
 
@@ -54,7 +54,7 @@ ms.locfileid: "110781891"
 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 서유럽, 미국 서부, 미국 서부2, 미국 중서부
 
 ### <a name="paired-regions"></a>쌍을 이루는 지역
-유니버설 복제본 지역 외에도 주 서버의 Azure 쌍을 이루는 지역에서 읽기 복제본을 만들 수 있습니다. 해당 지역의 쌍을 모르는 경우 [Azure 쌍을 이루는 지역 문서](../best-practices-availability-paired-regions.md)에서 자세히 알아볼 수 있습니다.
+유니버설 복제본 지역 외에도 주 서버의 Azure 쌍을 이루는 지역에서 읽기 복제본을 만들 수 있습니다. 해당 지역의 쌍을 모르는 경우 [Azure 쌍을 이루는 지역 문서](../availability-zones/cross-region-replication-azure.md)에서 자세히 알아볼 수 있습니다.
 
 재해 복구 계획에 지역 간 복제본을 사용하는 경우 다른 지역 중 하나가 아닌 쌍을 이루는 지역에 복제본을 만드는 것이 좋습니다. 쌍을 이루는 지역은 동시 업데이트를 방지하고 물리적 격리 및 데이터 보존의 우선 순위를 지정합니다.  
 

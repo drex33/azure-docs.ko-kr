@@ -607,9 +607,21 @@
         - name: 방법
           displayName: dedicated adh
           href: dedicated-hosts-how-to.md
-        - name: VM 패킹
-          displayName: 'dedicated, packing, dedicated host'
-          href: dedicated-host-packing.md
+        - name: 범용 Sku
+          displayName: 'dedicated, packing, dedicated host, general purpose'
+          href: dedicated-host-general-purpose-skus.md
+        - name: 계산에 최적화 된 Sku
+          displayName: 'dedicated, packing, dedicated host, compute optimized'
+          href: dedicated-host-compute-optimized-skus.md
+        - name: 메모리 액세스에 최적화 된 Sku
+          displayName: 'dedicated, packing, dedicated host, memory optimized'
+          href: dedicated-host-memory-optimized-skus.md
+        - name: Storage 최적화 된 sku
+          displayName: 'dedicated, packing, dedicated host, storage optimized'
+          href: dedicated-host-storage-optimized-skus.md
+        - name: GPU 최적화 Sku
+          displayName: 'dedicated, packing, dedicated host, GPU optimized'
+          href: dedicated-host-gpu-optimized-skus.md
     - name: Azure Spot Virtual Machines
       items:
         - name: 개요
@@ -730,6 +742,8 @@
               href: ./linux/create-ssh-keys-detailed.md
             - name: 포털에서 SSH 키 만들기 및 관리
               href: ssh-keys-portal.md
+            - name: Azure CLI 사용하여 SSH 키 만들기 및 관리
+              href: ssh-keys-azure-cli.md
             - name: Linux 또는 macOS의 SSH
               href: ./linux/mac-create-ssh-keys.md
             - name: Windows의 SSH

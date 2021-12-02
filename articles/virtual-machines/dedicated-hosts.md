@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: brittanyrowe
 ms.reviewer: brittanyrowe
-ms.openlocfilehash: 6e34d5c638c8501840c9ef8d9bbaf22ae2874ff1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ce7b7a9d14f7ec9ca7dc45c218cd7319321bec1e
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557101"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436345"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure Dedicated Host
 
@@ -81,7 +81,7 @@ Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습�
 자동 VM 배치를 사용하는 경우 알려진 문제 및 제한 사항:
 
 - VM을 다시 배포할 수 없습니다.
-- 전용 호스트가 있는 Lsv2, NVasv4, NVsv3, Msv2 또는 M 시리즈 VM을 사용할 수 없습니다.
+- 전용 호스트에서 DCv2, Lsv2, NVasv4, NVsv3, Msv2 또는 M 시리즈 VM을 사용할 수 없습니다.
 
 
 ## <a name="virtual-machine-scale-set-support"></a>가상 머신 확장 집합 지원

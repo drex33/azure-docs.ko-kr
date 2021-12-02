@@ -1,6 +1,6 @@
 ---
-title: STMicroelectronics B-L475E-IOT01A 또는 B-L4S5I-IOT01A를 Azure IoT Central에 연결 빠른 시작
-description: Azure RTOS 임베디드 소프트웨어를 사용하여 STMicroelectronics B-L475E-IOT01A 또는 B-L4S5I-IOT01A 디바이스를 Azure IoT에 연결하고 원격 분석을 보냅니다.
+title: L475E-IOT01A to Azure IoT Central 빠른 시작 커넥트
+description: Azure rtos embedded 소프트웨어를 사용 하 여 L475E-IOT01A 장치를 Azure IoT에 연결 하 고 원격 분석을 보냅니다.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -8,21 +8,21 @@ ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
 ms.custom: mode-other
-ms.openlocfilehash: c64393d5a90cbcfa38288f07d025cb61bd2f59db
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: d63ae366c2f9bafd6d25fe6a56880adbbf62bb26
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133058625"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435629"
 ---
-# <a name="quickstart-connect-an-stmicroelectronics-b-l475e-iot01a-or-b-l4s5i-iot01a-discovery-kit-to-iot-central"></a>빠른 시작: STMicroelectronics B-L475E-IOT01A 또는 B-L4S5I-IOT01A 검색 키트를 IoT Central에 연결
+# <a name="quickstart-connect-an-stmicroelectronics-b-l475e-iot01a-discovery-kit-to-iot-central"></a>빠른 시작: IoT Central L475E-IOT01A Discovery 키트를 커넥트 합니다.
 
 **적용 대상**: [임베디드 디바이스 개발](about-iot-develop.md#embedded-device-development)<br>
 **총 완료 시간**: 30분
 
-[![코드 찾아보기](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4+)
+[![코드 찾아보기](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/B-L475E-IOT01A)
 
-이 빠른 시작에서는 Azure RTOS를 사용하여 STMicroelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) 또는 [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) 검색 키트(STM DevKit)를 Azure IoT에 연결합니다.
+이 빠른 시작에서는 Azure RTOS를 사용 하 여 [L475E IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) Discovery 키트 () Azure IoT를 연결 합니다.
 
 다음 작업을 완료합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "133058625"
 * 리포지토리를 복제하기 위한 [Git](https://git-scm.com/downloads)
 * 하드웨어
 
-    * [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) 또는 [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html)(STM DevKit)
+    * [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) (STM devkit)
     * Wi-Fi 2.4GHz
     * USB 2.0 A~마이크로 USB 수 케이블
 
@@ -86,7 +86,7 @@ STM DevKit를 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정에 대한 구�
 
 1. 텍스트 편집기에서 다음 파일을 엽니다.
 
-    *getting-started\STMicroelectronics\STM32L4_L4+\app\azure_config.h*
+    *getting-started\STMicroelectronics\B-L475E-IOT01A\app\ azure_config .h*
 
 1. Wi-Fi 상수를 로컬 환경의 다음 값으로 설정합니다.
 
@@ -110,13 +110,11 @@ STM DevKit를 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정에 대한 구�
 
 1. 콘솔 또는 파일 탐색기에서 다음 경로에 있는 *rebuild.bat* 스크립트를 실행하여 이미지를 빌드합니다.
 
-    *getting-started\STMicroelectronics\STM32L4_L4+\tools\rebuild.bat*
+    *getting-started\STMicroelectronics\B-L475E-IOT01A\tools\rebuild.bat*
 
-2. 빌드가 완료된 후 두 이진 파일이 생성되었는지 확인합니다. 각 STM Devkit에 대한 이진 이미지가 있습니다. 빌드가 수행되면 다음 경로에 이미지가 저장됩니다.
+2. 빌드가 완료 되 면 다음 경로에서 이진 파일이 생성 되었는지 확인 합니다.
 
-    *getting-started\STMicroelectronics\STM32L4_L4+\build\app\stm32l475_azure_iot.bin*
-
-    *getting-started\STMicroelectronics\STM32L4_L4+\build\app\stm32l4S5_azure_iot.bin*
+    *getting-started\STMicroelectronics\B-L475E-IOT01A\build\app\ stm32l475_azure_iot. bin*
 
 ### <a name="flash-the-image"></a>이미지 플래시
 
@@ -127,11 +125,11 @@ STM DevKit를 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정에 대한 구�
 1. 마이크로 USB 케이블을 STM DevKit의 **USB STLINK** 포트에 연결한 다음, 컴퓨터에 연결합니다.
 
     > [!NOTE]
-    > STM DevKit에 대한 자세한 설치 정보는 패키지에 대한 지침이나 [B-L475E-IOT01A 리소스](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html#resource) 또는 [B-L4S5I-IOT01A 리소스](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html#resource)를 참조하세요.
+    > STM DevKit에 대 한 자세한 설치 정보는 패키지에 대 한 지침을 참조 하거나 [B-L475E-IOT01A Resources](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html#resource) 를 참조 하세요.
 
 1. 파일 탐색기에서 이전 섹션에서 만든 이진 파일을 찾습니다.
 
-1. 파일 이름이 사용 중인 STM Devkit의 파트 번호와 일치하는 이진 파일을 복사합니다. 예를 들어, 보드 부품 번호가 **B-L475E-IOT01A1** 인 경우 *stm32l475_azure_iot.bin* 이라는 이진 파일을 복사합니다.
+1. 파일이 stm32l475_azure_iot 파일의 이진 파일을 복사 합니다 *.*
 
 1. 파일 탐색기에서 컴퓨터에 연결된 STM Devkit를 찾습니다. 디바이스는 드라이브 레이블이 **DIS_L4IOT** 인 드라이브로 시스템에 표시됩니다.
 
@@ -192,7 +190,7 @@ STM DevKit를 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정에 대한 구�
     Initializing Azure IoT Hub client
         Hub hostname: ***.azure-devices.net
         Device id: mydevice
-        Model id: dtmi:azurertos:devkit:gsg;1
+        Model id: dtmi:azurertos:devkit:gsgstml4s5;1
     Connected to IoT Hub
     SUCCESS: Azure IoT Hub client initialized
     ```

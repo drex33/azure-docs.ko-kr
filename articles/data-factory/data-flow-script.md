@@ -8,12 +8,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/22/2021
-ms.openlocfilehash: b599fbd2d41eacceed29d0d72432809507d3a7bc
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 4263f1330e85d2cb31e04fd2de60973536971ba7
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707986"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133439069"
 ---
 # <a name="data-flow-script-dfs"></a>DFS(데이터 흐름 스크립트)
 
@@ -103,7 +103,7 @@ deriveTransformationName sink(allowSchemaDrift: true,
 ```
 
 ## <a name="dfs-fundamentals"></a>DFS 기본 사항
-DFS는 원본, 싱크 및 기타 다양한 항목을 포함한 일련의 연결된 변형으로 구성되며 새 열을 추가하고, 데이터를 필터링하고, 데이터를 조인하는 등의 작업을 수행할 수 있습니다. 일반적으로 스크립트는 하나 이상의 원본으로 시작한 다음 많은 변환이 수행되고 하나 이상의 싱크로 끝납니다.
+DFS는 원본, 싱크 및 기타 다양한 항목을 포함한 일련의 연결된 변형으로 구성되며 새 열을 추가하고, 데이터를 필터링하고, 데이터를 조인하는 등의 작업을 수행할 수 있습니다. 일반적으로이 스크립트는 하나 이상의 소스와 많은 변환이 오고 하나 이상의 싱크로 끝나는 상태로 시작 됩니다.
 
 원본에는 모두 동일한 기본 구성이 있습니다.
 ```
@@ -282,7 +282,7 @@ aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
 ```
 
 ### <a name="compare-previous-or-next-row-values"></a>이전 또는 다음 행 값 비교
-이 샘플 조각에서는 창 변환을 사용하여 현재 행 컨텍스트의 열 값을 현재 행 앞과 뒤의 행에 있는 열 값과 비교하는 방법을 보여줍니다. 이 예제에서는 파생 열을 사용하여 전체 데이터 집합에서 창 파티션을 사용하도록 설정하는 더미 값을 생성합니다. 서로게이트 키 변환은 각 행에 고유한 키 값을 할당하는 데 사용됩니다. 이 패턴을 데이터 변환에 적용할 때 순서를 지정할 열인 경우 서로게이트 키를 제거하고 데이터를 분할하는 데 사용할 열이 있는 경우 파생 열을 제거할 수 있습니다.
+이 샘플 코드 조각에서는 현재 행의 열 값과 현재 행의 열 값을 비교 하는 데 창 변환을 사용할 수 있는 방법을 보여 줍니다. 이 예에서는 파생 열을 사용 하 여 전체 데이터 집합에서 창 파티션을 사용할 수 있도록 더미 값을 생성 합니다. 서로게이트 키 변환은 각 행에 대 한 고유 키 값을 할당 하는 데 사용 됩니다. 데이터 변환에이 패턴을 적용 하는 경우 데이터를 분할 하는 데 사용할 열이 있는 경우 서로게이트 키를 제거 하 고, 데이터를 분할 하는 데 사용할 열이 있는 경우 파생 열을 제거할 수 있습니다.
 
 ```
 source1 keyGenerate(output(sk as long),
@@ -293,6 +293,10 @@ DerivedColumn1 window(over(dummy),
     prevAndCurr = lag(title,1)+'-'+last(title),
         nextAndCurr = lead(title,1)+'-'+last(title)) ~> leadAndLag
 ```
+
+### <a name="how-many-columns-are-in-my-data"></a>내 데이터의 열 수는 몇 개입니까?
+
+```size(array(columns()))```
 
 ## <a name="next-steps"></a>다음 단계
 

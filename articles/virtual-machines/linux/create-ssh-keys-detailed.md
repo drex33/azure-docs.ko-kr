@@ -7,12 +7,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: cynthn
-ms.openlocfilehash: 349289abd3b03f231df96cc6fefb88f5035fc0fa
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 9e5d50fa52bd2c4264835499f1bc3c10bee53264
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131432893"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436228"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리
 
@@ -22,7 +22,7 @@ SSH(Secure Shell) 키 쌍을 사용하면 인증에 SSH 키를 사용하는 Linu
 
 빠른 명령을 원하는 경우 [Azure에서 Linux VM용 SSH 퍼블릭 및 프라이빗 키 쌍을 만드는 방법](mac-create-ssh-keys.md)을 참조하세요.
 
-ssh 키를 만들고이 키를 사용 하 여 **Windows** 컴퓨터에서 Linux VM에 연결 하려면 [Azure에서 Windows를 사용 하 여 ssh 키를 사용 하는 방법](ssh-from-windows.md)을 참조 하세요. [Azure Portal](../ssh-keys-portal.md)을 사용하여 포털에서 VM 생성을 위한 SSH 키를 만들고 관리할 수도 있습니다.
+SSH 키를 만들고 사용하여 **Windows** 컴퓨터에서 Linux VM에 연결하려면 [Azure에서 Windows SSH 키를 사용하는 방법을](ssh-from-windows.md)참조하세요. [Azure Portal](../ssh-keys-portal.md)을 사용하여 포털에서 VM 생성을 위한 SSH 키를 만들고 관리할 수도 있습니다.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -38,7 +38,10 @@ SSH 키를 사용하지 않지 않더라도 Linux VM을 설정해 암호 인증�
 
 키를 만들려면 기본 설정 명령은 `ssh-keygen`로서 Azure Cloud Shell, macOS 또는 Linux 호스트 및 Windows 10에서 OpenSSH 유틸리티를 사용할 수 있습니다. `ssh-keygen`은 일련의 사항을 질문한 다음, 프라이빗 키와 일치하는 공개 키를 작성합니다. 
 
-SSH 키는 기본적으로 `~/.ssh` 디렉터리에 보관됩니다.  `~/.ssh` 디렉터리가 없는 경우 적절한 권한이 있는 사용자가 `ssh-keygen` 명령으로 해당 디렉터리를 만듭니다.
+SSH 키는 기본적으로 `~/.ssh` 디렉터리에 보관됩니다.  `~/.ssh` 디렉터리가 없는 경우 적절한 권한이 있는 사용자가 `ssh-keygen` 명령으로 해당 디렉터리를 만듭니다. SSH 키는 리소스로 만들어지고 나중에 사용하기 위해 Azure에 저장됩니다.
+
+> [!NOTE]
+> SSH 키 [생성 및 저장에](../ssh-keys-azure-cli.md)설명된 대로 [az sshkey create](/cli/azure/sshkey#az_sshkey_create) 명령을 사용하여 [Azure CLI](/cli/azure) 키를 만들 수도 있습니다.
 
 ### <a name="basic-example"></a>기본 예제
 

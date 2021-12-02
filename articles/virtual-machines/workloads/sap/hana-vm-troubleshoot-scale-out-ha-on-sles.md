@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 3bdc19d9bd9208744173735399551bfc6f0fe93f
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 634dc4c859ced48c2bef8caf1595e7be2220b355
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359273"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437413"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
 
@@ -280,7 +280,7 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>SBD 디바이스
 
-Azure VM에서 SBD 디바이스를 설정하는 방법은 [SBD 펜싱](./high-availability-guide-suse-pacemaker.md#sbd-fencing)에 설명되어 있습니다.
+Azure VM에서 SBD 디바이스를 설정하는 방법은 [SBD 펜싱](./high-availability-guide-suse-pacemaker.md#sbd-device-using-iscsi-target-server)에 설명되어 있습니다.
 
 먼저, 클러스터의 모든 노드에 대해 ACL 항목이 있는 경우 SBD 서버 VM을 확인합니다. SBD 서버 VM에서 다음 명령을 실행합니다.
 
@@ -423,7 +423,7 @@ sbd -d /dev/sdm message hso-hana-vm-s2-2 test
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-**/etc/sysconfig/sbd** 에 있는 항목이 [Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md#sbd-fencing)의 설명과 일치하는지 확인합니다. **/etc/iscsi/iscsid.conf** 의 startup(시작) 설정이 automatic으로 설정되어 있는지 확인합니다.
+**/etc/sysconfig/sbd** 에 있는 항목이 [Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정](./high-availability-guide-suse-pacemaker.md#sbd-device-using-iscsi-target-server)의 설명과 일치하는지 확인합니다. **/etc/iscsi/iscsid.conf** 의 startup(시작) 설정이 automatic으로 설정되어 있는지 확인합니다.
 
 다음 항목은 **/etc/sysconfig/sbd** 에 중요합니다. 필요한 경우 **id** 값을 조정합니다.
 

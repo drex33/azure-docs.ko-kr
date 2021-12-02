@@ -3,16 +3,16 @@ title: Azure Virtual Desktop 호스트 풀 서비스 업데이트 - Azure
 description: 프로덕션에 업데이트를 출시하기 전에 서비스 업데이트를 모니터링하는 유효성 검사 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 12/01/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 29a86a476737df6f5a2787748c5551953984f6b6
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ba0c2989912623c1e2ff7a91030d6dc00590395c
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130261598"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440242"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
 
@@ -27,9 +27,6 @@ ms.locfileid: "130261598"
 
 >[!NOTE]
 > 모든 후속 업데이트를 테스트하기 위해 유효성 검사 호스트 풀을 그대로 두는 것이 좋습니다.
-
->[!IMPORTANT]
->Azure Resource Management가 통합된 Azure Virtual Desktop에 현재 유효성 검사 환경을 설정하고 해제하는 데 문제가 있습니다. 문제가 해결되면 이 문서를 업데이트할 예정입니다.
 
 ## <a name="create-your-host-pool"></a>호스트 풀 만들기
 

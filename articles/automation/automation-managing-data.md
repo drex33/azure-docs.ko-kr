@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a2d78b83ac7725f07060b3b61b01e57837fb053b
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
-ms.translationtype: HT
+ms.openlocfilehash: 03a3851b634fe906d096d89bdf62775829ba7a2f
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114465905"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435813"
 ---
 # <a name="management-of-azure-automation-data"></a>Azure Automation 데이터 관리
 
@@ -83,7 +83,7 @@ Azure Portal 또는 Windows PowerShell의 [Export-AzAutomationDscConfiguration](
 
 ## <a name="geo-replication-in-azure-automation"></a>Azure Automation의 지역에서 복제
 
-지역 복제는 Azure Automation 계정에서 표준입니다. 계정을 설정할 때 주 지역을 선택합니다. 내부 Automation 지역 복제 서비스는 자동으로 계정에 보조 지역을 할당합니다. 그런 다음 서비스는 주 지역에서 보조 지역으로 계정 데이터를 지속적으로 백업합니다. 주 지역 및 보조 지역의 전체 목록은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
+지역 복제는 Azure Automation 계정에서 표준입니다. 계정을 설정할 때 주 지역을 선택합니다. 내부 Automation 지역 복제 서비스는 자동으로 계정에 보조 지역을 할당합니다. 그런 다음 서비스는 주 지역에서 보조 지역으로 계정 데이터를 지속적으로 백업합니다. 주 지역 및 보조 지역의 전체 목록은 [Azure의 지역 간 복제: 비즈니스 연속성 및 재해 복구에서](../availability-zones/cross-region-replication-azure.md)찾을 수 있습니다.
 
 Automation 지역 복제 서비스에 의해 생성된 백업은 Automation 자산, 구성 등의 전체 복사본입니다. 주 지역이 중단되고 데이터가 손실되는 경우 이 백업을 사용할 수 있습니다. 주 지역 데이터가 손실되는 예기치 않은 이벤트가 발생한 경우 Microsoft는 복구를 시도합니다.
 

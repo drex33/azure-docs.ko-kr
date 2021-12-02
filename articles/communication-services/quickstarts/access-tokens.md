@@ -11,12 +11,13 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 17b1cbd0c1937558a8ca30347a7c856de1d2afdc
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.custom: mode-other
+ms.openlocfilehash: 896885e92f8a18adf5347794db87f1c6cccc990f
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132870409"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436516"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>빠른 시작: 액세스 토큰 만들기 및 관리
 
@@ -62,6 +63,10 @@ Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815
 Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 ```
 <!---cSpell:enable --->
+
+## <a name="using-identity-for-monitoring-and-metrics"></a>모니터링 및 메트릭에 ID 사용
+
+사용자 ID는 Azure Monitor 통해 수집된 로그 및 메트릭의 기본 키 역할을 하기 위한 것입니다. 예를 들어 특정 사용자의 모든 호출을 보려면 특정 Azure Communication Services ID(또는 ID)를 단일 사용자에게 매핑하는 방식으로 인증을 설정해야 합니다. [인증 개념,](../concepts/authentication.md) [로그 분석을](../concepts/analytics/log-analytics.md)통한 진단 호출 및 사용 가능한 메트릭에 대해 자세히 [알아봅니다.](../concepts/metrics.md)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

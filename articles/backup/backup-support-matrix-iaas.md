@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 10/19/2021
 ms.custom: references_regions
-ms.openlocfilehash: 50350c5fdb2904c0f562d79d1f9779d324da9108
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: acdc1b79d7e6cf096807c95a0118bf40447dedf1
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131455001"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440451"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -43,7 +43,7 @@ Azure VM의 직접 백업(Windows만 해당)  | 특정 파일/폴더/볼륨 백�
 VM의 백업 정책 수정 | 지원됩니다.<br/><br/> VM은 새 정책의 일정 및 보존 설정을 사용하여 백업됩니다. 보존 설정이 연장될 경우 기존 복구 지점이 표시되고 유지됩니다. 보존 설정이 축소될 경우 다음 정리 작업에서 기존 복구 지점이 정리되고 결과적으로 삭제됩니다.
 백업 작업 취소| 스냅샷 프로세스 동안 지원됩니다.<br/><br/> 스냅샷이 자격 증명 모음으로 전송될 때는 지원되지 않습니다.
 다른 지역 또는 구독에 VM 백업 |지원되지 않습니다.<br><br>성공적으로 백업하려면 가상 머신이 백업용 자격 증명 모음과 동일한 구독에 있어야 합니다.
-매일 백업(Azure VM 확장을 통해) | 하루에 4개의 백업 - 백업 정책에 따라 예약된 백업 1개와 주문형 백업 3개    <br><br>    그러나 실패한 시도 시 사용자 재시도를 허용하기 위해 주문형 백업에 대한 하드 제한은 9회 시도로 설정됩니다.
+매일 백업(Azure VM 확장을 통해) | 하루에 4 개의 백업-백업 정책에 따라 예약 된 백업 하나, 요청 시 백업 3 개    <br><br>    그러나 실패 한 시도의 경우 사용자 재시도를 허용 하기 위해 주문형 백업에 대 한 하드 한도는 9 회 시도로 설정 됩니다.
 매일 백업(MARS 에이전트를 통해) | 매일 3회 백업 예약
 매일 백업(DPM/MABS를 통해) | 매일 2회 백업 예약
 월별/연도별 백업| Azure VM 확장을 사용하여 백업하는 경우에는 지원되지 않습니다. 일별 및 주별만 지원됩니다.<br/><br/> 월별/연도별 보존 기간에 대해 일별/주별 백업을 유지하도록 정책을 설정할 수 있습니다.
@@ -57,7 +57,7 @@ VM의 백업 정책 수정 | 지원됩니다.<br/><br/> VM은 새 정책의 일�
 
 **시나리오** | **OS 지원**
 --- | ---
-Azure VM 에이전트 확장을 사용하는 백업 | - Windows 10 클라이언트(64비트만 해당) <br/><br/>- Windows Server 2022(Datacenter/Datacenter Core/Standard)   <br/><br/>- Windows Server 2019(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2(Datacenter 및 Standard) <br/><br/> - Windows Server 2012(Datacenter/Standard) <br/><br/> - Windows Server 2008 R2(RTM 및 SP1 Standard)  <br/><br/> - Windows Server 2008(64비트만 해당)
+Azure VM 에이전트 확장을 사용하는 백업 | - Windows 10 클라이언트(64비트만 해당) <br/><br/>-Windows Server 2022 (datacenter/datacenter Core/Standard)   <br/><br/>- Windows Server 2019(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016(Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2(Datacenter 및 Standard) <br/><br/> - Windows Server 2012(Datacenter/Standard) <br/><br/> - Windows Server 2008 R2(RTM 및 SP1 Standard)  <br/><br/> - Windows Server 2008(64비트만 해당)
 MARS 에이전트를 사용하여 백업 | [지원되는](backup-support-matrix-mars-agent.md#supported-operating-systems) 운영 체제
 DPM/MABS를 사용한 백업 | [MABS](backup-mabs-protection-matrix.md) 및 [DPM](/system-center/dpm/dpm-protection-matrix)을 사용하는 백업이 지원되는 운영 체제
 
@@ -84,13 +84,13 @@ Azure VM Linux 백업의 경우 Azure Backup은 [Azure 인증 Linux 배포 목�
 - Azure Backup은 Python 버전 2.7이 설치되어 있지 않은 경우 프록시 구성 Linux VM을 지원하지 않습니다.
 - Azure Backup은 스토리지 또는 다른 NFS 서버에서 Linux 또는 Windows 머신으로 탑재된 NFS 파일의 백업을 지원하지 않습니다. VM에 로컬로 연결된 디스크만 백업합니다.
 
-## <a name="support-matrix-for-managed-pre-post-scripts-for-linux-databases"></a>Linux 데이터베이스용 관리 되는 사전 사후 스크립트에 대 한 지원 매트릭스
+## <a name="support-matrix-for-managed-pre-post-scripts-for-linux-databases"></a>Linux 데이터베이스에 대한 관리되는 사후 전 스크립트에 대한 지원 매트릭스
 
-Azure Backup은 고객이 자신의 사전 사후 스크립트를 작성 하도록 지원 합니다.
+Azure Backup 고객이 자체 사전 게시 스크립트를 작성할 수 있도록 지원합니다.
 
-|지원 되는 데이터베이스  |OS 버전  |데이터베이스 버전  |
+|지원되는 데이터베이스  |OS 버전  |데이터베이스 버전  |
 |---------|---------|---------|
-|Azure Vm의 Oracle     |   [Oracle Linux](../virtual-machines/linux/endorsed-distros.md)      |    Oracle 4.x 이상     |
+|Azure VM의 Oracle     |   [Oracle Linux](../virtual-machines/linux/endorsed-distros.md)      |    Oracle 12.x 이상     |
 
 
 ## <a name="backup-frequency-and-retention"></a>백업 빈도 및 보존
@@ -113,7 +113,7 @@ DPM/MABS 디스크의 복구 지점 수 | 파일 서버의 경우 64개, 앱 서
 **새 VM 만들기** | 복원 지점에서 기본 VM을 빠르게 만들고, 준비하고, 실행할 수 있습니다.<br/><br/> VM에 대한 이름을 지정하고, VM을 배치할 리소스 그룹과 VNet(가상 네트워크)을 선택하고, 복원된 VM에 대한 스토리지 계정을 지정할 수 있습니다. 새 VM을 원본 VM과 동일한 지역에 만들어야 합니다.
 **디스크 복원** | 새 VM을 만드는 데 사용할 수 있는 VM 디스크를 복원합니다.<br/><br/> Azure Backup은 VM을 사용자 지정하고 만드는 데 도움이 되는 템플릿을 제공합니다. <br/><br> 복원 작업은 다운로드하여 사용자 지정 VM 설정을 지정하고 VM을 만드는 데 사용할 수 있는 템플릿을 생성합니다.<br/><br/> 지정한 리소스 그룹에 디스크가 복사됩니다.<br/><br/> 또는 디스크를 기존 VM에 연결하거나 PowerShell을 사용하여 새 VM을 만들 수 있습니다.<br/><br/> 이 옵션은 VM을 사용자 지정하거나, 백업 시 존재하지 않았던 구성 설정을 추가하거나, 템플릿 또는 PowerShell을 사용하여 구성해야 하는 설정을 추가하려는 경우에 유용합니다.
 **기존 항목 바꾸기** | 디스크를 복원하고 이 디스크를 사용하여 기존 VM의 디스크를 바꿀 수 있습니다.<br/><br/> 현재 VM이 있어야 합니다. VM이 삭제된 경우에는 이 옵션을 사용할 수 없습니다.<br/><br/> 디스크를 교체하기 전에 Azure Backup은 기존 VM의 스냅샷을 만들어 지정된 준비 위치에 저장합니다. VM에 연결된 기존 디스크가 선택한 복원 지점으로 바뀝니다.<br/><br/> 만든 스냅샷은 보존 정책에 따라 자격 증명 모음에 복사되어 유지됩니다. <br/><br/> 디스크 바꾸기 작업 후에는 원래 디스크가 리소스 그룹에 유지됩니다. 필요하지 않은 경우 원본 디스크를 수동으로 삭제하도록 선택할 수 있습니다. <br/><br/>[사용자 지정 이미지를 사용하여 생성된](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) VM 및 암호화되지 않은 관리 VM에 대해 기존 항목 바꾸기가 지원됩니다. 관리되지 않는 디스크 및 VM, 클래식 VM, [일반화된 VM](../virtual-machines/windows/capture-image-resource.md)에는 지원되지 않습니다.<br/><br/> 현재 VM보다 많거나 적은 디스크가 복원 지점에 있는 경우 복원 지점의 디스크 수에는 VM 구성만 반영됩니다.<br><br> [사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md) 및 [Key Vault](../key-vault/general/overview.md)와 같은 연결된 리소스가 있는 VM에 대해서도 기존 항목 바꾸기가 지원됩니다.
-**지역 간(보조 지역)** | 지역 간 복원을 사용하여 보조 지역에서 Azure VM을 복원할 수 있으며, 이 보조 지역은 [Azure 쌍으로 연결된 지역](../best-practices-availability-paired-regions.md#what-are-paired-regions)입니다.<br><br> 백업이 보조 지역에서 수행되는 경우 선택한 복구 지점에 대한 모든 Azure VM을 복원할 수 있습니다.<br><br> 이 기능은 아래 옵션에 사용할 수 있습니다.<br> <li> [VM 만들기](./backup-azure-arm-restore-vms.md#create-a-vm) <br> <li> [디스크 복원](./backup-azure-arm-restore-vms.md#restore-disks) <br><br> 현재 [기존 디스크 바꾸기](./backup-azure-arm-restore-vms.md#replace-existing-disks) 옵션을 지원하지 않습니다.<br><br> 사용 권한<br> 보조 지역에 대한 복원 작업은 Backup Admins 및 App 관리자가 수행할 수 있습니다.
+**지역 간(보조 지역)** | 지역 간 복원을 사용하여 보조 지역에서 Azure VM을 복원할 수 있으며, 이 보조 지역은 [Azure 쌍으로 연결된 지역](../availability-zones/cross-region-replication-azure.md)입니다.<br><br> 백업이 보조 지역에서 수행되는 경우 선택한 복구 지점에 대한 모든 Azure VM을 복원할 수 있습니다.<br><br> 이 기능은 아래 옵션에 사용할 수 있습니다.<br> <li> [VM 만들기](./backup-azure-arm-restore-vms.md#create-a-vm) <br> <li> [디스크 복원](./backup-azure-arm-restore-vms.md#restore-disks) <br><br> 현재 [기존 디스크 바꾸기](./backup-azure-arm-restore-vms.md#replace-existing-disks) 옵션을 지원하지 않습니다.<br><br> 사용 권한<br> 보조 지역에 대한 복원 작업은 Backup Admins 및 App 관리자가 수행할 수 있습니다.
 
 ## <a name="support-for-file-level-restore"></a>파일 수준 복원에 대한 지원
 
@@ -163,7 +163,7 @@ Gen2 VM | 지원됨 <br> Azure Backup은 [Gen2 VM](https://azure.microsoft.com/u
 [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) | 지원됨<br></br>[새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션을 통해 Azure VM을 복원하는 동안 복원에 성공하더라도 전용 호스트에서 Azure VM을 복원할 수 없습니다. 이를 위해 디스크로 복원하는 것이 좋습니다. 템플릿을 사용하여 [디스크로 복원](backup-azure-arm-restore-vms.md#restore-disks)하는 동안 전용 호스트에서 VM을 만든 다음, 디스크를 연결합니다.<br></br>[지역 간 복원](backup-azure-arm-restore-vms.md#cross-region-restore)을 수행하는 동안 보조 지역에는 적용되지 않습니다.
 독립 실행형 Azure VM의 Windows Storage 공간 구성 | 지원됨
 [Azure VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | 단일 Azure VM을 백업하고 복원하는 유연한 오케스트레이션 모델에서 지원됩니다.
-관리 ID로 복원 | 예, 관리형 Azure VM에서는 지원되고 클래식 및 비관리형 Azure VM에서는 지원되지 않습니다.  <br><br> 관리 ID를 사용한 지역 간 복원은 지원되지 않습니다. <br><br> 현재 모든 Azure 퍼블릭 및 국가별 클라우드 지역에서 사용할 수 있습니다.   <br><br> [자세히 알아보기](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
+관리 ID로 복원 | 예, 관리형 Azure VM에서는 지원되고 클래식 및 비관리형 Azure VM에서는 지원되지 않습니다.  <br><br> 관리 ID를 사용한 지역 간 복원은 지원되지 않습니다. <br><br> 현재 모든 Azure 퍼블릭 및 국가별 클라우드 지역에서 사용할 수 있습니다.   <br><br> [자세한 정보](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
 

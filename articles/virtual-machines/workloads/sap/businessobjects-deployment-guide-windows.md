@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: depadia
-ms.openlocfilehash: d230c000eedf4cb6a4d01b7dc20f48e5712862c4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: c16a865ffc2785fcc979ac071402da313a108e05
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225089"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434428"
 ---
 # <a name="sap-businessobjects-bi-platform-deployment-guide-for-windows-on-azure"></a>Azure의 Windows용 SAP BusinessObjects BI 플랫폼 배포 가이드
 
@@ -407,7 +407,7 @@ Windows VM에서 실행되는 SAP BOBI 플랫폼의 경우 Azure에서 SAP BOBI 
 
 * **SQL Database** 는 SQL Server 기술을 사용하여 매주 [전체 백업](/sql/relational-databases/backup-restore/full-database-backups-sql-server?preserve-view=true&view=sql-server-ver15), 12~24시간마다 [차등 백업](/sql/relational-databases/backup-restore/differential-backups-sql-server?preserve-view=true&view=sql-server-ver15), 5~10분마다 [트랜잭션 로그](/sql/relational-databases/backup-restore/transaction-log-backups-sql-server?preserve-view=true&view=sql-server-ver15) 백업을 만듭니다. 트랜잭션 로그 백업의 빈도는 컴퓨팅 크기와 데이터베이스 작업의 양을 기준으로 합니다.
  
-   사용자는 LRS, ZRS 또는 GRS blob 간에 백업 스토리지 중복성을 구성하는 옵션을 선택할 수 있습니다. 스토리지 중복성 메커니즘은 계획된 이벤트 그리고 일시적인 하드웨어 오류, 네트워크 또는 정전, 대규모 자연재해 등의 계획되지 않은 이벤트로부터 데이터를 보호하기 위해 여러 복사본을 저장합니다. 기본적으로 SQL Database는 [쌍을 이루는 지역](../../../best-practices-availability-paired-regions.md)에 복제되는 [GRS blob](../../../storage/common/storage-redundancy.md)에 백업을 저장합니다. LRS 또는 ZRS blob에 대한 비즈니스 요구 사항에 따라 변경될 수 있습니다. SQL Database 백업 일정, 보존 및 스토리지 사용에 대한 최신 정보는 [자동화된 백업: Azure SQL Database 및 Azure SQL Managed Instance](../../../azure-sql/database/automated-backups-overview.md)를 참조하세요.
+   사용자는 LRS, ZRS 또는 GRS blob 간에 백업 스토리지 중복성을 구성하는 옵션을 선택할 수 있습니다. 스토리지 중복성 메커니즘은 계획된 이벤트 그리고 일시적인 하드웨어 오류, 네트워크 또는 정전, 대규모 자연재해 등의 계획되지 않은 이벤트로부터 데이터를 보호하기 위해 여러 복사본을 저장합니다. 기본적으로 SQL Database는 [쌍을 이루는 지역](../../../availability-zones/cross-region-replication-azure.md)에 복제되는 [GRS blob](../../../storage/common/storage-redundancy.md)에 백업을 저장합니다. LRS 또는 ZRS blob에 대한 비즈니스 요구 사항에 따라 변경될 수 있습니다. SQL Database 백업 일정, 보존 및 스토리지 사용에 대한 최신 정보는 [자동화된 백업: Azure SQL Database 및 Azure SQL Managed Instance](../../../azure-sql/database/automated-backups-overview.md)를 참조하세요.
 
 * **Azure Database for MySQL** 은 사용자 구성 LRS 또는 GRS에서 자동으로 서버 백업을 만들고 저장합니다. Azure Database for MySQL은 데이터 파일과 트랜잭션 로그를 백업합니다. 지원되는 최대 스토리지 크기에 따라 전체 및 차등 백업(최대 4TB 스토리지 서버) 또는 스냅샷 백업(최대 16TB 스토리지 서버)을 수행합니다. 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일이며 [필요에 따라 최대 35일까지 구성](../../../mysql/howto-restore-server-portal.md#set-backup-configuration)할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다. 백업 파일은 사용자에게 노출되지 않으며 내보낼 수 없습니다. 이러한 백업은 Azure Database for MySQL의 복원 작업에만 사용할 수 있습니다. [mysqldump](../../../mysql/concepts-migrate-dump-restore.md)를 사용하여 데이터베이스를 복사할 수 있습니다. 자세한 내용은 [Azure Database for MySQL의 백업 및 복원](../../../mysql/concepts-backup.md)을 참조하세요.
 
@@ -513,7 +513,7 @@ DR 지역의 CMS 및 감사 데이터베이스는 주 지역에서 실행 중인
 
 옵션 1: [지역 중복 데이터베이스 백업 복원](../../../azure-sql/database/recovery-using-backups.md#geo-restore)
 
-   기본적으로 SQL Database는 [쌍을 이루는 지역](../../../best-practices-availability-paired-regions.md)에 복제되는 [GRS blob](../../../storage/common/storage-redundancy.md)에 데이터를 저장합니다. SQL Database의 백업 스토리지 중복도는 CMS 및 감사 데이터베이스 생성 시에 구성하거나 기존 데이터베이스를 업데이트할 수 있습니다. 기본 데이터베이스에 대한 변경 사항은 향후 백업에만 적용됩니다. 가장 최근의 지역 복제 백업에서 Azure 지역에 있는 SQL Database의 데이터베이스를 복원할 수 있습니다. 지리적 복원에서는 지역에서 복제된 백업을 원본으로 사용합니다. 백업을 만들 때와 다른 지역에 있는 Azure Blob으로 지역 복제하는 사이에 지연이 있습니다. 따라서 복원된 데이터베이스는 원본 데이터베이스보다 최대 1시간 늦을 수 있습니다.
+   기본적으로 SQL Database는 [쌍을 이루는 지역](../../../availability-zones/cross-region-replication-azure.md)에 복제되는 [GRS blob](../../../storage/common/storage-redundancy.md)에 데이터를 저장합니다. SQL Database의 백업 스토리지 중복도는 CMS 및 감사 데이터베이스 생성 시에 구성하거나 기존 데이터베이스를 업데이트할 수 있습니다. 기본 데이터베이스에 대한 변경 사항은 향후 백업에만 적용됩니다. 가장 최근의 지역 복제 백업에서 Azure 지역에 있는 SQL Database의 데이터베이스를 복원할 수 있습니다. 지리적 복원에서는 지역에서 복제된 백업을 원본으로 사용합니다. 백업을 만들 때와 다른 지역에 있는 Azure Blob으로 지역 복제하는 사이에 지연이 있습니다. 따라서 복원된 데이터베이스는 원본 데이터베이스보다 최대 1시간 늦을 수 있습니다.
 
    >[!Important]
    >지역 복원은 지역 중복 [백업 스토리지](../../../azure-sql/database/automated-backups-overview.md#backup-storage-redundancy)가 구성된 SQL Database에 사용할 수 있습니다.

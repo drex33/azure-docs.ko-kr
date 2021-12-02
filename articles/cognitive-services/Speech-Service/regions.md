@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 10/13/2021
 ms.author: panosper
 ms.custom: references_regions, ignite-fall-2021
-ms.openlocfilehash: 5ae6618731a6b8d0561a58a1997dbee9584e3551
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 9ee32e6a28983a5607eaac373d30c51860e3a6ca
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131031122"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434542"
 ---
 # <a name="speech-service-supported-regions"></a>Speech Service 지원 지역
 
-음성 서비스를 통해 애플리케이션에서 오디오를 텍스트로 변환하고, 음성 번역을 수행하고, 텍스트를 음성으로 변환할 수 있습니다. 음성 SDK 및 REST API에 대한 고유한 엔드포인트를 사용하여 여러 지역에서 서비스를 사용할 수 있습니다.
+Speech Service를 사용하면 애플리케이션에서 오디오를 텍스트로 변환하고, 음성 번역을 수행하고, 텍스트를 음성으로 변환할 수 있습니다. 음성 SDK 및 REST API에 대한 고유한 엔드포인트를 사용하여 여러 지역에서 서비스를 사용할 수 있습니다.
 
-모든 지역에 대 한 음성 환경에 대 한 사용자 지정 구성을 수행할 수 있는 음성 포털은 [speech.microsoft.com](https://speech.microsoft.com)에서 사용할 수 있습니다.
+모든 지역의 음성 환경으로 사용자 지정 구성을 수행할 수 있는 Speech Portal은 [speech.microsoft.com](https://speech.microsoft.com)에서 사용할 수 있습니다.
 
 지역을 고려할 때는 다음 사항에 유의하세요.
 
@@ -35,7 +35,7 @@ ms.locfileid: "131031122"
 
 ## <a name="speech-sdk"></a>Speech SDK
 
-[SPEECH sdk](speech-sdk.md)에서 지역은 매개 변수로 지정 됩니다. 예를 들어 `SpeechConfig.FromSubscription` c # 용 Speech SDK의에 대 한 매개 변수로 지정 됩니다.
+Speech [SDK에서](speech-sdk.md)지역은 매개 변수로 지정됩니다(예: `SpeechConfig.FromSubscription` C#용 Speech SDK의 에 대한 매개 변수).
 
 ### <a name="speech-to-text-text-to-speech-and-translation"></a>음성 텍스트 변환, 텍스트 음성 변환 및 번역
 
@@ -86,7 +86,7 @@ Speech SDK를 통해 **의도 인식** 을 사용할 수 있는 지역은 다음
 
 ### <a name="speaker-recognition"></a>Speaker Recognition
 
-**Speaker Recognition** 사용할 수 있는 영역은 다음과 같습니다.
+**Speaker Recognition** 사용 가능한 지역은 다음과 같습니다.
 
 | Geography | 지역           | 지역 식별자 |
 | ------------- | ---------------- | -------------------- |

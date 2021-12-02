@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
-ms.openlocfilehash: a8171d29dfe88ea34d02d7f48567aeb2df46a8a7
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
-ms.translationtype: HT
+ms.openlocfilehash: 22a96fe857eb81c7059e062a64e01035977d7c58
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694138"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438804"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Azure의 Oracle Database Enterprise Edition에 대한 참조 아키텍처
 
@@ -49,7 +49,7 @@ Oracle RAC(Real Application Cluster)는 여러 인스턴스가 단일 데이터�
 
 중요 업무용 애플리케이션을 클라우드에 호스팅하는 경우 고가용성 및 재해 복구를 설계하는 것이 중요합니다.
 
-Oracle Database Enterprise Edition의 경우 Oracle Data Guard는 재해 복구를 위한 유용한 기능입니다. [쌍을 이루는 Azure 지역](../../../best-practices-availability-paired-regions.md)에 대기 데이터베이스 인스턴스를 설정하고 재해 복구를 위한 Data Guard 장애 조치(failover)를 설정할 수 있습니다. 데이터가 손실되지 않도록 하려면 Active Data Guard 외에도 Oracle Data Guard Far Sync 인스턴스를 배포하는 것이 좋습니다. 
+Oracle Database Enterprise Edition의 경우 Oracle Data Guard는 재해 복구를 위한 유용한 기능입니다. [쌍을 이루는 Azure 지역](../../../availability-zones/cross-region-replication-azure.md)에 대기 데이터베이스 인스턴스를 설정하고 재해 복구를 위한 Data Guard 장애 조치(failover)를 설정할 수 있습니다. 데이터가 손실되지 않도록 하려면 Active Data Guard 외에도 Oracle Data Guard Far Sync 인스턴스를 배포하는 것이 좋습니다. 
 
 애플리케이션에서 대기 시간을 허용하는 경우(철저한 테스트가 필요함) Oracle 주 데이터베이스와 다른 가용성 영역에 Data Guard Far Sync 인스턴스를 설정하는 것을 고려해 볼 수 있습니다. **최대 가용성** 모드를 사용하여 다시 실행 파일을 Far Sync 인스턴스에 동기 전송하도록 설정합니다. 그러면 이러한 파일은 대기 데이터베이스에 비동기적으로 전송됩니다. 
 

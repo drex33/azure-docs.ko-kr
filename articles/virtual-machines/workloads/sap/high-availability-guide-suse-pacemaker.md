@@ -15,14 +15,16 @@ ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
 ms.date: 09/08/2021
 ms.author: radeltch
-ms.openlocfilehash: 63c7def5a76fba19eeef5192ebdfacd6225fbaa1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a2d77f89c859966cf71a1e82e5d5eceaa542b77b
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784302"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437778"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
+
+## <a name="overview"></a>개요
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
@@ -33,27 +35,49 @@ ms.locfileid: "124784302"
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-Azure에서 Pacemaker 클러스터를 설정하는 옵션에는 두 가지가 있습니다. Azure API를 통해 실패한 노드를 다시 시작하는 펜싱 에이전트를 사용하거나 SBD 디바이스를 사용할 수 있습니다.
+Azure에는 SLES에 대 한 Pacemaker 클러스터에서 stonith를 설정 하는 두 가지 옵션이 있습니다. Azure Api를 통해 실패 한 노드를 다시 시작 하거나 SBD 장치를 사용 하 여 Azure 펜스 에이전트를 사용할 수 있습니다. SBD 장치를 사용 하 여 stonith를 구성 하기 위해 Azure에서 사용할 수 있는 두 가지 방법이 있습니다.
 
-SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 제공하는 추가 가상 머신이 하나 이상 필요합니다. 단, 이러한 iSCSI 대상 서버를 다른 Pacemaker 클러스터와 공유할 수 있습니다. SBD 디바이스를 사용하는 이점은 온-프레미스에서 SBD 디바이스를 사용하는 경우에는 Pacemaker 클러스터의 작동 방식을 변경할 필요가 없습니다. 예를 들어, iSCSI 대상 서버의 OS 패치 동안 Pacemaker 클러스터에서 SBD 디바이스를 사용할 수 없게 하도록 하려면 최대 3개의 SBD 디바이스를 사용할 수 있습니다. Pacemaker당 2개 이상의 SBD 디바이스를 사용하려는 경우 여러 iSCSI 대상 서버를 배포하고 각 iSCSI 대상 서버에서 하나의 SBD를 연결해야 합니다. SBD 디바이스를 1개 또는 3개 사용하는 것이 좋습니다. SBD 디바이스를 2개만 구성한 상태에서 하나를 사용할 수 없게 되면 Pacemaker는 클러스터 노드를 자동으로 방어할 수 없게 됩니다. 하나의 iSCSI 대상 서버가 다운되었을 때 방어하려면 3개의 SBD 디바이스, 즉 SBD를 사용할 때 가장 탄력적 구성인 3개의 iSCSI 대상 서버를 사용해야 합니다.
+- ISCSI 대상 서버를 사용 하는 SBD 장치
+  
+  SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 제공하는 추가 가상 머신이 하나 이상 필요합니다. 단, 이러한 iSCSI 대상 서버를 다른 Pacemaker 클러스터와 공유할 수 있습니다. SBD 디바이스를 사용하는 이점은 온-프레미스에서 SBD 디바이스를 사용하는 경우에는 Pacemaker 클러스터의 작동 방식을 변경할 필요가 없습니다. 예를 들어, iSCSI 대상 서버의 OS 패치 동안 Pacemaker 클러스터에서 SBD 디바이스를 사용할 수 없게 하도록 하려면 최대 3개의 SBD 디바이스를 사용할 수 있습니다. Pacemaker당 2개 이상의 SBD 디바이스를 사용하려는 경우 여러 iSCSI 대상 서버를 배포하고 각 iSCSI 대상 서버에서 하나의 SBD를 연결해야 합니다. SBD 디바이스를 1개 또는 3개 사용하는 것이 좋습니다. SBD 디바이스를 2개만 구성한 상태에서 하나를 사용할 수 없게 되면 Pacemaker는 클러스터 노드를 자동으로 방어할 수 없게 됩니다. 하나의 iSCSI 대상 서버가 다운되었을 때 방어하려면 3개의 SBD 디바이스, 즉 SBD를 사용할 때 가장 탄력적 구성인 3개의 iSCSI 대상 서버를 사용해야 합니다.
+  
+  ![SLES의 Pacemaker 개요](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+  
+  >[!IMPORTANT]
+  > Linux Pacemaker 클러스터 노드 및 SBD 디바이스를 계획하고 배포할 경우, 전체 클러스터 구성의 전체적인 안정성을 제공하려면 관련된 VM과 SBD 디바이스를 호스트하는 VM 간의 라우팅이 [NVA](https://azure.microsoft.com/solutions/network-appliances/)와 같은 다른 디바이스를 통과하지 않아야 합니다. 그렇지 않으면 NVA에 관련된 문제 및 유지 관리 이벤트가 전체 클러스터 구성의 안정성에 부정적인 영향을 줄 수 있습니다. 이러한 장애가 발생하지 않도록, Linux Pacemaker 클러스터 노드 및 SBD 디바이스를 계획 및 배포할 때 클러스터 노드와 SBD 디바이스 간의 트래픽을 NVA 및 유사한 디바이스를 통해 전달하는 NVA 회람 규칙 또는 [사용자 정의 회람 규칙](../../../virtual-network/virtual-networks-udr-overview.md)을 정의하지 않습니다.
 
-Azure Fence 에이전트는 추가 가상 머신을 배포할 필요가 없습니다.   
+- Azure 공유 디스크를 사용 하는 SBD 장치
+  
+  SBD 장치를 구성 하려면 Pacemaker 클러스터의 일부인 모든 가상 머신에 하나 이상의 [Azure 공유 디스크](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/disks-shared.md) 를 연결 해야 합니다. Azure 공유 디스크를 사용 하는 SBD 장치는 추가 가상 머신을 배포할 필요가 없다는 장점이 있습니다.
+  
+  ![SLES Pacemaker 클러스터용 Azure shared disk SBD 장치](./media/high-availability-guide-suse-pacemaker/azure-shared-disk-sbd-device.png)
+  
+  **Azure 공유 디스크를 사용 하는 SBD 장치에 대 한 중요 고려 사항**
 
-![SLES의 Pacemaker 개요](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+   - 프리미엄 SSD를 사용 하는 Azure 공유 디스크는 SBD 장치로 지원 됩니다.
+   - Azure premium 공유 디스크를 사용 하는 SBD 장치는 [LRS (로컬 중복 저장소](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) ) 및 [ZRS (영역 중복 저장소)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks)에서 지원 됩니다.
+   - 배포-가용성 집합 또는 가용성 영역의 유형에 따라 Azure 공유 디스크에 대 한 적절 한 중복 저장소를 SBD 장치로 선택 합니다.
+     - Azure premium 공유 디스크 Premium_LRS (SBD)에 대해 LRS를 사용 하는 장치는 가용성 집합의 배포에 대해서만 지원 됩니다.
+     - 가용성 영역에서 배포 하는 경우 Azure premium 공유 디스크 Premium_ZRS (SBD)에 ZRS를 사용 하는 장치를 사용 하는 것이 좋습니다.
+   - 관리 디스크에 대 한 ZRS는 현재 가용성 영역이 있는 일부 지역에서 사용할 수 없습니다. 자세한 내용은 managed disks에 대 한 ZRS의 [제한 사항](../../disks-redundancy.md#limitations) 섹션을 참조 하세요.
+   - SBD 장치에 사용 되는 Azure 공유 디스크는 클 필요가 없습니다. [Maxshares](../../disks-shared-enable.md#disk-sizes) 값은 공유 디스크를 사용할 수 있는 클러스터 노드 수를 결정 합니다. 예를 들어 SAP ASCS/ERS와 같은 2 개 노드 클러스터에서 SBD 장치에 대해 P1 또는 P2 디스크 크기 SAP HANA를 사용할 수 있습니다.
+   - [HSR (hana system replication) 및 pacemaker를 사용 하는 hana 확장](sap-hana-high-availability-scale-out-hsr-suse.md)의 경우 현재 [maxshares](../../disks-shared-enable.md#disk-sizes)의 제한 때문에 복제 사이트별로 최대 4 개의 노드가 있는 클러스터에서 SBD 장치에 Azure 공유 디스크를 사용할 수 있습니다.
+   - Pacemaker 클러스터 간에 Azure shared disk SBD 장치를 연결 하지 않는 것이 좋습니다.
+   - Azure 공유 디스크에 대 한 제한 사항에 대 한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](../../disks-shared.md#limitations) 섹션을 참조 하세요.
 
->[!IMPORTANT]
-> Linux Pacemaker 클러스터 노드 및 SBD 디바이스를 계획하고 배포할 경우, 전체 클러스터 구성의 전체적인 안정성을 제공하려면 관련된 VM과 SBD 디바이스를 호스트하는 VM 간의 라우팅이 [NVA](https://azure.microsoft.com/solutions/network-appliances/)와 같은 다른 디바이스를 통과하지 않아야 합니다. 그렇지 않으면 NVA에 관련된 문제 및 유지 관리 이벤트가 전체 클러스터 구성의 안정성에 부정적인 영향을 줄 수 있습니다. 이러한 장애가 발생하지 않도록, Linux Pacemaker 클러스터 노드 및 SBD 디바이스를 계획 및 배포할 때 클러스터 노드와 SBD 디바이스 간의 트래픽을 NVA 및 유사한 디바이스를 통해 전달하는 NVA 회람 규칙 또는 [사용자 정의 회람 규칙](../../../virtual-network/virtual-networks-udr-overview.md)을 정의하지 않습니다. 
->
+- Azure fence 에이전트
 
-## <a name="sbd-fencing"></a>SBD 펜싱
+  Azure 펜스 에이전트에는 Azure Api를 통해 실패 한 노드를 다시 시작 하는 서비스 주체가 필요 합니다. Azure Fence 에이전트는 추가 가상 머신을 배포할 필요가 없습니다.
 
-펜싱에 SBD 디바이스를 사용하려면 다음 단계를 수행하세요.
+## <a name="sbd-device-using-iscsi-target-server"></a>ISCSI 대상 서버를 사용 하는 SBD 장치
+
+SBD 장치를 사용 하 여 사용 하려는 경우 다음 단계를 수행 합니다.
 
 ### <a name="set-up-iscsi-target-servers"></a>iSCSI 대상 서버 설정
 
 먼저 iSCSI 대상 가상 머신을 만들어야 합니다. iSCSI 대상 서버는 여러 Pacemaker 클러스터와 공유할 수 있습니다.
 
-1. 새 SLES 12 SP1 이상의 가상 머신을 배포하고 ssh를 통해 머신에 연결합니다. 컴퓨터가 클 필요는 없습니다. Standard_E2s_v3 또는 Standard_D2s_v3과 같은 가상 머신 크기이면 충분합니다. OS 디스크에 대해 Premium Storage를 사용해야 합니다.
+1. 새 SLES 12 SP3 이상 가상 컴퓨터를 배포 하 고 ssh를 통해 연결 합니다. 컴퓨터가 클 필요는 없습니다. Standard_E2s_v3 또는 Standard_D2s_v3과 같은 가상 머신 크기이면 충분합니다. OS 디스크에 대해 Premium Storage를 사용해야 합니다.
 
 모든 **iSCSI 대상 가상 머신** 에 대해 다음 명령을 실행합니다.
 
@@ -63,7 +87,7 @@ Azure Fence 에이전트는 추가 가상 머신을 배포할 필요가 없습�
    </code></pre>
 
    > [!NOTE]
-   > OS를 업그레이드 또는 업데이트한 후 OS를 다시 부팅해야 할 수도 있습니다. 
+   > OS를 업그레이드 또는 업데이트한 후 OS를 다시 부팅해야 할 수도 있습니다.
 
 1. 패키지 제거
 
@@ -175,7 +199,7 @@ o- / ...........................................................................
   o- xen-pvscsi ........................................................................................ [Targets: 0]
 </code></pre>
 
-### <a name="set-up-sbd-device"></a>SBD 디바이스 설정
+### <a name="set-up-iscsi-target-server-sbd-device"></a>ISCSI 대상 서버 SBD 장치 설정
 
 클러스터의 마지막 단계에서 만든 iSCSI 디바이스에 연결합니다.
 새로 만들 클러스터의 노드에서 다음 명령을 실행합니다.
@@ -280,7 +304,6 @@ o- / ...........................................................................
    iSCSI 디바이스의 디바이스 ID를 사용하여 첫 번째 클러스터 노드에 새 SBD 디바이스를 만듭니다.
 
    <pre><code>sudo sbd -d <b>/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03</b> -1 60 -4 120 create
-
    # Also create the second and third SBD devices if you want to use more than one.
    sudo sbd -d <b>/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df</b> -1 60 -4 120 create
    sudo sbd -d <b>/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf</b> -1 60 -4 120 create
@@ -314,262 +337,125 @@ o- / ...........................................................................
    <pre><code>sudo modprobe -v softdog
    </code></pre>
 
-## <a name="cluster-installation"></a>클러스터 설치
+## <a name="sbd-device-using-azure-shared-disk"></a>Azure 공유 디스크를 사용 하는 SBD 장치
 
-다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
+이 섹션은 Azure 공유 디스크를 사용 하 여 SBD 장치를 사용 하려는 경우에만 적용 됩니다.
 
-1. **[A]** SLES 업데이트
+### <a name="create-and-attach-azure-shared-disk-with-powershell"></a>PowerShell을 사용하여 Azure 공유 디스크 만들기 및 연결
 
-   <pre><code>sudo zypper update
-   </code></pre>
+리소스 그룹, Azure 지역, 가상 머신, LUN 등에 대 한 값을 조정 합니다.
 
-1. **[A]** 설치 구성 요소, 클러스터 리소스에 필요
+<pre><code>$ResourceGroup = "<b>MyResourceGroup</b>"
+$Location = "<b>MyAzureRegion</b>"
 
-   <pre><code>sudo zypper in socat
-   </code></pre>
+# Define the size of the disk based on available disk size for Premium SSDs. In this example, P1 disk size of 4G is mentioned.
+$DiskSizeInGB = <b>4</b>
+$DiskName = "<b>SBD-disk1</b>"
 
-1. **[A]** 설치 azure-lb 구성 요소, 클러스터 리소스에 필요
+# With parameter '-MaxSharesCount', we define the maximum number of cluster nodes to attach the shared disk for SBD device
+$ShareNodes = <b>2</b>
 
-   <pre><code>sudo zypper in resource-agents
-   </code></pre>
+# For SBD device using LRS for Azure premium shared disk, use below storage SkuName
+$SkuName = "<b>Premium_LRS</b>"
+# For SBD device using ZRS for Azure premium shared disk, use below storage SkuName
+$SkuName = "<b>Premium_ZRS</b>"
 
-   > [!NOTE]
-   > 패키지 리소스 에이전트의 버전을 확인하고 최소 버전 요구 사항이 충족되었는지 확인합니다.  
-   > - SLES 12 SP4/SP5의 경우 버전은 resource-agents-4.3.018.a7fb5035-3.30.1 이상이어야 합니다.  
-   > - SLES 15/15 SP1의 경우 버전은 resource-agents-4.3.0184.6ee15eb2-4.13.1 이상이어야 합니다.  
+# Provision Azure shared disk
+$diskConfig = New-AzDiskConfig -Location $Location -SkuName $SkuName -CreateOption Empty -DiskSizeGB $DiskSizeInGB -MaxSharesCount $ShareNodes
+$dataDisk = New-AzDisk -ResourceGroupName $ResourceGroup -DiskName $DiskName -Disk $diskConfig
 
-1. **[A]** 운영 체제 구성
+# Attach the disk to the cluster VMs
+$VM1 = "<b>prod-cl1-0</b>"
+$VM2 = "<b>prod-cl1-1</b>"
 
-   경우에 따라 Pacemaker는 많은 프로세스를 만들게 되므로 허용되는 프로세스 수가 고갈됩니다. 이러한 경우 클러스터 노드 간 하트비트가 실패하고 리소스가 장애 조치(Failover)될 수 있습니다. 다음 매개 변수를 설정하여 허용되는 최대 프로세스 수를 늘리는 것이 좋습니다.
+# Add the Azure shared disk to cluster node 1.
+$vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM1
+$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun <b>0</b>
+Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose
 
-   <pre><code># Edit the configuration file
-   sudo vi /etc/systemd/system.conf
-   
-   # Change the DefaultTasksMax
-   #DefaultTasksMax=512
-   DefaultTasksMax=4096
-   
-   #and to activate this setting
-   sudo systemctl daemon-reload
-   
-   # test if the change was successful
-   sudo systemctl --no-pager show | grep DefaultTasksMax
-   </code></pre>
-
-   더티 캐시의 크기를 줄입니다. 자세한 내용은 [큰 RAM이 있는 SLES 11/12 서버의 쓰기 성능 저하](https://www.suse.com/support/kb/doc/?id=7010287)를 참조하세요.
-
-   <pre><code>sudo vi /etc/sysctl.conf
-
-   # Change/set the following settings
-   vm.dirty_bytes = 629145600
-   vm.dirty_background_bytes = 314572800
-   </code></pre>
-
-1. **[A]** HA 클러스터에 대한 cloud-netconfig-azure 구성
-
-   >[!NOTE]
-   > **zypper info cloud-netconfig-azure** 를 실행하여 설치된 **cloud-netconfig-azure** 패키지의 버전을 확인합니다. 사용자 환경의 버전이 1.3 이상인 경우, 더 이상 클라우드 네트워크 플러그 인에 의한 네트워크 인터페이스의 관리를 억제하지 않아도 됩니다. 1\.3 미만 버전에서는 **cloud-netconfig-azure** 패키지를 사용 가능한 최신 버전으로 업데이트하는 것이 좋습니다.  
-
-   클라우드 네트워크 플러그 인이 가상 IP 주소를 제거하지 않도록 아래와 같이 네트워크 인터페이스에서 구성 파일을 변경합니다(Pacemaker가 VIP 할당을 제어해야 함). 자세한 내용은 [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)을 참조하세요. 
-
-   <pre><code># Edit the configuration file
-   sudo vi /etc/sysconfig/network/ifcfg-eth0 
-   
-   # Change CLOUD_NETCONFIG_MANAGE
-   # CLOUD_NETCONFIG_MANAGE="yes"
-   CLOUD_NETCONFIG_MANAGE="no"
-   </code></pre>
-
-1. **[1]** ssh 액세스 사용
-
-   <pre><code>sudo ssh-keygen
-   
-   # Enter file in which to save the key (/root/.ssh/id_rsa): -> Press ENTER
-   # Enter passphrase (empty for no passphrase): -> Press ENTER
-   # Enter same passphrase again: -> Press ENTER
-   
-   # copy the public key
-   sudo cat /root/.ssh/id_rsa.pub
-   </code></pre>
-
-1. **[2]** ssh 액세스 사용
-
-   <pre><code>
-   sudo ssh-keygen
-   
-   # Enter file in which to save the key (/root/.ssh/id_rsa): -> Press ENTER
-   # Enter passphrase (empty for no passphrase): -> Press ENTER
-   # Enter same passphrase again: -> Press ENTER
-   
-   # insert the public key you copied in the last step into the authorized keys file on the second server
-   sudo vi /root/.ssh/authorized_keys   
-   
-   # copy the public key
-   sudo cat /root/.ssh/id_rsa.pub
-   </code></pre>
-
-1. **[1]** ssh 액세스 사용
-
-   <pre><code># insert the public key you copied in the last step into the authorized keys file on the first server
-   sudo vi /root/.ssh/authorized_keys
-   </code></pre>
-
-1. **[A]** Azure Fence 에이전트를 기반으로 하는 STONITH 디바이스를 사용하는 경우 Fence 에이전트 패키지를 설치합니다.  
-   
-   <pre><code>sudo zypper install fence-agents
-   </code></pre>
-
-   >[!IMPORTANT]
-   > 클러스터 노드를 차단해야 하는 경우 Azure Fence 에이전트를 사용하여 더 빠른 장애 조치(failover) 시간의 이점을 얻으려면 설치된 패키지 **펜스 에이전트** 버전이 **4.4.0** 이상이어야 합니다. 더 낮은 버전을 실행하는 경우 패키지를 업데이트하는 것이 좋습니다.  
-
-
-1. **[A]** Azure Python SDK 설치 
-   - SLES 12 SP4 또는 SLES 12 SP5에서
-   <pre><code>
-    # You may need to activate the Public cloud extention first
-    SUSEConnect -p sle-module-public-cloud/12/x86_64
-    sudo zypper install python-azure-mgmt-compute
-   </code></pre> 
-
-   - SLES 15 이상에서 
-   <pre><code>
-    # You may need to activate the Public cloud extention first. In this example the SUSEConnect command is for SLES 15 SP1
-    SUSEConnect -p sle-module-public-cloud/15.1/x86_64
-    sudo zypper install python3-azure-mgmt-compute
-   </code></pre> 
- 
-   >[!IMPORTANT]
-   >버전 및 이미지 유형에 따라 Azure Python SDK를 설치하기 전에 OS 릴리스에 대한 퍼블릭 클라우드 확장을 활성화해야 할 수 있습니다.
-   >SUSEConnect---list-extensions를 실행하여 확장을 확인할 수 있습니다.  
-   >Azure Fence 에이전트를 사용하여 더 빠른 장애 조치(failover) 시간을 달성하려면 다음을 수행합니다.
-   > - SLES 12 SP4 또는 SLES 12 SP5에 python-azure-mgmt-compute 패키지 버전 **4.6.2** 이상 설치  
-   > - SLES 15.X에서 패키지 python **3**-azure-mgmt-compute의 **4.6.2** 버전을 설치하지만 그 이상은 아닙니다. 패키지 python **3**-azure-mgmt-compute의 버전 17.0.0-6.7.1은 Azure Fence Agent와 호환되지 않는 변경 사항을 포함하므로 사용하지 마세요.    
-     
-1. **[A]** 호스트 이름 확인 설정
-
-   DNS 서버를 사용하거나 모든 노드의 /etc/hosts를 수정할 수 있습니다. 이 예에서는 /etc/hosts 파일 사용 방법을 보여줍니다.
-   다음 명령에서 IP 주소와 호스트 이름을 바꿉니다.
-
-   >[!IMPORTANT]
-   > 클러스터 구성에 호스트 이름을 사용하는 경우 신뢰할 수 있는 호스트 이름 확인을 사용하는 것이 매우 중요합니다. 이름을 사용할 수 없고, 그로 인해 클러스터 장애 조치(failover) 지연이 발생할 수 있는 경우, 클러스터 통신은 실패합니다.
-   > /etc/hosts를 사용하는 장점은 클러스터가 단일 실패 지점이 될 수 있는 DNS와 무관하다는 점입니다.  
-     
-   <pre><code>sudo vi /etc/hosts
-
-   </code></pre>
-
-   다음 줄을 /etc/hosts에 삽입합니다. 환경에 맞게 IP 주소와 호스트 이름 변경   
-
-   <pre><code># IP address of the first cluster node
-   <b>10.0.0.6 prod-cl1-0</b>
-   # IP address of the second cluster node
-   <b>10.0.0.7 prod-cl1-1</b>
-   </code></pre>
-
-1. **[1]** 클러스터 설치
-- 펜싱에 SBD 디바이스를 사용하는 경우
-   <pre><code>sudo ha-cluster-init -u
-   
-   # ! NTP is not configured to start at system boot.
-   # Do you want to continue anyway (y/n)? <b>y</b>
-   # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
-   # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
-   # Port for ring0 [5405] <b>Press ENTER</b>
-   # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? <b>n</b>
-   # Do you wish to configure an administration IP (y/n)? <b>n</b>
-   </code></pre>
-
-- 펜싱에 SBD 디바이스를 *사용하지 않는* 경우
-   <pre><code>sudo ha-cluster-init -u
-   
-   # ! NTP is not configured to start at system boot.
-   # Do you want to continue anyway (y/n)? <b>y</b>
-   # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
-   # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
-   # Port for ring0 [5405] <b>Press ENTER</b>
-   # Do you wish to use SBD (y/n)? <b>n</b>
-   #WARNING: Not configuring SBD - STONITH will be disabled.
-   # Do you wish to configure an administration IP (y/n)? <b>n</b>
-   </code></pre>
-
-1. **[2]** 클러스터에 노드 추가
-
-   <pre><code>sudo ha-cluster-join
-   
-   # ! NTP is not configured to start at system boot.
-   # Do you want to continue anyway (y/n)? <b>y</b>
-   # IP address or hostname of existing node (e.g.: 192.168.1.1) []<b>10.0.0.6</b>
-   # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
-   </code></pre>
-
-1. **[A]** hacluster 암호를 동일한 암호로 변경
-
-   <pre><code>sudo passwd hacluster
-   </code></pre>
-
-1. **[A]** corosync 설정을 조정합니다.  
-
-   <pre><code>sudo vi /etc/corosync/corosync.conf
-   </code></pre>
-
-   값이 없거나 다른 경우 파일에 다음과 같이 굵게 표시된 콘텐츠를 추가합니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 변경해야 합니다. 자세한 내용은 [Linux][virtual-machines-linux-maintenance] 또는 [Windows용 이 문서][virtual-machines-windows-maintenance]를 참조하세요.
-
-   <pre><code>[...]
-     <b>token:          30000
-     token_retransmits_before_loss_const: 10
-     join:           60
-     consensus:      36000
-     max_messages:   20</b>
-     
-     interface { 
-        [...] 
-     }
-     transport:      udpu
-   } 
-   nodelist {
-     node {
-      ring0_addr:10.0.0.6
-     }
-     node {
-      ring0_addr:10.0.0.7
-     } 
-   }
-   logging {
-     [...]
-   }
-   quorum {
-        # Enable and configure quorum subsystem (default: off)
-        # see also corosync.conf.5 and votequorum.5
-        provider: corosync_votequorum
-        <b>expected_votes: 2</b>
-        <b>two_node: 1</b>
-   }
-   </code></pre>
-
-   그런 다음 corosync 서비스를 다시 시작합니다.
-
-   <pre><code>sudo service corosync restart
-   </code></pre>
-
-## <a name="default-pacemaker-configuration-for-sbd"></a>SBD에 대한 기본 Pacemaker 구성
-
-SBD STONITH를 사용하는 경우에만 이 섹션의 구성을 적용할 수 있습니다.  
-
-1. **[1]** STONITH 디바이스를 사용하도록 설정하고 방어 지연 설정
-
-<pre><code>sudo crm configure property stonith-timeout=144
-sudo crm configure property stonith-enabled=true
-
-# List the resources to find the name of the SBD device
-sudo crm resource list
-sudo crm resource stop stonith-sbd
-sudo crm configure delete <b>stonith-sbd</b>
-sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
-   params pcmk_delay_max="15" \
-   op monitor interval="15" timeout="15"
+# Add the Azure shared disk to cluster node 2
+$vm = Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM2
+$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun <b>0</b>
+Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose
 </code></pre>
 
-## <a name="create-azure-fence-agent-stonith-device"></a>Azure Fence 에이전트 STONITH 디바이스 만들기
+Azure CLI 또는 Azure Portal를 사용 하 여 리소스를 배포 하려는 경우 [ZRS disk 문서 배포](../../disks-deploy-zrs.md) 를 참조할 수도 있습니다.
+
+### <a name="set-up-azure-shared-disk-sbd-device"></a>Azure shared disk SBD 장치 설정
+
+1. **[A]** 연결 된 디스크를 사용할 수 있는지 확인 합니다.
+
+   <pre><code># lsblk
+   NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+   fd0      2:0    1    4K  0 disk
+   sda      8:0    0   30G  0 disk
+   ├─sda1   8:1    0    2M  0 part
+   ├─sda2   8:2    0  512M  0 part /boot/efi
+   ├─sda3   8:3    0    1G  0 part /boot
+   ├─sda4   8:4    0 28.5G  0 part /
+   sdb      8:16   0  256G  0 disk
+   ├─sdb1   8:17   0  256G  0 part /mnt
+   <b>sdc      8:32   0    4G  0 disk</b>
+   sr0     11:0    1 1024M  0 rom
+   
+   # lsscsi
+   [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+   [2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+   [3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+   <b>[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc</b>
+   </code></pre>
+
+2. **[A]** 연결 된 디스크의 id를 검색 합니다.
+
+   <pre><code># ls -l /dev/disk/by-id/scsi-* | grep sdc
+   lrwxrwxrwx 1 root root  9 Nov  8 16:55 /dev/disk/by-id/scsi-14d534654202020204208a67da80744439b513b2a9728af19 -> ../../sdc
+   <b>lrwxrwxrwx 1 root root  9 Nov  8 16:55 /dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19 -> ../../sdc</b>
+   </code></pre>
+
+   이 명령은 SBD 장치에 대 한 장치 Id를 나열 합니다. scsi-3으로 시작하는 ID를 사용하는 것이 좋습니다. 위의 예에서 해당 ID는 다음과 같습니다.
+
+    - **/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19**
+
+3. **[1]** SBD 디바이스 만들기
+
+   2 단계의 장치 ID를 사용 하 여 첫 번째 클러스터 노드에 새 SBD 장치를 만듭니다.
+
+   <pre><code># sudo sbd -d <b>/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19</b> -1 60 -4 120 create
+   </code></pre>
+
+4. **[A]** SBD 구성 조정
+
+   SBD 구성 파일 열기
+
+   <pre><code>sudo vi /etc/sysconfig/sbd
+   </code></pre>
+
+   SBD 디바이스의 속성을 변경하고, Pacemaker 통합을 활성화하고, SBD의 시작 모드를 변경합니다.
+
+   <pre><code>[...]
+   <b>SBD_DEVICE="/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19"</b>
+   [...]
+   <b>SBD_PACEMAKER="yes"</b>
+   [...]
+   <b>SBD_STARTMODE="always"</b>
+   [...]
+   </code></pre>
+
+   `softdog` 구성 파일 만들기
+
+   <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
+   </code></pre>
+
+   모듈 로드하기
+
+   <pre><code>sudo modprobe -v softdog
+   </code></pre>
+
+## <a name="stonith-device-using-azure-fence-agent"></a>Azure 펜스 에이전트를 사용 하는 장치
+
+이 섹션은 Azure 공유 디스크를 사용 하 여 STONITH 장치를 사용 하려는 경우에만 적용 됩니다.
+
+### <a name="create-azure-fence-agent-stonith-device"></a>Azure Fence 에이전트 STONITH 디바이스 만들기
 
 설명서의 이 섹션은 Azure Fence 에이전트를 기반으로 STONITH를 사용하는 경우에만 적용됩니다.
 STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
@@ -580,7 +466,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 1. 앱 등록 클릭
 1. 새 등록 클릭
 1. 이름을 입력하고 “이 조직 디렉터리의 계정만” 선택 
-2. “웹” 애플리케이션 유형을 선택한 후 로그온 URL(예: http:\//localhost)을 입력하고 추가 클릭  
+2. 응용 프로그램 유형 "웹"을 선택 하 고 로그온 URL (예: http: \/ /shosts)을 입력 한 다음 추가를 클릭 합니다.  
    로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 인증서 및 암호를 선택한 다음, 새 클라이언트 암호 클릭
 1. 새 키의 설명을 입력하고 “만료되지 않음”을 선택한 다음, 추가 클릭
@@ -615,56 +501,304 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** 서비스 주체에 사용자 지정 역할 할당
 
 마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할을 더 이상 사용하지 마십시오! 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../../role-based-access-control/role-assignments-portal.md)을 참조하세요.   
-두 클러스터 노드에 대해 역할을 할당해야 합니다.    
 
-### <a name="1-create-the-stonith-devices"></a>**[1]** STONITH 디바이스 만들기
+두 클러스터 노드에 대해 역할을 할당해야 합니다.
 
-가상 머신의 권한을 편집하고 나면 클러스터의 STONITH 디바이스를 구성할 수 있습니다.
+## <a name="cluster-installation"></a>클러스터 설치
 
-> [!NOTE]
-> 호스트 이름과 Azure VM 이름이 동일하지 않은 경우 'pcmk_host_map' 옵션은 명령에만 필요합니다. **hostname:vm-name** 형식으로 매핑을 지정합니다.
-> 명령에서 굵은 섹션을 참조하세요.
+다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-<pre><code>sudo crm configure property stonith-enabled=true
-crm configure property concurrent-fencing=true
-# replace the bold string with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
-sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-  params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>application ID</b>" passwd="<b>password</b>" \
-  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
-  op monitor interval=3600 timeout=120
+1. **[A]** SLES 업데이트
 
-sudo crm configure property stonith-timeout=900
+   <pre><code>sudo zypper update
+   </code></pre>
 
-</code></pre>
+2. **[A]** 설치 구성 요소, 클러스터 리소스에 필요
 
-> [!IMPORTANT]
-> 모니터링 및 펜싱 작업은 역직렬화됩니다. 결과적으로, 모니터링 작업이 더 오래 실행되고 펜싱 이벤트를 동시에 실행하는 경우, 이미 실행 중인 모니터링 작업으로 인해 클러스터 장애 조치(failover)는 지연되지 않습니다.
+   <pre><code>sudo zypper in socat
+   </code></pre>
 
-> [!TIP]
->Azure Fence 에이전트는 [표준 ILB를 사용하는 VM에 대한 공용 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)에서 가능한 솔루션과 함께 설명한 대로 공용 엔드포인트에 대한 아웃바운드 연결이 필요합니다.  
+3. **[A]** 설치 azure-lb 구성 요소, 클러스터 리소스에 필요
+
+   <pre><code>sudo zypper in resource-agents
+   </code></pre>
+
+   > [!NOTE]
+   > 패키지 리소스 에이전트의 버전을 확인하고 최소 버전 요구 사항이 충족되었는지 확인합니다.  
+   > - SLES 12 SP4/SP5의 경우 버전은 resource-agents-4.3.018.a7fb5035-3.30.1 이상이어야 합니다.  
+   > - SLES 15/15 SP1의 경우 버전은 resource-agents-4.3.0184.6ee15eb2-4.13.1 이상이어야 합니다.  
+
+4. **[A]** 운영 체제 구성
+
+   경우에 따라 Pacemaker는 많은 프로세스를 만들게 되므로 허용되는 프로세스 수가 고갈됩니다. 이러한 경우 클러스터 노드 간 하트비트가 실패하고 리소스가 장애 조치(Failover)될 수 있습니다. 다음 매개 변수를 설정하여 허용되는 최대 프로세스 수를 늘리는 것이 좋습니다.
+
+   <pre><code># Edit the configuration file
+   sudo vi /etc/systemd/system.conf
+   
+   # Change the DefaultTasksMax
+   #DefaultTasksMax=512
+   DefaultTasksMax=4096
+   
+   # and to activate this setting
+   sudo systemctl daemon-reload
+   
+   # test if the change was successful
+   sudo systemctl --no-pager show | grep DefaultTasksMax
+   </code></pre>
+
+   더티 캐시의 크기를 줄입니다. 자세한 내용은 [큰 RAM이 있는 SLES 11/12 서버의 쓰기 성능 저하](https://www.suse.com/support/kb/doc/?id=7010287)를 참조하세요.
+
+   <pre><code>sudo vi /etc/sysctl.conf
+   # Change/set the following settings
+   vm.dirty_bytes = 629145600
+   vm.dirty_background_bytes = 314572800
+   </code></pre>
+
+5. **[A]** HA 클러스터에 대한 cloud-netconfig-azure 구성
+
+   >[!NOTE]
+   > **zypper info cloud-netconfig-azure** 를 실행하여 설치된 **cloud-netconfig-azure** 패키지의 버전을 확인합니다. 사용자 환경의 버전이 1.3 이상인 경우, 더 이상 클라우드 네트워크 플러그 인에 의한 네트워크 인터페이스의 관리를 억제하지 않아도 됩니다. 1\.3 미만 버전에서는 **cloud-netconfig-azure** 패키지를 사용 가능한 최신 버전으로 업데이트하는 것이 좋습니다.  
+
+   클라우드 네트워크 플러그 인이 가상 IP 주소를 제거하지 않도록 아래와 같이 네트워크 인터페이스에서 구성 파일을 변경합니다(Pacemaker가 VIP 할당을 제어해야 함). 자세한 내용은 [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)을 참조하세요. 
+
+   <pre><code># Edit the configuration file
+   sudo vi /etc/sysconfig/network/ifcfg-eth0 
+   
+   # Change CLOUD_NETCONFIG_MANAGE
+   # CLOUD_NETCONFIG_MANAGE="yes"
+   CLOUD_NETCONFIG_MANAGE="no"
+   </code></pre>
+
+6. **[1]** ssh 액세스 사용
+
+   <pre><code>sudo ssh-keygen
+   
+   # Enter file in which to save the key (/root/.ssh/id_rsa): -> Press ENTER
+   # Enter passphrase (empty for no passphrase): -> Press ENTER
+   # Enter same passphrase again: -> Press ENTER
+   
+   # copy the public key
+   sudo cat /root/.ssh/id_rsa.pub
+   </code></pre>
+
+7. **[2]** ssh 액세스 사용
+
+   <pre><code>sudo ssh-keygen
+   
+   # Enter file in which to save the key (/root/.ssh/id_rsa): -> Press ENTER
+   # Enter passphrase (empty for no passphrase): -> Press ENTER
+   # Enter same passphrase again: -> Press ENTER
+   
+   # insert the public key you copied in the last step into the authorized keys file on the second server
+   sudo vi /root/.ssh/authorized_keys   
+   
+   # copy the public key
+   sudo cat /root/.ssh/id_rsa.pub
+   </code></pre>
+
+8. **[1]** ssh 액세스 사용
+
+   <pre><code># insert the public key you copied in the last step into the authorized keys file on the first server
+   sudo vi /root/.ssh/authorized_keys
+   </code></pre>
+
+9. **[A]** Azure Fence 에이전트를 기반으로 하는 STONITH 디바이스를 사용하는 경우 Fence 에이전트 패키지를 설치합니다.  
+   
+   <pre><code>sudo zypper install fence-agents
+   </code></pre>
+
+   >[!IMPORTANT]
+   > 클러스터 노드를 차단해야 하는 경우 Azure Fence 에이전트를 사용하여 더 빠른 장애 조치(failover) 시간의 이점을 얻으려면 설치된 패키지 **펜스 에이전트** 버전이 **4.4.0** 이상이어야 합니다. 더 낮은 버전을 실행하는 경우 패키지를 업데이트하는 것이 좋습니다.  
+
+
+10. **[A]** Azure Python SDK 설치
+    - SLES 12 SP4 또는 SLES 12 SP5에서
+    <pre><code># You may need to activate the Public cloud extention first
+    SUSEConnect -p sle-module-public-cloud/12/x86_64
+    sudo zypper install python-azure-mgmt-compute
+    </code></pre>
+
+    - SLES 15 이상에서
+    <pre><code># You may need to activate the Public cloud extention first. In this example the SUSEConnect command is for SLES 15 SP1
+    SUSEConnect -p sle-module-public-cloud/15.1/x86_64
+    sudo zypper install python3-azure-mgmt-compute
+    </code></pre> 
+
+    >[!IMPORTANT]
+    >버전 및 이미지 유형에 따라 Azure Python SDK를 설치하기 전에 OS 릴리스에 대한 퍼블릭 클라우드 확장을 활성화해야 할 수 있습니다.
+    >SUSEConnect---list-extensions를 실행하여 확장을 확인할 수 있습니다.  
+    >Azure Fence 에이전트를 사용하여 더 빠른 장애 조치(failover) 시간을 달성하려면 다음을 수행합니다.
+    > - SLES 12 SP4 또는 SLES 12 s p 4의 경우 **4.6.2** 이상의 패키지 버전을 설치 합니다.
+    > - Python-azure-관리-계산 또는 python **3**-azure-관리-계산 버전이 **17.0.0-6.7.1** 인 경우 [SUSE kba](https://www.suse.com/support/kb/doc/?id=000020377) 의 instrustion를 따라 fence-에이전트 버전을 업데이트 하 고 누락 된 경우 azure identity python 모듈을 설치 합니다.
+
+11. **[A]** 호스트 이름 확인 설정
+
+    DNS 서버를 사용하거나 모든 노드의 /etc/hosts를 수정할 수 있습니다. 이 예에서는 /etc/hosts 파일 사용 방법을 보여줍니다.
+
+    다음 명령에서 IP 주소와 호스트 이름을 바꿉니다.
+    
+    >[!IMPORTANT]
+    > 클러스터 구성에 호스트 이름을 사용하는 경우 신뢰할 수 있는 호스트 이름 확인을 사용하는 것이 매우 중요합니다. 이름을 사용할 수 없고, 그로 인해 클러스터 장애 조치(failover) 지연이 발생할 수 있는 경우, 클러스터 통신은 실패합니다.
+    > /etc/hosts를 사용하는 장점은 클러스터가 단일 실패 지점이 될 수 있는 DNS와 무관하다는 점입니다.  
+
+    <pre><code>sudo vi /etc/hosts
+    </code></pre>
+
+    다음 줄을 /etc/hosts에 삽입합니다. 사용자 환경에 맞게 IP 주소와 호스트 이름을 변경합니다.
+
+    <pre><code># IP address of the first cluster node
+    <b>10.0.0.6 prod-cl1-0</b>
+    # IP address of the second cluster node
+    <b>10.0.0.7 prod-cl1-1</b>
+    </code></pre>
+
+12. **[1]** 클러스터 설치
+    
+    - SBD 장치를 사용 하는 경우, iSCSI 대상 서버 또는 Azure 공유 디스크입니다.
+
+    <pre><code>sudo ha-cluster-init -u
+    # ! NTP is not configured to start at system boot.
+    # Do you want to continue anyway (y/n)? <b>y</b>
+    # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
+    # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
+    # Port for ring0 [5405] <b>Press ENTER</b>
+    # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? <b>n</b>
+    # Do you wish to configure an administration IP (y/n)? <b>n</b>
+    </code></pre>
+    
+    - 펜스에 SBD 장치를 *사용 하지 않는* 경우
+    
+    <pre><code>sudo ha-cluster-init -u
+    # ! NTP is not configured to start at system boot.
+    # Do you want to continue anyway (y/n)? <b>y</b>
+    # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
+    # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
+    # Port for ring0 [5405] <b>Press ENTER</b>
+    # Do you wish to use SBD (y/n)? <b>n</b>
+    #WARNING: Not configuring SBD - STONITH will be disabled.
+    # Do you wish to configure an administration IP (y/n)? <b>n</b>
+    </code></pre>
+
+13. **[2]** 클러스터에 노드 추가
+    
+    <pre><code>sudo ha-cluster-join
+    # ! NTP is not configured to start at system boot.
+    # Do you want to continue anyway (y/n)? <b>y</b>
+    # IP address or hostname of existing node (e.g.: 192.168.1.1) []<b>10.0.0.6</b>
+    # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
+    </code></pre>
+
+14. **[A]** hacluster 암호를 동일한 암호로 변경
+
+    <pre><code>sudo passwd hacluster
+    </code></pre>
+
+15. **[A]** corosync 설정을 조정합니다.  
+
+    <pre><code>sudo vi /etc/corosync/corosync.conf
+    </code></pre>
+
+    값이 없거나 다른 경우 파일에 다음과 같이 굵게 표시된 콘텐츠를 추가합니다. 메모리 보존 유지 관리를 허용하도록 토큰을 30000으로 변경해야 합니다. 자세한 내용은 [Linux][virtual-machines-linux-maintenance] 또는 [Windows용 이 문서][virtual-machines-windows-maintenance]를 참조하세요.
+
+    <pre><code>[...]
+      <b>token:          30000
+      token_retransmits_before_loss_const: 10
+      join:           60
+      consensus:      36000
+      max_messages:   20</b>
+     
+      interface { 
+         [...] 
+      }
+      transport:      udpu
+    } 
+    nodelist {
+      node {
+       ring0_addr:10.0.0.6
+      }
+      node {
+       ring0_addr:10.0.0.7
+      } 
+    }
+    logging {
+      [...]
+    }
+    quorum {
+         # Enable and configure quorum subsystem (default: off)
+         # see also corosync.conf.5 and votequorum.5
+         provider: corosync_votequorum
+         <b>expected_votes: 2</b>
+         <b>two_node: 1</b>
+    }
+    </code></pre>
+
+    그런 다음 corosync 서비스를 다시 시작합니다.
+
+    <pre><code>sudo service corosync restart
+    </code></pre>
+
+### <a name="create-stonith-device-on-pacemaker-cluster"></a>Pacemaker 클러스터에서 STONITH 디바이스 만들기
+
+1. **[1]** SDB 디바이스(iSCSI 대상 서버 또는 Azure 공유 디스크)를 STONITH로 사용하는 경우 다음 명령을 실행합니다. STONITH 디바이스를 사용하도록 설정하고 펜스 지연을 설정합니다.
+
+   <pre><code>sudo crm configure property stonith-timeout=144
+   sudo crm configure property stonith-enabled=true
+   
+   # List the resources to find the name of the SBD device
+   sudo crm resource list
+   sudo crm resource stop stonith-sbd
+   sudo crm configure delete <b>stonith-sbd</b>
+   sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
+      params pcmk_delay_max="15" \
+      op monitor interval="600" timeout="15"
+   </code></pre>
+
+2. **[1]** Azure 펜스 에이전트를 STONITH로 사용하는 경우 다음 명령을 실행합니다. 두 클러스터 노드에 역할을 할당한 후 클러스터에서 STONITH 디바이스를 구성할 수 있습니다.
+
+   > [!NOTE]
+   > 호스트 이름과 Azure VM 이름이 동일하지 않은 경우 'pcmk_host_map' 옵션은 명령에만 필요합니다. **hostname:vm-name** 형식으로 매핑을 지정합니다.
+   > 명령에서 굵은 섹션을 참조하세요.
+
+   <pre><code>sudo crm configure property stonith-enabled=true
+   crm configure property concurrent-fencing=true
+   
+   # replace the bold string with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
+   
+   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>application ID</b>" passwd="<b>password</b>" \
+   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
+   op monitor interval=3600 timeout=120
+   
+   sudo crm configure property stonith-timeout=900
+   </code></pre>
+
+   > [!IMPORTANT]
+   > 모니터링 및 펜싱 작업은 역직렬화됩니다. 결과적으로, 모니터링 작업이 더 오래 실행되고 펜싱 이벤트를 동시에 실행하는 경우, 이미 실행 중인 모니터링 작업으로 인해 클러스터 장애 조치(failover)는 지연되지 않습니다.
+
+   > [!TIP]
+   >Azure Fence 에이전트는 [표준 ILB를 사용하는 VM에 대한 공용 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)에서 가능한 솔루션과 함께 설명한 대로 공용 엔드포인트에 대한 아웃바운드 연결이 필요합니다.  
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Azure 예약된 이벤트에 대한 Pacemaker 구성
 
 Azure는 [예약된 이벤트](../../linux/scheduled-events.md)를 제공합니다. 예약된 이벤트는 메타 데이터 서비스를 통해 제공되며 애플리케이션이 VM 종료, VM 다시 배포 등의 이벤트를 준비할 시간을 허용합니다. 리소스 에이전트 **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** 는 예약된 Azure 이벤트를 모니터합니다. 이벤트가 검색되고 리소스 에이전트가 사용 가능한 다른 클러스터 노드가 있음을 확인하는 경우 azure-events 에이전트는 클러스터가 보류 상태의 [Azure Scheduled Events](../../linux/scheduled-events.md)로 VM에서 리소스를 강제로 마이그레이션하기 위해 대상 클러스터 노드를 대기 모드로 설정합니다. 이렇게 하려면 추가 Pacemaker 리소스를 구성해야 합니다. 
 
 1. **[A]** **azure-events** 에이전트에 대한 패키지가 이미 설치되어 있고 최신인지 확인합니다. 
+   
+   <pre><code>sudo zypper info resource-agents
+   </code></pre>
 
-<pre><code>sudo zypper info resource-agents
-</code></pre>
-
-2. **[1]** Pacemaker에서 리소스를 구성합니다. 
-
-<pre><code>
-#Place the cluster in maintenance mode
-sudo crm configure property maintenance-mode=true
-
-#Create Pacemaker resources for the Azure agent
-sudo crm configure primitive rsc_azure-events ocf:heartbeat:azure-events op monitor interval=10s
-sudo crm configure clone cln_azure-events rsc_azure-events
-
-#Take the cluster out of maintenance mode
-sudo crm configure property maintenance-mode=false
-</code></pre>
+2. **[1]** Pacemaker에서 리소스를 구성합니다.
+   
+   <pre><code>#Place the cluster in maintenance mode
+   sudo crm configure property maintenance-mode=true
+   
+   #Create Pacemaker resources for the Azure agent
+   sudo crm configure primitive rsc_azure-events ocf:heartbeat:azure-events op monitor interval=10s
+   sudo crm configure clone cln_azure-events rsc_azure-events
+   
+   #Take the cluster out of maintenance mode
+   sudo crm configure property maintenance-mode=false
+   </code></pre>
 
    > [!NOTE]
    > azure-events 에이전트에 대한 Pacemaker 리소스를 구성한 후 클러스터를 유지 관리 모드로 설정하거나 모드에서 해제할 때 다음과 같은 경고가 표시될 수 있습니다.  

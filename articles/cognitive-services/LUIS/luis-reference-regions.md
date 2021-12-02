@@ -8,12 +8,12 @@ ms.author: aahi
 ms.topic: reference
 ms.date: 05/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7dc91bf74cf342d882a978c6e7b3a8e39d401644
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1d1690e7eb6f2df0189a30ef3b961dcdb0a58c51
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576244"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133439240"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>작성 및 게시 지역과 관련 키
 
@@ -34,7 +34,7 @@ LUIS에는 다음과 같은 제작 지역이 있습니다.
 * 스위스 북부
 
 
-LUIS에는 지역, [www.luis.ai](https://www.luis.ai)에 관계없이 사용할 수 있는 포털이 하나 있습니다. 동일한 지역에서 계속 작성하고 게시해야 합니다. 작성 지역에는 [페어링된 장애 조치 지역](../../best-practices-availability-paired-regions.md)이 있습니다.
+LUIS에는 지역, [www.luis.ai](https://www.luis.ai)에 관계없이 사용할 수 있는 포털이 하나 있습니다. 동일한 지역에서 계속 작성하고 게시해야 합니다. 작성 지역에는 [페어링된 장애 조치 지역](../../availability-zones/cross-region-replication-azure.md)이 있습니다.
 
 <a name="regions-and-azure-resources"></a>
 
@@ -103,7 +103,7 @@ LUIS에는 지역, [www.luis.ai](https://www.luis.ai)에 관계없이 사용할 
 
 각 지역에는 장애 조치할 보조 지역이 있습니다. 유럽은 유럽 내부에서 장애 조치하고 오스트레일리아는 오스트레일리아 내부에서 장애 조치합니다.
 
-작성 지역에는 [페어링된 장애 조치 지역](../../best-practices-availability-paired-regions.md)이 있습니다.
+작성 지역에는 [페어링된 장애 조치 지역](../../availability-zones/cross-region-replication-azure.md)이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

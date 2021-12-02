@@ -3,12 +3,12 @@ title: Azure Event Grid의 시스템 토픽
 description: Azure Event Grid의 시스템 토픽을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: 8f7574cc7d1e228ad1497fc6196f580ebc2c97c3
-ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
+ms.openlocfilehash: cb7caef06a2e4617097e6a67cfea2c8814e7ba6e
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133425261"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133439278"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Azure Event Grid의 시스템 토픽
 Event Grid의 시스템 토픽은 Azure Storage 및 Azure Event Hubs와 같은 Azure 서비스에서 게시한 하나 이상의 이벤트를 나타냅니다. 예를 들어 시스템 토픽은 **모든 Blob 이벤트** 또는 **특정 스토리지 계정** 에 대해 게시된 **Blob 만들기** 및 **Blob 삭제** 이벤트만 나타낼 수 있습니다. 이 예에서 Blob이 스토리지 계정에 업로드되면 Azure Storage 서비스는 Event Grid의 시스템 토픽에 **blob 만들기** 이벤트를 게시한 다음, 이벤트를 받고 처리하는 토픽의 [구독자](event-handlers.md)에 전달합니다. 
@@ -50,7 +50,7 @@ Event Grid의 시스템 토픽은 Azure Storage 및 Azure Event Hubs와 같은 A
 ## <a name="lifecycle-of-system-topics"></a>시스템 토픽 수명 주기
 다음 두 방법으로 시스템 토픽을 만들 수 있습니다. 
 
-- [Azure 리소스의 이벤트 구독을 확장 리소스](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate)로 만듭니다. 그러면 `<Azure resource name>-<GUID>` 형식의 이름을 사용하여 자동으로 시스템 토픽을 만듭니다. 해당 방식으로 만든 시스템 토픽은 토픽의 마지막 이벤트 구독이 삭제될 때 자동으로 삭제됩니다. 
+- [Azure 리소스의 이벤트 구독을 확장 리소스](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update)로 만듭니다. 그러면 `<Azure resource name>-<GUID>` 형식의 이름을 사용하여 자동으로 시스템 토픽을 만듭니다. 해당 방식으로 만든 시스템 토픽은 토픽의 마지막 이벤트 구독이 삭제될 때 자동으로 삭제됩니다. 
 - Azure 리소스의 시스템 토픽을 만든 다음, 해당 시스템 토픽의 이벤트 구독을 만듭니다. 이 방법을 사용하는 경우 시스템 토픽의 이름을 지정할 수 있습니다. 시스템 토픽은 마지막 이벤트 구독이 삭제될 때 자동으로 삭제되지 않습니다. 수동으로 삭제해야 합니다. 
 
     Azure Portal을 사용하는 경우 항상 이 방법을 사용합니다. [Azure 리소스의 **이벤트** 페이지](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage)를 사용하여 이벤트 구독을 만들 때 먼저 시스템 토픽을 만든 다음, 항목의 구독을 만듭니다. 먼저 [**Event Grid 시스템 토픽** 페이지](create-view-manage-system-topics.md#create-a-system-topic)를 사용하여 시스템 토픽을 명시적으로 만든 다음, 해당 토픽의 구독을 만들 수 있습니다. 

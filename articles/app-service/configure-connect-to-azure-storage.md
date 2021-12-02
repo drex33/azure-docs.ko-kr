@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 09/02/2021
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 12f2cc667cc568132eb4e91a1f739f81b075fd80
-ms.sourcegitcommit: e1037fa0082931f3f0039b9a2761861b632e986d
+ms.openlocfilehash: f67bc2bd3dbfc3e382bf825d0b86f12ef48ff140
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132400094"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436668"
 ---
-# <a name="mount-azure-storage-as-a-local-share-in-a-container-app-in-app-service"></a>App Service의 컨테이너 앱에서 로컬 공유로 Azure Storage 탑재
+# <a name="mount-azure-storage-as-a-local-share-in-a-custom-container-in-app-service"></a>App Service 사용자 지정 컨테이너에 로컬 공유로 Azure Storage 탑재
 
 ::: zone pivot="container-windows"
 
@@ -26,7 +26,7 @@ ms.locfileid: "132400094"
 
 ::: zone pivot="container-linux"
 
-이 가이드에서는 Azure Storage를 App Service의 기본 제공 Linux 컨테이너 또는 사용자 지정 Linux 컨테이너에 네트워크 공유로 탑재하는 방법을 보여줍니다. [로컬 공유로 Azure Storage를 탑재 하는 방법](https://www.youtube.com/watch?v=OJkvpWYr57Y)비디오를 참조 하세요. 사용자 지정 탑재 스토리지의 이점은 다음과 같습니다.
+이 가이드에서는 Azure Storage를 App Service의 기본 제공 Linux 컨테이너 또는 사용자 지정 Linux 컨테이너에 네트워크 공유로 탑재하는 방법을 보여줍니다. [Azure Storage 로컬 공유로 탑재하는 방법을](https://www.youtube.com/watch?v=OJkvpWYr57Y)비디오를 참조하세요. 사용자 지정 탑재 스토리지의 이점은 다음과 같습니다.
 
 ::: zone-end
 
@@ -39,10 +39,10 @@ ms.locfileid: "132400094"
 
 다음은 Windows 컨테이너에서 지원되는 기능입니다.
 
-- [개인 링크](../storage/common/storage-private-endpoints.md) 를 사용 하 여 저장소 계정에 대 한 보안 액세스 ( [VNET 통합](./overview-vnet-integration.md) 이 사용 되는 경우) [서비스 끝점](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 지원은 현재 사용할 수 없습니다.
+- [프라이빗 링크를](../storage/common/storage-private-endpoints.md) 사용하여 스토리지 계정에 대한 보안 [액세스(VNET 통합을](./overview-vnet-integration.md) 사용하는 경우) [서비스 엔드포인트](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 지원은 현재 사용할 수 없습니다.
 - Azure Files(읽기/쓰기)
 - 앱당 최대 5개의 탑재 지점
-- 드라이브 문자 할당 ( `C:` `Z:` )
+- 드라이브 문자 할당( `C:` `Z:` ~).
 
 ::: zone-end
 
@@ -61,7 +61,7 @@ ms.locfileid: "132400094"
 
 ::: zone pivot="container-windows"
 
-- [Azure App Service의 기존 Windows 컨테이너 앱](quickstart-custom-container.md)
+- [Azure App Service 기존 Windows 사용자 지정 컨테이너](quickstart-custom-container.md)
 - [Azure 파일 공유 만들기](../storage/files/storage-how-to-use-files-portal.md)
 - [Azure 파일 공유에 파일 업로드](../storage/files/storage-how-to-create-file-share.md)
 
@@ -84,10 +84,10 @@ ms.locfileid: "132400094"
 ::: zone pivot="container-windows"
 
 - 네이티브 Windows(컨테이너화되지 않은) 앱에는 스토리지 탑재가 지원되지 않습니다.
-- Azure blob은 지원 되지 않습니다.
-- [Storage 방화벽](../storage/common/storage-network-security.md) 은 [개인 끝점](../storage/common/storage-private-endpoints.md) ( [VNET 통합](./overview-vnet-integration.md) 이 사용 되는 경우)을 통해서만 지원 됩니다. 현재는 탑재된 Azure Storage 계정에서 프라이빗 엔드포인트를 사용하는 경우에는 사용자 지정 DNS 지원을 사용할 수 없습니다.
+- Azure Blob은 지원되지 않습니다.
+- [Storage 방화벽은](../storage/common/storage-network-security.md) [프라이빗 엔드포인트를](../storage/common/storage-private-endpoints.md) 통해서만 [지원됩니다(VNET 통합을](./overview-vnet-integration.md) 사용하는 경우). 현재는 탑재된 Azure Storage 계정에서 프라이빗 엔드포인트를 사용하는 경우에는 사용자 지정 DNS 지원을 사용할 수 없습니다.
 - 탑재된 스토리지에 대한 FTP/FTPS 액세스는 지원되지 않습니다([Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 사용).
-- `[C-Z]:\` `[C-Z]:\home` `/` `/home` 사용자 지정 탑재 저장소에 대 한,, 및 매핑은 지원 되지 않습니다.
+- , , 및 를 `[C-Z]:\` `[C-Z]:\home` 사용자 지정 탑재 `/` `/home` 스토리지에 매핑하는 것은 지원되지 않습니다.
 - 스토리지 탑재는 [배포 슬롯](deploy-staging-slots.md)을 만드는 동안 복제 설정 옵션과 함께 사용할 수 없습니다.
 - 스토리지 탑재는 [앱을 백업](manage-backup.md)할 때 백업되지 않습니다. 모범 사례에 따라 Azure Storage 계정을 백업해야 합니다. 
 
@@ -99,7 +99,7 @@ ms.locfileid: "132400094"
 - 사용자 지정 탑재 스토리지에 대한 FTP/FTPS 액세스는 지원되지 않습니다([Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) 사용).
 - Azure CLI, Azure PowerShell 및 Azure SDK 지원은 미리 보기로 제공됩니다.
 - `/` 또는 `/home`을 사용자 지정 탑재 스토리지에 매핑할 수 없습니다.
-- `/tmp`앱을 시작 하는 동안 시간 초과가 발생할 수 있으므로 사용자 지정 저장소 탑재를 또는 해당 하위 디렉터리에 매핑하지 마세요.
+- 사용자 지정 스토리지 탑재를 `/tmp` 또는 해당 하위Directories에 매핑하지 마세요. 이로 인해 앱 시작 중에 시간 초과가 발생할 수 있습니다.
 - 스토리지 탑재는 [배포 슬롯](deploy-staging-slots.md)을 만드는 동안 복제 설정 옵션과 함께 사용할 수 없습니다.
 - 스토리지 탑재는 [앱을 백업](manage-backup.md)할 때 백업되지 않습니다. 모범 사례에 따라 Azure Storage 계정을 백업해야 합니다. 
 
@@ -119,17 +119,17 @@ ms.locfileid: "132400094"
 1. 다음 표에 따라 스토리지 탑재를 구성합니다. 완료되었으면 **확인** 을 클릭합니다.
 
     ::: zone pivot="container-windows"
-    | 설정 | Description |
+    | 설정 | 설명 |
     |-|-|
     | **이름** | 탑재 구성의 이름입니다. 공백은 허용되지 않습니다. |
-    | **구성 옵션** | 저장소 계정에서 [전용 끝점](../storage/common/storage-private-endpoints.md)을 사용 하지 않는 경우 **기본** 을 선택 합니다. 사용하고 있으면 **고급** 를 선택합니다. |
-    | **스토리지 계정** | Azure Storage 계정. Azure Files 공유를 포함 해야 합니다. |
-    | **공유 이름** | 탑재할 파일 공유 |
+    | **구성 옵션** | 스토리지 계정이 [프라이빗 엔드포인트를](../storage/common/storage-private-endpoints.md)사용하지 않는 경우 **기본을** 선택합니다. 사용하고 있으면 **고급** 를 선택합니다. |
+    | **스토리지 계정** | Azure Storage 계정. Azure Files 공유를 포함해야 합니다. |
+    | **공유 이름** | 탑재할 파일을 공유합니다. |
     | **액세스 키**(고급만 해당) | 스토리지 계정의 [액세스 키](../storage/common/storage-account-keys-manage.md)입니다. |
-    | **탑재 경로** | Azure Storage에 탑재할 Windows 컨테이너 내의 디렉터리입니다. 루트 디렉터리 ( `[C-Z]:\` 또는 `/` ) 또는 `home` 디렉터리 (또는 `[C-Z]:\home` )를 사용 하지 마십시오 `/home` .|
+    | **탑재 경로** | Azure Storage 탑재할 Windows 컨테이너 내의 디렉터리입니다. 루트 디렉터리( 또는 `[C-Z]:\` `/` ) 또는 `home` 디렉터리( , 또는 )를 사용하지 `[C-Z]:\home` `/home` 마십시오.|
     ::: zone-end
     ::: zone pivot="container-linux"
-    | 설정 | Description |
+    | 설정 | 설명 |
     |-|-|
     | **이름** | 탑재 구성의 이름입니다. 공백은 허용되지 않습니다. |
     | **구성 옵션** | 스토리지 계정에서 [서비스 엔드포인트](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 또는 [프라이빗 엔드포인트](../storage/common/storage-private-endpoints.md)를 사용하고 있지 않으면 **기본** 을 선택합니다. 사용하고 있으면 **고급** 를 선택합니다. |
@@ -141,7 +141,7 @@ ms.locfileid: "132400094"
     ::: zone-end
 
     > [!CAUTION]
-    > 컨테이너의 **탑재 경로** 에 지정 된 디렉터리는 비어 있어야 합니다. 이 디렉터리에 저장된 모든 콘텐츠는 Azure Storage가 탑재될 때 삭제됩니다(예: `/home` 아래에 있는 디렉터리를 지정하는 경우). 기존 앱에 대한 파일을 마이그레이션하는 경우 시작하기 전에 앱과 앱의 콘텐츠를 백업하세요.
+    > 컨테이너의 **탑재 경로에** 지정된 디렉터리를 비워 두어야 합니다. 이 디렉터리에 저장된 모든 콘텐츠는 Azure Storage가 탑재될 때 삭제됩니다(예: `/home` 아래에 있는 디렉터리를 지정하는 경우). 기존 앱에 대한 파일을 마이그레이션하는 경우 시작하기 전에 앱과 앱의 콘텐츠를 백업하세요.
     >
     
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
@@ -207,10 +207,10 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 
 - 대기 시간과 관련된 잠재적 문제를 방지하려면 앱과 Azure Storage 계정을 동일한 Azure 지역에 배치합니다. 그러나 앱과 Azure Storage 계정이 동일한 Azure 지역에 있고 [Azure Storage 방화벽 구성](../storage/common/storage-network-security.md)에서 App Service IP 주소로 액세스 권한을 부여하는 경우 이러한 IP 제한이 적용되지 않습니다.
 ::: zone pivot="container-windows"
-- 컨테이너 앱의 탑재 디렉터리는 비어 있어야 합니다. Azure Storage 탑재 될 때이 경로에 저장 된 콘텐츠는 삭제 됩니다. 기존 앱에 대한 파일을 마이그레이션하는 경우 시작하기 전에 앱과 앱의 콘텐츠를 백업하세요.
+- 사용자 지정 컨테이너의 탑재 디렉터리는 비어 있어야 합니다. Azure Storage 탑재 될 때이 경로에 저장 된 콘텐츠는 삭제 됩니다. 기존 앱에 대한 파일을 마이그레이션하는 경우 시작하기 전에 앱과 앱의 콘텐츠를 백업하세요.
 ::: zone-end
 ::: zone pivot="container-linux"
-- 컨테이너 앱의 탑재 디렉터리는 비어 있어야 합니다. 이 경로에 저장된 모든 콘텐츠는 Azure Storage가 탑재될 때 삭제됩니다(예: `/home` 아래에 있는 디렉터리를 지정하는 경우). 기존 앱에 대한 파일을 마이그레이션하는 경우 시작하기 전에 앱과 앱의 콘텐츠를 백업하세요.
+- 사용자 지정 컨테이너의 탑재 디렉터리는 비어 있어야 합니다. 이 경로에 저장된 모든 콘텐츠는 Azure Storage가 탑재될 때 삭제됩니다(예: `/home` 아래에 있는 디렉터리를 지정하는 경우). 기존 앱에 대한 파일을 마이그레이션하는 경우 시작하기 전에 앱과 앱의 콘텐츠를 백업하세요.
 
 - 스토리지를 `/home`에 탑재하면 앱의 성능 병목 현상이 발생할 수 있으므로 권장하지 않습니다. 
 ::: zone-end

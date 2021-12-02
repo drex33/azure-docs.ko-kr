@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/24/2021
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 70b8715119eb221fc860ba6e7a26b92bffadd12f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 745c8f3c1544aa224b6377295416049bb095dcc9
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124744932"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434580"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
@@ -31,53 +31,56 @@ Kubernetes RBAC 및 AKS를 사용하면 클러스터 액세스를 보호하고 �
 
 클러스터를 만들고 운영하는 ID에는 다음 사용 권한이 필요합니다.
 
-| 사용 권한 | 이유 |
-|---|---|
-| `Microsoft.Compute/diskEncryptionSets/read` | 디스크 암호화 집합 ID를 읽는 데 필요. |
-| `Microsoft.Compute/proximityPlacementGroups/write` | 근접 배치 그룹을 업데이트하는 데 필요. |
-| `Microsoft.Network/applicationGateways/read` <br/> `Microsoft.Network/applicationGateways/write` <br/> `Microsoft.Network/virtualNetworks/subnets/join/action` | 애플리케이션 게이트웨이를 구성하고 서브넷에 가입하는 데 필요. |
-| `Microsoft.Network/virtualNetworks/subnets/join/action` | 사용자 지정 VNET을 사용하는 경우 서브넷에 대한 네트워크 보안 그룹을 구성하는 데 필요.|
-| `Microsoft.Network/publicIPAddresses/join/action` <br/> `Microsoft.Network/publicIPPrefixes/join/action` | 표준 Load Balancer에서 아웃바운드 공용 IP를 구성하는 데 필요. |
-| `Microsoft.OperationalInsights/workspaces/sharedkeys/read` <br/> `Microsoft.OperationalInsights/workspaces/read` <br/> `Microsoft.OperationsManagement/solutions/write` <br/> `Microsoft.OperationsManagement/solutions/read` <br/> `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` | Log Analytics 작업 영역 생성 및 업데이트, 컨테이너에 대한 Azure 모니터링을 실행하는 데 필요. |
+> [!div class="mx-tableFixed"]
+> | 사용 권한 | 이유 |
+> |---|---|
+> | `Microsoft.Compute/diskEncryptionSets/read` | 디스크 암호화 집합 ID를 읽는 데 필요. |
+> | `Microsoft.Compute/proximityPlacementGroups/write` | 근접 배치 그룹을 업데이트하는 데 필요. |
+> | `Microsoft.Network/applicationGateways/read` <br/> `Microsoft.Network/applicationGateways/write` <br/> `Microsoft.Network/virtualNetworks/subnets/join/action` | 애플리케이션 게이트웨이를 구성하고 서브넷에 가입하는 데 필요. |
+> | `Microsoft.Network/virtualNetworks/subnets/join/action` | 사용자 지정 VNET을 사용하는 경우 서브넷에 대한 네트워크 보안 그룹을 구성하는 데 필요.|
+> | `Microsoft.Network/publicIPAddresses/join/action` <br/> `Microsoft.Network/publicIPPrefixes/join/action` | 표준 Load Balancer에서 아웃바운드 공용 IP를 구성하는 데 필요. |
+> | `Microsoft.OperationalInsights/workspaces/sharedkeys/read` <br/> `Microsoft.OperationalInsights/workspaces/read` <br/> `Microsoft.OperationsManagement/solutions/write` <br/> `Microsoft.OperationsManagement/solutions/read` <br/> `Microsoft.ManagedIdentity/userAssignedIdentities/assign/action` | Log Analytics 작업 영역 생성 및 업데이트, 컨테이너에 대한 Azure 모니터링을 실행하는 데 필요. |
 
 ### <a name="aks-cluster-identity-permissions"></a>AKS 클러스터 ID 권한
 
 AKS 클러스터 ID에서 사용되는 사용 권한은 AKS 클러스터에 만들어지고 연결됩니다. 각 사용 권한은 아래와 같은 이유로 사용됩니다:
 
-| 사용 권한 | 이유 |
-|---|---|
-| `Microsoft.ContainerService/managedClusters/*`  <br/> | 사용자를 생성하고 클러스터를 운영하는 데 필요.
-| `Microsoft.Network/loadBalancers/delete` <br/> `Microsoft.Network/loadBalancers/read` <br/> `Microsoft.Network/loadBalancers/write` | LoadBalancer 서비스에 대한 부하 분산 장치를 구성하는 데 필요. |
-| `Microsoft.Network/publicIPAddresses/delete` <br/> `Microsoft.Network/publicIPAddresses/read` <br/> `Microsoft.Network/publicIPAddresses/write` | LoadBalancer 서비스의 공용 IP를 찾고 구성하는 데 필요. |
-| `Microsoft.Network/publicIPAddresses/join/action` | LoadBalancer 서비스의 공용 IP를 구성하는 데 필요. |
-| `Microsoft.Network/networkSecurityGroups/read` <br/> `Microsoft.Network/networkSecurityGroups/write` | LoadBalancer 서비스에 대한 보안 규칙을 생성하거나 삭제하는 데 필요. |
-| `Microsoft.Compute/disks/delete` <br/> `Microsoft.Compute/disks/read` <br/> `Microsoft.Compute/disks/write` <br/> `Microsoft.Compute/locations/DiskOperations/read` | AzureDisks를 구성하는 데 필요. |
-| `Microsoft.Storage/storageAccounts/delete` <br/> `Microsoft.Storage/storageAccounts/listKeys/action` <br/> `Microsoft.Storage/storageAccounts/read` <br/> `Microsoft.Storage/storageAccounts/write` <br/> `Microsoft.Storage/operations/read` | AzureFile 또는 AzureDisk에 대한 스토리지 계정을 구성하는 데 필요. |
-| `Microsoft.Network/routeTables/read` <br/> `Microsoft.Network/routeTables/routes/delete` <br/> `Microsoft.Network/routeTables/routes/read` <br/> `Microsoft.Network/routeTables/routes/write` <br/> `Microsoft.Network/routeTables/write` | 노드에 대한 경로 테이블 및 경로를 구성하는 데 필요. |
-| `Microsoft.Compute/virtualMachines/read` | VMAS에서 영역, 장애 도메인, 크기 및 데이터 디스크와 같은 가상 컴퓨터에 대한 정보를 찾는 데 필요. |
-| `Microsoft.Compute/virtualMachines/write` | AzureDisks를 VMAS의 가상 머신에 연결하는 데 필요. |
-| `Microsoft.Compute/virtualMachineScaleSets/read` <br/> `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read` <br/> `Microsoft.Compute/virtualMachineScaleSets/virtualmachines/instanceView/read` | 가상 머신 확장 집합에서 영역, 장애 도메인, 크기 및 데이터 디스크와 같은 가상 컴퓨터에 대한 정보를 찾는 데 필요. |
-| `Microsoft.Network/networkInterfaces/write` | VMAS에서 가상 컴퓨터를 부하 분산 장치 백 엔드 주소 풀에 추가하는 데 필요. |
-| `Microsoft.Compute/virtualMachineScaleSets/write` | 부하 분산 장치 백 엔드 주소 풀에 가상 머신 확장 집합을 추가하고, 가상 머신 확장 집합에서 노드를 확장하는 데 필요. |
-| `Microsoft.Compute/virtualMachineScaleSets/virtualmachines/write` | AzureDisks를 연결하고 가상 머신 확장 집합의 가상 머신을 부하 분산 장치에 추가하는 데 필요. |
-| `Microsoft.Network/networkInterfaces/read` | VMAS의 가상 컴퓨터에 대한 내부 IP 및 부하 분산 장치 백 엔드 주소 풀을 검색하는 데 필요. |
-| `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/read` | 가상 머신 확장 집합의 가상 컴퓨터에 대한 내부 IP 및 부하 분산 장치 백 엔드 주소 풀을 검색하는 데 필요. |
-| `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipconfigurations/publicipaddresses/read` | 가상 컴퓨터 확장 집합의 가상 컴퓨터에 대한 공용 IP를 찾는 데 필요. |
-| `Microsoft.Network/virtualNetworks/read` <br/> `Microsoft.Network/virtualNetworks/subnets/read` | 다른 리소스 그룹의 내부 부하 분산 장치에 대한 서브넷이 존재하는지 확인하는 데 필요. |
-| `Microsoft.Compute/snapshots/delete` <br/> `Microsoft.Compute/snapshots/read` <br/> `Microsoft.Compute/snapshots/write` | AzureDisk의 스냅샷을 구성하는 데 필요. |
-| `Microsoft.Compute/locations/vmSizes/read` <br/> `Microsoft.Compute/locations/operations/read` | AzureDisk 볼륨 제한을 찾기 위한 가상 머신 크기를 찾는 데 필요. |
+> [!div class="mx-tableFixed"]
+> | 사용 권한 | 이유 |
+> |---|---|
+> | `Microsoft.ContainerService/managedClusters/*`  <br/> | 사용자를 생성하고 클러스터를 운영하는 데 필요.
+> | `Microsoft.Network/loadBalancers/delete` <br/> `Microsoft.Network/loadBalancers/read` <br/> `Microsoft.Network/loadBalancers/write` | LoadBalancer 서비스에 대한 부하 분산 장치를 구성하는 데 필요. |
+> | `Microsoft.Network/publicIPAddresses/delete` <br/> `Microsoft.Network/publicIPAddresses/read` <br/> `Microsoft.Network/publicIPAddresses/write` | LoadBalancer 서비스의 공용 IP를 찾고 구성하는 데 필요. |
+> | `Microsoft.Network/publicIPAddresses/join/action` | LoadBalancer 서비스의 공용 IP를 구성하는 데 필요. |
+> | `Microsoft.Network/networkSecurityGroups/read` <br/> `Microsoft.Network/networkSecurityGroups/write` | LoadBalancer 서비스에 대한 보안 규칙을 생성하거나 삭제하는 데 필요. |
+> | `Microsoft.Compute/disks/delete` <br/> `Microsoft.Compute/disks/read` <br/> `Microsoft.Compute/disks/write` <br/> `Microsoft.Compute/locations/DiskOperations/read` | AzureDisks를 구성하는 데 필요. |
+> | `Microsoft.Storage/storageAccounts/delete` <br/> `Microsoft.Storage/storageAccounts/listKeys/action` <br/> `Microsoft.Storage/storageAccounts/read` <br/> `Microsoft.Storage/storageAccounts/write` <br/> `Microsoft.Storage/operations/read` | AzureFile 또는 AzureDisk에 대한 스토리지 계정을 구성하는 데 필요. |
+> | `Microsoft.Network/routeTables/read` <br/> `Microsoft.Network/routeTables/routes/delete` <br/> `Microsoft.Network/routeTables/routes/read` <br/> `Microsoft.Network/routeTables/routes/write` <br/> `Microsoft.Network/routeTables/write` | 노드에 대한 경로 테이블 및 경로를 구성하는 데 필요. |
+> | `Microsoft.Compute/virtualMachines/read` | VMAS에서 영역, 장애 도메인, 크기 및 데이터 디스크와 같은 가상 컴퓨터에 대한 정보를 찾는 데 필요. |
+> | `Microsoft.Compute/virtualMachines/write` | AzureDisks를 VMAS의 가상 머신에 연결하는 데 필요. |
+> | `Microsoft.Compute/virtualMachineScaleSets/read` <br/> `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/read` <br/> `Microsoft.Compute/virtualMachineScaleSets/virtualmachines/instanceView/read` | 가상 머신 확장 집합에서 영역, 장애 도메인, 크기 및 데이터 디스크와 같은 가상 컴퓨터에 대한 정보를 찾는 데 필요. |
+> | `Microsoft.Network/networkInterfaces/write` | VMAS에서 가상 컴퓨터를 부하 분산 장치 백 엔드 주소 풀에 추가하는 데 필요. |
+> | `Microsoft.Compute/virtualMachineScaleSets/write` | 부하 분산 장치 백 엔드 주소 풀에 가상 머신 확장 집합을 추가하고, 가상 머신 확장 집합에서 노드를 확장하는 데 필요. |
+> | `Microsoft.Compute/virtualMachineScaleSets/virtualmachines/write` | AzureDisks를 연결하고 가상 머신 확장 집합의 가상 머신을 부하 분산 장치에 추가하는 데 필요. |
+> | `Microsoft.Network/networkInterfaces/read` | VMAS의 가상 컴퓨터에 대한 내부 IP 및 부하 분산 장치 백 엔드 주소 풀을 검색하는 데 필요. |
+> | `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/read` | 가상 머신 확장 집합의 가상 컴퓨터에 대한 내부 IP 및 부하 분산 장치 백 엔드 주소 풀을 검색하는 데 필요. |
+> | `Microsoft.Compute/virtualMachineScaleSets/virtualMachines/networkInterfaces/ipconfigurations/publicipaddresses/read` | 가상 컴퓨터 확장 집합의 가상 컴퓨터에 대한 공용 IP를 찾는 데 필요. |
+> | `Microsoft.Network/virtualNetworks/read` <br/> `Microsoft.Network/virtualNetworks/subnets/read` | 다른 리소스 그룹의 내부 부하 분산 장치에 대한 서브넷이 존재하는지 확인하는 데 필요. |
+> | `Microsoft.Compute/snapshots/delete` <br/> `Microsoft.Compute/snapshots/read` <br/> `Microsoft.Compute/snapshots/write` | AzureDisk의 스냅샷을 구성하는 데 필요. |
+> | `Microsoft.Compute/locations/vmSizes/read` <br/> `Microsoft.Compute/locations/operations/read` | AzureDisk 볼륨 제한을 찾기 위한 가상 머신 크기를 찾는 데 필요. |
 
 ### <a name="additional-cluster-identity-permissions"></a>추가적인 클러스터 ID 권한
 
 특정 특성을 사용하여 클러스터를 만드는 경우 클러스터 ID에 대해 다음과 같은 추가 권한이 필요합니다. 이러한 사용 권한은 자동으로 할당되지 않으므로 클러스터 ID를 만든 후에 추가해야 합니다.
 
-| 사용 권한 | 이유 |
-|---|---|
-| `Microsoft.Network/networkSecurityGroups/write` <br/> `Microsoft.Network/networkSecurityGroups/read` | 다른 리소스 그룹에서 네트워크 보안 그룹을 사용하는 경우 필요. LoadBalancer 서비스에 대한 보안 규칙을 구성하는 데 필요. |
-| `Microsoft.Network/virtualNetworks/subnets/read` <br/> `Microsoft.Network/virtualNetworks/subnets/join/action` | 사용자 지정 VNET과 같은 다른 리소스 그룹의 서브넷을 사용하는 경우 필요. |
-| `Microsoft.Network/routeTables/routes/read` <br/> `Microsoft.Network/routeTables/routes/write` | 사용자 지정 경로 테이블이 있는 사용자 지정 VNET과 같은 다른 리소스 그룹의 경로 테이블과 연결된 서브넷을 사용하는 경우 필요. 다른 리소스 그룹의 서브넷에 대한 서브넷이 이미 존재하는지 확인하는 데 필요. |
-| `Microsoft.Network/virtualNetworks/subnets/read` | 다른 리소스 그룹에서 내부 부하 분산 장치를 사용하는 경우 필요. 다른 리소스 그룹의 서브넷에 대한 내부 부하 분산 장치가 이미 존재하는지 확인하는 데 필요. |
-| `Microsoft.Network/privatednszones/*` | 사용자 지정 privateDNSZone 같은 다른 리소스 그룹에서 프라이빗 DNS 영역을 사용하는 경우 필요. |
+> [!div class="mx-tableFixed"]
+> | 사용 권한 | 이유 |
+> |---|---|
+> | `Microsoft.Network/networkSecurityGroups/write` <br/> `Microsoft.Network/networkSecurityGroups/read` | 다른 리소스 그룹에서 네트워크 보안 그룹을 사용하는 경우 필요. LoadBalancer 서비스에 대한 보안 규칙을 구성하는 데 필요. |
+> | `Microsoft.Network/virtualNetworks/subnets/read` <br/> `Microsoft.Network/virtualNetworks/subnets/join/action` | 사용자 지정 VNET과 같은 다른 리소스 그룹의 서브넷을 사용하는 경우 필요. |
+> | `Microsoft.Network/routeTables/routes/read` <br/> `Microsoft.Network/routeTables/routes/write` | 사용자 지정 경로 테이블이 있는 사용자 지정 VNET과 같은 다른 리소스 그룹의 경로 테이블과 연결된 서브넷을 사용하는 경우 필요. 다른 리소스 그룹의 서브넷에 대한 서브넷이 이미 존재하는지 확인하는 데 필요. |
+> | `Microsoft.Network/virtualNetworks/subnets/read` | 다른 리소스 그룹에서 내부 부하 분산 장치를 사용하는 경우 필요. 다른 리소스 그룹의 서브넷에 대한 내부 부하 분산 장치가 이미 존재하는지 확인하는 데 필요. |
+> | `Microsoft.Network/privatednszones/*` | 사용자 지정 privateDNSZone 같은 다른 리소스 그룹에서 프라이빗 DNS 영역을 사용하는 경우 필요. |
 
 ## <a name="aks-node-access"></a>AKS 노드 액세스
 

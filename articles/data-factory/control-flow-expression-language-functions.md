@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 9365387bbe4086294a2345b45d707af9806b7c97
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: b9f1cb4223b17c6924e1c3983f79af670e848f9c
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131842989"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440105"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 식 및 함수
 
@@ -956,7 +956,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름의 경우 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)을 참조하세요. 다만 표준 시간대 이름에서 모든 문장 부호를 제거해야 할 수도 있습니다. |
+| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름은 [Microsoft 표준 시간대 값](/windows-hardware/manufacture/desktop/default-time-zones#time-zones)을 참조하세요. 하지만 표준 시간대 이름에서 문장 부호를 제거해야 할 수도 있습니다. |
 | <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
@@ -998,8 +998,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*sourceTimeZone*> | 예 | String | 원본 표준 시간대의 이름입니다. 표준 시간대 이름의 경우 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)을 참조하세요. 다만 표준 시간대 이름에서 모든 문장 부호를 제거해야 할 수도 있습니다. |
-| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름의 경우 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)을 참조하세요. 다만 표준 시간대 이름에서 모든 문장 부호를 제거해야 할 수도 있습니다. |
+| <*sourceTimeZone*> | 예 | String | 원본 표준 시간대의 이름입니다. 표준 시간대 이름은 [Microsoft 표준 시간대 값](/windows-hardware/manufacture/desktop/default-time-zones#time-zones)을 참조하세요. 하지만 표준 시간대 이름에서 문장 부호를 제거해야 할 수도 있습니다. |
+| <*destinationTimeZone*> | 예 | String | 대상 표준 시간대의 이름입니다. 표준 시간대 이름은 [Microsoft 표준 시간대 값](/windows-hardware/manufacture/desktop/default-time-zones#time-zones)을 참조하세요. 하지만 표준 시간대 이름에서 문장 부호를 제거해야 할 수도 있습니다. |
 | <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
@@ -1041,7 +1041,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | 매개 변수 | 필수 | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | 예 | String | 타임스탬프를 포함하는 문자열 |
-| <*sourceTimeZone*> | 예 | String | 원본 표준 시간대의 이름입니다. 표준 시간대 이름의 경우 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)을 참조하세요. 다만 표준 시간대 이름에서 모든 문장 부호를 제거해야 할 수도 있습니다. |
+| <*sourceTimeZone*> | 예 | String | 원본 표준 시간대의 이름입니다. 표준 시간대 이름은 [Microsoft 표준 시간대 값](/windows-hardware/manufacture/desktop/default-time-zones#time-zones)을 참조하세요. 하지만 표준 시간대 이름에서 문장 부호를 제거해야 할 수도 있습니다. |
 | <*format*> | 예 | String | [단일 형식 지정자](/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 

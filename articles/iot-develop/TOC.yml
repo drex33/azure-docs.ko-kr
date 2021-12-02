@@ -31,8 +31,8 @@
           href: quickstart-devkit-renesas-rx65n-2mb.md
         - name: Renesas RX65N Cloud Kit
           href: quickstart-devkit-renesas-rx65n-cloud-kit.md
-        - name: STMicroelectronics B-L475E/L4S5I-IOT01A
-          href: quickstart-devkit-stm-b-l475e.md
+        - name: STMicroelectronics L4S5I-IOT01A
+          href: quickstart-devkit-stm-b-l4s5i.md
 - name: 자습서
   items:
     - name: IoT Hub를 사용하여 디바이스 솔루션 빌드
@@ -95,6 +95,10 @@
       href: howto-manage-digital-twin.md
     - name: 디바이스를 IoT 플러그 앤 플레이로 변환
       href: howto-convert-to-pnp.md
+    - name: Azure RTOS 샘플
+      items:
+        - name: STMicroelectronics B-L475-IOT01A
+          href: quickstart-devkit-stm-b-l475e.md
     - name: 문제 해결
       items:
         - name: 포함된 문제 해결 빠른 시작

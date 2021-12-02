@@ -9,12 +9,12 @@ ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/07/2021
-ms.openlocfilehash: 56a6a521eb648a1ad49baf2bf206ef84aa084731
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 2ebae6750bf3afd85e0e4c791a6ace6d3149bad3
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714119"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436136"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>매핑 데이터 흐름 변환 개요
 
@@ -36,7 +36,7 @@ ms.locfileid: "129714119"
 | [Join](data-flow-join.md) | 다중 입력/출력 |  두 원본 또는 스트림의 데이터를 결합합니다. |
 | [조회](data-flow-lookup.md) | 다중 입력/출력 | 다른 원본에서 데이터를 참조합니다. |
 | [새 분기](data-flow-new-branch.md) | 다중 입력/출력 | 동일한 데이터 스트림에 대해 여러 작업 및 변환 세트를 적용합니다. |
-| [Parse](data-flow-new-branch.md) | 포맷터 | 데이터 스트림에서 JSON, 구분된 텍스트, 또는 XML 형식 텍스트의 문자열인 텍스트 열을 구문 분석합니다. |
+| [Parse](data-flow-parse.md) | 스키마 한정자 |  데이터 스트림에서 JSON, 구분된 텍스트, 또는 XML 형식 텍스트의 문자열인 텍스트 열을 구문 분석합니다. |
 | [피벗](data-flow-pivot.md) | 스키마 한정자 | 하나 이상의 그룹화 열이 개별 열로 변환된 고유한 행 값을 갖는 집계입니다. |
 | [Rank](data-flow-rank.md) | 스키마 한정자 | 정렬 조건을 기준으로 정렬된 순위를 생성합니다. |
 | [Select](data-flow-select.md) | 스키마 한정자 | 열 및 스트림 이름의 별칭을 지정하고, 열을 삭제하거나 다시 정렬합니다. |
@@ -48,4 +48,3 @@ ms.locfileid: "129714119"
 | [Union](data-flow-union.md) | 다중 입력/출력 | 여러 데이터 스트림을 수직으로 결합합니다. |
 | [피벗 해제](data-flow-unpivot.md) | 스키마 한정자 | 열을 행 값으로 피벗합니다. |
 | [창](data-flow-window.md) | 스키마 한정자 |  데이터 스트림에서 창 기반 열 집계를 정의합니다. |
-| [Parse](data-flow-parse.md) | 스키마 한정자 |  Json 또는 구분된 텍스트로 열 데이터를 구문 분석합니다. |

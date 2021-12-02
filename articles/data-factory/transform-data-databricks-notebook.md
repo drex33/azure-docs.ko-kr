@@ -9,17 +9,19 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 9f82c1f2e39261ba4ba1072f5da9f807f23a180e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4fbf903ff7af221b3b66400d24af194161c07d70
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124798468"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436478"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Databricks Notebook을 실행하여 데이터 변환
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [파이프라인](concepts-pipelines-activities.md) 의 Azure Databricks 노트북 작업은 Azure Databricks 작업 영역에서 Databricks 노트북을 실행 합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](transform-data.md) 문서에서 작성합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
+
+JSON을 사용 하 여 ARM 템플릿을 사용 하거나 Azure Data Factory Studio 사용자 인터페이스를 통해 직접 Databricks 노트북을 만들 수 있습니다.  사용자 인터페이스를 사용 하 여 Databricks 노트북 작업을 만드는 방법에 대 한 단계별 연습은 자습서를 참조 하십시오. Databricks 노트북을 사용 하 여 [Databricks 노트북 작업을 Azure Data Factory](transform-data-using-databricks-notebook.md)합니다.
 
 ## <a name="databricks-notebook-activity-definition"></a>Databricks Notebook 활동 정의
 
@@ -113,7 +115,7 @@ Databricks Notebook 활동에 대한 샘플 JSON 정의는 다음과 같습니�
 
 Databricks 활동의 *baseparameters* 속성을 사용 하 여 노트북에 매개 변수를 전달할 수 있습니다.
 
-특정 한 경우에는 특정 값을 노트북에서 서비스에 다시 전달 해야 할 수 있습니다 .이 서비스는 서비스의 제어 흐름 (조건부 검사)에 사용 하거나 다운스트림 활동에서 사용 될 수 있습니다 (크기 제한은 2MB).
+특정 한 경우에는 노트북의 특정 값을 서비스에 다시 전달 해야 할 수 있습니다 .이 서비스는 서비스의 제어 흐름 (조건부 검사)에 사용 하거나 다운스트림 활동에서 사용 될 수 있습니다 (크기 제한은 2mb).
 
 1. 노트북에서 returnValue [("")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) 를 호출 하 고 해당 하는 "returnValue"가 서비스로 반환 될 수 있습니다.
 

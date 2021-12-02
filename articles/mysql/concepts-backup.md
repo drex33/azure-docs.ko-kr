@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: a3ef9a8f56f091e7be93e940f9e359adef15cb7f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f75fffc54aa109cc94448aa2226d1625c5e1e3c0
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567256"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437475"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 
@@ -64,7 +64,7 @@ Azure Database for MySQL은 데이터 파일과 트랜잭션 로그를 백업합
 
 ### <a name="backup-redundancy-options"></a>백업 중복 옵션
 
-Azure Database for MySQL은 범용 및 메모리 최적화 계층에서 로컬로 중복되거나 지리적으로 중복된 백업 스토리지 중에서 선택할 수 있는 유연성을 제공합니다. 백업이 지역 중복 백업 스토리지에 저장되면 서버가 호스팅되는 지역에 저장될 뿐만 아니라 [쌍으로 연결된 데이터 센터](../best-practices-availability-paired-regions.md)에도 복제됩니다. 이러한 지리적 중복성은 재해에 대비하여 다른 지역에서 서버를 복원할 수 있는 기능과 더 나은 보호 기능을 제공합니다. 기본 계층은 로컬 중복 백업 스토리지만 제공합니다.
+Azure Database for MySQL은 범용 및 메모리 최적화 계층에서 로컬로 중복되거나 지리적으로 중복된 백업 스토리지 중에서 선택할 수 있는 유연성을 제공합니다. 백업이 지역 중복 백업 스토리지에 저장되면 서버가 호스팅되는 지역에 저장될 뿐만 아니라 [쌍으로 연결된 데이터 센터](../availability-zones/cross-region-replication-azure.md)에도 복제됩니다. 이러한 지리적 중복성은 재해에 대비하여 다른 지역에서 서버를 복원할 수 있는 기능과 더 나은 보호 기능을 제공합니다. 기본 계층은 로컬 중복 백업 스토리지만 제공합니다.
 
 > [!NOTE]
 >인도 중부, 프랑스 중부, 아랍에미리트 북부, 남아프리카 공화국 북부 지역의 경우 범용 스토리지 v2 스토리지가 공개 미리 보기로 제공됩니다. 위에서 언급한 지역에서 범용 스토리지 v2(최대 16TB의 스토리지 지원)에서 원본 서버를 만드는 경우 지역 중복 백업을 사용하도록 설정할 수 없습니다. 

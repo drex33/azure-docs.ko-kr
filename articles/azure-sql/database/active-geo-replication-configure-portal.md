@@ -11,12 +11,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 08/20/2021
-ms.openlocfilehash: 7a0e1e84972b109f6f8e0d567224f5d08b7d18cf
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 5e2022f5b1afd6fce06e2704c17652c10692469f
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161719"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437337"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-azure-sql-database"></a>자습서: 활성 지역 복제 및 장애 조치(failover) 구성(Azure SQL Database)
 
@@ -68,7 +68,7 @@ Azure CLI에 대한 환경을 준비합니다.
 
     :::image type="content" source="./media/active-geo-replication-configure-portal/azure-cli-create-geo-replica.png" alt-text="지역에서 복제 구성":::
 
-3. 보조 데이터베이스에 대해 서버를 선택하거나 만들고 필요에 따라 **컴퓨팅 + 스토리지** 옵션을 구성합니다. 보조 서버에 대해 지역을 선택할 수 있지만 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)이 권장됩니다.
+3. 보조 데이터베이스에 대해 서버를 선택하거나 만들고 필요에 따라 **컴퓨팅 + 스토리지** 옵션을 구성합니다. 보조 서버에 대해 지역을 선택할 수 있지만 [쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)이 권장됩니다.
 
     :::image type="content" source="./media/active-geo-replication-configure-portal/azure-portal-create-and-configure-replica.png" alt-text="{대체 텍스트}":::
 
@@ -98,7 +98,7 @@ Azure CLI에 대한 환경을 준비합니다.
 > [!NOTE]
 > 보조 데이터베이스는 서비스 계층이 주 데이터베이스와 동일해야 합니다.
 
-보조 서버에 대해 지역을 선택할 수 있지만 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)이 권장됩니다.
+보조 서버에 대해 지역을 선택할 수 있지만 [쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)이 권장됩니다.
 
 [az sql db replica create](/cli/azure/sql/db/replica#az_sql_db_replica_create) 명령을 실행합니다.
 

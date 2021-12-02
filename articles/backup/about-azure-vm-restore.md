@@ -3,12 +3,12 @@ title: Azure Virtual Machine 복원 프로세스 정보
 description: Azure Backup 서비스에서 Azure 가상 머신을 복원하는 방법 알아보기
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: c81a2c227214643678f0a82bac29b7d573b9994e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 5e9a13ee2488c25bb7aa2d56be27fe45dc6dbdc4
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130262150"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436993"
 ---
 # <a name="about-azure-vm-restore"></a>Azure VM 복원 정보
 
@@ -34,7 +34,7 @@ ms.locfileid: "130262150"
   - [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md#geo-redundant-storage)는 기본값이며 권장하는 복제 옵션입니다. GRS는 데이터 원본의 기본 위치에서 수백 마일 떨어진 보조 지역으로 데이터를 복제합니다. GRS는 LRS보다 더 많은 비용이 들지만, 지역 가동 중단이 발생하는 경우에도 높은 수준의 데이터 내구성을 제공합니다.
   - [ZRS(영역 중복 스토리지)](../storage/common/storage-redundancy.md#zone-redundant-storage)는 [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 데이터를 복제하여 동일한 지역에 데이터 상주 및 복원력을 보장합니다. ZRS에는 가동 중지 시간이 없습니다. 따라서 [데이터 상주](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)가 필요하고, 가동 중지 시간이 없어야 하는 중요한 워크로드를 ZRS에서 백업할 수 있습니다.
 
-- **CRR(지역 간 복원)** : [복원 옵션](./backup-azure-arm-restore-vms.md#restore-options) 중 하나로, CRR(지역 간 복원)을 사용하면 [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md#what-are-paired-regions)인 보조 지역에서 Azure VM을 복원할 수 있습니다. 부분 또는 전체 중단 중에 언제든지 또는 선택한 다른 시간에 보조 지역의 데이터를 복원할 수 있습니다. 
+- **CRR(지역 간 복원)** : [복원 옵션](./backup-azure-arm-restore-vms.md#restore-options) 중 하나로, CRR(지역 간 복원)을 사용하면 [Azure 쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md)인 보조 지역에서 Azure VM을 복원할 수 있습니다. 부분 또는 전체 중단 중에 언제든지 또는 선택한 다른 시간에 보조 지역의 데이터를 복원할 수 있습니다. 
 
 ## <a name="restore-scenarios"></a>복원 시나리오
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: f404c8c41879dca2fe3b9223c8d7a60c1f943f0a
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 9e9f0c4b686b527984811e29069d892ef2dcbcb3
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132710216"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435074"
 ---
 # <a name="set-scaling-rules-in-azure-container-apps"></a>Azure Container Apps에서 크기 조정 규칙 설정
 
@@ -143,7 +143,7 @@ CPU 크기 조정을 사용하면 사용 중인 CPU 양에 따라 앱 규모를 
       "template": {
         ...
         "scale": {
-          "minReplicas": "0",
+          "minReplicas": "1",
           "maxReplicas": "10",
           "rules": [{
             "name": "cpuScalingRule",
@@ -181,7 +181,7 @@ CPU 크기 조정을 사용하면 사용 중인 CPU 양에 따라 앱 규모를 
       "template": {
         ...
         "scale": {
-          "minReplicas": "0",
+          "minReplicas": "1",
           "maxReplicas": "10",
           "rules": [{
             "name": "memoryScalingRule",

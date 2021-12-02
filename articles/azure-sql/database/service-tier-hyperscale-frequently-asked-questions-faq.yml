@@ -12,12 +12,12 @@ metadata:
   ms.author: dfurman
   ms.reviewer: mathoma
   ms.date: 11/4/2021
-  ms.openlocfilehash: 440cb18b41a37358fc170655783cc2f5c61bc01b
-  ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+  ms.openlocfilehash: 823347f6365c9838a05c13331112120ef2b39df4
+  ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/05/2021
-  ms.locfileid: "131843157"
+  ms.lasthandoff: 12/02/2021
+  ms.locfileid: "133436763"
 title: Azure SQL Database 하이퍼스케일 FAQ
 summary: >
   [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -294,7 +294,7 @@ sections:
   - question: >
       하이퍼스케일 데이터베이스를 사용하여 지역 복원을 수행할 수 있나요?
     answer: >
-      예. 지역 복원이 완전히 지원됩니다. 특정 시점 복원과 달리 지역 복원에는 데이터 크기 작업이 필요합니다. 데이터 파일은 병렬로 복사되므로 이 작업의 기간은 주로 전체 데이터베이스 크기가 아니라 데이터베이스에서 가장 큰 파일의 크기에 따라 달라집니다. 원본 데이터베이스의 지역과 [쌍을 이루는](../../best-practices-availability-paired-regions.md) Azure 지역에서 데이터베이스를 복원하는 경우 지역 복원 시간이 훨씬 짧아집니다.
+      예. 지역 복원이 완전히 지원됩니다. 특정 시점 복원과 달리 지역 복원에는 데이터 크기 작업이 필요합니다. 데이터 파일은 병렬로 복사되므로 이 작업의 기간은 주로 전체 데이터베이스 크기가 아니라 데이터베이스에서 가장 큰 파일의 크기에 따라 달라집니다. 원본 데이터베이스의 지역과 [쌍을 이루는](../../availability-zones/cross-region-replication-azure.md) Azure 지역에서 데이터베이스를 복원하는 경우 지역 복원 시간이 훨씬 짧아집니다.
   - question: >
       하이퍼스케일 데이터베이스를 사용하여 지역 복제를 설정할 수 있나요?
     answer: >

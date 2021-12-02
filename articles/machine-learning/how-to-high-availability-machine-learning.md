@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 10/21/2021
-ms.openlocfilehash: 0a18a2bb7efd673ff6e2d6460890e80d52609b02
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: a40c629c107f1da202656397809c0e335f6cc533
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131564844"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436896"
 ---
 # <a name="failover-for-business-continuity-and-disaster-recovery"></a>비즈니스 연속성 및 재해 복구를 위한 장애 조치(failover)
 
@@ -30,7 +30,7 @@ Microsoft는 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노
 > [!NOTE]
 > Azure Machine Learning 자체는 자동 장애 조치 또는 재해 복구를 제공하지 않습니다.
 
-작업 영역 또는 해당 구성 요소를 실수로 삭제한 경우 이 문서에서는 현재 지원되는 복구 옵션도 제공합니다.
+작업 영역 또는 해당 구성 요소를 실수로 삭제 한 경우에도이 문서는 현재 지원 되는 복구 옵션을 제공 합니다.
 
 ## <a name="understand-azure-services-for-azure-machine-learning"></a>Azure Machine Learning에 대한 Azure 서비스 이해
 
@@ -75,7 +75,7 @@ Azure 서비스는 다음을 포함합니다.
 다중 지역 배포를 사용하려면 두 개의 Azure 지역에서 Azure Machine Learning 및 기타 리소스(인프라)를 만들어야 합니다. 지역 중단이 발생하는 경우 다른 지역으로 전환할 수 있습니다. 리소스를 배포할 위치를 계획하는 경우 다음을 고려합니다.
 
 * __지역별 가용성__: 사용자에게 가까운 지역을 사용합니다. Azure Machine Learning의 지역별 가용성을 확인하려면 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
-* __Azure 쌍을 이루는 지역__: 쌍을 이루는 지역은 플랫폼 업데이트를 조정하고 필요한 경우 복구 작업의 우선 순위를 지정합니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
+* __Azure 쌍을 이루는 지역__: 쌍을 이루는 지역은 플랫폼 업데이트를 조정하고 필요한 경우 복구 작업의 우선 순위를 지정합니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md)을 참조하세요.
 * __서비스 가용성__: 솔루션에서 사용하는 리소스가 핫/핫, 핫/웜 또는 핫/콜드여야 하는지 여부를 결정합니다.
     
     * __핫/핫__: 두 지역이 동시에 모두 활성 상태이며 한 지역이 즉시 사용할 준비가 되었습니다.

@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
 ms.date: 08/14/2019
-ms.openlocfilehash: 1cb2d8fdaa25479542152c76c12b9b86d7fb0433
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: bd350a123bd7600f2c69c97993e139cf3c184279
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130165713"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133439329"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Azure SQL Database에 대한 장애 조치(failover) 그룹 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "130165713"
 
 Azure Portal 또는 PowerShell을 사용하여 장애 조치 그룹을 만들고 단일 데이터베이스를 추가합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 구성 요소를 고려합니다.
 
@@ -348,9 +348,9 @@ Azure Portal 또는 PowerShell을 사용하여 Azure SQL Managed Instance의 두
 
 각 SQL Managed Instance의 가상 네트워크에 대해 [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)를 구성하거나 게이트웨이를 만들고, 두 게이트웨이를 연결한 다음, 장애 조치 그룹을 만들어야 합니다. 
 
-성능 상의 이유로 두 관리형 인스턴스를 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 배포합니다. 지리적으로 쌍을 이루는 지역에 상주하는 관리되는 인스턴스는 쌍을 이루지 않는 지역에 비해 훨씬 더 나은 성능을 제공합니다. 
+성능 상의 이유로 두 관리형 인스턴스를 [쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)에 배포합니다. 지리적으로 쌍을 이루는 지역에 상주하는 관리되는 인스턴스는 쌍을 이루지 않는 지역에 비해 훨씬 더 나은 성능을 제공합니다. 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 구성 요소를 고려합니다.
 
@@ -665,7 +665,7 @@ PowerShell을 사용하여 장애 조치(failover) 그룹의 장애 조치를 �
 
 장애 조치 그룹에서 프라이빗 링크를 사용하려면 다음을 수행합니다.
 
-1. 주 서버와 보조 서버가 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 있는지 확인합니다. 
+1. 주 서버와 보조 서버가 [쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)에 있는지 확인합니다. 
 1. 겹치지 않는 IP 주소 공간을 갖도록 주 서버와 보조 서버에 대한 프라이빗 엔드포인트를 호스트하기 위해 각 지역에 가상 네트워크 및 서브넷을 만듭니다. 예를 들어 10.0.0.0/16의 주 가상 네트워크 주소 범위와 10.0.0.1/16의 보조 가상 네트워크 주소 범위가 겹칩니다. 가상 네트워크 주소 범위에 대한 자세한 내용은 [designing Azure virtual networks](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/)(Azure Virtual Network 디자인) 블로그를 참조하세요.
 1. [주 서버에 대한 프라이빗 엔드포인트 및 Azure 프라이빗 DNS 영역](../../private-link/create-private-endpoint-portal.md#create-a-private-endpoint)을 만듭니다. 
 1. 보조 서버에 대한 프라이빗 엔드포인트도 만듭니다. 하지만 이번에는 주 서버에 대해 만들어진 것과 동일한 프라이빗 DNS 영역을 다시 사용하도록 선택합니다. 

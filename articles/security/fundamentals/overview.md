@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: f5438d471b9f203761a1e2237e5a4c4f944c7043
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 18107bec6c0a7e43a9c3552af2bdb736dc4aed48
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132337060"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437394"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 
@@ -56,9 +56,9 @@ Azure의 인프라는 수백만 고객을 동시에 호스팅하는 애플리케
 
 ### <a name="microsoft-defender-for-cloud"></a>Microsoft Defender for Cloud
 
-[클라우드 용 Defender](../../security-center/security-center-introduction.md) 는 Azure 리소스의 보안에 대 한 향상 된 가시성과 제어를 통해 위협을 예방, 감지 및 대응 하는 데 도움이 됩니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
+[Defender for Cloud를](../../security-center/security-center-introduction.md) 사용하면 Azure 리소스의 보안에 대한 가시성과 제어를 강화하여 위협을 방지, 감지 및 대응할 수 있습니다. 이는 Azure 구독에 대해 통합된 보안 모니터링 및 정책 관리를 제공하고 다른 방법으로 발견되지 않을 수 있는 위협을 감지하는 데 도움이 되며 보안 솔루션의 광범위한 환경에서 작동합니다.
 
-또한 Defender for Cloud는 즉시 작업을 수행할 수 있는 경고 및 권장 사항을 표시 하는 단일 대시보드를 제공 하 여 보안 작업에 도움을 줍니다. 클라우드 콘솔의 Defender 내에서 한 번의 클릭으로 문제를 해결할 수 있는 경우가 많습니다.
+또한 Defender for Cloud는 즉시 수행할 수 있는 경고 및 권장 사항을 보여 주는 단일 대시보드를 제공하여 보안 작업을 도와줍니다. 종종 Defender for Cloud 콘솔 내에서 한 번의 클릭으로 문제를 해결할 수 있습니다.
 
 ### <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
@@ -86,7 +86,7 @@ Azure Monitor 로그는 포렌식 및 기타 보안 분석에서 유용한 도�
 
 ### <a name="azure-advisor"></a>Azure Advisor
 
-[Azure Advisor](../../advisor/advisor-overview.md)는 Azure 배포를 최적화하는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용 원격 분석을 분석 합니다. 그런 다음 [전체 Azure 사용을 줄일](../../advisor/advisor-cost-recommendations.md) 수 있는 기회를 찾는 동안 [성능](../../advisor/advisor-performance-recommendations.md), [보안](../../advisor/advisor-security-recommendations.md) 및 [안정성](../../advisor/advisor-high-availability-recommendations.md)을 향상시키는 데 도움이 되는 솔루션을 사용하는 것이 좋습니다. Azure Advisor는 보안 권장 사항을 제공하므로 Azure에 배포하는 솔루션의 전반적인 보안 상태를 크게 향상시킬 수 있습니다. 이러한 권장 사항은 [Microsoft Defender For Cloud](../../security-center/security-center-introduction.md) 에서 수행 하는 보안 분석에서 가져옵니다.
+[Azure Advisor](../../advisor/advisor-overview.md)는 Azure 배포를 최적화하는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용 원격 분석을 분석 합니다. 그런 다음 [전체 Azure 사용을 줄일](../../advisor/advisor-cost-recommendations.md) 수 있는 기회를 찾는 동안 [성능](../../advisor/advisor-performance-recommendations.md), [보안](../../advisor/advisor-security-recommendations.md) 및 [안정성](../../advisor/advisor-high-availability-recommendations.md)을 향상시키는 데 도움이 되는 솔루션을 사용하는 것이 좋습니다. Azure Advisor는 보안 권장 사항을 제공하므로 Azure에 배포하는 솔루션의 전반적인 보안 상태를 크게 향상시킬 수 있습니다. 이러한 권장 사항은 Microsoft Defender for [Cloud에서](../../security-center/security-center-introduction.md) 수행한 보안 분석에서 가져온 것입니다.
 
 ## <a name="applications"></a>애플리케이션
 
@@ -290,7 +290,7 @@ NSG에 대한 다음 진단 로그 범주를 활성화할 수 있습니다.
 
 ### <a name="defender-for-cloud"></a>Defender for Cloud
 
-[Microsoft Defender for Cloud는](../../security-center/security-center-introduction.md) 네트워크 보안 모범 사례를 위해 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Defender for Cloud가 잠재적인 보안 취약성을 식별하면 리소스를 강화하고 보호하기 위해 필요한 컨트롤을 구성하는 과정을 안내하는 [권장 사항을](../../security-center/security-center-recommendations.md) 만듭니다.
+[Microsoft Defender for Cloud는](../../security-center/security-center-introduction.md) 네트워크 보안 모범 사례를 위해 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Defender for Cloud가 잠재적인 보안 취약성을 식별하면 리소스를 강화하고 보호하기 위해 필요한 컨트롤을 구성하는 프로세스를 안내하는 [권장 사항을](../../security-center/security-center-recommendations.md) 만듭니다.
 
 ## <a name="compute"></a>컴퓨팅
 이 섹션에서는 이 영역의 주요 기능에 대한 추가 정보와 이러한 기능에 대한 요약 정보를 제공합니다.
@@ -305,7 +305,7 @@ Azure IaaS를 사용하면 Microsoft, Symantec, Trend Micro, McAfee 및 Kaspersk
 [Azure Backup](../../backup/backup-overview.md)은 자본 투자 없이 최소의 운영 비용으로 애플리케이션 데이터를 보호하는 솔루션입니다. 애플리케이션 오류로 인해 데이터가 손상될 수 있으며, 사용자 실수로 인해 애플리케이션에 버그가 발생하여 보안 문제가 발생할 수 있습니다. Azure Backup은 Windows 및 Linux를 실행하는 가상 머신의 보호에 도움이 됩니다.
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
-계획되거나 계획되지 않은 중단 상태가 발생하는 경우 조직 [BCDR(비즈니스 연속성/재해 복구)](../../best-practices-availability-paired-regions.md) 전략의 중요한 부분은 회사 워크로드 및 앱을 가동 및 실행하도록 유지하는 방법을 파악하는 것입니다. [Azure Site Recovery](../../site-recovery/site-recovery-overview.md)를 사용하면 기본 위치가 중단되는 경우 보조 위치에서 사용할 수 있도록 워크로드 및 앱의 복제, 장애 조치 및 복구를 오케스트레이션할 수 있습니다.
+계획되거나 계획되지 않은 중단 상태가 발생하는 경우 조직 [BCDR(비즈니스 연속성/재해 복구)](../../availability-zones/cross-region-replication-azure.md) 전략의 중요한 부분은 회사 워크로드 및 앱을 가동 및 실행하도록 유지하는 방법을 파악하는 것입니다. [Azure Site Recovery](../../site-recovery/site-recovery-overview.md)를 사용하면 기본 위치가 중단되는 경우 보조 위치에서 사용할 수 있도록 워크로드 및 앱의 복제, 장애 조치 및 복구를 오케스트레이션할 수 있습니다.
 
 ### <a name="sql-vm-tde"></a>SQL VM TDE
 TDE(투명한 데이터 암호화) 및 CLE(열 수준 암호화)는 SQL Server 암호화 기능입니다. 이러한 형태의 암호화를 사용하려면 고객이 암호화에 사용되는 암호화 키를 관리하고 저장해야 합니다.
@@ -324,7 +324,7 @@ AKV(Azure Key Vault) 서비스는 안전하고 가용성이 높은 위치에서 
 패치 업데이트는 기업에서 배포해야 하는 소프트웨어 업데이트의 수를 줄이고 규정 준수를 모니터링하는 기능을 향상시킴으로써 잠재적인 문제를 찾아 수정하고 소프트웨어 업데이트 관리 프로세스를 간소화할 수 있는 기반을 제공합니다.
 
 ### <a name="security-policy-management-and-reporting"></a>보안 정책 관리 및 보고
-[Defender for Cloud는](../../security-center/security-center-introduction.md) 위협을 방지, 검색 및 대응하는 데 도움이 되며, Azure 리소스의 보안에 대한 향상된 가시성과 제어를 제공합니다. Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다.
+[Defender for Cloud는](../../security-center/security-center-introduction.md) 위협을 방지, 검색 및 대응하는 데 도움이 되며, Azure 리소스의 보안에 대한 향상된 가시성 및 제어를 제공합니다. Azure 구독을 통해 통합된 보안 모니터링 및 정책 관리를 제공하고, 달리 발견되지 않을 수도 있는 위협을 검색하는 데 도움이 되며, 보안 솔루션의 광범위한 에코시스템에서 작동합니다.
 
 ## <a name="identity-and-access-management"></a>ID 및 액세스 관리
 시스템, 애플리케이션 및 데이터 보안은 ID 기반 액세스 제어로 시작합니다. Microsoft 비즈니스 제품 및 서비스에 기본 제공되는 ID 및 액세스 관리 기능을 사용하면, 권한이 없는 액세스로부터 조직 및 개인 정보를 보호하는 한편, 합법적인 사용자가 필요할 때마다 어디서나 사용할 수 있습니다.

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 68e046d0a19af2d8a4f6a413b527c9bf49c0e6ec
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: cb90dd8067ed749326ee8902722fc505beae3341
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132137135"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437434"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 비즈니스 연속성 개요
 
@@ -44,7 +44,7 @@ Azure Database for PostgreSQL은 지역 복원을 시작할 수 있는 지역 �
 
 **특정 시점 복원** 을 수행하면 알려진 특정 시점에서 서버의 복사본을 만들 수 있습니다. 이 특정 시점은 서버에 대해 구성한 백업 보존 기간 내에 있어야 합니다. 데이터가 새 서버로 복원된 후에는 원래 서버를 새로 복원된 서버로 바꾸거나 복원된 서버에서 원래 서버로 필요한 데이터를 복사할 수 있습니다.
 
-실수로 서버를 삭제 하는 것을 방지 하기 위해 [Azure 리소스 잠금을](../azure-resource-manager/management/lock-resources.md) 사용 하는 것이 좋습니다. 서버를 실수로 삭제 한 경우 최근 5 일 내에 삭제가 발생 한 경우 복구할 수 있습니다. 자세한 내용은 [삭제 된 Azure Database for PostgreSQL 서버 복원](howto-restore-dropped-server.md)을 참조 하세요.
+실수로 서버가 삭제되는 것을 방지하기 위해 [Azure 리소스 잠금을](../azure-resource-manager/management/lock-resources.md) 사용하는 것이 좋습니다. 서버를 실수로 삭제한 경우 지난 5일 이내에 삭제가 발생한 경우 서버를 복원할 수 있습니다. 자세한 내용은 [삭제된 Azure Database for PostgreSQL 서버 복원을 참조하세요.](howto-restore-dropped-server.md)
 
 ## <a name="recover-from-an-azure-data-center-outage"></a>Azure 데이터 센터 중단에서 복구
 
@@ -54,7 +54,7 @@ Azure Database for PostgreSQL은 지역 복원을 시작할 수 있는 지역 �
 
 ## <a name="geo-restore"></a>지역 복원
 
-지역 복원 기능은 지역 중복 백업을 사용하여 서버를 복원합니다. 백업은 서버의 [페어링된 지역](../best-practices-availability-paired-regions.md)에서 호스팅됩니다. 이러한 백업에서 다른 지역으로 복원할 수 있습니다. 지역 복원에서는 백업의 데이터를 사용하여 새 서버를 만듭니다. [백업 및 복원 개념 문서](concepts-backup.md)에서 지역 복원에 대해 자세히 알아보세요.
+지역 복원 기능은 지역 중복 백업을 사용하여 서버를 복원합니다. 백업은 서버의 [페어링된 지역](../availability-zones/cross-region-replication-azure.md)에서 호스팅됩니다. 이러한 백업에서 다른 지역으로 복원할 수 있습니다. 지역 복원에서는 백업의 데이터를 사용하여 새 서버를 만듭니다. [백업 및 복원 개념 문서](concepts-backup.md)에서 지역 복원에 대해 자세히 알아보세요.
 
 > [!IMPORTANT]
 > 지역 복원은 지역 중복 백업 스토리지로 서버를 프로비전한 경우에만 가능합니다. 기존 서버에 대한 로컬 중복 백업을 지역 중복 백업으로 전환하려는 경우 pg_dump를 사용하여 기존 서버를 덤프한 후 지역 중복 백업으로 구성된 새로 만든 서버로 복원해야 합니다.

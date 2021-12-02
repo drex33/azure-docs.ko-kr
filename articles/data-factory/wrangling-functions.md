@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.openlocfilehash: c0a646624054aca3bc043f4ee573dac274f2aa77
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: e315e903593e9df63fb2cd63f9b4751d957f3894
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809908"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133439374"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>데이터 랭글링에 대한 파워 쿼리의 변환 함수
 
@@ -96,14 +96,12 @@ M 함수 [Table.AddColumn](/powerquery-m/table-addcolumn), [Table.TransformColum
 | Table.RowCount | 지원되지 않지만 값 1을 포함하는 사용자 지정 열을 추가한 다음, List.Sum을 사용하여 해당 열을 집계하여 달성할 수 있습니다. Table.Group은 지원됩니다. | 
 | 행 수준 오류 처리 | 행 수준 오류 처리는 현재 지원되지 않습니다. 예를 들어, 열에서 숫자가 아닌 값을 필터링하려면 한 가지 방법은 텍스트 열을 숫자로 변환하는 것입니다. 변환에 실패하는 모든 셀은 오류 상태가 되며 필터링해야 합니다. 이 시나리오는 스케일 아웃 M에서 가능하지 않습니다. |
 | Table.Transpose | 지원되지 않음 |
-| Table.Pivot | 지원되지 않음 |
-| Table.SplitColumn | 부분적으로 지원됨 |
 
 ## <a name="m-script-workarounds"></a>M 스크립트 해결 방법
 
 ### ```SplitColumn```
 
-길이 및 위치별로 분할에 대한 대체 항목이 아래에 나열되어 있습니다.
+길이 및 위치를 기준으로 분할에 대 한 대체는 아래에 나열 됩니다.
 
 * Table.AddColumn(소스, "첫 번째 문자", 각 Text.Start([Email], 7), 텍스트 입력)
 * Table.AddColumn(#"첫 번째 문자 삽입", "텍스트 범위", 각 Text.Middle([Email], 4, 9), 텍스트 입력)
@@ -116,21 +114,21 @@ M 함수 [Table.AddColumn](/powerquery-m/table-addcolumn), [Table.TransformColum
 
 * Table.AddColumn(RemoveEmailColumn, "이름", 각 [FirstName] & " " & [LastName])
 
-### <a name="pivots"></a>받침대
+### <a name="pivots"></a>피벗
 
-* PQ 편집기에서 피벗 변환을 선택하고 피벗 열을 선택합니다.
+* PQ 편집기에서 피벗 변환을 선택 하 고 피벗 열을 선택 합니다.
 
 ![파워 쿼리 피벗 공통](media/wrangling-data-flow/power-query-pivot-1.png)
 
-* 다음으로 값 열 및 집계 함수를 선택합니다.
+* 그런 다음 값 열 및 집계 함수를 선택 합니다.
 
 ![파워 쿼리 피벗 선택기](media/wrangling-data-flow/power-query-pivot-2.png)
 
-* 확인을 클릭하면 편집기에서 피벗된 값으로 업데이트된 데이터가 표시됩니다.
-* 변환이 지원되지 않을 수 있다는 경고 메시지도 표시됩니다.
-* 이 경고를 해결하려면 PQ 편집기를 사용하여 피벗된 목록을 수동으로 확장합니다.
-* 리본에서 고급 편집기 옵션 선택
-* 피벗된 값 목록을 수동으로 확장
+* 확인을 클릭 하면 편집기의 데이터가 피벗 된 값으로 업데이트 된 것을 볼 수 있습니다.
+* 변환이 지원 되지 않을 수도 있다는 경고 메시지가 표시 됩니다.
+* 이 경고를 해결 하려면 PQ 편집기를 사용 하 여 피벗 된 목록을 수동으로 확장 합니다.
+* 리본 메뉴에서 고급 편집기 옵션 선택
+* 피벗 된 값 목록을 수동으로 확장 합니다.
 * List. Distinct ()를 다음과 같은 값 목록으로 바꿉니다.
 ```
 #"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Changed column type 1", {{"genres", type text}}), {"Drama", "Horror", "Comedy", "Musical", "Documentary"}, "genres", "Rating", List.Average)

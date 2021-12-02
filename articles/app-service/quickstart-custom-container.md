@@ -7,12 +7,12 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 9050c9eb57118e18c361711120a2184ffece573d
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 3f79d68739e0a01a44ef52523906a8566452f6f7
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133042986"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437860"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Azure에서 사용자 지정 컨테이너 실행
 
@@ -91,7 +91,7 @@ ms.locfileid: "133042986"
 
     :::image type="content" source="./media/quickstart-custom-container/published-docker-repository-visual-studio-2022.png?text=Screenshot that highlights the repository name." alt-text="리포지토리 이름을 강조 표시하는 스크린샷.":::
 
-## <a name="create-a-windows-container-app"></a>Windows 컨테이너 앱 만들기
+## <a name="create-a-windows-custom-container"></a>Windows 사용자 지정 컨테이너 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -113,7 +113,7 @@ ms.locfileid: "133042986"
 
 1. **검토 및 만들기** 를 선택한 다음, **만들기** 를 선택하여 Azure에서 필요한 리소스를 만들 때까지 기다립니다.
 
-## <a name="browse-to-the-container-app"></a>컨테이너 앱으로 이동
+## <a name="browse-to-the-custom-container"></a>사용자 지정 컨테이너로 이동
 
 Azure 작업이 완료되면 알림 상자가 표시됩니다.
 
@@ -125,11 +125,11 @@ Azure 작업이 완료되면 알림 상자가 표시됩니다.
 
 다음 페이지의 새 브라우저 페이지가 열립니다.
 
-![Windows 컨테이너 앱 시작](media/quickstart-custom-container/app-starting.png)
+![사용자 지정 컨테이너 시작 Windows](media/quickstart-custom-container/app-starting.png)
 
 기본 ASP.NET 홈 페이지가 표시될 때까지 몇 분 정도 기다렸다가 다시 시도하세요.
 
-![Windows 컨테이너 앱 실행](media/quickstart-custom-container/app-running-vs.png)
+![실행 중인 사용자 지정 컨테이너 Windows](media/quickstart-custom-container/app-running-vs.png)
 
 **축하합니다.** Azure App Service에서 첫 번째 사용자 지정 Windows 컨테이너를 실행하고 있습니다.
 
@@ -171,7 +171,7 @@ https://<app_name>.scm.azurewebsites.net/api/logstream
 
    ![Azure에서 웹앱 다시 시작](./media/quickstart-custom-container/portal-restart-app.png)
 
-[컨테이너 앱으로 다시 이동](#browse-to-the-container-app)합니다. 웹 페이지를 새로 고치면 처음에는 앱이 '시작' 페이지로 돌아간 다음 몇 분 후에 업데이트된 웹 페이지가 표시됩니다.
+[사용자 지정 컨테이너를 다시 찾습니다](#browse-to-the-custom-container) . 웹 페이지를 새로 고치면 처음에는 앱이 '시작' 페이지로 돌아간 다음 몇 분 후에 업데이트된 웹 페이지가 표시됩니다.
 
 ![Azure의 업데이트된 웹앱](./media/quickstart-custom-container/azure-web-app-updated.png)
 

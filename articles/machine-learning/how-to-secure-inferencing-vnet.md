@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 11/05/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: df790ee9480333b806ff1903d5e81d81a83177cd
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: d911f8687d855a46ded542d2ac544471f345a876
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132723007"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434922"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 추론 환경 보호
 
@@ -63,7 +63,7 @@ ms.locfileid: "132723007"
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
 * 작업 영역에 프라이빗 __엔드포인트__ 가 있는 경우 Azure Kubernetes Service 클러스터는 작업 영역과 동일한 Azure 지역에 있어야 합니다.
-* 프라이빗 [AKS 클러스터와 함께 공용 FQDN(정규화된 도메인 이름)을](../aks/private-clusters.md#create-a-private-aks-cluster-with-a-public-fqdn) 사용하는 것은 Azure Machine Learning에서 __지원되지 않습니다.__
+* 프라이빗 [AKS 클러스터와 함께 공용 FQDN(정규화된 도메인 이름)을](../aks/private-clusters.md) 사용하는 것은 Azure Machine Learning에서 __지원되지 않습니다.__
 
 <a id="aksvnet"></a>
 

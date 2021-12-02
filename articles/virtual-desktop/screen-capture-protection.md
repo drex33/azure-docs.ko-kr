@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/30/2021
 ms.author: denisgun
 ms.service: virtual-desktop
-ms.openlocfilehash: 51932fd6cb7a9747957d410bca6230d47aadd04c
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 4696fd97372298937eb11fe06f0cc3de9431484e
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132752009"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440033"
 ---
 # <a name="screen-capture-protection"></a>화면 캡처 보호
 
@@ -24,7 +24,7 @@ ms.locfileid: "132752009"
 다음 클라이언트는 현재 화면 캡처 보호를 지원 합니다.
 
 * Windows Desktop client는 전체 데스크톱에 대해서만 화면 캡처 보호를 지원 합니다.
-* macOS client 버전 10.7.0 또는 이전 버전에서는 RemoteApp 및 전체 데스크톱에 대 한 화면 캡처 보호를 지원 합니다.
+* macOS 클라이언트 버전 10.7.0 이상에서는 RemoteApp 및 전체 데스크톱에 대 한 화면 캡처 보호를 지원 합니다.
 
 사용자가 지원 되지 않는 클라이언트를 사용 하 여 보호 된 세션 호스트에 연결 하려고 한다고 가정 합니다. 이 경우 0x1151 오류와 함께 연결이 실패합니다.
 

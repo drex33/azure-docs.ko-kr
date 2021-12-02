@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/30/2021
 ms.author: victorh
-ms.openlocfilehash: 6aa65cc0859894936076f6d0fc1101312eaf3ba6
-ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
+ms.openlocfilehash: 22d4db804b1491fafe32985e29d8b38ec7a55cae
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133407516"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435852"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Key Vault 인증서를 사용한 TLS 종료
 
@@ -118,7 +118,10 @@ Azure Portal Application Gateway 이동하여 **수신기** 탭을 선택합니�
 선택한 후  **추가(만드는** 경우) 또는 **저장(편집하는** 경우)을 선택하여 참조된 Key Vault 인증서를 수신기에 적용합니다.
 
 #### <a name="key-vault-azure-role-based-access-control-permission-model"></a>Azure 역할 기반 액세스 제어 권한 모델 Key Vault
-Application Gateway 역할 기반 액세스 제어 권한 모델을 통해 Key Vault 참조된 인증서를 지원합니다. 그러나 키 자격 증명 모음을 참조하는 처음 몇 단계는 ARM, Bicep, CLI 또는 PowerShell을 통해 완료해야 합니다. 이 시나리오에 대한 Azure Portal 지원은 아직 제공되지 않습니다.
+Application Gateway 역할 기반 액세스 제어 권한 모델을 통해 Key Vault 참조된 인증서를 지원합니다. 키 자격 증명 모음을 참조하는 처음 몇 단계는 ARM, Bicep, CLI 또는 PowerShell을 통해 완료해야 합니다.
+
+> [!Note]
+> 역할 기반 액세스 제어 권한 모델이 적용되는 Azure Key Vault 인증서를 지정하는 것은 포털을 통해 지원되지 않습니다.
 
 이 예제에서는 PowerShell을 사용하여 새 Key Vault 인증서를 참조합니다.
 ```

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: de462f24f05b93f40453cd74c85a41b5c11ac0d3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 74e28499250f11db5db72bd6deaba2368854b26a
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128656306"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438170"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>ARM 템플릿에서 배포 스크립트 사용
 
@@ -108,7 +108,7 @@ ARM 템플릿 테스트 도구 키트에 대 한 자세한 내용 및 실습 지
       "storageAccountName": "myStorageAccount",
       "storageAccountKey": "myKey"
     },
-    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80",
+    "azPowerShellVersion": "6.4",  // or "azCliVersion": "2.28.0",
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {

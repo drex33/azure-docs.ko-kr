@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d14e470887f1f6ecce342252a66cfffb1bdeaef
-ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.openlocfilehash: 22627c37da15308717ee4efba1b9ea0512330822
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132957244"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437708"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -80,6 +80,7 @@ SAP 애플리케이션 계층 및 DBMS의 고가용성은 [SAP NetWeaver에 대�
 이 섹션에서는 Microsoft Power BI를 SAP 데이터 원본에 통합하는 방법과 Azure Data Factory를 SAP BW에 통합하는 방법을 설명하는 문서를 찾을 수 있습니다.
 
 ## <a name="change-log"></a>로그 변경
+- 2021 년 11 월 30 일: [Windows DFS-N을 사용 하 여 추가 된 SMB 기반 파일 공유에 대 한 유연한 SAPMNT 공유 만들기를 지원 합니다](./high-availability-guide-windows-dfs.md) .
 - 2021 년 11 월 22 일: [SLES에서 AZURE FILES nfs를 사용 하 여 sap nw의 sap nw에 대 한 ha](./high-availability-guide-suse-nfs-azure-files.md) 를 변경 하 고, [RHEL에서 Azure Files nfs를 사용](./high-availability-guide-rhel-nfs-azure-files.md) 하 여에 대 한 ha를 사용 하 여 저장소 계정의 J2EE sap 시스템 및 공유 통합에 대 한 지침을 명확히    
 - 2021 년 11 월 16 일: sap ASCS/ERS에 대 한 고가용성 가이드의 릴리스는 nfs를 사용 하는 [Azure Files](./high-availability-guide-rhel-nfs-azure-files.md) [Azure Files SLES](./high-availability-guide-suse-nfs-azure-files.md) 의 sap nw에 대 한 고가용성 가이드를 제공 합니다. 
 - 2021 년 11 월 15 일: [SAP 응용 프로그램의 네트워크 대기 시간을 최적화 하기 위해 Azure 근접 배치 그룹](./sap-proximity-placement-scenarios.md) 에서 영역 배포에 대 한 새 근접 배치 아키텍처 도입

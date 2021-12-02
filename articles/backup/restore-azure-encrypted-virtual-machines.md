@@ -3,12 +3,12 @@ title: 암호화된 Azure VM 복원
 description: Azure Backup 서비스를 사용하여 암호화된 Azure VM을 복원하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 08/20/2021
-ms.openlocfilehash: 95d665fb2ae2e1dc0427090842cddbecfb3c3706
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
-ms.translationtype: HT
+ms.openlocfilehash: eb16549a88754c7015b54f016526c6b4ae1530ef
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187882"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438501"
 ---
 # <a name="restore-encrypted-azure-virtual-machines"></a>암호화된 Azure Virtual Machines 복원
 
@@ -62,7 +62,7 @@ ms.locfileid: "123187882"
 
 ## <a name="cross-region-restore-for-an-encrypted-azure-vm"></a>암호화된 Azure VM에 대한 교차 지역 복원
 
-Azure Backup은 [Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)으로 암호화된 Azure VM의 교차 지역 복원을 지원합니다. 암호화된 VM에 대해 [교차 지역 복원을 사용하도록 설정](backup-create-rs-vault.md#configure-cross-region-restore)하는 방법을 알아봅니다.
+Azure Backup은 [Azure 쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md)으로 암호화된 Azure VM의 교차 지역 복원을 지원합니다. 암호화된 VM에 대해 [교차 지역 복원을 사용하도록 설정](backup-create-rs-vault.md#configure-cross-region-restore)하는 방법을 알아봅니다.
 
 ## <a name="move-an-encrypted-azure-vm"></a>암호화된 Azure VM 이동
 

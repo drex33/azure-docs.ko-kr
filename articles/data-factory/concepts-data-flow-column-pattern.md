@@ -1,7 +1,7 @@
 ---
 title: 매핑 데이터 흐름의 열 패턴
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Azure Data Factory 또는 Synapse Analytics를 사용 하 여 데이터 흐름을 매핑하는 열 패턴을 사용 하 여 일반화 된 데이터 변환 패턴을 만듭니다.
+description: Azure Data Factory 또는 Synapse Analytics 데이터 흐름 매핑에서 열 패턴을 사용하여 일반화된 데이터 변환 패턴을 만듭니다.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 11/08/2021
-ms.openlocfilehash: 7b8343c06dd0815f8c0fb44fa00f85c2c0195b13
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.date: 11/23/2021
+ms.openlocfilehash: 55f4343f8c4671dd28973d52a10a36559a9200fc
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132058528"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436567"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>매핑 데이터 흐름의 열 패턴 사용
 
@@ -51,6 +51,12 @@ ms.locfileid: "132058528"
 
 :::image type="content" source="media/data-flow/patterns-hierarchy.png" alt-text="스크린샷은 계층적 열 패턴을 보여 줍니다.":::
 
+#### <a name="flattening-structures"></a>구조체 평면화
+
+데이터에 배열, 계층 구조 및 맵과 같은 복잡한 구조가 있는 경우 [평면화 변환을](data-flow-flatten.md) 사용하여 배열을 등록 취소하고 데이터를 비정형화할 수 있습니다. 구조체 및 맵의 경우 열 패턴이 있는 파생 열 변환을 사용하여 계층에서 평면화 관계형 테이블을 구성합니다. 이 샘플과 같은 열 패턴을 사용하여 지리 계층 구조를 관계형 테이블 형식으로 평면화할 수 있습니다.
+
+:::image type="content" source="media/data-flow/column-pattern-004.png" alt-text="스크린샷은 파생 열의 평면 구조를 보여줍니다.":::
+
 ## <a name="rule-based-mapping-in-select-and-sink"></a>선택 및 싱크의 규칙 기반 매핑
 
 원본에서 열을 매핑하고 변환을 선택하는 경우, 고정 매핑 또는 규칙 기반 매핑을 추가할 수 있습니다. 열들의 `name`, `type`, `stream`, `origin`, 및 `position`을 기준으로 일치 시킵니다. 고정 및 규칙 기반 매핑의 모든 조합을 사용할 수 있습니다. 기본값으로 50개 이상의 열을 포함하는 모든 프로젝션은 모든 열에서 일치하는 규칙 기반 매핑으로 기본설정되며, 입력 이름을 출력합니다. 
@@ -85,8 +91,8 @@ ms.locfileid: "132058528"
 
 ## <a name="pattern-matching-expression-values"></a>패턴 일치 식 값
 
-* `$$`은 런타임에 각 일치 항목의 이름이나 값으로 변환합니다. `$$`에 해당 하는 것으로 생각 합니다.`this`
-* `$0` 스칼라 형식에 대해 런타임에 현재 열 이름 일치 항목으로 변환 합니다. 계층 형식의 경우 `$0` 현재 일치 하는 열 계층 구조 경로를 나타냅니다.
+* `$$`은 런타임에 각 일치 항목의 이름이나 값으로 변환합니다. 다음과 `$$` 같다고 생각 `this`
+* `$0` 는 런타임에 스칼라 형식에 대한 현재 열 이름 일치로 변환됩니다. 계층적 형식의 경우 `$0` 는 현재 일치하는 열 계층 경로를 나타냅니다.
 * `name`은 들어오는 각 열의 이름을 나타냅니다.
 * `type`은 수신되는 각 열의 데이터 형식을 나타냅니다. 데이터 흐름 형식 시스템의 데이터 형식 목록은 [여기](concepts-data-flow-overview.md#data-flow-data-types)에서 찾을 수 있습니다.
 * `stream`은 각 스트림 또는 흐름의 변환과 관련된 이름을 나타냅니다.

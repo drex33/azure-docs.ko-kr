@@ -8,12 +8,12 @@ ms.author: aakande
 ms.service: cognitive-search
 ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: 9d664098cacdcd3ecc8b4c5bfd79b63a51a83ad5
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: 4372e2876a8ae4bac43cb0ba08638021e6d65fe1
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133271387"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436706"
 ---
 # <a name="entity-recognition-cognitive-skill-v3"></a>엔터티 인식 기술(V3)
 
@@ -35,7 +35,7 @@ Microsoft.Skills.Text.V3.EntityRecognitionSkill
 
 | 매개 변수 이름     | Description |
 |--------------------|-------------|
-| `categories`    | 추출되어야 하는 범주 배열입니다.  가능한 범주 형식: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"DateTime"`, `"URL"`, `"Email"`, `"PersonType"`, `"Event"`, `"Product"`, `"Skill"`, `"Address"`, `"Phone Number"`, `"IP Address"` 범주가 제공되지 않으면 모든 형식이 반환됩니다.|
+| `categories`    | 추출되어야 하는 범주 배열입니다.  가능한 범주 형식: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"DateTime"`, `"URL"`, `"Email"`, `"personType"`, `"Event"`, `"Product"`, `"Skill"`, `"Address"`, `"phoneNumber"`, `"ipAddress"` 범주가 제공되지 않으면 모든 형식이 반환됩니다.|
 | `defaultLanguageCode` |    입력 텍스트의 언어 코드입니다. 기본 언어 코드가 지정되지 않은 경우 영어(en)가 기본 언어 코드로 사용됩니다. <br/> [지원되는 언어 전체 목록](../cognitive-services/text-analytics/language-support.md)을 참조합니다. 모든 엔터티 범주가 모든 언어로 지원되는 것은 아닙니다. 아래를 참고하세요.|
 | `minimumPrecision` | 0과 1 사이의 값입니다. `namedEntities` 출력의 신뢰도 점수가 이 값보다 낮으면 엔터티가 반환되지 않습니다. 기본값은 0입니다. |
 | `modelVersion` | (선택 사항) Text Analytics 서비스를 호출할 때 사용할 모델의 버전입니다. 지정되지 않은 경우 기본적으로 사용 가능한 최신 버전을 지정합니다. 필요한 경우가 아니면 이 값을 지정하지 않는 것이 좋습니다. 자세한 내용은 [Text Analytics API의 모델 버전 관리](../cognitive-services/text-analytics/concepts/model-versioning.md)를 참조하세요.|

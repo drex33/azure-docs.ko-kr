@@ -13,18 +13,18 @@ ms.subservice: azure-video-analyzer-media
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: a7361f75a9327a6fbc88132e67e87f9be7ed5f84
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.openlocfilehash: e2aae925f6d9e4897f3ac6e7b5cdf64ce6f02030
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112118841"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435093"
 ---
 # <a name="video-analyzer-for-media-failover-and-disaster-recovery"></a>Video Analyzer for Media 장애 조치 및 재해 복구
 
 Azure Video Analyzer for Media(이전의 Video Indexer)는 지역 데이터 센터에 중단 또는 오류가 발생한 경우 서비스의 즉각적인 장애 조치를 제공하지 않습니다. 이 문서에서는 재해 발생 시 앱에 대한 최적의 가용성을 보장하고 복구 시간을 최소화하도록 장애 조치(failover) 환경을 구성하는 방법을 설명합니다.
 
-Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 BCDR(비즈니스 연속성 및 재해 복구)을 구성하는 것이 좋습니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)을 참조하세요.
+Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 BCDR(비즈니스 연속성 및 재해 복구)을 구성하는 것이 좋습니다. 자세한 내용은 [Azure 쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

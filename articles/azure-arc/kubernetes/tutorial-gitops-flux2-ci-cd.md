@@ -6,14 +6,14 @@ author: eedorenko
 ms.author: iefedore
 ms.service: azure-arc
 ms.topic: tutorial
-ms.date: 11/29/2021
+ms.date: 12/01/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: d09356db551affcc01104b427ee3d6f6dd70e82e
-ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
+ms.openlocfilehash: ebfd6e56ccad64b2ef6379b7922a0ae4b40cec2b
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133407910"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438202"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-flux-v2-using-azure-arc-enabled-kubernetes-clusters"></a>자습서: Azure Arc 지원 Kubernetes 클러스터를 사용하여 GitOps(Flux v2)로 CI/CD 구현
 
@@ -27,6 +27,11 @@ ms.locfileid: "133407910"
 > * 환경 변수 그룹 또는 비밀을 만듭니다.
 > * `dev` 및 `stage` 환경을 배포합니다.
 > * 애플리케이션 환경을 테스트합니다.
+
+Azure Arc 지원 Kubernetes의 일반 공급에는 Flux v1을 사용하는 GitOps가 포함됩니다. 여기에 설명된 Flux v2를 사용하는 GitOps의 공개 미리 보기는 Azure Arc 지원 Kubernetes 및 AKS 모두에서 사용할 수 있습니다. Flux v2는 앞으로 진행되며 Flux v1은 결국 사용되지 않습니다.
+
+> [!NOTE]
+> 현재 Flux v2 환경이 있는 GitOps를 Azure Portal 모든 사용자가 사용할 수 있도록 하고 있으므로 현재 Azure Portal 이러한 단계를 모두 완료하지 못할 수 있습니다. 모든 사용자가 기능을 사용할 수 있게 되면 이 메모를 제거합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -87,7 +92,7 @@ Pod마다 imagePullSecret을 설정하지 않으려면 `dev` 및 `stage` 네임�
 다음을 완료해야 합니다.
 
 * [Azure DevOps Services](https://dev.azure.com/)에 로그인합니다.
-* Azure Repos 및 Azure Pipelines 에 대한 "빌드 관리자" 및 ["Project](/azure/devops/repos/get-started/what-is-repos) 관리자" 권한이 있는지 [확인합니다.](/azure/devops/pipelines/get-started/pipelines-get-started)
+* Azure Repos 및 Azure Pipelines 대한 "빌드 관리자" 및 ["Project](/azure/devops/repos/get-started/what-is-repos) 관리자" [](/azure/devops/pipelines/get-started/pipelines-get-started)권한이 있는지 확인합니다.
 
 ### <a name="import-application-and-gitops-repositories-into-azure-repos"></a>애플리케이션 및 GitOps 리포지토리를 Azure Repos
 
@@ -170,10 +175,10 @@ CI 프로세스 중에 애플리케이션 컨테이너를 레지스트리에 배
 CD 파이프라인은 GitOps 리포지토리의 PR을 조작합니다. 이를 위해 서비스 연결이 필요합니다.
 
 1. Azure DevOps의 프로젝트 설정 페이지에서 **서비스 연결** 페이지를 엽니다. TFS의 상단 메뉴 모음에 있는 **설정** 아이콘에서 **서비스** 페이지를 엽니다.
-2. **+ 새 서비스 연결을** 선택하고 유형을 `Generic` 선택합니다.
+2. **+ 새 서비스 연결** 을 선택 하 고 유형을 선택 `Generic` 합니다.
 3. 서비스 연결에 대한 매개 변수를 입력합니다. 이 자습서의 경우:
    * 서버 URL `https://dev.azure.com/<Your organization>/<Your project>/_apis/git/repositories/arc-cicd-demo-gitops`
-   * 사용자 이름 및 암호를 비워 둡니다. 
+   * 사용자 이름 및 암호 비워 두기 
    * 서비스 연결의 이름을 **azdo로 연결** 합니다.    
 4. **모든 파이프라인에 액세스 권한 부여** 를 선택합니다. 
    * 이 옵션은 YAML 파이프라인 파일에 서비스 연결 권한을 부여합니다. 
@@ -317,7 +322,7 @@ GitOps 리포지토리의 템플릿과 매니페스트가 변경 되 면 CD 파�
 1. 모두 정상이면 PR을 승인하고 완료합니다.
 
 1. 몇 분 후 Flux가 변경 내용을 선택하고 배포를 시작합니다.
-1. 커밋 기록 탭에서 Git 커밋 상태를 모니터링 합니다. `succeeded` CD 파이프라인이 계속 되 면 자동화 된 테스트를 시작 합니다.
+1. 커밋 기록 탭에서 Git 커밋 상태를 모니터링합니다. CD 파이프라인이 완료되면 `succeeded` 계속 진행하여 자동화된 테스트를 시작합니다.
 1. `kubectl`을 사용하여 로컬로 포트를 전달하고 다음 명령을 사용하여 앱이 올바르게 작동하는지 확인합니다.
 
     ```console
@@ -507,21 +512,21 @@ EOF
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_FOLDER | `arc-cicd-cluster` |
 | MANIFESTS_REPO | https://github.com/your-organization/arc-cicd-demo-gitops |
-| VOTE_APP_TITLE | 투표 애플리케이션 |
-| AKS_RESOURCE_GROUP | AKS 리소스 그룹. 자동화된 테스트에 필요합니다. |
-| AKS_NAME | AKS 이름입니다. 자동화된 테스트에 필요합니다. |
-| PAT | GitOps 리포지토리에 PR 권한이 있는 PAT 토큰 GitHub |
+| VOTE_APP_TITLE | 투표 응용 프로그램 |
+| AKS_RESOURCE_GROUP | AKS 리소스 그룹입니다. 자동화 된 테스트에 필요 합니다. |
+| AKS_NAME | AKS 이름입니다. 자동화 된 테스트에 필요 합니다. |
+| PAT | gitops 리포지토리에 PR 할 수 있는 권한을 가진 GitHub PAT 토큰 |
 
 #### <a name="create-github-environment-secrets"></a>GitHub 환경 비밀 만들기
 
-1. `az-vote-app-dev`다음 비밀을 사용하여 환경을 만듭니다.
+1. `az-vote-app-dev`다음 암호를 사용 하 여 환경을 만듭니다.
 
 | 비밀 | 값 |
 | -------- | ----- |
 | ENVIRONMENT_NAME | 개발 |
 | TARGET_NAMESPACE | `dev` |
 
-2. `az-vote-app-stage`다음 비밀을 사용하여 환경을 만듭니다.
+2. `az-vote-app-stage`다음 암호를 사용 하 여 환경을 만듭니다.
 
 | 비밀 | 값 |
 | -------- | ----- |
@@ -530,27 +535,27 @@ EOF
 
 이제 `dev` 및 `stage` 환경에 배포할 준비가 되었습니다.
 
-#### <a name="cicd-dev-workflow"></a>CI/CD 개발 워크플로
+#### <a name="cicd-dev-workflow"></a>CI/CD 개발자 워크플로
 
-CI/CD 개발 워크플로를 시작하려면 소스 코드를 변경합니다. 애플리케이션 리포지토리에서 파일의 값을 `.azure-vote/src/azure-vote-front/config_file.cfg` 업데이트하고 변경 내용을 리포지토리에 푸시합니다.
+CI/CD Dev 워크플로를 시작 하려면 소스 코드를 변경 합니다. 응용 프로그램 리포지토리에서 파일의 값을 업데이트 `.azure-vote/src/azure-vote-front/config_file.cfg` 하 고 변경 내용을 리포지토리에 푸시합니다.
 
-CI/CD 개발 워크플로:
+CI/CD Dev 워크플로:
 * 애플리케이션 변경 내용이 배포에 대한 모든 자동 품질 검사를 통과하는지 확인합니다.
 * PR 파이프라인에서 완료할 수 없는 추가 유효성 검사를 수행합니다.
 * Docker 이미지가 변경되었고 새 이미지가 푸시되었는지 확인합니다.
-* 다음 CD 단계에서 사용할 아티팩트(Docker 이미지 태그, 매니페스트 템플릿, Utils)를 게시합니다.
-* 애플리케이션을 개발 환경에 배포합니다.
-   * GitOps 리포지토리에 매니페스트 생성
+* 다음 CD 스테이지에서 사용할 아티팩트 (Docker 이미지 태그, 매니페스트 템플릿, 유틸리티)를 게시 합니다.
+* 개발 환경에 응용 프로그램을 배포 합니다.
+   * GitOps 리포지토리에 매니페스트를 생성 합니다.
    * 승인을 위해 GitOps 리포지토리에 PR을 만듭니다.
 
 1. 파이프라인에서 만든 PR을 GitOps 리포지토리에 찾습니다.
-1. GitOps 리포지토리에 대한 변경 내용을 확인합니다. 다음과 같은 결과가 표시됩니다.
+1. GitOps 리포지토리에 대 한 변경 내용을 확인 합니다. 다음과 같은 결과가 표시됩니다.
    * 대략적인 Helm 템플릿 변경 내용
    * 원하는 상태의 기본적인 변화를 보여주는 하위 수준 Kubernetes 매니페스트. Flux가 이러한 매니페스트를 배포합니다.
 1. 모두 정상이면 PR을 승인하고 완료합니다.
  
 1. 몇 분 후 Flux가 변경 내용을 선택하고 배포를 시작합니다.
-1. 커밋 기록 탭에서 Git 커밋 상태를 모니터링합니다. 워크플로가 `succeeded` `CD Stage` 시작되면
+1. 커밋 기록 탭에서 Git 커밋 상태를 모니터링 합니다. `succeeded`워크플로가 시작 되 면 `CD Stage`
 1. `kubectl`을 사용하여 로컬로 포트를 전달하고 다음 명령을 사용하여 앱이 올바르게 작동하는지 확인합니다.
     ```console
    kubectl port-forward -n dev svc/azure-vote-front 8080:80
@@ -560,19 +565,19 @@ CI/CD 개발 워크플로:
 
 1. 마음에 드는 항목에 투표하고 앱을 변경할 준비를 합니다.
 
-#### <a name="cd-stage-workflow"></a>CD 단계 워크플로
+#### <a name="cd-stage-workflow"></a>CD 스테이지 워크플로
 
-Flux가 애플리케이션을 개발 환경에 성공적으로 배포하고 GitOps 커넥터를 통해 GitHub 작업을 알리면 CD 단계 워크플로가 자동으로 시작됩니다.
+flux가 개발 환경에 응용 프로그램을 성공적으로 배포 하 고 gitops 커넥터를 통해 GitHub 작업에 알리는 경우 CD 스테이지 워크플로는 자동으로 시작 됩니다.
 
-CD 단계 워크플로:
-* 개발 환경에 대해 애플리케이션 스모크 테스트 실행
-* 스테이지 환경에 애플리케이션을 배포합니다.
-   * GitOps 리포지토리에 매니페스트 생성
+CD 스테이지 워크플로:
+* 개발 환경에 대해 응용 프로그램 스모크 테스트를 실행 합니다.
+* 응용 프로그램을 스테이징 환경에 배포 합니다.
+   * GitOps 리포지토리에 매니페스트를 생성 합니다.
    * 승인을 위해 GitOps 리포지토리에 PR을 만듭니다.
 
-스테이지 환경에 대한 매니페스트 PR이 병합되고 Flux가 모든 변경 내용을 성공적으로 적용하면 GitOps 리포지토리에서 Git 커밋 상태가 업데이트됩니다.
+스테이지 환경의 매니페스트 PR이 병합 되 고 Flux가 모든 변경 내용을 성공적으로 적용 한 후 GitOps 리포지토리에서 Git 커밋 상태를 업데이트 합니다.
 
-이제 배포가 완료되었습니다. 이것으로 CI/CD 워크플로가 끝났습니다. 이 자습서에서 사용되는 CI/CD 워크플로에서 구현된 단계 및 기술에 대해 자세히 설명하는 애플리케이션 리포지토리의 [GitHub GitOps Flow 다이어그램을](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/docs/azdo-gitops-githubfluxv2.md) 참조하세요. 
+이제 배포가 완료되었습니다. 이것으로 CI/CD 워크플로가 끝났습니다. 이 자습서에서 사용 되는 CI/CD 워크플로에 구현 된 단계 및 기술에 대해 자세히 설명 하는 응용 프로그램 리포지토리의 [GitHub gitops Flow 다이어그램](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/docs/azdo-gitops-githubfluxv2.md) 을 참조 하세요. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -602,4 +607,4 @@ CD 단계 워크플로:
 개념 문서를 계속 진행하여 GitOps 및 Azure Arc 지원 Kubernetes를 사용한 구성에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [GitOps를 사용하는 개념 CI/CD 워크플로](./conceptual-gitops-flux2-ci-cd.md)
+> [GitOps를 사용 하 여 개념적 CI/CD 워크플로](./conceptual-gitops-flux2-ci-cd.md)

@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
 ms.custom: references_region
-ms.openlocfilehash: 7dca96e05860bb399435ac95ed81107c268ebc5c
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
-ms.translationtype: HT
+ms.openlocfilehash: 82f573b18ed8151d594fe16db7a8d45923136fb4
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662230"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440052"
 ---
 # <a name="data-collection-rules-in-azure-monitor"></a>Azure Monitor의 데이터 수집 규칙
 DCR(데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정의하고 데이터를 보내거나 저장할 위치를 지정합니다. 이 문서에서는 콘텐츠 및 구조체를 포함한 데이터 수집 규칙의 개요와 이를 만들고 사용하는 방법을 설명합니다.
@@ -54,7 +54,7 @@ DCR(데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정�
 각 데이터 수집 규칙에 적용되는 제한에 대해서는 [Azure Monitor 서비스 제한](../service-limits.md#data-collection-rules)을 참조하세요.
 
 ## <a name="data-resiliency-and-high-availability"></a>데이터 복원력 및 고가용성
-서비스의 데이터 수집 규칙은 분산되어 배포됩니다. 사용자가 지정하는 지역에 규칙이 생성되어 저장되고 동일한 지역 내에서 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md#azure-regional-pairs)에 백업됩니다.  
+서비스의 데이터 수집 규칙은 분산되어 배포됩니다. 사용자가 지정하는 지역에 규칙이 생성되어 저장되고 동일한 지역 내에서 [쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies)에 백업됩니다.  
 추가로 서비스는 지역 내 3개의 [가용성 영역](../../availability-zones/az-overview.md#availability-zones) 모두에 배포되어 고가용성을 추가로 더하는 **영역 중복 서비스** 가 됩니다.
 
 

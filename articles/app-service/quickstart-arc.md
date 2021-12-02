@@ -4,12 +4,12 @@ description: Azure Arc의 App Service를 사용하여 첫 번째 웹 앱을 배�
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: mode-other
-ms.openlocfilehash: ed7b240ca0163637ec7876a7d01f81a1c4b2433a
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: 4e78cce0f8149cb38d803470ea4629338a568d03
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133065302"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440432"
 ---
 # <a name="create-an-app-service-app-on-azure-arc-preview"></a>Azure Arc의 App Service 앱 만들기(미리 보기)
 
@@ -83,7 +83,7 @@ Kubernetes 클러스터에서 호스트되는 모든 앱에 대한 애플리케�
 
 ## <a name="optional-deploy-a-custom-container"></a>(선택 사항) 사용자 지정 컨테이너 배포
 
-사용자 지정 컨테이너 앱을 만들려면 `--deployment-container-image-name`을 이용해 [az webapp create](/cli/azure/webapp#az_webapp_create)를 실행합니다. 프라이빗 리포지토리의 경우 `--docker-registry-server-user`와 `--docker-registry-server-password`를 추가합니다.
+사용자 지정 컨테이너화된 앱을 만들려면 를 사용하여 [az webapp create를](/cli/azure/webapp#az_webapp_create) 실행합니다. `--deployment-container-image-name` 프라이빗 리포지토리의 경우 `--docker-registry-server-user`와 `--docker-registry-server-password`를 추가합니다.
 
 예를 들어 다음을 시도해 보세요.
 

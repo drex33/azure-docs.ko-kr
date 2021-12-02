@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 07/06/2021
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 64a8259f859bb53be6464a9f522c4dcb5491ba21
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 4a983ceea2f914fe9c945ab4a6205b7cc1e7b7f4
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132279332"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434504"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -19,7 +19,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 이 문서에서는 진단 로그 작업에 [Azure Portal](https://portal.azure.com)과 Azure CLI를 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](troubleshoot-dotnet-visual-studio.md)을 참조하세요.
 
 > [!NOTE]
-> 이 문서의 로깅 지침 외에도 Azure Monitoring을 사용하는 새로운 통합 로깅 기능이 있습니다. 이 기능에 대한 자세한 내용은 Azure Monitor 로그 보내기 섹션에서 확인할 [수 있습니다.](#send-logs-to-azure-monitor) 
+> 이 문서의 로깅 지침 외에도 Azure Monitoring을 사용하는 새로운 통합 로깅 기능이 있습니다. 이 기능에 대 한 자세한 내용은 [Azure Monitor에 로그 보내기](#send-logs-to-azure-monitor) 섹션에서 확인할 수 있습니다. 
 >
 >
 
@@ -71,12 +71,12 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 작업을 마쳤으면 **저장** 을 선택합니다.
 
 > [!NOTE]
-> Blob에 로그를 작성하는 경우 앱을 삭제하지만 Blob에 로그를 유지하면 보존 정책이 더 이상 적용되지 않습니다. 자세한 내용은 [리소스 삭제 후 발생할 수 있는 비용을 참조하세요.](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion)
+> Blob에 로그를 작성 하는 경우 앱을 삭제 하 고 blob에 로그를 유지 하는 경우 보존 정책이 더 이상 적용 되지 않습니다. 자세한 내용은 [리소스 삭제 후 발생할 수 있는 비용](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion)을 참조 하세요.
 >
 
 ## <a name="enable-application-logging-linuxcontainer"></a>애플리케이션 로깅 사용(Linux/컨테이너)
 
-[Azure Portal](https://portal.azure.com)에서 Linux 앱 또는 사용자 지정 컨테이너 앱에 대한 애플리케이션 로깅을 사용하도록 설정하려면 앱으로 이동하여 **App Service 로그** 를 선택합니다.
+[Azure Portal](https://portal.azure.com)에서 Linux 앱 또는 사용자 지정 컨테이너에 대 한 응용 프로그램 로깅을 사용 하도록 설정 하려면 앱으로 이동 하 여 **App Service 로그** 를 선택 합니다.
 
 **애플리케이션 로깅** 에서 **파일 시스템** 을 선택합니다.
 
@@ -103,7 +103,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 작업을 마쳤으면 **저장** 을 선택합니다.
 
 > [!NOTE]
-> Blob에 로그를 작성하는 경우 앱을 삭제하지만 Blob에 로그를 유지하면 보존 정책이 더 이상 적용되지 않습니다. 자세한 내용은 [리소스 삭제 후 발생할 수 있는 비용을 참조하세요.](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion)
+> Blob에 로그를 작성 하는 경우 앱을 삭제 하 고 blob에 로그를 유지 하는 경우 보존 정책이 더 이상 적용 되지 않습니다. 자세한 내용은 [리소스 삭제 후 발생할 수 있는 비용](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion)을 참조 하세요.
 >
 
 ## <a name="log-detailed-errors"></a>자세한 오류 로그
@@ -167,10 +167,10 @@ az webapp log tail --name appname --resource-group myResourceGroup --provider ht
 
 App Service 파일 시스템에 저장된 로그의 경우 브라우저에서 ZIP 파일을 다운로드하는 가장 쉬운 방법은 다음과 같습니다.
 
-- Linux/컨테이너 앱: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Linux/사용자 지정 컨테이너: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
 - Windows 앱: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
-Linux/컨테이너 앱의 경우 ZIP 파일에는 Docker 호스트와 Docker 컨테이너 양쪽의 콘솔 출력 로그가 포함되어 있습니다. 스케일 아웃된 앱의 경우 ZIP 파일에는 각 인스턴스에 대한 로그 집합이 하나 포함됩니다. App Service 파일 시스템에서 해당 로그 파일은 */home/LogFiles* 디렉터리의 콘텐츠입니다.
+Linux/사용자 지정 컨테이너의 경우 ZIP 파일에는 docker 호스트와 docker 컨테이너 모두에 대한 콘솔 출력 로그가 포함됩니다. 스케일 아웃된 앱의 경우 ZIP 파일에는 각 인스턴스에 대한 로그 집합이 하나 포함됩니다. App Service 파일 시스템에서 해당 로그 파일은 */home/LogFiles* 디렉터리의 콘텐츠입니다.
 
 Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\LogFiles* 디렉터리의 콘텐츠가 포함되어 있습니다. 구조는 다음과 같습니다.
 
@@ -203,13 +203,13 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 | AppServiceAppLogs | ASP.NET & Tomcat <sup>1</sup> | ASP.NET & Tomcat <sup>1</sup> | Java SE & Tomcat Blessed Images<sup>2</sup> | Java SE & Tomcat Blessed Images<sup>2</sup> | 애플리케이션 로그 전송 사용 |
 | AppServiceIPSecAuditLogs  | 예 | 예 | 예 | 예 | IP 규칙에서 보낸 요청 |
 | AppServicePlatformLogs  | TBA | 예 | 예 | 예 | 컨테이너 작업 로그 |
-| AppServiceAntivirusScanAuditLogs <sup>3</sup> | 예 | 예 | 예 | 예 | Microsoft Defender for Cloud를 사용하여 [로그를 검사하는 바이러스 백신;](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) **Premium 계층에만 사용 가능** | 
+| AppServiceAntivirusScanAuditLogs <sup>3</sup> | 예 | 예 | 예 | 예 | 클라우드 용 Microsoft Defender를 사용 하 여 [바이러스 백신 검사 로그](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) **Premium 계층에만 사용할 수 있습니다** . | 
 
 <sup>1</sup> Tomcat 앱의 경우 앱 설정에 `TOMCAT_USE_STARTUP_BAT`를 추가하고 `false` 또는 `0`으로 설정합니다. *최신* Tomcat 버전에 있어야 하며 *java.util.logging* 을 사용해야 합니다.
 
 <sup>2</sup> Java SE 앱의 경우 앱 설정에 `WEBSITE_AZMON_PREVIEW_ENABLED`를 추가하고 `true` 또는 `1`로 설정합니다.
 
-<sup>3</sup> AppServiceAntivirusScanAuditLogs 로그 형식은 현재 미리 보기로 제공됩니다.
+<sup>3</sup> AppServiceAntivirusScanAuditLogs 로그 유형은 현재 미리 보기 상태입니다.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> 다음 단계
 * [Azure Monitor를 사용하여 로그 쿼리](../azure-monitor/logs/log-query-overview.md)

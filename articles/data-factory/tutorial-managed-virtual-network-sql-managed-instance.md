@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: cb4d07c28e14ab18500218e3b3942eb768db1755
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7e566b708b3694421dd5720ae0f3011f56a65c04
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632446"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438950"
 ---
 # <a name="tutorial-how-to-access-sql-managed-instance-from-data-factory-managed-vnet-using-private-endpoint"></a>자습서: 프라이빗 엔드포인트를 사용하여 Data Factory 관리형 VNET에서 Microsoft Azure SQL Managed Instance에 액세스하는 방법
 
@@ -43,8 +43,9 @@ ms.locfileid: "128632446"
 
 포털을 사용하여 표준 내부 부하 분산 장치를 만듭니다.
 
-1. 화면 왼쪽 상단에서 **리소스 만들기 > 네트워킹 > Load Balancer** 를 선택합니다.
-2. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다.
+1. 포털 맨 위에 있는 검색 표시줄에서 검색 창의 **서비스** 섹션에서 **부하 분산 장치** 를 검색 하 고 선택 합니다.
+2. **부하 분산** 서비스 페이지에서 **만들기** 를 선택 하 여 새 부하 분산 장치를 만듭니다.
+3. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력 하거나 선택 합니다.
 
     | 설정 | 값 |
     |:--- |:--- |
@@ -52,18 +53,22 @@ ms.locfileid: "128632446"
     |Resource group|리소스 그룹을 선택합니다.|
     |속성|**myLoadBalancer** 를 입력합니다.|
     |지역|**미국 동부** 를 선택합니다.|
-    |Type|**내부** 를 선택합니다.|
     |SKU|**표준** 을 선택합니다.|
+    |Type|**내부** 를 선택합니다.|
+
+4. **부하 분산 장치 만들기** 페이지의 **프런트 엔드 ip 구성** 탭에서 **프런트 엔드 ip 구성 추가** 를 선택 하 고,를 입력 하거나, **프런트 엔드 ip 주소 추가** 구성 창에서 다음 세부 정보를 선택 합니다.
+
+    | 설정 | 값 |
+    |:--- |:--- |
+    |프런트 엔드 IP 이름|프런트 엔드 IP의 이름을 입력 합니다.|
     |가상 네트워크|가상 네트워크를 선택합니다.|
     |서브넷|이전 단계에서 만든 **fe-subnet** 을 선택합니다.|
     |IP 주소 할당|**동적** 을 선택합니다.|
     |가용성 영역|**영역 중복** 을 선택합니다.|
 
-3. 나머지 설정에는 기본값을 적용한 다음, **검토 + 만들기** 를 선택합니다.
-4. **검토 + 만들기** 탭에서 **만들기** 를 선택합니다.
+5. 나머지 설정에는 기본값을 적용한 다음, **검토 + 만들기** 를 선택합니다.
+6. **검토 + 만들기** 탭에서 **만들기** 를 선택합니다.
     
-    :::image type="content" source="./media/tutorial-managed-virtual-network/create-load-balancer.png" alt-text="표준 부하 분산 장치를 만드는 단계를 보여 주는 스크린샷.":::
-
 ## <a name="create-load-balancer-resources"></a>부하 분산 장치 리소스 만들기
 
 ### <a name="create-a-backend-pool"></a>백 엔드 풀 만들기

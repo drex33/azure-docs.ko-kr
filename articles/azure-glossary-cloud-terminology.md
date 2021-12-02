@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2021
 ms.author: monicar
-ms.openlocfilehash: 223e75d0a02997187eec609324014493e2fa34df
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 50ab2dd4c9f5831ab4e72d773697e28a5edc62a6
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660992"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133439606"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -28,7 +28,7 @@ Microsoft Azure 용어집은 Azure 플랫폼용 클라우드 용어의 간단한
 
 * [Microsoft Azure 및 Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Azure 서비스 및 해당 AWS 서비스 정의<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [클라우드 컴퓨팅 용어](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - 업계의 일반적인 클라우드 용어
-* [Azure 기본 개념](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) - Azure용 Microsoft 클라우드 채택 프레임워크.
+* Azure [기본 개념](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) -azure에 대 한 Microsoft 클라우드 채택 프레임 워크입니다.
 
 ## <a name="account"></a>account
 Azure 구독에 액세스하고 구독을 관리하는 데 사용되는 계정입니다. Azure 계정이라 불리지만, 계정은 기존 회사, 학교나 개인 Microsoft 계정 중 하나일 수 있습니다. [평가판](https://azure.microsoft.com)에 등록할 때 Azure 구독을 관리하기 위해 계정을 만들 수도 있습니다.  
@@ -63,7 +63,7 @@ Microsoft Azure의 리소스를 배포하는 데 사용하는 두 [배포 모델
 
 ## <a name="geo"></a>지역
 일반적으로 두 개 이상의 영역을 포함하는 데이터 상주에 대해 정의된 경계입니다. 경계는 국경 내에 있거나 초과될 수 있으며 세금 규정의 영향을 받습니다. 모든 지역에는 하나 이상의 하위 지역이 있습니다. 지역의 예로 아시아 태평양 및 일본이 있습니다. *지리* 라고도 합니다.  
-[Azure 지역](best-practices-availability-paired-regions.md)을 참조하세요.
+[Azure 지역](./availability-zones/cross-region-replication-azure.md)을 참조하세요.
 
 ## <a name="geo-replication"></a>지역에서 복제
 지역 쌍 내의 Blob, 테이블 및 큐와 같은 콘텐츠를 자동으로 복제하는 프로세스입니다.  
@@ -93,7 +93,7 @@ Azure 서비스를 배포하고 관리하는 데 사용하는 보안 웹 포털�
 
 ## <a name="region"></a>region
 국경을 넘지 않으면서 하나 이상의 데이터 센터를 포함하는 지역 내의 영역입니다. 가격 책정, 지역 서비스 및 제공 사항 유형은 지역 수준에서 노출됩니다. 지역은 일반적으로 최대 수백 킬로미터까지도 떨어질 수 있는 다른 지역과 쌍으로 연결되어 있습니다. 지역 쌍은 재해 복구 및 고가용성 시나리오에 대한 메커니즘으로 사용할 수 있습니다. *위치* 라고도 합니다.  
-[Azure 지역](best-practices-availability-paired-regions.md)을 참조하세요.
+[Azure 지역](./availability-zones/cross-region-replication-azure.md)을 참조하세요.
 
 ## <a name="resource"></a>resource
 Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 데이터베이스 또는 가상 머신과 같은 다양한 유형의 리소스를 배포할 수 있습니다.   

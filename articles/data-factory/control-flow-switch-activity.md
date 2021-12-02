@@ -9,12 +9,12 @@ ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 06/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19dd17afc7114d739e1faa043a40962ce601d253
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f56e12ff26d1ad4354535728700709791f2d1296
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122642555"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133439195"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory의 Switch 작업
 
@@ -22,8 +22,19 @@ ms.locfileid: "122642555"
 
 Switch 작업은 switch 문이 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건 평가와 일치하는 사례에 해당하는 작업 세트를 평가합니다.
 
+## <a name="create-a-switch-activity-with-ui"></a>UI를 사용 하 여 Switch 활동 만들기
 
-## <a name="syntax"></a>구문
+파이프라인에서 Switch 활동을 사용 하려면 다음 단계를 완료 합니다.
+1. 파이프라인 활동 창에서 _스위치_ 를 검색 하 고 파이프라인 캔버스에 전환 활동을 추가 합니다.
+1. 아직 선택 하지 않은 경우 캔버스에서 전환 작업을 선택 하 고 해당  **작업** 탭에서 세부 정보를 편집 합니다.
+1. 평가할 스위치에 대 한 식을 입력 합니다.  이는 동적 [식, 함수](control-flow-expression-language-functions.md), [시스템 변수](control-flow-system-variables.md)또는 [다른 작업의 출력](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions)을 조합 하 여 사용할 수 있습니다.
+1. 사례 **추가** 를 선택 하 여 사례를 추가 합니다.  대/소문자가 일치 하지 않으면 기본 case 작업이 사용 됩니다.
+1. 새 사례에 대 한 값을 입력 합니다.
+1. 식의 결과가 일치 하는 경우에 실행할 활동을 추가 하려면 편집 단추를 선택 합니다.
+
+:::image type="content" source="media/control-flow-switch-activity/switch-activity-ui.png" alt-text="각 단계를 구성 하는 번호가 매겨진 전환 작업에 대 한 UI를 표시 합니다.":::
+
+## <a name="json-syntax"></a>JSON 구문
 
 ```json
 
@@ -72,8 +83,8 @@ Switch 작업은 switch 문이 프로그래밍 언어로 제공하는 것과 동
 -------- | ----------- | -------------- | --------
 name | 전환 작업의 이름입니다. | String | 예
 type | ‘Switch’로 설정해야 함* | String | 예
-식 | 문자열 값으로 평가되어야 하는 식 | 결과 형식 문자열이 포함된 식 | Yes
-cases | 값이 식 평가에 일치할 때 실행할 작업 집합 및 값을 포함하는 사례 집합입니다. 하나 이상의 사례를 제공해야 합니다. 최대 사례 수 제한은 25개입니다. | 사례 개체의 배열 | Yes
+식 | 문자열 값으로 평가되어야 하는 식 | 결과 형식 문자열이 포함된 식 | 예
+cases | 값이 식 평가에 일치할 때 실행할 작업 집합 및 값을 포함하는 사례 집합입니다. 하나 이상의 사례를 제공해야 합니다. 최대 사례 수 제한은 25개입니다. | 사례 개체의 배열 | 예
 defaultActivities | 식 평가가 만족되지 않을 때 실행되는 작업 집합입니다. | 작업의 배열 | 예
 
 ## <a name="example"></a>예제

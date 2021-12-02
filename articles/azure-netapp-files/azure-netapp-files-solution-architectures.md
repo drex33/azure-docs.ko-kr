@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/4/2021
 ms.author: b-juche
-ms.openlocfilehash: a69dd2528b4804e434cf6652d1ce2b03357025ee
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 09b6a7a1326730b4ea7a250506115cd3b9368514
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131848613"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133439625"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해하는 데 도움이 되는 모범 사례 참조를 제공합니다.  
@@ -102,7 +102,7 @@ ms.locfileid: "131848613"
 * [Red Hat Enterprise Linux에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)
 * [RHEL에서 HSR 및 Pacemaker를 사용하여 SAP HANA 스케일 아웃 - Azure Virtual Machines](../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md)
 * [Azure Application Consistent Snapshot Tool(AzAcSnap)](azacsnap-introduction.md)
-* [Azure NetApp Files 재해 복구 SAP HANA](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
+* [Azure NetApp Files SAP HANA 재해 복구](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
 
 ### <a name="sap-anydb"></a>SAP AnyDB
 
@@ -177,10 +177,6 @@ ms.locfileid: "131848613"
 * [Azure NetApp Files: Microsoft Azure의 SAS 그리드에 사용하는 공유 파일 시스템](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
 * [Azure NetApp Files: MS Azure의 SAS 그리드에 사용하는 공유 파일 시스템 - RHEL8.3/nconnect 업데이트](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
 * [SAS®에서의 Microsoft Azure 사용에 대한 모범 사례](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
-
-### <a name="healthcare"></a>의료
-
-* [Azure NetApp Files를 사용 하는 Microsoft Azure의 대규모 EHR](https://www.netapp.com/pdf.html?item=/media/62375-tr-4909.pdf)
 
 ## <a name="azure-platform-services-solutions"></a>Azure 플랫폼 서비스 솔루션
 

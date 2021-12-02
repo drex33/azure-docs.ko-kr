@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 8b09c744cb531dd8834f68a1d8fcdacfa48c2504
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7e304bc662b87ff5b211db464f9b04cc28f10a96
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130287492"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133444833"
 ---
 > [!div class="op_single_selector"]
 > * [Azure Portal](../articles/virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md)
@@ -27,6 +27,9 @@ Azure VM(Virtual Machine)에는 하나 이상의 네트워크 인터페이스(NI
 * 방화벽 또는 부하 분산 장치와 같은 네트워크 가상 어플라이언스로 사용됩니다.
 * NIC의 개인 IP 주소를 Azure Load Balancer 백 엔드 풀에 추가할 수 있습니다. 이전에 기본 NIC의 기본 IP 주소만 백 엔드 풀에 추가할 수 있었습니다. 여러 IP 구성의 부하를 분산하는 방법에 대해 자세히 알아보려면 [여러 IP 구성의 부하 분산](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 문서를 참조하세요.
 
-VM에 연결된 모든 NIC에는 하나 이상의 IP 구성이 연결되어 있습니다. 각 구성에는 하나의 정적 또는 동적 개인 IP 주소가 할당됩니다. 각 구성에는 하나의 공용 IP 주소 리소스가 연결되어 있을 수도 있습니다. 공용 IP 주소 리소스에는 동적 또는 정적 공용 IP 주소가 할당되어 있습니다. Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [Azure의 IP 주소](../articles/virtual-network/ip-services/public-ip-addresses.md)를 확인하세요. 
+VM에 연결된 모든 NIC에는 하나 이상의 IP 구성이 연결되어 있습니다. 각 구성에는 하나의 정적 또는 동적 개인 IP 주소가 할당됩니다. 각 구성에는 하나의 공용 IP 주소 리소스가 연결되어 있을 수도 있습니다. 공용 IP 주소 리소스에는 동적 또는 정적 공용 IP 주소가 할당되어 있습니다. Azure의 IP 주소에 대한 자세한 내용을 알아보려면 [Azure의 IP 주소](../articles/virtual-network/ip-services/public-ip-addresses.md)를 확인하세요.
+
+> [!NOTE]
+> 단일 NIC의 모든 IP 구성은 동일한 서브넷에 연결되어야 합니다.  다른 서브넷의 여러 IP를 원하는 경우 VM에서 여러 NIC를 사용할 수 있습니다.  Azure에서 VM의 여러 NIC에 대한 자세한 내용은 [여러 NIC를](../articles/virtual-machines/windows/multiple-nics.md) 사용하여 VM 만들기 문서를 읽어보세요.
 
 NIC에 할당할 수 있는 개인 IP 주소의 수를 제한합니다. Azure 구독에서 사용할 수 있는 공용 IP 주소의 수도 제한되어 있습니다. 자세한 내용은 [Azure 제한](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) 문서를 참조하세요.

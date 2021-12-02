@@ -8,12 +8,12 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 11/15/2021
 ms.author: edcohen
-ms.openlocfilehash: bde192723a102299ec9505c5cfdb5242c40d641f
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: bfc7e926db1cd6b6776a25f5bc19848a08dc6a4f
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132942642"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437981"
 ---
 # <a name="about-azure-dcasv5ecasv5-series-confidential-virtual-machines-preview"></a>Azure DCasv5/ECasv5 시리즈 기밀 가상 머신 정보(미리 보기)
 
@@ -40,7 +40,7 @@ Azure 기밀 컴퓨팅은 [SEV-SNP 기술이 적용된 AMD 프로세서](virtual
 
 ## <a name="full-disk-encryption"></a>전체 디스크 암호화
 
-기밀 VM은 향상된 새 디스크 암호화 체계를 제공합니다. 이 선택적 체계는 `root` 및 `boot` 등, 중요한 디스크 파티션을 보호합니다. 이 체계는 디스크 암호화 키를 가상 머신의 TPM에 바인딩하고, 보호되는 디스크 콘텐츠를 VM에서만 액세스할 수 있도록 합니다. 이러한 암호화 키는 하이퍼바이저 및 호스트 운영 체제를 포함하여 Azure 구성 요소를 안전하게 무시할 수 있습니다. 공격 가능성을 최소화하기 위해 전용 및 별도의 클라우드 서비스는 VM을 처음 만들 때도 디스크를 암호화합니다.
+기밀 VM은 향상된 새 디스크 암호화 체계를 제공합니다. 이 체계는 디스크의 모든 중요 한 파티션을 보호 합니다. 또한 디스크 암호화 키를 가상 컴퓨터의 TPM에 바인딩하고 보호 된 디스크 콘텐츠를 VM에만 액세스할 수 있도록 합니다. 이러한 암호화 키는 하이퍼바이저 및 호스트 운영 체제를 포함하여 Azure 구성 요소를 안전하게 무시할 수 있습니다. 공격 가능성을 최소화하기 위해 전용 및 별도의 클라우드 서비스는 VM을 처음 만들 때도 디스크를 암호화합니다.
 
 컴퓨팅 플랫폼에서 VM의 격리를 위한 중요 설정이 누락된 경우, 부팅 중에 [Azure Attestation](https://azure.microsoft.com/services/azure-attestation/)이 플랫폼의 상태를 증명하지 않습니다. 이렇게 하면 VM이 시작되지 않습니다. 예를 들어 SEV-SNP를 사용하지 않도록 설정한 경우 이 시나리오가 발생합니다. 
 
@@ -57,7 +57,7 @@ Azure 기밀 컴퓨팅은 [SEV-SNP 기술이 적용된 AMD 프로세서](virtual
 
 2022년부터 암호화된 OS 디스크의 비용이 더 높아질 수 있습니다. 암호화된 OS 디스크에서 더 많은 공간을 사용하고, 압축이 불가능하기 때문입니다. 자세한 정보는 [관리 디스크 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요.
 
-## <a name="attestation"></a>증명
+## <a name="attestation-and-tpm"></a>증명 및 TPM
 
 기밀 VM은 플랫폼의 중요한 구성 요소 및 보안 설정에 대한 증명에 성공한 후에만 부팅됩니다. 증명 보고서에는 다음이 포함됩니다.
 
@@ -66,7 +66,7 @@ Azure 기밀 컴퓨팅은 [SEV-SNP 기술이 적용된 AMD 프로세서](virtual
 - 플랫폼 펌웨어 측정
 - OS 측정
 
-기밀 VM은 Azure VM용 vTPM(가상 TPM) 기능입니다. vTPM은 하드웨어 TPM의 가상화된 버전으로, TPM2.0 사양을 준수합니다. vTPM을 키 및 측정을 위한 전용 보안 자격 증명 모음으로 사용할 수 있습니다. 기밀 VM에는 VM의 범위 밖에 있는 보안 환경에서 실행되는 자체 전용 vTPM 인스턴스가 있습니다. vTPM은 UEFI, OS, 시스템 및 드라이버를 포함한 VM의 전체 부팅 체인을 측정하여 [증명](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation)을 사용합니다. 
+기밀 VM은 Azure VM용 vTPM(가상 TPM) 기능입니다. vTPM은 하드웨어 TPM의 가상화된 버전으로, TPM2.0 사양을 준수합니다. vTPM을 키 및 측정을 위한 전용 보안 자격 증명 모음으로 사용할 수 있습니다. 기밀 VM에는 VM의 범위 밖에 있는 보안 환경에서 실행되는 자체 전용 vTPM 인스턴스가 있습니다. 
 
 ## <a name="limitations"></a>제한 사항
 

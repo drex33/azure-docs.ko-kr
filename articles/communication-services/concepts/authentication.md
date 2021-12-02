@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: identity
-ms.openlocfilehash: 657ea9b12f8bff633f1bcb87439e950a3aa5ce3b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 75a225b184f8759e88846361aec53f7133a4ff44
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672327"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133440394"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Azure Communication Services에 인증
 
@@ -54,6 +54,10 @@ Azure Communication Services와의 모든 클라이언트 상호 작용에는 �
 ### <a name="user-access-tokens"></a>사용자 액세스 토큰
 
 사용자 액세스 토큰은 ID SDK를 사용하여 생성되며 ID SDK에서 생성된 사용자들과 연결됩니다. [사용자를 만들고 토큰을 생성](../quickstarts/access-tokens.md)하는 방법의 예를 참조하세요. 그런 다음 채팅 또는 호출 SDK에서 대화에 추가된 참가자를 인증하는 데 사용자 액세스 토큰이 사용됩니다. 자세한 내용은 [애플리케이션에 채팅 추가](../quickstarts/chat/get-started.md)를 참조하세요. 사용자 액세스 토큰 인증은 보안이 유지되는 Azure 리소스가 아닌 사용자를 인증하는 데 사용된다는 점에서 액세스 키 및 관리 ID 인증과 다릅니다.
+
+## <a name="using-identity-for-monitoring-and-metrics"></a>모니터링 및 메트릭에 ID 사용
+
+사용자 ID는 Azure Monitor 통해 수집된 로그 및 메트릭의 기본 키 역할을 하기 위한 것입니다. 예를 들어 특정 사용자의 모든 호출을 보려면 특정 Azure Communication Services ID(또는 ID)를 단일 사용자에게 매핑하는 방식으로 인증을 설정해야 합니다. [로그 분석](../concepts/analytics/log-analytics.md)및 사용 가능한 [메트릭에](../concepts/metrics.md) 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

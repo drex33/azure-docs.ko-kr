@@ -9,18 +9,21 @@ ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 81173fa34bec38168233c5f740d49832cf9cb795
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1325a9fdfafc1cfbd522ec300931933e2334c56e
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589191"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436725"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>여러 NIC가 있는 Windows 가상 컴퓨터 만들기 및 관리
 
 **적용 대상:** :heavy_check_mark: Windows VM :heavy_check_mark: 유연한 확장 집합 
 
 Azure의 VM(가상 머신)에는 여러 가상 NIC(네트워크 인터페이스 카드)가 연결될 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 대한 다른 서브넷을 포함하는 것입니다. VM의 여러 NIC를 여러 서브넷에 연결할 수 있지만 해당 서브넷은 모두 동일한 가상 네트워크(vNet)에 상주해야 합니다. 이 문서에서는 여러 NIC가 연결된 VM을 만드는 방법을 설명합니다. 또한 기존 VM에서 NIC를 추가하거나 제거하는 방법을 알아봅니다. [VM 크기](../sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.
+
+> [!NOTE]
+> 시나리오에 여러 서브넷이 필요 하지 않은 경우 단일 NIC에서 여러 IP 구성을 활용 하는 것이 더 간단할 수 있습니다.  이 설정에 대 한 지침은 [여기](../../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md)에서 찾을 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

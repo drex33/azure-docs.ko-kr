@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: bb061fb11fbc770d751f60e15c81ce31c6a07440
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bc8cb98d80f23974b16c75b81027e472fd1a8cc6
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128705710"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435207"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL의 읽기 복제본
 
@@ -44,7 +44,7 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 [Azure Database for MySQL 지역](https://azure.microsoft.com/global-infrastructure/services/?products=mysql)에 원본 서버를 둘 수 있습니다.  원본 서버는 쌍을 이루는 지역 또는 유니버설 복제본 지역에 복제본이 있을 수 있습니다. 아래 그림은 원본 지역에 따라 사용할 수 있는 복제본 지역을 보여 줍니다.
 
-[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="복제본 영역 읽기":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="복제본 지역 읽기":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>유니버설 복제본 지역
 
@@ -85,7 +85,7 @@ MySQL 복제 기능 및 문제에 대한 자세한 내용은 [MySQL 복제 설�
 
 ### <a name="paired-regions"></a>쌍을 이루는 지역
 
-유니버설 복제본 지역 외에도 원본 서버의 Azure 쌍을 이루는 지역에서 읽기 복제본을 만들 수 있습니다. 해당 지역의 쌍을 모르는 경우 [Azure 쌍을 이루는 지역 문서](../best-practices-availability-paired-regions.md)에서 자세히 알아볼 수 있습니다.
+유니버설 복제본 지역 외에도 원본 서버의 Azure 쌍을 이루는 지역에서 읽기 복제본을 만들 수 있습니다. 해당 지역의 쌍을 모르는 경우 [Azure 쌍을 이루는 지역 문서](../availability-zones/cross-region-replication-azure.md)에서 자세히 알아볼 수 있습니다.
 
 재해 복구 계획에 지역 간 복제본을 사용하는 경우 다른 지역 중 하나가 아닌 쌍을 이루는 지역에 복제본을 만드는 것이 좋습니다. 쌍을 이루는 지역은 동시 업데이트를 방지하고 물리적 격리 및 데이터 보존의 우선 순위를 지정합니다.  
 
@@ -198,9 +198,9 @@ GTID를 사용하도록 설정하고 일관성 동작을 구성하려면 [Azure 
 
 ### <a name="source-server-restart"></a>원본 서버 다시 시작
 
-범용 스토리지 v1이 있는 서버에서 `log_bin` 매개 변수는 기본적으로 OFF가 됩니다. 값은 첫 번째 읽기 복제본을 만들 때 켜지게 됩니다. 원본 서버에 기존 읽기 복제본이 없는 경우 원본 서버는 먼저 다시 시작하여 복제를 준비합니다. 서버 다시 시작을 고려하고 사용량이 많은 시간 동안 이 작업을 수행하세요.
+범용 저장소 v1이 있는 서버 `log_bin` 매개 변수는 기본적으로 해제 됩니다. 첫 번째 읽기 복제본을 만들 때 값이 켜 집니다. 원본 서버에 기존 읽기 복제본이 없는 경우에는 먼저 원본 서버를 다시 시작 하 여 복제를 위한 준비를 합니다. 서버를 다시 시작 하 고 사용량이 적은 시간에이 작업을 수행 하십시오.
 
-범용 스토리지 v2가 있는 원본 서버에서 `log_bin` 매개 변수는 기본적으로 ON으로 설정되며 읽기 복제본을 추가할 때 다시 시작할 필요가 없습니다. 
+범용 저장소 v2가 있는 원본 서버는 `log_bin` 매개 변수를 기본적으로 설정 하며, 읽기 복제본을 추가할 때 다시 시작 하지 않아도 됩니다. 
 
 ### <a name="new-replicas"></a>새 복제본
 

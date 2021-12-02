@@ -5,12 +5,12 @@ ms.topic: how-to
 ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: bfcd178a43e7a21ea6ef35d4462956bd49037e6f
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5f5ab740f9d13f70fdb3893c6bbf9a70a47962dc
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131006870"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436744"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Azure App Service에 대한 사용자 지정 컨테이너 구성
 
@@ -39,24 +39,24 @@ ms.locfileid: "131006870"
 
 앱을 시작하는 동안 부모 이미지를 다운로드하는 데 다소 시간이 걸립니다. 그러나 Azure App Service에서 이미 캐시된 다음 부모 이미지 중 하나를 사용하여 시작 시간을 줄일 수 있습니다.
 
-- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):20H2
+- [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore): 20h2
 - [mcr.microsoft.com/windows/servercore](https://hub.docker.com/_/microsoft-windows-servercore):ltsc2019
-- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-20H2
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/): 4.8-Windowsservercore-20H2
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.8-windowsservercore-ltsc2019
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):5.0-nanoserver-1809
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):5.0-nanoserver-1809
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/):3.1-nanoserver-1809
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-20H2
-- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/):3.1-nanoserver-1809
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/): 5.0-Nanoserver-20H2
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/): 5.0-nanoserver-1809
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/): 5.0-Nanoserver-20H2
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/): 5.0-nanoserver-1809
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/): 3.1-Nanoserver-20H2
+- [mcr.microsoft.com/dotnet/runtime](https://hub.docker.com/_/microsoft-dotnet-runtime/): 3.1-nanoserver-1809
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/): 3.1-Nanoserver-20H2
+- [mcr.microsoft.com/dotnet/aspnet](https://hub.docker.com/_/microsoft-dotnet-aspnet/): 3.1-nanoserver-1809
 
 ::: zone-end
 
 ## <a name="change-the-docker-image-of-a-custom-container"></a>사용자 지정 컨테이너의 Docker 이미지 변경
 
-기존 사용자 지정 컨테이너 앱을 현재 Docker 이미지에서 새 이미지로 변경하려면 다음 명령을 사용합니다.
+현재 Docker 이미지에서 새 이미지로 기존 사용자 지정 컨테이너를 변경 하려면 다음 명령을 사용 합니다.
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <docker-hub-repo>/<image>
@@ -72,21 +72,21 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 
 *\<username>* 및 *\<password>* 의 경우 프라이빗 레지스트리 계정에 대한 로그인 자격 증명을 제공합니다.
 
-## <a name="use-managed-identity-to-pull-image-from-azure-container-registry"></a>관리 ID를 사용하여 Azure Container Registry 이미지 끌어오기
+## <a name="use-managed-identity-to-pull-image-from-azure-container-registry"></a>관리 id를 사용 하 여 Azure Container Registry에서 이미지 끌어오기
 
-다음 단계를 사용하여 관리 ID를 사용하여 ACR에서 끌어오도록 웹앱을 구성합니다. 이 단계에서는 시스템 할당 관리 ID를 사용하지만 사용자 할당 관리 ID도 사용할 수 있습니다.
+관리 id를 사용 하 여 ACR에서 가져오도록 웹 앱을 구성 하려면 다음 단계를 사용 합니다. 이 단계에서는 시스템 할당 관리 id를 사용 하지만 사용자 할당 관리 id를 사용할 수도 있습니다.
 
 1. [`az webapp identity assign`](/cli/azure/webapp/identity#az_webapp_identity-assign) 명령을 사용하여 [시스템이 할당한 관리 ID](./overview-managed-identity.md)를 웹앱에 사용하도록 설정합니다.
 
     ```azurecli-interactive
     az webapp identity assign --resource-group <group-name> --name <app-name> --query principalId --output tsv
     ```
-    `<app-name>`을 이전 단계에서 사용한 이름으로 바꿉니다. 명령의 출력(--query 및 --output 인수로 필터링됨)은 할당된 ID의 서비스 주체 ID로, 곧 사용합니다.
-1. Azure Container Registry 리소스 ID를 확인합니다.
+    `<app-name>`을 이전 단계에서 사용한 이름으로 바꿉니다. 명령 출력 (--query 및--output 인수를 사용 하 여 필터링)은 할당 된 id의 서비스 사용자 ID 이며 곧 사용 됩니다.
+1. Azure Container Registry의 리소스 ID를 가져옵니다.
     ```azurecli-interactive
     az acr show --resource-group <group-name> --name <registry-name> --query id --output tsv
     ```
-    `<registry-name>`을 레지스트리 이름으로 바꿉니다. 명령의 출력(--query 및 --output 인수로 필터링됨)은 Azure Container Registry 리소스 ID입니다.
+    `<registry-name>`을 레지스트리 이름으로 바꿉니다. 명령 출력 (--query 및--output 인수를 기준으로 필터링)은 Azure Container Registry의 리소스 ID입니다.
 1. 컨테이너 레지스트리에 액세스할 수 있는 권한을 관리 ID에 부여합니다.
 
     ```azurecli-interactive
@@ -95,7 +95,7 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 
     다음 값을 바꿉니다.
     - `<principal-id>` 값을 `az webapp identity assign` 명령의 서비스 주체 ID로 바꿉니다.
-    - `<registry-resource-id>`명령에서 컨테이너 레지스트리의 ID로 `az acr show`
+    - `<registry-resource-id>`명령을 사용 하 여 컨테이너 레지스트리의 ID 사용 `az acr show`
 
     이러한 권한에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어란?](../role-based-access-control/overview.md)을 참조하세요.
 
@@ -108,28 +108,28 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
     다음 값을 바꿉니다.
     - `<app-name>`을 웹앱 이름으로 바꿉니다.
     >[!Tip]
-    > PowerShell 콘솔을 사용하여 명령을 실행하는 경우 `--generic-configurations` 이 단계와 다음 단계에서 인수의 문자열을 이스케이프해야 합니다. 예: `--generic-configurations '{\"acrUseManagedIdentityCreds\": true'`
-1. (선택 사항) 앱에서 사용자 [할당 관리 ID](overview-managed-identity.md#add-a-user-assigned-identity)를 사용하는 경우 웹앱에서 구성되었는지 확인한 다음 추가 `acrUserManagedIdentityID` 속성을 설정하여 클라이언트 ID를 지정합니다.
+    > PowerShell 콘솔을 사용 하 여 명령을 실행 하는 경우 `--generic-configurations` 이 및 다음 단계에서 인수의 문자열을 이스케이프 해야 합니다. 예를 들면 다음과 같습니다. `--generic-configurations '{\"acrUseManagedIdentityCreds\": true'`
+1. 필드 앱이 [사용자 할당 관리 id](overview-managed-identity.md#add-a-user-assigned-identity)를 사용 하는 경우 웹 앱에서 구성 되었는지 확인 한 다음 추가 `acrUserManagedIdentityID` 속성을 설정 하 여 클라이언트 ID를 지정 합니다.
     
     ```azurecli-interactive
     az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv
     ```
-    사용자 `<identity-name>` 할당 관리 ID의 를 바꾸고 출력을 사용하여 `<client-id>` 사용자 할당 관리 ID를 구성합니다.
+    `<identity-name>`사용자 할당 관리 id의를 바꾸고 출력을 사용 `<client-id>` 하 여 사용자 할당 관리 id id를 구성 합니다.
 
     ```azurecli-interactive
     az  webapp config set --resource-group <group-name> --name <app-name> --generic-configurations '{"acrUserManagedIdentityID": "<client-id>"}'
     ```
 
-모두 설정되었으며 이제 웹앱은 관리 ID를 사용하여 Azure Container Registry 가져옵니다. 
+모든 설정이 되었으며 웹 앱이 관리 id를 사용 하 여 Azure Container Registry에서 끌어옵니다. 
 
 ::: zone pivot="container-linux"
 
-## <a name="use-an-image-from-a-network-protected-registry"></a>네트워크로 보호된 레지스트리의 이미지 사용
+## <a name="use-an-image-from-a-network-protected-registry"></a>네트워크로 보호 된 레지스트리에서 이미지 사용
 
-가상 네트워크 또는 온-프레미스 내의 레지스트리에서 연결하고 끌어오려면 VNet 통합 기능을 사용하여 앱을 가상 네트워크에 연결해야 합니다. 프라이빗 엔드포인트를 Azure Container Registry 에도 필요합니다. 네트워크 및 DNS 확인이 구성되면 앱 설정 을 설정하여 VNet을 통해 이미지 끌어오기 라우팅을 사용하도록 설정합니다. `WEBISTE_PULL_IMAGE_OVER_VNET=true`
+가상 네트워크 또는 온-프레미스 내의 레지스트리에서 연결 하 여 꺼내려면 앱은 VNet 통합 기능을 사용 하 여 가상 네트워크에 연결 해야 합니다. 이는 전용 끝점을 사용 하는 Azure Container Registry에도 필요 합니다. 네트워크 및 DNS 확인이 구성 되 면 앱 설정을 설정 하 여 VNet을 통해 이미지 풀의 라우팅을 사용 하도록 설정 합니다 `WEBSITE_PULL_IMAGE_OVER_VNET=true` .
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBISTE_PULL_IMAGE_OVER_VNET=true
+az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITE_PULL_IMAGE_OVER_VNET=true
 ```
 
 ::: zone-end
@@ -200,7 +200,7 @@ IIS 또는 .NET Framework(4.0 이상) 기반 컨테이너의 경우 App Service�
 
 ::: zone pivot="container-windows"
 
-앱의 파일 시스템에서 *C:\home* 디렉터리를 사용하여 다시 시작할 때마다 파일을 유지하고 인스턴스 간에 공유할 수 있습니다. 컨테이너 앱에서 영구 스토리지에 액세스할 수 있도록 앱의 `C:\home`이 제공됩니다.
+앱의 파일 시스템에서 *C:\home* 디렉터리를 사용하여 다시 시작할 때마다 파일을 유지하고 인스턴스 간에 공유할 수 있습니다. `C:\home`사용자 지정 컨테이너가 영구 저장소에 액세스할 수 있도록 앱의가 제공 됩니다.
 
 영구 스토리지가 사용하지 않도록 설정되면 `C:\home` 디렉터리에 대한 쓰기가 유지되지 않습니다. [Docker 호스트 로그 및 컨테이너 로그](#access-diagnostic-logs)는 컨테이너에 연결되지 않은 기본 영구 공유 스토리지에 저장됩니다. 영구 스토리지가 사용하도록 설정되면 `C:\home` 디렉터리에 대한 모든 쓰기가 유지되고, 확장된 앱의 모든 인스턴스에서 액세스할 수 있으며, `C:\home\LogFiles`에서 로그에 액세스할 수 있습니다.
 
@@ -208,7 +208,7 @@ IIS 또는 .NET Framework(4.0 이상) 기반 컨테이너의 경우 App Service�
 
 ::: zone pivot="container-linux"
 
-앱의 파일 시스템에서 */home* 디렉터리를 사용하여 다시 시작할 때마다 파일을 유지하고 인스턴스 간에 공유할 수 있습니다. 컨테이너 앱에서 영구 스토리지에 액세스할 수 있도록 앱의 `/home`이 제공됩니다.
+앱의 파일 시스템에서 */home* 디렉터리를 사용하여 다시 시작할 때마다 파일을 유지하고 인스턴스 간에 공유할 수 있습니다. `/home`사용자 지정 컨테이너가 영구 저장소에 액세스할 수 있도록 앱의가 제공 됩니다.
 
 영구 스토리지가 사용하지 않도록 설정되면 앱을 다시 시작할 때마다 또는 여러 인스턴스 간에 `/home` 디렉터리에 대한 쓰기가 유지되지 않습니다. 유일한 예외는 Docker 및 컨테이너 로그를 저장하는 데 사용되는 `/home/LogFiles` 디렉터리입니다. 영구 스토리지가 사용하도록 설정되면 `/home` 디렉터리에 대한 모든 쓰기가 유지되고, 확장된 앱의 모든 인스턴스에서 액세스할 수 있습니다.
 
@@ -261,7 +261,7 @@ Docker 로그에 액세스하는 방법에는 여러 가지가 있습니다.
 - [Azure Portal에서](#in-azure-portal)
 - [Kudu 콘솔에서](#from-the-kudu-console)
 - [Kudu API를 통해](#with-the-kudu-api)
-- [Azure Monitor로 로그 보내기](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview)
+- [Azure Monitor로 로그 보내기](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
 
 ### <a name="in-azure-portal"></a>Azure Portal에서
 

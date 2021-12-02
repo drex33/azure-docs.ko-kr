@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/20/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: 013b456bb3a101e29de5aaae954914615123224f
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3335260460a9d1358aeeb301fbebb5b7d4d8f4cb
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130233247"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434447"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 지역 간 복제
 
@@ -28,7 +28,7 @@ Azure NetApp Files 복제 기능은 지역 간 볼륨 복제를 통해 데이터
 
 ## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>지원되는 지역 간 복제 쌍
 
-Azure NetApp Files 볼륨 복제는 다양한 [Azure 지역 쌍](../best-practices-availability-paired-regions.md#azure-regional-pairs)과 비쌍 간에 지원됩니다. Azure NetApp Files 볼륨 복제는 현재 다음 지역에서 사용할 수 있습니다.  
+Azure NetApp Files 볼륨 복제는 다양한 [Azure 지역 쌍](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies)과 비쌍 간에 지원됩니다. Azure NetApp Files 볼륨 복제는 현재 다음 지역에서 사용할 수 있습니다.  
 
 ### <a name="azure-regional-pairs"></a>Azure 지역 쌍
 

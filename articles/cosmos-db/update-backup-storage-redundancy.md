@@ -7,23 +7,23 @@ ms.topic: how-to
 ms.date: 11/16/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: af39691955425831f7a68b0d1dc885994cdc5262
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: 5064d834fb55f69a8aed2d99537231c78a3cad3b
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132765139"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437898"
 ---
 # <a name="update-backup-storage-redundancy-for-azure-cosmos-db-periodic-backup-accounts"></a>Azure Cosmos DB 정기 백업 계정에 대한 백업 스토리지 중복 업데이트
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-기본적으로 Azure Cosmos DB는 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md)으로 복제되는 지역 중복 [Blob Storage](../storage/common/storage-redundancy.md)에 정기 모드 백업 데이터를 저장합니다. 기본 백업 스토리지 중복성을 재정의할 수 있습니다. 이 문서에서는 Azure CLI 및 PowerShell을 사용하여 백업 스토리지 중복성을 업데이트하는 방법을 설명합니다. 또한 계정에서 Azure 정책을 구성하여 필요한 스토리지 중복성을 적용하는 방법을 보여 줍니다.
+기본적으로 Azure Cosmos DB는 [쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md)으로 복제되는 지역 중복 [Blob Storage](../storage/common/storage-redundancy.md)에 정기 모드 백업 데이터를 저장합니다. 기본 백업 스토리지 중복성을 재정의할 수 있습니다. 이 문서에서는 Azure CLI 및 PowerShell을 사용하여 백업 스토리지 중복성을 업데이트하는 방법을 설명합니다. 또한 계정에서 Azure 정책을 구성하여 필요한 스토리지 중복성을 적용하는 방법을 보여 줍니다.
 
 ## <a name="update-using-cli"></a>CLI를 사용하여 업데이트
 
 Azure CLI 사용하여 기존 계정의 백업 스토리지 중복성을 업데이트하려면 다음 단계를 사용합니다.
 
-1. Azure CLI 또는 2.30.0보다 높거나 같은 버전인 경우 최신 버전을 설치합니다. "cosmosdb-preview" 확장이 설치된 경우 제거해야 합니다.
+1. Azure CLI 또는 버전이 2.30.0 이상인 경우 최신 버전을 설치합니다. "cosmosdb-preview" 확장이 설치된 경우 제거해야 합니다.
 
 1. 다음 명령을 사용하여 계정이 있는 지역에서 사용할 수 있는 백업 중복 옵션을 얻을 수 있습니다.
 
@@ -124,5 +124,5 @@ Azure Policy 조직 표준을 적용하고 대규모 규정 준수를 평가하�
 ## <a name="next-steps"></a>다음 단계
 
 * [주기적 백업 모드'(configure-periodic-backup-restore.md)를 통해 Azure Cosmos DB 계정을 프로비전합니다.
-* Azure Portal , [PowerShell,](provision-account-continuous-backup.md#provision-powershell) [CLI](provision-account-continuous-backup.md#provision-cli) [또는](provision-account-continuous-backup.md#provision-arm-template) [Azure Resource Manager](provision-account-continuous-backup.md#provision-portal)사용하여 연속 백업이 있는 계정을 프로비전합니다.
+* [Azure Portal,](provision-account-continuous-backup.md#provision-portal) [PowerShell,](provision-account-continuous-backup.md#provision-powershell) [CLI](provision-account-continuous-backup.md#provision-cli) [또는](provision-account-continuous-backup.md#provision-arm-template)Azure Resource Manager 사용하여 연속 백업이 있는 계정을 프로비전합니다.
 * [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli) 또는 [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template)를 사용하여 지속적인 백업 계정을 복원합니다.

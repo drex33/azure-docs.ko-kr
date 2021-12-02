@@ -10,12 +10,12 @@ metadata:
   ms.date: 03/02/2021
   ms.author: alkohli
   ms.custom: references_regions
-  ms.openlocfilehash: 5e34273d7794209943cf46f9325ffc7f058c4976
-  ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+  ms.openlocfilehash: 7687e66fc18eca1be3a67ea624e11d7e2959e961
+  ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/30/2021
-  ms.locfileid: "113094980"
+  ms.lasthandoff: 12/02/2021
+  ms.locfileid: "133435490"
 title: 'Azure Data Box Disk: 질문과 대답'
 summary: >
   Microsoft Azure Data Box Disk 클라우드 솔루션을 사용하면 테라바이트 단위의 데이터를 빠르고 저렴하게 신뢰할 수 있는 방식으로 Azure로 보낼 수 있습니다. 이 FAQ에는 Azure Portal에서 Data Box Disk를 사용할 때 제기될 수 있는 질문과 대답이 포함되어 있습니다.
@@ -53,11 +53,11 @@ sections:
     answer: "모든 Data Box Disk는 목적지와 동일한 국가/지역 내에서만 데이터 수집을 지원하며 국경을 넘지 않습니다. 유일한 예외는 Data Box Disk가 모든 EU 국가/지역 간에 발송될 수 있는 EU(유럽 연합) 내에서의 주문입니다.\n\n예를 들어 캐나다의 위치에 있는 데이터를 Azure 미국 서부 스토리지 계정으로 이동하려는 경우 다음과 같은 방법으로 달성할 수 있습니다.\n\n**옵션 1:** \n\n캐나다의 원본 위치에서 Azure 미국 서부 데이터 센터로 [Azure Import/Export 서비스](../import-export/storage-import-export-service.md)를 사용하여 데이터가 포함된 [지원되는 디스크](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks)를 제공합니다.\n\n**옵션 2:**\n\n1. 예를 들어 캐나다 중부에서 스토리지 계정을 선택하여 캐나다의 Data Box Disk를 주문합니다. SSD 디스크는 캐나다 중부의 Azure 데이터 센터에서 주문 생성 시 제공된 배송 주소(캐나다)로 배송됩니다.\n\n2. 온-프레미스 서버의 데이터를 디스크에 복사한 후 Microsoft에서 제공하는 반송 레이블을 사용하여 캐나다의 Azure 데이터 센터에 반환합니다. 그러면 Data Box Disk에 있는 데이터가 주문 생성 중에 선택한 캐나다 Azure 지역의 대상 스토리지 계정에 업로드됩니다.\n\n3. 그런 다음, AzCopy와 같은 도구를 사용하여 미국 서부의 스토리지 계정에 데이터를 복사할 수 있습니다. 이 단계에서 Data Box Disk 청구에 포함되지 않은 [표준 스토리지](https://azure.microsoft.com/pricing/details/storage/) 및 [대역폭 요금](https://azure.microsoft.com/pricing/details/bandwidth/)이 발생합니다.\n"
   - question: >
       Data Box Disk는 고객 데이터를 서비스 지역 외부에 저장하나요?
-    answer: "아니요. Data Box Disk는 고객 데이터를 서비스 지역 외부에 저장하지 않습니다. 고객은 데이터에 대한 완전한 소유권을 가지며 주문 생성 중에 선택한 스토리지 계정을 기반으로 데이터를 지정된 위치에 저장할 수 있습니다.  \n\n고객 데이터 외에도 메타데이터와 모니터링 로그를 포함하는 Data Box Disk 데이터가 있습니다. 모든 지역(브라질 남부 및 동남 아시아 제외)에서 Data Box Disk 데이터는 데이터 손실을 방지하기 위해 지역 중복 스토리지 계정을 통해 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md)에 저장 및 복제됩니다.  \n\n브라질 남부 및 동남 아시아의 [데이터 보존 요구 사항](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information)으로 인해, Data Box Disk 데이터는 단일 지역에 포함되도록 ZRS(영역 중복 스토리지) 계정에 저장됩니다. 동남 아시아의 경우 모든 Data Box Disk 데이터는 싱가포르에 저장되고 브라질 남부의 경우 브라질에 저장됩니다. \n\n브라질 남부 및 동남 아시아에서 서비스 중단이 발생하면 고객은 다른 지역에서 새 주문을 생성할 수 있습니다. 새 주문은 생성된 지역에서 제공되며 고객은 Data Box Disk의 왕복 배송에 대한 책임이 있습니다.\n"
+    answer: "아니요. Data Box Disk는 고객 데이터를 서비스 지역 외부에 저장하지 않습니다. 고객은 데이터에 대한 완전한 소유권을 가지며 주문 생성 중에 선택한 스토리지 계정을 기반으로 데이터를 지정된 위치에 저장할 수 있습니다.  \n\n고객 데이터 외에도 메타데이터와 모니터링 로그를 포함하는 Data Box Disk 데이터가 있습니다. 모든 지역(브라질 남부 및 동남 아시아 제외)에서 Data Box Disk 데이터는 데이터 손실을 방지하기 위해 지역 중복 스토리지 계정을 통해 [쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md)에 저장 및 복제됩니다.  \n\n브라질 남부 및 동남 아시아의 [데이터 보존 요구 사항](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information)으로 인해, Data Box Disk 데이터는 단일 지역에 포함되도록 ZRS(영역 중복 스토리지) 계정에 저장됩니다. 동남 아시아의 경우 모든 Data Box Disk 데이터는 싱가포르에 저장되고 브라질 남부의 경우 브라질에 저장됩니다. \n\n브라질 남부 및 동남 아시아에서 서비스 중단이 발생하면 고객은 다른 지역에서 새 주문을 생성할 수 있습니다. 새 주문은 생성된 지역에서 제공되며 고객은 Data Box Disk의 왕복 배송에 대한 책임이 있습니다.\n"
   - question: >
       전체 지역에 오류가 발생하면 어떻게 데이터를 복구할 수 있나요?
     answer: >
-      중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. 동일한 국가 또는 상거래 경계 내에 있는 경우 장애 조치 지역을 통해 주문을 처리합니다. 그러나 일부 Azure 지역에는 동일한 지리적 또는 상거래 경계에 쌍을 이루는 지역이 없습니다. 해당 지역에 재해가 발생한 경우 사용할 수 있는 다른 지역에서 Data Box 주문을 다시 만들고 새 지역의 Azure에 데이터를 복사해야 합니다. 자세한 내용은 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](../best-practices-availability-paired-regions.md)을 참조하세요.
+      중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. 동일한 국가 또는 상거래 경계 내에 있는 경우 장애 조치 지역을 통해 주문을 처리합니다. 그러나 일부 Azure 지역에는 동일한 지리적 또는 상거래 경계에 쌍을 이루는 지역이 없습니다. 해당 지역에 재해가 발생한 경우 사용할 수 있는 다른 지역에서 Data Box 주문을 다시 만들고 새 지역의 Azure에 데이터를 복사해야 합니다. 자세한 내용은 [Azure에서 지역 간 복제: 비즈니스 연속성 및 재해 복구](../availability-zones/cross-region-replication-azure.md)를 참조 하세요.
   - question: >
       Data Box Disk에 문제가 발생하면 누구에게 연락해야 하나요?
     answer: >

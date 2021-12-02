@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 28a26537090dc2913ee83027c66ddc3c3416d03e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: be312257070d7666ebbd25a1d735eb37bb4d982e
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131063692"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437727"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Azure Synapse 전용 SQL 풀에서 백업 및 복원
 
@@ -69,7 +69,7 @@ order by run_id desc
 
 ## <a name="geo-backups-and-disaster-recovery"></a>지역 백업 및 재해 복구
 
-지역 백업은 [쌍을 이루는 데이터 센터](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)에 하루에 한 번 생성됩니다. 지역 복원의 RPO는 24시간입니다. 전용 SQL 풀이 지원되는 다른 지역에 있는 서버로 지역 백업을 복원할 수 있습니다. 지역 백업을 사용하면 주 지역의 복원 지점에 액세스할 수 없는 경우에 데이터 웨어하우스를 복원할 수 있습니다.
+지역 백업은 [쌍을 이루는 데이터 센터](../../availability-zones/cross-region-replication-azure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)에 하루에 한 번 생성됩니다. 지역 복원의 RPO는 24시간입니다. 전용 SQL 풀이 지원되는 다른 지역에 있는 서버로 지역 백업을 복원할 수 있습니다. 지역 백업을 사용하면 주 지역의 복원 지점에 액세스할 수 없는 경우에 데이터 웨어하우스를 복원할 수 있습니다.
 
 전용 SQL 풀에 대한 지역 백업이 필요하지 않은 경우 사용하지 않도록 설정하고 재해 복구 스토리지 비용을 절감할 수 있습니다. 지역 백업을 사용하지 않도록 설정하려면 [방법 가이드: 전용 SQL 풀(이전의 SQL DW)에 대해 지역 백업 비활성화](disable-geo-backup.md)를 참조하세요. 지역 백업을 사용하지 않도록 설정하면 기본 Azure 데이터 센터를 사용할 수 없는 경우 전용 SQL 풀을 쌍을 이루는 Azure 지역으로 복구할 수 없습니다. 
 
@@ -80,7 +80,7 @@ order by run_id desc
 
 페어링된 데이터 센터가 사용자의 국가 외부에 있는 경우 LRS(로컬 중복 스토리지)에 데이터베이스를 프로비전하여 해당 지역 내에 데이터가 유지되도록 할 수 있습니다. 데이터베이스가 이미 RA-GRS(지리적 중복 스토리지 읽기 전용, 현재 기본값)에 프로비전된 경우 지역 백업에서 옵트아웃(opt out)할 수 있지만 데이터베이스는 지역 쌍으로 복제되는 스토리지에 계속 남아 있습니다. 고객 데이터가 해당 지역 내에 유지되도록 하기 위해 전용 SQL 풀을 로컬 중복 스토리지로 프로비전하거나 복원할 수 있습니다. 로컬 중복 스토리지를 프로비전하거나 복원하는 방법에 대한 자세한 내용은 [Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)에 대한 단일 지역 상주를 구성하기 위한 방법 가이드](single-region-residency.md)를 참조하세요.
 
-쌍을 이루는 데이터 센터가 다른 국가에 있는지 확인하려면 [Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요.
+쌍을 이루는 데이터 센터가 다른 국가에 있는지 확인하려면 [Azure 쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)을 참조하세요.
 
 ## <a name="backup-and-restore-costs"></a>백업 및 복원 비용
 

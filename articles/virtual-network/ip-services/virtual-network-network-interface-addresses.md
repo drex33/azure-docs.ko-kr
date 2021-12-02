@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 4d4c826a48a569b7032d23376646bfcbe9bab669
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c054d22edfa69d3564af988d18bf40db283ee651
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129373045"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434770"
 ---
-# <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Azure 네트워크 인터페이스용 IP 주소 추가, 변경 또는 제거
+# <a name="configure-ip-addresses-for-an-azure-network-interface"></a>Azure 네트워크 인터페이스용 IP 주소 구성
 
-네트워크 인터페이스용 공용 및 개인 IP 주소를 추가, 변경 및 제거하는 방법에 대해 알아봅니다. 가상 머신은 네트워크 인터페이스에 할당된 개인 IP 주소를 통해 Azure Virtual Network 및 연결된 네트워크의 다른 리소스와 통신할 수 있습니다. 또한 개인 IP 주소가 있으면 예측할 수 없는 IP 주소를 사용하는 인터넷으로의 아웃바운드 통신도 가능합니다. 네트워크 인터페이스에 할당된 [공용 IP 주소](virtual-network-public-ip-address.md)를 사용하면 인터넷에서 가상 머신에 대한 인바운드 통신을 수행할 수 있습니다. 또한 공용 IP 주소가 있으면 가상 머신에서 예측할 수 없는 IP 주소를 사용하는 인터넷으로의 아웃바운드 통신도 가능합니다. 자세한 내용은 [Azure에서 아웃바운드 연결 이해](../../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+가상 컴퓨터의 NIC (네트워크 인터페이스 컨트롤러)에 개인 및 공용 IP 주소를 할당할 수 있습니다.  가상 머신은 네트워크 인터페이스에 할당된 개인 IP 주소를 통해 Azure Virtual Network 및 연결된 네트워크의 다른 리소스와 통신할 수 있습니다. 또한 개인 IP 주소가 있으면 예측할 수 없는 IP 주소를 사용하는 인터넷으로의 아웃바운드 통신도 가능합니다. 네트워크 인터페이스에 할당 된 [공용 IP 주소](virtual-network-public-ip-address.md) 를 사용 하면 인터넷에서 가상 컴퓨터에 대 한 인바운드 통신을 사용 하도록 설정 하 고 예측 가능한 IP 주소를 사용 하 여 가상 컴퓨터에서 인터넷으로의 아웃 바운드 통신을 사용할 수 있습니다. 자세한 내용은 [Azure에서 아웃바운드 연결 이해](../../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 네트워크 인터페이스를 만들거나 변경하거나 삭제해야 하는 경우 [네트워크 인터페이스 관리](../../virtual-network/virtual-network-network-interface.md) 문서를 확인하세요. 네트워크 인터페이스를 추가하거나 가상 머신에서 네트워크 인터페이스를 제거해야 하는 경우에는 [네트워크 인터페이스 추가 또는 제거](../../virtual-network/virtual-network-network-interface-vm.md) 문서를 확인하세요.
 

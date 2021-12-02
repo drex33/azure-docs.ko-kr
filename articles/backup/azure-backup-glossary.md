@@ -3,12 +3,12 @@ title: Azure Backup 용어집
 description: 이 문서에서는 Azure Backup에서 사용하는 데 유용한 용어를 정의합니다.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 774fc63002677aa9fbb986d40a5d8fe2b3e99f7d
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.openlocfilehash: 10c713850447b3a76cf1a139a9a2075816271582
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465196"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434466"
 ---
 # <a name="azure-backup-glossary"></a>Azure Backup 용어집
 
@@ -124,7 +124,7 @@ BCDR에는 비즈니스 중단을 최소화하면서 계획되거나 계획되�
 
 ## <a name="cross-region-restore-crr"></a>CRR(지역 간 복원)
 
-[복원 옵션](backup-azure-arm-restore-vms.md#restore-options) 중 하나인 CRR(지역 간 복원)을 사용하면 [Azure 쌍으로 연결된 지역](../best-practices-availability-paired-regions.md#what-are-paired-regions)인 보조 지역에서 백업 항목을 복원할 수 있습니다.
+[복원 옵션](backup-azure-arm-restore-vms.md#restore-options) 중 하나인 CRR(지역 간 복원)을 사용하면 [Azure 쌍으로 연결된 지역](../availability-zones/cross-region-replication-azure.md)인 보조 지역에서 백업 항목을 복원할 수 있습니다.
 
 ## <a name="data-box"></a>Data Box
 
@@ -272,7 +272,7 @@ RTO는 데이터 손실 시나리오 후에 사용 가능한 마지막 시점으
 
 ## <a name="secondary-region--paired-region"></a>보조 지역/쌍으로 연결된 지역
 
-지역 쌍은 동일한 지리 내의 두 지역으로 구성됩니다. 하나는 주 지역이고, 다른 하나는 보조 지역입니다. 쌍으로 연결된 지역은 비즈니스 연속성을 보장하고 데이터 손실을 방지하기 위해 일부 Azure 서비스(GRS 설정이 있는 Azure Backup 포함)에서 사용됩니다. [자세히 알아보기](../best-practices-availability-paired-regions.md).
+지역 쌍은 동일한 지리 내의 두 지역으로 구성됩니다. 하나는 주 지역이고, 다른 하나는 보조 지역입니다. 쌍으로 연결된 지역은 비즈니스 연속성을 보장하고 데이터 손실을 방지하기 위해 일부 Azure 서비스(GRS 설정이 있는 Azure Backup 포함)에서 사용됩니다. [자세히 알아보기](../availability-zones/cross-region-replication-azure.md).
 
 ## <a name="soft-delete"></a>일시 삭제
 

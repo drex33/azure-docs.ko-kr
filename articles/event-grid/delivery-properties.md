@@ -3,12 +3,12 @@ title: Azure Event Grid - 전송되는 이벤트에 사용자 지정 헤더 설�
 description: 전송되는 이벤트에 사용자 지정 헤더(또는 전송 속성)를 설정하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 08/13/2021
-ms.openlocfilehash: 3600d74d91ad218f3fcab99002762d605fba3139
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
-ms.translationtype: HT
+ms.openlocfilehash: 643914f5bd7caf89564c856582b6522ff86f6295
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831353"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437307"
 ---
 # <a name="custom-delivery-properties"></a>사용자 지정 전달 속성
 이벤트 구독을 사용하면 배달된 이벤트에 포함 되는 HTTP 헤더를 설정할 수 있습니다. 이 기능을 사용하여 대상에 필요한 사용자 지정 헤더를 설정할 수 있습니다. 이벤트 구독을 만들 때 최대 10개의 헤더를 설정할 수 있습니다. 각 헤더 값은 4,096(4K)바이트보다 크지 않아야 합니다.
@@ -69,7 +69,7 @@ Authorization: BEARER SlAV32hkKG...
 ```
 
 > [!NOTE]
-> 대상이 웹후크인 경우 인증 헤더를 정의하는 것이 좋습니다. [리소스 ID를 사용하여 구독된 함수](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs, 하이브리드 연결에는 사용하지 않아야 합니다. 해당 대상은 Event Grid에서 사용될 때 자체 인증 체계를 지원하기 때문입니다.
+> 대상이 웹후크인 경우 인증 헤더를 정의하는 것이 좋습니다. [리소스 ID를 사용하여 구독된 함수](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs, 하이브리드 연결에는 사용하지 않아야 합니다. 해당 대상은 Event Grid에서 사용될 때 자체 인증 체계를 지원하기 때문입니다.
 
 ### <a name="service-bus-example"></a>Service Bus 예제
 Azure Service Bus에서는 단일 메시지를 보낼 때 다음 메시지 속성을 사용하도록 지원합니다. 

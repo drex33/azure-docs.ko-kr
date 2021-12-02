@@ -10,12 +10,12 @@ metadata:
   ms.subservice: azure-video-analyzer-media
   ms.date: 05/25/2021
   ms.author: juliako
-  ms.openlocfilehash: b6b28c84c8a46df55394a026c0998be8bbc2c7bb
-  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+  ms.openlocfilehash: 3f47673186c802e0dd1eda7238d255541840376f
+  ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/04/2021
-  ms.locfileid: "130044197"
+  ms.lasthandoff: 12/02/2021
+  ms.locfileid: "133439221"
 title: Video Analyzer for Media 질문과 대답
 summary: 이 문서에서는 Azure Video Analyzer for Media(이전의 Video Indexer)에 대한 질문과 대답을 제공합니다.
 sections:
@@ -103,7 +103,7 @@ sections:
       예, 콘텐츠 및 해당 인사이트는 여러 Azure 지역을 사용하는 수동 구성이 Azure 구독에 없는 한 Azure 지역(싱가포르 및 브라질 남부 지역 제외) 내에 유지됩니다.
 
 
-      지역의 고객 데이터는 BCDR 이유로 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md#azure-regional-pairs)에 복제됩니다.
+      지역의 고객 데이터는 BCDR 이유로 [쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies)에 복제됩니다.
   - question: Video Analyzer for Media에 대한 개인정보처리방침은 무엇인가요?
     answer: >
       Video Analyzer for Media는 [Microsoft 개인정보처리방침](https://privacy.microsoft.com/privacystatement)이 적용됩니다. 개인정보처리방침은 Microsoft에서 처리하는 개인 데이터, Microsoft에서 개인 데이터를 처리하는 방법 및 Microsoft에서 개인 데이터를 처리하는 목적을 설명합니다. 개인 정보에 대해 자세히 알아보려면 [Microsoft 보안 센터](https://www.microsoft.com/trustcenter)를 방문하세요.

@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/29/2021
 ms.author: jgao
-ms.openlocfilehash: 7e3d90625e598c65e750aeb81a4adc3a7122094c
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: 5a11424ecf82f530c145d4b6acb691dafe398ad8
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133386848"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133437025"
 ---
 # <a name="use-deployment-scripts-in-bicep"></a>Bicep에서 배포 스크립트 사용
 
@@ -105,7 +105,7 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
       storageAccountName: 'myStorageAccount'
       storageAccountKey: 'myKey'
     }
-    azPowerShellVersion: '3.0' // or azCliVersion: '2.0.80'
+    azPowerShellVersion: '6.4' // or azCliVersion: '2.28.0'
     arguments: '-name \\"John Dole\\"'
     environmentVariables: [
       {
@@ -156,7 +156,7 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
 
   인수에 이스케이프된 문자가 포함된 경우 double은 문자를 이스케이프했습니다. 예를 들어 이전 샘플 Bicep에서 인수는 `-name \"John Dole\"` 입니다. 이스케이프된 문자열은 `-name \\"John Dole\\"`입니다.
 
-  형식 개체의 Bicep 매개 변수를 인수로 전달하려면 [string()](./bicep-functions-string.md#string) 함수를 사용하여 개체를 문자열로 변환한 다음 [replace()](./bicep-functions-string.md#replace) 함수를 사용하여 를 로 대체합니다. `"` `\\"` 예를 들면 다음과 같습니다.
+  형식 개체의 Bicep 매개 변수를 인수로 전달하려면 [string()](./bicep-functions-string.md#string) 함수를 사용하여 개체를 문자열로 변환한 다음 [replace()](./bicep-functions-string.md#replace) 함수를 사용하여 를 로 대체합니다. `"` `\\"` 예:
 
   ```json
   replace(string(parameters('tables')), '"', '\\"')

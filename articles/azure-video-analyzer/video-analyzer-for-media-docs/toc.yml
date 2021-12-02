@@ -23,6 +23,8 @@
       href: video-indexer-use-apis.md
     - name: Logic Apps 커넥터
       href: logic-apps-connector-tutorial.md
+    - name: ARM 템플릿을 사용 하 여 배포
+      href: deploy-with-arm-template.md
 - name: 샘플
   items:
     - name: Video Analyzer for Media 샘플

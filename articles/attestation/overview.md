@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: fe025fad4955095ef16b546b7d326d80b4aea15c
-ms.sourcegitcommit: d137460f55a38a0e8f8b9e6594e480d5e5f662ed
+ms.openlocfilehash: fad075959eb85566f5e6312d02b32afeefa18546
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112427572"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436098"
 ---
 # <a name="microsoft-azure-attestation"></a>Microsoft Azure Attestation 
 
@@ -78,7 +78,7 @@ Azure Attestation은 다음과 같은 이점을 제공하므로 TEE를 증명하
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>BCDR(비즈니스 연속성 및 재해 복구) 지원
 
-Azure Attestation용 [BCDR(비즈니스 연속성 및 재해 복구)](../best-practices-availability-paired-regions.md)을 사용하면 지역의 심각한 가용성 문제 또는 재해 이벤트로 인한 서비스 중단을 완화할 수 있습니다.
+Azure Attestation용 [BCDR(비즈니스 연속성 및 재해 복구)](../availability-zones/cross-region-replication-azure.md)을 사용하면 지역의 심각한 가용성 문제 또는 재해 이벤트로 인한 서비스 중단을 완화할 수 있습니다.
 
 두 지역에 배포된 클러스터는 정상적인 환경에서 독립적으로 작동합니다. 한 지역에서 오류가 발생하거나 중단되는 경우 수행되는 작업은 다음과 같습니다.
 

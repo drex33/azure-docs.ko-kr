@@ -8,18 +8,18 @@ ms.subservice: concepts
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.author: abnarain
-ms.openlocfilehash: 3c2824a788ab9df84f02299cc30ab285b7de437a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: 739ba42cbc39b9a902353ce5e831cfdf21090254
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528999"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133436955"
 ---
 # <a name="azure-data-factory-data-redundancy"></a>**Azure Data Factory 데이터 중복도**
 
 Azure Data Factory 데이터에는 메타데이터(파이프라인, 데이터 세트, 연결된 서비스, 통합 런타임 및 트리거)와 모니터링 데이터(파이프라인, 트리거 및 활동 실행)가 포함됩니다. 
 
-모든 지역(브라질 남부 및 동남 아시아 제외)에서 Azure Data Factory 데이터는 메타데이터 손실을 방지하기 위해 [쌍을 이루는 지역](../best-practices-availability-paired-regions.md#azure-regional-pairs)에 저장되고 복제됩니다. 지역 데이터 센터 오류가 발생하는 동안 Microsoft는 Azure Data Factory 인스턴스의 지역 장애 조치(failover)를 시작할 수 있습니다. 대부분 사용자의 작업은 필요하지 않습니다. Microsoft에서 관리하는 장애 조치(failover)가 완료되면 장애 조치(failover) 지역의 Azure Data Factory에 액세스할 수 있습니다. 
+모든 지역(브라질 남부 및 동남 아시아 제외)에서 Azure Data Factory 데이터는 메타데이터 손실을 방지하기 위해 [쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies)에 저장되고 복제됩니다. 지역 데이터 센터 오류가 발생하는 동안 Microsoft는 Azure Data Factory 인스턴스의 지역 장애 조치(failover)를 시작할 수 있습니다. 대부분 사용자의 작업은 필요하지 않습니다. Microsoft에서 관리하는 장애 조치(failover)가 완료되면 장애 조치(failover) 지역의 Azure Data Factory에 액세스할 수 있습니다. 
 
 브라질 남부 및 동남 아시아에서는 데이터 보존 요구 사항으로 인해 Azure Data Factory 데이터가 [현지 지역에만](../storage/common/storage-redundancy.md#locally-redundant-storage) 저장됩니다. 동남 아시아의 경우 모든 데이터가 싱가포르에 저장됩니다. 브라질 남부의 경우 모든 데이터가 브라질에 저장됩니다. 심각한 재해가 발생하여 지역이 손실된 경우 Microsoft가 Azure Data Factory 데이터를 복구할 수 없습니다.  
 
@@ -47,5 +47,5 @@ Azure Data Factory를 사용하면 온-프레미스와 클라우드에 있는 �
 
 ## <a name="see-also"></a>참고 항목
 
-- [Azure 지역 쌍](../best-practices-availability-paired-regions.md)
+- [Azure 지역 쌍](../availability-zones/cross-region-replication-azure.md)
 - [Azure의 데이터 보존](https://azure.microsoft.com/global-infrastructure/data-residency/)

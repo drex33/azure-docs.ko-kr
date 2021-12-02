@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc, mode-portal
 ms.topic: quickstart
 ms.date: 11/30/2021
-ms.openlocfilehash: 8885560dfc7f356f897a2225bf6a96c70fefc17c
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: fbfec2b81b0007e3b5cbb6bb26a2cc8639e7f741
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133271406"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133438729"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 유연한 서버 만들기
 
@@ -61,18 +61,26 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
     컴퓨팅 + 스토리지 | **범용**, **4 vCore**, **512GB**, **7일** | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **서버 구성** 을 선택합니다. *범용*, *4 vCore*, *512GB* 및 *7일* 은 **컴퓨팅 계층**, **vCore**, **스토리지** 및 **백업 보존 기간** 에 대한 기본값입니다. 해당 슬라이더를 그대로 두거나 조정할 수 있습니다. 이 가격 책정 계층 선택을 저장하려면 **확인** 을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
 
     :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="가격 책정 계층 창":::
+
     
 5. 네트워킹 구성 옵션
+6. 
+    **네트워킹** 탭에서 서버에 연결할 수 있는 방법을 선택할 수 있습니다. 서버에 연결하기 위해 Azure Database for MySQL 유연한 서버에서 제공하는 두 가지 방법은 다음과 같습니다.
+   - 퍼블릭 액세스(허용된 IP 주소)
+   - 프라이빗 액세스(VNet 통합)
 
-    네트워크 탭에서 서버에 연결하는 방법을 선택할 수 있습니다. PostgreSQL용 Azure Database는 서버 수준에서 방화벽을 만듭니다. 특정 IP 주소에 대한 방화벽을 열기 위한 규칙을 만들지 않는 한, 이 방화벽은 외부 애플리케이션과 도구에서 서버 및 서버의 모든 데이터베이스에 연결하는 것을 방지합니다. 서버를 공개적으로 액세스할 수 있도록 설정 하는 것이 좋습니다.
+    퍼블릭 액세스를 사용하는 경우 서버에 대한 액세스는 방화벽 규칙에 추가하는 허용된 IP 주소로 제한됩니다. 특정 IP 주소 또는 범위에 대한 방화벽을 여는 규칙을 만들지 않는 한 이 방법은 외부 애플리케이션과 도구에서 서버 및 서버의 모든 데이터베이스에 연결하지 못하도록 방지합니다. 프라이빗 액세스(VNet 통합)를 사용하는 경우 서버에 대한 액세스는 가상 네트워크로 제한됩니다. [개념 문서에서 연결 방법에 대해 자세히 알아보세요.](./concepts-networking.md)
+
+     이 빠른 시작에서는 서버에 연결하기 위해 퍼블릭 액세스를 사용하도록 설정하는 방법을 알아봅니다. **네트워킹 탭** 에서 **연결 방법** 을 **공용 액세스** 로 선택합니다. **방화벽 규칙** 을 구성하려면 **현재 클라이언트 IP 주소 추가** 를 선택합니다.
+
+    > [!NOTE]
+    > 서버가 만들어지면 연결 방법을 변경할 수 없습니다. 예를 들어 서버를 만들 때 **퍼블릭 액세스(허용된 IP 주소)** 를 선택하면 서버를 만든 후에 **프라이빗 액세스(VNet 통합)** 로 변경할 수 없습니다. VNet 통합을 통해 서버에 대한 액세스를 안전하게 보호하려면 프라이빗 액세스 권한이 있는 서버를 만드는 것이 좋습니다. [개념 문서에서 프라이빗 액세스에 대해 자세히 알아보세요.](./concepts-networking.md)
+
 
     :::image type="content" source="./media/quickstart-create-database-portal/5-networking.png" alt-text="네트워킹 창":::
 
-    그런 다음, 사용자 고유의 클라이언트 IP 주소로 제한합니다.
+  
 
-    :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="현재 클라이언트 IP 주소 추가 선택":::
-
-    프라이빗 액세스를 선택하는 경우 
 6. **검토 + 만들기** 를 선택하여 선택 사항을 검토합니다. **만들기** 를 선택하여 서버를 프로비전합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
 7. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림** 아이콘(벨)을 선택합니다. 배포가 완료되면 Azure Portal 대시보드에서 이 서버에 대한 타일을 서버의 **개요** 페이지에 대한 바로 가기로 만드는 **대시보드에 고정** 을 선택할 수 있습니다. **리소스로 이동** 옵션을 선택하면 서버의 **개요** 페이지가 열립니다.

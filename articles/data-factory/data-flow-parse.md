@@ -7,16 +7,18 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 05/10/2021
-ms.openlocfilehash: 6612ded8cdc5e5e1a5ef38c18cc854fde41f2733
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2535cfbe998302c9d166c494961ee473ccfa24bd
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641430"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133435737"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 구문 분석 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 구문 분석 변환을 사용하여 문서 형식으로 된 데이터의 열을 구문 분석합니다. 구문 분석할 수 있는 현재 지원되는 포함 문서 형식은 JSON, XML 및 구분 기호로 분리된 텍스트입니다.
 
@@ -133,4 +135,4 @@ parse(csv = csvString ? (id as integer,
 ## <a name="next-steps"></a>다음 단계
 
 * [평면화된 변환](data-flow-flatten.md)을 사용하여 행을 열로 피벗합니다.
-* [파생 열 변환](data-flow-derived-column.md)을 사용하여 열을 행으로 피벗합니다.
+* 파생 [열 변환을](data-flow-derived-column.md) 사용하여 행을 변환합니다.

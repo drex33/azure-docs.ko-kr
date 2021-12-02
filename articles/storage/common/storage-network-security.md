@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f033ad2482977a32c197eb6e172bc0a043f71abc
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: d61ecd0057e2a978177fa1b6db2db809df46f1dc
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132720457"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133434941"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -132,7 +132,7 @@ VNet 내의 Azure Storage에 대해 [서비스 엔드포인트](../../virtual-ne
 
 ### <a name="available-virtual-network-regions"></a>사용 가능한 가상 네트워크 지역
 
-일반적으로 서비스 엔드포인트는 동일한 Azure 지역의 가상 네트워크와 서비스 인스턴스 간에 작동합니다. Azure Storage에서 서비스 엔드포인트를 사용하는 경우 이 범위에는 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)이 포함됩니다. 서비스 엔드포인트를 사용하면 지역별 장애 조치 및 읽기 전용 RA-GRS(지역 중복 스토리지) 인스턴스에 대한 액세스 중에 연속성을 유지할 수 있습니다. 가상 네트워크에서 스토리지 계정으로의 액세스를 허가하는 네트워크 규칙은 모든 RA-GRS 인스턴스에 대한 액세스도 허가합니다.
+일반적으로 서비스 엔드포인트는 동일한 Azure 지역의 가상 네트워크와 서비스 인스턴스 간에 작동합니다. Azure Storage에서 서비스 엔드포인트를 사용하는 경우 이 범위에는 [쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)이 포함됩니다. 서비스 엔드포인트를 사용하면 지역별 장애 조치 및 읽기 전용 RA-GRS(지역 중복 스토리지) 인스턴스에 대한 액세스 중에 연속성을 유지할 수 있습니다. 가상 네트워크에서 스토리지 계정으로의 액세스를 허가하는 네트워크 규칙은 모든 RA-GRS 인스턴스에 대한 액세스도 허가합니다.
 
 지역 가동 중단 시 재해 복구를 계획하는 경우 쌍을 이루는 지역에 VNet을 미리 만들어야 합니다. 이러한 대체 가상 네트워크에서 액세스할 수 있도록 허용하는 네트워크 규칙을 사용하여 Azure Storage에 대한 서비스 엔드포인트를 사용하도록 설정합니다. 그런 다음, 이러한 규칙을 지역 중복 스토리지 계정에 적용합니다.
 
@@ -269,7 +269,7 @@ IP 네트워크 규칙은 다음과 같은 경우에는 사용할 수 없습니�
 
   IP 네트워크 규칙은 스토리지 계정과 동일한 Azure 지역에서 시작된 요청에 영향을 주지 않습니다. 동일한 지역 요청을 허용하려면 [가상 네트워크 규칙](#grant-access-from-a-virtual-network)을 사용하세요.
 
-- 서비스 엔드포인트가 있는 VNet에 있는 [쌍을 이루는 지역](../../best-practices-availability-paired-regions.md)에 있는 클라이언트에 대한 액세스를 제한할 때.
+- 서비스 엔드포인트가 있는 VNet에 있는 [쌍을 이루는 지역](../../availability-zones/cross-region-replication-azure.md)에 있는 클라이언트에 대한 액세스를 제한할 때.
 
 - 스토리지 계정과 동일한 지역에 배포된 Azure 서비스에 대한 액세스를 제한할 때.
 

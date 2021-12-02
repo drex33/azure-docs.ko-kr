@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Portal을 사용하여 지역 간 부하 분산 장치 만들기'
+title: '자습서: Azure Portal을 사용하여 지역 간 Load Balancer 만들기'
 titleSuffix: Azure Load Balancer
 description: 이 자습서를 시작하여 Azure Portal을 사용하여 지역 간 Azure Load Balancer를 배포합니다.
 author: asudbring

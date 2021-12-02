@@ -28,7 +28,7 @@ Azure Load Balancer에는 기본, 표준 및 게이트웨이의 3 개 sku가 있
 기본 SKU와 표준 SKU 간의 차이점을 비교 하 고 이해 하려면 다음 표를 참조 하세요. 자세한 내용은 [Azure 표준 Load Balancer 개요](./load-balancer-overview.md)를 참조하세요. 현재 미리 보기로 제공 되는 타사 Nva (네트워크 가상 어플라이언스)의 게이트웨이 SKU에 대 한 자세한 내용은 [게이트웨이 Load Balancer 개요](gateway-overview.md) 를 참조 하세요.
 
 >[!NOTE]
-> Microsoft는 표준 부하 분산 장치를 권장합니다.
+> Microsoft는 표준 Load Balancer를 권장합니다.
 독립 실행형 VM, 가용성 집합 및 가상 머신 확장 집합은 하나의 SKU에만 연결될 수 있습니다. 공용 IP 주소와 함께 사용할 때는 부하 분산 장치 및 공용 IP 주소 SKU가 일치해야 합니다. 부하 분산 장치 및 공용 IP SKU는 변경할 수 없습니다.
 
 | | 표준 Load Balancer | 기본 Load Balancer |

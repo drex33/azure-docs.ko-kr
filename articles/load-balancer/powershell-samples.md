@@ -14,7 +14,7 @@ ms.date: 12/10/2018
 ms.author: allensu
 ms.openlocfilehash: 3bb42bf1a1a7e80a141d2476ead62a29f8c7188c
 ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2021
 ms.locfileid: "86201564"
@@ -26,5 +26,5 @@ ms.locfileid: "86201564"
 | 스크립트 | Description |
 |-|-|
 | [고가용성을 위해 VM에 트래픽 부하 분산](./scripts/load-balancer-windows-powershell-sample-nlb.md) | 고가용성의 부하가 분산된 구성으로 여러 가상 머신을 만듭니다. |
-| [VM에서 여러 웹 사이트에 부하 분산](./scripts/load-balancer-windows-powershell-load-balance-multiple-websites-vm.md) | Azure 가용성 집합에 연결되고 Azure 부하 분산 장치를 통해 액세스할 수 있는 2개의 VM을 여러 IP 구성을 사용해서 만듭니다. |
+| [VM에서 여러 웹 사이트에 부하 분산](./scripts/load-balancer-windows-powershell-load-balance-multiple-websites-vm.md) | Azure 가용성 집합에 연결되고 Azure Load Balancer를 통해 액세스할 수 있는 2개의 VM을 여러 IP 구성을 사용해서 만듭니다. |
 | | |

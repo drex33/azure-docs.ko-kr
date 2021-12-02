@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure CLI를 사용하여 지역 간 부하 분산 장치 만들기'
+title: '자습서: Azure CLI를 사용하여 지역 간 Load Balancer 만들기'
 titleSuffix: Azure Load Balancer
 description: Azure CLI를 사용하여 지역 간 Azure Load Balancer를 배포하는 이 자습서를 시작하세요.
 author: asudbring

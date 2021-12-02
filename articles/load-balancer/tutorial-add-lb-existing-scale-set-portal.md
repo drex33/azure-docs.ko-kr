@@ -127,7 +127,7 @@ Azure Portal을 사용하여 가상 머신 확장 집합과 연결된 Azure Load
 
 이 섹션에서는 가상 머신에 대한 부하 분산 장치를 만듭니다.
 
-1. 포털 맨 위에 있는 검색 상자에 **부하 분산 장치** 를 입력합니다.
+1. 포털 맨 위에 있는 검색 상자에 **Load Balancer** 를 입력합니다.
 
 2. 검색 결과에서 **부하 분산 장치** 를 선택합니다.
 
@@ -328,4 +328,4 @@ Azure Portal을 사용하여 가상 머신 확장 집합과 연결된 Azure Load
 
 지역 간 Azure Load Balancer를 만드는 방법을 알아보려면 다음 문서로 계속 진행하세요.
 > [!div class="nextstepaction"]
-> [지역 간 부하 분산 장치 만들기](tutorial-cross-region-portal.md)
+> [지역 간 Load Balancer 만들기](tutorial-cross-region-portal.md)

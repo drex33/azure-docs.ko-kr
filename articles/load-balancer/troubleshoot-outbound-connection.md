@@ -32,7 +32,7 @@ SNAT 포트를 모두 소모하지 않도록 하는 가장 좋은 방법은 가�
 아웃바운드 연결 동작을 이해하는 데 어려움이 있는 경우 IP 스택 통계(netstat)를 사용할 수 있습니다. 또는 패킷 캡처를 사용하여 연결 동작을 관찰하면 도움이 될 수 있습니다. 이러한 패킷 캡처는 인스턴스의 게스트 OS에서 수행할 수도 있고 [패킷 캡처용 Network Watcher](../network-watcher/network-watcher-packet-capture-manage-portal.md)를 사용할 수도 있습니다. 
 
 ## <a name="manually-allocate-snat-ports-to-maximize-snat-ports-per-vm"></a><a name ="manualsnat"></a>수동으로 SNAT 포트를 할당하여 VM당 SNAT 포트 최대화
-[미리 할당된 포트](load-balancer-outbound-connections.md#preallocatedports)에 정의된 대로 부하 분산 장치는 백 엔드의 VM 수에 따라 포트를 자동으로 할당합니다. 기본적으로 이 작업은 확장성을 보장하기 위해 신중하게 수행됩니다. 백 엔드에 포함할 최대 VM 수를 알고 있는 경우 각 아웃바운드 규칙에서 SNAT 포트를 수동으로 할당할 수 있습니다. 예를 들어 최대 10개의 VM이 있는 경우 기본 1024가 아닌 VM당 6400개의 SNAT 포트를 할당할 수 있습니다. 
+[미리 할당된 포트](load-balancer-outbound-connections.md#preallocatedports)에 정의된 대로 Load Balancer는 백 엔드의 VM 수에 따라 포트를 자동으로 할당합니다. 기본적으로 이 작업은 확장성을 보장하기 위해 신중하게 수행됩니다. 백 엔드에 포함할 최대 VM 수를 알고 있는 경우 각 아웃바운드 규칙에서 SNAT 포트를 수동으로 할당할 수 있습니다. 예를 들어 최대 10개의 VM이 있는 경우 기본 1024가 아닌 VM당 6400개의 SNAT 포트를 할당할 수 있습니다. 
 
 ## <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>연결을 다시 사용하도록 애플리케이션 수정 
 애플리케이션에서 연결을 다시 사용하여 SNAT에서 사용되는 사용 후 삭제 포트에 대한 수요를 줄일 수 있습니다. 연결 재사용은 특히 연결 재사용이 기본값인 HTTP/1.1과 같은 프로토콜과 관련이 있습니다. 또한 전송으로 HTTP를 사용하는 다른 프로토콜(예: REST)도 이점을 얻을 수 있습니다. 

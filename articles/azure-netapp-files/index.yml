@@ -6,15 +6,15 @@ metadata:
   description: Azure NetApp Files 서비스를 사용하여 볼륨을 설정하고, 액세스하고, 관리하는 방법을 알아봅니다.
   ms.service: azure-netapp-files
   ms.topic: landing-page
-  author: b-juche
-  ms.author: b-juche
+  author: b-hchen
+  ms.author: b-hchen
   ms.date: 09/27/2021
-  ms.openlocfilehash: 479f3bf51e45b03ea9026cb0b37eb01d91991dbd
-  ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+  ms.openlocfilehash: d91b7dc2da57a205ffc8da78dcf8125fc1a5c986
+  ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/28/2021
-  ms.locfileid: "129154226"
+  ms.lasthandoff: 12/02/2021
+  ms.locfileid: "133485595"
 landingContent:
 - title: Azure NetApp Files 정보
   linkLists:

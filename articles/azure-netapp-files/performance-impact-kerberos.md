@@ -3,7 +3,7 @@ title: Azure NetApp Files NFSv 4.1 볼륨에서 Kerberos의 성능 영향 | Micr
 description: Azure NetApp Files NFSv 4.1 볼륨에서 사용 가능한 보안 옵션, 테스트 된 성능 벡터 및 kerberos의 예상 성능 영향에 대해 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.author: b-juche
-ms.openlocfilehash: e9054f11c8f55e9fe00266840a9f6e257f14e659
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.author: b-hchen
+ms.openlocfilehash: 178aa5ed797e6b6fb5e8e3b4df5a902bdbc849c9
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101746092"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487248"
 ---
 # <a name="performance-impact-of-kerberos-on-azure-netapp-files-nfsv41-volumes"></a>Azure NetApp Files NFSv 4.1 볼륨에서 Kerberos의 성능 영향
 
@@ -29,8 +29,8 @@ Azure NetApp Files는 256 암호화를 사용 하는 Kerberos 모드 (krb5.conf,
 
 NFSv 4.1 볼륨에 현재 사용할 수 있는 보안 옵션은 다음과 같습니다. 
 
-* **sec = sys** 는 AUTH_SYS을 사용 하 여 NFS 작업을 인증 하는 로컬 UNIX Uid 및 gid를 사용 합니다.
-* **sec = krb5.conf** 는 로컬 UNIX Uid 및 gid Ds 대신 Kerberos V5를 사용 하 여 사용자를 인증 합니다.
+* **sec = sys** 는 AUTH_SYS를 사용 하 여 NFS 작업을 인증 함으로써 로컬 UNIX uid 및 gid ds를 사용 합니다.
+* **sec = krb5.conf** 는 로컬 UNIX uid 및 gid ds 대신 Kerberos V5를 사용 하 여 사용자를 인증 합니다.
 * **sec = krb5i** 는 사용자 인증에 Kerberos V5를 사용 하 고 보안 체크섬을 사용 하 여 NFS 작업의 무결성 검사를 수행 하 여 데이터 변조를 방지 합니다.
 * **sec = krb5p** 사용자 인증 및 무결성 검사에 Kerberos V5를 사용 합니다. 트래픽 스니핑을 방지 하기 위해 NFS 트래픽을 암호화 합니다. 이 옵션은 가장 안전한 설정 이지만 대부분의 성능 오버 헤드가 포함 됩니다.
 

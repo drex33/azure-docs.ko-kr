@@ -3,7 +3,7 @@ title: Azure NetApp Files란? | Microsoft Docs
 description: 모든 유형의 워크로드를 지원하는 고가용성 서비스인 엔터프라이즈급 고성능 요금제 파일 스토리지 서비스 Azure NetApp Files에 대해 알아봅니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 10/04/2021
-ms.author: b-juche
-ms.openlocfilehash: fcff7e8523e788adae30236782c23610d32a9f44
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.author: b-hchen
+ms.openlocfilehash: 77a0346900629d9b2ad77b31591677b3a0d06360
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407820"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483653"
 ---
 # <a name="what-is-azure-netapp-files"></a>Azure NetApp Files란?
 

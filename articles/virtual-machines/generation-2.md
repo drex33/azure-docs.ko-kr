@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: e564a27e3f26d13217dd5c316b5153a51e7858aa
-ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
+ms.openlocfilehash: 9cdc6b658ed32f98e4ee7233f9b07bd19e5779bd
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133426168"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485158"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -99,9 +99,9 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 대해 지원하는 �
 
 | 2세대 기능                | 온-프레미스 Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| 보안 부팅                         | :heavy_check_mark:  | With [신뢰할 수 있는 시작] (trusted-launch.md)   |
+| 보안 부팅                         | :heavy_check_mark:  | [신뢰할 수 있는 시작](trusted-launch.md)   |
 | 보호된 VM                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | With [신뢰할 수 있는 시작] (trusted-launch.md)  |
+| vTPM                                | :heavy_check_mark:  | [신뢰할 수 있는 시작](trusted-launch.md)  |
 | VBS(가상화 기반 보안) | :heavy_check_mark:  | :heavy_check_mark:   |
 | VHDX 형식                         | :heavy_check_mark:  | :x:   |
 
@@ -147,16 +147,14 @@ Azure Portal에서 2세대(Gen2) VM을 만드는 단계는 아래와 같습니�
 4. **가상 머신** 페이지에서 **추가** 를 선택한 다음, **가상 머신** 을 선택합니다.
 5. **프로젝트 세부 정보** 에서 올바른 구독이 선택되어 있는지 확인합니다.
 6. **리소스 그룹** 에서 **새로 만들기** 를 선택하고 리소스 그룹의 이름을 입력하거나 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
-7. **인스턴스 세부 정보** 에서 가상 컴퓨터 이름에 대 한 이름을 입력 하 고 지역을 선택 합니다.
-8. **이미지** 에서 Marketplace 이미지의 Gen2 이미지를 선택 **하 여 시작 합니다** .
+7. **인스턴스 세부 정보** 아래에서 가상 머신 이름의 이름을 입력하고 지역을 선택합니다.
+8. **이미지** 아래의 Marketplace 이미지에서 Gen2 이미지를 선택하여 **시작합니다.**
    > [!TIP]
-   > 드롭다운에 원하는 이미지의 Gen 2 버전이 표시 되지 않으면 **모든 이미지 보기** 를 선택 하 고 **이미지 형식** 필터를 **Gen 2** 로 변경 합니다.
-9. Gen2를 지 원하는 VM 크기를 선택 합니다. [지원 되는 크기](#generation-2-vm-sizes)목록을 참조 하세요.
-10. **관리자 계정** 정보를 입력 한 다음 **인바운드 포트 규칙** 을 입력 합니다.
+   > 드롭다운에서 원하는 이미지의 Gen 2 버전이 표시되지 않으면 모든 이미지 보기를 선택한 **다음, 이미지** **유형** 필터를 **Gen 2로** 변경합니다.
+9. Gen2를 지원하는 VM 크기를 선택합니다. 지원되는 크기 목록을 [참조하세요.](#generation-2-vm-sizes)
+10. **관리자 계정** 정보를 입력한 다음 **인바운드 포트 규칙을** 입력합니다.
 11. 페이지의 아래쪽에서 **검토 + 생성** 을 선택합니다.
-12. **가상 머신 만들기** 페이지에서 배포하려는 VM의 세부 정보를 볼 수 있습니다. 유효성 검사가 성공으로 표시 되 면 **만들기** 를 선택 합니다.
-
-![1세대 또는 2세대 VM 선택](./media/generation-2/gen1-gen2-select.png)
+12. **가상 머신 만들기** 페이지에서 배포하려는 VM의 세부 정보를 볼 수 있습니다. 유효성 검사가 통과된 것으로 표시되면 **만들기를** 선택합니다.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -168,12 +166,12 @@ Azure Portal에서 2세대(Gen2) VM을 만드는 단계는 아래와 같습니�
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
-OS로 Windows Server 2019를 사용 하 여 VM을 만드는 경우 다음과 같은 UEFI (2 세대) 이미지를 선택할 수 있습니다.
+os로 Windows Server 2019를 사용하여 VM을 만드는 경우 다음과 같은 UEFI(2세대) 이미지를 선택할 수 있습니다.
 
 ```powershell
 2019-datacenter-gensecond
 ```
-Windows 10를 OS로 사용 하 여 VM을 만드는 경우 다음과 같이 UEFI (2 세대) 이미지를 선택할 수 있습니다.
+OS로 Windows 10 VM을 만드는 경우 다음과 같은 UEFI(2세대) 이미지를 선택할 수 있습니다.
 
 ```powershell
 20H2-PRO-G2
@@ -253,11 +251,11 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 
     이 문제는 다음을 수행하여 해결할 수 있습니다.
 
-    1. **VM 생성** 속성이 **Gen 2** 로 설정 되어 있는지 확인 합니다.
+    1. **VM 생성** 속성이 Gen **2로** 설정되어 있는지 확인합니다.
     1. [Gen2 VM을 지원하는 VM 크기](#generation-2-vm-sizes)를 검색하고 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Gen 2 Vm으로 [신뢰할 수 있는 시작](trusted-launch-portal.md) 에 대해 자세히 알아보세요.
+2세대 VM을 통해 [신뢰할 수 있는 발사에](trusted-launch-portal.md) 대해 자세히 알아봅니다.
 
 [Hyper-V의 2세대 가상 머신](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)에 대해 알아봅니다.

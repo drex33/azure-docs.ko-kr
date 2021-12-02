@@ -1,22 +1,22 @@
 ---
-title: Azure NetApp Files에 대 한 SMB Faq | Microsoft Docs
-description: Azure NetApp Files의 SMB 프로토콜에 대 한 Faq (질문과 대답)입니다.
+title: Azure NetApp Files | 대한 SMB FAQ Microsoft Docs
+description: Azure NetApp Files SMB 프로토콜에 대한 FAQ(질문과 대답)입니다.
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.date: 10/11/2021
-ms.openlocfilehash: 7b1c6b1e3e9814ed83c92ada2388ff54f5b3829c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 48d4b8bb4030005770afda7d0a1834e90deb04e8
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273812"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487267"
 ---
-# <a name="smb-faqs-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 SMB Faq
+# <a name="smb-faqs-for-azure-netapp-files"></a>Azure NetApp Files 대한 SMB FAQ
 
-이 문서에서는 Azure NetApp Files의 SMB 프로토콜에 대 한 Faq (질문과 대답)에 답변 합니다.
+이 문서에서는 Azure NetApp Files SMB 프로토콜에 대한 FAQ(질문과 대답)를 제공합니다.
 
 ## <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Azure NetApp Files에서 지원하는 SMB 버전은 무엇인가요?
 
@@ -75,5 +75,5 @@ Azure NetApp Files SMB 공유를 DFS-N 폴더 대상으로 사용하려면 [DFS 
 - [용량 관리 FAQ](faq-capacity-management.md)
 - [데이터 마이그레이션 및 보호 FAQ](faq-data-migration-protection.md)
 - [Azure NetApp Files 백업 FAQ](faq-backup.md)
-- [응용 프로그램 복원 력 Faq](faq-application-resilience.md)
-- [통합 Faq](faq-integration.md)
+- [애플리케이션 복원력 FAQ](faq-application-resilience.md)
+- [통합 FAQ](faq-integration.md)

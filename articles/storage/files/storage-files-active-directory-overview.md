@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 12/01/2021
 ms.author: rogarana
-ms.openlocfilehash: 43e844380374a8e507325494b67faef1daf85340
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.openlocfilehash: 2c8193e1a5128faecc4512d3866987458e0a48b7
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132523945"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484489"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>SMB 액세스에 대한 Azure Files ID 기반 인증 옵션 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -41,7 +41,7 @@ Azure 파일 공유에 대해 SMB를 통한 Azure AD Domain Service 인증과 �
 
 -   **Azure AD(Azure Active Directory)**
 
-    Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD에서는 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호가 하나의 솔루션으로 결합되어 있습니다. Azure AD 가입 Windows VM(가상 머신)은 Azure AD 자격 증명을 사용하여 Azure 파일 공유에 액세스할 수 없습니다. 자세한 내용은 [Azure Active Directory란?](../../active-directory/fundamentals/active-directory-whatis.md)을 참조하세요.
+    Azure AD(Azure Active Directory)는 Microsoft의 다중 테넌트 클라우드 기반 디렉터리 및 ID 관리 서비스입니다. Azure AD에서는 핵심 디렉터리 서비스, 애플리케이션 액세스 관리 및 ID 보호가 하나의 솔루션으로 결합되어 있습니다. Azure AD 조인 Vm에 대 한 Azure 파일 공유에 FSLogix 프로필을 저장 하는 것은 현재 공개 미리 보기 상태입니다. 자세한 내용은 [Azure Files를 사용 하 여 프로필 컨테이너 만들기 및 Azure Active Directory (미리 보기)](../../virtual-desktop/create-profile-container-azure-ad.md)를 참조 하세요.
 
 -   **Azure AD DS(Azure Active Directory Domain Services)**
 

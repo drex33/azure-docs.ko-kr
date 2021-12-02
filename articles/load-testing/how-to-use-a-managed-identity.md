@@ -8,12 +8,12 @@ ms.author: ninallam
 author: ninallam
 ms.date: 11/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 8de93cae4f3f33778c5fb9064c7fbcc8bf2993a8
-ms.sourcegitcommit: 845eb7b0ed05ef2f0dfa6f054eaf5f32c780567c
+ms.openlocfilehash: a0195a34b3852ac93edc8577e4057d679064dad4
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133305589"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486944"
 ---
 # <a name="use-managed-identities-for-azure-load-testing-preview"></a>Azure 부하 테스트 미리 보기에 관리 되는 id 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "133305589"
 
 Azure Active Directory (Azure ad)에서 관리 되는 id를 사용 하면 리소스에서 Azure Key Vault 같은 다른 Azure AD로 보호 되는 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리합니다. Azure AD의 관리 ID에 관한 자세한 내용은 [Azure 리소스에 대한 관리 ID](/azure/active-directory/managed-identities-azure-resources/overview)를 참조하세요.
 
-현재 Azure 부하 테스트는 시스템 할당 id만 지원 합니다. 시스템이 할당 한 id는 Azure 부하 테스트 리소스에 연결 되며 리소스를 삭제 하면 삭제 됩니다. 리소스에는 시스템 할당 id가 하나만 있을 수 있습니다.
+Azure 부하 테스트는 시스템 할당 id만 지원 합니다. 시스템 할당 id는 Azure 부하 테스트 리소스와 연결 되며 리소스를 삭제 하면 제거 됩니다. 리소스에는 시스템 할당 id가 하나만 있을 수 있습니다.
 
 > [!IMPORTANT]
 > Azure 부하 테스트는 현재 미리 보기로 제공 됩니다.
@@ -35,11 +35,11 @@ Azure Active Directory (Azure ad)에서 관리 되는 id를 사용 하면 리소
 
 ## <a name="add-a-system-assigned-identity"></a>시스템 할당 ID 추가  
 
-Azure 부하 테스트에 대 한 시스템 할당 id를 만들려면에서 리소스에 대 한 속성을 설정 해야 합니다. Azure Portal를 사용 하거나 ARM (Azure Resource Manager) 템플릿을 사용 하 여 시스템에 할당 된 id를 사용 하도록 설정할 수 있습니다.
+Azure 부하 테스트 리소스에 대 한 시스템 할당 id를 추가 하려면 리소스에 대 한 속성을 사용 하도록 설정 해야 합니다. Azure Portal를 사용 하거나 ARM (Azure Resource Manager) 템플릿을 사용 하 여이 속성을 설정할 수 있습니다.
 
 ### <a name="set-a-system-assigned-identity-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 시스템 할당 id 설정
 
-포털에서 관리 id를 설정 하려면 먼저 Azure 부하 테스트 리소스를 만든 다음 기능을 사용 하도록 설정 합니다.
+포털에서 관리 되는 id를 설정 하려면 먼저 Azure 부하 테스트 리소스를 만든 후 기능을 사용 하도록 설정 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure 부하 테스트 리소스로 이동 합니다.
 

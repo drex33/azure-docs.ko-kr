@@ -3,7 +3,7 @@ title: 볼륨 하드 할당량 변경이 Azure NetApp Files 서비스에 미치�
 description: 볼륨 하드 할당량 사용에 대한 변경 사항, 변경 계획 방법, 용량 모니터링 및 관리 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/29/2021
-ms.author: b-juche
-ms.openlocfilehash: a0080687d65c7165b0c2a463229a9a817fb045e0
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: f4f237818ec9e7598ea97be97b1918b870ffa83d
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288181"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480951"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>볼륨 하드 할당량 변경이 Azure NetApp Files 서비스에 미치는 영향
 

@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/18/2020
-ms.author: alzam
-ms.openlocfilehash: d97d66f89d59ed56b75db504e5eb84f3ccfbe8e7
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
-ms.translationtype: HT
+ms.date: 12/01/2021
+ms.author: cherylmc
+ms.openlocfilehash: 3b8a25d248e78dd2bce452fa87287de9a671e63d
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226375"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482281"
 ---
 # <a name="set-up-alerts-on-resource-log-events-from-vpn-gateway"></a>VPN Gateway에서 리소스 로그 이벤트에 대한 경고 설정
 
@@ -31,48 +31,46 @@ Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a><a name="setup"></a>Azure Portal에서 경고 설정
 
-다음 단계 예에서는 사이트 간 VPN 터널이 포함된 연결 끊기 이벤트에 대한 경고를 만듭니다.
-
+다음 예제 단계에서는 사이트-사이트 VPN 터널을 포함하는 연결 끊기 이벤트에 대한 경고를 만듭니다.
 
 1. Azure Portal의 **모든 서비스** 에서 **Log Analytics** 를 검색한 다음 **Log Analytics 작업 영역** 을 선택합니다.
 
-   ![Log Analytics 작업 영역으로 이동하기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "생성")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png" alt-text="Log Analytics 작업 영역으로 전환하기 위한 선택 항목입니다." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png":::
 
 2. **Log Analytics** 페이지에서 **만들기** 를 선택합니다.
 
-   ![만들기 단추가 있는 Log Analytics 페이지](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "선택")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png" alt-text="만들기 단추가 있는 Log Analytics 페이지." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png":::
 
 3. **새로 만들기** 를 선택하고 세부 정보를 입력합니다.
 
-   ![Log Analytics 작업 영역 만드는 방법에 대한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "선택")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png" alt-text="Log Analytics 작업 영역을 만들기 위한 세부 정보입니다." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png":::
 
 4. **모니터링** > **진단 설정** 블레이드에서 VPN Gateway를 찾습니다.
 
-   ![진단 설정에서 VPN Gateway를 찾기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "선택")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png" alt-text="진단 설정에서 VPN 게이트웨이를 찾기 위한 선택 항목입니다." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png":::
 
 5. 진단을 켜려면 게이트웨이를 두 번 클릭한 다음 **진단 켜기** 를 선택합니다.
 
-   ![진단 켜기 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "선택")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png " alt-text="진단을 설정하기 위한 선택 항목입니다." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png":::
 
 6. 세부 정보를 입력하고 **Log Analytics로 보내기** 및 **TunnelDiagnosticLog** 가 선택되어 있는지 확인합니다. 3단계에서 만든 Log Analytics 작업 영역을 선택합니다.
 
-   ![선택된 확인란](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "선택")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png " alt-text="선택한 확인란입니다." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png":::
 
    > [!NOTE]
    > 데이터가 처음으로 보이기까지는 몇 시간이 걸릴 수 있습니다.
 
 7. 가상 네트워크 게이트웨이 리소스의 개요로 이동하고 **모니터링** 탭에서 **경고** 를 선택합니다. 그런 다음 새 경고 규칙을 만들거나 기존 경고 규칙을 편집합니다.
 
-   ![새 경고 규칙을 만들기 위한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "선택")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png " alt-text="새 경고 규칙을 만들기 위한 선택 항목입니다." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png":::
 
-   ![지점 및 사이트 간](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "선택")
 8. Log Analytics 작업 영역 및 리소스를 선택합니다.
 
-   ![작업 영역 및 리소스에 대한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "선택")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png " alt-text="작업 영역 및 리소스에 대한 선택 항목입니다." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png":::
 
 9. **조건 추가** 에서 신호 논리로 **사용자 지정 로그 검색** 을 선택합니다.
 
-   ![사용자 지정 로그 검색에 대한 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "선택")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png " alt-text="사용자 지정 로그 검색을 위한 선택 항목입니다." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png":::
 
 10. **검색 쿼리** 텍스트 상자에 다음 쿼리를 입력합니다. <>의 값과 TimeGenerated를 적절하게 바꿉니다.
 
@@ -89,15 +87,19 @@ Azure에서 사용할 수 있는 리소스 로그는 다음과 같습니다.
 
     임계값을 0으로 설정하고 **완료** 를 선택합니다.
 
-    ![쿼리 입력 및 임계값 선택](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "선택")
+     :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png " alt-text="쿼리 입력 및 임계값 선택" lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png":::
+
+    > [!NOTE]
+    > 터널을 다운하고 백업하면 이 쿼리에 대한 로그가 생성됩니다.
+    >
 
 11. **규칙 만들기** 페이지의 **작업 그룹** 섹션에서 **새로 만들기** 를 선택합니다. 세부 정보를 입력하고 **확인** 을 선택합니다.
 
-    ![새 작업 그룹에 대한 세부 정보](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "선택")
+     :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png " alt-text="새 작업 그룹에 대한 세부 정보입니다." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png":::
 
 12. **규칙 만들기** 페이지에서 **작업 사용자 지정** 에 대한 세부 정보를 입력하고 올바른 이름이 **작업 그룹 이름** 섹션에 표시되는지 확인합니다. **경고 규칙 만들기** 를 선택하여 규칙을 만듭니다.
 
-    ![규칙을 생성하는 선택 항목](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "선택")
+     :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png " alt-text="규칙을 만들기 위한 선택 항목입니다." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png":::
 
 ## <a name="set-up-alerts-by-using-powershell"></a><a name="setuppowershell">PowerShell을 사용하여 경고 설정</a>
 

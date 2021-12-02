@@ -3,7 +3,7 @@ title: SQL Server 배포에 Azure NetApp Files를 사용할 경우의 이점 | M
 description: SQL Server 배포에 Azure NetApp Files를 사용하는 것에 대한 자세한 비용 분석 성능 이점을 보여 줍니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/19/2021
-ms.author: b-juche
-ms.openlocfilehash: cecf3d0da1b987d7c389b8fe9ab8f0600fed5dba
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: 5e298a2cd9241bcb784606611431e86e94410df4
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190511"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484774"
 ---
 #  <a name="benefits-of-using-azure-netapp-files-for-sql-server-deployment"></a>SQL Server 배포에 Azure NetApp Files를 사용할 경우의 이점
 

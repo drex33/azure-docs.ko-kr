@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 70858b1ff5251c55d4f09f24e4ba6e418c86b1ed
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
-ms.translationtype: HT
+ms.openlocfilehash: 3630ac699c56c64c4b76fd598ba928d00a422606
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113089470"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483235"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MySQL Database를 MySQL용 Azure 데이터베이스로 마이그레이션
 
@@ -60,8 +60,8 @@ ms.locfileid: "113089470"
 -   로드 전에 외래 키 제약 조건을 비활성화하려면 데이터를 덤프할 때 mysqldump에서 `disable-keys` 옵션을 사용합니다. 외래 키 검사 비활성화는 성능 향상을 제공합니다. 제약 조건을 활성화하고 참조 무결성을 확인하도록 로드 후 데이터를 확인합니다.
 -   적절한 경우 분할된 테이블을 사용합니다.
 -   병렬로 데이터를 로드합니다. 리소스 제한에 도달하도록 하는 너무 많은 병렬 처리를 피하고 Azure Portal에서 사용할 수 있는 메트릭을 사용하여 리소스를 모니터링합니다.
--   테이블 데이터가 로드된 후 인덱스 생성이 발생하도록 데이터베이스를 덤프할 때 mysqlpump에서 `defer-table-indexes` 옵션을 사용합니다.
--   mysqlpump의 `skip-definer` 옵션을 사용하여 뷰 및 저장 프로시저에 대한 create 문에서 definer 및 SQL SECURITY 절을 생략합니다.  덤프 파일을 다시 로드하면 기본 DEFINER 및 SQL SECURITY 값을 사용하는 개체가 생성됩니다.
+-   테이블 `defer-table-indexes` 데이터가 로드된 후 인덱스 생성이 발생되도록 데이터베이스를 덤프할 때 mysqldump에서 옵션을 사용합니다.
+-   `skip-definer`mysqldump의 옵션을 사용하여 뷰 및 저장 프로시저에 대한 create 문에서 definer 및 SQL SECURITY 절을 생략합니다.  덤프 파일을 다시 로드하면 기본 DEFINER 및 SQL SECURITY 값을 사용하는 개체가 생성됩니다.
 -   Azure blob/저장소에 백업 파일을 복사하고, 인터넷을 통해 복원을 수행할 때보다 훨씬 더 빨리 수행할 수 있는 위치에서 복원을 수행합니다.
 
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>대상 Azure Database for MySQL 서버에서 데이터베이스 만들기

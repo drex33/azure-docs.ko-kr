@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8ad60b5aac8af2601cb765b3681da8108ad49bfe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 34d29337387d91a545fa4886a8806a8ee4309a7c
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128583823"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485272"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 소개
 
@@ -25,7 +25,11 @@ Azure Storage 플랫폼은 최신 데이터 스토리지 시나리오를 위한 
 - **관리** 하드웨어 유지 관리, 업데이트 및 중요한 문제를 Azure에서 처리합니다.
 - **액세스 가능** Azure Storage의 데이터는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든 액세스할 수 있습니다. Microsoft는 완성도 높은 REST API뿐만 아니라 .NET, Java, Node.js, Python, PHP, Ruby, Go 등 기타 다양한 언어로 Azure Storage용 클라이언트 라이브러리를 제공합니다. Azure Storage는 Azure PowerShell 또는 Azure CLI에서 스크립트를 지원합니다. 또한 Azure Portal 및 Azure Storage Explorer는 데이터 작업을 위한 쉬운 시각적 솔루션을 제공합니다.
 
-## <a name="core-storage-services"></a>핵심 스토리지 서비스
+## <a name="review-options-for-storage-in-azure"></a>Azure에서 저장소에 대 한 옵션 검토
+
+Azure는 Azure Storage을 포함 하 여 다양 한 저장소 도구와 서비스를 제공 합니다. 시나리오에 가장 적합 한 Azure 기술을 확인 하려면 Azure 클라우드 채택 프레임 워크에서 [저장소 옵션 검토](/azure/cloud-adoption-framework/ready/considerations/storage-options) 를 참조 하세요.
+
+## <a name="about-the-core-azure-storage-services"></a>핵심 Azure Storage 서비스 정보
 
 Azure Storage 플랫폼에는 다음과 같은 데이터 서비스가 포함됩니다.
 

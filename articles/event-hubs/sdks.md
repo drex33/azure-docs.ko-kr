@@ -2,13 +2,13 @@
 title: Azure Event Hubs-클라이언트 SDK | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs의 클라이언트 SDK에 대한 정보를 제공합니다.
 ms.topic: article
-ms.date: 09/21/2021
-ms.openlocfilehash: b1a802e5d9829f533187f477bb28037c22c02f3c
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 12/01/2021
+ms.openlocfilehash: a89fbfca98a0093fe800c157bf0bfd1db99790d5
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215893"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481958"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure Event Hubs - 클라이언트 SDK
 이 문서에서는 Azure Event Hubs에서 지원하는 SDK에 대해 다음과 같은 정보를 제공합니다. 
@@ -18,7 +18,7 @@ ms.locfileid: "129215893"
 - 빠른 시작 자습서 링크 
 
 ## <a name="client-sdks"></a>클라이언트 SDK
-다음 표에서는 런타임 클라이언트에 사용 가능한 모든 최신 Azure Event Hubs 설명합니다. 이러한 라이브러리의 핵심적인 부분은 이벤트 허브에서 **메시지를 주고 받는** 것입니다.
+다음 표에서는 사용 가능한 모든 최신 Azure Event Hubs 런타임 클라이언트에 대해 설명합니다. 이러한 라이브러리의 핵심적인 부분은 이벤트 허브에서 **메시지를 주고 받는** 것입니다.
 
 | 언어 | 패키지 | 참조 | 
 | -------- | ------- | --------------- | 
@@ -49,6 +49,18 @@ ms.locfileid: "129215893"
 - [Java](/java/api/com.microsoft.azure.management.eventhub)
 - [Python](/python/api/azure-mgmt-eventhub)
 - [JavaScript](/javascript/api/@azure/arm-eventhub/)
+
+## <a name="net-packages"></a>.NET 패키지
+
+### <a name="client-libraries"></a>클라이언트 라이브러리
+
+- **Azure.Messaging.EventHubs:** 통합된 Azure SDK 디자인 지침을 준수하고 새로운 기능에 대한 활성 개발 중인 라이브러리의 현재 버전입니다. 전체 .NET Framework .NET Core에서 사용할 수 있도록 NetStandard 플랫폼을 지원합니다.  Microsoft.Azure.EventHubs에서는 기능 패리티가 높으며 세부 정보 및 클라이언트 계층 구조가 다른 형식을 취합니다. 이 라이브러리는 사용하는 것이 좋습니다. 
+- **Microsoft.Azure.EventHubs:** Event Hubs Service Bus 번들로 묶지 않은 전용 클라이언트로 분리하는 초기 라이브러리였습니다. 전체 .NET Framework .NET Core에서 사용할 수 있도록 NetStandard 플랫폼을 지원합니다. 사용 및 타사 블로그 항목, 확장 등과 관련하여 여전히 라이브러리의 주요 버전입니다. 기준 기능은 현재 라이브러리와 동일하지만, 한 라이브러리에서 제공하는 일부 부 비트와 그렇지 않은 비트가 있습니다. 현재 버그 수정 및 중요 업데이트를 받고 있지만 더 이상 새 기능을 받지 않습니다.
+- **Windows. Azure.ServiceBus:** Event Hubs 여전히 Service Bus 얽혀 있을 때 원래 라이브러리였습니다. .NET Core보다 이전이므로 전체 .NET Framework 지원합니다. 이 라이브러리는 최신 라이브러리에서 지원하지 않는 몇 가지 동시 기능을 제공합니다.   
+
+### <a name="management-libraries"></a>관리 라이브러리
+
+- **Microsoft.Azure.Management.EventHub:** Event Hubs 위한 관리 라이브러리의 현재 GA 버전입니다. 전체 .NET Framework .NET Core에서 사용할 수 있도록 NetStandard 플랫폼을 지원합니다.  
 
 
 ## <a name="next-steps"></a>다음 단계

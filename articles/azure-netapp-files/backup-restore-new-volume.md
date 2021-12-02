@@ -3,7 +3,7 @@ title: 새 Azure NetApp Files 볼륨 | 백업 복원 Microsoft Docs
 description: 백업을 새 볼륨으로 복원하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.author: b-juche
-ms.openlocfilehash: 5e6302893884674708f584b0261204b2cc891c6c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: bb701f3d8eaa91c34d64b3c7de1f5705c9846da6
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130256384"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481578"
 ---
 # <a name="restore-a-backup-to-a-new-volume"></a>새 볼륨으로 백업 복원
 

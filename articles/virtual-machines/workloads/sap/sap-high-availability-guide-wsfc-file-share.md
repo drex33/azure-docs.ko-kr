@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/27/2021
+ms.date: 12/01/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efcbaab63bf6372761e7cd164428a30f68243e2e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: faf0e42c2d3e5e6f16119983470a0d7a7bfdf0be
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122537159"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486051"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Azure에서 파일 공유를 사용하여 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스 클러스터링
 
@@ -51,9 +51,9 @@ Windows Server 장애 조치(Failover) 클러스터링은 Windows에서 고가�
 * [Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치](./sap-high-availability-installation-wsfc-file-share.md) 
 * [장애 조치(failover) 클러스터에 (A)SCS 인스턴스 설치](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 
-> [!IMPORTANT]
-> 파일 공유를 사용한 SAP ASCS/SCS 인스턴스의 클러스터링은 SAP 커널 7.49 이상이 적용된 SAP NetWeaver 7.40 이상에서 지원됩니다.
->
+> [!NOTE]
+> 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스를 클러스터링하는 것은 SAP 커널 7.22 이상에서 SAP 시스템에서 지원됩니다. 자세한 내용은 SAP note [2698948 참조하세요.](https://launchpad.support.sap.com/#/notes/2698948)  
+
 
 
 ## <a name="windows-server-failover-clustering-in-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링

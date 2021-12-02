@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: eriklind
-ms.openlocfilehash: 8b6eab451552a7e18bd527abe616cab885be00ba
-ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
+ms.openlocfilehash: d8484cd1eab79ad6d2aeeca4a3adfd0a8813c643
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2021
-ms.locfileid: "133218770"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480970"
 ---
-# <a name="getting-started-with-azure-maps-ios-sdk-preview"></a>Azure 지도 iOS SDK 시작(미리 보기)
+# <a name="get-started-with-azure-maps-ios-sdk-preview"></a>Azure 지도 iOS SDK 시작(미리 보기)
 
 Azure 지도 iOS SDK는 iOS용 벡터 맵 라이브러리입니다. 이 문서에서는 Azure 지도 iOS SDK를 설치하고 맵을 로드하는 프로세스를 안내합니다.
 

@@ -4,15 +4,15 @@ description: Azure NetApp Files 네트워킹에 대해 Faq (질문과 대답)를
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.date: 11/08/2021
-ms.openlocfilehash: 9539cf9cc327cb954a852c183cf8c94ee4d56ca1
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 8e0f9fad47c0300980f49530058dd769921d571b
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132054793"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487343"
 ---
 # <a name="networking-faqs-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 네트워킹 Faq
 

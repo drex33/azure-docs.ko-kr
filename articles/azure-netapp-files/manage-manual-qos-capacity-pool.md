@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 수동 QoS 용량 풀 관리 | Microsoft Doc
 description: 수동 QoS 용량 풀을 설정하고 수동 QoS를 사용하도록 용량 풀을 변경하는 등 수동 QoS 유형을 사용하는 용량 풀을 관리하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 06/14/2021
-ms.author: b-juche
-ms.openlocfilehash: dd92472ff810a46743ffa08b1ea2fdd8f9e01da7
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.author: b-hchen
+ms.openlocfilehash: aeeec32105f8b07b29743db475647c7c502bb72b
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407592"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480894"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>수동 QoS 용량 풀 관리
 

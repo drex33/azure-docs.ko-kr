@@ -3,7 +3,7 @@ title: Azure NetApp Files에서 사용할 NetApp 리소스 공급자 등록 Micr
 description: Azure NetApp Files에 대 한 NetApp 리소스 공급자를 등록 하는 방법을 알아봅니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.author: b-juche
-ms.openlocfilehash: b8b70a06a6bda9757f9019a6f753af226235a985
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.author: b-hchen
+ms.openlocfilehash: 61be6da00a682dff5425f0fc7addf7c61ea2fac6
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407744"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484888"
 ---
 # <a name="register-for-netapp-resource-provider"></a>NetApp 리소스 공급자 등록
 

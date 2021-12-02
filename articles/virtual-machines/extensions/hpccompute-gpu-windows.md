@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2021
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8e164fad73fd04ea2f9093e99b454f43aa441088
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a4f259573ee426795910c4ea9d590f5119aa33fe
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038311"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481768"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Windows용 NVIDIA GPU 드라이버 확장
 
@@ -82,7 +82,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 
 ## <a name="deployment"></a>배포
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal Azure Nvidia VM 확장을 배포할 수 있습니다.
 
@@ -102,13 +102,13 @@ Azure Portal Azure Nvidia VM 확장을 배포할 수 있습니다.
 
     :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension.png" alt-text="NVIDIA G P U 드라이버 선택을 보여 주는 스크린샷.":::
 
-6. **검토 + 만들기를** 선택한 다음, 드라이버가 배포될 때까지 몇 분 정도 기다립니다.
+6. **검토 + 만들기를** 선택한 다음 **만들기를** 클릭하고 드라이버가 배포될 때까지 몇 분 정도 기다립니다.
 
-    :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension.png" alt-text="검토 및 만들기 단추를 선택하는 것을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension.png" alt-text="검토 및 만들기 단추를 선택하는 것을 보여 주는 스크린샷.":::
   
 7. 확장이 설치된 확장 목록에 추가되었는지 확인합니다.
 
-    :::image type="content" source="./media/nvidia-ext-portal/verify-extension.png" alt-text="VM에 대한 확장 목록의 새 확장을 보여 주는 스크린샷":::
+    :::image type="content" source="./media/nvidia-ext-portal/verify-extension.png" alt-text="VM에 대한 확장 목록의 새 확장을 보여 주는 스크린샷.":::
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿 
 

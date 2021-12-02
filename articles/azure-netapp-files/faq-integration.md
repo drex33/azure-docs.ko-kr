@@ -4,15 +4,15 @@ description: Azure NetApp Files 다른 제품 또는 서비스를 사용하는 �
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.date: 10/11/2021
-ms.openlocfilehash: c48a35b4578488fdab5fc55cdca4e19d97a003d3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: b1a89cafae35a79804c7564906f1e48312aa4172
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273760"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482648"
 ---
 # <a name="integration-faqs-for-azure-netapp-files"></a>Azure NetApp Files 대한 통합 FAQ
 

@@ -1,9 +1,9 @@
 ---
-title: Azure NetApp Files | 용량 풀 만들기 Microsoft Docs
-description: 용량 풀 내에 볼륨을 만들 수 있도록 용량 풀을 만드는 방법을 설명합니다.
+title: Azure NetApp Files에 대 한 용량 풀 만들기 | Microsoft Docs
+description: 용량 풀을 만들어 그 안에 볼륨을 만들 수 있도록 하는 방법을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/4/2021
-ms.author: b-juche
-ms.openlocfilehash: 90867546e0866d0d899bc990a9eb5225fbaf4c1e
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.author: b-hchen
+ms.openlocfilehash: f68ddbf25da7b5e3fd7ef17d5be348369cbac127
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132027720"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482985"
 ---
-# <a name="create-a-capacity-pool-for-azure-netapp-files"></a>Azure NetApp Files 용량 풀 만들기
+# <a name="create-a-capacity-pool-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 용량 풀 만들기
 
-용량 풀을 만들면 용량 풀 내에 볼륨을 만들 수 있습니다.  
+용량 풀을 만들면 내에서 볼륨을 만들 수 있습니다.  
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 
@@ -51,7 +51,7 @@ NetApp 계정을 만들어야 합니다.
 
     * **크기**     
      구입하려는 용량 풀의 크기를 지정합니다.        
-     최소 용량 풀 크기는 4TiB입니다. 용량 풀의 크기를 1-TiB 단위로 변경할 수 있습니다.
+     최소 용량 풀 크기는 4TiB입니다. TiB 증분 단위로 용량 풀의 크기를 변경할 수 있습니다.
 
    * **QoS**   
      용량 풀에서 **수동** 또는 **자동** QoS 유형을 사용해야 하는지 여부를 지정합니다.  

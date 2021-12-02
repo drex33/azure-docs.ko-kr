@@ -7,12 +7,12 @@ ms.service: backup
 ms.reviewer: geg
 author: v-amallick
 ms.author: v-amallick
-ms.openlocfilehash: 5efc021e37a602a846f0aeaab5eda210bbb6bc4a
-ms.sourcegitcommit: cae9bf0cad514c974c0c0185e24fd4b4b3132432
+ms.openlocfilehash: 6a70ad61124c54a5b83d06602e105b3ed2baaa9b
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133407364"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485351"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -166,12 +166,12 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 - **원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 - **원인 3: [스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 - **원인 4: [리소스 그룹이 잠겨 있으므로 Backup 서비스에는 이전 복원 지점을 삭제할 수 있는 사용 권한이 없습니다.](#remove_lock_from_the_recovery_point_resource_group)**
-- **원인 5:** **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\ {extension version} 모듈 \iaasvmprovider.dll** 실행 중인 Windows 버전과 확장 버전/비트가 손상되었거나 일치하지 않습니다. 이 문제를 해결하려면 모듈이 x86(32비트)/x64(64비트) 버전의 _regsvr32.exe_ 호환되는지 확인하고 다음 단계를 수행합니다.
+- **원인 5:** 실행 중인 Windows 버전과 확장 버전/비트가 일치하지 않거나 다음 모듈이 손상되었습니다. **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot \\<확장 버전 \>\iaasvmprovider.dll** <br>   이 문제를 해결하려면 모듈이 x86(32비트)/x64(64비트) 버전의 _regsvr32.exe_ 와 호환되는지 확인한 후 다음 단계를 수행합니다.
 
   1. 영향을 받는 VM에서 **제어판**  ->  **프로그램 및 기능** 으로 이동합니다.
-  1. Visual Studio 2013 **Visual C++ 재배포 가능 패키지** **x64를** 제거합니다.
+  1. Visual Studio 2013 **에** **대해 Visual C++ 재배포 가능 패키지 x64를** 제거합니다.
   1. VM에서 **Visual Studio 2013** **Visual C++ 재배포 가능 패키지** 다시 설치합니다. 설치하려면 다음 단계를 수행합니다.
-     1. **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\ *{LatestVersion}*** 폴더로 이동합니다.
+     1. **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot \\<LatestVersion \>** 폴더로 이동합니다.
      1. **vcredist2013_x64** 파일을 검색하고 실행하여 설치합니다.
   1. 백업 작업을 다시 시도합니다.
 
@@ -234,7 +234,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 

@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 볼륨 복제본 만들기 | Microsoft Docs
 description: 지역 간 복제를 설정하기 위해 Azure NetApp Files에 대한 볼륨 복제 피어링을 만드는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.author: b-juche
-ms.openlocfilehash: 8a937074cfc0cd4305ac5946bdb792d612c44f7b
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.author: b-hchen
+ms.openlocfilehash: 8b52df056009b16c420e0457a9473236407bd6ae
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131465386"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482756"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Azure NetApp Files에 대한 볼륨 복제본 만들기
 

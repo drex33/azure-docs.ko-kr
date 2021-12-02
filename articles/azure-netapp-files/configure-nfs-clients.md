@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 NFS 클라이언트 구성 | Microsoft Docs
 description: Azure NetApp Files에서 사용하도록 NFS 클라이언트를 구성하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/22/2021
-ms.author: b-juche
-ms.openlocfilehash: 6c946ed17d08a24e41f304c268c874ed7082691c
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.author: b-hchen
+ms.openlocfilehash: a35aef1e67201be384ecc7994937107bc8100ec2
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130062712"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487419"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 클라이언트 구성
 
@@ -162,7 +162,7 @@ ms.locfileid: "130062712"
     * `id_provider` 는로 설정 되 `ldap` 고는 그렇지 않습니다 `ad` .
     * 검색에 대 한 검색 기준 및 사용자 및 그룹 클래스가 구성에 지정 되어 있습니다.
     * `ldap_sasl_authid` 는의 컴퓨터 계정 이름입니다 `klist -kte` .
-    * `use_fully_qualified_names`이 `false`로 설정된 경우에만 적용됩니다.  이 설정은 짧은 이름을 사용할 때이 구성이 사용 됨을 의미 합니다.
+    * `use_fully_qualified_names`이 `false`로 설정됩니다.  이 설정은 짧은 이름을 사용할 때이 구성이 사용 됨을 의미 합니다.
     * `ldap_id_mapping` 가 지정 되지 않은 경우 기본값은 `false` 입니다.
 
     `realm join`구성은 클라이언트에서 생성 되며 다음과 같습니다.

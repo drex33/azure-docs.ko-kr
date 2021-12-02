@@ -3,7 +3,7 @@ title: Azure Government에 대 한 Azure NetApp Files | Microsoft Docs
 description: Azure Government에서 Azure NetApp Files 및 Azure NetApp Files 기능 가용성을 사용 하기 위해 Azure Government에 연결 하는 방법을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.author: b-juche
-ms.openlocfilehash: 9e7986a0e040d0d8241fd33a2990d8bd82e51a4e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: 70ef79cbfba393295f8dea3ae0d6c6d9a87d1906
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130230238"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485177"
 ---
 # <a name="azure-netapp-files-for-azure-government"></a>Azure Government용 Azure NetApp Files 
 
@@ -36,7 +36,7 @@ Azure NetApp Files에서 지 원하는 Azure Government 지역에 대해서는 *
 | Azure NetApp Files 기능 | Azure 공용 클라우드 가용성 |  Azure Government 가용성 |
 |:--- |:--- |:--- |
 | 지역 간 복제 Azure NetApp Files | GA(일반 공급) | [제한적](cross-region-replication-introduction.md#supported-region-pairs) |
-| Azure NetApp Files 백업 | 퍼블릭 미리 보기 | No |
+| Azure NetApp Files 백업 | 퍼블릭 미리 보기 | 아니요 |
 
 ## <a name="portal-access"></a>포털 액세스
 

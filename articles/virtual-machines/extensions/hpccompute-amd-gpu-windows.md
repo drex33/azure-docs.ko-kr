@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2021
 ms.author: vikancha
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ddb0b46e6d4881f3c0dac6a697607964d6cb5eed
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 37218cfb9cfb3086a4f4033c2e6cc954b45e416d
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130038330"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133479985"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Windows용 AMD GPU 드라이버 확장
 
@@ -78,6 +78,33 @@ AMD GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM이 �
 
 
 ## <a name="deployment"></a>배포
+### <a name="azure-portal"></a>Azure Portal
+
+Azure Portal에서 Azure AMD VM 확장을 배포할 수 있습니다.
+
+1. 브라우저에서 [Azure 포털](https://portal.azure.com)로 이동합니다.
+
+2. 드라이버를 설치 하려는 가상 머신으로 이동 합니다.
+
+3. 왼쪽 메뉴에서 **확장** 을 선택 합니다.
+
+    :::image type="content" source="./media/amd-ext-portal/extensions-menu.png" alt-text="Azure Portal 메뉴에서 확장을 선택 하는 것을 보여 주는 스크린샷":::
+
+4. **추가** 를 선택합니다.
+
+    :::image type="content" source="./media/amd-ext-portal/add-extension.png" alt-text="선택한 V M에 대 한 V M 확장을 추가 하는 것을 보여 주는 스크린샷":::
+
+5. 스크롤하여 **AMD GPU 드라이버 확장** 을 찾아 선택 하 고 **다음** 을 선택 합니다.
+
+    :::image type="content" source="./media/amd-ext-portal/select-amd-extension.png" alt-text="AMD G P U 드라이버를 선택 하는 것을 보여 주는 스크린샷":::
+
+6. **검토 + 만들기** 를 선택 하 고 **만들기** 를 클릭 한 다음 드라이버가 배포 될 때까지 몇 분 정도 기다립니다.
+
+    :::image type="content" source="./media/amd-ext-portal/create-amd-extension.png" alt-text="검토 및 만들기 단추를 선택 하는 것을 보여 주는 스크린샷":::
+  
+7. 확장이 설치 된 확장 목록에 추가 되었는지 확인 합니다.
+
+    :::image type="content" source="./media/amd-ext-portal/verify-extension.png" alt-text="V M에 대 한 확장 목록에서 새 확장을 보여 주는 스크린샷":::
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿 
 

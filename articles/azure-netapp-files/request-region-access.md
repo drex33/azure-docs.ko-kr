@@ -3,7 +3,7 @@ title: Azure NetApp Files | 대한 지역 액세스 요청 Microsoft Docs
 description: Azure NetApp Files 사용하기 위해 지역에 대한 액세스를 요청하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2021
-ms.author: b-juche
-ms.openlocfilehash: 9d610a74e63c85a66cd0be42cfdda3139c673f67
-ms.sourcegitcommit: 2ed2d9d6227cf5e7ba9ecf52bf518dff63457a59
+ms.author: b-hchen
+ms.openlocfilehash: 8ee1a24a7549dbda6ca3e85301fb7700e7963c7f
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132520639"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483292"
 ---
 # <a name="request-region-access-for-azure-netapp-files"></a>Azure NetApp Files 대한 지역 액세스 요청
 

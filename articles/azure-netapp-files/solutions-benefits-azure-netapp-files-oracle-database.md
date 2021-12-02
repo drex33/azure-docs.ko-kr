@@ -3,7 +3,7 @@ title: Oracle Database에서 Azure NetApp Files를 사용할 경우의 이점 | 
 description: 기술에 대해 설명하고 Oracle dNFS(Direct NFS)와 기존 NFS 클라이언트 간 성능 비교를 제공합니다. Azure NetApp Files에서 dNFS를 사용할 경우의 장점을 보여 줍니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.author: b-juche
-ms.openlocfilehash: 0f431015caf5bb3364fe5628a599f760c6318c47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: c33b113b97dc203783059028a3c97a3c9a467810
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91932501"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484812"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-oracle-database"></a>Oracle Database에서 Azure NetApp Files를 사용할 경우의 이점
 

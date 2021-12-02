@@ -4,15 +4,15 @@ description: Azure NetApp Files 응용 프로그램 복원 력에 대 한 Faq (�
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.date: 10/11/2021
-ms.openlocfilehash: 3a0b243203c0edb01bc5b647a15093ee52b78e7c
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: cd327e0b3cb4273f5dfd7702ac4524c05189634d
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273821"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482680"
 ---
 # <a name="application-resilience-faqs-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 응용 프로그램 복원 력 Faq
 
@@ -66,5 +66,5 @@ ActiveMQ 고가용성 (HA) 모델은 broker 인스턴스가 항상 온라인 상
 - [용량 관리 FAQ](faq-capacity-management.md)
 - [데이터 마이그레이션 및 보호 FAQ](faq-data-migration-protection.md)
 - [Azure NetApp Files 백업 FAQ](faq-backup.md)
-- [통합 Faq](faq-integration.md)
+- [통합 FAQ](faq-integration.md)
 

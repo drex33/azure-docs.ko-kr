@@ -1,20 +1,20 @@
 ---
 title: Azure 지도 Power BI 시각적 개체에 참조 계층 추가
 titleSuffix: Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure 지도 Power BI 시각적 개체에서 참조 계층을 사용하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure 지도 Power BI 시각적 개체에서 참조 계층을 사용하는 방법을 알아봅니다.
 author: stevemunk
 ms.author: v-munksteve
-manager: erikland
+manager: jokebeck
 ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: be2169ce63d8a54d88158d8adc3a5cd60c23108f
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: 05d3a13b97dfc0dce030e677dfa752afc19d3143
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133369095"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480913"
 ---
 # <a name="add-a-reference-layer"></a>참조 레이어 추가
 

@@ -1,19 +1,21 @@
 ---
-title: Microsoft Azure Maps 웹 맵 컨트롤 시작
-description: Azure Maps에서 맵 컨트롤 클라이언트 측 JavaScript 라이브러리를 사용하여 웹 및 모바일 애플리케이션에 맵을 추가하는 방법에 대해 알아봅니다. 맵을 현지화하는 방법을 알아보세요.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 07/20/2020
+title: Azure 지도 웹 맵 컨트롤을 사용하는 방법
+titleSuffix: Microsoft Azure Maps
+description: Azure 지도 맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용하여 웹 및 모바일 애플리케이션에 맵을 추가하고 지역화하는 방법을 알아봅니다.
+author: stevemunk
+ms.author: v-munksteve
+manager: jokebeck
+ms.date: 11/29/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ms.custom: devx-track-js
-ms.openlocfilehash: d88cdf68ddf1abfc8beb3d3357943d5c08c94af9
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 2a6c2101bdfc59dcd32a6b6dc4a751dc0d2589b2
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131006756"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486602"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 

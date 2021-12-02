@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 스토리지 서비스 추가 기능 | Micro
 description: Azure NetApp Files에 대한 스토리지 서비스 추가 기능을 통해 제공되는 서비스에 대해 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2021
-ms.author: b-juche
-ms.openlocfilehash: dfb4de158cbaf63f2a41932e630036831643fcf6
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: be85b6b4ad6e20d4b62d6d238c3133dae7a83ad6
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112122233"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482376"
 ---
 # <a name="storage-service-add-ons-for-azure-netapp-files"></a>Azure NetApp Files에 대한 스토리지 서비스 추가 기능
 

@@ -4,19 +4,19 @@ description: Azure NetApp Files 용량 관리에 대한 FAQ(질문과 대답)입
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.date: 10/11/2021
-ms.openlocfilehash: 1f28b7b590ef2a7a3894f9eff7eff7199167afc3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 530fa377788c66c4485e49c253971ea7cc2f72cf
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273791"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487362"
 ---
 # <a name="capacity-management-faqs-for-azure-netapp-files"></a>Azure NetApp Files 대한 용량 관리 FAQ
 
-이 문서에서는 Azure NetApp Files 용량 관리에 대한 FAQ(질문과 대답)에 답변합니다.
+이 문서에서는 Azure NetApp Files 용량 관리에 대한 FAQ(질문과 대답)를 제공합니다.
 
 ## <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>Azure NetApp Files의 용량 풀 및 볼륨에 대한 사용량을 모니터링하려면 어떻게 할까요? 
 

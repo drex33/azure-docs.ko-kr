@@ -1,18 +1,18 @@
 ---
 title: 가상 컴퓨터에 대한 Azure NetApp Files 볼륨 탑재
 description: Azure에서 Windows 가상 머신 또는 Linux 가상 머신에 대한 볼륨을 탑재 또는 탑재 해제하는 방법에 대해 알아봅니다.
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.date: 05/17/2021
-ms.openlocfilehash: 78932885ee7c1ec3650de08efe340e998a54acf7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 26893746241e35b1934c8814c486f64a7475ffb4
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240037"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485099"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
 

@@ -3,7 +3,7 @@ title: Azure NetApp Files 복제 관계의 상태 표시 | Microsoft Docs
 description: 원본 볼륨 또는 Azure NetApp Files의 대상 볼륨에서 복제 상태를 보는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 03/11/2021
-ms.author: b-juche
-ms.openlocfilehash: 2819ee3bc76c0b9ff0f35d442e52149096ddc9f7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: ff773f7dc43938bbd1b14837725688422f4e81a3
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104590979"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487381"
 ---
 # <a name="display-health-status-of-replication-relationship"></a>복제 관계의 상태 표시 
 

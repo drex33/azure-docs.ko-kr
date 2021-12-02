@@ -3,15 +3,15 @@ title: Azure Virtual Desktop의 Microsoft Teams - Azure
 description: Azure Virtual Desktop에서 Microsoft Teams를 사용하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 12/02/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 7b2a0c17ef0e55dc4dbe583a2dc60845dde94224
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 3e1f94580b24a799b66db7c4b3c601a1e5143d75
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072388"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483824"
 ---
 # <a name="use-microsoft-teams-on-azure-virtual-desktop"></a>Azure Virtual Desktop에서 Microsoft Teams 사용
 
@@ -51,7 +51,7 @@ Teams에서 미디어 최적화를 사용하려면 호스트에서 다음 레지
 
 ### <a name="install-the-teams-websocket-service"></a>Teams WebSocket 서비스 설치
 
-VM 이미지에 최신 버전의 [원격 데스크톱 WebRTC 리디렉션기 서비스를](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWNg9F) 설치합니다. 설치 오류가 발생할 경우 [최신 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)를 설치하고 다시 시도하세요.
+VM 이미지에 [원격 데스크톱 WebRTC 리디렉터 서비스](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWQ1UW) 의 최신 버전을 설치 합니다. 설치 오류가 발생할 경우 [최신 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)를 설치하고 다시 시도하세요.
 
 #### <a name="latest-websocket-service-versions"></a>최신 WebSocket 서비스 버전
 
@@ -59,17 +59,25 @@ VM 이미지에 최신 버전의 [원격 데스크톱 WebRTC 리디렉션기 서
 
 |버전        |릴리스 날짜  |
 |---------------|--------------|
+|1.4.2111.18001 |12/02/2021    |
 |1.1.2110.16001 |10/15/2021    |
 |1.0.2106.14001 |07/29/2021    |
 |1.0.2006.11001 |07/28/2020    |
 |0.11.0         |05/29/2020    |
 
-#### <a name="updates-for-version-11211016001"></a>버전 1.1.2110.16001에 대한 업데이트
+#### <a name="updates-for-version-14211118001"></a>버전 1.4.2111.18001 업데이트
 
-- 화면 공유 중 화면이 검은색으로 바뀌는 문제가 해결되었습니다. 이 문제가 발생한 경우 Teams 창의 크기를 조정하여 이 업데이트가 해결되는지 확인합니다. 크기 조정 후 화면 공유가 다시 작동하기 시작하면 업데이트가 이 문제를 해결합니다.
-- 이제 호스트 VM에서 모임, 알림 및 알림 볼륨을 제어할 수 있습니다. 이 기능은 [Windows Desktop 클라이언트](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)버전 1.2.2459 이상에서만 사용할 수 있습니다.
-- 이제 설치 관리자가 업데이트를 설치하기 전에 Teams 닫혔는지 확인합니다.
-- 사용자가 호출 창을 나간 후 전체 화면 모드로 돌아갈 수 없도록 하는 문제를 해결했습니다.
+- 음소거 알림 문제를 수정 했습니다.
+- Azure 가상 데스크톱의 Teams에 대 한 여러 z 순서 수정과 Microsoft 365의 Teams.
+- 사용자가 연결할 때 WebRTC 리디렉터 서비스가 시작 되지 않도록 하는 시간 제한이 제거 되었습니다.
+- 병렬 설치가 작동 하지 않도록 하는 설치 문제를 해결 했습니다.
+
+#### <a name="updates-for-version-11211016001"></a>버전 1.1.2110.16001 업데이트
+
+- 화면을 공유 하는 동안 화면이 검정색으로 전환 되는 문제를 해결 했습니다. 이 문제가 발생 한 경우이 업데이트로 인해 Teams 창의 크기를 조정 하 여 해결 되는지 확인 합니다. 크기를 조정한 후 화면 공유가 다시 작동 하기 시작 하면 업데이트 시이 문제가 해결 됩니다.
+- 이제 호스트 VM에서 모임, 벨 소리 및 알림 볼륨을 제어할 수 있습니다. [Windows Desktop 클라이언트](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)의 버전 1.2.2459 이상 에서만이 기능을 사용할 수 있습니다.
+- 이제 설치 관리자에서 업데이트를 설치 하기 전에 Teams을 닫았는지 확인 합니다.
+- 사용자가 호출 창을 닫은 후 전체 화면 모드로 돌아갈 수 없도록 하는 문제를 해결 했습니다.
 
 #### <a name="updates-for-version-10210614001"></a>1\.0.2106.14001 버전에 대한 업데이트
 

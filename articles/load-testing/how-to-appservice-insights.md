@@ -8,18 +8,18 @@ ms.author: nicktrog
 author: ntrogh
 ms.date: 11/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 9cc05eb465ec7d5f73fbd287627b7c8846f0c8f4
-ms.sourcegitcommit: 845eb7b0ed05ef2f0dfa6f054eaf5f32c780567c
+ms.openlocfilehash: 0200a7accf42180d44b5259a66797dc649db0f3a
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133305578"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486070"
 ---
 # <a name="get-more-insights-when-load-testing-azure-app-service-workloads"></a>부하 테스트 Azure App Service 워크 로드에 대 한 자세한 정보 얻기
 
 이 문서에서는 Azure 부하 테스트 미리 보기 및 App Service 진단을 사용 하 여 Azure App Service 워크 로드에서 더 많은 정보를 얻는 방법에 대해 알아봅니다.
 
-App Service 진단은 구성할 필요 없이 앱 문제를 해결하는 데 도움이 되는 지능적인 대화형 환경입니다. 앱에서 문제가 발생하면 App Service 진단은 무엇이 문제인지를 표시하여 문제를 더 쉽고 빠르게 확인하고 해결하기 위한 올바른 정보로 안내합니다.
+[App Service 진단은](/azure/app-service/overview-diagnostics/) 구성이 필요 없는 앱 문제를 해결 하는 데 도움이 되는 지능적인 대화형 환경입니다. 앱에서 문제가 발생하면 App Service 진단은 무엇이 문제인지를 표시하여 문제를 더 쉽고 빠르게 확인하고 해결하기 위한 올바른 정보로 안내합니다.
 
 Azure App Service에서 실행 되는 응용 프로그램에서 부하 테스트를 실행할 때 App Service 진단을 활용할 수 있습니다.
 
@@ -35,7 +35,7 @@ Azure App Service에서 실행 되는 응용 프로그램에서 부하 테스트
 
 ## <a name="get-more-insights-when-testing-an-app-service-workload"></a>App Service 워크 로드를 테스트할 때 더 많은 정보 얻기  
 
-이 섹션에서는 App Service 진단을 사용 하 여 Azure App Service 워크 로드를 부하 테스트 하는 방법에 대 한 자세한 정보를 얻습니다.
+이 섹션에서는 [App Service 진단을](/azure/app-service/overview-diagnostics/) 사용 하 여 Azure App Service 워크 로드를 부하 테스트 하는 방법에 대 한 자세한 정보를 얻습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure 부하 테스트 리소스로 이동 합니다.
 
@@ -74,4 +74,4 @@ Azure App Service에서 실행 되는 응용 프로그램에서 부하 테스트
 
 - 성능 테스트 자동화에 대 한 자세한 내용은 [자동화 된 성능 테스트 구성](./tutorial-cicd-azure-pipelines.md) 을 참조 하세요.
 
-- 진단 App Service에 대 한 자세한 내용은 [Azure App Service 진단 개요](/app-service/overview-diagnostics/)를 확인 하세요.
+- 진단 App Service에 대 한 자세한 내용은 [Azure App Service 진단 개요](/azure/app-service/overview-diagnostics/)를 확인 하세요.

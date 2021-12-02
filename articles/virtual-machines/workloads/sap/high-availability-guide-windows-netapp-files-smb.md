@@ -13,14 +13,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/29/2021
+ms.date: 12/01/2021
 ms.author: radeltch
-ms.openlocfilehash: ea9429dd34bddbc8b825b5bc0d27561e020bbd60
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.openlocfilehash: d115fad1a4e35062127af234ccc642793c137d90
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2021
-ms.locfileid: "133435169"
+ms.locfileid: "133480113"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>SAP 애플리케이션용 Azure NetApp Files(SMB)를 사용하는 Windows의 Azure VM에서 SAP NetWeaver에 대한 고가용성
 
@@ -94,7 +94,7 @@ SAP는 Windows 장애 조치(Failover) 클러스터에 SAP ASCS/SCS 인스턴스
 SAP Netweaver 중앙 서비스의 HA(고가용성)를 위해서는 공유 스토리지가 필요합니다. Windows에서 이러한 기능을 사용하기 위해 지금까지 SOFS 클러스터를 빌드하거나 SIOS와 같은 클러스터 공유 디스크 S/W를 사용해야 했습니다. 이제 Azure NetApp Files에 배포된 공유 스토리지를 사용하여 SAP Netweaver HA를 실현할 수 있습니다. 공유 스토리지에 Azure NetApp Files를 사용하면 SOFS 또는 SIOS가 필요 없습니다.  
 
 > [!NOTE]
-> 파일 공유를 사용한 SAP ASCS/SCS 인스턴스의 클러스터링은 SAP 커널 7.49 이상이 적용된 SAP NetWeaver 7.40 이상에서 지원됩니다.  
+> 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스를 클러스터링하는 것은 SAP 커널 7.22 이상에서 SAP 시스템에서 지원됩니다. 자세한 내용은 SAP note [2698948](https://launchpad.support.sap.com/#/notes/2698948) 참조하세요.    
 
 ![SMB 공유를 사용하는 SAP ASCS/SCS HA 아키텍처](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb.png)
 

@@ -3,7 +3,7 @@ title: Azure NetApp Files NFS 및 이중 프로토콜 볼륨에 대해 Unix 권�
 description: Azure NetApp Files NFS 및 이중 프로토콜 볼륨에 대해 Unix 권한 및 소유권 모드 변경 옵션을 설정하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 08/06/2021
-ms.author: b-juche
-ms.openlocfilehash: bfb794b1344dbc4723ca699f572b487b54d60c77
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: bde6efb93b94098ff20b840f521c0ef5dc62909c
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122567393"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482737"
 ---
 # <a name="configure-unix-permissions-and-change-ownership-mode-for-nfs-and-dual-protocol-volumes"></a>NFS 및 이중 프로토콜 볼륨에 대해 Unix 권한 및 소유권 모드 변경 구성
 

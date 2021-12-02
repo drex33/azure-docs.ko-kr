@@ -2,7 +2,7 @@
 title: Azure NetApp Files에 대 한 NFSv 4.1 도메인 구성 | Microsoft Docs
 description: Azure NetApp Files에서 NFSv 4.1을 사용 하도록 NFSv 4.1 도메인을 구성 하는 방법을 설명 합니다.
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/11/2021
-ms.author: b-juche
-ms.openlocfilehash: ebf6d8e51e3e0c46ae8bd4086afdb4cb28700d6e
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.author: b-hchen
+ms.openlocfilehash: 0efe42bdbd70690d0a07154be0470622f749cffb
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132714279"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486476"
 ---
 # <a name="configure-nfsv41-domain-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 NFSv 4.1 도메인 구성
 
@@ -32,7 +32,7 @@ NFSv4 도메인은 기본적으로 `localdomain`로 설정되어 있으므로 �
 
 위의 예제에서 볼 수 있듯이, `file1`의 사용자는 `root`여야 하지만 기본적으로 `nobody`에 매핑됩니다.  이 문서에서는 `idmap Domain` 설정을 `defaultv4iddomain.com`로 변경하여 `file1` 사용자를 `root`로 설정하는 방법을 보여 줍니다.  
 
-## <a name="configure-nfsv41-domain"></a>NFSv 4.1 도메인 구성  
+## <a name="configure-nfsv41-domain"></a>NFSv4.1 도메인 구성  
 
 1. NFS 클라이언트에서 `/etc/idmapd.conf` 파일을 편집합니다.   
     줄의 주석 처리를 `#Domain` 제거 합니다. 즉, 줄에서를 제거 하 `#` 고 값을 `localdomain` 다음과 같이 변경 합니다.

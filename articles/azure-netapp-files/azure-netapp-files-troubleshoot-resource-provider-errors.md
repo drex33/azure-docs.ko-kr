@@ -3,7 +3,7 @@ title: Azure NetApp Files 리소스 공급자 오류 해결 | Microsoft Docs
 description: 일반적인 Azure NetApp Files 리소스 공급자 오류에 대한 원인, 해결책과 해결 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/04/2021
-ms.author: b-juche
-ms.openlocfilehash: 2a3e97096109ce89f481b2abca2dc7b5a3a237e6
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.author: b-hchen
+ms.openlocfilehash: 006717fd872fab610d6015f8e424cf75038b6ae3
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407877"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482851"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Azure NetApp Files 리소스 공급자 오류 문제 해결 
 
@@ -30,13 +30,13 @@ ms.locfileid: "129407877"
 
 ***이 지역에서는 `netAppAccounts`를 만드는 것이 제한됩니다.***
 
-이 상황은 사용자가 NetApp 계정을 만들려고 할 때 발생합니다.
+이 문제는 사용자가 NetApp 계정을 만들려고 할 때 발생 합니다.
 
 * 원인:   
 Azure NetApp Files에 Azure Resource Provider가 등록되지 않습니다. 
  
 * 해결책:   
-[NetApp 리소스 공급자 등록에](azure-netapp-files-register.md)설명된 모든 단계를 완료합니다.
+[NetApp 리소스 공급자 등록](azure-netapp-files-register.md)에 설명 된 모든 단계를 완료 합니다.
 
 ***BareMetalTenantId는 변경할 수 없습니다.***  
 

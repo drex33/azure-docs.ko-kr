@@ -3,7 +3,7 @@ title: Azure NetApp Files 볼륨의 용량 모니터링 | Microsoft Docs
 description: Azure NetApp Files 볼륨의 용량 사용률을 모니터링하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 04/30/2021
-ms.author: b-juche
-ms.openlocfilehash: 8f2dfe5d185b7de08dca189a83d856ac04d5404e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: b3b97e690f3e86c7ad87b3105042756f43e7bef4
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130224120"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485528"
 ---
 # <a name="monitor-the-capacity-of-a-volume"></a>볼륨 용량 모니터링  
 

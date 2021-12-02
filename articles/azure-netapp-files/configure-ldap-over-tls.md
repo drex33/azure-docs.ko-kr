@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대해 ADDS LDAP over TLS 구성 | Microsoft Docs
 description: 루트 CA 인증서 관리를 포함하여 Azure NetApp Files에 대해 ADDS LDAP over TLS를 구성하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/05/2021
-ms.author: b-juche
-ms.openlocfilehash: e9a1b9148948319ebf05e2bcc9f5f306b2a21ec0
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: 0241bae39feb350adaa1578d8dff5db0b752873c
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108796015"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484185"
 ---
 # <a name="configure-adds-ldap-over-tls-for-azure-netapp-files"></a>Azure NetApp Files에 대해 ADDS LDAP over TLS 구성
 

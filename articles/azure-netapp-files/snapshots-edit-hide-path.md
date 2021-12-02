@@ -3,7 +3,7 @@ title: 의 스냅샷 경로 숨기기 옵션을 편집합니다Azure NetApp File
 description: Azure NetApp Files 사용하여 스냅샷 볼륨의 표시를 제어하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.author: b-juche
-ms.openlocfilehash: 5b165bd2e4ca3ee6ac2d16bac7c4d5ff1117fdc9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: b-hchen
+ms.openlocfilehash: efce92cd930f1166dd425460fd670fffa53dea74
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634310"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485481"
 ---
 # <a name="edit-the-hide-snapshot-path-option-of-azure-netapp-files"></a>의 스냅샷 경로 숨기기 옵션을 편집합니다Azure NetApp Files
 스냅샷 경로 숨기기 옵션은 볼륨의 스냅샷 경로가 표시되는지 여부를 제어합니다. [NFS](azure-netapp-files-create-volumes.md#create-an-nfs-volume) 또는 [SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) 볼륨을 만드는 동안 스냅샷 경로를 숨길지 여부를 지정하는 옵션이 제공됩니다. 이후에 필요에 따라 스냅샷 경로 숨기기 옵션을 편집할 수 있습니다.  

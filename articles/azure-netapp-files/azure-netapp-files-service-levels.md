@@ -3,7 +3,7 @@ title: Azure NetApp Files의 서비스 수준 | Microsoft Docs
 description: Azure NetApp Files의 서비스 수준에 대한 처리량 성능을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.author: b-juche
-ms.openlocfilehash: 7eac6a40476cffe875a03de49c9c9311ffbf4d39
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: a8fc2b8a588d9f980b9484c4004a9488107f4bd1
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96017069"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484204"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Azure NetApp Files에 대한 서비스 수준
 서비스 수준은 용량 풀의 특성입니다. 서비스 수준은 볼륨에 할당된 할당량에 따라 용량 풀의 볼륨에 허용되는 최대 처리량으로 정의되고 구별됩니다.

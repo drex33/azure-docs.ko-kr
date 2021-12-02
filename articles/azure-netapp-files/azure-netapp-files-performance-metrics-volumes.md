@@ -1,18 +1,18 @@
 ---
 title: 권장되는 성능 벤치 마크 테스트 - Azure NetApp Files
 description: Azure NetApp Files를 사용하는 볼륨 성능 및 메트릭에 대한 벤치마크 테스트 권장 사항을 알아봅니다.
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.openlocfilehash: 7c53fb0fbbba9c7c0ad40739b754d4b01bbd934b
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: d345aa054eeae57a3993c67f60778ecee8e5cfd7
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132136659"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483558"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Azure NetApp Files의 성능 벤치마크 테스트 추천 사항
 
@@ -20,17 +20,17 @@ ms.locfileid: "132136659"
 
 ## <a name="overview"></a>개요
 
-Azure NetApp Files 볼륨의 성능 특징을 이해 하려면 오픈 소스 도구 [Fio](https://github.com/axboe/fio) 를 사용 하 여 다양 한 작업을 시뮬레이트하는 일련의 벤치 마크를 실행할 수 있습니다. FIO는 Linux 및 Windows 기반 운영 체제 모두에 설치할 수 있습니다.  이 도구는 볼륨의 IOPS 및 처리량 모두에 대한 스냅샷을 빠르게 얻기 위한 훌륭한 도구입니다.
+Azure NetApp Files 볼륨의 성능 특성을 이해하려면 오픈 소스 도구 [FIO를](https://github.com/axboe/fio) 사용하여 다양한 워크로드를 시뮬레이션하는 일련의 벤치마크를 실행할 수 있습니다. FIO는 Linux 및 Windows 기반 운영 체제 모두에 설치할 수 있습니다.  이 도구는 볼륨의 IOPS 및 처리량 모두에 대한 스냅샷을 빠르게 얻기 위한 훌륭한 도구입니다.
 
 > [!IMPORTANT]
-> Azure NetApp Files 유틸리티를 기준 벤치마킹 도구로 사용 *하지* 않는 것이 좋습니다 `dd` . 실제 응용 프로그램 워크 로드, 워크 로드 시뮬레이션 및 벤치 마크 및 도구 (예: Oracle AWR with Oracle 또는 DB2와 동등한 IBM AWR)를 사용 하 여 최적의 인프라 성능을 설정 하 고 분석 해야 합니다. FIO, vdbench 및 iometer와 같은 도구에는 가상 컴퓨터를 저장소 제한에 맞게 결정 하는 위치가 있으며, 가장 유용한 결과를 위해 실제 응용 프로그램 워크 로드에 대 한 테스트 매개 변수를 일치 시킵니다. 그러나 항상 실제 응용 프로그램을 사용 하 여 테스트 하는 것이 좋습니다.  
+> Azure NetApp Files 유틸리티를  기준 벤치마킹 도구로 사용하지 않는 것이 `dd` 좋습니다. 최적의 인프라 성능을 설정하고 분석하려면 실제 애플리케이션 워크로드, 워크로드 시뮬레이션, 벤치마킹 및 분석 도구(예: Oracle을 사용하는 Oracle AWR 또는 DB2에 해당하는 IBM)를 사용해야 합니다. FIO, vdbench 및 iometer와 같은 도구는 스토리지 제한에 대한 가상 머신을 결정하고 테스트의 매개 변수를 실제 애플리케이션 워크로드 혼합과 일치시켜 가장 유용한 결과를 제공합니다. 그러나 항상 실제 애플리케이션을 사용하여 테스트하는 것이 가장 좋습니다.  
 ### <a name="vm-instance-sizing"></a>VM 인스턴스 크기
 
 최상의 결과를 위해서는 테스트를 수행하는 데 적절한 크기의 VM(가상 머신) 인스턴스를 사용해야 합니다. 다음 예제에서는 Standard_D32s_v3 인스턴스를 사용합니다. VM 인스턴스 크기에 대한 자세한 내용은 Windows 기반 VM의 경우 [Azure의 Windows 가상 머신 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 Linux 기반 VM의 경우 [Azure의 Linux 가상 머신 크기](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
 
 ### <a name="azure-netapp-files-volume-sizing"></a>Azure NetApp Files 볼륨 크기
 
-예상되는 성능 수준에 적합한 서비스 수준 및 볼륨 할당량 크기를 선택해야 확인합니다. 자세한 내용은 [Azure NetApp Files의 서비스 수준](azure-netapp-files-service-levels.md)을 참조 하세요.
+예상되는 성능 수준에 적합한 서비스 수준 및 볼륨 할당량 크기를 선택해야 확인합니다. 자세한 내용은 [Azure NetApp Files 서비스 수준을](azure-netapp-files-service-levels.md)참조하세요.
 
 ### <a name="virtual-network-vnet-recommendations"></a>VNet(가상 네트워크) 권장 사항
 
@@ -40,27 +40,27 @@ Azure NetApp Files 볼륨의 성능 특징을 이해 하려면 오픈 소스 도
 
 ## <a name="performance-benchmarking-tools"></a>성능 벤치마킹 도구
 
-이 섹션에서는 몇 가지 벤치마킹 도구에 대해 자세히 설명 합니다. 
+이 섹션에서는 몇 가지 벤치마킹 도구에 대해 자세히 설명합니다. 
 
 ### <a name="ssb"></a>SSB
 
-SSB (SQL Storage 벤치 마크)는 Python으로 작성 된 오픈 소스 벤치 마크 도구입니다. 저장소 하위 시스템의 성능을 측정 하는 방식으로 데이터베이스 상호 작용을 에뮬레이트하는 "실제" 워크 로드를 생성 하도록 설계 되었습니다. 
+SSB(SQL Storage Benchmark)는 Python으로 작성된 오픈 소스 벤치마크 도구입니다. 스토리지 하위 시스템 성능을 측정하는 방식으로 데이터베이스 상호 작용을 에뮬레이트하는 "실제" 워크로드를 생성하도록 설계되었습니다. 
 
-SSB의 목적은 조직 및 개인이 SQL 데이터베이스 작업의 스트레스에 따라 저장소 하위 시스템의 성능을 측정할 수 있도록 하는 것입니다.
+SSB의 목적은 조직과 개인이 SQL 데이터베이스 워크로드의 스트레스에서 스토리지 하위 시스템 성능을 측정할 수 있도록 하는 것입니다.
 
 #### <a name="installation-of-ssb"></a>SSB 설치 
 
-SSB 추가 정보 파일의 [시작](https://github.com/NetApp/SQL_Storage_Benchmark/blob/main/README.md#getting-started) 섹션을 따라 선택한 플랫폼용으로 설치 합니다.
+SSB 추가 정보 파일의 [시작](https://github.com/NetApp/SQL_Storage_Benchmark/blob/main/README.md#getting-started) 섹션에 따라 선택한 플랫폼에 설치합니다.
 
 ### <a name="fio"></a>FIO 
 
-유연한 FIO (i/o 테스터)는 벤치 마크 및 스트레스/하드웨어 검증 모두에 사용 되는 무료 오픈 소스 디스크 i/o 도구입니다. 
+유연한 I/O 테스터(FIO)는 벤치마크 및 스트레스/하드웨어 확인 모두에 사용되는 무료 오픈 소스 디스크 I/O 도구입니다. 
 
 FIO는 Linux 및 Windows 모두에서 이진 형식으로 사용할 수 있습니다. 
 
 #### <a name="installation-of-fio"></a>FIO 설치
 
-선택한 플랫폼용으로 설치 하려면 [Fio 추가 정보 파일](https://github.com/axboe/fio#readme) 의 이진 패키지 섹션을 따릅니다.
+[FIO 추가 정보 파일의](https://github.com/axboe/fio#readme) 이진 패키지 섹션에 따라 선택한 플랫폼에 설치합니다.
 
 #### <a name="fio-examples-for-iops"></a>FIO의 IOPS 예제 
 

@@ -3,7 +3,7 @@ title: Azure NetApp Files | 사용하여 스냅샷 삭제 Microsoft Docs
 description: Azure NetApp Files 사용하여 스냅샷을 삭제하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.author: b-juche
-ms.openlocfilehash: 19ae00a47dfee9fc86a3c5c42b81821934ad5999
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: b-hchen
+ms.openlocfilehash: 37c832ce128a3b049f101ead0ad2bfdf1559dab4
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634311"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480856"
 ---
 # <a name="delete-snapshots-using-azure-netapp-files"></a>Azure NetApp Files 사용하여 스냅샷 삭제 
 

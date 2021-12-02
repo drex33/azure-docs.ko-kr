@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/11/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: b547b65fc3f3086e90da073fb898de3980938147
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 353db8009a7bb1e60599742a21272265967c0204
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131859253"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481635"
 ---
 # <a name="azure-kubernetes-service-aks-node-pool-snapshot-preview"></a>Azure Kubernetes Service(AKS) 노드 풀 스냅샷(미리 보기)
 
@@ -29,7 +29,7 @@ AKS는 매주 새 노드 이미지를 릴리스하고 모든 새 클러스터, �
 
 ### <a name="limitations"></a>제한 사항
 
-- 스냅샷에서 만든 노드 풀 또는 클러스터는 스냅샷과 동일한 가상 머신 제품군의 VM을 사용해야 합니다. 예를 들어 이러한 경우 노드 이미지가 구조적으로 다르므로 D 시리즈 노드 풀에서 캡처된 스냅샷을 기반으로 새 N 시리즈 노드 풀을 만들 수 없습니다.
+- 스냅샷에서 만든 모든 노드 풀 또는 클러스터는 스냅샷과 동일한 가상 머신 제품군의 VM을 사용해야 합니다. 예를 들어 이러한 경우 노드 이미지가 구조적으로 다르므로 D 시리즈 노드 풀에서 캡처된 스냅샷을 기반으로 새 N 시리즈 노드 풀을 만들 수 없습니다.
 - 미리 보기 중에는 원본 노드 풀과 동일한 지역에서 스냅샷을 만들고 사용해야 합니다.
 
 ### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
@@ -57,7 +57,7 @@ az feature register --namespace "Microsoft.ContainerService" --name "SnapshotPre
 상태가 *Registered* 로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인 합니다.
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'microsoft.ContainerService/SnapshotPreview')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/SnapshotPreview')].{Name:name,State:properties.state}"
 ```
 
 준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
@@ -99,7 +99,7 @@ az aks nodepool add --name np2 --cluster-name myAKSCluster --resource-group myRe
 
 ## <a name="upgrading-a-node-pool-to-a-snapshot"></a>노드 풀을 스냅샷으로 업그레이드
 
-스냅샷 kubernetes 버전 및 노드 이미지 버전이 현재 노드 풀의 버전보다 최신인 경우 노드 풀을 스냅샷 구성으로 업그레이드할 수 있습니다.
+스냅샷 kubernetes 버전 및 노드 이미지 버전이 현재 노드 풀의 버전보다 최신 버전인 경우 노드 풀을 스냅샷 구성으로 업그레이드할 수 있습니다.
 
 먼저 이전에 만든 스냅샷의 리소스 ID가 필요합니다. 이 ID는 아래 명령에서 얻을 수 있습니다.
 

@@ -3,7 +3,7 @@ title: Azure NetApp Files에 NFSv4.1 Kerberos 암호화 구성 | Microsoft Docs
 description: Azure NetApp Files에 NFSv4.1 Kerberos 암호화를 구성하는 방법과 그 성능 영향을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 07/15/2021
-ms.author: b-juche
-ms.openlocfilehash: 8fd2656af426464ccddfaed50124b4ba189254f9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: 255643de838855137a84ab524743e8c53f47c22e
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130256346"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481540"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFSv4.1 Kerberos 암호화 구성
 
@@ -118,7 +118,7 @@ NFSv4.1 볼륨, 테스트된 성능 벡터 및 kerberos의 예상 성능 영향�
 ## <a name="next-steps"></a>다음 단계  
 
 * [NFSv4.1 볼륨에서 Kerberos의 성능 영향](performance-impact-kerberos.md)
-* [Azure NetApp Files 볼륨 오류 문제 해결](troubleshoot-volumes.md)
+* [Azure NetApp Files에 대 한 볼륨 오류 문제 해결](troubleshoot-volumes.md)
 * [NFS FAQ](faq-nfs.md)
 * [성능 FAQ](faq-performance.md)
 * [Azure NetApp Files에 대한 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)

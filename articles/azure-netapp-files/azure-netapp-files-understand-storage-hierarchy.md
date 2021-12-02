@@ -3,7 +3,7 @@ title: Azure NetApp Files의 스토리지 계층 구조 | Microsoft Docs
 description: Azure NetApp Files 계정, 용량 풀 및 볼륨을 포함하는 스토리지 계층 구조를 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 06/14/2021
-ms.author: b-juche
-ms.openlocfilehash: 49ad214c8851546cb2340d7ad413f9369e9b8a01
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: 44831f322ae17e5fc55f76332f5a4d55271843c3
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130219947"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483520"
 ---
 # <a name="storage-hierarchy-of-azure-netapp-files"></a>Azure NetApp Files의 스토리지 계층 구조
 

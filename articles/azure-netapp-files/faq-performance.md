@@ -4,19 +4,19 @@ description: Azure NetApp Files 성능에 대한 FAQ(질문과 대답)입니다.
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.date: 10/11/2021
-ms.openlocfilehash: e7b489a2f9960b39fcb8035889b47468c2af0478
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7c3af1aa70c41edee4206ea9c6750189be32a955
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273780"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481312"
 ---
 # <a name="performance-faqs-for-azure-netapp-files"></a>Azure NetApp Files 대한 성능 FAQ
 
-이 문서에서는 Azure NetApp Files 성능에 대한 FAQ(질문과 대답)에 답변합니다.
+이 문서에서는 Azure NetApp Files 성능에 대한 FAQ(질문과 대답)를 제공합니다.
 
 ## <a name="what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance"></a>Azure NetApp Files 성능을 최적화하거나 튜닝하려면 어떻게 해야 하나요?
 

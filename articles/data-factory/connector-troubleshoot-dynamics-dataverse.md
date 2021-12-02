@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/13/2021
+ms.date: 12/02/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 28aa7fee3ab7cf2bbc8f10d1ba2f5ea54a792cd6
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 5748b9e5578583d66871ec4e524d44fdb3fb1651
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130066676"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485994"
 ---
 # <a name="troubleshoot-the-dynamics-365-dataverse-common-data-service-and-dynamics-crm-connectors-in-azure-data-factory-and-azure-synapse"></a>Azure Data Factory 및 Azure Synapse에서 Dynamics 365, Dataverse (Common Data Service) 및 Dynamics CRM 커넥터 문제 해결
 
@@ -37,7 +37,7 @@ ms.locfileid: "130066676"
 
 - **원인**: Data Factory 및 Synapse 파이프라인은 처음 10개의 레코드에 값이 없는 열을 표시할 수 없습니다. 따라서 이 문제는 의도적으로 발생하는 문제입니다. 추가한 열이 올바른 형식인지 확인하세요. 
 
-- **권장 사항**: 매핑 탭에서 열을 수동으로 추가합니다.
+- **권장 사항**: 매핑 탭에서 수동으로 열을 추가 합니다. 자세한 내용은 [명시적 매핑](copy-activity-schema-and-type-mapping.md#explicit-mapping)을 참조 하세요.
 
 
 ## <a name="error-code-dynamicsmissingtargetformultitargetlookupfield"></a>오류 코드: DynamicsMissingTargetForMultiTargetLookupField

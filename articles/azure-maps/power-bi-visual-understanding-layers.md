@@ -1,24 +1,24 @@
 ---
-title: Azure Maps Power BI 시각적 개체의 계층 이해
+title: Azure 지도 Power BI 시각적 개체의 레이어
 titleSuffix: Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure 지도 Power BI 시각적 개체에서 사용할 수 있는 다양 한 계층에 대해 설명 합니다.
+description: 이 문서에서는 Azure 지도 Power BI 시각적 개체에서 사용할 수 있는 다양한 계층에 대해 알아봅니다.
 author: stevemunk
 ms.author: v-munksteve
-manager: erikland
+manager: jokebeck
 ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 9b3cebe2cd8735cfd007dbe13c52c9be70b01b90
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: 83a9bc16b8d0b54eb0b27ea9dc40cefbe911f3e3
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133361884"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485956"
 ---
-# <a name="understanding-layers-in-the-azure-maps-power-bi-visual"></a>Azure Maps Power BI 시각적 개체의 계층 이해
+# <a name="layers-in-azure-maps-power-bi-visual"></a>Azure 지도 Power BI 시각적 개체의 레이어
 
-Azure Maps Power BI 시각적 개체에는 두 가지 유형의 계층을 사용할 수 있습니다. 첫 번째 형식은 시각적 개체의 **필드** 창에 전달되는 데이터의 렌더링과 주로 관련이 있으며 다음 계층으로 구성됩니다. 이러한 데이터 렌더링을 레이어라고 지칭하겠습니다.
+Azure 지도 Power BI 시각적 개체에서 사용할 수 있는 두 가지 유형의 계층이 있습니다. 첫 번째 형식은 시각적 개체의 **필드** 창에 전달되는 데이터의 렌더링과 주로 관련이 있으며 다음 계층으로 구성됩니다. 이러한 데이터 렌더링을 레이어라고 지칭하겠습니다.
 
 :::row:::
     :::column span="":::

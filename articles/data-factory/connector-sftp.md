@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: 5e851a266dd74758987c5e6bdeef1d76e3d50db9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 12/01/2021
+ms.openlocfilehash: cf3d6ac14866d86db6eabf25f245ff4e67e20cb2
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763959"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482069"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-using-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics를 사용하여 SFTP 서버에서 데이터 복사
 
@@ -39,7 +39,7 @@ SFTP 커넥터는 다음과 같은 작업에 지원됩니다.
 - **기본**, **SSH 퍼블릭 키** 또는 **다단계** 인증을 사용하여 SFTP 서버에서 파일을 복사합니다.
 - 파일을 있는 그대로 복사하거나 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용하여 파일을 구문 분석 또는 생성합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -282,7 +282,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 형식 기반 복사 원본의 `storeSettings` 설정에서 SFTP에 다음 속성이 지원됩니다.
 
-| 속성                 | Description                                                  | 필수                                      |
+| 속성                 | 설명                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | `storeSettings` 아래의 *type* 속성은 *SftpReadSettings* 로 설정해야 합니다. | 예                                           |
 | ***복사할 파일 찾기*** |  |  |
@@ -298,6 +298,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 | enablePartitionDiscovery | 분할된 파일의 경우 파일 경로에서 파티션을 구문 분석할지를 지정하고 추가 원본 열로 추가합니다.<br/>허용되는 값은 **false**(기본값) 및 **true** 입니다. | 예                                            |
 | partitionRootPath | 파티션 검색을 사용하는 경우 분할된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정합니다.<br/><br/>지정하지 않으면 기본적으로 다음과 같이 지정됩니다.<br/>- 데이터 세트의 파일 경로 또는 원본의 파일 목록을 사용하는 경우 파티션 루트 경로는 데이터 세트에서 구성된 경로입니다.<br/>- 와일드카드 폴더 필터를 사용하는 경우 파티션 루트 경로는 첫 번째 와일드카드 앞의 하위 경로입니다.<br/><br/>예를 들어 데이터 세트의 경로를 "root/folder/year=2020/month=08/day=27"로 구성한다고 가정합니다.<br/>- 파티션 루트 경로를 "root/folder/year=2020"으로 지정하면 복사 작업은 내부의 열 외에도 각각 값이 "08" 및 "27"인 `month` 및 `day` 열을 파일에 두 개 더 생성합니다.<br/>- 파티션 루트 경로를 지정하지 않으면 추가 열이 생성되지 않습니다. | 예                                            |
 | maxConcurrentConnections | 작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예                                            |
+| disableChunking | SFTP에서 데이터를 복사할 때 서비스는 먼저 파일 길이를 구한 다음 파일을 여러 부분으로 나누고 병렬로 읽으려고 시도합니다. SFTP 서버에서 파일 길이를 얻거나 특정 오프셋에서 읽기를 지원할지 여부를 지정합니다. <br/>허용되는 값은 false(기본값), **true** 입니다.  | 예 |
 
 **예:**
 
@@ -329,7 +330,8 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
                     "type": "SftpReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
-                    "wildcardFileName": "*.csv"
+                    "wildcardFileName": "*.csv",
+                    "disableChunking": false
                 }
             },
             "sink": {
@@ -346,7 +348,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 형식 기반 복사 싱크의 `storeSettings` 설정에서 SFTP에 다음 속성이 지원됩니다.
 
-| 속성                 | Description                                                  | 필수 |
+| 속성                 | 설명                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | `storeSettings` 아래의 *type* 속성은 *SftpWriteSettings* 로 설정해야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |

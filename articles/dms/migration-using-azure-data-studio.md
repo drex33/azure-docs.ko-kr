@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: d2840b5e8386801411a759d1b00f026bfbacad68
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: c00570f6e878e5f6513caf6e3f14ed53a2748339
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132027701"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484147"
 ---
 # <a name="migrate-databases-with-azure-sql-migration-extension-for-azure-data-studio-preview"></a>Azure Data Studio에 대한 Azure SQL 마이그레이션 확장을 사용하여 데이터베이스 마이그레이션(미리 보기)
 
-[Azure Data Studio 대한 Azure SQL 마이그레이션 확장을](/sql/azure-data-studio/extensions/azure-sql-migration-extension) 사용하면 Azure Data Studio 새로운 SQL Server 평가 및 마이그레이션 기능을 사용할 수 있습니다.
+[Azure Data Studio에 대 한 Azure SQL Migration 확장](/sql/azure-data-studio/extensions/azure-sql-migration-extension) 을 사용 하면 Azure Data Studio에서 새로운 SQL Server 평가 및 마이그레이션 기능을 사용할 수 있습니다.
 
 ## <a name="architecture-of-azure-sql-migration-extension-for-azure-data-studio"></a>Azure Data Studio에 대한 Azure SQL 마이그레이션 확장의 아키텍처
 
@@ -54,7 +54,10 @@ DMS는 Azure Data Factory의 자체 호스팅 통합 런타임을 사용하여 �
     - 대상 Azure SQL Managed Instance(및 SMB 네트워크 공유에서 데이터베이스 백업 파일을 업로드하기 위한 스토리지 계정)의 기여자
     - 대상 Azure SQL Managed Instance 또는 Azure Storage 계정을 포함하는 Azure 리소스 그룹에 대한 소유자 또는 기여자 역할
     - Azure 구독에 대한 소유자 또는 기여자 역할
-* 대상 [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md) 또는 [Azure Virtual Machine의 SQL Server](../azure-sql/virtual-machines/windows/create-sql-vm-portal.md)를 만듭니다.
+* [azure 가상 머신에서](../azure-sql/virtual-machines/windows/create-sql-vm-portal.md) 대상 [azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md) 또는 SQL Server 만들기
+
+    > [!IMPORTANT]
+    > 기존 Azure 가상 컴퓨터가 있는 경우 [전체 관리 모드에서 SQL IaaS 에이전트 확장](../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md#management-modes)을 사용 하 여 등록 해야 합니다.
 * 원본 SQL Server는 연결하는 데 사용되는 로그인이 *sysadmin* 서버 역할의 구성원이거나 `CONTROL SERVER` 권한이 있는지 확인합니다. 
 * 전체 데이터베이스 및 트랜잭션 로그 백업 파일에 대해 다음 스토리지 옵션 중 하나를 사용합니다. 
     - SMB 네트워크 공유 

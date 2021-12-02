@@ -1,22 +1,22 @@
 ---
 title: Azure 지도 Power BI 시각적 개체에 열 지도 계층 추가
 titleSuffix: Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure 지도 Power BI 시각적 개체에서 열 지도 계층을 사용하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure 지도 Power BI 시각적 개체에서 열 지도 계층을 사용하는 방법을 알아봅니다.
 author: stevemunk
 ms.author: v-munksteve
-manager: erikland
+manager: jokebeck
 ms.date: 11/29/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 4c371539a5eca6b641cbf636cd53f495c33560df
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: a49b4ae18c5f7cfd00f70a5ac537c671b63ef071
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133369114"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484565"
 ---
-# <a name="add-a-heat-map-layer-to-the-azure-maps-power-bi-visual"></a>Azure 지도 Power BI 시각적 개체에 열 지도 계층 추가
+# <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 
 이 문서에서는 Azure 지도 Power BI 시각적 개체에 열 지도 계층을 추가하는 방법을 알아봅니다.
 
@@ -32,8 +32,8 @@ ms.locfileid: "133369114"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Azure 지도 Power BI 시각적 개체를 시작합니다.](./power-bi-visual-getting-started.md)
-- [Azure 지도 Power BI 시각적 개체의 레이어 이해](./power-bi-visual-understanding-layers.md)
+- [Azure 지도 Power BI 시각적 개체를 시작합니다.](./power-bi-visual-get-started.md)
+- [Azure 지도 Power BI 시각적 개체의 레이어를 이해합니다.](./power-bi-visual-understanding-layers.md)
 
 ## <a name="add-the-heat-map-layer"></a>열 지도 계층 추가
 
@@ -55,7 +55,7 @@ ms.locfileid: "133369114"
 
 다음 표에서는 **서식** 창의 **열 지도** 섹션에서 사용할 수 있는 기본 설정을 보여줍니다.
 
-| 설정              | Description      |
+| Setting              | 설명      |
 |----------------------|------------------|
 | 반지름 | 열 지도에 있는 각 데이터 포인트의 반지름입니다.<br /><br />Unit = 'pixels'인 경우 유효한 값: 1 - 200 기본값: **20**<br />단위 = '미터'인 경우 유효한 값: 1 - 4,000,000|
 | 단위  | 반지름의 거리 단위입니다. 가능한 값은 다음과 같습니다.<br /><br />**픽셀 입니다.** 픽셀로 설정하면 확대/축소 수준에 관계없이 각 데이터 포인트의 크기가 항상 동일합니다.<br />**미터**. 미터로 설정하면 데이터 포인트의 크기는 확대/축소 수준에 따라 크기가 조정되어 반경이 공간적으로 정확한지 확인합니다.<br /><br /> 기본값: **픽셀**  |

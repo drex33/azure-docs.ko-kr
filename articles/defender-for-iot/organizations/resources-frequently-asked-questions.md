@@ -3,12 +3,12 @@ title: Defender for IoT 자주 묻는 질문
 description: Microsoft Defender for IoT 기능 및 서비스에 대한 가장 자주 묻는 질문에 대한 답변을 찾습니다.
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.openlocfilehash: 68a681e527c6c68f601c91f27addf9f36e4d0b57
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 2b5781076bdb8ecb93db6e0daacb68bf90bb3580
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132325220"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484432"
 ---
 # <a name="microsoft-defender-for-iot-frequently-asked-questions"></a>IoT용 Microsoft Defender 질문과 대답
 
@@ -90,5 +90,4 @@ CLI [명령](references-work-with-defender-for-iot-cli-commands.md#network-confi
 IoT용 Defender를 시작하는 방법에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
 - IoT용 Defender [개요](overview.md)를 읽습니다.
-- [시스템 사전 요구 사항을](quickstart-system-prerequisites.md) 확인합니다.
-- [IoT용 Defender를 시작](getting-started.md)하는 방법에 대한 자세한 정보
+- [Defender for IoT 시작](getting-started.md)

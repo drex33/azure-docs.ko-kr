@@ -37,9 +37,6 @@ conceptualContent:
   items:
     - title: 최종 사용자 조직용 Microsoft Defender for IoT
       links:
-        - url: organizations/quickstart-system-prerequisites.md
-          itemType: quickstart
-          text: 시스템 필수 구성 요소
         - url: organizations/getting-started.md
           itemType: quickstart
           text: 최종 사용자 조직용 Defender for IoT 시작

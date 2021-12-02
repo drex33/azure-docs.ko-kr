@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 2affaf7b66c1a7872e1db2b92871c5d07e77cdd2
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 4265f8dcc73b111337d500a74d08091450697f51
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132324634"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133479448"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -28,7 +28,7 @@ ms.locfileid: "132324634"
 서비스 태그를 사용하여 [네트워크 보안 그룹](./network-security-groups-overview.md#security-rules) 또는 [Azure Firewall](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 서비스 태그 이름(예: **ApiManagement**)을 규칙의 적절한 *원본* 또는 *대상* 필드에 지정하면 해당 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. 
 
 > [!NOTE] 
-> 2021년 3월을 기준으로 [사용자 정의 경로](./virtual-networks-udr-overview.md)에서 명시적인 IP 범위 대신 서비스 태그를 사용할 수도 있습니다. 이 기능은 현재 공개 미리 보기로 제공됩니다. 
+> 2021년 3월을 기준으로 [사용자 정의 경로](./virtual-networks-udr-overview.md)에서 명시적인 IP 범위 대신 서비스 태그를 사용할 수도 있습니다. 이 기능은 현재 공개 미리 보기로 제공 되며 3 월 2022 일에 GA로 이동 합니다.
 
 퍼블릭 엔드포인트가 있는 Azure 서비스에 액세스하면서, 서비스 태그를 사용하여 네트워크 격리를 수행하고 일반 인터넷에서 Azure 리소스를 보호할 수 있습니다. 인바운드/아웃바운드 네트워크 보안 그룹 규칙을 만들어 **인터넷** 에서 들어오고 나가는 트래픽을 거부하고 **AzureCloud** 또는 특정 Azure 서비스의 다른 [사용 가능한 서비스 태그](#available-service-tags)에서 들어오고 나가는 트래픽을 허용합니다.
 
@@ -79,18 +79,18 @@ ms.locfileid: "132324634"
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>**참고:** 이 태그는 **AzureActiveDirectory** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureLoadBalancer** | Azure 인프라 부하 분산 장치입니다. 이 태그는 Azure의 상태 프로브가 시작되는 [호스트의 가상 IP 주소](./network-security-groups-overview.md#azure-platform-considerations)(168.63.129.16)로 변환됩니다. 이는 백엔드 리소스에 대한 실제 트래픽이 아닌 프로브 트래픽만 포함합니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다. | 모두 | 예 | 예 |
 | **AzureMachineLearning** | Azure Machine Learning입니다. | 모두 | 예 | 예 |
-| **AzureMonitor** | Log Analytics, Application Insights, AzMon 및 사용자 지정 메트릭(GIG 엔드포인트)입니다.<br/><br/>**참고:** Log Analytics의 경우 **Storage** 태그도 필요합니다. Linux 에이전트를 사용하는 경우 **GuestAndHybridManagement** 태그도 필요합니다. | 아웃바운드 | 예 | 예 |
-| **AzureOpenDatasets** | Azure Open Datasets입니다.<br/><br/>**참고:** 이 태그는 **AzureFrontDoor.Frontend** 및 **Storage** 태그에 종속되어 있습니다. | 아웃바운드 | 예 | 예 |
+| **AzureMonitor** | Log Analytics, Application Insights, AzMon 및 사용자 지정 메트릭(GIG 엔드포인트)입니다.<br/><br/>**참고**: Log Analytics의 경우 **Storage** 태그도 필요 합니다. Linux 에이전트를 사용하는 경우 **GuestAndHybridManagement** 태그도 필요합니다. | 아웃바운드 | 예 | 예 |
+| **AzureOpenDatasets** | Azure Open Datasets입니다.<br/><br/>**참고**:이 태그는 **AzureFrontDoor** 및 **Storage** 태그에 종속 됩니다. | 아웃바운드 | 예 | 예 |
 | **AzurePlatformDNS** | 기본 인프라(기본값) DNS 서비스입니다.<br/><br>이 태그를 사용하여 기본 DNS를 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](./network-security-groups-overview.md#azure-platform-considerations)을 읽어 보는 것이 좋습니다. 또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
 | **AzurePlatformIMDS** | 기본 인프라 서비스인 Azure IMDS(Instance Metadata Service)입니다.<br/><br/>이 태그를 사용하여 기본 IMDS를 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](./network-security-groups-overview.md#azure-platform-considerations)을 읽어 보는 것이 좋습니다. 또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
 | **AzurePlatformLKM** | Windows 라이선스 또는 키 관리 서비스입니다.<br/><br/>이 태그를 사용하여 라이선스에 대한 기본값을 사용하지 않도록 설정할 수 있습니다. 이 태그를 사용할 때는 주의해야 합니다. [Azure 플랫폼 고려 사항](./network-security-groups-overview.md#azure-platform-considerations)을 읽어 보는 것이 좋습니다.  또한 이 태그를 사용하기 전에 테스트를 수행하는 것이 좋습니다. | 아웃바운드 | 예 | 예 |
 | **AzureResourceManager** | Azure Resource Manager입니다. | 아웃바운드 | 예 | 예 |
 | **AzureSignalR** | Azure SignalR입니다. | 아웃바운드 | 예 | 예 |
-| **AzureSiteRecovery** | Azure Site Recovery입니다.<br/><br/>**참고:** 이 태그는 **AzureActiveDirectory,** **AzureKeyVault,** **EventHub,****GuestAndHybridManagement** 및 **Storage** 태그에 종속됩니다. | 아웃바운드 | 예 | 아니요 |
-| **AzureSphere** | 이 태그 또는 이 태그가 적용되는 IP 주소를 사용하여 Azure Sphere Security Services에 대한 액세스를 제한할 수 있습니다. </br> **참고:** 이 태그는 현재 Azure Portal 통해 구성할 수 없습니다. | 모두 | 예 | 예 | 
-| **AzureStack** | Azure Stack Bridge 서비스. </br> 이 태그는 지역당 Azure Stack Bridge 서비스 엔드포인트를 나타냅니다. </br> *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 아웃바운드 | 예 | 예 |
+| **AzureSiteRecovery** | Azure Site Recovery입니다.<br/><br/>**참고**:이 태그는 **AzureActiveDirectory**, **azurekeyvault**, **EventHub**,**GuestAndHybridManagement** 및 **Storage** 태그에 종속 됩니다. | 아웃바운드 | 예 | 아니요 |
+| **AzureSphere** | 이 태그 또는이 태그가 적용 되는 IP 주소를 사용 하 여 Azure Sphere 보안 서비스에 대 한 액세스를 제한할 수 있습니다. </br> **참고**:이 태그는 현재 Azure Portal를 통해 구성할 수 없습니다. | 모두 | 예 | 예 | 
+| **AzureStack** | 브리지 서비스를 Azure Stack 합니다. </br> 이 태그는 지역별 Azure Stack 브리지 서비스 끝점을 나타냅니다. </br> *참고: 이 태그는 현재 Azure Portal을 통해 구성할 수 없습니다.* | 아웃바운드 | 예 | 예 |
 | **AzureTrafficManager** | Azure Traffic Manager 프로브 IP 주소입니다.<br/><br/>Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](../traffic-manager/traffic-manager-faqs.md)를 참조하세요. | 인바운드 | 예 | 예 |  
-| **AzureUpdateDelivery** | Windows 업데이트에 액세스합니다. <br/><br/>**참고:** 이 태그는 Windows 업데이트 메타데이터 서비스에 대한 액세스를 제공합니다. 업데이트를 성공적으로 다운로드하려면 **AzureFrontDoor.FirstParty** 서비스 태그를 사용하도록 설정하고 다음과 같이 정의된 프로토콜과 포트를 사용하여 아웃바운드 보안 규칙을 구성해야 합니다. <ul><li>AzureUpdateDelivery: TCP, 포트 443</li><li>AzureFrontDoor.FirstParty: TCP, 포트 80</li></ul>*이 태그는 현재 Azure Portal 통해 구성할 수 없습니다.*| 아웃바운드 | 예 | 아니요 |  
+| **AzureUpdateDelivery** | Windows 업데이트에 액세스합니다. <br/><br/>**참고**:이 태그는 Windows 업데이트 metadata services에 대 한 액세스를 제공 합니다. 업데이트를 성공적으로 다운로드하려면 **AzureFrontDoor.FirstParty** 서비스 태그를 사용하도록 설정하고 다음과 같이 정의된 프로토콜과 포트를 사용하여 아웃바운드 보안 규칙을 구성해야 합니다. <ul><li>AzureUpdateDelivery: TCP, 포트 443</li><li>AzureFrontDoor.FirstParty: TCP, 포트 80</li></ul>*이 태그는 현재 Azure Portal를 통해 구성할 수 없습니다.*| 아웃바운드 | 예 | 아니요 |  
 | **BatchNodeManagement** | Azure Batch 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
 | **CognitiveServicesManagement** | Azure Cognitive Services에 대한 트래픽 주소 범위입니다. | 모두 | 예 | 예 |
 | **DataFactory**  | Azure 데이터 팩터리 | 모두 | 예 | 예 |
@@ -111,12 +111,12 @@ ms.locfileid: "132324634"
 | **PowerPlatformInfra** | 이 태그는 인프라에서 전원 플랫폼 서비스를 호스트 하는 데 사용 하는 IP 주소를 나타냅니다. **참고**:이 태그는 현재 Azure Portal를 통해 구성할 수 없습니다. | 아웃바운드 | 예 | 예 |
 | **PowerQueryOnline** | 파워 쿼리 온라인입니다. | 모두 | 예 | 예 |
 | **Service Bus** | 프리미엄 서비스 계층을 사용하는 Azure Service Bus 트래픽입니다. | 아웃바운드 | 예 | 예 |
-| **ServiceFabric** | Azure Service Fabric입니다.<br/><br/>**참고:** 이 태그는 지역별 제어 평면에 대한 Service Fabric 서비스 엔드포인트를 나타냅니다. 이를 통해 고객은 자신의 VNET에서 Service Fabric 클러스터에 대한 관리 작업을 수행할 수 있습니다(엔드포인트 예: https:// westus.servicefabric.azure.com). | 모두 | 예 | 예 |
-| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB 및 Azure Synapse Analytics.<br/><br/>**참고:** 이 태그는 서비스의 특정 인스턴스가 아닌 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 SQL Managed Instance에 적용되지 않습니다. | 아웃바운드 | 예 | 예 |
+| **ServiceFabric** | Azure Service Fabric입니다.<br/><br/>**참고**:이 태그는 지역별 컨트롤 평면에 대 한 Service Fabric 서비스 끝점을 나타냅니다. 이를 통해 고객은 자신의 VNET에서 Service Fabric 클러스터에 대한 관리 작업을 수행할 수 있습니다(엔드포인트 예: https://westus.servicefabric.azure.com). | 모두 | 예 | 예 |
+| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB 및 Azure Synapse Analytics.<br/><br/>**참고**:이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 SQL Managed Instance에 적용되지 않습니다. | 아웃바운드 | 예 | 예 |
 | **SqlManagement** | SQL 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
-| **스토리지** | Azure Storage. <br/><br/>**참고:** 이 태그는 서비스의 특정 인스턴스가 아닌 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. | 아웃바운드 | 예 | 예 |
+| **스토리지** | Azure Storage. <br/><br/>**참고**:이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. | 아웃바운드 | 예 | 예 |
 | **StorageSyncService** | 스토리지 동기화 서비스입니다. | 모두 | 예 | 아니요 |
-| **WindowsAdminCenter** | Windows Admin Center 백 엔드 서비스가 고객의 Windows Admin Center 설치와 통신하도록 허용합니다. **참고:** 이 태그는 현재 Azure Portal 통해 구성할 수 없습니다. | 아웃바운드 | 예 | 예 |
+| **WindowsAdminCenter** | Windows Admin Center 백 엔드 서비스가 고객의 Windows Admin Center 설치와 통신하도록 허용합니다. **참고**:이 태그는 현재 Azure Portal를 통해 구성할 수 없습니다. | 아웃바운드 | 예 | 예 |
 | **WindowsVirtualDesktop** | Windows 가상 데스크톱입니다. | 모두 | 예 | 예 |
 | **VirtualNetwork** | 가상 네트워크 주소 공간(가상 네트워크에 대해 정의된 모든 IP 주소 범위), 연결된 모든 온-프레미스 주소 공간 및 [피어링](virtual-network-peering-overview.md)된 가상 네트워크 또는 [가상 네트워크 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)에 연결된 가상 네트워크, [사용자 정의 경로](virtual-networks-udr-overview.md)에 사용되는 [호스트의 가상 IP 주소](./network-security-groups-overview.md#azure-platform-considerations)입니다. 이 태그에는 기본 경로가 포함될 수도 있습니다. | 모두 | 예 | 아니요 |
 
@@ -127,11 +127,11 @@ ms.locfileid: "132324634"
 > - Azure Storage 또는 Azure SQL Database와 같은 서비스에 [가상 네트워크 서비스 엔드포인트](virtual-network-service-endpoints-overview.md)를 구현하는 경우 Azure는 서비스의 가상 네트워크 서브넷에 [경로](virtual-networks-udr-overview.md#optional-default-routes)를 추가합니다. 경로의 주소 접두사는 해당하는 서비스 태그와 동일한 주소 접두사 또는 CIDR 범위입니다.
 
 
-### <a name="tags-supported-in-the-classic-deployment-model"></a>클래식 배포 모델에서 지원되는 태그
+### <a name="tags-supported-in-the-classic-deployment-model"></a>클래식 배포 모델에서 지원 되는 태그
 
-클래식 배포 모델(Azure Resource Manager 이전)은 이전 표에 나열된 태그의 작은 하위 집합을 지원합니다. 클래식 배포 모델의 태그는 다음 표와 같이 철자가 다릅니다.
+클래식 배포 모델 (Azure Resource Manager 하기 전)은 위의 표에 나열 된 태그의 작은 하위 집합을 지원 합니다. 클래식 배포 모델의 태그는 다음 표에 표시 된 것과 같이 철자가 다릅니다.
 
-| Resource Manager 태그 | 클래식 배포 모델의 해당 태그 |
+| 리소스 관리자 태그 | 클래식 배포 모델의 해당 태그 |
 |---|---|
 | **AzureLoadBalancer** | AZURE_LOADBALANCER |
 | **인터넷** | 인터넷 |
@@ -148,7 +148,7 @@ IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 �
 - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
 - [Azure CLI](/cli/azure/network#az_network_list_service_tags)
 
-예를 들어 Storage 서비스 태그에 대한 모든 접두사 검색을 위해 다음 PowerShell cmdlet을 사용할 수 있습니다. 
+예를 들어 Storage Service 태그의 모든 접두사를 검색 하려면 다음 PowerShell cmdlet을 사용할 수 있습니다. 
 
 ```azurepowershell-interactive
 $serviceTags = Get-AzNetworkServiceTag -Location eastus2
@@ -158,9 +158,9 @@ $storage.Properties.AddressPrefixes
 
 > [!NOTE]
 > 
-> - 새 서비스 태그 데이터가 모든 Azure 지역에 API 결과에 전파하는 데 최대 4주가 걸립니다. 
-> - 인증을 받아야 하며 현재 구독에 대한 읽기 권한이 있는 역할이 있어야 합니다. 
-> - API 데이터는 다운로드 가능한 JSON 파일에 현재 있는 태그의 하위 집합을 나타내는 NSG 규칙과 함께 사용할 수 있는 태그를 나타냅니다. 
+> - 새 서비스 태그 데이터가 모든 Azure 지역에서 API 결과에 전파 되는 데 최대 4 주가 소요 됩니다. 
+> - 사용자는 인증을 받아야 하며 현재 구독에 대 한 읽기 권한이 있는 역할이 있어야 합니다. 
+> - API 데이터는 다운로드 가능한 JSON 파일에 현재 있는 태그의 하위 집합을 나타내는 NSG 규칙에 사용할 수 있는 태그를 나타냅니다. 
 
 ### <a name="discover-service-tags-by-using-downloadable-json-files"></a>다운로드 가능한 JSON 파일을 사용하여 서비스 태그 검색 
 현재 서비스 태그 목록이 포함된 JSON 파일을 IP 주소 범위 정보와 함께 다운로드할 수 있습니다. 이러한 목록은 매주 업데이트되고 게시됩니다. 각 클라우드의 위치는 다음과 같습니다.
@@ -172,16 +172,16 @@ $storage.Properties.AddressPrefixes
 
 해당 파일의 IP 주소 범위는 CIDR 표기법으로 되어 있습니다. 
 
-다음 AzureCloud 태그에는 일반 스키마에 따라 형식이 지정된 지역 이름이 없습니다. 
-- AzureCloud.centralfrance(FranceCentral)
-- AzureCloud.southfrance(FranceSouth)
-- AzureCloud.germanywc(GermanyWestCentral)
-- AzureCloud.germanyn(GermanyNorth)
-- AzureCloud.노르웨이어(노르웨이)
-- AzureCloud.노르웨이어(노르웨이West)
-- AzureCloud.landlandn(스위스North)
-- AzureCloud.landlandw(스위스West)
-- AzureCloud.usstagee(EastUSSTG)
+다음 AzureCloud 태그는 일반 스키마에 따라 형식이 지정 된 지역 이름이 아닙니다. 
+- AzureCloud (FranceCentral)
+- AzureCloud (FranceSouth)
+- AzureCloud (GermanyWestCentral)
+- AzureCloud (GermanyNorth)
+- AzureCloud. norwaye (없음)
+- AzureCloud (NorwayWest)
+- AzureCloud (SwitzerlandNorth)
+- AzureCloud (SwitzerlandWest)
+- AzureCloud (EastUSSTG)
 - AzureCloud.usstagec(SouthCentralUSSTG)
 
 

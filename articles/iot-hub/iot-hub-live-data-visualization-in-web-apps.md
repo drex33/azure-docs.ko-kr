@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: cfa345e56744bf2c26f18d98dac3101db8021d2b
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 7b6a59b60b0cb5d338426f781826b022c00a49d2
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132864477"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484375"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 애플리케이션에서 Azure IoT Hub에서 실시간 센서 데이터 시각화
 
@@ -191,7 +191,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
    git remote add webapp <Git clone URL>
    ```
 
-8. App Service에 코드를 배포하려면 명령 창에 다음 명령을 입력합니다. 샘플 디렉터리 *web-apps-code-iot-hub-data-visualization* 에 있는지 확인합니다. 자격 증명을 묻는 메시지가 표시되면 5단계에서 만든 사용자 수준 배포 자격 증명을 입력합니다. App Service 원격의 마스터 분기에 푸시합니다.
+8. App Service에 코드를 배포하려면 명령 창에 다음 명령을 입력합니다. 샘플 디렉터리 *web-apps-code-iot-hub-data-visualization* 에 있는지 확인합니다. 자격 증명을 묻는 메시지가 표시되면 5단계에서 만든 사용자 수준 배포 자격 증명을 입력합니다. App Service 원격의 주 분기로 푸시합니다.
 
     ```cmd
     git push webapp master:master

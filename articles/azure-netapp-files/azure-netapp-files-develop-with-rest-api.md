@@ -3,7 +3,7 @@ title: REST API를 사용한 Azure NetApp Files용 개발 | Microsoft Docs
 description: Azure NetApp Files 서비스용 REST API는 NetApp 계정, 용량 풀, 볼륨 및 스냅샷과 같은 리소스에 대한 HTTP 작업을 정의합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 06/29/2021
-ms.author: b-juche
-ms.openlocfilehash: 7158f24d4168995c1fc196f01a15f333b735d4a4
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.author: b-hchen
+ms.openlocfilehash: e80571c11167549f19304ce989f2ab89fc5c1fe1
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132868436"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480455"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>REST API를 사용한 Azure NetApp Files용 개발 
 

@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 Linux NFS 미리 읽기 모범 사례 - 세�
 description: Azure NetApp Files에 대한 파일 시스템 캐시 및 Linux NFS 미리 읽기 모범 사례를 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.author: b-juche
-ms.openlocfilehash: f87d2742ab34cdf5b6509e88b403240d388fa373
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: 7dded45f51b90639a520c148daf0dc9559046353
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113233515"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483273"
 ---
 # <a name="linux-nfs-read-ahead-best-practices-for-azure-netapp-files"></a>Azure NetApp Files에 대한 Linux NFS 미리 읽기 모범 사례
 

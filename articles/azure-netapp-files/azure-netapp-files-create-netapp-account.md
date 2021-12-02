@@ -3,7 +3,7 @@ title: Azure NetApp Files 액세스를 위한 NetApp 계정 만들기 | Microsof
 description: 용량 풀을 설정하고 볼륨을 만들 수 있도록 Azure NetApp Files에 액세스하고 NetApp 계정을 만드는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.author: b-juche
-ms.openlocfilehash: 994af6291f55e9f1dd44f2f522f9273639531257
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.author: b-hchen
+ms.openlocfilehash: 8d8b158644c251c8ded7f6dbba2519ec1e29dd25
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407060"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486450"
 ---
 # <a name="create-a-netapp-account"></a>NetApp 계정 만들기
 NetApp 계정 만들기를 사용하면 용량 풀을 설정하고 이후에 볼륨을 만들 수 있습니다. Azure NetApp Files 블레이드를 사용하여 새 NetApp 계정을 만듭니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-NetApp 리소스 공급자를 사용하기 위해 구독을 등록해야 합니다. [NetApp 리소스 공급자 등록](azure-netapp-files-register.md)을 참조하세요.
+NetApp 리소스 공급자를 사용 하기 위해 구독을 등록 해야 합니다. [NetApp 리소스 공급자 등록](azure-netapp-files-register.md)을 참조하세요.
 
 ## <a name="steps"></a>단계 
 

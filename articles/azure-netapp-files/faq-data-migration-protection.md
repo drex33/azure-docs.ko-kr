@@ -4,15 +4,15 @@ description: Azure NetApp Files 데이터 마이그레이션 및 보호에 대 �
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.date: 10/11/2021
-ms.openlocfilehash: c6422b99087b8239ea6d21c0f5186edd5df1c247
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f7310745f6a1e05a01e35a4dab88e1e8155066a0
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273732"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482624"
 ---
 # <a name="data-migration-and-protection-faqs-for-azure-netapp-files"></a>데이터 마이그레이션 및 Azure NetApp Files에 대 한 보호 Faq
 
@@ -71,5 +71,5 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제하기 위한 요�
 - [SMB FAQ](faq-smb.md)
 - [용량 관리 FAQ](faq-capacity-management.md)
 - [Azure NetApp Files 백업 FAQ](faq-backup.md)
-- [응용 프로그램 복원 력 Faq](faq-application-resilience.md)
-- [통합 Faq](faq-integration.md)
+- [애플리케이션 복원력 FAQ](faq-application-resilience.md)
+- [통합 FAQ](faq-integration.md)

@@ -3,7 +3,7 @@ title: Azure NetApp Files를 사용하는 솔루션 아키텍처 | Microsoft Doc
 description: Azure NetApp Files를 사용하는 솔루션 아키텍처에 대한 모범 사례 참조를 제공합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/4/2021
-ms.author: b-juche
-ms.openlocfilehash: 09b6a7a1326730b4ea7a250506115cd3b9368514
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.date: 12/01/2021
+ms.author: b-hchen
+ms.openlocfilehash: 6eb8c2519c5dba5a041fe3744c22327e51a45389
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2021
-ms.locfileid: "133439625"
+ms.locfileid: "133482929"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해하는 데 도움이 되는 모범 사례 참조를 제공합니다.  
@@ -34,16 +34,16 @@ ms.locfileid: "133439625"
 
 ### <a name="linux-oss-apps"></a>Linux OSS 앱
 
-* [AIX UNIX 온-프레미스에서 Azure Linux로 마이그레이션 - Azure 예제 시나리오](/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)
+* [AIX UNIX 온-프레미스에서 azure Linux로 마이그레이션-azure 예제 시나리오](/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)
 
-### <a name="mainframe-refactor"></a>메인프레임 리팩터
+### <a name="mainframe-refactor"></a>메인프레임 리팩터링
 
-* [Azure로 일반 메인프레임 리팩터리 - Azure 예제 시나리오](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
-* [고급을 통해 메인프레임 애플리케이션 리팩터리 - Azure 예제 시나리오](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)
+* [일반적인 메인프레임 Azure로 리팩터링-Azure 예제 시나리오](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
+* [고급-Azure 예제 시나리오를 사용 하 여 메인프레임 응용 프로그램 리팩터링](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)
 
 ### <a name="oracle"></a>Oracle
 
-* [Azure NetApp Files Oracle Database - Azure 예제 시나리오](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
+* [Azure NetApp Files로 Oracle Database-Azure 예제 시나리오](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
 * [Azure NetApp Files를 사용하는 Microsoft Azure의 Oracle Database](https://www.netapp.com/media/17105-tr4780.pdf)
 * [Microsoft Azure의 Oracle VM 이미지 및 배포: 공유 스토리지 구성 옵션](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Azure NetApp Files 단일 볼륨의 Oracle 데이터베이스 성능](performance-oracle-single-volumes.md)
@@ -52,9 +52,11 @@ ms.locfileid: "133439625"
 ### <a name="machine-learning"></a>Machine Learning
 *   [Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 *   [Azure의 분산 교육: 레인 검색 - 솔루션 설계](https://www.netapp.com/media/32427-tr-4896-design.pdf)
-*   [Azure의 분산 학습: Click-Through 속도 예측 – 솔루션 디자인](https://docs.netapp.com/us-en/netapp-solutions/ai/aks-anf_introduction.html)
+*   [Azure의 분산 교육: Click-Through 요금 예측 – 솔루션 디자인](https://docs.netapp.com/us-en/netapp-solutions/ai/aks-anf_introduction.html)
 
 ### <a name="education"></a>Education
+
+* [Azure NetApp Files를 사용 하 여 Moodle 배포-Azure 예제 시나리오](/azure/architecture/example-scenario/file-storage/moodle-azure-netapp-files)
 * [Azure NetApp Files NFS 스토리지의 Moodle](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
 
 ## <a name="windows-apps-and-sql-server-solutions"></a>Windows 앱 및 SQL Server 솔루션
@@ -63,14 +65,14 @@ ms.locfileid: "133439625"
 
 ### <a name="file-sharing-and-global-file-caching"></a>파일 공유 및 전역 파일 캐싱
 
-* [Azure NetApp Files 및 DFS 네임스페이스를 Enterprise 파일 공유에 대한 재해 복구](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-for-enterprise-file-shares/ba-p/2808757)
+* [Azure NetApp Files 및 DFS 네임 스페이스를 사용 하 여 Enterprise 파일 공유에 대 한 재해 복구](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-for-enterprise-file-shares/ba-p/2808757)
 * [고유한 Azure NFS 빌드? 클라우드에 Linux 파일 공유 구현](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
 * [Azure NetApp Files 및 NetApp 전역 파일 캐시를 사용하여 전역적으로 분산된 엔터프라이즈 파일 공유](https://f.hubspotusercontent20.net/hubfs/525875/NA-580-0521-Architecture-Doc-R3.pdf)
 * [Azure NetApp Files에 대한 클라우드 규정 준수](https://cloud.netapp.com/hubfs/Cloud%20Compliance%20for%20Azure%20NetApp%20Files%20-%20November%202020.pdf)
 
 ### <a name="sql-server"></a>SQL Server
 
-* [Azure NetApp Files Azure Virtual Machines SQL Server - Azure 예제 시나리오](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)
+* [Azure NetApp Files를 사용 하 여 azure Virtual Machines에서 SQL Server-azure 예제 시나리오](/azure/architecture/example-scenario/file-storage/sql-server-azure-netapp-files)
 * [Azure NetApp Files를 사용한 Azure의 SQL Server 배포 가이드](https://www.netapp.com/pdf.html?item=/media/27154-tr-4888.pdf)
 * [SQL Server 배포에 Azure NetApp Files를 사용할 경우의 이점](solutions-benefits-azure-netapp-files-sql-server.md)
 * [Azure NetApp Files를 사용하여 SMB를 통한 SQL Server 배포](https://www.youtube.com/watch?v=x7udfcYbibs)
@@ -83,7 +85,7 @@ ms.locfileid: "133439625"
 
 ### <a name="generic-sap-and-sap-netweaver"></a>일반 SAP 및 SAP Netweaver 
 
-* [Azure의 Windows SAP NetWeaver 실행 - Azure 아키텍처 센터](/azure/architecture/reference-architectures/sap/sap-netweaver)
+* [Azure에서 Windows SAP NetWeaver 실행-Azure 아키텍처 센터](/azure/architecture/reference-architectures/sap/sap-netweaver)
 * [Azure NetApp Files를 사용하는 Microsoft Azure의 SAP 애플리케이션](https://www.netapp.com/us/media/tr-4746.pdf)
 * [SAP 애플리케이션용 Azure NetApp Files를 사용하여 SUSE Linux Enterprise Server에서 Azure VM의 SAP NetWeaver 고가용성 실현](../virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files.md)
 * [SAP 애플리케이션용 Azure NetApp Files를 사용하여 Red Hat Enterprise Linux에서 Azure VM의 SAP NetWeaver 고가용성 실현](../virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files.md)
@@ -92,9 +94,9 @@ ms.locfileid: "133439625"
 
 ### <a name="sap-hana"></a>SAP HANA 
 
-* [강화 시스템의 Linux VM에 대한 SAP HANA - Azure 아키텍처 센터](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
-* [Azure의 Linux에서 SAP S/4HANA - Azure 아키텍처 센터](/azure/architecture/reference-architectures/sap/sap-s4hana)
-* [Linux VM에서 SAP BW/4HANA 실행 - Azure 아키텍처 센터](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)
+* [확장 시스템에서 Linux Vm에 대 한 SAP HANA-Azure 아키텍처 센터](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
+* [Azure에서 Linux의 SAP S/4HANA-Azure 아키텍처 센터](/azure/architecture/reference-architectures/sap/sap-s4hana)
+* [Linux Vm을 사용 하 여 SAP BW/4HANA 실행-Azure 아키텍처 센터](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)
 * [SAP HANA Azure 가상 머신 스토리지 구성](../virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 * [SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md)
 * [Red Hat Enterprise Linux에서 Azure NetApp Files를 사용한 SAP HANA 확장의 고가용성](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
@@ -102,11 +104,11 @@ ms.locfileid: "133439625"
 * [Red Hat Enterprise Linux에서 Azure NetApp Files를 사용하여 Azure VM에 대기 노드가 있는 SAP HANA 스케일 아웃](../virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md)
 * [RHEL에서 HSR 및 Pacemaker를 사용하여 SAP HANA 스케일 아웃 - Azure Virtual Machines](../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md)
 * [Azure Application Consistent Snapshot Tool(AzAcSnap)](azacsnap-introduction.md)
-* [Azure NetApp Files SAP HANA 재해 복구](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
+* [Azure NetApp Files를 사용 하 여 재해 복구 SAP HANA](https://docs.netapp.com/us-en/netapp-solutions-sap/pdfs/sidebar/SAP_HANA_Disaster_Recovery_with_Azure_NetApp_Files.pdf)
 
 ### <a name="sap-anydb"></a>SAP AnyDB
 
-* [Azure의 sap system on Oracle Database - Azure 아키텍처 센터](/azure/architecture/example-scenario/apps/sap-on-oracle)
+* [Azure에서 Oracle Database의 SAP 시스템-Azure 아키텍처 센터](/azure/architecture/example-scenario/apps/sap-on-oracle)
 * [SAP 워크로드용 Oracle Azure Virtual Machines DBMS 배포 - Azure Virtual Machines](../virtual-machines/workloads/sap/dbms_guide_oracle.md#oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux)
 * [Azure NetApp Files를 사용하여 SAP AnyDB(Oracle 19c) 배포](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 * [Azure NetApp Files를 사용하여 SAP 워크로드용 IBM Db2 Azure Virtual Machines DBMS 배포](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
@@ -127,6 +129,7 @@ ms.locfileid: "133439625"
 * [HANA N+M 스케일 아웃 아키텍처의 ANF 투자를 극대화하기 위한 아키텍처 결정 - 2부](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
 * [HANA N+M 스케일 아웃 아키텍처의 ANF 투자를 극대화하기 위한 아키텍처 결정 - 3부](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2215948)
 * [Azure NetApp Files를 사용한 SAP Landscape 크기 조정 및 볼륨 통합](https://techcommunity.microsoft.com/t5/sap-on-microsoft/sap-landscape-sizing-and-volume-consolidation-with-anf/m-p/2145572/highlight/true#M14)
+* [에서 자동으로 제공 되는 새로운 S/4HANA 배포에 대 한 첫 번째 실습을 Microsoft Azure](https://blogs.sap.com/2021/09/13/gain-first-hands-on-experience-with-the-new-automated-s-4hana-deployment-in-microsoft-azure/)
 
 ## <a name="azure-vmware-solutions"></a>Azure VMware Solutions
 
@@ -167,6 +170,7 @@ ms.locfileid: "133439625"
 
 ### <a name="electronic-design-automation-eda"></a>전자 디자인 자동화(EDA)
 
+* [Azure NetApp Files의 .EDA 워크 로드-성능 모범 사례](https://techcommunity.microsoft.com/t5/azure-global/eda-workloads-on-azure-netapp-files-performance-best-practice/ba-p/2119979)
 * [전자 디자인 자동화에 Azure NetApp Files 사용의 이점](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: Azure NetApp Files을 사용 하는 EDA HPC 랩](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
 * [반도체 업계를 위한 Azure](https://azurecomcdn.azureedge.net/cvt-f40f39cd9de2d875ab0c198a8d7b186350cf0bca161e80d7896941389685d012/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure_for_the_Semiconductor_Industry.pdf)
@@ -186,6 +190,7 @@ ms.locfileid: "133439625"
 
 * [Astra: Azure NetApp Files에서 AKS 워크로드 보호, 복구 및 관리](https://cloud.netapp.com/hubfs/Astra%20Azure%20Documentation.pdf) 
 * [Azure NetApp Files와 Azure Kubernetes Service의 통합](../aks/azure-netapp-files.md)
+* [Astra Control Service 및 Azure NetApp Files를 사용 하 여 AKS 워크 로드의 재해 복구](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-of-aks-workloads-with-astra-control-service/ba-p/2948089)
 * [Azure NetApp Files를 사용하여 Azure에서 뛰어난 Kubernetes 성능](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Azure NetApp Files + Trident = Kubernetes용 동적 및 영구 스토리지](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)
 * [Trident - 컨테이너용 스토리지 오케스트레이터](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)

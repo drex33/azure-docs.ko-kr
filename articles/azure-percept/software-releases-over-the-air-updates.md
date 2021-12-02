@@ -2,17 +2,16 @@
 title: Azure Percept DK OTA 업데이트용 소프트웨어 릴리스
 description: Azure Percept DK 무선 업데이트 패키지에 대한 정보 및 다운로드 링크
 author: EthanChangAED
-ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 1eb6f41d738f7ab5a2dbd68fab341c2b7c9917ad
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 768b5284205ffb70c10bd025b28d31175169299f
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130001166"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485386"
 ---
 # <a name="software-releases-for-ota-updates"></a>OTA 업데이트용 소프트웨어 릴리스
 
@@ -69,7 +68,7 @@ Microsoft는 OTA 패키지를 사용하여 각 개발 키트 릴리스를 서비
 
 |해제|해당하는 버전|다운로드 링크|참고|
 |---|---|---|---|
-|9월 서비스 릴리스(2109)|2021.106.111.115,<br>2021.107.129.116|[2021.109.129.108 OTA 업데이트 패키지](https://go.microsoft.com/fwlink/?linkid=2174634)||
+|11월 서비스 릴리스(2111)|2021.106.111.115,<br>2021.107.129.116,<br>2021.109.129.108 |[2021.111.124.109 OTA 업데이트 패키지](<https://download.microsoft.com/download/2/5/3/253f56fe-1a26-4fe7-b1b6-c03f070acc35/2021.111.124.109 OTA update package.zip>)||
 
 **하드 중지 릴리스:**
 

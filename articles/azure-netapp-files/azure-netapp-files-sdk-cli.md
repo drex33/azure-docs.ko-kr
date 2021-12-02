@@ -3,7 +3,7 @@ title: Azure NetApp Files SDK 및 CLI 도구 | Microsoft Docs
 description: Azure NetApp Files에서 지원되는 SDK, GitHub에서 게시된 위치, 지원되는 명령줄 도구인 Azure CLI와 PowerShell에 대해 알아보세요.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.author: b-juche
-ms.openlocfilehash: 705b74fe1fe38e8f65fe24e88c5ffa9bf1ad6175
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: 87f04d697aacceee6302d2be913522e4c4449f18
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507792"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487476"
 ---
 # <a name="azure-netapp-files-sdks-cli-tools-and-arm-templates"></a>Azure NetApp Files SDK, CLI 도구 및 ARM 템플릿
 

@@ -4,16 +4,16 @@ description: Azure NetApp Files 보안에 대한 FAQ(질문과 대답)입니다.
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.date: 10/11/2021
 ms.custom: references_regions
-ms.openlocfilehash: d1794516cfd6c97411d27122749a4260bcbe8358
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 19fa25ed6b1cb4e06de4a52bf4eff6f4de492169
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273813"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483349"
 ---
 # <a name="security-faqs-for-azure-netapp-files"></a>Azure NetApp Files 대한 보안 FAQ
 

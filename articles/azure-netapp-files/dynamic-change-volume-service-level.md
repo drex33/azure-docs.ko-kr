@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 볼륨의 서비스 수준을 동적으로 �
 description: 볼륨의 서비스 수준을 동적으로 변경하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/06/2021
-ms.author: b-juche
-ms.openlocfilehash: 7c9704549c68dce72c16f0b5386cdb76edb5fe90
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.author: b-hchen
+ms.openlocfilehash: 122add69c5a32e403e5cf53399841ba40241a111
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407003"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481350"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>볼륨의 서비스 수준을 동적으로 변경
 

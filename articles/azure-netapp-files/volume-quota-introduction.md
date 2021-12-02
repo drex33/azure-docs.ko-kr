@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 볼륨 할당량 이해 | Microsoft Docs
 description: 볼륨 할당량에 대한 개요를 제공합니다. 또한 볼륨 및 풀 용량 모니터링 및 관리에 대한 참조를 제공합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2021
-ms.author: b-juche
-ms.openlocfilehash: ffcc36cecc4dbba32a8f3927ab88a5632018a9bb
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: 88ae027897dc1a718186da20632ce0c418cd4b68
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130219757"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486906"
 ---
 # <a name="understand-volume-quota"></a>볼륨 할당량 이해
 

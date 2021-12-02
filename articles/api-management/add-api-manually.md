@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/26/2021
 ms.author: danlep
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 07b200c67b831b7d7fb01ea8da657e9bcc9b3b18
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 323c7543d87a9a82c55899269cd4dfca8a3aadb6
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129997008"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487666"
 ---
 # <a name="add-an-api-manually"></a>API를 수동으로 추가
 
@@ -74,8 +74,8 @@ Azure Portal에서 작업을 테스트합니다. 또는 **개발자 포털** 에
 
 1. 이전 단계에서 만든 API를 선택합니다.
 2. **+작업 추가** 를 클릭합니다.
-3. **URL** 에서 **GET** 을 선택하고 리소스에 `*/status/{code}`를 입력합니다. 필요에 따라 이 매개 변수와 관련된 몇 가지 정보를 제공할 수 있습니다. 예를 들어 **형식** 에 대해 "*Number*"를 입력하고 **값** 에 대해 “*200*”(기본값)을 입력합니다.
-4. **표시 이름** 에 "WildcardGet"을 입력합니다.
+3. **URL** 에서 **GET** 을 선택하고 리소스에 `/status/{code}`를 입력합니다. 필요에 따라 이 매개 변수와 관련된 몇 가지 정보를 제공할 수 있습니다. 예를 들어 **형식** 에 대해 "*Number*"를 입력하고 **값** 에 대해 “*200*”(기본값)을 입력합니다.
+4. **표시 이름** 으로 "GetStatus"를 입력합니다.
 5. **저장** 을 선택합니다.
 
 ### <a name="test-the-operation"></a>작업 테스트 
@@ -83,7 +83,7 @@ Azure Portal에서 작업을 테스트합니다. 또는 **개발자 포털** 에
 Azure Portal에서 작업을 테스트합니다.  또는 **개발자 포털** 에서 테스트할 수도 있습니다.
 
 1. **테스트** 탭을 선택합니다.
-2. **WildcardGet** 을 선택합니다. 기본적으로 코드 값은 "*200*"으로 설정됩니다. 이 값을 변경하여 다른 값을 테스트할 수 있습니다. 예를 들어 "*418*"을 입력합니다.
+2. **GetStatus** 를 선택합니다. 기본적으로 코드 값은 "*200*"으로 설정됩니다. 이 값을 변경하여 다른 값을 테스트할 수 있습니다. 예를 들어 "*418*"을 입력합니다.
 3. **보내기** 를 누릅니다.
 
     "http://httpbin.org/status/200" 작업이 생성하는 응답이 표시됩니다. 작업을 변환하려면 [API 변환 및 보호](transform-api.md)를 참조하세요.

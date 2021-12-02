@@ -3,7 +3,7 @@ title: Azure NetApp Files의 SMB 성능 모범 사례 | Microsoft Docs
 description: Azure NetApp Files의 SMB 성능 및 모범 사례를 이해하는 데 도움이 됩니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/10/2021
-ms.author: b-juche
-ms.openlocfilehash: dd909362950d961b4dcf944ab608c5103840e9a7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: d4a6b1d9cc49e25a0a30c0432b30617cb2bdf7e2
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130239999"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481654"
 ---
 # <a name="smb-performance-best-practices-for-azure-netapp-files"></a>Azure NetApp Files의 SMB 성능 모범 사례
 

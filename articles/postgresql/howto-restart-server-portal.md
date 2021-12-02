@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 12/20/2020
-ms.openlocfilehash: 1a1afabd606df70ec60cf4fa7c8530ff95a0564f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
-ms.translationtype: HT
+ms.openlocfilehash: 5f4e75c4bae971b030a93f497f52a158bf0df79d
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604858"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487021"
 ---
 # <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버 다시 시작
 이 항목에서는 Azure Database for PostgreSQL 서버를 다시 시작하는 방법을 설명합니다. 유지 관리를 위해 서버를 다시 시작해야 할 수 있지만 이 경우 서버가 해당 작업을 수행할 때 잠깐 가동이 중단됩니다.
@@ -19,9 +19,9 @@ ms.locfileid: "105604858"
 서비스가 다른 작업 중이면 서버가 다시 시작되지 않습니다. 예를 들어, 서비스가 vCore 크기를 조정하는 것과 같이 이전에 요청된 작업을 처리할 수 있습니다.
  
 > [!NOTE] 
-> 다시 시작을 완료하는 데 필요한 시간은 PostgreSQL 복구 프로세스에 따라 달라집니다. 다시 시작 시간을 줄이려면 다시 시작 전에 서버에서 발생하는 작업의 양을 최소화하는 것이 좋습니다. 검사점 빈도를 늘리고자 할 수도 있습니다. 또한 `max_wal_size` 등을 비롯한 검사점 관련 매개 변수 값을 조정할 수 있습니다. 서버를 다시 시작하기 전에 `CHECKPOINT` 명령을 실행하는 것도 좋습니다.
+> 다시 시작을 완료하는 데 필요한 시간은 PostgreSQL 복구 프로세스에 따라 달라집니다. 다시 시작 시간을 줄이려면 다시 시작 전에 서버에서 발생하는 작업의 양을 최소화하는 것이 좋습니다. 검사점 빈도를 늘리고자 할 수도 있습니다. 또한 `max_wal_size` 등을 비롯한 검사점 관련 매개 변수 값을 조정할 수 있습니다. 또한 서버를 다시 시작하기 `CHECKPOINT` 전에 명령을 실행하여 복구 시간을 단축하는 것이 좋습니다. 서버를 `CHECKPOINT` 다시 시작하기 전에 명령이 수행되지 않으면 복구 시간이 길어질 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [PostgreSQL용 Azure Database 서버](quickstart-create-server-database-portal.md)
 

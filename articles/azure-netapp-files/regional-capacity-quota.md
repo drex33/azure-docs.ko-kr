@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대 한 지역 용량 할당량 Microsoft Docs
 description: Azure NetApp Files의 지역 용량 할당량을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2021
-ms.author: b-juche
-ms.openlocfilehash: 1ae89ff8b8593d96740b0140a1570ac19deacea3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: 51702b7028374a92b1e4233a024bf571e091be6a
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273953"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481236"
 ---
 # <a name="regional-capacity-quota-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 지역 용량 할당량
 

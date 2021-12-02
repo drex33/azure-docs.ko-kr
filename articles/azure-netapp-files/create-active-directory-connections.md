@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 Active Directory 연결 만들기 및 관리
 description: 이 문서에서는 Azure NetApp Files에 대한 Active Directory 연결을 만들고 관리하는 방법을 보여 줍니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.author: b-juche
-ms.openlocfilehash: e05850686fca42a8d21bc477e39171ff792db307
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.author: b-hchen
+ms.openlocfilehash: f5dd62da1bdc4d0c732a6d6c47cb599524d268c6
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131473835"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481047"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Azure NetApp Files에 대한 Active Directory 연결 만들기 및 관리
 
@@ -27,7 +27,7 @@ Azure NetApp Files의 여러 기능을 수행하려면 Active Directory에 연�
 
 ## <a name="before-you-begin"></a>시작하기 전에  
 
-* 용량 풀을 설정해야 합니다. [용량 풀 만들기를](azure-netapp-files-set-up-capacity-pool.md)참조 하세요.   
+* 용량 풀을 설정해야 합니다. [용량 풀 만들기를](azure-netapp-files-set-up-capacity-pool.md)참조하세요.   
 * Azure NetApp Files에 서브넷을 위임해야 합니다. [Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)을 참조하세요.
 
 ## <a name="requirements-and-considerations-for-active-directory-connections"></a><a name="requirements-for-active-directory-connections"></a>Active Directory 연결 요구 사항 및 고려 사항
@@ -93,7 +93,7 @@ Azure NetApp Files의 여러 기능을 수행하려면 Active Directory에 연�
 
 * 비 AD 통합 DNS의 경우 "친숙한 이름"을 사용하여 Azure NetApp Files가 작동할 수 있도록 DNS A/PTR 레코드를 추가해야 합니다. 
 
-* 다음 표에서는 LDAP 캐시의 TTL(Time to Live) 설정에 대해 설명합니다. 클라이언트를 통해 파일이나 디렉터리에 액세스하기 전에 캐시가 새로 고쳐질 때까지 기다려야 합니다. 그렇지 않으면 액세스 또는 사용 권한 거부 메시지가 클라이언트에 표시 됩니다. 
+* 다음 표에서는 LDAP 캐시의 TTL(Time to Live) 설정에 대해 설명합니다. 클라이언트를 통해 파일이나 디렉터리에 액세스하기 전에 캐시가 새로 고쳐질 때까지 기다려야 합니다. 그렇지 않으면 액세스 또는 사용 권한 거부 메시지가 클라이언트에 나타납니다. 
 
     |     오류 조건    |     해결 방법    |
     |-|-|
@@ -268,9 +268,9 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
         볼륨에 대한 관리자 권한이 부여되는 사용자 또는 그룹을 지정할 수 있습니다. 
 
-        ![연결 Active Directory 창의 관리자 상자를 보여 주는 스크린샷](../media/azure-netapp-files/active-directory-administrators.png) 
+        ![Active Directory 연결 창의 관리자 상자를 보여 주는 스크린샷](../media/azure-netapp-files/active-directory-administrators.png) 
         
-        **관리자** 기능은 현재 미리 보기로 제공 됩니다. 이 기능을 처음 사용하는 경우 사용하기 전에 등록합니다. 
+        **관리자** 기능은 현재 미리 보기로 제공됩니다. 이 기능을 처음 사용하는 경우 사용하기 전에 등록합니다. 
 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAdAdministrators

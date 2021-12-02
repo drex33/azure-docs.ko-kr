@@ -3,7 +3,7 @@ title: SAP HANA에 대 한 Azure NetApp Files 응용 프로그램 볼륨 그룹�
 description: SAP HANA에 Azure NetApp Files 응용 프로그램 볼륨 그룹을 사용 하기 전에 알아야 할 요구 사항 및 고려 사항을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2021
-ms.author: b-juche
-ms.openlocfilehash: e55d96af065d4068fcdcd4f375d0449727b2c341
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.author: b-hchen
+ms.openlocfilehash: d9d5bb6b643a27f862536ee1bf2fd1dbf3da974e
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133271992"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480436"
 ---
 # <a name="requirements-and-considerations-for-application-volume-group-for-sap-hana"></a>SAP HANA의 응용 프로그램 볼륨 그룹에 대 한 요구 사항 및 고려 사항 
 

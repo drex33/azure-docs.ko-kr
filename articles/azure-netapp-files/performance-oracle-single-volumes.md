@@ -3,7 +3,7 @@ title: Azure NetApp Files 단일 볼륨의 Oracle 데이터베이스 성능 | Mi
 description: Oracle 데이터베이스에서 Azure NetApp Files 단일 볼륨의 성능 테스트 결과에 대해 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.author: b-juche
-ms.openlocfilehash: c6cdf2f6dada0aa4dea2f70f18237b7ee39e3ea1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: de25120dcfc1c6eeae4b5e852d567f3a30787252
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91571416"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481293"
 ---
 # <a name="oracle-database-performance-on-azure-netapp-files-single-volumes"></a>Azure NetApp Files 단일 볼륨의 Oracle 데이터베이스 성능
 

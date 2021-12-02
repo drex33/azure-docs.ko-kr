@@ -3,7 +3,7 @@ title: Azure NetApp Files 백업 이해 | Microsoft Docs
 description: 백업 Azure NetApp Files, 지원 되는 지역 및 비용 모델을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/13/2021
-ms.author: b-juche
+ms.author: b-hchen
 ms.custom: references_regions
-ms.openlocfilehash: 3836dc37a6be1b21a46424cbcf14a8960908969d
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 93409c76b79bb27bee100208f59efd8ac8dc3107
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130256327"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484099"
 ---
 # <a name="understand-azure-netapp-files-backup"></a>Azure NetApp Files 백업 이해
 

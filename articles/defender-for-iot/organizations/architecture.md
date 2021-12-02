@@ -3,12 +3,12 @@ title: 에이전트 없는 솔루션 아키텍처란
 description: Microsoft Defender for IoT 에이전트 없는 아키텍처 및 정보 흐름에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 11/09/2021
-ms.openlocfilehash: 9a3a125ea91ccb9649a4bfc70555885b87d59e65
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 06178eadd4b246fd0399b4835f05b52a96520740
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132318924"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484470"
 ---
 # <a name="microsoft-defender-for-iot-architecture"></a>Microsoft Defender for IoT 아키텍처
 
@@ -110,4 +110,3 @@ Azure의 Azure Portal에 있는 Defender for IoT는 다음을 지원하는 데 �
 
 [Defender for IoT FAQ](resources-frequently-asked-questions.md)
 
-[시스템 필수 구성 요소](quickstart-system-prerequisites.md)

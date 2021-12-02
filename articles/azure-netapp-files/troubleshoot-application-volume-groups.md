@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대 한 응용 프로그램 볼륨 그룹 오류 �
 description: Azure NetApp Files의 응용 프로그램 볼륨 그룹에 대 한 오류 또는 경고 조건 및 해결 방법을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/19/2021
-ms.author: b-juche
-ms.openlocfilehash: b853f0cdc42670146e675065af2e5789246ace8d
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.author: b-hchen
+ms.openlocfilehash: 0cca07aac03bc4d36112d3eabed2ee8f8b26b568
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133271967"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482338"
 ---
 # <a name="troubleshoot-application-volume-group-errors"></a>응용 프로그램 볼륨 그룹 오류 문제 해결
 

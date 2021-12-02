@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 Linux 파일 시스템 캐시 모범 사례 
 description: Azure NetApp Files에 대해 따라야 할 Linux 파일 시스템 캐시 모범 사례를 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.author: b-juche
-ms.openlocfilehash: d0d097a13fa24fb62f70648a34edd27e3b5a0636
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: d886028084552c84f16a83e79a353349aaf441e9
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114203862"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485500"
 ---
 # <a name="linux-filesystem-cache-best-practices-for-azure-netapp-files"></a>Azure NetApp Files에 대한 Linux 파일 시스템 캐시 모범 사례
 

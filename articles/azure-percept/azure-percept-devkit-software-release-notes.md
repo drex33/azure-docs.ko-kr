@@ -2,17 +2,16 @@
 title: Azure Percept DK 소프트웨어 릴리스 정보
 description: Azure Percept DK 소프트웨어의 변경 사항에 대한 정보입니다.
 author: EthanChangAED
-ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: dd0d2c3e8466d0f5b4486be7c15b0092d7026a5e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6f5e72f25d5b8b4060dd438faa0c8bfb40de5e00
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996250"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485443"
 ---
 # <a name="azure-percept-dk-software-release-notes"></a>Azure Percept DK 소프트웨어 릴리스 정보
 
@@ -20,16 +19,23 @@ ms.locfileid: "129996250"
 
 업데이트 이미지를 다운로드하려면 [USB 케이블 업데이트에 대한 Azure Percept DK 소프트웨어 릴리스](./software-releases-usb-cable-updates.md) 또는 [OTA 업데이트에 대한 Azure Percept DK 소프트웨어 릴리스](./software-releases-over-the-air-updates.md)를 참조하세요.
 
-## <a name="september-2109-release"></a>9 월 (2109) 릴리스
+## <a name="november-2111-release"></a>11월(2111) 릴리스
+
+- 운영 체제
+  - 최신 보안 수정.
+  - 자동 패키지 업데이트를 사용하지 않도록 설정했습니다.
+  - USB 디바이스 노드에 액세스하는 Azure Percept 컨테이너에 대한 사용자 권한을 설정합니다.
+
+## <a name="september-2109-release"></a>9월(2109) 릴리스
 
 - Wi-Fi:
-  - 자동 채널을 선택 하는 대신 고정 채널을 사용 하 여 hostapd 서비스를 지속적으로 다시 시도 하 고 다시 시작 하지 않도록 합니다.
+  - hostapd.service가 지속적으로 다시 시도하고 다시 시작하지 않도록 자동 채널 선택 대신 고정 채널을 사용합니다.
 - 설치 환경:
-  - OOBE 서버 시스템 오류가 지역화 됩니다.
-  - IPv6 다중 라우팅 테이블을 사용 하도록 설정 합니다.
+  - OOBE 서버 시스템 오류가 지역화됩니다.
+  - IPv6 다중 라우팅 테이블을 사용하도록 설정합니다.
 - 운영 체제
-  - 최신 보안 픽스.
-  - Nginx service가 루트가 아닌 사용자로 실행 됩니다.
+  - 최신 보안 수정.
+  - Nginx 서비스는 루트가 아닌 사용자로 실행됩니다.
 
 
 ## <a name="july-2107-release"></a>7월(2017년) 릴리스

@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 SMB 볼륨 만들기 | Microsoft Docs
 description: 이 문서에서는 Azure NetApp Files에서 SMB3 볼륨을 만드는 방법을 보여줍니다. Active Directory 연결 및 도메인 서비스에 대한 요구 사항을 알아봅니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.author: b-juche
-ms.openlocfilehash: 738e3d6cb3b27180cd8337e09a72fbe3a0639edf
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: 93545796de1865cfd286cb2b9da2fbd17b08f167
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240056"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485196"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -171,6 +171,6 @@ Windows SMB 클라이언트에서 개체 속성의 **보안** 탭을 사용하�
 * [Azure NetApp Files에 대해 TLS를 통한 ADDS LDAP 구성](configure-ldap-over-tls.md) 
 * [기존 SMB 볼륨에서 지속적인 가용성 사용](enable-continuous-availability-existing-SMB.md)
 * [SMB 암호화](azure-netapp-files-smb-performance.md#smb-encryption)
-* [Azure NetApp Files 볼륨 오류 문제 해결](troubleshoot-volumes.md)
+* [Azure NetApp Files에 대 한 볼륨 오류 문제 해결](troubleshoot-volumes.md)
 * [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](../virtual-network/virtual-network-for-azure-services.md)
 * [Azure 명령줄 인터페이스를 사용하여 새 Active Directory 포리스트 설치](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

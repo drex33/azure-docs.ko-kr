@@ -9,12 +9,12 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 3d731685825b09cdee52d9aae525d169d1d85ace
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 922bb0a35e01e292d54a5cd4234d11b6f61eac08
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117068"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482243"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Azure Cosmos DB .NET SDK 요청 시간 제한 예외 진단 및 문제 해결
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -42,21 +42,57 @@ SDK의 모든 비동기 작업에는 선택적 CancellationToken 매개 변수�
 ### <a name="high-cpu-utilization"></a>높은 CPU 사용률
 높은 CPU 사용률은 가장 일반적인 경우입니다. 최적 대기 시간을 위해 CPU 사용량은 약 40%가 되어야 합니다. 최대(평균 아님) CPU 사용률을 모니터링하려면 간격으로 10초를 사용합니다. CPU 급증은 단일 쿼리에 대해 여러 연결을 수행할 수 있는 파티션 간 쿼리에서 더 일반적으로 나타나는 현상입니다.
 
+# <a name="321-and-216-or-greater-sdk"></a>[3.21 및 2.16 이상 SDK](#tab/cpu-new)
+
+시간 제한에는 다음을 포함 하는 *진단* 이 포함 됩니다.
+
+```json
+"systemHistory": [
+{
+"dateUtc": "2021-11-17T23:38:28.3115496Z",
+"cpu": 16.731,
+"memory": 9024120.000,
+"threadInfo": {
+"isThreadStarving": "False",
+....
+}
+
+},
+{
+"dateUtc": "2021-11-17T23:38:28.3115496Z",
+"cpu": 16.731,
+"memory": 9024120.000,
+"threadInfo": {
+"isThreadStarving": "False",
+....
+}
+
+},
+...
+]
+```
+
+* 값이 `cpu` 70%를 초과 하는 경우 CPU가 고갈 되어 시간 초과가 발생할 수 있습니다. 이 경우 해결 방법은 높은 CPU 사용률의 출처를 조사하여 줄이거나 컴퓨터를 더 큰 리소스 크기로 조정하는 것입니다.
+* `threadInfo/isThreadStarving`노드에 `True` 값이 있으면 스레드 고갈 원인이 됩니다. 이 경우 해결 방법은 스레드 부족(잠재적으로 잠긴 스레드)의 출처를 조사하거나 컴퓨터를 더 큰 리소스 크기로 조정하는 것입니다.
+
+# <a name="older-sdk"></a>[이전 SDK](#tab/cpu-old)
+
 오류에 `TransportException` 정보가 포함된 경우 `CPU History`도 포함될 수 있습니다.
 
 ```
-CPU history: 
-(2020-08-28T00:40:09.1769900Z 0.114), 
-(2020-08-28T00:40:19.1763818Z 1.732), 
-(2020-08-28T00:40:29.1759235Z 0.000), 
-(2020-08-28T00:40:39.1763208Z 0.063), 
-(2020-08-28T00:40:49.1767057Z 0.648), 
-(2020-08-28T00:40:59.1689401Z 0.137), 
+CPU history:
+(2020-08-28T00:40:09.1769900Z 0.114),
+(2020-08-28T00:40:19.1763818Z 1.732),
+(2020-08-28T00:40:29.1759235Z 0.000),
+(2020-08-28T00:40:39.1763208Z 0.063),
+(2020-08-28T00:40:49.1767057Z 0.648),
+(2020-08-28T00:40:59.1689401Z 0.137),
 CPU count: 8)
 ```
 
 * CPU 측정값이 70%를 초과하면 CPU 소모로 인해 시간 초과가 발생할 수 있습니다. 이 경우 해결 방법은 높은 CPU 사용률의 출처를 조사하여 줄이거나 컴퓨터를 더 큰 리소스 크기로 조정하는 것입니다.
 * CPU 측정이 10초마다 발생하지 않는 경우(예: 간격 또는 측정 시간이 측정 사이에 더 큰 시간을 나타냄) 원인은 스레드 부족입니다. 이 경우 해결 방법은 스레드 부족(잠재적으로 잠긴 스레드)의 출처를 조사하거나 컴퓨터를 더 큰 리소스 크기로 조정하는 것입니다.
+---
 
 #### <a name="solution"></a>해결책:
 SDK를 사용하는 클라이언트 애플리케이션을 스케일 업하거나 스케일 아웃해야 합니다.

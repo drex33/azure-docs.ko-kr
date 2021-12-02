@@ -3,7 +3,7 @@ title: PowerShell을 사용하여 REST API로 Azure NetApp Files 개발 | Micros
 description: PowerShell을 통해 Azure NetApp Files REST API 사용하기 시작하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.author: b-juche
-ms.openlocfilehash: f549233de8481f7f86c6d67dbadddec820067ea2
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.author: b-hchen
+ms.openlocfilehash: c91420487e7f1bfaa8592cf6bb6bd8f7087ba37a
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132863941"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483406"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api-using-powershell"></a>PowerShell을 사용하여 REST API로 Azure NetApp Files 개발
 

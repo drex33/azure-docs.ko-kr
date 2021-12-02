@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: yossi-y
 ms.author: yossiy
 ms.date: 10/17/2021
-ms.openlocfilehash: 74972db5b5ae9482938081f9353206847fc976c1
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.openlocfilehash: 83f4288b11c2e3c49503aef084df8eed41dce192
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132903502"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486032"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용하면 데이터를 수집하는 동안 Log Analytics 작업 영역에서 선택한 테이블의 데이터를 Azure Storage 계정 또는 Azure Event Hubs로 계속 내보낼 수 있습니다. 이 문서에서는 이 기능 및 작업 영역에서 데이터 내보내기를 구성하는 단계에 대한 세부 정보를 제공합니다.
@@ -32,14 +32,14 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 
 ## <a name="limitations"></a>제한 사항
 
-- 데이터 내보내기 구성에서 Azure Portal, CLI 또는 REST 요청을 사용할 수 있습니다. PowerShell은 아직 지원 되지 않습니다.
-- 모든 테이블은 내보내기에서 지원 되지만 현재 지원 되는 [테이블](#supported-tables) 섹션에 지정 된 것으로 지원 됩니다. 
-- 새 사용자 지정 로그 미리 보기는 2 월 2022 일에 계획 되며 내보내기에서 지원 됩니다. 기존 사용자 지정 로그 테이블은 내보내기에서 지원 되지 않습니다. 
-- 작업 영역에 활성화된 규칙을 최대 10개까지 정의할 수 있습니다. 사용 하지 않도록 설정 하면 더 많은 규칙이 허용 됩니다. 
+- 데이터 내보내기 구성에서 Azure Portal, CLI 또는 REST 요청을 사용할 수 있습니다. PowerShell은 아직 지원되지 않습니다.
+- 모든 테이블은 내보내기에서 지원되지만 지원은 현재 아래 [지원되는 테이블](#supported-tables) 섹션에 지정된 테이블로 제한됩니다. 
+- 새 사용자 지정 로그 미리 보기는 2022년 2월에 출시될 예정이며 내보내기에서 지원될 예정입니다. 기존 사용자 지정 로그 테이블은 내보내기에서 지원되지 않습니다. 
+- 작업 영역에 활성화된 규칙을 최대 10개까지 정의할 수 있습니다. 사용하지 않도록 설정하면 더 많은 규칙이 허용됩니다. 
 - 대상은 작업 영역에 있는 모든 내보내기 규칙에서 고유해야 합니다.
 - 대상은 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다.
-- 저장소 계정으로 내보낼 때 테이블 이름은 60 자이 하 여야 하 고, 47 문자는 이벤트 허브로 변환할 수 없습니다. 이름이 긴 테이블은 내보내지 않습니다.
-- 데이터 내보내기는 모든 지역에서 사용할 수 있지만 현재에서 지원 됩니다. 
+- 스토리지 계정으로 내보낼 때 테이블 이름은 60자, 이벤트 허브로 47자를 초과할 수 없습니다. 이름이 긴 테이블은 내보내지 않습니다.
+- 데이터 내보내기 는 모든 지역에서 사용할 수 있지만 현재 다음에서 지원됩니다. 
     - 오스트레일리아 중부
     - 오스트레일리아 동부
     - 오스트레일리아 남동부
@@ -70,45 +70,45 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
     - 미국 서부 2
 
 ## <a name="data-completeness"></a>데이터 완성도
-데이터 내보내기는 대용량 데이터 볼륨을 대상으로 이동 하는 데 최적화 되어 있으며 특정 재시도 조건에서 중복 된 레코드의 일부를 포함할 수 있습니다. 수신 제한에 도달 하면 대상에 대 한 내보내기 작업이 실패할 수 있습니다. [데이터 내보내기 규칙 만들기 또는 업데이트](#create-or-update-data-export-rule)에서 세부 정보를 참조 하세요. 내보내기는 최대 30 분 동안 계속 다시 시도 하 고, 대상에서 데이터를 허용 하지 않는 경우에는 대상을 사용할 수 있게 될 때까지 데이터가 삭제 됩니다.
+데이터 내보내기는 대용량 데이터 볼륨을 대상으로 이동하는 데 최적화되어 있으며 특정 재시도 조건에서 중복 레코드의 일부를 포함할 수 있습니다. 수신 제한에 도달하면 대상으로 내보내기 작업이 실패할 수 있습니다. [데이터 내보내기 규칙 만들기 또는 업데이트](#create-or-update-data-export-rule)아래의 세부 정보를 참조하세요. 내보내기는 최대 30분 동안 계속 재시도하고 대상에서 데이터를 수락할 수 없는 경우 대상을 사용할 수 있을 때까지 데이터가 삭제됩니다.
 
 ## <a name="cost"></a>Cost
-현재 데이터 내보내기 기능에 대 한 다른 요금은 없습니다. 데이터 내보내기에 대한 가격 책정은 나중에 발표될 예정이며 청구 시작 전에 미리 공지될 예정입니다. 알림 기간 후에도 계속 데이터 내보내기를 사용하도록 선택하면 해당되는 요금이 청구됩니다.
+현재 데이터 내보내기 기능에 대한 다른 요금은 없습니다. 데이터 내보내기에 대한 가격 책정은 나중에 발표될 예정이며 청구 시작 전에 미리 공지될 예정입니다. 알림 기간 후에도 계속 데이터 내보내기를 사용하도록 선택하면 해당되는 요금이 청구됩니다.
 
 ## <a name="export-destinations"></a>내보내기 대상
 
-작업 영역에서 내보내기 규칙을 만들기 전에 데이터 내보내기 대상을 만들어야 합니다. 대상은 작업 영역과 동일한 구독에 있을 필요가 없습니다. Azure Lighthouse를 사용 하는 경우 다른 Azure Active Directory 테 넌 트의 대상으로 데이터가 전송 될 수도 있습니다.
+작업 영역에서 내보내기 규칙을 만들기 전에 데이터 내보내기 대상을 만들어야 합니다. 대상은 작업 영역과 동일한 구독에 있을 필요가 없습니다. Azure Lighthouse 사용하는 경우 다른 Azure Active Directory 테넌트에서 대상으로 데이터를 보낼 수도 있습니다.
 
 ### <a name="storage-account"></a>스토리지 계정
 
-데이터 내보내기 규칙을 구성 하려면 작업 영역 및 대상 모두에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 
+데이터 내보내기 규칙을 구성하려면 작업 영역과 대상 모두에 대한 '쓰기' 권한이 있어야 합니다. 
 
-데이터에 대 한 액세스를 더 잘 제어 하 고 저장소 수신 율 제한, 오류 및 대기 시간에 도달 하지 않도록 방지 하기 위해 저장 된 다른 모니터링 되지 않는 데이터가 있는 기존 저장소 계정을 사용 하지 마세요. 
+데이터에 대한 액세스를 더 잘 제어하고 스토리지 수신 속도 제한, 오류 및 대기 시간을 방지하기 위해 모니터링하지 않는 다른 데이터가 저장된 기존 스토리지 계정을 사용하지 마세요. 
 
-데이터를 변경할 수 없는 저장소로 보내려면 [Blob 저장소에 대 한 불변성 정책 설정 및 관리](../../storage/blobs/immutable-policy-configure-version-scope.md)에 설명 된 대로 저장소 계정에 대 한 변경할 수 없는 정책을 설정 합니다. 보호 된 추가 blob 쓰기를 사용 하도록 설정 하는 것을 포함 하 여이 문서의 모든 단계를 수행 해야 합니다.
+데이터를 불변 가능한 스토리지로 보내려면 Blob Storage에 대한 불변성 정책 설정 및 관리에 설명된 대로 스토리지 계정에 [대한 불변성 정책을 설정합니다.](../../storage/blobs/immutable-policy-configure-version-scope.md) 보호된 추가 Blob 쓰기를 사용하도록 설정하는 것을 포함하여 이 문서의 모든 단계를 수행해야 합니다.
 
-저장소 계정은 작업 영역과 동일한 지역에 StorageV1 여야 합니다. 다른 지역에 있는 다른 저장소 계정에 데이터를 복제 해야 하는 경우 GRS 및 GZRS를 비롯 한 [Azure Storage 중복성 옵션](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 중 하나를 사용할 수 있습니다.
+스토리지 계정은 작업 영역과 동일한 지역에 StorageV1 이상이어야 합니다. 다른 지역의 다른 스토리지 계정에 데이터를 복제해야 하는 경우 GRS 및 GZRS를 비롯한 [Azure Storage 중복성 옵션을](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) 사용할 수 있습니다.
 
-데이터는 Azure Monitor에 도달하면 스토리지 계정으로 전송되고 매시간 추가 Blob에 저장됩니다. 이름이 *am* 인 저장소 계정의 각 테이블에 대 한 컨테이너와 테이블 이름이 차례로 만들어집니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 컨테이너로 전송됩니다.
+데이터는 Azure Monitor에 도달하면 스토리지 계정으로 전송되고 매시간 추가 Blob에 저장됩니다. 스토리지 계정의 각 테이블에 대해 *am-* 이름 뒤에 테이블 이름이 오는 컨테이너가 만들어집니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 컨테이너로 전송됩니다.
 
-2021 년 10 월 15 일부 터 blob은 *WorkspaceResourceId =/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /H = \<two-digit 24-hour clock hour\> /M = \<two-digit 60-minute clock minute\> /pt05m.json* 의 5 분 폴더에 저장 됩니다. 추가 blob는 50-K 쓰기로 제한 되며,이 경우 blob의 명명 패턴은 PT05M_ #. json *입니다. 여기서 #은 증분 blob 수입니다.
+2021년 10월 15일부터 Blob은 *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/ \<resource-group\> /providers/microsoft.operationalinsights/workspaces/ \<workspace\> /y= \<four-digit numeric year\> /m= \<two-digit numeric month\> /d= \<two-digit numeric day\> /h= \<two-digit 24-hour clock hour\> /m= \<two-digit 60-minute clock minute\> /PT05M.json* 경로 구조의 5분 폴더에 저장됩니다. 추가 Blob은 50K 쓰기로 제한되며, 이 경우 Blob의 명명 패턴은 PT05M_#.json*이고, 여기서 #은 증분 Blob 수입니다.
 
-저장소 계정 데이터 형식은 [json 줄](../essentials/resource-logs-blob-format.md)에 있습니다. 여기서 각 레코드는 외부 레코드는 없고 json 레코드 사이에는 쉼표가 없는 줄 바꿈으로 구분 됩니다. 
+스토리지 계정 데이터 형식은 [JSON 줄에](../essentials/resource-logs-blob-format.md)있습니다. 여기서 각 레코드는 외부 레코드 배열이 없고 JSON 레코드 간에 쉼표가 없는 줄임표로 구분됩니다. 
 
 [![스토리지 샘플 데이터](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
 ### <a name="event-hub"></a>이벤트 허브
 
-데이터 내보내기 규칙을 구성 하려면 작업 영역 및 대상 모두에 대 한 ' 쓰기 ' 권한이 있어야 합니다. 이벤트 허브 네임 스페이스에 대 한 공유 액세스 정책은 스트리밍 메커니즘이 포함 하는 사용 권한을 정의 합니다. 이벤트 허브로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요 합니다. 내보내기 규칙을 업데이트 하려면 해당 Event Hubs 권한 부여 규칙에 대 한 ListKey 권한이 있어야 합니다.
+데이터 내보내기 규칙을 구성하려면 작업 영역과 대상 모두에 대한 '쓰기' 권한이 있어야 합니다. 이벤트 허브 네임스페이스에 대한 공유 액세스 정책은 스트리밍 메커니즘에 있는 권한을 정의합니다. 이벤트 허브로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요합니다. 내보내기 규칙을 업데이트하려면 해당 Event Hubs 권한 부여 규칙에 대한 ListKey 권한이 있어야 합니다.
 
-데이터에 대 한 액세스를 더 잘 제어 하 고 event hubs 네임 스페이스 수신 속도로 제한, 실패 및 대기 시간을 방지 하기 위해 저장 된 다른 모니터링 되지 않는 데이터가 있는 기존 이벤트 허브를 사용 하지 마세요. 
+모니터링되지 않는 다른 데이터가 저장된 기존 이벤트 허브를 사용하여 데이터에 대한 액세스를 더 잘 제어하고 이벤트 허브 네임스페이스 수신 속도 제한, 오류 및 대기 시간을 방지하지 마세요. 
 
-이벤트 허브 네임 스페이스는 작업 영역과 동일한 지역에 있어야 합니다.
+이벤트 허브 네임스페이스는 작업 영역과 동일한 지역에 있어야 합니다.
 
-Azure Monitor에 도달 하면 이벤트 허브로 데이터가 전송 됩니다. 이벤트 허브는 내보내는 각 데이터 형식에 대해 생성되며 이름은 *am-* 뒤에 테이블 이름이 지정됩니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 이벤트 허브로 전송됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결하려는 경우 또는 이름이 47자 제한을 초과하는 테이블이 있는 경우, 고유한 이벤트 허브 이름을 제공하고 정의된 테이블의 모든 데이터를 내보낼 수 있습니다.
+데이터가 Azure Monitor 도달하면 이벤트 허브로 전송됩니다. 이벤트 허브는 내보내는 각 데이터 형식에 대해 생성되며 이름은 *am-* 뒤에 테이블 이름이 지정됩니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 이벤트 허브로 전송됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결하려는 경우 또는 이름이 47자 제한을 초과하는 테이블이 있는 경우, 고유한 이벤트 허브 이름을 제공하고 정의된 테이블의 모든 데이터를 내보낼 수 있습니다.
 
 > [!NOTE]
-> - ' 기본 ' 이벤트 허브 계층이 제한 됩니다. 이벤트 크기 [제한이](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) 낮고 [자동](../../event-hubs/event-hubs-auto-inflate.md) 확장은 지원 되지 않습니다. 작업 영역에 대 한 데이터 볼륨이 시간이 지남에 따라 증가 하 고 결과적으로 이벤트 허브를 확장 해야 하므로 **자동** 확장 기능이 설정 된 ' Standard ', ' Premium ' 또는 ' 전용 ' event hub 계층을 사용 하 여 자동으로 확장 하 고 사용 요구에 맞게 처리량 단위 수를 늘립니다. [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md)을 참조 하세요.
+> - '기본' 이벤트 허브 계층이 제한됩니다. 이벤트 크기 [제한이](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) 낮고 [자동 팽창](../../event-hubs/event-hubs-auto-inflate.md) 지원이 없습니다. 작업 영역에 대한 데이터 볼륨이 시간이 지남에 따라 증가하고 이벤트 허브 크기 조정이 필요하므로 **자동 확장** 기능이 활성화된 '표준', 'Premium' 또는 '전용' 이벤트 허브 계층을 사용하여 사용량 요구 사항에 맞게 처리량 단위 수를 자동으로 확장하고 늘입니다. [Azure Event Hubs 처리량 단위 자동 강화를 참조하세요.](../../event-hubs/event-hubs-auto-inflate.md)
 > - ['기본' 및 '표준' 네임스페이스 계층당 지원되는 이벤트 허브 수는 10개입니다](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). 10개가 넘는 테이블을 내보내는 경우, 여러 이벤트 허브 네임스페이스에 대한 여러 내보내기 규칙으로 테이블을 분할하거나, 내보내기 규칙에 이벤트 허브 이름을 지정하고 모든 테이블을 해당 이벤트 허브로 내보냅니다.
 > - 가상 네트워크를 사용 하는 경우 데이터 내보내기는 이벤트 허브 리소스에 도달할 수 없습니다. Event Hubs 리소스에 대 한 액세스 권한을 부여 하려면 이벤트 허브에서 **신뢰할 수 있는 Microsoft 서비스** 이 방화벽을 무시 하도록 허용 설정을 사용 하도록 설정 해야 합니다.
 
@@ -152,7 +152,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 1. 내보내기에 별도의 저장소 계정 사용
 1. 아래 메트릭에 대 한 경고를 구성 합니다. 
 
-    | 범위 | 메트릭 네임스페이스 | 메트릭 | 집계 | 임계값 |
+    | Scope | 메트릭 네임스페이스 | 메트릭 | 집계 | 임계값 |
     |:---|:---|:---|:---|:---|
     | 저장소 이름 | 계정 | 수신 | 합계 | 경고 평가 기간별 최대 수신의 80%입니다. 예: 미국 서 부에서 일반 용도의 v2의 경우 제한은 60 Gbps입니다. 임계값은 5 분 평가 기간 당 14400 Gb입니다. |
   
@@ -165,7 +165,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 
 1. 아래 [메트릭에](../../event-hubs/monitor-event-hubs-reference.md) 대 한 경고를 구성 합니다.
   
-    | 범위 | 메트릭 네임스페이스 | 메트릭 | 집계 | 임계값 |
+    | Scope | 메트릭 네임스페이스 | 메트릭 | 집계 | 임계값 |
     |:---|:---|:---|:---|:---|
     | 네임 스페이스-이름 | 이벤트 허브 표준 메트릭 | 들어오는 바이트 | 합계 | 경고 평가 기간별 최대 수신의 80%입니다. 예를 들어 제한은 1 m b/초 (TU 또는 PU)이 고 사용 되는 5 개 단위입니다. 임계값은 5 분 평가 기간 당 1200 MB입니다. |
     | 네임 스페이스-이름 | 이벤트 허브 표준 메트릭 | 들어오는 요청 | 개수 | 경고 평가 기간별 최대 이벤트 수는 80%입니다. 예를 들어 limit는 단위당 1000/s (TU 또는 PU)와 5 개 단위를 사용 합니다. 임계값은 5 분 마다 120만입니다. 평가 기간 |
@@ -678,6 +678,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
 | AEWAuditLogs |  |
+| AEWComputePipelinesLogs |  |
 | AgriFoodApplicationAuditLogs |  |
 | AgriFoodApplicationAuditLogs |  |
 | AgriFoodFarmManagementLogs |  |
@@ -691,6 +692,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | AgriFoodWeatherLogs |  |
 | 경고 |  |
 | AlertEvidence |  |
+| AlertInfo |  |
 | AmlOnlineEndpointConsoleLog |  |
 | ApiManagementGatewayLogs |  |
 | AppCenterError |  |
@@ -708,11 +710,21 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | AWSCloudTrail |  |
 | AWSGuardDuty |  |
 | AWSVPCFlow |  |
+| AZFWApplicationRule |  |
+| AZFWApplicationRuleAggregation |  |
+| AZFWDnsQuery |  |
+| AZFWIdpsSignature |  |
+| AZFWNatRule |  |
+| AZFWNatRuleAggregation |  |
+| AZFWNetworkRule |  |
+| AZFWNetworkRuleAggregation |  |
 | AzureAssessmentRecommendation |  |
 | AzureDevOpsAuditing |  |
 | BehaviorAnalytics |  |
 | BlockchainApplicationLog |  |
 | BlockchainProxyLog |  |
+| CassandraAudit |  |
+| CassandraLogs |  |
 | CDBCassandraRequests |  |
 | CDBControlPlaneRequests |  |
 | CDBDataPlaneRequests |  |
@@ -721,6 +733,8 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | CDBPartitionKeyRUConsumption |  |
 | CDBPartitionKeyStatistics |  |
 | CDBQueryRuntimeStatistics |  |
+| CIEventsAudit |  |
+| CIEventsOperational |  |
 | CloudAppEvents |  |
 | CommonSecurityLog |  |
 | ComputerGroup |  |
@@ -745,6 +759,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | DeviceNetworkInfo |  |
 | DnsEvents |  |
 | DnsInventory |  |
+| DSMAzureBlobStorageLogs |  |
 | DummyHydrationFact |  |
 | Dynamics365Activity |  |
 | EmailAttachmentInfo |  |
@@ -763,8 +778,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | HDInsightHBaseMetrics |  |
 | HDInsightHiveAndLLAPLogs |  |
 | HDInsightHiveAndLLAPMetrics |  |
+| HDInsightHiveQueryAppStats |  |
 | HDInsightHiveTezAppStats |  |
 | HDInsightJupyterNotebookEvents |  |
+| HDInsightKafkaLogs |  |
 | HDInsightKafkaMetrics |  |
 | HDInsightOozieLogs |  |
 | HDInsightRangerAuditLogs |  |
@@ -781,6 +798,9 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | HDInsightSparkTaskEvents |  |
 | 하트비트 |  |
 | HuntingBookmark |  |
+| IdentityDirectoryEvents |  |
+| IdentityLogonEvents |  |
+| IdentityQueryEvents |  |
 | InsightsMetrics | 부분 지원 – 일부 데이터는 내보내기에서 지원 되지 않는 내부 서비스를 통해 수집 됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
 | IntuneAuditLogs |  |
 | IntuneDevices |  |
@@ -794,6 +814,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | LAQueryLogs |  |
 | McasShadowItReporting |  |
 | MCCEventLogs |  |
+| MCVPAuditLogs |  |
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
@@ -804,8 +825,10 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | OfficeActivity | 정부 클라우드의 부분 지원 – 일부 데이터가 O365에서 LA로 웹후크를 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
 | 작업 | 부분 지원 – 일부 데이터는 내보내기에서 지원 되지 않는 내부 서비스를 통해 수집 됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
 | Perf | 부분 지원 – 현재 Windows 성능 데이터만 지원됩니다. 현재 Linux 성능 데이터는 내보내기에서 누락됩니다. |
+| PowerBIActivity |  |
 | PowerBIDatasetsWorkspace |  |
-| HDInsightRangerAuditLogs |  |
+| ProjectActivity |  |
+| PurviewDataSensitivityLogs |  |
 | PurviewScanStatusLogs |  |
 | SCCMAssessmentRecommendation |  |
 | SCOMAssessmentRecommendation |  |
@@ -842,7 +865,11 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | SynapseSqlPoolWaits |  |
 | syslog | 부분 지원 – Log Analytics 에이전트(MMA) 또는 Azure Monitor 에이전트(AMA)에서 수신된 데이터는 내보내기에 완벽하게 지원됩니다. 진단 확장 에이전트를 통해 수신된 데이터는 스토리지를 통해 수집되지만 내보내기에 지원되지는 않습니다. |
 | ThreatIntelligenceIndicator |  |
-| 업데이트 | 부분 지원 – 일부 데이터는 내보내기에서 지원되지 않는 내부 서비스를 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
+| UCClient |  |
+| UCClientUpdateStatus |  |
+| UCDeviceAlert |  |
+| UCServiceUpdateStatus |  |
+| 업데이트 | 부분 지원 – 일부 데이터는 내보내기에서 지원 되지 않는 내부 서비스를 통해 수집 됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
 | 사용량 |  |
@@ -851,7 +878,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | Watchlist |  |
 | WindowsEvent |  |
 | WindowsFirewall |  |
-| WireData | 부분 지원 – 일부 데이터는 내보내기에서 지원되지 않는 내부 서비스를 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
+| WireData | 부분 지원 – 일부 데이터는 내보내기에서 지원 되지 않는 내부 서비스를 통해 수집 됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
 | WorkloadDiagnosticLogs |  |
 | WVDAgentHealthStatus |  |
 | WVDCheckpoints |  |

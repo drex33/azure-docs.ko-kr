@@ -5,18 +5,18 @@ services: application-gateway
 author: jaesoni
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/18/2021
+ms.date: 12/01/2021
 ms.author: jaysoni
-ms.openlocfilehash: e606a0fc282e6b25c28c8c7adfa45bf94a570285
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.openlocfilehash: ab3301c35fdd8b39280db62417eebb40ace1ffdd
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132904728"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481996"
 ---
 # <a name="configure-request-and-response-proxy-buffers"></a>요청 및 응답 프록시 버퍼 구성
 
-Azure Application Gateway 클라이언트의 요청 또는 응답(백 엔드 서버에서)을 버퍼링할 수 있습니다. Application Gateway 상호 작용하는 클라이언트의 처리 기능에 따라 이러한 버퍼를 사용하여 패킷 배달 속도를 구성할 수 있습니다.
+Azure Application Gateway Standard v2 및 WAF v2 S SKU는 버퍼링 요청(클라이언트에서) 또는 응답(백 엔드 서버에서)을 지원합니다. Application Gateway 상호 작용하는 클라이언트의 처리 기능에 따라 이러한 버퍼를 사용하여 패킷 배달 속도를 구성할 수 있습니다.
  
 ## <a name="response-buffer"></a>응답 버퍼 
 

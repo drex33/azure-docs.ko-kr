@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 Linux 동시성 모범 사례 - 세션 슬�
 description: Azure NetApp Files NFS 프로토콜에 대한 세션 슬롯 및 슬롯 테이블 항목 관련 모범 사례를 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.author: b-juche
-ms.openlocfilehash: 522c9e590f1f63a12bd4f52f56eac0798ba78aa7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: 23b84644e56d7779f91d70870ec03b91ce84a05a
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535769"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482604"
 ---
 # <a name="linux-concurrency-best-practices-for-azure-netapp-files---session-slots-and-slot-table-entries"></a>Azure NetApp Files에 대한 Linux 동시성 모범 사례 - 세션 슬롯 및 슬롯 테이블 항목
 

@@ -3,7 +3,7 @@ title: 지역 간 복제 Azure NetApp Files에 대 한 요구 사항 및 고려 
 description: Azure NetApp Files의 볼륨 지역 간 복제 기능을 사용하기 위한 요구 사항 및 고려 사항을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.author: b-juche
-ms.openlocfilehash: b098243c3f4cf160aadfb2fa001c23c4cad691bd
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.author: b-hchen
+ms.openlocfilehash: 2982b0f8ba7ed2f4ba8dc2ac54ef535051b8b538
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042392"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482718"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>지역 간 복제 사용을 위한 요구 사항 및 고려 사항 
 

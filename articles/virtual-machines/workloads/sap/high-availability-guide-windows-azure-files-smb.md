@@ -13,14 +13,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/13/2021
+ms.date: 12/01/2021
 ms.author: stmuelle
-ms.openlocfilehash: ee12f58a2e54eb04fd013a92cffbb121a9825418
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.openlocfilehash: cb2b3102124eae16a8ede0ba981eeac5ca562c77
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2021
-ms.locfileid: "133440152"
+ms.locfileid: "133480132"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-files-premium-smb-for-sap-applications"></a>SAP 애플리케이션용 Azure Files Premium SMB를 Windows Azure VM의 SAP NetWeaver 고가용성
 
@@ -28,6 +28,9 @@ ms.locfileid: "133440152"
 Azure Files Premium SMB는 이제 Microsoft 및 SAP에서 완전히 지원됩니다. **SWPM 1.0 SP32** 및 **SWPM 2.0 SP09** 이상은 Azure Files Premium SMB 스토리지를 지원합니다.  Azure Files Premium SMB 공유 크기를 조정하기 위한 특별한 요구 사항이 있습니다. 이 설명서에는 Azure Files Premium SMB에 워크로드를 배포하는 방법, Azure Files Premium SMB 크기를 적절하게 지정하는 방법 및 Azure Files Premium SMB에 대한 최소 설치 요구 사항에 대한 특정 권장 사항이 포함되어 있습니다.
 
 고가용성 SAP 솔루션은 **sapmnt**, **trans** 및 인터페이스 디렉터리를 호스팅하기 위해 고가용성 파일 **공유가** 필요합니다. Azure Files Premium SMB는 Windows 환경에서 SAP용 공유 파일 시스템용 간단한 Azure PaaS 솔루션입니다. Azure Files Premium SMB는 가용성 집합 및 가용성 영역 함께 사용할 수 있습니다. Azure Files Premium SMB는 다른 지역에 대한 재해 복구 시나리오에도 사용할 수 있습니다.  
+
+> [!NOTE]
+> 파일 공유를 사용하여 SAP ASCS/SCS 인스턴스를 클러스터링하는 것은 SAP 커널 7.22 이상에서 SAP 시스템에서 지원됩니다. 자세한 내용은 SAP note [2698948 참조하세요.](https://launchpad.support.sap.com/#/notes/2698948)
  
 ## <a name="sizing--distribution-of-azure-files-premium-smb-for-sap-systems"></a>SAP 시스템용 Azure Files Premium SMB 크기 조정 & 배포
 
@@ -88,13 +91,13 @@ Active Directory 통합을 Azure Files Premium SMB에 SAP NetWeaver 고가용성
      1. [Azure Files GitHub](../../../storage/files/storage-files-identity-ad-ds-enable.md#download-azfileshybrid-module) 콘텐츠를 다운로드하고 [스크립트를](../../../storage/files/storage-files-identity-ad-ds-enable.md#run-join-azstorageaccountforauth)실행합니다.   
      이 스크립트는 Active Directory에 컴퓨터 계정 또는 서비스 계정을 만듭니다.  스크립트를 실행하는 사용자에게는 다음 속성이 있어야 합니다. 
          * 스크립트를 실행하는 사용자는 SAP 서버를 포함하는 Active Directory 도메인 개체를 만들 수 있는 권한이 있어야 합니다. 일반적으로 도메인 관리자 계정은 과 같이 사용됩니다. **SAPCONT_ADMIN@SAPCONTOSO.local** 
-         * 스크립트를 실행하기 전에 이 Active Directory 도메인 사용자 계정이 Azure Active Directory(AAD)와 동기화되어 있는지 확인합니다.  예를 들어 Azure Portal 열고 AAD 사용자로 이동하여 사용자가 있는지 확인하고 AAD 사용자 **SAPCONT_ADMIN@SAPCONTOSO.local** 계정을 확인하는 **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com** 것입니다.
+         * 스크립트를 실행하기 전에 이 Active Directory 도메인 사용자 계정이 Azure Active Directory(AAD)와 동기화되어 있는지 확인합니다.  예를 들어 Azure Portal 열고 AAD 사용자로 이동하여 사용자가 있는지 확인하고 **SAPCONT_ADMIN@SAPCONTOSO.local** AAD 사용자 계정을 확인하는 **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com** 것입니다.
          * 파일 공유를 보유하는 스토리지 계정을 포함하는 리소스 그룹에 대해 이 Azure Active Directory 사용자 계정에 **기여자 RBAC** 역할을 부여합니다.  이 예제에서는 사용자에게 **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com** 해당 리소스 그룹에 대한 **기여자 역할이** 부여됩니다. 
          * 스크립트는 위에서 지정한 사용 권한이 있는 Active Directory 도메인 사용자 계정을 사용하여 Windows 서버에 로그온하는 동안 실행되어야 합니다. 이 예제에서는 계정이 **SAPCONT_ADMIN@SAPCONTOSO.local** 사용됩니다.
          >[!IMPORTANT]
          > PowerShell 스크립트 명령 **커넥트-AzAccount** 를 실행하는 경우 Windows Server에 로그온하는 데 사용되는 Active Directory 도메인 사용자 계정에 해당하고 매핑되는 Azure Active Directory 사용자 계정을 입력하는 것이 좋습니다. 이 예제에서는 사용자 계정입니다.**SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**
          >
-         이 예제 시나리오에서 Active Directory 관리자는 **SAPCONT_ADMIN@SAPCONTOSO.local** **PS 명령 커넥트-AzAccount** connect를 사용자 로 사용할 때 Windows 서버에 **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com** 로그온합니다.  이상적으로 Active Directory 관리자와 Azure 관리자는 이 작업을 함께 수행해야 합니다.
+         이 예제 시나리오에서 Active Directory 관리자는 **SAPCONT_ADMIN@SAPCONTOSO.local** **PS 명령 커넥트-AzAccount** connect를 사용자 으로 사용할 때 및 로 Windows 서버에 로그온합니다. **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com**  이상적으로 Active Directory 관리자와 Azure 관리자는 이 작업을 함께 수행해야 합니다.
          ![powershell-script-1 ](media/virtual-machines-shared-sap-high-availability-guide/ps-script-1.png) 로컬 AD 계정을 만드는 PowerShell 스크립트의 스크린샷.
 
          ![smb-configured-screenshot](media/virtual-machines-shared-sap-high-availability-guide/smb-config-1.png)PowerShell 스크립트 실행이 성공한 후 Azure Portal 스크린샷 
@@ -102,50 +105,50 @@ Active Directory 통합을 Azure Files Premium SMB에 SAP NetWeaver 고가용성
          다음이 "구성됨"으로 표시되어야 합니다.  
          Storage -> 파일 공유 "Active Directory: 구성됨"
      1. Azure Portal 역할 Storage **파일 데이터 SMB 공유 관리자 권한 기여자를** 사용하여 SAP 사용자 **\<sid> adm,** **SAPService \<SID>** 및 SAP_ _GlobalAdmin 그룹을 Azure Files Premium SMB 파일 공유에 할당합니다. **\<SAPSID>** 
-     1. 설치 후 **sapmnt 파일 공유에서** ACL을 확인하고 **DOMAIN\CLUSTER_NAME$** 계정, **DOMAIN \\ \<sid> adm**, **DOMAIN\SAPService \<SID>** 및 **Group SAP_ \<SID> _GlobalAdmin** 추가합니다. 이러한 계정 및 그룹은 **sapmnt 디렉터리를 완전히 제어해야 합니다.**
+     1. 설치 후 **sapmnt 파일 공유** 의 ACL을 확인 하 고 **도메인 \ CLUSTER_NAME $** 계정, **도메인 \\ \<sid> adm**, **DOMAIN\SAPService \<SID>** 및 **그룹 SAP_ \<SID> _GlobalAdmin** 를 추가 합니다. 이러한 계정 및 그룹에는 **sapmnt 디렉터리에 대 한 모든** 권한이 있어야 합니다.
 
          > [!IMPORTANT]
-         > 이 단계는 SAPInst 설치 전에 완료해야 합니다. 또는 SAPInst가 파일 공유에 디렉터리와 파일을 만든 후 ACL을 변경하기가 어렵거나 불가능합니다.
+         > SAPInst를 설치 하기 전에이 단계를 완료 해야 합니다. 그렇지 않으면 SAPInst가 파일 공유에 디렉터리와 파일을 만든 후 Acl을 변경 하기 어렵거나 불가능할 수 있습니다.
          >
-         ![ACL 속성](media/virtual-machines-shared-sap-high-availability-guide/smb-share-properties-1.png)할당된 사용자 권한의 Windows 탐색기 스크린샷
+         ![ACL 속성](media/virtual-machines-shared-sap-high-availability-guide/smb-share-properties-1.png)할당 된 사용자 권한의 Windows 탐색기 스크린샷
 
-         다음 스크린샷에서는 클러스터 이름을 로컬 AD에 추가하는 로컬 AD Windows Server 스크린샷에 클러스터 이름을 추가하는 개체 유형 -> 컴퓨터 ![ Windows Server 스크린샷을 선택하여 컴퓨터 컴퓨터 계정을 추가하는 방법을 보여 주며, ](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-2.png)
+         다음 스크린샷에는 > 컴퓨터 Windows 서버를 선택 하 여 컴퓨터 컴퓨터 계정을 추가 하는 방법을 보여 줍니다 .이 서버는 클러스터 이름을 ![ 로컬 ad Windows 서버 스크린샷에 추가 하 여 로컬 ad에 클러스터 이름을 추가 합니다 ](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-2.png) .
          
-         DOMAIN\CLUSTER_NAME$은 "개체 유형"에서 "컴퓨터"를 선택하여 찾을 수 있습니다.  
-         ![AD 컴퓨터 계정 추가 스크린샷 - ](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-3.png) AD 컴퓨터 계정 추가의 2단계 스크린샷 - 2단계 ![ AD 컴퓨터 계정 추가 스크린샷 - 3단계 ](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-4.png) AD 컴퓨터 계정 추가 스크린샷 - 3단계 ![ 컴퓨터 계정 액세스 속성 ](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-5.png) 스크린샷 컴퓨터 계정 액세스 속성 스크린샷.
+         도메인 \ CLUSTER_NAME $은 "개체 유형"에서 "컴퓨터"를 선택 하 여 찾을 수 있습니다.  
+         ![Ad 컴퓨터 계정 추가 스크린샷-2 단계 ad 컴퓨터 계정 추가에 대 한 스크린샷-단계 2 단계 ad 컴퓨터 계정 추가 스크린샷-3 단계-컴퓨터 계정 액세스 ](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-3.png) ![ ](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-4.png) ![ 속성 ](media/virtual-machines-shared-sap-high-availability-guide/add-computer-account-5.png) 의 스크린샷 스크린샷
 
-     8. 필요한 경우 Azure Files 위해 만든 컴퓨터 계정을 계정 만료가 없는 Active Directory 컨테이너로 이동합니다.  컴퓨터 계정의 이름은 스토리지 계정의 약식 이름이 됩니다. 
+     8. 필요한 경우 Azure Files 위해 만든 컴퓨터 계정을 계정 만료가 없는 Active Directory 컨테이너로 이동 합니다.  컴퓨터 계정의 이름은 저장소 계정의 짧은 이름이 됩니다. 
 
      
      > [!IMPORTANT]
-     > SMB 공유에 대한 Windows ACL을 초기화하려면 공유를 드라이브 문자에 한 번 탑재해야 합니다.
+     > SMB 공유에 대 한 Windows ACL을 초기화 하려면 공유를 드라이브 문자에 한 번 탑재 해야 합니다.
      >
-     스토리지 키는 암호이며 사용자는 다음과 같이 **\\ \<SMB share name> Azure입니다.** ![ 일회성 순 사용 탑재 Windows net use ](media/virtual-machines-shared-sap-high-availability-guide/one-time-net-use-mount-1.png) SMB 공유의 일회성 탑재 스크린샷.
+     저장소 키는 암호이 고 사용자는 다음과 같이 **\\ \<SMB share name> Azure** 입니다. ![ net use 탑재의 경우 SMB 공유의 일회성 ](media/virtual-machines-shared-sap-high-availability-guide/one-time-net-use-mount-1.png) 탑재 Windows 스크린샷
 
- 4. 기본 관리자는 아래 작업을 완료해야 합니다.
-     1. [ASCS/ERS 노드에 Windows 클러스터 설치 및 클라우드 감시 추가](sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
-     2. 첫 번째 클러스터 노드 설치에서 Azure Files SMB 스토리지 계정 이름을 요청합니다.  FQDN <storage_account_name>.file.core.windows.net 입력합니다.  SAPInst가 >13자를 허용하지 않으면 SWPM 버전이 너무 오래되었습니다.
+ 4. 기본 관리자는 아래 작업을 완료 해야 합니다.
+     1. [ascs/ERS 노드에 Windows 클러스터를 설치 하 고 클라우드 감시를 추가 합니다.](sap-high-availability-infrastructure-wsfc-shared-disk.md#0d67f090-7928-43e0-8772-5ccbf8f59aab)
+     2. 첫 번째 클러스터 노드 설치는 Azure Files SMB 저장소 계정 이름에 대 한 요청을 받습니다.  FQDN <storage_account_name>를 입력 합니다. file.core.windows.net.  SAPInst는 13 자 >허용 하지 않으면 SWPM 버전이 너무 오래 된 것입니다.
      3. [ASCS/SCS 인스턴스의 SAP 프로필 수정](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
-     4. [WSFC에서 SAP 역할에 대한 프로브 포트 업데이트 \<SID>](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
-     5. 두 번째 ASCS/ERS 노드에 대한 SWPM 설치를 계속합니다. SWPM에는 프로필 디렉터리 경로만 필요합니다.  프로필 디렉터리에 대한 전체 UNC 경로를 입력합니다.
-     6. DB 및 PAS/AAS 설치에 대한 UNC 프로필 경로를 입력합니다.
-     7. PAS 설치에서 전송 호스트 이름을 요청합니다. 전송 디렉터리에 대한 별도의 스토리지 계정 이름의 FQDN을 제공합니다.
-     8. SID 및 trans 디렉터리에서 ACL을 확인합니다.
+     4. [WSFC에서 SAP 역할에 대 한 프로브 포트 업데이트 \<SID>](sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761)
+     5. 두 번째 ASCS/ERS 노드에 대해 SWPM 설치를 계속 합니다. SWPM은 프로필 디렉터리 경로만 필요 합니다.  프로필 디렉터리의 전체 UNC 경로를 입력 합니다.
+     6. DB 및 PAS/.AAS 설치에 대 한 UNC 프로필 경로를 입력 합니다.
+     7. PAS 설치에서 전송 호스트 이름을 요청 합니다. 전송 디렉터리에 대 한 별도의 저장소 계정 이름에 대 한 FQDN을 제공 합니다.
+     8. SID 및 트랜잭션 디렉터리에서 Acl을 확인 합니다.
 
 ## <a name="disaster-recovery-setup"></a>재해 복구 설정
-재해 복구 시나리오 또는 지역 간 복제 시나리오는 Azure Files Premium SMB에서 지원됩니다. Azure Files Premium SMB 디렉터리의 모든 데이터는 [AzCopy 및 파일](/azure/storage/common/storage-use-azcopy-files#synchronize-files) 스토리지를 사용하여 데이터 전송에서 파일 동기화를 사용하여 DR 지역 스토리지 계정에 지속적으로 동기화할 수 있습니다. 재해 복구 이벤트 및 ASCS 인스턴스를 DR 지역으로 장애 조치한 후 SAPGLOBALHOST 프로필 매개 변수를 지점으로 변경하여 DR 지역에서 SMB를 Azure Files. 스토리지 계정을 Active Directory에 조인하고 SAP 사용자 및 그룹에 대한 RBAC 역할을 할당하려면 DR 스토리지 계정에서 동일한 준비 단계를 수행해야 합니다.
+재해 복구 시나리오 또는 지역 간 복제 시나리오는 Azure Files Premium SMB에서 지원 됩니다. [AzCopy 및 file storage를 사용 하 여 데이터 전송에서 파일 동기화](/azure/storage/common/storage-use-azcopy-files#synchronize-files) 를 사용 하 여 Azure Files Premium SMB 디렉터리의 모든 데이터를 DR 지역 저장소 계정으로 지속적으로 동기화 할 수 있습니다. 재해 복구 이벤트가 발생 하 고 ASCS 인스턴스를 DR 지역으로 장애 조치 (failover) 한 후 SAPGLOBALHOST profile 매개 변수를 DR 지역에서 SMB Azure Files 지점으로 변경 합니다. 저장소 계정을 Active Directory에 조인 하 고 SAP 사용자 및 그룹에 대 한 RBAC 역할을 할당 하려면 DR 저장소 계정에서 동일한 준비 단계를 수행 해야 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
-3.c 단계에서 다운로드한 PowerShell 스크립트에는 구성의 유효성을 검사하기 위한 몇 가지 기본 검사를 수행하는 디버그 스크립트가 포함되어 있습니다.
+3 단계에서 다운로드 한 PowerShell 스크립트는 구성의 유효성을 검사 하기 위한 몇 가지 기본 검사를 수행 하는 디버그 스크립트를 포함 합니다.
 ```powershell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
 ```
-![Powershell-script-output](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-2.png)디버그 스크립트 출력의 PowerShell 스크린샷.
+![Powershell-스크립트-출력](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-2.png)디버그 스크립트 출력의 PowerShell 스크린샷
 
-![Powershell-script-technical-info](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-1.png)다음 화면에는 성공적인 도메인 가입의 유효성을 검사하는 기술 정보가 표시됩니다.
-## <a name="useful-links--resources"></a>리소스에 & 유용한 링크
+![Powershell-스크립트-기술 정보](media/virtual-machines-shared-sap-high-availability-guide/smb-share-validation-1.png)다음 화면에서는 성공적인 도메인 가입의 유효성을 검사 하는 기술 정보를 보여 줍니다.
+## <a name="useful-links--resources"></a>유용한 링크 & 리소스
 
-* SAP Note [2273806][2273806] 스토리지 또는 파일 시스템 관련 솔루션에 대한 SAP 지원 
+* SAP Note [2273806][2273806] 저장소 또는 파일 시스템 관련 솔루션에 대 한 sap 지원 
 * [Azure에서 SAP ASCS/SCS 인스턴스의 Windows 장애 조치(Failover) 클러스터 및 파일 공유에 SAP NetWeaver 고가용성 설치](./sap-high-availability-installation-wsfc-file-share.md) 
 * [SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오](./sap-high-availability-architecture-scenarios.md)
 * [ASCS 클러스터 구성에서 프로브 포트 추가](sap-high-availability-installation-wsfc-file-share.md)

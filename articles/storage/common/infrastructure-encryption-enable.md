@@ -5,18 +5,18 @@ description: 데이터가 안전하다는 높은 수준의 보증을 요구하�
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 06/01/2021
+ms.date: 12/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c4dca05b855666a04d1def09228c596eb931bbf5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 065c8d3406734535ef373432c3726a58e1aacc0c
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607010"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481123"
 ---
 # <a name="enable-infrastructure-encryption-for-double-encryption-of-data"></a>데이터의 이중 암호화에 인프라 암호화 사용
 
@@ -34,7 +34,7 @@ Azure Storage는 256비트 AES 암호화를 사용하여 서비스 수준에서 
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-PowerShell을 사용하여 인프라 암호화가 사용하도록 설정된 스토리지 계정을 만들려면 다음 단계를 수행합니다.
+Azure Portal 사용하여 인프라 암호화를 사용하도록 설정된 스토리지 계정을 만들려면 다음 단계를 수행합니다.
 
 1. Azure Portal에서 **스토리지 계정** 페이지로 이동합니다.
 1. **추가** 단추를 선택하여 GPv2(범용 v2) 스토리지 계정을 새로 추가합니다.

@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 리소스 제한 | Microsoft Docs
 description: Azure NetApp Files 리소스에 대한 제한과 리소스 제한을 늘리는 요청 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.author: b-juche
-ms.openlocfilehash: 1565ab6ecd0fe1c2f79237115c08f8d14091c158
-ms.sourcegitcommit: 512e6048e9c5a8c9648be6cffe1f3482d6895f24
+ms.author: b-hchen
+ms.openlocfilehash: a5651449527c85acb51cd88b9381b718e095ca0c
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132158991"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481598"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -34,8 +34,8 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  [구독당 지역 용량 할당량](regional-capacity-quota.md)   |  25TiB  |  Yes  |
 |  구독당 Azure 지역별 NetApp 계정 수  |  10    |  예   |
 |  NetApp 계정당 용량 풀 수   |    25     |   예   |
-|  구독당 볼륨 수   |    500     |   Yes   |
-|  용량 풀당 볼륨 수     |    500   |    Yes     |
+|  구독당 볼륨 수   |    500     |   예   |
+|  용량 풀당 볼륨 수     |    500   |    예     |
 |  볼륨당 스냅샷 수       |    255     |    No        |
 |  Azure Virtual Network당 Azure NetApp Files(Microsoft.NetApp/볼륨)에 위임된 서브넷 수    |   1   |    아니요    |
 |  Azure NetApp Files를 사용하는 VNet(즉시 피어링된 VNet 포함)의 사용된 IP 수   |    1000   |    No   |
@@ -46,7 +46,7 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  단일 파일의 최대 크기     |    16TiB    |    No    |    
 |  단일 디렉터리에서 디렉터리 메타데이터의 최대 크기      |    320MB    |    No    |    
 |  단일 디렉터리의 최대 파일 수  | *약* 4백만입니다. <br> [디렉터리가 제한 크기에 도달하고 있는지 확인](#directory-limit)을 참조하세요.  |    No    |   
-|  볼륨당 최대 파일 수([maxfiles](#maxfiles))     |    1억    |    Yes    |    
+|  볼륨당 최대 파일 수([maxfiles](#maxfiles))     |    1억    |    예    |    
 |  볼륨당 최대 내보내기 정책 규칙 수     |    5  |    No    | 
 |  수동 QoS 볼륨에 할당된 최소 처리량     |    1MiB/s   |    No    |    
 |  수동 QoS 볼륨에 할당된 최대 처리량     |    4,500MiB/s    |    No    |    

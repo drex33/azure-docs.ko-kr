@@ -1,5 +1,5 @@
 ---
-title: Android 지도 컨트롤 시작 | Microsoft Azure Maps
+title: Android 맵 컨트롤 | 시작 Microsoft Azure 지도
 description: Azure Maps Android SDK에 대해 알아봅니다. Android Studio에서 프로젝트를 만들고, SDK를 설치하고, 대화형 맵을 만드는 방법을 알아봅니다.
 author: stevemunk
 ms.author: v-munksteve
@@ -9,29 +9,29 @@ ms.service: azure-maps
 services: azure-maps
 manager: eriklind
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 47af15633803fe0dab299c1f2c4a80c10d32efb0
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 1e9a8fac2dc12d2dcb3eb80b5cca01c8c3b19a19
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131036203"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483005"
 ---
-# <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
+# <a name="get-started-with-azure-maps-android-sdk"></a>Azure 지도 Android SDK 시작
 
 Azure Maps Android SDK는 Android용 벡터 지도 라이브러리입니다. 이 문서에서는 Azure Maps Android SDK를 설치하고 맵을 로드하는 프로세스를 안내합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료 해야 합니다.
+[빠른 시작: Android 앱 만들기](quick-android-map.md) 문서의 단계를 완료해야 합니다.
 
 ## <a name="localizing-the-map"></a>맵 지역화
 
-Azure Maps Android SDK에서는 지도의 언어와 지역별 보기를 설정 하는 세 가지 방법을 제공 합니다. 다음 코드에서는 언어를 프랑스어(“fr-FR”)로 설정하고 지역 보기를 “Auto”로 설정하는 방법을 보여 줍니다.
+Azure 지도 Android SDK 맵의 언어 및 지역 보기를 설정하는 세 가지 방법을 제공합니다. 다음 코드에서는 언어를 프랑스어(“fr-FR”)로 설정하고 지역 보기를 “Auto”로 설정하는 방법을 보여 줍니다.
 
-1. `AzureMaps`정적 및 속성을 사용 하 여 언어 및 지역 뷰 정보를 클래스에 전달 합니다 `setLanguage` `setView` . 그러면 앱에서 기본 언어 및 국가별 보기 속성이 설정 됩니다.
-    
+1. 정적 및 속성을 사용하여 언어 및 지역별 뷰 정보를 `AzureMaps` 클래스에 `setLanguage` `setView` 전달합니다. 그러면 앱에서 기본 언어 및 지역 보기 속성이 설정됩니다.
+
     ::: zone pivot="programming-language-java-android"
-    
+
     ```java
     static {
         //Alternatively use Azure Active Directory authenticate.
@@ -47,11 +47,11 @@ Azure Maps Android SDK에서는 지도의 언어와 지역별 보기를 설정 �
         AzureMaps.setView("Auto");
     }
     ```
-    
+
     ::: zone-end
-    
+
     ::: zone pivot="programming-language-kotlin"
-    
+
     ```kotlin
     companion object {
         init {
@@ -69,10 +69,10 @@ Azure Maps Android SDK에서는 지도의 언어와 지역별 보기를 설정 �
         }
     }
     ```
-    
+
     ::: zone-end
 
-1. 언어 및 지역 보기 정보를 지도 컨트롤 XML로 전달할 수도 있습니다.
+1. 언어 및 지역 보기 정보를 지도 컨트롤 XML에 전달할 수도 있습니다.
 
     ```xml
     <com.azure.android.maps.control.MapControl
@@ -83,7 +83,8 @@ Azure Maps Android SDK에서는 지도의 언어와 지역별 보기를 설정 �
         app:azure_maps_view="Auto"
         />
     ```
-1. 언어 및 지역 보기 속성을 프로그래밍 방식으로 설정 하는 마지막 방법은 maps 메서드를 사용 하는 것입니다 `setStyle` . 언제든지 이 작업을 수행하여 맵의 언어 및 지역 보기를 변경할 수 있습니다.
+
+1. 언어 및 지역별 보기 속성을 프로그래밍 방식으로 설정하는 마지막 방법은 maps `setStyle` 메서드를 사용합니다. 언제든지 이 작업을 수행하여 맵의 언어 및 지역 보기를 변경할 수 있습니다.
 
     ::: zone pivot="programming-language-java-android"
 
@@ -115,7 +116,7 @@ Azure Maps Android SDK에서는 지도의 언어와 지역별 보기를 설정 �
 
 ![Azure Maps, 프랑스어로 레이블을 표시하는 맵 이미지](media/how-to-use-android-map-control-library/android-localization.png)
 
-지원 되는 언어 및 지역 보기의 전체 목록은 [Azure Maps의 지역화 지원](supported-languages.md)을 참조 하세요.
+지원되는 언어 및 지역 보기의 전체 목록은 [Azure 지도 지역화 지원을](supported-languages.md)참조하세요.
 
 ## <a name="navigating-the-map"></a>맵 탐색
 

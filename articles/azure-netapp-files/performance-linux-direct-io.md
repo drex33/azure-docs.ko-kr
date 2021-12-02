@@ -3,7 +3,7 @@ title: Azure NetApp Files의 Linux 직접 I/O 모범 사례 | Microsoft Docs
 description: Linux 직접 I/O 및 Azure NetApp Files에 대한 모범 사례를 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.author: b-juche
-ms.openlocfilehash: 6497d91169c7530251a473e8e06c26ce411e0e6a
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: fc226d5bcd14752a3549f54106b2736da9fc5e00
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113233518"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487153"
 ---
 # <a name="linux-direct-io-best-practices-for-azure-netapp-files"></a>Azure NetApp Files에 대한 Linux 직접 I/O 모범 사례
 

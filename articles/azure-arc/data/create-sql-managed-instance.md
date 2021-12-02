@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: a5aac5704463b28ea9bb124f9fb3120d7a1da52b
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: b506e350788883d86433b79d0dbc12051860a028
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102078"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482034"
 ---
 # <a name="create-an-azure-sql-managed-instance-on-azure-arc"></a>Azure Arc에서 Azure SQL Managed Instance 만들기
 
@@ -28,7 +28,9 @@ SQL Managed Instance에 대한 만들기 명령에 사용 가능한 옵션을 �
 az sql mi-arc create --help
 ```
 
-SQL Managed Instance를 만들려면 다음 명령을 사용합니다.
+SQL Managed Instance 만들려면를 사용 `az sql mi-arc create` 합니다. 다양 한 연결 모드에 대 한 다음 예제를 참조 하세요.
+
+### <a name="indirectly-connected-mode"></a>[간접적으로 연결 된 모드](#tab/indirectly)
 
 ```azurecli
 az sql mi-arc create -n <instanceName> --k8s-namespace <namespace> --use-k8s
@@ -39,6 +41,23 @@ az sql mi-arc create -n <instanceName> --k8s-namespace <namespace> --use-k8s
 ```azurecli
 az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s
 ```
+
+### <a name="directly-connected-mode"></a>[직접 연결 모드](#tab/directly)
+
+```azurecli
+az sql mi-arc create --name <name> --resource-group <group>  --location <Azure location> –subscription <subscription>  --custom-location <custom-location>
+```
+
+예제:
+
+```azurecli
+az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription a97da202-47ad-4de9-8991-9f7cf689eeb9  --custom-location private-location
+```
+
+---
+
+
+
 > [!NOTE]
 >  이름은 13자 미만이어야 하며 [DNS 명명 규칙](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names)을 준수해야 합니다.
 >

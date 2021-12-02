@@ -3,7 +3,7 @@ title: Azure NetApp Files 백업에 대 한 요구 사항 및 고려 사항 | Mi
 description: Azure NetApp Files 백업을 사용 하기 전에 알아 두어야 하는 요구 사항 및 고려 사항을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/07/2021
-ms.author: b-juche
-ms.openlocfilehash: 5e622f86b7b0b9d757dc32089db86c7bfca7fe63
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: 0ab720c7e928a845ae59d28342a20a2bd8250ca3
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130239755"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484118"
 ---
 # <a name="requirements-and-considerations-for-azure-netapp-files-backup"></a>Azure NetApp Files 백업에 대한 요구 사항 및 고려 사항 
 

@@ -1,20 +1,20 @@
 ---
 title: Azure 지도 Power BI 시각적 개체에 타일 계층 추가
 titleSuffix: Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure 지도 Power BI 시각적 개체에서 타일 계층을 사용하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure 지도 Power BI 시각적 개체에서 타일 계층을 사용하는 방법을 알아봅니다.
 author: stevemunk
 ms.author: v-munksteve
-manager: eriklind
+manager: jokebeck
 ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 15c15e0b07b9818a7681b06b6c049346d2388fae
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: 9dd213affeefb45f77287cb9139ebbe5330135f8
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133369076"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484546"
 ---
 # <a name="add-a-tile-layer"></a>타일 레이어 추가
 

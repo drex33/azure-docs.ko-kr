@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대 한 볼륨 오류 문제 해결 | Microsoft Doc
 description: Azure NetApp Files 볼륨 문제를 해결 하는 데 도움이 될 수 있는 오류 메시지 및 해결 방법에 대해 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/04/2021
-ms.author: b-juche
-ms.openlocfilehash: f46b6f0c0648dcc354f170548a4273188c4871e6
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: 39ca0d9290b6d491004f435eff3a8374705fc47e
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130219738"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486925"
 ---
 # <a name="troubleshoot-volume-errors-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 볼륨 오류 문제 해결
 
@@ -71,7 +71,7 @@ ms.locfileid: "130219738"
 
 ## <a name="errors-for-volume-allocation"></a>볼륨 할당 오류 
 
-새 볼륨을 만들거나 Azure NetApp Files 기존 볼륨의 크기를 조정하면 Microsoft Azure 구독에 스토리지 및 네트워킹 리소스를 할당합니다. 특정 지역의 Azure 서비스에 대한 수요가 1000억 달러 증가하므로 리소스 할당 오류가 발생할 수 있습니다.
+새 볼륨을 만들거나 Azure NetApp Files 기존 볼륨의 크기를 조정하면 Microsoft Azure 구독에 스토리지 및 네트워킹 리소스를 할당합니다. 특정 지역의 Azure 서비스에 대한 수요 증가로 인해 리소스 할당 오류가 발생하는 경우도 있습니다.
 
 이 섹션에서는 몇 가지 일반적인 할당 오류의 원인을 설명하고 가능한 방안을 제안합니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "130219738"
 |-|-|
 |새 볼륨을 만들거나 기존 볼륨의 크기를 조정하는 동안 오류가 발생했습니다. <br> 오류 메시지: `There was a problem locating [or extending] storage  for the volume. Please retry the operation. If the problem persists, contact Support.` | 이 오류는 이 요청에 대한 리소스를 할당하려고 할 때 서비스가 오류가 발생했음을 나타냅니다. <br> 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 지원에 문의합니다.|
 |일반 볼륨에 대한 지역의 스토리지 또는 네트워킹 용량이 부족합니다. <br> 오류 메시지: `There are currently insufficient resources available to create [or extend] a volume in this region. Please retry the operation. If the problem persists, contact Support.` | 이 오류는 지역에서 볼륨을 만들거나 크기를 조정하는 데 사용할 수 있는 리소스가 부족함을 나타냅니다. <br> 다음 해결 방법 중 하나를 시도해 보세요. <ul><li>새 VNet에서 볼륨을 만듭니다. 이렇게 하면 네트워킹 관련 리소스 제한에 도달하지 않습니다.</li> <li>잠시 후 다시 시도합니다. 중간에 클러스터, 지역 또는 영역에서 리소스가 해제되었을 수 있습니다.</li></ul> |
-|네트워크 기능이 로 설정된 볼륨을 만들 때 스토리지 용량이 `Standard` 부족합니다. <br> 오류 메시지: `No storage available with Standard network features, for the provided VNet.` | 이 오류는 지역에서 사용할 수 있는 리소스가 부족하여 네트워킹 기능이 있는 볼륨을 만들 수 없다는 `Standard` 것을 나타냅니다. <br> 다음 해결 방법 중 하나를 시도해 보세요. <ul><li>네트워크 기능이 필요하지 않은 경우 `Standard` 네트워크 기능을 사용하여 볼륨을 만듭니다. `Basic`</li> <li>새 VNet에서 볼륨을 만들어 보세요. 이렇게 하면 네트워킹 관련 리소스 제한에 도달하지 않습니다.</li><li>잠시 후 다시 시도합니다.  중간에 클러스터, 지역 또는 영역에서 리소스가 해제되었을 수 있습니다.</li></ul> |
+|네트워크 기능이 로 설정된 볼륨을 만들 때 스토리지 용량이 `Standard` 부족합니다. <br> 오류 메시지: `No storage available with Standard network features, for the provided VNet.` | 이 오류는 지역에서 네트워킹 기능을 사용하여 볼륨을 만들 수 있는 리소스가 부족함을 `Standard` 나타냅니다. <br> 다음 해결 방법 중 하나를 시도해 보세요. <ul><li>네트워크 기능이 필요하지 않은 경우 `Standard` 네트워크 기능을 사용하여 볼륨을 만듭니다. `Basic`</li> <li>새 VNet에서 볼륨을 만들어 보세요. 이렇게 하면 네트워킹 관련 리소스 제한에 도달하지 않습니다.</li><li>잠시 후 다시 시도합니다.  중간에 클러스터, 지역 또는 영역에서 리소스가 해제되었을 수 있습니다.</li></ul> |
 
 ## <a name="next-steps"></a>다음 단계  
 

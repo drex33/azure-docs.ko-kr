@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 12/01/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 51d3fd3f8da5c8d92b2b02205a607eb96882bfb9
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: 383fc01e0cd1cdd1797cb6f60fda784906f55e4c
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114708422"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481939"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: Python 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 

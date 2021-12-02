@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 용량 풀 또는 볼륨의 크기 조정 | 
 description: 용량 풀 또는 볼륨의 크기를 변경하는 방법을 알아봅니다. 용량 풀 크기를 조정하면 구매한 Azure NetApp Files 용량을 변경합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 04/30/2021
-ms.author: b-juche
-ms.openlocfilehash: 419ae4e99ce5b8327ced306dea398ef82d5588db
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.author: b-hchen
+ms.openlocfilehash: 4a18aba34b12d16923fae114294bff2739ccf6cc
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130265115"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485937"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>용량 풀 또는 볼륨 크기 조정
 볼륨 또는 용량 풀이 가득 찰 때와 같이, 필요에 따라 용량 풀 또는 볼륨의 크기를 변경할 수 있습니다. 

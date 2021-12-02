@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/9/2021
+ms.date: 12/1/2021
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 27a5e1e1341b93a8172a179db1dc8596c103a184
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: cc7d1b6b6d4669f37ba7da7c3fadf1862794c33b
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132716033"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483919"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,7 +25,8 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
-| V14 릴리스 - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | 2021년 10월 29일 | 지원됨 - 플라이팅 |
+| V 14.1 릴리스- [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | 2021 년 12 월 1 일 | 지원됨 - 플라이팅 |
+| V14 릴리스- [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | 2021년 10월 29일 | 지원됨 |
 | V13 릴리스 - [KB4588753](https://support.microsoft.com/topic/632fb833-42ed-4e4d-8abd-746bd01c1064)| 13.0.0.0 | 2021년 7월 12일 | 지원 여부 |
 | V12.1 릴리스-[KB4588751](https://support.microsoft.com/topic/497dc33c-d38b-42ca-8015-01c906b96132)| 12.1.0.0 | 2021년 5월 20일 | 지원 여부 |
 | V12 릴리스 - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | 2021년 3월 26일 | 지원 여부 |
@@ -51,18 +52,28 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-14100"></a>에이전트 버전 14.1.0.0
+다음 릴리스 정보는 2021 년 12 월 1 일에 릴리스된 Azure 파일 동기화 에이전트의 버전 14.1.0.0에 대 한 것입니다. 이러한 메모는 버전 14.0.0.0에 대해 나열 된 릴리스 정보에 추가 되었습니다.
+
+### <a name="improvements-and-issues-that-are-fixed"></a>개선 사항 및 해결된 문제 
+- Windows Server 2022에서 삭제 된 계층화 된 파일은 클라우드 계층화 필터 드라이버에서 검색 되지 않습니다.
+    - 이 문제는 Windows Server 2022의 DeleteFile API가 FILE_DISPOSITION_INFORMATION_EX 클래스를 사용 하 여 파일을 삭제 하기 때문에 발생 합니다. V 14.1 릴리스는 FILE_DISPOSITION_INFORMATION_EX 클래스를 사용 하 여 삭제 된 계층화 된 파일을 검색 하기 위한 지원을 추가 합니다.
+    
+    > [!Note]  
+    > FILE_DISPOSITION_INFORMATION_EX 클래스를 사용 하 여 계층화 된 파일이 삭제 되는 경우이 문제는 Windows 2016 및 Windows Server 2019에도 영향을 줄 수 있습니다.
+
 ## <a name="agent-version-14000"></a>에이전트 버전 14.0.0.0
-다음 릴리스 정보에서는 2021년 10월 29일 릴리스된 Azure 파일 동기화 에이전트 버전 14.0.0.0에 대한 것입니다.
+다음 릴리스 정보는 Azure 파일 동기화 에이전트의 버전 14.0.0.0 (10 월 29 2021 일 출시)를 위한 것입니다.
 
 ### <a name="improvements-and-issues-that-are-fixed"></a>개선 사항 및 해결된 문제
-- 클라우드 변경 열거형 작업이 실행될 때 트랜잭션 감소 
-    - Azure 파일 동기화 Azure 파일 공유에서 직접 변경한 내용을 검색하고 동기화 그룹의 서버에 해당 변경 내용을 동기화하기 위해 24시간마다 실행되는 클라우드 변경 열거형 작업이 있습니다. 이 작업이 실행되면 트랜잭션 수를 줄이기 위해 개선되었습니다.
+- 클라우드 변경 내용 열거 작업이 실행 될 때 트랜잭션 감소 
+    - Azure 파일 동기화에는 Azure 파일 공유에서 직접 변경 된 내용을 검색 하 고 이러한 변경 내용을 동기화 그룹의 서버와 동기화 하기 위해 24 시간 마다 실행 되는 클라우드 변경 열거 작업이 있습니다. 이 작업이 실행 될 때 트랜잭션 수를 줄일 수 있도록 기능이 개선 되었습니다.
 
-- 포털에서 서버 엔드포인트 프로비전 해제 지침 개선
-    - 포털을 통해 서버 엔드포인트를 제거할 때 이제 데이터 손실을 방지하고 데이터가 필요한 위치(서버 또는 Azure 파일 공유)가 되도록 서버 엔드포인트를 삭제한 이유에 따라 단계별 지침을 제공합니다. 이 기능에는 로컬 서버에서 프로비전 해제 프로세스를 통해 도움을 줄 수 있는 새로운 PowerShell cmdlet(Get-StorageSyncStatus & New-StorageSyncUploadSession)도 포함되어 있습니다.
+- 포털에서 향상 된 서버 끝점 프로 비전 해제 지침
+    - 포털을 통해 서버 끝점을 제거 하는 경우 데이터 손실을 방지 하 고 데이터가 필요한 위치 (서버 또는 Azure 파일 공유)를 확인할 수 있도록 서버 끝점 삭제의 원인에 따라 단계별 지침을 제공 합니다. 이 기능에는 프로 비전 해제 프로세스를 지원 하기 위해 로컬 서버에서 사용할 수 있는 새로운 PowerShell cmdlet & (StorageSyncUploadSession)도 포함 되어 있습니다.
 
-- Invoke-AzStorageSyncChangeDetection cmdlet 개선
-    - v14 릴리스 전에 Azure 파일 공유에서 직접 변경한 경우 Invoke-AzStorageSyncChangeDetection cmdlet을 사용하여 변경 내용을 검색하고 동기화 그룹의 서버에 동기화할 수 있습니다. 그러나 지정된 경로에 10,000개 이상의 항목이 포함된 경우 cmdlet이 실행되지 않습니다. Invoke-AzStorageSyncChangeDetection cmdlet이 향상되었으며 전체 공유를 검사할 때 10,000개 항목 제한이 더 이상 적용되지 않습니다. 자세한 내용은 [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) 설명서를 참조하세요.
+- Invoke-AzStorageSyncChangeDetection cmdlet 기능 향상
+    - V14 릴리스 이전에는 Azure 파일 공유에서 직접 변경한 경우 Invoke-AzStorageSyncChangeDetection cmdlet을 사용 하 여 변경 내용을 검색 하 고 동기화 그룹의 서버와 동기화 할 수 있습니다. 그러나 지정 된 경로에 1만 개 이상의 항목이 포함 된 경우 cmdlet이 실행 되지 않습니다. Invoke-AzStorageSyncChangeDetection cmdlet이 향상 되었으며, 전체 공유를 스캔할 때 1만 항목 한도가 더 이상 적용 되지 않습니다. 자세한 내용은 [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) 설명서를 참조하세요.
 
 - 기타 개선 사항
     - Azure 파일 동기화은 현재 미국 서 부 3 지역에서 지원 됩니다.
@@ -139,8 +150,8 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 - 서버 이름 바꾸기 지원  
     - 등록된 서버의 이름이 바뀌면 이제 Azure 파일 동기화가 포털에 새 서버 이름을 표시합니다. v13 릴리스 이전에 서버 이름이 변경된 경우 이제 포털의 서버 이름이 올바른 서버 이름을 표시하도록 업데이트됩니다.
 
-- Windows Server 2022에 대 한 지원  
-    - Azure 파일 동기화 에이전트는 이제 Windows Server 2022에서 지원 됩니다.
+- Windows Server 2022 지원  
+    - Azure 파일 동기화 에이전트는 이제 Windows Server 2022에서 지원됩니다.
 
     > [!Note]  
     > Windows Server 2022는 현재 Azure 파일 동기화에서 지원되지 않는 TLS 1.3에 대한 지원을 추가합니다. [TLS 설정](/windows-server/security/tls/tls-ssl-schannel-ssp-overview)이 그룹 정책을 통해 관리되는 경우 TLS 1.2를 지원하도록 서버를 구성해야 합니다. 

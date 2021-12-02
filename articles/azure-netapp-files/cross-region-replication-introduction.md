@@ -3,7 +3,7 @@ title: Azure NetApp Files 볼륨의 지역 간 복제 | Microsoft Docs
 description: Azure NetApp Files 지역 간 복제의 기능이 수행하는 작업, 지원되는 지역 쌍, 서비스 수준 목표, 데이터 내구성 및 비용 모델에 대해 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.author: b-juche
+ms.author: b-hchen
 ms.custom: references_regions
-ms.openlocfilehash: 3335260460a9d1358aeeb301fbebb5b7d4d8f4cb
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.openlocfilehash: 390cfca41a9789d700f1fe9db55af35f8b54f95e
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2021
-ms.locfileid: "133434447"
+ms.locfileid: "133481521"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 지역 간 복제
 

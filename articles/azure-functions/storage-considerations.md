@@ -3,12 +3,12 @@ title: Azure Functions의 스토리지 고려 사항
 description: Azure Functions의 스토리지 요구 사항 및 저장된 데이터 암호화에 관해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.openlocfilehash: 0e53d2919d8af3f0e8162d4aca9f55f2ec0ab740
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: d17b7403560e979d2e44d79b1972e45f63a3524f
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132335882"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481692"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Azure Functions의 스토리지 고려 사항
 
@@ -28,7 +28,7 @@ ms.locfileid: "132335882"
 
 함수 앱을 만들 때 Blob, Queue 및 Table 스토리지를 지원하는 범용 Azure Storage 계정을 만들거나 해당 계정에 연결해야 합니다. 이는 Functions가 트리거 관리 및 함수 실행 기록 등의 작업에 Azure Storage를 사용하기 때문입니다. 일부 스토리지 계정은 큐 및 테이블을 지원하지 않습니다. 해당 계정에는 Blob 전용 스토리지 계정 및 Azure Premium Storage가 포함됩니다.
 
-스토리지 계정 유형에 대해 자세히 알아보려면 [Azure Storage 서비스 소개](../storage/common/storage-introduction.md#core-storage-services)를 참조하세요. 
+스토리지 계정 유형에 대한 자세한 내용은 [Storage 계정 개요를 참조하세요.](../storage/common/storage-account-overview.md)
 
 함수 앱에서 기존 스토리지 계정을 사용할 수 있지만 관련 요구 사항을 충족하는지 확인해야 합니다. Azure Portal의 함수 앱 만들기 흐름의 일부로 생성된 스토리지 계정은 관련 스토리지 계정 요구 사항을 충족합니다. Portal에서 함수 앱을 만드는 동안 기존 스토리지 계정을 선택하면 지원되지 않는 계정이 필터링됩니다. 이 흐름에서는 만들려는 함수 앱과 동일한 지역에 있는 기존 스토리지 계정만 선택할 수 있습니다. 자세한 내용은 [스토리지 계정 위치](#storage-account-location)를 참조하세요.
 
@@ -54,7 +54,7 @@ ms.locfileid: "132335882"
 
 ### <a name="lifecycle-management-policy-considerations"></a>수명 주기 관리 정책 고려 사항
 
-함수는 Blob 저장소를 사용 하 여 [기능 액세스 키](functions-bindings-http-webhook-trigger.md#authorization-keys)와 같은 중요 한 정보를 유지 합니다. Blob Storage 계정에 [수명 주기 관리 정책을](../storage/blobs/lifecycle-management-overview.md) 적용 하는 경우이 정책은 기능 호스트에 필요한 blob를 제거할 수 있습니다. 따라서 함수에서 사용 하는 저장소 계정에 이러한 정책을 적용 하면 안 됩니다. 이러한 정책을 적용 해야 하는 경우 일반적으로 또는로 시작 하는 함수에 사용 되는 컨테이너를 제외 해야 `azure-webjobs` 합니다 `scm` .
+함수는 Blob Storage를 사용하여 함수 [액세스 키](functions-bindings-http-webhook-trigger.md#authorization-keys)와 같은 중요한 정보를 유지합니다. Blob Storage 계정에 [수명 주기 관리 정책을](../storage/blobs/lifecycle-management-overview.md) 적용하면 정책이 Functions 호스트에 필요한 Blob을 제거할 수 있습니다. 따라서 Functions에서 사용하는 스토리지 계정에 이러한 정책을 적용해서는 안 됩니다. 이러한 정책을 적용해야 하는 경우 일반적으로 또는 접두사로 사용되는 Functions에서 사용하는 컨테이너를 제외해야 `azure-webjobs` `scm` 합니다.
 
 ### <a name="optimize-storage-performance"></a>스토리지 성능 최적화
 
@@ -74,16 +74,16 @@ ms.locfileid: "132335882"
 
 Azure Files는 확장성이 높은 시나리오에서 공유 파일 시스템으로 사용할 수 있도록 프리미엄 및 Linux가 아닌 소비 계획에 대해 기본적으로 설정되어 있습니다. 파일 시스템은 로그 스트리밍 등의 일부 기능을 위해 플랫폼에서 사용되지만 주로 배포된 함수 페이로드의 일관성을 보장합니다. 앱이 [외부 패키지 URL을 사용하여 배포](./run-functions-from-deployment-package.md)되면 앱 콘텐츠가 별도의 읽기 전용 파일 시스템에서 제공되므로 원하는 경우 Azure Files를 생략할 수 있습니다. 이러한 경우 쓰기 가능 파일 시스템이 제공되지만 모든 함수 앱 인스턴스와 공유되지 않을 수도 있습니다.
 
-Azure Files를 사용 하지 않는 경우 다음을 고려해 야 합니다.
+Azure Files 사용하지 않는 경우 다음을 고려해야 합니다.
 
-* 외부 패키지 URL에서 배포 해야 합니다.
-* 앱은 공유 쓰기 파일 시스템을 사용할 수 없습니다.
-* 앱은 런타임 v1 함수를 사용할 수 없습니다.
+* 외부 패키지 URL에서 배포해야 합니다.
+* 앱은 공유 쓰기 가능한 파일 시스템에 의존할 수 없습니다.
+* 앱은 Functions 런타임 v1을 사용할 수 없습니다.
 * Azure Portal과 같은 클라이언트의 로그 스트리밍 환경은 기본적으로 파일 시스템 로그입니다. Application Insights 로그를 대신 사용해야 합니다.
 
-위의 내용이 적절하게 고려되는 경우 Azure Files 없이 앱을 만들 수 있습니다. `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 및 `WEBSITE_CONTENTSHARE` 애플리케이션 설정을 지정하지 않고 함수 앱을 만듭니다. 표준 배포에 대 한 ARM 템플릿을 생성 하 고이 두 설정을 제거한 다음 템플릿을 배포 하 여이 작업을 수행할 수 있습니다. 
+위의 내용이 적절하게 고려되는 경우 Azure Files 없이 앱을 만들 수 있습니다. `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 및 `WEBSITE_CONTENTSHARE` 애플리케이션 설정을 지정하지 않고 함수 앱을 만듭니다. 표준 배포용 ARM 템플릿을 생성하고, 이러한 두 설정을 제거한 다음, 템플릿을 배포하여 이 작업을 수행할 수 있습니다. 
 
-함수는 동적 스케일 아웃 프로세스 중에 Azure Files를 사용 하기 때문에 사용 및 Premium 계획에 Azure Files 하지 않고 실행할 때 크기 조정을 제한할 수 있습니다.
+Functions는 동적 스케일 아웃 프로세스의 일부 동안 Azure Files 사용하므로 소비 및 Premium 계획에 대한 Azure Files 없이 실행될 때 크기 조정이 제한될 수 있습니다.
 
 ## <a name="mount-file-shares"></a>파일 공유 탑재
 

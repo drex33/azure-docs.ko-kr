@@ -3,7 +3,7 @@ title: Azure NetApp Files 비디오 | Microsoft Docs
 description: Azure NetApp Files 사용 관련 토론이 포함된 비디오에 대한 참조를 제공합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2020
-ms.author: b-juche
-ms.openlocfilehash: d90061d6d56e24168bf368498d05962296892342
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: e428d9a85596f59cbc56f4d04096bb22ce2664d6
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374867"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485576"
 ---
 # <a name="azure-netapp-files-videos"></a>Azure NetApp Files 비디오
 이 문서에서는 Azure NetApp Files 사용과 관련된 자세한 토론이 포함된 비디오에 대한 참조를 제공합니다. 

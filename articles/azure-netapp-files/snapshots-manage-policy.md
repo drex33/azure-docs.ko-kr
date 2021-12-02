@@ -3,7 +3,7 @@ title: Azure NetApp Files | 스냅샷 정책 관리 Microsoft Docs
 description: Azure NetApp Files 사용하여 스냅샷 정책을 만들고, 관리하고, 수정하고, 삭제하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.author: b-juche
-ms.openlocfilehash: e4ccbd68ead83f682f39359c053e5a608d34903c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: b-hchen
+ms.openlocfilehash: 0aa6a641d93d72a9c8b8929396b6bffff4a3dda0
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634307"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484869"
 ---
 # <a name="manage-snapshot-policies-in-azure-netapp-files"></a>Azure NetApp Files 스냅샷 정책 관리
 
@@ -100,7 +100,7 @@ ms.locfileid: "128634307"
 
 3.  **예** 를 클릭하여 스냅샷 정책을 삭제할 것임을 확인합니다.   
 
-    ![스냅샷 정책 삭제 확인을 보여 주는 스크린샷](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
+    ![스냅샷 정책 삭제 확인을 보여 주는 스크린샷.](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
 
 ## <a name="next-steps"></a>다음 단계
 

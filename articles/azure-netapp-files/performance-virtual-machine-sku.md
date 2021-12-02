@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 Azure 가상 머신 SKU 모범 사례 | Micr
 description: SKU 내부 및 SKU 사이의 차이점을 포함하여 Azure 가상 머신 SKU에 대한 Azure NetApp Files 모범 사례를 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.author: b-juche
-ms.openlocfilehash: 6644a52ee094ce0076293b37fa79db28568c9c67
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: 6b03de5635c6a56f5b5e4f2764a96b962ed2748a
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113233481"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480819"
 ---
 # <a name="azure-virtual-machine-skus-best-practices-for-azure-netapp-files"></a>Azure NetApp Files에 대한 Azure 가상 머신 SKU 모범 사례
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2021
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4b8f4b2d9b86620e16064f6d005d5e538e78e863
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: 8d8645c9cd628ad29a14e0fb2aaaf99f1cc315b8
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132492552"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486754"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
 
@@ -45,7 +45,7 @@ ms.locfileid: "132492552"
 | Linux: CentOS | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
 
 > [!NOTE]
-> NC 시리즈 VM에 지원되는 최신 CUDA 드라이버는 현재 470.82.01입니다. 이후 드라이버 버전은 NC의 K80 카드에서 지원되지 않습니다. NC에 대한 이 지원 종료로 인해 사용이 업데이트되는 동안 NC 시리즈에 K80 카드용 CUDA 드라이버를 수동으로 설치하세요.
+> NC 시리즈 Vm에 대해 지원 되는 최신 verda 드라이버는 현재 470.82.01 중입니다. 이후 드라이버 버전은 NC의 K80 카드에서 지원 되지 않습니다. Exension이 NC에 대 한이 지원 종료로 업데이트 되는 동안, NC 시리즈에서 K80 카드에 대 한 verda 드라이버를 수동으로 설치 하세요.
 
 
 ### <a name="internet-connectivity"></a>인터넷 연결
@@ -89,7 +89,7 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 
 모든 설정은 선택 사항입니다. 기본 동작은 드라이버 설치에 필요하지 않은 경우 커널을 업데이트하지 않고, 지원되는 최신 드라이버 및 CUDA 도구 키트(해당하는 경우)를 설치하는 것입니다.
 
-| 속성 | Description | 기본값 | 유효한 값 | 데이터 형식 |
+| 속성 | 설명 | 기본값 | 유효한 값 | 데이터 형식 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 드라이버 설치에 필요하지 않은 경우에도 커널을 업데이트합니다. | false | true, false | boolean |
 | driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | 최신 | 지원되는 드라이버 버전 [목록](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) | 문자열 |
@@ -97,6 +97,33 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 
 
 ## <a name="deployment"></a>배포
+### <a name="azure-portal"></a>Azure Portal
+
+Azure Portal에서 Azure Nvidia VM 확장을 배포할 수 있습니다.
+
+1. 브라우저에서 [Azure 포털](https://portal.azure.com)로 이동합니다.
+
+2. 드라이버를 설치 하려는 가상 머신으로 이동 합니다.
+
+3. 왼쪽 메뉴에서 **확장** 을 선택 합니다.
+
+    :::image type="content" source="./media/nvidia-ext-portal/extensions-menu-linux.png" alt-text="Azure Portal 메뉴에서 확장을 선택 하는 것을 보여 주는 스크린샷":::
+
+4. **추가** 를 선택합니다.
+
+    :::image type="content" source="./media/nvidia-ext-portal/add-extension-linux.png" alt-text="선택한 V M에 대 한 V M 확장을 추가 하는 것을 보여 주는 스크린샷":::
+
+5. 스크롤하여 **NVIDIA GPU 드라이버 확장** 을 찾아 선택 하 고 **다음** 을 선택 합니다.
+
+    :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension-linux.png" alt-text="NVIDIA G P U 드라이버를 선택 하는 것을 보여 주는 스크린샷":::
+
+6. **검토 + 만들기** 를 선택 하 고 **만들기** 를 클릭 한 다음 드라이버가 배포 될 때까지 몇 분 정도 기다립니다.
+
+    :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension-linux.png" alt-text="검토 및 만들기 단추를 선택 하는 것을 보여 주는 스크린샷":::
+  
+7. 확장이 설치 된 확장 목록에 추가 되었는지 확인 합니다.
+
+    :::image type="content" source="./media/nvidia-ext-portal/verify-extension-linux.png" alt-text="V M에 대 한 확장 목록에서 새 확장을 보여 주는 스크린샷":::
 
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿 
@@ -155,7 +182,7 @@ az vm extension set \
   --version 1.6 
 ```
 
-또한 다음 예에서는 사용자 지정 설정을 기본이 아닌 드라이버 설치의 예가 추가됩니다. 특히, OS 커널을 최신으로 업데이트하고 특정 CUDA 도구 키트 버전 드라이버를 설치합니다. 다시 말해서 '--Settings'는 선택 사항이며 기본값입니다. 커널을 업데이트하면 확장 설치 시간이 늘어날 수 있습니다. 또한 특정 (이전) VERDA tolkit 버전을 선택하면 최신 커널과 항상 호환되지 않을 수도 있습니다.
+또한 다음 예에서는 사용자 지정 설정을 기본이 아닌 드라이버 설치의 예가 추가됩니다. 특히, OS 커널을 최신으로 업데이트하고 특정 CUDA 도구 키트 버전 드라이버를 설치합니다. 다시 말해서 '--Settings'는 선택 사항이며 기본값입니다. 커널을 업데이트하면 확장 설치 시간이 늘어날 수 있습니다. 또한 특정 (오래 된) VERDA toolkit 버전이 새 커널을 항상 호환 되지 않을 수도 있습니다.
 
 ```azurecli
 az vm extension set \

@@ -1,20 +1,20 @@
 ---
 title: Azure Maps Power BI 시각적 개체에 거품형 계층 추가
 titleSuffix: Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure 지도 Power BI 시각적 개체에서 거품형 계층을 사용 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Azure Maps Power BI 시각적 개체에서 거품형 계층을 사용 하는 방법에 대해 설명 합니다.
 author: stevemunk
 ms.author: v-munksteve
-manager: erikland
+manager: jokebeck
 ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 5e9534fef24011f3fc3538792a0fc317ce87d7b5
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: 2773ac065d4d0847eceaedb69a7b52a5bf333c61
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133369153"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486487"
 ---
 # <a name="add-a-bubble-layer"></a>거품형 레이어 추가
 

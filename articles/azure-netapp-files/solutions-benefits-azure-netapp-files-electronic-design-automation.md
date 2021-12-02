@@ -3,7 +3,7 @@ title: 전자 디자인 자동화에 대한 Azure NetApp Files 사용의 이점 
 description: 반도체 및 칩 디자인 업계의 요구 사항을 충족하기 위해 Azure NetApp Files에서 제공하는 솔루션에 대해 설명합니다. Azure NetApp Files를 사용하여 EDA(전자 디자인 자동화)용 표준 업계 벤치마크를 실행하는 테스트 시나리오를 제공합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.author: b-juche
-ms.openlocfilehash: fcede16619e8488796adc6f4c60af30643c1aadf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: 49c736c4459ad395d2d1254c80b86c1095548dbd
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82160156"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133484793"
 ---
 # <a name="benefits-of-using-azure-netapp-files-for-electronic-design-automation"></a>전자 디자인 자동화에 Azure NetApp Files 사용의 이점
 

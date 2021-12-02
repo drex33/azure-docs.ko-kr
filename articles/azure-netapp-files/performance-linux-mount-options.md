@@ -3,7 +3,7 @@ title: Azure NetApp Files에 대한 Linux NFS 탑재 옵션 모범 사례 | Micr
 description: Azure NetApp Files와 함께 사용하는 탑재 옵션 및 모범 사례에 대해 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.author: b-juche
-ms.openlocfilehash: 445920e1846e668f0baa3567111f169fd6dd7508
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: 78535f0bb9d5a9b423054263b9bcba873396f8ed
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113232523"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487040"
 ---
 # <a name="linux-nfs-mount-options-best-practices-for-azure-netapp-files"></a>Azure NetApp Files에 대한 Linux NFS 탑재 옵션 모범 사례
 

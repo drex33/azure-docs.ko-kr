@@ -3,7 +3,7 @@ title: Azure NetApp Files | 사용하여 주문형 스냅샷 만들기 Microsoft
 description: Azure NetApp Files 사용하여 주문형 스냅샷을 만드는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 10/25/2021
-ms.author: b-juche
-ms.openlocfilehash: c6bbc11fc77de516d2e163d1463444f2a3c0210e
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.author: b-hchen
+ms.openlocfilehash: 957e3cb5c5f1a3cdaeb3aa6a1ec868d0c0fdaa09
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131069941"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481673"
 ---
 # <a name="create-an-on-demand-snapshot-for-a-volume"></a>볼륨에 대한 주문형 스냅샷 만들기
 
@@ -27,7 +27,7 @@ Azure NetApp Files 주문형 스냅샷 만들기 및 스냅샷 정책을 사용�
 
 > [!NOTE] 
 > * 지역 간 복제의 스냅샷 관리에 대한 고려 사항은 [지역 간 복제 사용을 위한 요구 사항 및 고려 사항](cross-region-replication-requirements-considerations.md)을 참조하세요.
-> * AzAcSnap(Azure 애플리케이션 일치 스냅샷 도구)을 사용하여 타사 데이터베이스에 대한 데이터 보호를 사용하도록 설정할 수 있습니다. 자세한 내용은 [Azure 애플리케이션 일관성 있는 스냅샷 도구 란?을 참조하세요.](azacsnap-introduction.md)
+> * AzAcSnap(Azure 애플리케이션 일관성 스냅샷 도구)을 사용하여 타사 데이터베이스에 대한 데이터 보호를 사용하도록 설정할 수 있습니다. 자세한 내용은 [Azure 애플리케이션 일관성 있는 스냅샷 도구란?을 참조하세요.](azacsnap-introduction.md)
  
 ## <a name="steps"></a>단계
 

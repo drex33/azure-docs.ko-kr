@@ -3,7 +3,7 @@ title: Azure NetApp Files NFS 볼륨 액세스를 위한 확장 그룹을 사용
 description: Azure NetApp Files를 사용하여 NFS 볼륨을 만들 때 확장 그룹이 포함된 LDAP를 사용하도록 설정하는 고려 사항 및 단계에 대해 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/11/2021
-ms.author: b-juche
-ms.openlocfilehash: 1619ca5932e9be06261a273d640139b1a9c499be
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.author: b-hchen
+ms.openlocfilehash: 7efaecf382303b9f06fe546bc001255b3fc091ff
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132709807"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480664"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성
 
@@ -117,5 +117,5 @@ ms.locfileid: "132709807"
 
 * [Azure NetApp Files에 대한 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)
 * [Active Directory 연결 만들기 및 관리](create-active-directory-connections.md)
-* [NFSv 4.1 도메인 구성](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain)
+* [NFSv4.1 도메인 구성](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain)
 * [Azure NetApp Files에 대 한 볼륨 오류 문제 해결](troubleshoot-volumes.md)

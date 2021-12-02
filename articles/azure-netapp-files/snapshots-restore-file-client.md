@@ -3,7 +3,7 @@ title: Azure NetApp Files에서 클라이언트를 사용 하 여 스냅숏에�
 description: Azure NetApp Files를 사용 하 여 탑재 된 볼륨의 클라이언트를 사용 하 여 스냅숏에서 파일을 복원 하는 방법을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.author: b-juche
-ms.openlocfilehash: db7336901ae349a6a50f71e2adf0102100344871
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: b-hchen
+ms.openlocfilehash: a286882c16673316a0c744ded52ab336567e60b3
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634306"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482547"
 ---
 # <a name="restore-a-file-from-a-snapshot-using-a-client-with-azure-netapp-files"></a>Azure NetApp Files 있는 클라이언트를 사용 하 여 스냅숏에서 파일 복원
 

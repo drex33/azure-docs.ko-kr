@@ -3,7 +3,7 @@ title: Azure NetApp Files 볼륨의 네트워크 기능 구성 | Microsoft Docs
 description: 네트워크 기능 및 볼륨에 대 한 네트워크 기능 옵션을 구성 하는 방법에 대 한 옵션을 설명 합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.custom: references_regions
-ms.author: b-juche
-ms.openlocfilehash: 6350084ef916132d7b4d77da00853836daeabccd
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.author: b-hchen
+ms.openlocfilehash: 11d14313b2438c2284011bbe4c591e64b50fcace
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129539020"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486279"
 ---
 # <a name="configure-network-features-for-an-azure-netapp-files-volume"></a>Azure NetApp Files 볼륨의 네트워크 기능 구성
 

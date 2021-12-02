@@ -3,7 +3,7 @@ title: 기존 Azure NetApp Files SMB 볼륨에서 지속적인 가용성 사용 
 description: 기존 Azure NetApp Files SMB 볼륨에서 SMB 지속적인 가용성을 사용하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 10/15/2021
-ms.author: b-juche
-ms.openlocfilehash: 8dace313ed9296dd514fb059e8ed681a6276af0f
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.author: b-hchen
+ms.openlocfilehash: 49bce2c4f383bf449193b37f446c6dbd42dd0873
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130074535"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483387"
 ---
 # <a name="enable-continuous-availability-on-existing-smb-volumes"></a>기존 SMB 볼륨에서 지속적인 가용성 사용
 

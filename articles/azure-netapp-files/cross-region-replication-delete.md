@@ -3,7 +3,7 @@ title: Azure NetApp Files 지역 간 복제를 위한 볼륨 복제 또는 삭�
 description: 원본 볼륨과 대상 볼륨 사이에 더 이상 불필요한 복제 연결을 삭제하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/18/2020
-ms.author: b-juche
-ms.openlocfilehash: 5ce7a591acd8203775808457219b0ec392cd696e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: efc8089727466a7dedd779442d4edcfb9a378ada
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95249897"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483463"
 ---
 # <a name="delete-volume-replications-or-volumes"></a>볼륨 복제 또는 볼륨 삭제
 

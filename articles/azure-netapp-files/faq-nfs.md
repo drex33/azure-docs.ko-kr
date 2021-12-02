@@ -4,19 +4,19 @@ description: Azure NetApp Files NFS 프로토콜에 대한 FAQ(질문과 대답)
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.date: 10/19/2021
-ms.openlocfilehash: e9c38f573a613debbb9f3e3c6b1da00ab23f92f1
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 092eb43f2e740abef78834558ca29b0e102ca684
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273731"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133487287"
 ---
 # <a name="nfs-faqs-for-azure-netapp-files"></a>Azure NetApp Files 대한 NFS FAQ
 
-이 문서에서는 Azure NetApp Files NFS 프로토콜에 대한 FAQ(질문과 대답)에 답변합니다.
+이 문서에서는 Azure NetApp Files NFS 프로토콜에 대한 FAQ(질문과 대답)를 제공합니다.
 
 ## <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Azure VM을 시작하거나 다시 부팅할 때 볼륨이 자동으로 탑재되도록 하려고 합니다.  내 호스트를 영구 NFS 볼륨에 대해 구성하려면 어떻게 할까요?
 

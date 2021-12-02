@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.date: 12/01/2021
-ms.openlocfilehash: c85e5698e98414ecc44511bb7f132e202340920e
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.openlocfilehash: 1e87240721af5e991cd8acdb18ab0bae9e80970b
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2021
-ms.locfileid: "133440605"
+ms.locfileid: "133485144"
 ---
 # <a name="memory-optimized-azure-dedicated-host-skus"></a>메모리 최적화 Azure Dedicated Host S SKU
 Azure Dedicated Host S SKU는 VM 제품군과 특정 하드웨어 사양의 조합입니다. Dedicated Host SKU에서 지정하는 VM 시리즈의 VM만 배포할 수 있습니다. 예를 들어 Dsv3-Type3에서는 [Dsv3 시리즈](dv3-dsv3-series.md#dsv3-series) VM만 프로비전할 수 있습니다. 
@@ -45,13 +45,13 @@ Easv4-Type1 AMD의 2.35GHz EPYC™ 7452 프로세서를 활용하는 Dedicated H
 
 ### <a name="easv4-type2"></a>Easv4-Type2
 
-Easv4-Type2 AMD의 2.35GHz EPYC™ 7452 프로세서를 활용하는 Dedicated Host SKU입니다. 64개의 실제 코어, 96개의 vC CPU 및 768 GiB RAM을 제공합니다. Easv4-Type2 [Easv4 시리즈](eav4-easv4-series.md#easv4-series) VM을 실행합니다.
+Easv4-Type2 AMD의 EPYC™ 7763v 프로세서를 활용하는 Dedicated Host SKU입니다. 64개의 실제 코어, 112개의 vC CPU 및 768 GiB RAM을 제공합니다. Easv4-Type2 [Easv4 시리즈](eav4-easv4-series.md#easv4-series) VM을 실행합니다.
 
 다음 Packing 구성에서는 Easv4-Type2 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
 
 | 물리적 코어 | 사용 가능한 vC CPU | 사용 가능한 RAM | VM 크기  | VM 수 |
 |----------------|-----------------|---------------|----------|-------|
-| 64             | 96              | 768 GiB       | E2as v4  | 32    |
+| 64             | 112             | 768 GiB       | E2as v4  | 32    |
 |                |                 |               | E4as v4  | 21    |
 |                |                 |               | E8as v4  | 10    |
 |                |                 |               | E16as v4 | 5     |
@@ -152,11 +152,11 @@ Esv3-Type1 Intel® Broadwell(2.3GHz Xeon® E5-2673 v4) 프로세서를 활용하
 
 ### <a name="esv3-type2"></a>Esv3-Type2
 
-Esv3-Type2 Intel® Skylake(Xeon® 8171M) 프로세서를 활용하는 Dedicated Host SKU입니다. 48개의 실제 코어, 78개의 vC CPU 및 504 GiB RAM을 제공합니다. Esv3-Type2 [Esv3 시리즈](ev3-esv3-series.md#ev3-series) VM을 실행합니다.
+Esv3-Type2는 Intel® Skylake (Xeon® 8171M) 프로세서를 활용 하는 전용 호스트 SKU입니다. 48 물리적 코어, 78 vCPUs 및 504 GiB RAM을 제공 합니다. Esv3-Type2 [Esv3 시리즈](ev3-esv3-series.md#ev3-series) vm을 실행 합니다.
 
-다음 Packing 구성에서는 Esv3-Type2 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
+다음 압축 구성은 Esv3-Type2 호스트에 배치할 수 있는 일관 된 Vm의 최대 압축을 간략하게 설명 합니다.
 
-| 물리적 코어 | 사용 가능한 vC CPU | 사용 가능한 RAM | VM 크기 | VM 수 |
+| 실제 코어 | 사용 가능한 vCPUs | 사용 가능한 RAM | VM 크기 | VM 수 |
 |----------------|-----------------|---------------|---------|-------|
 | 48             | 76              | 504GiB       | E2s v3  | 31    |
 |                |                 |               | E4s v3  | 15    |
@@ -169,11 +169,11 @@ Esv3-Type2 Intel® Skylake(Xeon® 8171M) 프로세서를 활용하는 Dedicated 
 
 ### <a name="esv3-type3"></a>Esv3-Type3
 
-Esv3-Type3 Intel® Cascade Lake(Xeon® 8272CL) 프로세서를 활용하는 Dedicated Host SKU입니다. 52개의 실제 코어, 80개의 vC CPU 및 504 GiB RAM을 제공합니다. Esv3-Type3 [Esv3 시리즈](ev3-esv3-series.md#ev3-series) VM을 실행합니다.
+Esv3-Type3는 Intel® 케스케이드 Lake (Xeon® 플래티넘 8272CL) 프로세서를 활용 하는 전용 호스트 SKU입니다. 52 물리적 코어, 80 vCPUs 및 504 GiB RAM을 제공 합니다. Esv3-Type3 [Esv3 시리즈](ev3-esv3-series.md#ev3-series) vm을 실행 합니다.
 
-다음 Packing 구성에서는 Esv3-Type3 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
+다음 압축 구성은 Esv3-Type3 호스트에 배치할 수 있는 일관 된 Vm의 최대 압축을 간략하게 설명 합니다.
 
-| 물리적 코어 | 사용 가능한 vC CPU | 사용 가능한 RAM | VM 크기 | VM 수 |
+| 실제 코어 | 사용 가능한 vCPUs | 사용 가능한 RAM | VM 크기 | VM 수 |
 |----------------|-----------------|---------------|---------|-------|
 | 52             | 80              | 504GiB       | E2s v3  | 31    |
 |                |                 |               | E4s v3  | 15    |
@@ -186,11 +186,11 @@ Esv3-Type3 Intel® Cascade Lake(Xeon® 8272CL) 프로세서를 활용하는 Dedi
 
 ### <a name="esv3-type4"></a>Esv3-Type4
 
-Esv3-Type4 Intel® Ice Lake(Xeon® 8370C) 프로세서를 활용하는 Dedicated Host SKU입니다. 64개의 실제 코어, 119개의 vC CPU 및 768 GiB RAM을 제공합니다. Esv3-Type4 [Esv3 시리즈](ev3-esv3-series.md#ev3-series) VM을 실행합니다.
+Esv3-Type4는 Intel® Ice Lake (Xeon® 플래티넘 8370C) 프로세서를 활용 하는 전용 호스트 SKU입니다. 64 물리적 코어, 119 vCPUs 및 768 GiB RAM을 제공 합니다. Esv3-Type4 [Esv3 시리즈](ev3-esv3-series.md#ev3-series) vm을 실행 합니다.
 
-다음 Packing 구성에서는 Esv3-Type4 호스트에 배치할 수 있는 균일한 VM의 최대 패킹을 간략하게 설명합니다.
+다음 압축 구성은 Esv3-Type4 호스트에 배치할 수 있는 일관 된 Vm의 최대 압축을 간략하게 설명 합니다.
 
-| 물리적 코어 | 사용 가능한 vC CPU | 사용 가능한 RAM | VM 크기 | VM 수 |
+| 실제 코어 | 사용 가능한 vCPUs | 사용 가능한 RAM | VM 크기 | VM 수 |
 |----------------|-----------------|---------------|---------|-------|
 | 64             | 119             | 768 GiB       | E2s v3  | 32    |
 |                |                 |               | E4s v3  | 21    |

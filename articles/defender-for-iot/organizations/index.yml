@@ -12,12 +12,12 @@ metadata:
   ms.author: v-ekrieg
   manager: raynew
   ms.date: 11/09/2021
-  ms.openlocfilehash: 1a797256f0ac7cbdb084aee6dd9380df7fdffe45
-  ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+  ms.openlocfilehash: 3655ef9aae66d74bd430b795cd422fbc7793fa21
+  ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/11/2021
-  ms.locfileid: "132331379"
+  ms.lasthandoff: 12/02/2021
+  ms.locfileid: "133480723"
 landingContent:
 - title: 조직용 Microsoft Defender for IoT 정보
   linkLists:
@@ -31,8 +31,6 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 시스템 필수 구성 요소
-      url: quickstart-system-prerequisites.md
     - text: 조직용 Defender for IoT 시작
       url: concept-key-concepts.md
 - title: 방법

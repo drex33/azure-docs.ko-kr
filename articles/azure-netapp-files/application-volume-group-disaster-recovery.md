@@ -3,7 +3,7 @@ title: 지역 간 복제 | 사용하여 SAP HANA 시스템에 대한 볼륨을 D
 description: 애플리케이션 볼륨 그룹을 사용하여 SAP HANA 시스템의 볼륨을 DR(재해 복구) 시스템으로 추가하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/19/2021
-ms.author: b-juche
-ms.openlocfilehash: 6b7b31b9cb14b6a8a58ff7a6b9356c7d47837f34
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.author: b-hchen
+ms.openlocfilehash: f67488fc5d16b742cbff1257e3afd1332ab53c98
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133271943"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483691"
 ---
-# <a name="add-volumes-for-an-sap-hana-system-as-a-dr-system-using-cross-region-replication"></a>지역 간 복제를 사용하여 dr 시스템으로 SAP HANA 시스템에 대한 볼륨 추가
+# <a name="add-volumes-for-an-sap-hana-system-as-a-dr-system-using-cross-region-replication"></a>지역 간 복제를 사용하여 SAP HANA 시스템에 대한 볼륨을 DR 시스템으로 추가
 
 이 문서에서는 애플리케이션 볼륨 그룹을 사용하여 dr(재해 복구) 시스템으로 SAP HANA 시스템에 대한 볼륨을 추가하는 방법을 설명합니다. 이 구성에서는 Azure NetApp Files CRR(지역 간 복제) 기능을 사용합니다.
 
 ## <a name="crr-between-source-and-destination-hana-servers"></a>원본 및 대상 HANA 서버 간 CRR
 
-Azure NetApp Files [지역 간 복제](cross-region-replication-introduction.md) 기능을 사용하면 지원되는 지역 간 복제 쌍 간에 볼륨을 복제할 수 [있습니다.](cross-region-replication-introduction.md#supported-region-pairs) 이 기능을 사용하면 DR(재해 복구)을 위해 원본 지역에서 대상 지역의 볼륨으로 볼륨을 [복제할](cross-region-replication-create-peering.md) 수 있습니다. 
+Azure NetApp Files 지역 [간 복제](cross-region-replication-introduction.md) 기능을 사용하면 [지원되는 지역 간 복제 쌍](cross-region-replication-introduction.md#supported-region-pairs)간에 볼륨을 복제할 수 있습니다. 이 기능을 사용하면 DR(재해 복구)을 위해 원본 지역에서 대상 지역의 볼륨으로 볼륨을 [복제할](cross-region-replication-create-peering.md) 수 있습니다. 
 
 HSR(HANA 시스템 복제)을 사용하는 대신 지역 간 복제를 사용하여 항상 실행되는 HANA 데이터베이스 서버 없이 데이터베이스를 보호할 수 있습니다. 지역 간 복제에 대해 지원되는 지역에 복제 대상 볼륨을 만들어야 합니다. SAP HANA 애플리케이션 볼륨 그룹은 대상 볼륨이 모든 SAP HANA 특정 요구 사항을 충족하는 올바른 볼륨 유형으로 생성되도록 합니다.
 

@@ -3,7 +3,7 @@ title: 태그를 사용하여 Azure NetApp Files 청구 관리 | Microsoft Docs
 description: 태그를 사용하여 Azure NetApp Files 청구를 관리하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/06/2021
-ms.author: b-juche
-ms.openlocfilehash: b0efd8c580b0d4f1ae94d4dfc655bb351e084a67
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
-ms.translationtype: HT
+ms.author: b-hchen
+ms.openlocfilehash: d9af9638d0e0cc485d1452cd7b754136c140bd41
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109480898"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481426"
 ---
 # <a name="manage-billing-by-using-capacity-pool-billing-tags"></a>용량 풀 청구 태그를 사용하여 청구 관리
 

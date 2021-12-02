@@ -2,16 +2,16 @@
 title: Azure Backup의 새로운 기능
 description: Azure Backup의 새로운 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/25/2021
+ms.date: 12/02/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
-ms.openlocfilehash: 4a2b90e8186055f6fb285079cc4e6d63df2b6800
-ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.openlocfilehash: aa8060ac0332b0f29a5f9874d1a5fb7f26a0f9cd
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2021
-ms.locfileid: "133128857"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133485234"
 ---
 # <a name="whats-new-in-azure-backup"></a>Azure Backup의 새로운 기능
 
@@ -22,6 +22,7 @@ Azure Backup은 Azure에서 데이터의 보호 성능을 향상시키는 새로
 ## <a name="updates-summary"></a>업데이트 요약
 
 - 2021년 10월
+  - [Azure Portal에서 Azure VM의 SQL Server/SAP HANA에 대 한 보관 계층 지원](#archive-tier-support-for-sql-server-sap-hana-in-azure-vm-from-azure-portal)
   - [리소스 가드를 사용 하는 다중 사용자 권한 부여 (미리 보기)](#multi-user-authorization-using-resource-guard-in-preview)
   - [Azure Files에 대 한 하루에 여러 번 백업 (미리 보기)](#multiple-backups-per-day-for-azure-files-in-preview)
   - [Azure Backup 메트릭 및 메트릭 경고 (미리 보기)](#azure-backup-metrics-and-metrics-alerts-in-preview)
@@ -54,6 +55,14 @@ Azure Backup은 Azure에서 데이터의 보호 성능을 향상시키는 새로
   - [백업 데이터에 대한 ZRS(영역 중복 스토리지)(미리 보기)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Azure VM의 SQL Server 및 SAP HANA 워크로드에 대한 일시 삭제](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
+## <a name="archive-tier-support-for-sql-server-sap-hana-in-azure-vm-from-azure-portal"></a>Azure Portal에서 Azure VM의 SQL Server/SAP HANA에 대 한 보관 계층 지원
+
+Azure Backup은 이제 Azure Portal에서 Azure Virtual Machines SQL Server 및 SAP HANA에 대 한 자격 증명 모음-보관 계층에 대 한 복구 지점의 이동을 지원 합니다. 이렇게 하면 특정 데이터베이스에 해당 하는 보관할 수 복구 지점으로 이동 하 여 한 번에 자격 증명 모음-보관 계층으로 이동할 수 있습니다.
+
+또한 Azure Virtual Machines (미리 보기)와 함께 위의 워크 로드에 대 한 Azure CLI를 통해 지원이 확장 됩니다.
+
+자세한 내용은 [Azure Backup에서 보관 계층 지원](archive-tier-support.md)을 참조 하세요.
+
 ## <a name="multi-user-authorization-using-resource-guard-in-preview"></a>리소스 가드를 사용 하는 다중 사용자 권한 부여 (미리 보기)
 
 Azure Backup는 이제 Recovery Services 자격 증명 모음에서 중요 한 작업에 대 한 추가 보호 계층을 추가할 수 있는 MUA (다중 사용자 권한 부여)를 지원 합니다. Azure Backup MUA의 경우 Azure 리소스 리소스 가드를 사용 하 여 중요 한 작업이 적용 가능한 권한 부여로만 수행 되도록 합니다.
@@ -85,7 +94,7 @@ Azure Backup는 다음과 같은 주요 기능을 제공 합니다.
 - Azure VM에서 데이터베이스 SAP HANA
 - Azure Files.
 
-자세한 내용은 [Azure Backup 메트릭을 사용 하 여 백업 상태 모니터링 (미리 보기)](metrics-overview.md)을 참조 하세요.
+자세한 내용은 [Azure Backup 메트릭 (미리 보기)을 사용 하 여 백업 상태 모니터링](metrics-overview.md)을 참조 하세요.
 
 ## <a name="archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available"></a>이제 Azure Backup용 Azure VM의 SQL Server에 대한 보관 계층 지원이 일반 공급됩니다.
 
@@ -167,7 +176,7 @@ Azure Backup은 중앙 콘솔에서 전체 백업 공간을 관리하는 새로�
 
 자세한 내용은 [백업 센터 개요](backup-center-overview.md)를 참조하세요.
 
-## <a name="back-up-azure-database-for-postgresql-in-preview"></a>Azure Database for PostgreSQL 백업 (미리 보기)
+## <a name="back-up-azure-database-for-postgresql-in-preview"></a>Azure Database for PostgreSQL 백업(미리 보기)
 
 Azure Backup과 Azure Data Services가 결합되어 Azure PostgreSQL(현재 미리 보기)용 엔터프라이즈급 백업 솔루션을 빌드할 수 있습니다. 이제 최장 10년간 백업 보존을 사용하도록 설정하는 고객 제어형 백업 정책을 통해 데이터 보호 및 규정 준수 요구 사항을 충족할 수 있습니다. 이를 통해 개별 데이터베이스 수준에서 백업/복원 작업을 관리하는 세분화된 제어를 사용할 수 있습니다. 마찬가지로, PostgreSQL 버전 또는 Blob 스토리지 간에 쉽게 복원할 수 있습니다.
 
@@ -199,7 +208,7 @@ Azure Backup은 가상 머신 백업 솔루션을 함께 사용하여 VM의 모�
 
 자세한 내용은 [VM 창에서 SQL Server 백업](backup-sql-server-vm-from-vm-pane.md)을 참조하세요.
 
-## <a name="back-up-sap-hana-in-rhel-azure-virtual-machines-in-preview"></a>RHEL Azure virtual machines의 SAP HANA 백업 (미리 보기)
+## <a name="back-up-sap-hana-in-rhel-azure-virtual-machines-in-preview"></a>RHEL Azure 가상 머신에서 SAP HANA 백업(미리 보기)
 
 Azure Backup은 Azure의 기본 백업 솔루션으로, SAP에서 BackInt 인증을 받았습니다. 현재 Azure Backup에는 SAP HANA를 실행하여 가장 널리 사용되는 Linux 운영 체제 중 하나인 Red Hat Enterprise Linux(RHEL)에 대한 지원이 추가되었습니다.
 
@@ -207,7 +216,7 @@ Azure Backup은 Azure의 기본 백업 솔루션으로, SAP에서 BackInt 인증
 
 ## <a name="zone-redundant-storage-zrs-for-backup-data-in-preview"></a>백업 데이터에 대한 ZRS(영역 중복 스토리지)(미리 보기)
 
-Azure Storage는 다양한 중복도 옵션을 통해 고성능과 고가용성, 높은 데이터 복원력을 제공합니다. Azure Backup를 사용 하면 백업을 LRS (로컬 중복 저장소) 및 GRS (지역 중복 저장소)에 저장 하는 옵션을 사용 하 여 이러한 혜택을 백업 데이터로 확장할 수 있습니다. 현재 ZRS(영역 중복 스토리지)에 대한 지원이 더해진 내구성 옵션도 추가로 제공됩니다.
+Azure Storage는 다양한 중복도 옵션을 통해 고성능과 고가용성, 높은 데이터 복원력을 제공합니다. Azure Backup 사용하면 백업 데이터를 백업 데이터로 확장할 수 있으며 LRS(로컬 중복 스토리지) 및 GRS(지역 중복 스토리지)에 백업을 저장할 수 있습니다. 현재 ZRS(영역 중복 스토리지)에 대한 지원이 더해진 내구성 옵션도 추가로 제공됩니다.
 
 자세한 내용은 [Recovery Services 자격 증명 모음에 대한 스토리지 중복도 설정](backup-create-rs-vault.md#set-storage-redundancy)을 참조하세요.
 

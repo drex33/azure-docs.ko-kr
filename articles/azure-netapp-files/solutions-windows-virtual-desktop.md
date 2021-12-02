@@ -3,7 +3,7 @@ title: Azure NetApp Files와 함께 Azure Virtual Desktop 사용 | Microsoft Doc
 description: Azure NetApp Files를 사용하여 Azure Virtual Desktop 배포에 대한 모범 사례 지침과 샘플 청사진을 제공합니다.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.author: b-juche
-ms.openlocfilehash: 8d4d9b393c698b2b638a119b7eb4386e0099d514
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.author: b-hchen
+ms.openlocfilehash: 43fd5f6397d57f81960da9f5559610b8e96e0e14
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132347920"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133482452"
 ---
 # <a name="benefits-of-using-azure-netapp-files-with-azure-virtual-desktop"></a>Azure Virtual Desktop에서 Azure NetApp Files를 사용할 경우의 이점 
 

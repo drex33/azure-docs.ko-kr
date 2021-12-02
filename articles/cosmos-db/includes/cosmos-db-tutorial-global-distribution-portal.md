@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 12/26/2018
 ms.custom: include file
-ms.openlocfilehash: 70c0400a5b1cdf4d0de6c657bd907061b1aa31d0
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: e8b7aaaca3536831ce976a8c60333c1eb0476f92
+ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112233870"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133445064"
 ---
 ## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Azure Portal을 사용하여 글로벌 데이터베이스 지역 추가
 Azure Cosmos DB는 전 세계의 모든 [Azure 지역][azureregions]에서 사용할 수 있습니다. 데이터베이스 계정에서 기본 일관성 수준을 선택한 후에는 (선택한 기본 일관성 수준 및 글로벌 배포 수요에 따라) 하나 이상의 지역을 연결합니다.
@@ -35,7 +35,7 @@ Azure Cosmos DB는 전 세계의 모든 [Azure 지역][azureregions]에서 사�
 
 최종 사용자에게 낮은 대기 시간을 제공하기 위해서는 애플리케이션 사용자가 있는 위치와 동일한 지역에 애플리케이션과 Azure Cosmos DB를 모두 배포하는 것이 좋습니다.
 
-BCDR의 경우 [비즈니스 연속성 및 재해 복구(BCDR): Azure 쌍을 이루는 지역](../../best-practices-availability-paired-regions.md) 문서에서 설명된 하위 지역 쌍에 기초하여 지역을 추가하는 것이 좋습니다.
+BCDR의 경우 [Azure의 지역 간 복제: 비즈니스 연속성 및 재해 복구](../../availability-zones/cross-region-replication-azure.md) 문서에서 설명한 지역 쌍을 기반으로 지역을 추가 하는 것이 좋습니다.
 
 <!--
 

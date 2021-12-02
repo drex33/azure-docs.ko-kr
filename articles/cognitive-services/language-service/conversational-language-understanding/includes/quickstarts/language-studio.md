@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 8fb9e276c7f8d0e195c7d7618392e7c5e61c7c9e
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.openlocfilehash: ce69cf07725c1a57494463218d80dcc6d866db18
+ms.sourcegitcommit: 9567c42d1e5270af16a1a8090f11a3b12131010d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132590512"
+ms.lasthandoff: 12/01/2021
+ms.locfileid: "133444901"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -127,4 +127,4 @@ ms.locfileid: "132590512"
 다음과 같은 다른 언어로 된 발화를 테스트할 수도 있습니다.
 
 * "*Joindre le fichier PDF*"(프랑스어: "*PDF 파일 첨부*"), 
-* "*lesen sie die e-mail von Macy*"(독일어: "*Read Macy's e-mail*")
+* "*Lesen Sie 주사위 전자 메일 Von Macy*" (독일어: "*Read Macy 's e-mail*")

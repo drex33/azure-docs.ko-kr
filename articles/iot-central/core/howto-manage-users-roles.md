@@ -7,12 +7,12 @@ ms.date: 08/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 4398ab5ed46276c397e812cb4ffbcd1e6e1296e6
-ms.sourcegitcommit: 27ddccfa351f574431fb4775e5cd486eb21080e0
+ms.openlocfilehash: d9cfbe9601b28d536dda0ac60ff15d4d90bb48bf
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "131997574"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133518628"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>IoT Central 애플리케이션에서 사용자 및 역할 관리
 
@@ -42,7 +42,9 @@ ms.locfileid: "131997574"
 
     > [!NOTE]
     > 다른 사용자를 추가할 수 있는 권한을 부여하는 사용자 지정 역할의 사용자는 자신의 역할과 같거나 적은 권한을 가진 역할에만 사용자를 추가할 수 있습니다.
-  
+
+    새 사용자를 초대할 때 응용 프로그램 URL을 공유 하 고 로그인 하도록 요청 해야 합니다. 사용자가 처음으로 로그인 하면 해당 응용 프로그램이 사용자의 [내 앱](https://apps.azureiotcentral.com/myapps) 페이지에 표시 됩니다.
+
     > [!NOTE]
     > 사용자가 Azure Active Directory에서 삭제된 다음 다시 추가되면 IoT Central 애플리케이션에 로그인할 수 없습니다. 액세스를 다시 사용하도록 설정하려면 애플리케이션 관리자가 애플리케이션에서 사용자를 삭제하고 다시 추가해야 합니다.
 

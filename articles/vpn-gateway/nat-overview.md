@@ -6,16 +6,16 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/22/2021
+ms.date: 12/02/2021
 ms.author: yushwang
-ms.openlocfilehash: 2bcf33466b3cbf57a67307961bb1e21e3a810a72
-ms.sourcegitcommit: 16580bb4fbd8f68d14db0387a3eee1de85144367
-ms.translationtype: HT
+ms.openlocfilehash: 0697ed921c9096848ecd880e6c8686aafc9b71fa
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112759611"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133519200"
 ---
-# <a name="about-nat-on-azure-vpn-gateway-preview"></a>Azure VPN Gateway의 NAT 정보(미리 보기)
+# <a name="about-nat-on-azure-vpn-gateway"></a>Azure VPN Gateway NAT 정보
 
 이 문서에서는 Azure VPN Gateway의 NAT(Network Address Translation) 지원을 간략하게 설명합니다. NAT는 IP 패킷의 한 IP 주소를 다른 IP 주소로 번역하는 메커니즘을 정의합니다. NAT에 대한 여러 가지 시나리오가 있습니다.
 
@@ -41,8 +41,7 @@ ms.locfileid: "112759611"
 또 다른 고려 사항은 번역에 사용되는 주소 풀 크기입니다. 대상 주소 풀 크기가 원래 주소 풀과 동일한 경우 정적 NAT 규칙을 사용하여 순차적으로 1:1 매핑을 정의합니다. 대상 주소 풀이 원래 주소 풀보다 작은 경우 동적 NAT 규칙을 사용하여 차이점을 수용합니다.
 
 > [!IMPORTANT]
-> * Azure VPN 게이트웨이 NAT는 정적, 1:1 NAT 규칙만 지원합니다. 동적 NAT 규칙은 지원되지 않습니다.
-> * NAT는 VpnGw2~5, VpnGw2AZ~5AZ와 같은 SKU에서 지원됩니다.
+> > * NAT는 VpnGw2~5, VpnGw2AZ~5AZ와 같은 SKU에서 지원됩니다.
 > * NAT는 IPsec 크로스-프레미스 연결에만 지원됩니다. VNet 간 연결이나 P2S 연결은 지원되지 않습니다.
 
 ## <a name="nat-mode-ingress--egress"></a><a name="mode"></a>NAT 모드: 수신 및 송신

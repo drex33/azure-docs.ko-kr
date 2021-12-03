@@ -82,10 +82,10 @@
           href: ../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Synapse Link 사용 사례
           href: synapse-link-use-cases.md
-        - name: Synapse Link FAQ
-          href: synapse-link-frequently-asked-questions.yml
         - name: 사용자 지정 분할 - 개요
           href: custom-partitioning-analytical-store.md
+        - name: Synapse Link FAQ
+          href: synapse-link-frequently-asked-questions.yml
     - name: 백업 및 복원
       items:
         - name: 백업 및 복원 소개

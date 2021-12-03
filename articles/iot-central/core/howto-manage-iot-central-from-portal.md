@@ -7,12 +7,12 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 07/06/2021
 ms.topic: how-to
-ms.openlocfilehash: dc9611eebdce1e988e760fda3b000cb52d0ff95a
-ms.sourcegitcommit: 362359c2a00a6827353395416aae9db492005613
+ms.openlocfilehash: b39db67bade33d015dc92dc0495042f2864d3bdb
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2021
-ms.locfileid: "132488277"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133518103"
 ---
 # <a name="manage-and-monitor-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리 및 모니터링
 
@@ -32,7 +32,7 @@ ms.locfileid: "132488277"
 
 * **템플릿** 은 만들려는 IoT Central 애플리케이션의 형식입니다. 업계 관련 템플릿 목록에서 새 애플리케이션을 만들어 빠르게 시작하거나, **사용자 지정 애플리케이션** 템플릿을 사용하여 처음부터 시작할 수 있습니다.
 
-* **위치** 는 애플리케이션을 만들려는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)입니다. 일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 위치를 선택해야 합니다. Azure IoT Central는 현재 다음 위치에서 사용할 수 있습니다.
+* **Location** 은 응용 프로그램을 만들려는 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/) 입니다. 일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 위치를 선택해야 합니다. Azure IoT Central는 현재 다음 위치에서 사용할 수 있습니다.
     
     * 오스트레일리아
     * 미국 중부 미국
@@ -63,6 +63,9 @@ Azure IoT Central 애플리케이션이 이미 있으면 삭제하거나 Azure P
 검색 결과에서 애플리케이션을 선택하면 Azure Portal에 해당 개요가 표시됩니다. **IoT Central 애플리케이션 URL** 을 선택하여 해당 애플리케이션으로 이동할 수 있습니다.
 
 !["IoT Central 애플리케이션 URL"이 강조 표시된 "개요" 페이지를 보여주는 스크린샷.](media/howto-manage-iot-central-from-portal/highlight-application.png)
+
+> [!NOTE]
+> **IoT Central 응용 프로그램 URL** 을 사용 하 여 응용 프로그램에 처음으로 액세스 합니다.
 
 다른 리소스 그룹으로 애플리케이션을 이동하려면 리소스 그룹 옆에 있는 **변경** 을 선택합니다. **리소스 이동** 페이지에서 이 애플리케이션을 이동할 리소스 그룹을 선택합니다.
 

@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: b2eeca4bb6f5d8af01aa283446961b56d27918d7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 03938a59be27eaf4a5bed60c32501ea0e0529778
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761672"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133519411"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Azure Key Vault 인증서 갱신
 
@@ -45,7 +45,7 @@ Key Vault에는 다음과 같은 세 가지 범주의 인증서가 있습니다.
 -    자체 서명된 인증서
 
 ## <a name="renew-an-integrated-ca-certificate"></a>통합 CA 인증서 갱신 
-Azure Key Vault는 신뢰할 수 있는 Microsoft 인증 기관 DigiCert 및 GlobalSign에서 발급한 인증서의 엔드투엔드 유지 관리를 처리합니다. [신뢰할 수 있는 CA를 Key Vault와 통합하는 방법](./how-to-integrate-certificate-authority.md)을 알아보세요.
+Azure Key Vault는 신뢰할 수 있는 Microsoft 인증 기관 DigiCert 및 GlobalSign에서 발급한 인증서의 엔드투엔드 유지 관리를 처리합니다. [신뢰할 수 있는 CA를 Key Vault와 통합하는 방법](./how-to-integrate-certificate-authority.md)을 알아보세요. 인증서가 갱신되면 새 Key Vault 식별자를 통해 새 비밀 버전이 만들어집니다.
 
 ## <a name="renew-a-nonintegrated-ca-certificate"></a>비-통합 CA 인증서 갱신 
 Azure Key Vault를 사용하면 CA에서 인증서를 가져올 수 있으며, 여러 Azure 리소스를 통합하여 쉽게 배포할 수 있는 장점이 있습니다. 인증서 만료 날짜를 추적하지 못하게 되거나 인증서가 이미 만료된 후 그 사실을 알게 되는 사태를 방지할 수 있도록 키 자격 증명 모음을 통해 최신 정보를 계속 받을 수 있습니다. 비-통합 CA 인증서의 경우 키 자격 증명 모음을 통해 만료 예정 이메일 알림을 설정할 수 있습니다. 이러한 알림을 여러 사용자에 대해서도 설정할 수 있습니다.
@@ -57,10 +57,14 @@ Azure Key Vault를 사용하면 CA에서 인증서를 가져올 수 있으며, �
 
 1. Azure Portal에 로그인한 다음, 갱신할 인증서를 엽니다.
 1. 인증서 창에서 **새 버전** 을 선택합니다.
-1. **인증서 작업** 을 선택합니다.
+3. 인증서 **만들기** 페이지의 인증서 생성 방법 에서 **생성** 옵션이 선택되어 있는지 **확인합니다.**
+4. 인증서에 대한 **주체** 및 기타 세부 정보를 확인한 다음 **만들기를** 클릭합니다.
+5. 이제 인증서 << **인증서 이름 >> 만들기가 보류 중입니다.라는 메시지가 표시됩니다. 진행 상황을 모니터링하려면 여기를 클릭하여 인증서 작업으로 이동합니다.**
+6. 메시지를 클릭하면 새 창이 표시됩니다. 창에 상태가 "진행 중"으로 표시되어야 합니다. 이 시점에서 키 자격 증명 모음은 CSR 다운로드 옵션을 사용하여 다운로드할 수 있는 **CSR을** 생성했습니다.
 1. **CSR 다운로드** 를 선택하여 CSR 파일을 로컬 드라이브에 다운로드합니다.
 1. 선택한 CA로 CSR을 보내서 요청에 서명합니다.
-1. 서명한 요청을 다시 가져온 다음, 동일한 인증서 작업 창에서 **CSR 병합** 을 선택합니다.
+1. 서명된 요청을 다시 가져오고 동일한 인증서 작업 창에서 **서명된 요청 병합을** 선택합니다.
+10. 병합 후 상태가 **완료로** 표시되고 주 인증서 창에서 **새로 고침을** 쳐서 새 버전의 인증서를 볼 수 있습니다.
 
 > [!NOTE]
 > 서명된 CSR을 앞에서 만든 동일한 CSR 요청과 병합해야 합니다. 그렇지 않으면 키가 일치하지 않습니다.

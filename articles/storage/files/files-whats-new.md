@@ -4,18 +4,35 @@ description: Azure Files의 새로운 기능 및 향상된 기능에 대해 자�
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 11/30/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6bc44ba9bc2cad45ab447b86a580fb505c8abd6d
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
-ms.translationtype: HT
+ms.openlocfilehash: 8c6157cefb3f23d431c3edffb096493c9a5cedaf
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273234"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517862"
 ---
 # <a name="whats-new-in-azure-files"></a>Azure Files의 새로운 기능
 Azure Files는 새로운 기능 및 향상된 기능을 제공하기 위해 정기적으로 업데이트됩니다. 이 문서에서는 Azure Files의 새로운 기능에 대해 자세한 정보를 제공합니다.
+
+## <a name="2021-quarter-4-october-november-december"></a>2021년 4분기(10월, 11월, 12월)
+### <a name="nfs-41-protocol-support-is-generally-available"></a>NFS 4.1 프로토콜 지원 일반 제공
+Premium Azure 파일 공유는 이제 SMB 또는 NFS 4.1 프로토콜을 지원합니다. NFS 4.1은 로컬 중복 스토리지 및 영역 중복 스토리지 모두에 대해 Azure Files 프리미엄 계층을 지원하는 모든 지역에서 사용할 수 있습니다. NFS 4.1 프로토콜을 사용하여 만든 Azure 파일 공유는 다양한 Linux 및 컨테이너 기반 워크로드를 지원하는 완전히 POSIX 규격의 분산 파일 공유입니다. 워크로드의 예로는 고가용성 SAP 애플리케이션 계층, 엔터프라이즈 메시징, 사용자 홈 디렉터리, 사용자 지정 사업체 애플리케이션, 데이터베이스 백업, 데이터베이스 복제 및 Azure Pipelines 등이 있습니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- [Azure Files NFS 파일 공유](files-nfs-protocol.md)
+- [Azure Files NFS를 통해 Azure VM의 SAP NetWeaver 고가용성](../../virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files.md)
+- [Azure Files 가격 책정](https://azure.microsoft.com/pricing/details/storage/files/)
+
+### <a name="azure-files-supports-symmetric-throughput-for-premium-file-shares"></a>Azure Files 프리미엄 파일 공유에 대한 대칭 처리량을 지원합니다.
+Premium Azure 파일 공유는 이제 대칭 처리량 프로비저닝을 지원합니다. 이를 통해 Azure 파일 공유에 대해 프로비전된 처리량을 100% 수신, 100% 송신 또는 일부 수신 및 송신 혼합에 사용할 수 있습니다. 대칭 처리량은 사용 가능한 처리량을 최대한 활용할 수 있는 유연성을 제공하고 프리미엄 파일 공유를 표준 파일 공유에 맞춥니다.
+
+자세한 내용은 다음을 참조하세요.
+- [프리미엄 Azure 파일 공유에 대해 프로비전된 모델](understanding-billing.md#provisioned-model)
+- [Azure Files 가격 책정](https://azure.microsoft.com/pricing/details/storage/files/)
 
 ## <a name="2021-quarter-3-july-august-september"></a>2021년 3사분기(7월, 8월, 9월)
 ### <a name="smb-multichannel-is-generally-available"></a>SMB 다중 채널은 일반적으로 사용 가능합니다.
@@ -84,16 +101,6 @@ Azure Files 관리 API에 대해 자세히 알아보려면 다음 문서를 참�
     - [`FileService`](/rest/api/storagerp/file-services) 
     - [`FileShare`](/rest/api/storagerp/file-shares) 
 - [Azure PowerShell](/powershell/module/az.storage) 및 [Azure CLI](/en-us/cli/azure/storage)
-
-## <a name="2020-quarter-4-october-november-december"></a>2020년 4사분기(10월, 11월, 12월)
-### <a name="azure-file-share-soft-delete"></a>Azure 파일 공유 일시 삭제
-Azure 파일 공유는 일시 삭제를 지원합니다. 일시 삭제를 사용하도록 설정 하면 사용자가 정의한 보존 기간 내에 삭제되지 않은 경우 실수로 삭제된 공유를 쉽게 복구할 수 있습니다. 보존 기간 중에 일시 삭제된 공유는 공유 스냅샷 속도로 보존 기간 동안 데이터 사용 용량을 발생시킵니다.
-
-일시 삭제에 대해 자세히 알아보려면 다음을 참조하세요.
-
-- [일시 삭제 개요](storage-files-prevent-file-share-deletion.md)
-- [일시 삭제 사용](storage-files-enable-soft-delete.md)
-- [Azure Files 가격 책정](https://azure.microsoft.com/pricing/details/storage/files/)
 
 ## <a name="see-also"></a>추가 정보
 - [Azure Files란?](storage-files-introduction.md)

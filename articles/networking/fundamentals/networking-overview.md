@@ -35,7 +35,7 @@ Azure의 네트워킹 서비스에서는 함께 또는 별도로 사용할 수 �
 Azure Virtual Network(VNet)는 Azure의 프라이빗 네트워크의 기본 구성 요소입니다. Vnet을 사용하여 다음을 수행할 수 있습니다.
 - **Azure 리소스 간에 통신**: Azure App Service Environments, AKS(Azure Kubernetes Service), Azure Virtual Machine Scale Sets 등의 여러 가지 VM 및 Azure 리소스를 가상 네트워크에 배포할 수 있습니다. 가상 네트워크에 배포할 수 있는 Azure 리소스의 전체 목록을 보려면 [가상 네트워크 서비스 통합](../../virtual-network/virtual-network-for-azure-services.md)을 참조하세요.
 - **서로 간에 통신**: 가상 네트워크를 서로 연결하면 각 가상 네트워크의 리소스가 가상 네트워크 피어링을 사용하여 서로 통신할 수 있습니다. 연결한 가상 네트워크는 같은 Azure 지역 또는 다른 Azure 지역에 있을 수 있습니다. 자세한 내용은 [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md)을 참조하세요.
-- **인터넷과 통신**: 기본적으로 VNet의 모든 리소스는 인터넷으로 아웃바운드 통신을 할 수 있습니다. 공용 IP 주소 또는 공용 Load Balancer를 할당하여 리소스에 대해 인바운드로 통신할 수 있습니다. [공용 IP 주소](../../virtual-network/ip-services/virtual-network-public-ip-address.md) 또는 공용 [부하 분산 장치](../../load-balancer/load-balancer-overview.md)를 사용하여 아웃바운드 연결을 관리할 수도 있습니다.
+- **인터넷과 통신**: 기본적으로 VNet의 모든 리소스는 인터넷으로 아웃바운드 통신을 할 수 있습니다. 공용 IP 주소 또는 공용 부하 분산 장치를 할당하여 리소스에 대해 인바운드로 통신할 수 있습니다. [공용 IP 주소](../../virtual-network/ip-services/virtual-network-public-ip-address.md) 또는 공용 [부하 분산 장치](../../load-balancer/load-balancer-overview.md)를 사용하여 아웃바운드 연결을 관리할 수도 있습니다.
 - **온-프레미스 네트워크와 통신**: [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](../../expressroute/expressroute-introduction.md) 경로를 사용하여 온-프레미스 컴퓨터 및 네트워크를 가상 네트워크에 연결할 수 있습니다.
 
 자세한 내용은 [Azure Virtual Network란?](../../virtual-network/virtual-networks-overview.md)을 참조하세요.

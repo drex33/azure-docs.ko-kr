@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: 304d96e9f7566ab80ac71d176fc52ccf3c852b49
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: db8d632139bf16feb2241173b93ada319cebfbdd
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122528421"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517900"
 ---
 # <a name="add-additional-s2s-connections-to-a-vnet-azure-portal"></a>VNet에 S2S 연결 추가: Azure Portal
 
@@ -62,7 +62,7 @@ ms.locfileid: "122528421"
 1. **로컬 네트워크 게이트웨이 만들기** 페이지에서 다음 필드에 정보를 입력합니다.
 
    * **이름:** 로컬 네트워크 게이트웨이 리소스에 부여하고자 하는 이름입니다.
-   * **엔드포인트:** 연결하려는 사이트에 있는 VPN 디바이스 또는 엔드포인트 FQDN의 공용 IP 주소입니다.
+   * **엔드포인트:** 연결하려는 사이트에 있는 VPN 디바이스 또는 엔드포인트 FQDN의 공용 IP 주소입니다. 다른 VPN gateway에 대 한 연결을 만들려는 경우이 필드에 있는 다른 게이트웨이의 IP 주소를 사용할 수 있습니다.
    * **주소 공간:** 새 로컬 네트워크 사이트로 라우팅하려는 주소 공간입니다.
 1. **로컬 네트워크 게이트웨이 만들기** 페이지에서 **확인** 을 선택하여 변경 내용을 저장합니다.
 

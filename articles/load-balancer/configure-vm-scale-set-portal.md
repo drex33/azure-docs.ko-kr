@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
 ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2021
 ms.locfileid: "91439519"
@@ -31,7 +31,7 @@ ms.locfileid: "91439519"
 
 ## <a name="deploy-virtual-machine-scale-set-with-existing-load-balancer"></a>기존 부하 분산 장치를 사용하여 가상 머신 확장 집합 배포
 
-이 섹션에서는 기존 Azure Load Balancer를 사용하여 Azure Portal에서 가상 머신 확장 집합을 만듭니다.
+이 섹션에서는 기존 Azure 부하 분산 장치 를 사용하여 Azure Portal에서 가상 머신 확장 집합을 만듭니다.
 
 > [!NOTE]
 > 다음 단계에서는 **myVNet** 이라는 가상 네트워크와 **myLoadBalancer** 라는 Azure Load Balancer를 이전에 배포했다고 가정합니다.

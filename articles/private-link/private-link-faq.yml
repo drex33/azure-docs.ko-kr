@@ -68,7 +68,7 @@ sections:
     answer: >
       서비스 백 엔드는 가상 네트워크에 있고 표준 Load Balancer 뒤에 있어야 합니다.
   - question: "Private Link 서비스를 스케일링하려면 어떻게 해야 하나요? \n"
-    answer: "여러 가지 방법으로 Private Link 서비스를 스케일링할 수 있습니다. \n- 표준 Load Balancer 뒤에 있는 풀에 백 엔드 VM을 추가합니다. \n- Private Link 서비스에 IP를 추가합니다. Private Link 서비스당 최대 8개의 IP를 허용합니다.  \n- 표준 Load Balancer에 새 Private Link 서비스를 추가합니다. 부하 분산 장치당 최대 8개의 Private Link 서비스를 허용합니다.   \n"
+    answer: "여러 가지 방법으로 Private Link 서비스를 스케일링할 수 있습니다. \n- 표준 부하 분산 장치 뒤에 있는 풀에 백 엔드 VM을 추가합니다. \n- Private Link 서비스에 IP를 추가합니다. Private Link 서비스당 최대 8개의 IP를 허용합니다.  \n- 표준 부하 분산 장치에 새 Private Link 서비스를 추가합니다. 부하 분산 장치당 최대 8개의 Private Link 서비스를 허용합니다.   \n"
   - question: "Private Link 서비스에서 사용되는 NAT(네트워크 주소 변환) IP 구성은 무엇인가요? 사용 가능한 포트 및 연결을 기준으로 스케일링하려면 어떻게 해야 하나요? \n"
     answer: "NAT IP 구성은 대상 쪽(서비스 공급자 측)의 Private Link 트래픽에 원본 NAT를 제공하여 원본(소비자 측)과 대상(서비스 공급자) 주소 공간 간에 IP 충돌이 발생하지 않도록 합니다. NAT IP 주소는 서비스에서 받은 모든 패킷에 대해 원본 IP로 표시되고, 서비스에서 보낸 모든 패킷에 대해 대상 IP로 표시됩니다.  NAT IP는 서비스 공급자의 가상 네트워크에 있는 모든 서브넷에서 선택할 수 있습니다. \n\n각 NAT IP는 표준 Load Balancer 뒤에 있는 VM당 64k TCP 연결(64k 포트)을 제공합니다. 연결을 스케일링 및 추가하기 위해 새 NAT IP를 추가하거나 표준 Load Balancer 뒤에 VM을 추가할 수 있습니다. 이렇게 하면 포트 가용성을 늘리고 더 많이 연결할 수 있습니다. 연결은 NAT IP와 표준 Load Balancer 뒤에 있는 VM 간에 분산됩니다.\n"
   - question: >

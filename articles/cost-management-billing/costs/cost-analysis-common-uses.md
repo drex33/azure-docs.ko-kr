@@ -3,17 +3,17 @@ title: Azure Cost Management에서의 일반적인 비용 분석 사용
 description: 이 문서에서는 Cost Management 일반적인 비용 분석 작업에 대한 결과를 얻는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/13/2021
+ms.date: 12/02/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 642c9ba475690b05723601f4e6ff429e382f29bb
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: e6f9cc3ab9d745e1f259bf519c6f6ed6b3500778
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129992502"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517398"
 ---
 # <a name="common-cost-analysis-uses"></a>일반적인 비용 분석 사용
 
@@ -70,7 +70,7 @@ Azure 및 AWS 비용을 함께 보려면 Azure에서 관리 그룹 범위를 사
 
 ## <a name="view-new-commerce-license-and-consumption-costs"></a>새 상거래 라이선스 및 소비 비용 보기
 
-비용 분석에서 Azure 요금과 함께 새 상거래 라이선스 및 소비 제품을 볼 수 있습니다. 필터 목록을 선택한 다음, **공급자** 를 선택한 다음, 옵션 목록에서 선택합니다. 예를 들어 Microsoft 365 및 Dynamics 365입니다.
+비용 분석에서 Azure 요금과 함께 새 상거래 라이선스 및 소비 제품을 볼 수 있습니다. 필터 목록을 **선택한** 다음 공급자 를 선택한 다음, 옵션 목록에서 선택합니다. 예를 들어 Microsoft 365 및 Dynamics 365입니다.
 
 :::image type="content" source="./media/cost-analysis-common-uses/filter-select-provider.png" alt-text="공급자 필터 선택을 보여주는 스크린샷." lightbox="./media/cost-analysis-common-uses/filter-select-provider.png" :::
 
@@ -103,6 +103,8 @@ Azure Portal에서 청구서 세부 정보를 보려면 분석 중인 청구서�
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Azure 리소스별 비용 분석 보기
 
 서비스는 Azure 리소스를 사용하여 빌드됩니다. 리소스를 기준으로 비용을 검토하면 기본 비용 기여자를 빠르게 식별하는 데 도움이 됩니다. 서비스에 비용이 너무 많이 드는 리소스가 있는 경우 비용을 줄이기 위해 변경을 고려하는 것이 좋습니다.
+
+보기는 구독 및 리소스 그룹 범위에만 사용할 수 있습니다.
 
 1. Azure Portal에서 해당 범위에 대한 비용 분석으로 이동합니다. 예를 들면 다음과 같습니다. **Cost Management + 청구** > **Cost Management** > **비용 분석**.
 1. **리소스별 비용** 을 선택합니다.

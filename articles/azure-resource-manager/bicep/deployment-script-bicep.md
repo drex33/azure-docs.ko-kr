@@ -1,22 +1,22 @@
 ---
-title: Bicep | 배포 스크립트 사용 Microsoft Docs
-description: Bicep에서 배포 스크립트를 사용합니다.
+title: Bicep에서 배포 스크립트 사용 | Microsoft Docs
+description: Bicep의 배포 스크립트를 사용 합니다.
 services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/29/2021
 ms.author: jgao
-ms.openlocfilehash: 5a11424ecf82f530c145d4b6acb691dafe398ad8
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.openlocfilehash: 781f1954f29d1f20bc198a366ed399d9bbe027a1
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133437025"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517341"
 ---
 # <a name="use-deployment-scripts-in-bicep"></a>Bicep에서 배포 스크립트 사용
 
-Bicep에서 배포 스크립트를 사용하는 방법을 알아봅니다. 를 사용하면 [`Microsoft.Resources/deploymentScripts`](/azure/templates/microsoft.resources/deploymentscripts.md?tabs=bicep) 사용자가 Bicep 배포에서 스크립트를 실행하고 실행 결과를 검토할 수 있습니다. 이러한 스크립트는 다음과 같은 사용자 지정 단계를 수행하는 데 사용할 수 있습니다.
+Bicep에서 배포 스크립트를 사용 하는 방법에 대해 알아봅니다. 사용자는 [Microsoft .resources/deploymentScripts](/azure/templates/microsoft.resources/deploymentscripts)를 사용 하 여 Bicep 배포에서 스크립트를 실행 하 고 실행 결과를 검토할 수 있습니다. 이러한 스크립트는 다음과 같은 사용자 지정 단계를 수행하는 데 사용할 수 있습니다.
 
 - 디렉터리에 사용자 추가
 - 데이터 평면 작업 수행(예: BLOB 또는 시드 데이터베이스 복사)
@@ -27,7 +27,7 @@ Bicep에서 배포 스크립트를 사용하는 방법을 알아봅니다. 를 �
 
 배포 스크립트의 이점은 다음과 같습니다.
 
-- 쉽게 코딩하고, 사용하고, 디버그할 수 있습니다. 원하는 개발 환경에서 배포 스크립트를 개발할 수 있습니다. 스크립트는 Bicep 파일 또는 외부 스크립트 파일에 포함될 수 있습니다.
+- 쉽게 코딩하고, 사용하고, 디버그할 수 있습니다. 원하는 개발 환경에서 배포 스크립트를 개발할 수 있습니다. 스크립트는 Bicep 파일이 나 외부 스크립트 파일에 포함 될 수 있습니다.
 - 스크립트 언어 및 플랫폼을 지정할 수 있습니다. 현재 Linux 환경에서 Azure PowerShell 및 Azure CLI 배포 스크립트가 지원됩니다.
 - 스크립트에 명령줄 인수를 전달할 수 있습니다.
 - 스크립트 출력을 지정하고 이를 배포에 다시 전달할 수 있습니다.
@@ -38,17 +38,17 @@ Bicep에서 배포 스크립트를 사용하는 방법을 알아봅니다. 를 �
 > 스크립트를 실행하고 문제를 해결하려면 스토리지 계정 및 컨테이너 인스턴스가 필요합니다. 기존 스토리지 계정을 지정할 수 있습니다. 그러지 않으면 컨테이너 인스턴스와 함께 스토리지 계정이 스크립트 서비스에 의해 자동으로 생성됩니다. 자동으로 생성된 두 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태가 되면 스크립트 서비스에 의해 삭제됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 
 > [!NOTE]
-> 이제 Azure 로그인에 대한 다시 시도 논리가 래퍼 스크립트에 기본적으로 제공됩니다. 배포 스크립트와 동일한 Bicep 파일에 사용 권한을 부여하는 경우 배포 스크립트 서비스는 관리 ID 역할 할당이 복제될 때까지 10초 간격으로 10분 동안 로그인을 다시 수행합니다.
+> 이제 Azure 로그인에 대한 다시 시도 논리가 래퍼 스크립트에 기본적으로 제공됩니다. 배포 스크립트와 동일한 Bicep 파일에서 사용 권한을 부여 하는 경우 배포 스크립트 서비스는 관리 되는 id 역할 할당이 복제 될 때까지 10 초 간격으로 10 분 동안 로그인을 다시 시도 합니다.
 
 ### <a name="microsoft-learn"></a>Microsoft Learn
 
-ARM 템플릿 테스트 도구 키트에 대한 자세한 내용과 실습 지침은 **Microsoft Learn** [배포 스크립트를 사용하여 ARM 템플릿 확장을 참조하세요.](/learn/modules/extend-resource-manager-template-deployment-scripts)
+ARM 템플릿 테스트 도구 키트에 대 한 자세한 내용 및 실습 지침은 **Microsoft Learn** 에서 [배포 스크립트를 사용 하 여 arm 템플릿 확장](/learn/modules/extend-resource-manager-template-deployment-scripts) 을 참조 하세요.
 
 ## <a name="configure-the-minimum-permissions"></a>최소 권한 구성
 
 배포 스크립트 API 버전 2020-10-01 이상의 경우 배포 스크립트 실행과 관련된 두 가지 주체가 있습니다.
 
-- **배포** 주체(Bicep 파일을 배포하는 데 사용되는 보안 주체): 이 보안 주체는 배포 스크립트 리소스(스토리지 계정 및 Azure 컨테이너 인스턴스)를 실행하는 데 필요한 기본 리소스를 만드는 데 사용됩니다. 최소 권한 권한을 구성하려면 다음 속성이 있는 사용자 지정 역할을 배포 주체에 할당합니다.
+- **배포 주체** (Bicep 파일을 배포 하는 데 사용 되는 보안 주체):이 보안 주체는 실행 하는 배포 스크립트 리소스 (저장소 계정 및 Azure container instance)에 필요한 기본 리소스를 만드는 데 사용 됩니다. 최소 권한 권한을 구성하려면 다음 속성이 있는 사용자 지정 역할을 배포 주체에 할당합니다.
 
     ```json
     {
@@ -76,14 +76,14 @@ ARM 템플릿 테스트 도구 키트에 대한 자세한 내용과 실습 지�
 
 - **배포 스크립트 주체**: 이 주체는 배포 스크립트가 Azure에 인증하고 Azure CLI/PowerShell을 호출해야 하는 경우에만 필요합니다. 배포 스크립트 주체를 지정하는 방법에는 두 가지가 있습니다.
 
-  - 속성에서 [사용자 할당 관리 ID를 지정합니다(샘플]() `identity` [Bicep 파일](#sample-bicep-files)참조). 지정된 경우 스크립트 서비스는 배포 스크립트를 호출하기 전에 `Connect-AzAccount -Identity`을 호출합니다. 관리 ID에는 스크립트에서 작업을 완료하는 데 필요한 액세스 권한이 있어야 합니다. 현재는 `identity` 속성에 대해 사용자 할당 관리 ID만 지원됩니다. 다른 ID로 로그인하려면 이 목록의 두 번째 메서드를 사용합니다.
+  - 속성에서 [사용자 할당 관리 id]() 를 지정 `identity` 합니다 ( [샘플 Bicep 파일](#sample-bicep-files)참조). 지정된 경우 스크립트 서비스는 배포 스크립트를 호출하기 전에 `Connect-AzAccount -Identity`을 호출합니다. 관리 ID에는 스크립트에서 작업을 완료하는 데 필요한 액세스 권한이 있어야 합니다. 현재는 `identity` 속성에 대해 사용자 할당 관리 ID만 지원됩니다. 다른 ID로 로그인하려면 이 목록의 두 번째 메서드를 사용합니다.
   - 서비스 주체 자격 증명을 보안 환경 변수로 전달한 다음 배포 스크립트에서 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) 또는 [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login&preserve-view=true)을 호출할 수 있습니다.
 
   관리 ID가 사용되는 경우 배포 주체에는 관리 ID 리소스에 할당된 **관리 ID 운영자** 역할(기본 제공 역할)이 필요합니다.
 
 ## <a name="sample-bicep-files"></a>샘플 Bicep 파일
 
-다음 Bicep 파일은 예제입니다. 자세한 내용은 최신 [Bicep 스키마 를 참조하세요.](/azure/templates/microsoft.resources/deploymentscripts?tabs=bicep)
+다음 Bicep 파일을 예로 들 수 있습니다. 자세한 내용은 최신 [Bicep 스키마](/azure/templates/microsoft.resources/deploymentscripts?tabs=bicep)를 참조 하세요.
 
 ```bicep
 resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
@@ -133,7 +133,7 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
 ```
 
 > [!NOTE]
-> 이 예제는 데모용입니다. 및 속성은 `scriptContent` `primaryScriptUri` Bicep 파일에 공존할 수 없습니다.
+> 이 예제는 데모용입니다. 속성 `scriptContent` 및는 `primaryScriptUri` Bicep 파일에 함께 사용할 수 없습니다.
 
 > [!NOTE]
 > _scriptContent_ 는 여러 줄이 포함된 스크립트를 표시합니다.  Azure Portal 및 Azure DevOps 파이프라인은 여러 줄이 있는 배포 스크립트를 구문 분석할 수 없습니다. 세미콜론 또는 _\\r\\n_ 또는  _\\n_ 을 사용하여 PowerShell 명령을 연결하거나 외부 스크립트 파일과 함께 `primaryScriptUri` 속성을 사용할 수 있습니다. 다양한 자유 JSON 문자열 이스케이프/이스케이프 해제 도구를 사용할 수 있습니다. 예를 들어 [https://www.freeformatter.com/json-escape.html](https://www.freeformatter.com/json-escape.html) 와 같습니다.
@@ -142,7 +142,7 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
 
 - `identity`: 배포 스크립트 API 버전 2020-10-01 이상에서는 스크립트에서 Azure 관련 작업을 수행해야 하는 경우가 아니라면 사용자 할당 관리 ID가 선택 사항입니다.  API 버전 2019-10-01-preview의 경우 배포 스크립트 서비스가 스크립트를 실행하는 데 사용하므로 관리 ID가 필요합니다. ID 속성이 지정된 경우 스크립트 서비스는 사용자 스크립트를 호출하기 전에 `Connect-AzAccount -Identity`를 호출합니다. 현재 사용자가 할당한 관리 ID만 지원됩니다. 다른 ID로 로그인하려면 스크립트에서 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)를 호출하면 됩니다.
 - `kind`: 스크립트 유형을 지정합니다. 현재는 Azure PowerShell 및 Azure CLI 스크립트가 지원됩니다. 값은 **AzurePowerShell** 및 **AzureCLI** 입니다.
-- `forceUpdateTag`: Bicep 파일 배포 간에 이 값을 변경하면 배포 스크립트가 다시 실행됩니다. `newGuid()` 또는 `utcNow()` 함수를 사용하는 경우 두 함수는 모두 매개 변수의 기본값에서만 사용할 수 있습니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
+- `forceUpdateTag`: Bicep 파일 배포 간에이 값을 변경 하면 배포 스크립트가 강제로 다시 실행 됩니다. `newGuid()` 또는 `utcNow()` 함수를 사용하는 경우 두 함수는 모두 매개 변수의 기본값에서만 사용할 수 있습니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
 - `containerSettings`: Azure Container Instance를 사용자 지정하려면 설정을 지정합니다. 배포 스크립트에는 새 Azure Container Instance가 필요합니다. 기존 Azure Container Instance는 지정할 수 없습니다. 그러나 `containerGroupName`을 사용하여 컨테이너 그룹 이름을 사용자 지정할 수 있습니다. 지정하지 않으면 그룹 이름이 자동으로 생성됩니다.
 - `storageAccountSettings`: 기존 스토리지 계정을 사용하려면 설정을 지정합니다. `storageAccountName`을 지정하지 않으면 스토리지 계정이 자동으로 만들어집니다. [기존 스토리지 계정 사용](#use-existing-storage-account)을 참조하세요.
 - `azPowerShellVersion`/`azCliVersion`: 사용할 모듈 버전을 지정합니다. [지원되는 Azure PowerShell 버전](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list) 목록을 참조하세요. [지원되는 Azure CLI 버전](https://mcr.microsoft.com/v2/azure-cli/tags/list) 목록을 참조하세요.
@@ -154,15 +154,15 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
 
   배포 스크립트는 [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) 시스템 호출을 불러와 인수를 문자열 배열로 분할합니다. 인수가 Azure Container Instance에 [명령 속성](/rest/api/container-instances/containergroups/createorupdate#containerexec)으로 전달되고 명령 속성이 문자열 배열이기 때문에 이 단계가 필요합니다.
 
-  인수에 이스케이프된 문자가 포함된 경우 double은 문자를 이스케이프했습니다. 예를 들어 이전 샘플 Bicep에서 인수는 `-name \"John Dole\"` 입니다. 이스케이프된 문자열은 `-name \\"John Dole\\"`입니다.
+  인수에 이스케이프 된 문자가 포함 된 경우는 문자를 두 번 이스케이프 합니다. 예를 들어 이전 샘플 Bicep에서 인수는 `-name \"John Dole\"` 입니다. 이스케이프된 문자열은 `-name \\"John Dole\\"`입니다.
 
-  형식 개체의 Bicep 매개 변수를 인수로 전달하려면 [string()](./bicep-functions-string.md#string) 함수를 사용하여 개체를 문자열로 변환한 다음 [replace()](./bicep-functions-string.md#replace) 함수를 사용하여 를 로 대체합니다. `"` `\\"` 예:
+  Object 형식의 Bicep 매개 변수를 인수로 전달 하려면 [string ()](./bicep-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./bicep-functions-string.md#replace) 함수를 사용 하 여 `"` 를로 바꿉니다 `\\"` . 예를 들면 다음과 같습니다.
 
   ```json
   replace(string(parameters('tables')), '"', '\\"')
   ```
 
-  자세한 내용은 샘플 [Bicep 파일 를](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-jsonEscape.bicep)참조하세요.
+  자세한 내용은 [샘플 Bicep 파일](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/deploymentscript-jsonEscape.bicep)을 참조 하세요.
 
 - `environmentVariables`: 스크립트에 전달할 환경 변수를 지정합니다. 자세한 내용은 [배포 스크립트 개발](#develop-deployment-scripts)을 참조하세요.
 - `scriptContent`: 스크립트 콘텐츠를 지정합니다. 외부 스크립트를 실행하려면 `primaryScriptUri`를 대신 사용합니다. 예를 보려면 [인라인 스크립트 사용](#use-inline-scripts) 및 [외부 스크립트 사용](#use-external-scripts)을 참조하세요.
@@ -180,13 +180,13 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
 
 ## <a name="use-inline-scripts"></a>인라인 스크립트 사용
 
-다음 Bicep 파일에는 형식으로 정의된 하나의 리소스가 `Microsoft.Resources/deploymentScripts` 있습니다. 강조 표시된 부분이 인라인 스크립트입니다.
+다음 Bicep 파일에는 해당 형식으로 정의 된 리소스가 하나 있습니다 `Microsoft.Resources/deploymentScripts` . 강조 표시된 부분이 인라인 스크립트입니다.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/inlineScript.bicep" range="1-25" highlight="11-17":::
 
-스크립트는 매개 변수를 사용하여 매개 변수 값을 출력합니다. `DeploymentScriptOutputs`는 출력을 저장하는 데 사용됩니다. 출력 줄은 저장된 값에 액세스하는 방법을 보여줍니다. `Write-Output`은 디버깅용으로 사용됩니다. 출력 파일에 액세스하는 방법에 대한 자세한 내용은 [배포 스크립트 모니터링 및 문제 해결](#monitor-and-troubleshoot-deployment-scripts)을 참조하세요. 속성 설명은 샘플 [Bicep 파일을 참조하세요.](#sample-bicep-files)
+스크립트는 매개 변수를 사용 하 고 매개 변수 값을 출력 합니다. `DeploymentScriptOutputs`는 출력을 저장하는 데 사용됩니다. 출력 줄은 저장 된 값에 액세스 하는 방법을 보여 줍니다. `Write-Output`은 디버깅용으로 사용됩니다. 출력 파일에 액세스하는 방법에 대한 자세한 내용은 [배포 스크립트 모니터링 및 문제 해결](#monitor-and-troubleshoot-deployment-scripts)을 참조하세요. 속성 설명은 [Sample Bicep files](#sample-bicep-files)를 참조 하세요.
 
-위의 콘텐츠를 **inlineScript.bicep이라는 Bicep** 파일에 저장하고 다음 PowerShell 스크립트를 사용하여 Bicep 파일을 배포합니다.
+이전 내용을 **Bicep** 라는 Bicep 파일에 저장 하 고 다음 PowerShell 스크립트를 사용 하 여 Bicep 파일을 배포 합니다.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
@@ -211,7 +211,7 @@ Write-Host "Press [ENTER] to continue ..."
 "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/inlineScript.ps1",
 ```
 
-사용 예제는 외부 [스크립트를](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/deployment-script/externalScript.bicep)참조하세요.
+사용 예제는 [외부 스크립트](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/deployment-script/externalScript.bicep)를 참조 하세요.
 
 외부 스크립트 파일에 액세스할 수 있어야 합니다. Azure Storage 계정에 저장된 스크립트 파일을 보호하려면 SAS 토큰을 생성하여 템플릿의 URI에 포함합니다. 배포를 완료할 만큼 충분한 여유를 두고 만료 기간을 설정합니다. 자세한 내용은 [SAS 토큰을 사용하여 개인 ARM 템플릿 배포](../templates/secure-template-with-sas-token.md)를 참조하세요.
 
@@ -239,15 +239,15 @@ supportingScriptUris: [
 
 ## <a name="work-with-outputs-from-powershell-script"></a>PowerShell 스크립트에서 출력 작업
 
-다음 Bicep 파일은 두 리소스 간에 값을 전달하는 방법을 `deploymentScripts` 보여줍니다.
+다음 Bicep 파일에서는 두 리소스 간에 값을 전달 하는 방법을 보여 줍니다 `deploymentScripts` .
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValues.bicep" range="1-45" highlight="17-18,33":::
 
-첫 번째 리소스에서는 `$DeploymentScriptOutputs`라는 변수를 정의하고 이 변수를 사용하여 출력 값을 저장합니다. 리소스 기호 이름을 사용하여 출력 값에 액세스합니다.
+첫 번째 리소스에서는 `$DeploymentScriptOutputs`라는 변수를 정의하고 이 변수를 사용하여 출력 값을 저장합니다. 리소스 기호화 된 이름을 사용 하 여 출력 값에 액세스 합니다.
 
 ## <a name="work-with-outputs-from-cli-script"></a>CLI 스크립트에서 출력 작업
 
-PowerShell 배포 스크립트와는 달리 CLI/Bash 지원은 스크립트 출력을 저장하는 공통 변수를 노출하지 않으며, 대신 스크립트 출력 파일이 있는 위치를 저장하는 `AZ_SCRIPTS_OUTPUT_PATH`라는 환경 변수가 있습니다. Bicep 파일에서 배포 스크립트를 실행하는 경우 이 환경 변수는 Bash 셸에서 자동으로 설정됩니다. `AZ_SCRIPTS_OUTPUT_PATH`의 값은 */mnt/azscripts/azscriptoutput/scriptoutputs.json* 입니다.
+PowerShell 배포 스크립트와는 달리 CLI/Bash 지원은 스크립트 출력을 저장하는 공통 변수를 노출하지 않으며, 대신 스크립트 출력 파일이 있는 위치를 저장하는 `AZ_SCRIPTS_OUTPUT_PATH`라는 환경 변수가 있습니다. Bicep 파일에서 배포 스크립트를 실행 하는 경우이 환경 변수는 Bash 셸에서 자동으로 설정 됩니다. `AZ_SCRIPTS_OUTPUT_PATH`의 값은 */mnt/azscripts/azscriptoutput/scriptoutputs.json* 입니다.
 
 배포 스크립트 출력은 `AZ_SCRIPTS_OUTPUT_PATH` 위치에 저장해야 하며 출력은 유효한 JSON 문자열 개체여야 합니다. 파일의 내용은 키-값 쌍으로 저장해야 합니다. 예를 들어 문자열의 배열은 `{ "MyResult": [ "foo", "bar"] }`로 저장됩니다.  배열 결과만 저장하는 것은 유효하지 않습니다(예: `[ "foo", "bar" ]`).
 
@@ -277,7 +277,7 @@ PowerShell 배포 스크립트와는 달리 CLI/Bash 지원은 스크립트 출�
 - 스토리지 계정 방화벽 규칙은 아직 지원되지 않습니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../../storage/common/storage-network-security.md)을 참조하세요.
 - 배포 주체에는 스토리지 계정을 관리할 수 있는 사용 권한이 있어야 합니다. 여기에는 파일 공유 읽기, 만들기, 삭제가 포함됩니다.
 
-기존 스토리지 계정을 지정하려면 의 속성 요소에 다음 Bicep을 추가합니다. `Microsoft.Resources/deploymentScripts`
+기존 저장소 계정을 지정 하려면의 property 요소에 다음 Bicep를 추가 합니다 `Microsoft.Resources/deploymentScripts` .
 
 ```bicep
 storageAccountSettings: {
@@ -296,7 +296,7 @@ storageAccountSettings: {
     }
     ```
 
-전체 정의 [샘플은 샘플 Bicep 파일을](#sample-bicep-files) 참조하세요. `Microsoft.Resources/deploymentScripts`
+전체 정의 샘플은 [Sample Bicep file](#sample-bicep-files) 을 참조 하세요 `Microsoft.Resources/deploymentScripts` .
 
 기존 스토리지 계정이 사용되는 경우 스크립트 서비스는 고유한 이름을 사용하여 파일 공유를 만듭니다. 스크립트 서비스에서 파일 공유를 정리하는 방법은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 

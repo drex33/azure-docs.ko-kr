@@ -1,5 +1,5 @@
 ---
-title: 모니터 Azure Cognitive Search
+title: Azure Cognitive Search 모니터링
 description: 리소스 로깅을 사용하도록 설정하고, 쿼리 메트릭, 리소스 사용량 및 Azure Cognitive Search 서비스에 대한 기타 시스템 데이터를 얻습니다.
 manager: nitinme
 author: HeidiSteen
@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2021
 ms.custom: subject-monitoring
-ms.openlocfilehash: 91a5af08f5a277ad2373062310362dde6c0c56a3
-ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
+ms.openlocfilehash: cf9086c82d9592ff4b665808df5b46f06f78be2c
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2021
-ms.locfileid: "133218029"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133519603"
 ---
 # <a name="monitoring-azure-cognitive-search"></a>모니터링 Azure Cognitive Search
 
@@ -85,9 +85,9 @@ Azure Monitor의 모든 리소스 로그에는 동일한 필드와 그 뒤에 �
 
 [활동 로그는](/azure/azure-monitor/essentials/activity-log) 구독 수준 이벤트에 대한 인사이트를 제공하는 Azure 내의 플랫폼 로그 유형입니다. 활동 로그는 독립적으로 보거나 Azure Monitor Logs로 라우팅할 수 있습니다. 여기서 Log Analytics를 사용하여 훨씬 더 복잡한 쿼리를 수행할 수 있습니다.  
 
-Azure Cognitive Search 대해 수집된 리소스 로그 유형 목록은 Azure Cognitive Search 모니터링 [데이터 참조(리소스 로그)를 참조하세요.](monitor-azure-cognitive-search-data-reference.md#resource-logs)
+Azure Cognitive Search 대해 수집된 리소스 로그 유형 목록은 모니터링 데이터 [참조(리소스 로그) Azure Cognitive Search 참조하세요.](monitor-azure-cognitive-search-data-reference.md#resource-logs)
 
-Azure Monitor Logs에서 사용하고 Log Analytics에서 쿼리할 수 있는 테이블 목록은 [Azure Cognitive Search 모니터링 데이터 참조(Azure Monitor Logs Tables)를 참조하세요.](monitor-azure-cognitive-search-data-reference.md#azure-monitor-logs-tables)
+Azure Monitor Logs에서 사용하고 Log Analytics에서 쿼리할 수 있는 테이블 목록은 [Azure Cognitive Search 모니터링 데이터 참조(Azure Monitor 로그 테이블)를 참조하세요.](monitor-azure-cognitive-search-data-reference.md#azure-monitor-logs-tables)
 
 > [!NOTE]
 > 포털 페이지는 몇 분 마다 새로고침되고, 보고된 숫자는 근사값이며, 시스템에서 요청을 처리하는 정도에 대한 일반적 개념을 제공하기 위한 것입니다. 초당 쿼리 수(QPS)와 같은 실제 메트릭은 페이지에 표시되는 숫자보다 크거나 작을 수 있습니다. 정밀도가 요구 사항인 경우 API를 사용하는 것이 좋습니다.
@@ -97,7 +97,7 @@ Azure Monitor Logs에서 사용하고 Log Analytics에서 쿼리할 수 있는 �
 > [!IMPORTANT]
 > Azure Cognitive Search 메뉴에서 **로그를** 선택하면 쿼리 범위가 현재 검색 서비스로 설정된 상태로 Log Analytics가 열립니다. 즉, 로그 쿼리에는 해당 리소스의 데이터만 포함됩니다. 다른 검색 서비스의 데이터 또는 다른 Azure 서비스의 데이터가 포함된 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그를** 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](/azure/azure-monitor/logs/scope)를 참조하세요.
 
-다음은 검색 서비스를 모니터링하는 데 사용할 수 있는 쿼리입니다.
+다음은 검색 서비스를 모니터링하는 데 사용할 수 있는 쿼리입니다. 스키마 요소에 대한 설명은 [**Azure Cognitive Search 모니터링 데이터 참조를 참조하세요.**](monitor-azure-cognitive-search-data-reference.md)
 
 #### <a name="list-metrics-by-name"></a>이름별 메트릭 나열
 
@@ -142,9 +142,9 @@ AzureDiagnostics
 
 Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견될 때 사용자에게 사전에 알립니다. 이를 통해 고객이 알기 전에 시스템 문제를 식별하고 해결할 수 있습니다. [메트릭](/azure/azure-monitor/alerts/alerts-metric-overview), [로그](/azure/azure-monitor/alerts/alerts-unified-log) 및 [활동 로그](/azure/azure-monitor/alerts/activity-log-alerts)에서 경고를 설정할 수 있습니다. 서로 다른 형식의 경고에는 장점과 단점이 있습니다.
 
-다음 표에서는 Azure Cognitive Search 대한 일반 및 권장 경고 규칙을 나열합니다. 검색 서비스에서 지정된 임계값을 초과하는 제한 또는 쿼리 대기 시간이 가장 일반적으로 사용되는 경고이지만 검색 서비스가 삭제되면 알림을 받을 수도 있습니다.
+다음 표에는 Azure Cognitive Search 대한 일반 및 권장 경고 규칙이 나와 있습니다. 검색 서비스에서 지정된 임계값을 초과하는 제한 또는 쿼리 대기 시간이 가장 일반적으로 사용되는 경고이지만 검색 서비스가 삭제되면 알림을 받을 수도 있습니다.
 
-| 경고 유형 | 조건 | Description  |
+| 경고 유형 | 조건 | 설명  |
 |:---|:---|:---|
 | 검색 대기 시간(메트릭 경고) | 평균 검색 대기 시간이 15초보다 클 때마다 | 평균 쿼리 응답 시간이 15초를 초과하면 SMS 경고를 보냅니다. |
 | 제한 검색 쿼리 백분율(메트릭 경고) | 총 제한 검색 쿼리 비율이 20%보다 크거나 같은 경우 | 삭제된 쿼리가 10%를 초과하기 시작하면 SMS 경고를 보냅니다.|
@@ -155,7 +155,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Cognitive Search와 같은 리소스를 포함하여 Azure 서비스를 감독하는 데 Azure Monitor를 능숙하게 다루는 것이 필요합니다. Azure Monitor 익숙하지 않은 경우 시간을 내어 리소스 로깅과 관련된 문서를 검토하세요. 다음 문서를 시작하는 것이 좋습니다.
+Azure Cognitive Search와 같은 리소스를 포함하여 Azure 서비스를 감독하는 데 Azure Monitor를 능숙하게 다루는 것이 필요합니다. Azure Monitor에 익숙하지 않은 경우 시간을 사용 하 여 리소스 로깅과 관련 된 문서를 검토 합니다. 다음 문서를 시작 하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
 > [Azure Monitor를 사용하여 Azure 리소스 모니터링](../azure-monitor/essentials/monitor-azure-resource.md)

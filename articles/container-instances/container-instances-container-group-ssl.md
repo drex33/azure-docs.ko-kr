@@ -3,12 +3,12 @@ title: 사이드카 컨테이너로 TLS 사용
 description: 사이드카 컨테이너에서 Nginx를 실행하여 Azure Container Instances에서 실행되는 컨테이너 그룹에 대한 SSL 또는 TLS 엔드포인트를 만듭니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: bc9300176a63f96a53fc26108f5acf344d79d2d1
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 5d5e609427c281b0db601084e50b09bce22a1593
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131080235"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133519314"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>사이드카 컨테이너에서 TLS 엔드포인트 사용
 
@@ -18,7 +18,7 @@ ms.locfileid: "131080235"
 * 퍼블릭 Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) 이미지를 사용하여 간단한 웹앱을 실행하는 애플리케이션 컨테이너입니다.
 * TLS를 사용하도록 구성된 퍼블릭 [Nginx](https://hub.docker.com/_/nginx) 이미지를 실행하는 사이드카 컨테이너입니다.
 
-이 예제에서 컨테이너 그룹은 공용 IP 주소를 사용하여 Nginx 포트 443만 노출합니다. Nginx는 포트 80에서 내부적으로 수신 대기하는 도우미 웹앱에 대한 HTTPS 요청을 라우팅합니다. 다른 포트에서 수신 대기하는 컨테이너 앱에 대한 예제를 적용할 수 있습니다.
+이 예제에서 컨테이너 그룹은 공용 IP 주소를 사용하여 Nginx 포트 443만 노출합니다. Nginx는 포트 80에서 내부적으로 수신 대기하는 도우미 웹앱에 대한 HTTPS 요청을 라우팅합니다. 다른 포트에서 수신 대기 하는 컨테이너 응용 프로그램에 대 한 예제를 적용할 수 있습니다.
 
 컨테이너 그룹에서 TLS를 사용하도록 설정하는 다른 방법은 [다음 단계](#next-steps)를 참조하세요.
 

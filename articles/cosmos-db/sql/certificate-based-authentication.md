@@ -9,12 +9,12 @@ ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c60e11f3eea75e9540087e138ca2e5bb97092620
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
-ms.translationtype: HT
+ms.openlocfilehash: 21a82aa8f8b67c98fa002a690f0d291641835839
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116492"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133519468"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에서 키에 액세스할 수 있는 Azure AD ID에 대한 인증서 기반 인증
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -71,6 +71,8 @@ ms.locfileid: "123116492"
    ```powershell
    Install-Module AzureAD
    Import-Module AzureAD 
+   # On PowerShell 7.x, use the -UseWindowsPowerShell parameter
+   # Import-Module AzureAD -UseWindowsPowerShell
    ```
 
 ## <a name="sign-into-your-azure-ad"></a>Azure AD에 로그인

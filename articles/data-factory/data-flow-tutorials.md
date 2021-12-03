@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: tutorial
-ms.date: 10/27/2021
-ms.openlocfilehash: ebc0b5e3bc73bed000d5a30935a670f3e2e2b024
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 12/01/2021
+ms.openlocfilehash: 70d8456691b94cc5dd24183e4a9ffdaad7be894b
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131464626"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133518647"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -99,6 +99,10 @@ ms.locfileid: "131464626"
 [복합 데이터 형식 변환](https://youtu.be/Wk0C76wnSDE)
 
 [다음 작업으로 출력](http://youtu.be/r1m3Ya14qpE?hd=1)
+
+[Stringify 변환](https://www.youtube.com/watch?v=1X4sRHf5W2U)
+
+[외부 호출 변환](https://www.youtube.com/watch?v=dIMfbwX8r0A)
 
 ## <a name="source-and-sink"></a>원본 및 싱크
 

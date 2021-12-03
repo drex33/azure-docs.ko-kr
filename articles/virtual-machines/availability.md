@@ -38,7 +38,7 @@ ms.locfileid: "130161236"
 
 
 ## <a name="load-balancer"></a>부하 분산 장치
-[Azure Load Balancer](../load-balancer/load-balancer-overview.md)를 가용성 영역 또는 가용성 집합과 결합하여 애플리케이션 복원력을 극대화합니다. Azure 부하 분산 장치는 트래픽을 여러 가상 머신에 분산시킵니다. 표준 계층 가상 머신의 경우 Azure 부하 분산 장치가 포함되어 있습니다. 모든 가상 머신 계층에 Azure Load Balancer가 포함되어 있는 것은 아닙니다. 가상 머신 부하 분산에 대한 자세한 내용은 [Linux](linux/tutorial-load-balancer.md) 또는 [Windows](windows/tutorial-load-balancer.md)의 **가상 머신 부하 분산** 을 참조하세요.
+[Azure Load Balancer](../load-balancer/load-balancer-overview.md)를 가용성 영역 또는 가용성 집합과 결합하여 애플리케이션 복원력을 극대화합니다. Azure Load Balancer는 트래픽을 여러 가상 머신에 분산시킵니다. 표준 계층 가상 머신의 경우 Azure Load Balancer가 포함되어 있습니다. 모든 가상 머신 계층에 Azure Load Balancer가 포함되어 있는 것은 아닙니다. 가상 머신 부하 분산에 대한 자세한 내용은 [Linux](linux/tutorial-load-balancer.md) 또는 [Windows](windows/tutorial-load-balancer.md)의 **가상 머신 부하 분산** 을 참조하세요.
 
 
 ## <a name="azure-storage-redundancy"></a>Azure Storage 중복성

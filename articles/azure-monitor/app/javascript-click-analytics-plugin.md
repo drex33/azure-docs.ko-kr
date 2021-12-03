@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: e1a0ab71ce8d5970b1239f70a058ee7a663117da
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 4499e90b4a586ac228f7c1704c3bcffb9808f9ab
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132705"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133518436"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Application Insights JavaScript SDK용 클릭 분석 자동 수집 플러그 인
 
@@ -102,7 +102,7 @@ appInsights.loadAppInsights();
     
     > [!CAUTION]
     > `parentDataTag`가 사용되면 SDK는 이 태그를 사용한 HTML 요소뿐만 아니라 전체 애플리케이션에서 부모 태그를 검색하기 시작합니다.
-4. 사용자가 제공한 `customDataPrefix`는 항상 `data-`로 시작해야 합니다(예: `data-sample-`). HTML에서 `data-*` 전역 특성은 사용자 지정 데이터 특성이라고 하는 특성 클래스를 구성합니다. 이 특성을 통해 HTML과 스크립트의 DOM 표시 간에 독점 정보를 교환할 수 있습니다. 이전 브라우저(Internet Explorer, Safari)는 `data-`로 시작하지 않는 한 인식되지 않는 특성을 삭제합니다.
+4. 사용자가 제공한 `customDataPrefix`는 항상 `data-`로 시작해야 합니다(예: `data-sample-`). HTML에서는 `data-*` 전역 특성을 사용자 지정 데이터 특성 이라고 하며,이 특성을 사용 하면 html과 스크립트의 DOM 표시 간에 독점 정보를 교환할 수 있습니다. 이전 브라우저(Internet Explorer, Safari)는 `data-`로 시작하지 않는 한 인식되지 않는 특성을 삭제합니다.
 
     `data-*`의 `*`는 [XML 이름 생성 규칙](https://www.w3.org/TR/REC-xml/#NT-Name)에 따라 임의의 이름으로 바꿀 수 있으며 다음과 같은 제한 사항이 있습니다.
     - 이름은 대문자인지 소문자인지에 관계없이 “xml”로 시작하지 않아야 합니다.
@@ -116,14 +116,14 @@ appInsights.loadAppInsights();
 ### <a name="custom-event-properties"></a>사용자 지정 이벤트 속성
 | 이름                  | 설명                            | 예제          |
 | --------------------- | ---------------------------------------|-----------------|
-| name                  | customEvent의 `name`입니다. 이 속성을 채우는 방법에 대한 자세한 내용은 [여기](#how-to-effectively-use-the-plugin)에 있습니다.| 정보              |
+| Name                  | customEvent의 `name`입니다. 이름을 채우는 방법에 대 한 자세한 내용은 [여기](#how-to-effectively-use-the-plugin)에 나와 있습니다.| 정보              |
 | itemType              | 이벤트 유형입니다.                                      | customEvent      |
-|sdkVersion             | 클릭 플러그 인과 함께 사용하는 Application Insights SDK 버전입니다.|javascript:2.6.2_ClickPlugin2.6.2|
+|sdkVersion             | 플러그 인 클릭과 함께 Application Insights SDK 버전|JavaScript: 2.6.2_ClickPlugin2.6.2|
 
 ### <a name="custom-dimensions"></a>사용자 지정 차원
 | 이름                  | 설명                            | 예제          |
 | --------------------- | ---------------------------------------|-----------------|
-| actionType            | 클릭 이벤트를 발생시킨 동작 유형입니다. 마우스 왼쪽 단추를 클릭할 수도 있고 오른쪽 단추를 클릭할 수도 있습니다. | CL              |
+| actionType            | 클릭 이벤트를 발생시킨 동작 유형입니다. 왼쪽 또는 오른쪽 클릭을 사용할 수 있습니다. | CL              |
 | baseTypeSource        | 사용자 지정 이벤트의 기본 유형 원본입니다.                                      | ClickEvent      |
 | clickCoordinates      | 클릭 이벤트가 트리거되는 위치를 조정합니다.                            | 659X47          |
 | 콘텐츠               | 추가 `data-*` 특성 및 값을 저장하는 자리 표시자입니다.            | [{sample1:value1, sample2:value2}] |
@@ -133,45 +133,45 @@ appInsights.loadAppInsights();
 ### <a name="custom-measurements"></a>사용자 지정 측정입니다.
 | 이름                  | 설명                            | 예제          |
 | --------------------- | ---------------------------------------|-----------------|
-| timeToAction          | 초기 페이지 로드 이후 사용자가 요소를 클릭하는 데 걸린 시간(밀리초)입니다. | 87407              |
+| timeToAction          | 초기 페이지 로드 이후 사용자가 요소를 클릭 하는 데 걸린 시간 (밀리초)입니다. | 87407              |
 
 ## <a name="configuration"></a>구성
 
-| 이름                  | Type                               | 기본값 | Description                                                                                                                              |
+| 속성                  | Type                               | 기본값 | 설명                                                                                                                              |
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
-| autoCapture           | boolean                            | true    | 자동 캡처 구성입니다.                                |
-| 콜백(callback)              | [IValueCallback](#ivaluecallback)  | null    | 콜백 구성입니다.                               |
-| pageTags              | 문자열                             | null    | 페이지 태그입니다.                                             |
-| dataTags              | [ICustomDataTags](#icustomdatatags)| null    | 클릭 데이터를 캡처하는 데 사용되는 기본 태그를 재정의하도록 제공된 사용자 지정 데이터 태그입니다. |
-| urlCollectHash        | boolean                            | false   | URL의 “#” 문자 뒤에 있는 값 로깅을 사용하도록 설정합니다.                |
-| urlCollectQuery       | boolean                            | false   | URL의 쿼리 문자열 로깅을 사용하도록 설정합니다.                            |
-| behaviorValidator     | 함수                           | null  | `data-*-bhvr` 값 유효성 검사에 사용할 콜백 함수입니다. 자세한 내용을 보려면 [behaviorValidator 섹션](#behaviorvalidator)으로 이동하세요.|
-| defaultRightClickBhvr | 문자열 또는 숫자                 | ''      | 마우스 오른쪽 단추 클릭 이벤트가 발생하는 경우의 기본 동작 값입니다. 요소에 `data-*-bhvr` 특성이 있으면 이 값이 재정의됩니다. |
-| dropInvalidEvents     | boolean                            | false   | 유용한 클릭 데이터가 없는 이벤트를 삭제하기 위한 플래그입니다.                                                                                   |
+| 자동 캡처           | 부울                            | True    | 자동 캡처 구성입니다.                                |
+| 콜백(callback)              | [IValueCallback](#ivaluecallback)  | Null    | 콜백 구성입니다.                               |
+| pageTags              | 문자열                             | Null    | 페이지 태그입니다.                                             |
+| dataTags              | [ICustomDataTags](#icustomdatatags)| Null    | 클릭 데이터를 캡처하는 데 사용되는 기본 태그를 재정의하도록 제공된 사용자 지정 데이터 태그입니다. |
+| urlCollectHash        | 부울                            | 아니요   | URL의 “#” 문자 뒤에 있는 값 로깅을 사용하도록 설정합니다.                |
+| urlCollectQuery       | 부울                            | 아니요   | URL의 쿼리 문자열 로깅을 사용하도록 설정합니다.                            |
+| behaviorValidator     | 함수                           | Null  | `data-*-bhvr` 값 유효성 검사에 사용할 콜백 함수입니다. 자세한 내용을 보려면 [behaviorValidator 섹션](#behaviorvalidator)으로 이동하세요.|
+| defaultRightClickBhvr | 문자열 (또는) 숫자                 | ''      | 마우스 오른쪽 단추 클릭 이벤트가 발생하는 경우의 기본 동작 값입니다. 요소에 `data-*-bhvr` 특성이 있으면 이 값이 재정의됩니다. |
+| dropInvalidEvents     | 부울                            | 아니요   | 유용한 클릭 데이터가 없는 이벤트를 삭제하기 위한 플래그입니다.                                                                                   |
 
 ### <a name="ivaluecallback"></a>IValueCallback
 
 | 이름               | Type     | 기본값 | 설명                                                                             |
 | ------------------ | -------- | ------- | --------------------------------------------------------------------------------------- |
-| pageName           | 함수 | null    | 기본 pageName 캡처 동작을 재정의하는 함수입니다.                           |
-| pageActionPageTags | 함수 | null    | pageAction 이벤트 중에 수집되는 기본 pageTags를 늘리는 콜백 함수입니다.  |
-| contentName        | 함수 | null    | 사용자 지정된 contentName을 채우는 콜백 함수입니다.                                 |
+| pageName           | 함수 | Null    | 기본 pageName 캡처 동작을 재정의하는 함수입니다.                           |
+| pageActionPageTags | 함수 | Null    | pageAction 이벤트 중에 수집되는 기본 pageTags를 늘리는 콜백 함수입니다.  |
+| contentName        | 함수 | Null    | 사용자 지정된 contentName을 채우는 콜백 함수입니다.                                 |
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
 | 이름                      | Type    | 기본값   | HTML에 사용할 기본 태그 |   Description                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
-| useDefaultContentNameOrId | boolean | false     | 해당 없음         |특정 요소가 기본 customDataPrefix로 태그 지정되지 않은 경우 또는 사용자가 customDataPrefix를 제공하지 않은 경우 contentName의 표준 HTML 특성을 수집합니다. |
-| customDataPrefix          | 문자열  | `data-`   | `data-*`| 제공된 접두사로 태그 지정된 요소의 콘텐츠 이름과 값을 자동으로 캡처합니다. 예를 들어 `data-*-id`, `data-<yourcustomattribute>`가 HTML 태그에 사용될 수 있습니다.   |
-| aiBlobAttributeTag        | 문자열  | `ai-blob` |  `data-ai-blob`| 플러그 인이 개별 `data-*` 특성 대신 JSON blob 특성을 지원합니다. |
-| metaDataPrefix            | 문자열  | null      | 해당 없음  | 캡처 시 제공된 접두사를 사용하여 HTML 헤드의 메타 요소 이름 및 콘텐츠를 자동으로 캡처합니다. 예를 들어 `custom-`가 HTML Meta 태그에 사용될 수 있습니다. |
-| captureAllMetaDataContent | boolean | false     | 해당 없음   | 모든 HTML 헤드의 메타 요소 이름 및 콘텐츠를 자동으로 캡처합니다. 기본값은 false입니다. 사용하도록 설정하면 제공된 metaDataPrefix를 재정의합니다. |
-| parentDataTag             | 문자열  | null      |  해당 없음  | 이 태그가 사용된 경우 요소의 콘텐츠 이름 및 값을 캡처하는 DOM 트래버스를 중지합니다. 예를 들어, `data-<yourparentDataTag>`가 HTML 태그에 사용될 수 있습니다.|
-| dntDataTag                | 문자열  | `ai-dnt`  |  `data-ai-dnt`| 이 특성이 사용된 HTML 요소는 원격 분석 데이터를 캡처하는 플러그 인에서 무시됩니다.|
+| useDefaultContentNameOrId | 부울 | 아니요     | 해당 없음         |특정 요소가 기본 customDataPrefix로 태그 지정되지 않은 경우 또는 사용자가 customDataPrefix를 제공하지 않은 경우 contentName의 표준 HTML 특성을 수집합니다. |
+| customDataPrefix          | String  | `data-`   | `data-*`| 제공된 접두사로 태그 지정된 요소의 콘텐츠 이름과 값을 자동으로 캡처합니다. 예를 들어 `data-*-id`, `data-<yourcustomattribute>`가 HTML 태그에 사용될 수 있습니다.   |
+| aiBlobAttributeTag        | String  | `ai-blob` |  `data-ai-blob`| 플러그 인이 개별 `data-*` 특성 대신 JSON blob 특성을 지원합니다. |
+| metaDataPrefix            | 문자열  | Null      | 해당 없음  | 캡처 시 제공된 접두사를 사용하여 HTML 헤드의 메타 요소 이름 및 콘텐츠를 자동으로 캡처합니다. 예를 들어 `custom-`가 HTML Meta 태그에 사용될 수 있습니다. |
+| captureAllMetaDataContent | 부울 | 아니요     | 해당 없음   | 모든 HTML 헤드의 메타 요소 이름 및 콘텐츠를 자동으로 캡처합니다. 기본값은 false입니다. 사용하도록 설정하면 제공된 metaDataPrefix를 재정의합니다. |
+| parentDataTag             | 문자열  | Null      |  해당 없음  | 이 태그가 사용된 경우 요소의 콘텐츠 이름 및 값을 캡처하는 DOM 트래버스를 중지합니다. 예를 들어, `data-<yourparentDataTag>`가 HTML 태그에 사용될 수 있습니다.|
+| dntDataTag                | String  | `ai-dnt`  |  `data-ai-dnt`| 이 특성이 사용된 HTML 요소는 원격 분석 데이터를 캡처하는 플러그 인에서 무시됩니다.|
 
 ### <a name="behaviorvalidator"></a>behaviorValidator
 
-behaviorValidator 함수는 코드의 태그 지정된 동작이 미리 정의된 목록에 부합하는지 자동으로 확인합니다. 이를 통해 태그 지정된 동작이 기업에서 설정한 분류와 일관성을 가지도록 할 수 있습니다. 대부분의 Azure Monitor 고객에게는 이 함수 사용이 필수가 아니거나 필요하지 않지만 고급 시나리오의 경우 사용할 수 있습니다. 이 확장의 일부로 공개되는 behaviorValidator 콜백 함수는 세 가지가 있습니다. 하지만 공개된 함수로 요구 사항을 해결하지 못하는 경우 사용자가 고유한 콜백 함수를 사용할 수 있습니다. 고유한 동작 데이터 구조를 가져오도록 하기 위해 데이터 태그에서 동작을 추출하는 동안 플러그 인은 이 유효성 검사기 함수를 사용합니다.
+behaviorValidator 함수는 코드의 태그 지정된 동작이 미리 정의된 목록에 부합하는지 자동으로 확인합니다. 이를 통해 태그 지정된 동작이 기업에서 설정한 분류와 일관성을 가지도록 할 수 있습니다. 대부분의 Azure Monitor 고객은 이러한 기능을 사용 하지만 고급 시나리오에 사용할 수 있는 것은 필수는 아닙니다. 이 확장의 일부로 공개되는 behaviorValidator 콜백 함수는 세 가지가 있습니다. 하지만 공개된 함수로 요구 사항을 해결하지 못하는 경우 사용자가 고유한 콜백 함수를 사용할 수 있습니다. 고유한 동작 데이터 구조를 가져오도록 하기 위해 데이터 태그에서 동작을 추출하는 동안 플러그 인은 이 유효성 검사기 함수를 사용합니다.
 
 | 이름                   | Description                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
@@ -370,7 +370,8 @@ appInsights.loadAppInsights();
 
 ## <a name="next-steps"></a>다음 단계
 
+- 확장 된 제품 분석을 위해 [하트 통합 문서를 활용](usage-heart.md) 하는 방법에 대 한 설명서를 확인 하세요.
 - 클릭 분석 자동 수집 플러그 인에 대한 [GitHub 리포지토리](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) 및 [NPM 패키지](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js)를 확인합니다.
 - [사용 환경의 이벤트 분석](usage-segmentation.md)을 사용하여 사용 가능한 차원별 상위 클릭 및 슬라이스를 분석합니다.
-- [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query)의 CustomEvents 테이블에 있는 customDimensions 특성 내 콘텐츠 필드에서 데이터 클릭을 찾습니다. 추가 지침은 [샘플 앱](https://go.microsoft.com/fwlink/?linkid=2152871)을 참조하세요.
+- [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query)의 CustomEvents 테이블에 있는 customDimensions 특성 내 콘텐츠 필드에서 데이터 클릭을 찾습니다. 자세한 내용은 [샘플 앱](https://go.microsoft.com/fwlink/?linkid=2152871)을 참조 하세요.
 - [통합 문서](../visualize/workbooks-overview.md)를 빌드하거나 [Power BI로 내보내서](../logs/log-powerbi.md#integrating-queries) 클릭 데이터에 대한 사용자 지정 시각화를 만듭니다.

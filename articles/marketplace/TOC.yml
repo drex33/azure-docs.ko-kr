@@ -419,8 +419,6 @@
       href: gtm-how-to-get-featured.md
     - name: 잠재 고객 관리 구성
       items:
-        - name: Azure Blob
-          href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
         - name: Azure 테이블
           href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
         - name: Dynamics 365 for Customer Engagement
@@ -625,3 +623,5 @@
       href: reference-architecture-diagram.md
     - name: 고객 설명서
       href: /marketplace/
+    - name: Azure Blob
+      href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md

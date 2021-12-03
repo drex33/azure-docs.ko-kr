@@ -4,50 +4,27 @@ metadata:
   description: Azure IoT Central 질문과 대답(FAQ)
   author: dominicbetts
   ms.author: dobett
-  ms.date: 12/20/2020
+  ms.date: 07/14/2021
   ms.topic: how-to
   ms.service: iot-central
   services: iot-central
-  ms.openlocfilehash: 0d18679d8821a003d18c127af69487e97f68cfcf
-  ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+  ms.openlocfilehash: 7d662f0578befb3aa67eb0b7f20165b1549748e6
+  ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/14/2021
-  ms.locfileid: "113799235"
+  ms.lasthandoff: 12/03/2021
+  ms.locfileid: "133519698"
 title: IoT Central에 대한 질문과 대답
 summary: ''
 sections:
-- name: 무시됨
+- name: 일반
   questions:
   - question: >
       내 애플리케이션에 대한 정보를 얻으려면 어떻게 할까요?
     answer: "다음이 필요할 수도 있습니다.\n\n- 고객 지원팀에 문의하는 경우 이 정보가 필요합니다.\n- 애플리케이션이 Azure Portal에서 청구 정보를 찾는 데 사용하는 Azure 구독이 필요합니다.\n- REST API로 작업하는 경우 애플리케이션 ID가 필요합니다.\n- 커넥터 추가와 같은 작업을 완료하려면 애플리케이션 버전이 필요합니다.\n\nIoT Central 애플리케이션에 대한 정보를 가져오려면 다음을 수행합니다.\n\n1. 최상위 메뉴에서 **도움말** 링크를 선택합니다.\n\n1. **앱 정보** 를 선택합니다.\n\n1. **앱 정보** 페이지에 애플리케이션에 대한 정보가 표시됩니다.  \n\n    :::image type=\"content\" source=\"media/howto-faq/about-your-app2.png\" alt-text=\"앱 정보 스크린샷\":::\n\n    **정보 복사** 단추를 사용하여 정보를 클립보드에 복사합니다.\n"
   - question: >
       내 구독에서 배포할 수 있는 IoT Central 애플리케이션은 몇 개인가요?
-    answer: >
-      각 Azure 구독에는 IoT 솔루션의 범위에 영향을 줄 수 있는 기본 할당량이 있습니다. 현재 IoT Central은 구독 시 배포할 수 있는 애플리케이션 수를 10개로 제한합니다. 이 제한을 늘려야 하는 경우 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
-  - question: >
-      디바이스를 IoT Hub에서 IoT Central로 전송하려면 어떻게 할까요?
-    answer: >
-      디바이스에서 연결 문자열을 사용하거나 [DPS(Device Provisioning Service)](../../iot-dps/about-iot-dps.md)를 사용하여 IoT 허브에 직접 연결할 수 있습니다. IoT Central은 항상 DPS를 사용합니다.
-
-
-      IoT Hub에 연결된 디바이스를 IoT Central에 연결하려면 다음을 사용하여 디바이스를 업데이트합니다.
-
-
-      - IoT Central 애플리케이션의 범위 ID
-
-      - 애플리케이션의 그룹 SAS 키 또는 X.509 인증서에서 파생된 키
-
-
-      자세한 내용은 [Azure IoT Central에 연결](concepts-get-connected.md)을 참조하세요.
-
-
-      IoT Central을 상호 작용하려면 디바이스 기능을 모델링하는 디바이스 템플릿이 있어야 합니다. 자세한 내용은 [디바이스 템플릿이란?](concepts-device-templates.md)을 참조하세요.
-  - question: >
-      디바이스가 내 IoT Central 애플리케이션에 연결하지 않는 경우 자격 증명 문제를 어떻게 확인할까요?
-    answer: >
-      [디바이스의 데이터가 Azure IoT Central에 표시되지 않는 이유 문제 해결](troubleshoot-connection.md)에는 디바이스의 연결 문제를 진단하는 단계가 포함되어 있습니다.
+    answer: "각 Azure 구독에는 IoT 솔루션의 범위에 영향을 줄 수 있는 기본 할당량이 있습니다. 현재 IoT Central은 구독 시 배포할 수 있는 애플리케이션 수를 10개로 제한합니다. 이 제한을 늘려야 하는 경우 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.\n          \n"
   - question: >
       고객 지원팀에 티켓을 어떻게 제출하나요?
     answer: >
@@ -56,15 +33,25 @@ sections:
 
       기타 지원 옵션을 비롯한 자세한 내용은 [Azure IoT 지원 및 도움말 옵션](../../iot-fundamentals/iot-support-help.md)을 참조하세요.
   - question: >
-      디바이스의 차단을 어떻게 해제할까요?
+      IoT Hub에 대한 자세한 내용은 어디서 확인할 수 있나요?
     answer: >
-      디바이스가 차단되면 데이터를 IoT Central 애플리케이션에 보낼 수 없습니다. 차단된 디바이스의 상태는 애플리케이션의 **디바이스** 페이지에서 **차단** 으로 설정됩니다. 운영자가 데이터 보내기를 다시 시작하려면 먼저 디바이스를 차단 해제해야 합니다.
+      Azure IoT Central은 디바이스 연결을 가능하게 하는 클라우드 게이트웨이로 Azure IoT Hub를 사용합니다. IoT Hub의 기능은 다음과 같습니다.
 
 
-      :::image type="content" source="media/howto-faq/blocked.png" alt-text="차단된 디바이스를 보여 주는 스크린샷":::
+      - 클라우드에서 대규모 데이터 수집.
+
+      - 디바이스 관리.
+
+      - 디바이스 연결 보안.
 
 
-      운영자가 디바이스의 차단을 해제하면 상태가 이전 값인 **등록됨** 또는 **프로비전됨** 으로 돌아갑니다.
+      IoT Hub에 대한 자세한 내용은 [Azure IoT Hub](../../iot-hub/index.yml)를 참조하세요.
+  - question: >
+      DPS(Device Provisioning Service)에 대한 자세한 내용은 어디서 확인할 수 있나요?
+    answer: >
+      Azure IoT Central은 DPS를 사용하여 디바이스가 애플리케이션에 연결할 수 있도록 합니다. 디바이스를 IoT Central에 연결하는 데 DPS가 수행하는 역할에 대한 자세한 내용은 [Azure IoT Central에 연결](concepts-get-connected.md)을 참조하세요. DPS에 대한 자세한 내용은 [Azure IoT Hub Device Provisioning Service로 디바이스 프로비전](../../iot-dps/about-iot-dps.md)을 참조하세요.
+- name: 가격 책정
+  questions:
   - question: >
       무료 요금제에서 표준 요금제로 이동하려면 어떻게 할까요?
     answer: >
@@ -112,6 +99,40 @@ sections:
           :::image type="content" source="media/howto-faq/pricing.png" alt-text="요금제 업그레이드":::
 
       1. **요금제** 를 선택한 다음 **저장** 을 선택하여 업그레이드 또는 다운그레이드를 선택합니다.
+- name: 디바이스
+  questions:
+  - question: >
+      디바이스를 IoT Hub에서 IoT Central로 전송하려면 어떻게 할까요?
+    answer: >
+      디바이스에서 연결 문자열을 사용하거나 [DPS(Device Provisioning Service)](../../iot-dps/about-iot-dps.md)를 사용하여 IoT 허브에 직접 연결할 수 있습니다. IoT Central은 항상 DPS를 사용합니다.
+
+
+      IoT Hub에 연결된 디바이스를 IoT Central에 연결하려면 다음을 사용하여 디바이스를 업데이트합니다.
+
+
+      - IoT Central 애플리케이션의 범위 ID
+
+      - 애플리케이션의 그룹 SAS 키 또는 X.509 인증서에서 파생된 키
+
+
+      자세한 내용은 [Azure IoT Central에 연결](concepts-get-connected.md)을 참조하세요.
+
+
+      IoT Central을 상호 작용하려면 디바이스 기능을 모델링하는 디바이스 템플릿이 있어야 합니다. 자세한 내용은 [디바이스 템플릿이란?](concepts-device-templates.md)을 참조하세요.
+  - question: >
+      디바이스가 내 IoT Central 애플리케이션에 연결하지 않는 경우 자격 증명 문제를 어떻게 확인할까요?
+    answer: >
+      [디바이스의 데이터가 Azure IoT Central에 표시되지 않는 이유 문제 해결](troubleshoot-connection.md)에는 디바이스의 연결 문제를 진단하는 단계가 포함되어 있습니다.
+  - question: >
+      디바이스의 차단을 어떻게 해제할까요?
+    answer: >
+      디바이스가 차단되면 데이터를 IoT Central 애플리케이션에 보낼 수 없습니다. 차단된 디바이스의 상태는 애플리케이션의 **디바이스** 페이지에서 **차단** 으로 설정됩니다. 운영자가 데이터 보내기를 다시 시작하려면 먼저 디바이스를 차단 해제해야 합니다.
+
+
+      :::image type="content" source="media/howto-faq/blocked.png" alt-text="차단된 디바이스를 보여 주는 스크린샷":::
+
+
+      운영자가 디바이스의 차단을 해제하면 상태가 이전 값인 **등록됨** 또는 **프로비전됨** 으로 돌아갑니다.
   - question: >
       디바이스를 승인하려면 어떻게 해야 할까요??
     answer: >
@@ -128,20 +149,26 @@ sections:
   - question: >
       디바이스를 디바이스 템플릿과 어떻게 연결하나요?
     answer: "디바이스 상태가 **연결 안 됨** 이면 IoT Central에 연결하는 디바이스에 연결된 디바이스 템플릿이 없음을 의미입니다. 이 상황은 일반적으로 다음 시나리오에서 발생합니다.\n\n- 디바이스 템플릿을 지정하지 않고 **디바이스** 페이지에서 **가져오기** 를 사용하여 디바이스 세트가 추가됩니다.\n- 디바이스 템플릿을 지정하지 않고 **디바이스** 페이지에서 디바이스가 수동으로 등록되었습니다. 그런 다음, 디바이스가 유효한 자격 증명을 사용하여 연결되었습니다.  \n\n운영자는 **마이그레이션** 단추를 사용하여 **디바이스** 페이지에서 디바이스를 디바이스 템플릿에 연결할 수 있습니다. 자세히 알아보려면 [Azure IoT Central 애플리케이션에서 디바이스 관리 > 템플릿으로 디바이스 마이그레이션](howto-manage-devices-individually.md)을 참조하세요.\n"
+- name: 사용자
+  questions:
   - question: >
-      IoT Hub에 대한 자세한 내용은 어디서 확인할 수 있나요?
+      관리자가 내가 애플리케이션에 추가되었지만 액세스할 수 없다고 말합니다. 액세스 권한은 어떻게 얻을 수 있나요?
     answer: >
-      Azure IoT Central은 디바이스 연결을 가능하게 하는 클라우드 게이트웨이로 Azure IoT Hub를 사용합니다. IoT Hub의 기능은 다음과 같습니다.
-
-
-      - 클라우드에서 대규모 데이터 수집.
-
-      - 디바이스 관리.
-
-      - 디바이스 연결 보안.
-
-
-      IoT Hub에 대한 자세한 내용은 [Azure IoT Hub](../../iot-hub/index.yml)를 참조하세요.
+      애플리케이션에 처음 액세스할 때 관리자로부터 받은 애플리케이션 URL 링크로 이동해야 합니다.
+- name: 조직
+  questions:
   - question: >
-      DPS(Device Provisioning Service)에 대한 자세한 내용은 어디서 확인할 수 있나요?
-    answer: Azure IoT Central은 DPS를 사용하여 디바이스가 애플리케이션에 연결할 수 있도록 합니다. 디바이스를 IoT Central에 연결하는 데 DPS가 수행하는 역할에 대한 자세한 내용은 [Azure IoT Central에 연결](concepts-get-connected.md)을 참조하세요. DPS에 대한 자세한 내용은 [Azure IoT Hub Device Provisioning Service로 디바이스 프로비전](../../iot-dps/about-iot-dps.md)을 참조하세요.
+      애플리케이션에 포함할 수 있는 조직은 몇 개입니까?
+    answer: >
+      중첩된 조직을 포함하여 최대 200개의 조직을 포함할 수 있습니다.
+  - question: >
+      디바이스가 여러 조직에 속할 수 있나요?
+    answer: >
+      아니요, 디바이스는 하나의 조직에만 속할 수 있습니다. 디바이스를 다른 조직으로 이동할 수 있습니다.
+  - question: >
+      사용자를 여러 조직에 할당할 수 있나요?
+    answer: >
+      예, 사용자는 하나 이상의 조직에 속할 수 있습니다. 각 조직 할당에 대해 사용자는 다른 역할을 가질 수도 있습니다. 예를 들어 Tom은 Plant A의 관리자 및 Plant B의 운영자일 수 있습니다.
+  - question: >
+      디바이스 그룹, 대시보드 및 작업을 여러 조직과 연결될 수 있나요?
+    answer: 아니요, 디바이스 그룹, 대시보드 및 작업과 같은 환경은 단일 조직과 연결됩니다.

@@ -6,12 +6,12 @@ ms.date: 07/23/2021
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
-ms.openlocfilehash: d09bed41ff7553e79a4d05e616e07fabf85d71a9
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: f05defd7c822f8469b8099f154a6d29b543d5891
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130227134"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517360"
 ---
 # <a name="azure-arc-enabled-open-service-mesh-preview"></a>Azure Arc 지원 Open Service Mesh(미리 보기)
 
@@ -376,7 +376,7 @@ osm namespace add <namespace_name>
 
 ### <a name="configuring-your-own-jaeger-prometheus-and-grafana-instances"></a>사용자 고유의 Jaeger, Prometheus 및 Grafana 인스턴스 구성
 
-OSM 확장 프로그램은 [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) 및 [Grafana](https://grafana.com/docs/grafana/latest/installation/)와 같은 추가 항목을 설치하지 않으므로 사용자가 해당 도구의 실행 중인 자체 인스턴스와 OSM을 통합할 수 있습니다. 사용자의 인스턴스와 통합하려면 다음 설명서를 확인하세요.
+OSM 확장은 [Flagger](https://docs.flagger.app/), [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [프로메테우스](https://prometheus.io/docs/prometheus/latest/installation/) 및 [Grafana](https://grafana.com/docs/grafana/latest/installation/) 와 같은 추가 기능을 설치 하지 않으므로 사용자가 OSM를 해당 도구의 실행 중인 인스턴스와 통합할 수 있습니다. 사용자의 인스턴스와 통합하려면 다음 설명서를 확인하세요.
 
 > [!NOTE]
 > OSM GitHub 설명서에 제공된 명령을 주의하여 사용하세요. `osm-mesh-config`를 변경할 때 올바른 네임스페이스 이름 ‘arc-osm-system’을 사용하는지 확인합니다.
@@ -384,7 +384,7 @@ OSM 확장 프로그램은 [Jaeger](https://www.jaegertracing.io/docs/getting-st
 - [BYO-Jaeger 인스턴스](https://docs.openservicemesh.io/docs/guides/observability/tracing/#byo-bring-your-own)
 - [BYO-Prometheus 인스턴스](https://docs.openservicemesh.io/docs/guides/observability/metrics/#byo-prometheus)
 - [BYO-Grafana 대시보드](https://docs.openservicemesh.io/docs/guides/observability/metrics/#importing-dashboards-on-a-byo-grafana-instance)
-
+- [Flagger를 사용 하 여 점진적 배달 OSM](https://docs.flagger.app/tutorials/osm-progressive-delivery)
 
 ## <a name="monitoring-application-using-azure-monitor-and-applications-insights"></a>Azure Monitor 및 Applications Insights을 사용한 모니터링 애플리케이션
 

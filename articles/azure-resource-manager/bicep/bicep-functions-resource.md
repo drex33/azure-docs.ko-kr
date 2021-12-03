@@ -5,16 +5,16 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 10/25/2021
-ms.openlocfilehash: 4b876644e20b32b3636d8d36b12e59218dd0ef6f
-ms.sourcegitcommit: 331a5c3ad498061511383b80760349ff2a966bcf
+ms.openlocfilehash: c0a3d92658c4d539ccdbd7e3ae191aaa592d71db
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/29/2021
-ms.locfileid: "133218561"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133519114"
 ---
 # <a name="resource-functions-for-bicep"></a>Bicep의 리소스 함수
 
-이 문서에서는 리소스 값을 얻기 위한 Bicep 함수에 대해 설명합니다.
+이 문서에서는 리소스 값을 가져오는 Bicep 함수에 대해 설명 합니다.
 
 현재 배포에서 값을 가져오려면 [배포 값 함수](./bicep-functions-deployment.md)를 참조하세요.
 
@@ -24,7 +24,7 @@ ms.locfileid: "133218561"
 
 해당 기능에 추가하기 위해 다른 리소스에 적용되는 리소스 종류에 해당하는 [확장 리소스](../management/extension-resource-types.md)에 대한 리소스 ID를 반환합니다.
 
-네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 extensionResourceId 함수는 Bicep 파일에서 사용할 수 있지만 일반적으로는 필요하지 않습니다. 대신 리소스에 대한 기호 이름을 사용하고 `id` 속성에 액세스합니다.
 
@@ -112,7 +112,7 @@ Azure Key Vault에서 비밀 반환 `getSecret` 함수는 `Microsoft.KeyVault/va
 
 Key Vault에는 `true`로 설정된 `enabledForTemplateDeployment`가 있어야 합니다. Bicep 파일을 배포하는 사용자가 비밀에 액세스할 수 있어야 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 Bicep 배포 중에 보안 매개 변수 값 전달](key-vault-parameter.md)을 참조하세요.
 
-함수가 리소스 종류와 함께 사용되므로 [네임스페이스 한정자도](bicep-functions.md#namespaces-for-functions) 필요하지 않습니다.
+함수를 리소스 형식과 함께 사용 하기 때문에 [네임 스페이스 한정자](bicep-functions.md#namespaces-for-functions) 가 필요 하지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -178,11 +178,11 @@ module sql './sql.bicep' = {
 
 **Bicep 버전 0.4.412 이상** 에서는 [접근자 연산자](operators-access.md#function-accessor)를 사용하여 목록 함수를 호출합니다. 예: `stg.listKeys()`.
 
-함수가 리소스 종류와 함께 사용되므로 [네임스페이스 한정자도](bicep-functions.md#namespaces-for-functions) 필요하지 않습니다.
+함수를 리소스 형식과 함께 사용 하기 때문에 [네임 스페이스 한정자](bicep-functions.md#namespaces-for-functions) 가 필요 하지 않습니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | Description |
+| 매개 변수 | 필수 | Type | 설명 |
 |:--- |:--- |:--- |:--- |
 | apiVersion |예 |문자열 |이 매개 변수를 제공하지 않으면 리소스에 대한 API 버전이 사용됩니다. 함수를 특정 버전으로 실행해야 하는 경우에만 사용자 지정 API 버전을 제공합니다. **yyyy-mm-dd** 형식을 사용합니다. |
 | functionValues |예 |object | 함수에 대한 값이 있는 개체입니다. 스토리지 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. |
@@ -191,7 +191,7 @@ module sql './sql.bicep' = {
 
 list 함수는 리소스 정의의 속성에서만 사용할 수 있습니다. Bicep 파일의 출력 섹션에서 중요한 정보를 노출하는 목록 함수를 사용하지 마세요. 출력 값은 배포 기록에 저장되며 악의적인 사용자가 이를 검색할 수 있습니다.
 
-[반복 루프](loops.md)와 함께 사용하는 경우 `input` 식이 리소스 속성에 할당되므로 에 대한 목록 함수를 사용할 수 있습니다. list 함수를 확인하기 전에 개수를 결정해야 하므로 `count`와 함께 사용할 수 없습니다.
+[반복 루프](loops.md)와 함께 사용 하는 경우 `input` 식이 리소스 속성에 할당 되기 때문에에 대 한 목록 함수를 사용할 수 있습니다. list 함수를 확인하기 전에 개수를 결정해야 하므로 `count`와 함께 사용할 수 없습니다.
 
 조건부로 배포되는 리소스에서 **list** 함수를 사용하는 경우 리소스가 배포되지 않은 경우에도 함수가 평가됩니다. **list** 함수가 존재하지 않는 리소스를 참조하는 경우 오류가 발생합니다. [조건식 **?:** 연산자](./operators-logical.md#conditional-expression--)를 사용하여 리소스가 배포될 때만 함수가 평가되도록 합니다.
 
@@ -316,9 +316,9 @@ sasToken: stg.listAccountSas('2021-04-01', accountSasProperties).accountSasToken
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-connection-strings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-keys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-04-15/notebook-workspaces/list-connection-info) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-10-15/database-accounts/list-connection-strings) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-10-15/database-accounts/list-keys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-10-15/notebook-workspaces/list-connection-info) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2021-12-01/domains/list-shared-access-keys) |
@@ -417,7 +417,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 리소스 종류가 지역에 대한 영역을 지원하는지 여부를 결정합니다.
 
-네임스페이스: [az](bicep-functions.md#namespaces-for-functions).
+네임 스페이스: [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>매개 변수
 

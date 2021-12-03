@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/23/2021
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
-ms.openlocfilehash: 730d3ed62ce57c48376e4d926127a80c9ea90b4c
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.openlocfilehash: d8fa3d3b20d70168fbfde065c179890e0d339dff
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133059096"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133518282"
 ---
 # <a name="quickstart-manage-data-with-azure-cosmos-db-spark-3-oltp-connector-for-sql-api"></a>빠른 시작: SQL API용 Azure Cosmos DB Spark 3 OLTP Connector를 사용하여 데이터 관리
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "133059096"
 
 이 자습서는 Cosmos DB Spark 커넥터를 사용하여 Cosmos DB에서 읽거나 쓰는 방법을 보여 주는 빠른 시작 가이드입니다. Cosmos DB Spark 커넥터는 Spark 3.1.x를 기반으로 합니다.
 
-이 빠른 자습서에서는 [Azure Databricks Runtime 8.0(Spark 3.1.1 포함)](/databricks/release-notes/runtime/8.0) 및 Jupyter Notebook을 사용하여 Cosmos DB Spark 커넥터를 사용하는 방법을 보여 줍니다.
+이 빠른 자습서에서는 [Azure Databricks Runtime 8.0(Spark 3.1.1 포함)](/azure/databricks/release-notes/runtime/8.0) 및 Jupyter Notebook을 사용하여 Cosmos DB Spark 커넥터를 사용하는 방법을 보여 줍니다.
 
 다른 Spark 3.1.1 제품도 사용할 수 있습니다. 또한 Spark에서 지원하는 모든 언어(PySpark, Scala, Java 등) 또는 익숙한 모든 Spark 인터페이스(Jupyter Notebook, Livy 등)를 사용할 수 있어야 합니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "133059096"
 
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/try/cosmosdb/)에 등록할 수 있습니다. 또는 개발 및 테스트를 위해 [Azure Cosmos DB 에뮬레이터](../local-emulator.md)를 사용할 수 있습니다.
 
-* [Azure Databricks](/databricks/release-notes/runtime/8.0) Runtime 8.0(Spark 3.1.1 포함)
+* [Azure Databricks](/azure/databricks/release-notes/runtime/8.0) Runtime 8.0(Spark 3.1.1 포함)
 
 * (선택 사항) [SLF4J 바인딩](https://www.slf4j.org/manual.html)은 특정 로깅 프레임워크를 SLF4J와 연결하는 데 사용됩니다.
 
@@ -189,7 +189,7 @@ df.printSchema()
 | `spark.cosmos.write.bulk.enabled`      | `true`   | Cosmos DB 항목 쓰기 대량 사용 |
 
 ### <a name="query-config"></a>쿼리 구성
-| 구성 속성 이름      | 기본값 | Description |
+| 구성 속성 이름      | 기본값 | 설명 |
 | :---        |    :----   |         :--- | 
 | `spark.cosmos.read.customQuery`      | 없음   | 제공되면 조건자 푸시다운을 통해 쿼리를 동적으로 생성하는 대신 사용자 지정 쿼리가 Cosmos 엔드포인트에 대해 처리됩니다. 일반적으로 쿼리 계획에 따라 가장 효율적인 필터 집합을 만들 수 있으므로 Spark의 조건자 푸시다운을 사용하는 것이 좋습니다. 그러나 아직 푸시다운할 수 없는 집계(count, group by, avg, sum 등)와 같은 몇 가지 조건자가 있습니다(적어도 Spark 3.1에서). 따라서 사용자 지정 쿼리는 Cosmos에 보낸 쿼리에 푸시할 수 있도록 하는 대체(fallback)입니다. 지정되면 스키마 유추를 사용하도록 설정하는 경우 사용자 지정 쿼리도 스키마를 유추하는 데 사용됩니다. |
 | `spark.cosmos.read.maxItemCount`  | `1000`    | 단일 쿼리 또는 변경 피드 요청에 대해 반환할 수 있는 최대 문서 수를 재정의합니다. 기본값은 `1000`이며, 1KB보다 작은 평균 문서 크기에 대해서만 또는 프로젝션이 쿼리에서 선택한 속성의 수를 크게 줄이는 경우(예: 문서의 "ID"만 선택하는 경우 등) 이 값을 늘리는 것이 좋습니다.  |

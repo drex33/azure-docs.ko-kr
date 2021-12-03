@@ -58,7 +58,7 @@
       items:
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/aks-security-baseline?context=/azure/aks/context/aks-context
-        - name: 애플리케이션 및 클러스터에 대한 보안
+        - name: 컨테이너 보안
           href: concepts-security.md
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
@@ -89,6 +89,14 @@
         - name: AKS 클러스터를 위한 기본 아키텍처
           href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks
           maintainContext: true
+        - name: 보안
+          items:
+            - name: 인증 및 권한 부여
+              href: operator-best-practices-identity.md
+            - name: 클러스터 보안
+              href: operator-best-practices-cluster-security.md
+            - name: 컨테이너 이미지 관리
+              href: operator-best-practices-container-image-management.md
         - name: 클러스터 운영자의 경우
           items:
             - name: 다중 테넌트 지원 및 클러스터 격리
@@ -97,12 +105,6 @@
               href: operator-best-practices-scheduler.md
             - name: 고급 스케줄러 기능
               href: operator-best-practices-advanced-scheduler.md
-            - name: 인증 및 권한 부여
-              href: operator-best-practices-identity.md
-            - name: 클러스터 보안
-              href: operator-best-practices-cluster-security.md
-            - name: 컨테이너 이미지 관리
-              href: operator-best-practices-container-image-management.md
             - name: 네트워킹
               href: operator-best-practices-network.md
             - name: 스토리지
@@ -245,8 +247,6 @@
           maintainContext: true
         - name: 인증서 회전
           href: certificate-rotation.md
-        - name: 프라이빗 클러스터 만들기
-          href: private-clusters.md
         - name: 디스크용 BYOK
           href: azure-disk-customer-managed-keys.md
         - name: 호스트 기반 암호화 사용
@@ -261,6 +261,12 @@
               href: csi-secrets-store-nginx-tls.md
             - name: 문제 해결
               href: csi-secrets-store-troubleshooting.md
+    - name: 프라이빗 클러스터 구성
+      items:
+        - name: 프라이빗 클러스터 만들기
+          href: private-clusters.md
+        - name: 원격으로 프라이빗 클러스터에 액세스
+          href: command-invoke.md
     - name: 네트워킹 구성
       items:
         - name: 기존 가상 네트워크 만들기 또는 사용

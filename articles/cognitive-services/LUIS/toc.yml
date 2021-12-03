@@ -226,14 +226,12 @@ items:
             href: luis-tutorial-review-endpoint-utterances.md
           - name: 패턴을 추가하여 예측 개선
             href: luis-tutorial-pattern.md
-      - name: 봇으로 사용
+      - name: Bot Framework 함께 사용
         items:
-          - name: C# 사용
-            href: luis-csharp-tutorial-bf-v4.md
-            displayName: 'bot framework, framework, sdk, abs'
-          - name: Node.js 사용
-            displayName: 'bot framework, framework, sdk, abs'
-            href: luis-nodejs-tutorial-bf-v4.md
+          - name: Bot Framework 작성기
+            href: /composer/how-to-add-luis?context=/azure/cognitive-services/luis/context/context
+          - name: Bot Framework SDK
+            href: /azure/bot-service/bot-builder-howto-v4-luis?context=/azure/cognitive-services/luis/context/context
       - name: Node.js를 사용하여 프로그래밍 방식으로 앱 빌드
         href: luis-tutorial-node-import-utterances-csv.md
   - name: 참조

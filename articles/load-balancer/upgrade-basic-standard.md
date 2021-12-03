@@ -90,7 +90,7 @@ Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -
 
 1. 필수 매개 변수를 검토합니다.
 
-   * **oldRgName: [문자열]: 필수** – 업그레이드하려는 기존 기본 Load Balancer의 리소스 그룹입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동하고, 기본 Load Balancer 원본을 선택하여 부하 분산 장치에 대한 **개요** 를 클릭합니다. 리소스 그룹은 해당 페이지에 있습니다.
+   * **oldRgName: [문자열]: 필수** – 업그레이드하려는 기존 기본 Load Balancer의 리소스 그룹입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동하고, 기본 Load Balancer 원본을 선택하여 Load Balancer에 대한 **개요** 를 클릭합니다. 리소스 그룹은 해당 페이지에 있습니다.
    * **oldLBName: [문자열]: 필수** – 업그레이드하려는 기존 기본 Balancer의 이름입니다. 
    * **newLBName: [문자열]: 필수** – 만들려는 표준 Load Balancer의 이름입니다.
 1. 적절한 매개 변수를 사용하여 스크립트를 실행합니다. 완료하는 데 5~7분 정도 걸릴 수 있습니다.

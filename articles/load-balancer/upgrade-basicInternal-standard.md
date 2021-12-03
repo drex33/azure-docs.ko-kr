@@ -9,7 +9,7 @@ ms.date: 08/07/2020
 ms.author: irenehua
 ms.openlocfilehash: 1b7bdbdb9e1d642f2ef4a715d4993e4f449ccd0a
 ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2021
 ms.locfileid: "98050700"
@@ -80,7 +80,7 @@ Azure Az 모듈이 설치되어 있는지 확인하려면 `Get-InstalledModule -
 
 1. 필수 매개 변수를 검토합니다.
 
-   * **rgName: [문자열]: 필수** – 기존의 기본 Load Balancer 및 새 표준 Load Balancer의 리소스 그룹입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동하고, 기본 Load Balancer 원본을 선택한 다음, 부하 분산 장치에 대한 **개요** 를 클릭합니다. 리소스 그룹은 해당 페이지에 있습니다.
+   * **rgName: [문자열]: 필수** – 기존의 기본 Load Balancer 및 새 표준 Load Balancer의 리소스 그룹입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동하고, 기본 Load Balancer 원본을 선택한 다음, Load Balancer에 대 한 **개요** 를 클릭합니다. 리소스 그룹은 해당 페이지에 있습니다.
    * **oldLBName: [문자열]: 필수** – 업그레이드하려는 기존 Basic Balancer의 이름입니다. 
    * **newlocation: [문자열]: 필수** - 표준 Load Balancer가 만들어질 위치입니다. 다른 기존 리소스와의 연결을 개선하기 위해 선택한 기본 Load Balancer의 동일한 위치를 표준 Load Balancer에 상속하는 것이 좋습니다.
    * **newLBName: [문자열]: 필수** – 만들려는 표준 Load Balancer의 이름입니다.

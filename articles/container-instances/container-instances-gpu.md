@@ -1,14 +1,14 @@
 ---
 title: GPU 지원 컨테이너 인스턴스 배포
-description: GPU 리소스를 사용하여 컴퓨팅 집약적 컨테이너 앱을 실행하기 위해 Azure Container Instances를 배포하는 방법을 알아봅니다.
+description: GPU 리소스를 사용 하 여 계산 집약적인 컨테이너 응용 프로그램을 실행 하는 Azure container instances를 배포 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: 8950858ff822a28272c17d18de8869d3e03d673d
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 303e41586f7eb878f3fc2277d4071a696f6686b9
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131057878"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517322"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 

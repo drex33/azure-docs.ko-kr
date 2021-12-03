@@ -9,12 +9,12 @@ ms.author: nmurav
 ms.date: 11/24/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 90d41bcd737e19e4382836382b8aec28066358ca
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: 2e3009d198f8feb406b75fb59ad31aaffe93dc89
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133487814"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133519570"
 ---
 # <a name="rooms-overview"></a>방 개요
 
@@ -42,10 +42,10 @@ Azure 통신 서비스는 구조화 된 대화를 빌드하는 개발자를 위�
 | 기능  | 1: N 호출 | 1: N 호출 <br>임시 ID 사용</br> |  대화방 통화 | 
 | ------ | :------: | :------: | :------: |
 | 대화형 참가자  | 350 | 350 | 350 |
-| 참가자에 게 배포할 임시 ID  | 아니요  | 예 (그룹 ID) | 예 (대화방 ID) |
-| 초대만 참여   | 아니요  | 아니요 | 예 <br>(비공개 미리 보기에서 필수)</br> |
-| 만들 API입니다. 호출 제거, 업데이트, 삭제   | 아니요  | 아니요 | 대화방 API |
-| 전화 통화에 대 한 유효 기간 설정   | 아니요  | 아니요 | 예 <br> 최대 6 개월 </br> |
+| 참가자에 게 배포할 임시 ID  | No  | 예 (그룹 ID) | 예 (대화방 ID) |
+| 초대만 참여   | 예  | 예 | 예 <br>(비공개 미리 보기에서 필수)</br> |
+| 만들 API입니다. 호출 제거, 업데이트, 삭제   | 예  | 예 | 대화방 API |
+| 전화 통화에 대 한 유효 기간 설정   | 예  | 예 | 예 <br> 최대 6 개월 </br> |
 
 
 ## <a name="managing-the-rooms"></a>대화방 관리
@@ -79,8 +79,7 @@ Azure 통신 서비스는 구조화 된 대화를 빌드하는 개발자를 위�
 | 새 PSTN 참가자 추가 또는 제거  | ❌ | ❌ |
 
 ## <a name="next-steps"></a>다음 단계:
--   빠른 시작을 사용 하 여 방을 만들고 관리할 수 있습니다. 
--   JS를 호출 하는 Sdk를 사용 하 여 대화방에 참여 합니다. 
+-   빠른 시작을 사용 [하 여 대화방을 생성, 관리 및 조인 합니다.](../../quickstarts/rooms/get-started-rooms.md)
 -   [미디어 및 신호에 대 한 네트워크 요구 사항](../voice-video-calling/network-requirements.md) 검토
 
 

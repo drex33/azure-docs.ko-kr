@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/06/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 66ad68711d57767f6f657d941222e4b225c4b20e
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: b5aef1f138d0e5f37db01896d33b792c298093bd
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129658940"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133519430"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 [Azure Files](storage-files-introduction.md)는 SMB 및 NFS 파일 시스템 프로토콜을 통해 액세스할 수 있는 완전 관리형 파일 공유를 클라우드에서 제공합니다. 이 문서에서는 Azure Files 및 Azure 파일 동기화의 확장성 및 성능 목표에 대해 설명합니다.
@@ -60,8 +60,7 @@ Azure에서는 고객에게 있을 수 있는 다양한 스토리지 시나리�
 | 파일 공유의 최대 크기 | <ul><li>100TiB, 대량 파일 공유 기능 사용<sup>2</sup></li><li>5TiB, 기본값</li></ul> | 100TiB |
 | 파일 공유의 최소 파일 수 | 제한 없음 | 제한 없음 |
 | 최대 요청 빈도(최대 IOPS) | <ul><li>20,000, 대량 파일 공유 기능 사용<sup>2</sup></li><li>100ms당 1,000 또는 100개 요청, 기본값</li></ul> | <ul><li>기준 IOPS: GiB당 400 + 1 IOPS, 최대 100,000</li><li>IOPS 버스팅: 최대(GiB당 4000,3x IOPS), 최대 100,000</li></ul> |
-| 단일 파일 공유에 대한 최대 수신 속도 | <ul><li>최대 300MiB/초, 대량 파일 공유 기능 사용<sup>2</sup></li><li>최대 60MiB/초, 기본값</li></ul> | 40MiB/초 + 0.04 * 프로비전된 GiB |
-| 단일 파일 공유에 대한 최대 송신 속도 | <ul><li>최대 300MiB/초, 대량 파일 공유 기능 사용<sup>2</sup></li><li>최대 60MiB/초, 기본값</li></ul> | 60MiB/초 + 0.06 * 프로비전된 GiB |
+| 단일 파일 공유에 대한 처리량(수신 + 송신) | <ul><li>최대 300MiB/초, 대량 파일 공유 기능 사용<sup>2</sup></li><li>최대 60MiB/초, 기본값</li></ul> | 100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB) |
 | 최대 공유 스냅샷 수 | 200 스냅샷 | 200 스냅샷 |
 | 최대 개체(디렉터리 및 파일) 이름 길이 | 2,048자 | 2,048자 |
 | 최대 경로 이름 구성 요소(경로 \A\B\C\D의 각 문자가 구성 요소) | 255자 | 255자 |

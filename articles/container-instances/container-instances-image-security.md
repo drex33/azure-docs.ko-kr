@@ -4,16 +4,16 @@ description: Azure Container Instances의 보안 이미지 및 비밀에 대한 
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 9f0a30095605ae9ff52f5780bdf2f94454cf85a8
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 7d451df6d39659355bab9004acf97e2f4d61b3a0
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132315732"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517746"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure 컨테이너 인스턴스에 대한 보안 고려 사항
 
-이 문서에서는 Azure Container Instances를 사용하여 컨테이너 앱을 실행할 때의 보안 고려 사항을 소개합니다. 다룰 주제는 다음과 같습니다.
+이 문서에서는 Azure Container Instances 사용 하 여 컨테이너 응용 프로그램을 실행 하기 위한 보안 고려 사항을 소개 합니다. 다룰 주제는 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Azure Container Instances에 대한 이미지 및 비밀 관리에 대한 **보안 권장 사항**
@@ -34,7 +34,7 @@ ms.locfileid: "132315732"
 
 솔루션을 활용하여 프라이빗 레지스트리에서 컨테이너 이미지를 스캔하고 잠재적인 취약성을 식별합니다. 다양한 솔루션이 제공하는 위협 탐지의 깊이를 이해하는 것이 중요합니다.
 
-예를 들어 Azure Container Registry 필요에 따라 [Microsoft Defender for Cloud와 통합되어 레지스트리에](../security-center/defender-for-container-registries-introduction.md) 푸시된 모든 Linux 이미지를 자동으로 검색합니다. Microsoft Defender for Cloud의 통합 Qualys 스캐너는 이미지 취약성을 감지하고 분류하며 수정 지침을 제공합니다.
+예를 들어 Azure Container Registry은 선택적으로 [Microsoft Defender For Cloud와 통합 되어](../security-center/defender-for-container-registries-introduction.md) 레지스트리에 푸시되는 모든 Linux 이미지를 자동으로 검색 합니다. 클라우드의 통합 Qualys 스캐너용 Microsoft Defender는 이미지 취약성을 검색 하 고 분류 하며 수정 지침을 제공 합니다.
 
 [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) 및 [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview)와 같은 보안 모니터링 및 이미지 스캔 솔루션도 Azure Marketplace를 통해 사용할 수 있습니다.  
 
@@ -146,6 +146,6 @@ Kubernetes 클러스터, 컨테이너 레지스트리 및 컨테이너 이미지
 
 * 배포의 보안 상태를 개선하는 데 도움이 되는 포괄적인 권장 사항은 [Container Instances에 대한 Azure 보안 기준](security-baseline.md)을 참조하세요.
 
-* 컨테이너화된 환경에서 실시간 위협 탐지를 [위해 Microsoft Defender for Cloud를](../security-center/container-security.md) 사용하는 방법에 대해 자세히 알아보세요.
+* 컨테이너화된 환경에서 실시간 위협 탐지를 [위해 Microsoft Defender for Cloud를](../security-center/container-security.md) 사용하는 방법에 대해 자세히 알아봅니다.
 
 * [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) 및 [Aqua Security](https://www.aquasec.com/solutions/azure-container-security/)의 솔루션으로 컨테이너 취약성을 관리하는 방법에 대해 자세히 알아보세요.

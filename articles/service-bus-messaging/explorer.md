@@ -2,13 +2,13 @@
 title: Azure Service Bus 탐색기를 사용하여 Service Bus(미리 보기)에서 데이터 작업 수행
 description: 이 문서에서는 포털 기반 Azure Service Bus 탐색기를 사용하여 Azure Service Bus 데이터에 액세스하는 방법에 대한 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 06/16/2021
-ms.openlocfilehash: 3b561586e77940eda5647aa0ab333ab88937463f
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
-ms.translationtype: HT
+ms.date: 12/02/2021
+ms.openlocfilehash: 25b458aa00f34911df8429769fba288b0e083f8f
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112294358"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133519295"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Service Bus 탐색기를 사용하여 Service Bus(미리 보기)에서 데이터 작업 수행
 
@@ -17,8 +17,12 @@ ms.locfileid: "112294358"
 Azure Service Bus를 사용하면 보낸 사람 및 받는 사람 클라이언트 애플리케이션에서 친숙한 지점 간(큐) 및 게시-구독(토픽 구독) 의미 체계를 사용하여 비즈니스 논리를 분리할 수 있습니다.
 
 Azure Service Bus 네임스페이스에 대해 수행되는 작업에는 두 가지 종류가 있습니다. 
+
    * 관리 작업 - Service Bus 네임스페이스, 큐, 토픽 및 구독을 만들고, 업데이트하고, 삭제합니다.
    * 데이터 작업 - 큐, 토픽 및 구독에서 메시지를 보내고 받습니다.
+
+> [!IMPORTANT]
+> Service Bus 탐색기는 세션을 지원하지 **않습니다.** 
 
 Azure Service Bus 탐색기는 관리 작업 이상으로 포털 기능을 확장하여 Azure Portal 자체에서 바로 큐, 토픽 및 구독(및 배달 못한 편지 하위 엔터티)에 대한 데이터 작업(보내기, 받기, 피킹)을 지원합니다.
 
@@ -26,7 +30,7 @@ Azure Service Bus 탐색기는 관리 작업 이상으로 포털 기능을 확�
 > 이 문서에서는 Azure Portal에 있는 Azure Service Bus 탐색기의 기능을 중점적으로 소개합니다.
 >
 > Azure Service Bus 탐색기 도구는 커뮤니티 소유 OSS 도구 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)가 ***아닙니다***.
->
+
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

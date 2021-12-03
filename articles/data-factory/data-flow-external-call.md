@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 11/24/2021
-ms.openlocfilehash: a1ba4435905a368be8d1789e97994dc6572fd38c
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.openlocfilehash: f5bb3192719a82362c6700f31492c55f1f40e511
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133440611"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133518116"
 ---
 # <a name="external-call-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 외부 호출 변환
 
@@ -20,7 +20,9 @@ ms.locfileid: "133440611"
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-외부 호출 변환을 사용하면 데이터 엔지니어가 사용자 지정 또는 타사 결과를 데이터 흐름 스트림에 추가하기 위해 외부 REST 엔드포인트를 행 단위로 호출할 수 있습니다. 
+외부 호출 변환을 사용하면 데이터 엔지니어가 사용자 지정 또는 타사 결과를 데이터 흐름 스트림에 추가하기 위해 외부 REST 엔드포인트를 행 단위로 호출할 수 있습니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWPXGN]
 
 ## <a name="configuration"></a>구성
 
@@ -30,7 +32,7 @@ ms.locfileid: "133440611"
 
 ### <a name="settings"></a>설정
 
-인라인 데이터 세트 형식 및 연결된 서비스를 선택합니다. 현재 REST만 지원됩니다. 그러나 SQL 저장 프로시저 및 기타 연결된 서비스 유형도 사용할 수 있게 됩니다. 설정 속성에 대한 설명은 [REST 원본 구성을](https://docs.microsoft.com/azure/data-factory/connector-rest?tabs=data-factory#source-transformation) 참조하세요.
+인라인 데이터 세트 형식 및 연결된 서비스를 선택합니다. 현재 REST만 지원됩니다. 그러나 SQL 저장 프로시저 및 기타 연결된 서비스 유형도 사용할 수 있게 됩니다. 설정 속성에 대한 설명은 [REST 원본 구성을](connector-rest.md) 참조하세요.
 
 ### <a name="mapping"></a>매핑
 
@@ -114,4 +116,4 @@ ExternalCall1 sink(allowSchemaDrift: true,
 
 * [평면화된 변환](data-flow-flatten.md)을 사용하여 행을 열로 피벗합니다.
 * 파생 [열 변환을](data-flow-derived-column.md) 사용하여 행을 변환합니다.
-* REST 설정에 대한 자세한 내용은 REST [원본을](https://docs.microsoft.com/azure/data-factory/connector-rest?tabs=data-factory#source-transformation) 참조하세요.
+* REST 설정에 대한 자세한 내용은 REST [원본을](connector-rest.md) 참조하세요.

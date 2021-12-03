@@ -1,15 +1,15 @@
 ---
-title: 자습서 - 컨테이너 인스턴스에 컨테이너 앱 배포
+title: 자습서 - 컨테이너 인스턴스에 컨테이너 애플리케이션 배포
 description: Azure Container Instances 자습서 3/3부 - Azure Container Instances에 컨테이너 애플리케이션 배포
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc, devx-track-azurecli
-ms.openlocfilehash: 2d12b0bc91cf844001b770c8a7e534ad6b1b9b2d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a4fc54d8280459b1cadfe3726539abe38d6d6e75
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763886"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133519487"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>자습서: Azure Container Instances에 컨테이너 애플리케이션 배포
 

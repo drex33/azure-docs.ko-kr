@@ -9,12 +9,12 @@ ms.author: radubulboaca
 ms.date: 11/19/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 90fa2ecb652eec00c3b6c205366eea05d4fdc878
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: 73dda2707aea1b6c096aecdfed45a59fc23284a8
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133487820"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133518595"
 ---
 # <a name="quickstart-create-and-manage-a-room-resource"></a>빠른 시작: 대화방 리소스 만들기 및 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "133487820"
 
 이 빠른 시작은 Azure Communication Services 대화방을 시작 하는 데 도움이 됩니다. 는 `room` 미리 결정 된 기간 동안 공동으로 작업할 수 있도록 알려진 고정 참가자 집합을 위한 서버 관리 통신 공간입니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 활성 Communication Services 리소스 및 연결 문자열입니다. [Communication Services 리소스를 만듭니다](../create-communication-resource.md).
@@ -170,5 +170,6 @@ Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(createdRoomId)
 > - 대화방 삭제
 
 다음을 수행할 수도 있습니다.
+ - [방 개념](../../concepts/rooms/room-concept.md) 에 대 한 자세한 정보
  - [음성 및 비디오 호출 개념](../../concepts/voice-video-calling/about-call-types.md) 에 대 한 자세한 정보
  - Azure Communication Services [샘플](../../samples/overview.md) 검토

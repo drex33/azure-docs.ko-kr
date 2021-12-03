@@ -7,12 +7,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
 ms.date: 08/12/2021
-ms.openlocfilehash: 389b85e5c19bf336adfe8f954f0d58ebeccf8b13
-ms.sourcegitcommit: dcf3424d7149fceaea0340eb0657baa2c27882a5
+ms.openlocfilehash: d387a77c60e12acabbfc6fe7bc3bd534d9b4a61d
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133270988"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133518550"
 ---
 #   <a name="text-merge-cognitive-skill"></a>텍스트 병합 인식 기술
 
@@ -32,6 +32,19 @@ Microsoft.Skills.Text.MergeSkill
 |--------------------|-------------|
 | `insertPreTag`    | 모든 삽입 전에 포함될 문자열입니다. 기본값은 `" "`입니다. 공간을 생략하려면 값을 `""`로 설정합니다.  |
 | `insertPostTag`   | 모든 삽입 후에 포함될 문자열입니다. 기본값은 `" "`입니다. 공간을 생략하려면 값을 `""`로 설정합니다.  |
+
+## <a name="skill-inputs"></a>기술 입력
+| 입력 이름 | 설명 |
+|------------|-------------|
+| `itemsToInsert` | 병합할 문자열의 배열입니다. |
+| `text`          | (선택 사항) 삽입할 주 텍스트 본문입니다. `text`가 제공되지 않으면 의 요소가 `itemsToInsert` 결합됩니다. |
+| `offsets`       | (선택 사항) 를 삽입해야 하는 위치 내의 위치 `text` `itemsToInsert` 배열입니다. 제공된 경우 의 요소 수는 의 `text` 요소 수와 같아야 `textToInsert` 합니다. 그렇지 않으면 모든 항목이 끝에 `text` 추가됩니다. |
+
+## <a name="skill-outputs"></a>기술 출력
+| 출력 이름 | 설명 |
+|-------------|-------------|
+| `mergedText`    | 병합된 결과 텍스트입니다. |
+| `mergedOffsets` | 의 `mergedText` 요소가 삽입된 위치의 `itemsToInsert` 배열입니다. |
 
 
 ##  <a name="sample-input"></a>샘플 입력

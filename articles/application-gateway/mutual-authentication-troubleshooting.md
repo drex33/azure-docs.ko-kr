@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 04/02/2021
 ms.author: caya
-ms.openlocfilehash: 623addd253b3eb28bdf70db02ddfbe4b320cbae7
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
-ms.translationtype: HT
+ms.openlocfilehash: 679038f91ea33448aff0210f97df70d5d60fca13
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106230934"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517474"
 ---
 # <a name="troubleshooting-mutual-authentication-errors-in-application-gateway-preview"></a>Application Gateway(미리 보기)에서 상호 인증 오류 문제 해결
 
@@ -62,7 +62,7 @@ openssl s_client -connect <hostname:port> -cert <path-to-certificate> -key <clie
 
 `-cert` 플래그는 리프 인증서이며, `-key` 플래그는 클라이언트 프라이빗 키 파일입니다. 
 
-OpenSSL `s_client` 명령을 사용하는 방법에 대한 자세한 내용은 [설명서 페이지](https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html)를 참조하세요.
+OpenSSL `s_client` 명령을 사용하는 방법에 대한 자세한 내용은 [설명서 페이지](https://www.openssl.org/docs/manmaster/man1/openssl-s_client.html)를 참조하세요.
 
 ### <a name="sslclientverify-is-failed"></a>SslClientVerify가 FAILED입니다.
 

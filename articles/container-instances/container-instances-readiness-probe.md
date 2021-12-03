@@ -3,16 +3,16 @@ title: 컨테이너 인스턴스에서 준비 상태 프로브 설정
 description: Azure Container Instances의 컨테이너가 준비된 경우에만 요청을 수신하도록 프로브를 구성하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 3e89086d66f284df35e36dc8f1d68bb09264843f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 7cbf120364b85595cad9a72faa77f8ef55164e2e
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86169666"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517094"
 ---
 # <a name="configure-readiness-probes"></a>준비 상태 프로브 구성
 
-트래픽 서비스를 제공하는 컨테이너화된 애플리케이션의 경우 컨테이너가 수신 요청을 처리할 준비가 되었는지 확인하고 싶을 수 있습니다. Azure Container Instances에서는 준비 상태 프로브에 특정 조건에서는 컨테이너에 액세스할 수 없도록 하는 구성을 포함하도록 지원합니다. 이 준비 상태 프로브는 [Kubernetes 준비 상태 프로브](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)와 유사하게 작동합니다. 예를 들어 컨테이너 앱은 시작하는 동안 대규모 데이터 세트를 로드해야 하는데 앱에서 이 시간 동안에는 요청을 수신하지 않도록 하고 싶을 수 있습니다.
+트래픽 서비스를 제공하는 컨테이너화된 애플리케이션의 경우 컨테이너가 수신 요청을 처리할 준비가 되었는지 확인하고 싶을 수 있습니다. Azure Container Instances에서는 준비 상태 프로브에 특정 조건에서는 컨테이너에 액세스할 수 없도록 하는 구성을 포함하도록 지원합니다. 이 준비 상태 프로브는 [Kubernetes 준비 상태 프로브](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)와 유사하게 작동합니다. 예를 들어 컨테이너 응용 프로그램이 시작 하는 동안 대량 데이터 집합을 로드 해야 할 수 있으며이 시간 동안 요청을 수신 하지 않으려고 합니다.
 
 이 문서에서는 프로브가 성공하는 경우에만 컨테이너가 트래픽을 수신하도록 하는 준비 상태 프로브가 포함된 컨테이너 그룹을 배포하는 방법을 설명합니다.
 

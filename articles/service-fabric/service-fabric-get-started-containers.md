@@ -214,7 +214,7 @@ Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이�
 
 엔드포인트를 정의하면 Service Fabric에서 엔드포인트를 명명 서비스에 게시합니다. 클러스터에서 실행 중인 다른 서비스에서 이 컨테이너를 확인할 수 있습니다. [역방향 프록시](service-fabric-reverseproxy.md)를 사용하여 컨테이너-컨테이너 통신을 수행할 수도 있습니다. 통신은 역방향 프록시 HTTP 수신 대기 포트 및 통신하려는 서비스의 이름을 환경 변수로 제공하여 수행됩니다.
 
-서비스는 특정 포트에 대해 수신 대기합니다(이 예제에서는 8081). 애플리케이션이 Azure에서 클러스터를 배포하는 경우 클러스터와 애플리케이션 모두 Azure 부하 분산 장치 뒤에서 실행됩니다. 애플리케이션 포트는 인바운드 트래픽이 서비스에 도달할 수 있도록 Azure 부하 분산 장치에서 열려 있어야 합니다.  [PowerShell 스크립트](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure 부하 분산 장치에서 이 포트를 열 수 있습니다.
+서비스는 특정 포트에 대해 수신 대기합니다(이 예제에서는 8081). 애플리케이션이 Azure에서 클러스터를 배포하는 경우 클러스터와 애플리케이션 모두 Azure 부하 분산 장치 뒤에서 실행됩니다. 애플리케이션 포트는 인바운드 트래픽이 서비스에 도달할 수 있도록 Azure Load Balancer에서 열려 있어야 합니다.  [PowerShell 스크립트](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) 또는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Load Balancer에서 이 포트를 열 수 있습니다.
 
 ## <a name="configure-and-set-environment-variables"></a>환경 변수 구성 및 설정
 서비스 매니페스트의 각 코드 패키지에 대해 환경 변수를 지정할 수 있습니다. 이 기능은 컨테이너 또는 프로세스 또는 게스트 실행 파일로 배포되는지 여부에 관계 없이 모든 서비스에 대해 사용할 수 있습니다. 애플리케이션 매니페스트에 환경 변수 값을 재정의하거나 애플리케이션 매개 변수로 배포하는 동안 지정할 수 있습니다.

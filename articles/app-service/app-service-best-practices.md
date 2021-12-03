@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 91fd974c730037907258cb4a670f6fa836bfda6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: f41bc860b4018b31ca487d3a255c4912842b8aa6
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92144878"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517436"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service에 대한 모범 사례
 이 문서는 [Azure App Service](./overview.md)를 사용하는 모범 사례를 요약합니다. 
@@ -31,7 +31,7 @@ ms.locfileid: "92144878"
 ## <a name="when-apps-consume-more-cpu-than-expected"></a><a name="CPUresources"></a>앱에서 예상보다 더 많은 CPU를 사용하는 경우
 앱에서 모니터링 또는 서비스 권장 사항을 통해 표시된 대로 예상보다 더 많은 CPU를 사용하거나 반복되는 CPU 스파이크를 경험하는 경우 App Service 계획 강화 또는 확장을 고려합니다. 애플리케이션이 상태 저장인 경우 강화가 유일한 옵션인 반면 애플리케이션이 상태 비저장인 경우 확장을 통해 더 많은 유연성 및 더 높은 확장 가능성을 줍니다. 
 
-“상태 저장” 대 “상태 비저장” 애플리케이션에 대한 자세한 내용을 보려면 [Azure App Service에서 스케일링 가능한 엔드투엔드 다중 계층 애플리케이션 계획](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid) 비디오를 시청합니다. App Service 크기 조정 및 자동 크기 조정 옵션에 대한 자세한 내용은 [Azure App Service에서 웹앱 크기 조정](manage-scale-up.md)을 참조하세요.  
+App Service 크기 조정 및 자동 크기 조정 옵션에 대한 자세한 내용은 [Azure App Service에서 웹앱 크기 조정](manage-scale-up.md)을 참조하세요.  
 
 ## <a name="when-socket-resources-are-exhausted"></a><a name="socketresources"></a>소켓 리소스를 모두 사용한 경우
 아웃바운드 TCP 연결을 소모하는 일반적인 이유는 TCP 연결을 다시 사용하도록 구현되지 않는 클라이언트 라이브러리의 사용되지 않는 HTTP - Keep-Alive와 같은 높은 수준의 프로토콜의 경우입니다. 효율적인 아웃바운드 재사용에 대한 코드에서 구성 또는 액세스할 수 있도록 App Service 계획의 앱에서 참조하는 각 라이브러리에 대한 설명서를 검토하세요. 또한 연결 누수를 방지하도록 올바른 생성 및 릴리스 또는 정리에 대한 라이브러리 설명서 지침을 따릅니다. 이러한 클라이언트 라이브러리 조사 진행 중 여러 인스턴스로 확장하여 영향을 완화할 수 있습니다.

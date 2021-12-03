@@ -4,12 +4,12 @@ description: Azure Container Instances를 배포, 실행 또는 관리할 때 �
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ef2ee343fe1c817453dd68dc79de882f3d637e12
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 1fe8c7a902cde2d0721abc3a1a40b0f16c2e9e5b
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130251968"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133518130"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
@@ -214,7 +214,7 @@ Azure Container Instances가 컨테이너 이미지에 구성된 포트에서 �
     --environment-variables 'PORT'='9000'
     ```
 1. `az container create`의 명령 출력에서 컨테이너 그룹의 IP 주소를 찾습니다. **ip** 의 값을 찾습니다. 
-1. 컨테이너가 성공적으로 프로비전되면 브라우저에서 컨테이너 앱의 IP 주소와 포트(예: `192.0.2.0:9000`)로 이동합니다. 
+1. 컨테이너가 성공적으로 프로비전된 후 브라우저에서 컨테이너 애플리케이션의 IP 주소 및 포트(예: )로 `192.0.2.0:9000` 이동합니다. 
 
     "Azure Container Instances를 시작합니다"가 표시되어야 합니다. 웹앱에서 표시하는 메시지입니다.
 1. 컨테이너 작업을 완료했으면 `az container delete` 명령을 사용하여 제거합니다.

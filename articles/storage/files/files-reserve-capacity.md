@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7fc4bb71327b2621d60a525ab277305ef13f40c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1b30346c33604174b922ec6be1ec594ae2ca0f76
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673239"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517999"
 ---
 # <a name="optimize-costs-for-azure-files-with-reserved-capacity"></a>예약된 용량으로 Azure Files에 대한 비용 최적화
 용량 예약을 사용하여 Azure 파일 공유에 대한 스토리지 비용을 절감할 수 있습니다. Azure Files 예약 용량은 1년 또는 3년 동안 예약을 커밋하는 경우 스토리지 비용에 대한 용량 할인을 제공합니다. 예약에서 예약 기간 동안 고정된 양의 스토리지 용량을 제공합니다.
@@ -37,9 +37,9 @@ Azure Files의 예약 용량에 대한 가격 책정 정보는 [Azure Files 가�
 1년 또는 3년 기간 동안 매월 10TiB 및 100TiB 단위로 Azure Files 예약 용량을 구매할 수 있습니다.
 
 ### <a name="reservation-scope"></a>예약 범위
-Azure Files 예약된 용량은 단일 구독, 여러 구독(공유 범위) 및 관리 그룹에 사용할 수 있습니다. 단일 구독으로 범위가 지정되면 예약 할인이 선택한 구독에만 적용됩니다. 여러 구독으로 범위가 지정되면 고객의 청구 컨텍스트 내에서 해당 구독 간에 예약 할인이 공유됩니다. 관리 그룹으로 범위가 한정되면 예약 할인이 관리 그룹 및 청구 범위의 일부인 구독에 적용됩니다. 예약은 구매한 범위 내 사용에 적용되며, 구독 내의 특정 스토리지 계정, 컨테이너 또는 개체로 제한될 수 없습니다.
+단일 구독, 여러 구독 (공유 범위) 및 관리 그룹에 대해 예약 된 용량을 사용할 수 Azure Files. 단일 구독으로 범위가 지정되면 예약 할인이 선택한 구독에만 적용됩니다. 여러 구독으로 범위가 지정되면 고객의 청구 컨텍스트 내에서 해당 구독 간에 예약 할인이 공유됩니다. 관리 그룹으로 범위가 지정 된 경우 예약 할인은 관리 그룹 및 청구 범위의 일부인 구독에 적용 됩니다. 예약은 구매한 범위 내 사용에 적용되며, 구독 내의 특정 스토리지 계정, 컨테이너 또는 개체로 제한될 수 없습니다.
 
-Azure Files에 대한 용량 예약은 구독 또는 공유 리소스 그룹에 저장된 데이터의 양만 대상으로 합니다. 예약에는 트랜잭션, 대역폭 및 데이터 전송 요금이 포함되지 않습니다. 예약을 구입하는 즉시, 예약 특성과 일치하는 용량 요금은 종량제 요금이 아닌 할인 요금으로 부과됩니다. Azure 예약에 대한 자세한 내용은 [Azure Reservations란?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)을 참조하세요.
+Azure Files에 대 한 용량 예약은 구독 또는 공유 리소스 그룹에 저장 된 데이터의 양만 다룹니다. 예약에는 트랜잭션, 대역폭, 데이터 전송 및 메타 데이터 저장소 요금이 포함 되지 않습니다. 예약을 구입하는 즉시, 예약 특성과 일치하는 용량 요금은 종량제 요금이 아닌 할인 요금으로 부과됩니다. Azure 예약에 대한 자세한 내용은 [Azure Reservations란?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)을 참조하세요.
 
 ### <a name="supported-tiers-and-redundancy-options"></a>지원되는 계층 및 중복 옵션
 Azure Files 예약된 용량은 프리미엄, 핫 및 쿨 파일 공유에 사용할 수 있습니다. 트랜잭션 최적화 계층의 Azure 파일 공유에는 예약된 용량을 사용할 수 없습니다. 모든 스토리지 중복은 예약을 지원합니다. 중복 옵션에 대한 자세한 내용은 [Azure Files 중복](storage-files-planning.md#redundancy)을 참조하세요.
@@ -69,7 +69,7 @@ Azure Files 예약을 구매할 때 예약에 대한 지역, 계층 및 중복 �
 
     ![예약된 용량을 구매하는 방법을 보여 주는 스크린샷](./media/files-reserve-capacity/select-reserved-capacity.png)
 
-   |필드  |Description  |
+   |필드  |설명  |
    |---------|---------|
    |**범위**   |  얼마나 많은 구독이 예약과 연결된 청구 혜택을 사용할 수 있는지 나타냅니다. 또한 예약이 특정 구독에 적용되는 방식을 제어합니다. <br/><br/> **공유** 를 선택하면 예약 할인이 청구 컨텍스트 내 모든 구독의 Azure Files 용량에 적용됩니다. 청구 컨텍스트는 Azure에 등록한 방법에 따라 결정됩니다. 기업 고객의 공유 범위는 등록이며 등록 내의 모든 구독을 포함합니다. 종량제 고객의 경우 공유 범위에는 계정 관리자가 만든 종량제 요금을 사용하는 모든 개별 구독이 포함됩니다.  <br/><br/>  **단일 구독** 을 선택하면 예약 할인이 선택한 구독의 Azure Files 용량에 적용됩니다. <br/><br/> **단일 리소스 그룹** 을 선택하면 예약 할인이 선택한 구독의 Azure Files 용량과 해당 구독 내에서 선택한 리소스 그룹에 적용됩니다. <br/><br/> 예약을 구매한 후에는 예약 범위를 변경할 수 있습니다.  |
    |**구독**  | Azure Files 예약 요금을 지불하는 데 사용되는 구독입니다. 선택한 구독에 대한 지불 방법은 비용을 청구하는 데 사용됩니다. 구독은 다음 유형 중 하나여야 합니다. <br/><br/>  기업계약(제품 번호: MS-AZR-0017P 또는 MS-AZR-0148P): Enterprise 구독에 대한 요금은 등록의 Azure Prepayment(이전에는 금액 약정이라고 함) 잔액에서 차감되거나 초과분에 대한 요금으로 청구됩니다. <br/><br/> 종량제 요금을 사용하는 개별 구독(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P): 종량제 요금을 사용하는 개별 구독의 경우 요금은 구독에 대한 신용 카드 또는 청구서 지불 방법으로 청구됩니다.    |

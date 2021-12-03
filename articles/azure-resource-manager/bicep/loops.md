@@ -2,13 +2,13 @@
 title: Bicep의 반복적인 루프
 description: 루프를 사용 하 여 Bicep의 컬렉션을 반복 합니다.
 ms.topic: conceptual
-ms.date: 10/19/2021
-ms.openlocfilehash: 9c38824fd3fdf10ce807b66aeccda2c0631cbc58
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 12/02/2021
+ms.openlocfilehash: 2b31c3b6ed55f1f03d9a5420491a41f0cd4efb3f
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130273729"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133518149"
 ---
 # <a name="iterative-loops-in-bicep"></a>Bicep의 반복적인 루프
 
@@ -97,12 +97,12 @@ output arrayResult array = stringArray
 다음 예제에서는 매개 변수에 지정 된 저장소 계정의 수를 만듭니다 `storageCount` . 각 저장소 계정에 대해 3 개의 속성을 반환 합니다.
 
 ```bicep
-param rgLocation string = resourceGroup().location
+param location string = resourceGroup().location
 param storageCount int = 2
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in range(0, storageCount): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for i in range(0, storageCount): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: rgLocation
+  location: location
   sku: {
     name: 'Standard_LRS'
   }
@@ -121,7 +121,7 @@ output storageInfo array = [for i in range(0, storageCount): {
 다음 예제에서는 모듈을 여러 번 배포 합니다.
 
 ```bicep
-param location string
+param location string = resourceGroup().location
 param storageCount int = 2
 
 var baseName = 'store${uniqueString(resourceGroup().id)}'
@@ -140,16 +140,16 @@ module stgModule './storageAccount.bicep' = [for i in range(0, storageCount): {
 다음 예제에서는 `storageNames` 매개 변수에 제공된 각 이름에 대해 하나의 스토리지 계정을 만듭니다.
 
 ```bicep
-param rgLocation string = resourceGroup().location
+param location string = resourceGroup().location
 param storageNames array = [
   'contoso'
   'fabrikam'
   'coho'
 ]
 
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name in storageNames: {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for name in storageNames: {
   name: '${name}${uniqueString(resourceGroup().id)}'
-  location: rgLocation
+  location: location
   sku: {
     name: 'Standard_LRS'
   }
@@ -179,35 +179,20 @@ var storageConfigurations = [
   }
 ]
 
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2021-02-01' = [for (config, i) in storageConfigurations: {
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2021-06-01' = [for (config, i) in storageConfigurations: {
   name: '${storageAccountNamePrefix}${config.suffix}${i}'
   location: resourceGroup().location
-  properties: {
-    supportsHttpsTrafficOnly: true
-    accessTier: 'Hot'
-    encryption: {
-      keySource: 'Microsoft.Storage'
-      services: {
-        blob: {
-          enabled: true
-        }
-        file: {
-          enabled: true
-        }
-      }
-    }
-  }
-  kind: 'StorageV2'
   sku: {
     name: config.sku
   }
+  kind: 'StorageV2'
 }]
 ```
 
 다음 예제에서는 배열의 요소와 인덱스를 모두 사용 하 여 새 리소스에 대 한 정보를 출력 합니다.
 
 ```bicep
-param nsgLocation string = resourceGroup().location
+param location string = resourceGroup().location
 param orgNames array = [
   'Contoso'
   'Fabrikam'
@@ -216,7 +201,7 @@ param orgNames array = [
 
 resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for name in orgNames: {
   name: 'nsg-${name}'
-  location: nsgLocation
+  location: location
 }]
 
 output deployedNSGs array = [for (name, i) in orgNames: {
@@ -255,7 +240,7 @@ resource nsg 'Microsoft.Network/networkSecurityGroups@2020-06-01' = [for nsg in 
 다음 예에서는 condition 문과 함께 사용 되는 루프를 보여 줍니다. 이 예에서는 모듈의 모든 인스턴스에 단일 조건이 적용 됩니다.
 
 ```bicep
-param location string
+param location string = resourceGroup().location
 param storageCount int = 2
 param createNewStorage bool = true
 
@@ -293,12 +278,12 @@ resource parentResources 'Microsoft.Example/examples@2020-06-06' = [for parent i
 리소스 인스턴스를 직렬로 배포하려면 [batchSize 데코레이터](./file.md#resource-and-module-decorators)를 추가합니다. 값을 동시에 배포할 인스턴스 수로 설정합니다. 루프에 이전 인스턴스에 대한 종속성이 생성됩니다. 따라서 이전 일괄 처리가 완료될 때까지 하나의 일괄 처리를 시작하지 않습니다.
 
 ```bicep
-param rgLocation string = resourceGroup().location
+param location string = resourceGroup().location
 
 @batchSize(2)
-resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in range(0, 4): {
+resource storageAcct 'Microsoft.Storage/storageAccounts@2021-06-01' = [for i in range(0, 4): {
   name: '${i}storage${uniqueString(resourceGroup().id)}'
-  location: rgLocation
+  location: location
   sku: {
     name: 'Standard_LRS'
   }
@@ -317,7 +302,7 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
 예를 들어, 일반적으로 파일 서비스 및 파일 공유를 스토리지 계정에 대한 중첩 리소스로 정의한다고 가정합니다.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -338,7 +323,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 다음 예제에서는 스토리지 계정, 파일 서비스 및 두 개 이상의 파일 공유를 만드는 방법을 보여 줍니다.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2021-06-01' = {
   name: 'examplestorage'
   location: resourceGroup().location
   kind: 'StorageV2'
@@ -347,12 +332,12 @@ resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2021-02-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2021-06-01' = {
   name: 'default'
   parent: stg
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-02-01' = [for i in range(0, 3): {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-06-01' = [for i in range(0, 3): {
   name: 'exampleshare${i}'
   parent: service
 }]

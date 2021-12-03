@@ -9,12 +9,12 @@ ms.author: amjads
 ms.collection: linux
 ms.date: 02/05/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 05d598872b52500700064807ec65faf30b7d83db
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 0a92fe8003d6eb338c50503648ec6ac3ed11ac60
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132871119"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133517113"
 ---
 # <a name="use-the-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Linux 진단 확장 4.0을 사용하여 메트릭 및 로그 모니터링
 
@@ -82,6 +82,10 @@ Debian 7과 같이 주 버전만 나와 있는 배포는 모든 부 버전에 �
 * **Python 2**
 
 ### <a name="python-requirement"></a>Python 요구 사항
+
+>[!NOTE]
+>현재 모든 버전의 LINux DIAGNOSTIC Extensions(LAD)를 이미 Python 3을 지원하는 새 Azure Monitoring Agent와 수렴할 계획입니다. 2022년 초에 출시할 것으로 예상됩니다. 그 후 LAD는 사용 중단 보류 알림 및 승인을 위해 예약됩니다.
+>
 
 Linux 진단 확장에는 Python 2가 필요합니다. 기본적으로 Python 2가 포함되지 않은 배포를 가상 머신에서 사용하는 경우에는 Python 2를 설치해야 합니다.
 

@@ -101,7 +101,7 @@ Service Fabric은 클러스터 노드 간 통신을 보호하도록 클러스터
 
 ### <a name="opening-application-ports"></a>애플리케이션 포트 열기
 
-노드 유형에 연결된 부하 분산 장치 리소스 속성을 변경하여 애플리케이션 포트를 변경할 수 있습니다. Azure Portal을 사용하거나 PowerShell/Azure CLI를 사용할 수 있습니다. 자세한 내용은 [클러스터에 대한 애플리케이션 포트 열기](create-load-balancer-rule.md)를 참조하세요.
+노드 유형에 연결된 Load Balancer 리소스 속성을 변경하여 애플리케이션 포트를 변경할 수 있습니다. Azure Portal을 사용하거나 PowerShell/Azure CLI를 사용할 수 있습니다. 자세한 내용은 [클러스터에 대한 애플리케이션 포트 열기](create-load-balancer-rule.md)를 참조하세요.
 
 ### <a name="defining-node-properties"></a>노드 속성 정의
 

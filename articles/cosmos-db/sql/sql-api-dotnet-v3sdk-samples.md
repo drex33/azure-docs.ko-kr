@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 08/26/2021
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: a13d3102d019e1604e89b1ac798638e46ed66cc5
-ms.sourcegitcommit: 3d04177023a3136832adb561da831ccc8e9910c7
+ms.openlocfilehash: 5bfe4564698dfbe9ac66e5734b62b1a5b037f54d
+ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132937510"
+ms.lasthandoff: 12/03/2021
+ms.locfileid: "133518358"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>SQL API에 대한 Azure Cosmos DB .NET V3 SDK(Microsoft.Azure.Cosmos) 예제
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -90,7 +90,7 @@ Azure 구독 또는 Cosmos DB 체험 계정
 | [항목 Upsert](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L574) |[container.UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync) |
 | [항목 삭제](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L627) |[container.DeleteItemAsync](/dotnet/api/microsoft.azure.cosmos.container.deleteitemasync) |
 | [조건부 ETag 검사로 항목 바꾸기](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L798) |[RequestOptions.IfMatchEtag](/dotnet/api/microsoft.azure.cosmos.requestoptions.ifmatchetag) |
-| [항목을 부분적으로 업데이트(패치)](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L520) |[container.PatchItemAsync](/dotnet/api/microsoft.azure.cosmos.patchitemasync) |
+| [항목을 부분적으로 업데이트(패치)](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L520) |[container.PatchItemAsync](/dotnet/api/microsoft.azure.cosmos.container.patchitemasync) |
 
 
 ## <a name="indexing-examples"></a>청구 예제

@@ -6,17 +6,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/17/2020
-ms.openlocfilehash: cc1be51c506123ae18d0006be693b100f2e5af1b
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.date: 12/01/2021
+ms.openlocfilehash: f34f3ee3219f946ad9117ae86ce05422924109ba
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114727137"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486868"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: REST 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
-Azure Blob Storage에 비정형 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 Blob에서 새 콘텐츠를 만들 수 있습니다. 파이프라인에서 이미지를 처리할 수 있지만, 이 REST 자습서에서는 텍스트에 중점을 두고 언어 감지 및 자연어 처리를 적용하여 쿼리, 패싯 및 필터에 활용할 수 있는 새로운 필드를 만듭니다.
+Azure Blob Storage에서 구조화 되지 않은 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md) 은 콘텐츠를 분석 하 여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 정보를 만들 수 있습니다. 파이프라인에서 이미지를 처리할 수 있지만, 이 REST 자습서에서는 텍스트에 중점을 두고 언어 감지 및 자연어 처리를 적용하여 쿼리, 패싯 및 필터에 활용할 수 있는 새로운 필드를 만듭니다.
 
 이 자습서에서는 Postman 및 [Search REST API](/rest/api/searchservice/)를 사용하여 다음 작업을 수행합니다.
 
@@ -31,15 +31,15 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 C# 및 Azure Cognitive Search REST API를 사용하여 데이터 원본, 인덱스, 인덱서 및 기술 세트를 만듭니다. Azure Blob Storage에서 PDF, HTML, DOCX 및 PPTX와 같은 전체 문서(비정형 텍스트)로 시작한 다음, 기술 세트를 통해 실행하여 콘텐츠 파일에서 엔터티, 핵심 구 및 기타 텍스트를 추출합니다.
+이 자습서에서는 Postman과 Azure Cognitive Search REST Api를 사용 하 여 데이터 원본, 인덱스, 인덱서 및 기술를 만듭니다. Azure Blob Storage에서 PDF, HTML, DOCX 및 PPTX와 같은 전체 문서(비정형 텍스트)로 시작한 다음, 기술 세트를 통해 실행하여 콘텐츠 파일에서 엔터티, 핵심 구 및 기타 텍스트를 추출합니다.
 
 이 기술 세트에서는 Cognitive Services API 기반의 기본 제공 기술을 사용합니다. 파이프라인의 단계에는 텍스트에 대한 언어 감지, 핵심 문구 추출 및 엔터티 인식(조직)이 포함됩니다. 새 정보는 쿼리, 패싯 및 필터에 활용할 수 있는 새 필드에 저장됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-+ [Azure Storage](https://azure.microsoft.com/services/storage/)
-+ [Postman 데스크톱 앱](https://www.getpostman.com/)
-+ [만들기](search-create-service-portal.md) 또는 [기존 검색 서비스 찾기](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+* [Azure Storage](https://azure.microsoft.com/services/storage/)
+* [Postman 데스크톱 앱](https://www.getpostman.com/)
+* [만들기](search-create-service-portal.md) 또는 [기존 검색 서비스 찾기](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 
 > [!Note]
 > 이 자습서에서는 체험 서비스를 사용할 수 있습니다. 체험 검색 서비스에서는 인덱스, 인덱서 및 데이터 원본이 각각 3개로 제한됩니다. 이 자습서에서는 각각을 하나씩 만듭니다. 시작하기 전에 새 리소스를 수용할 수 있는 공간이 서비스에 있는지 확인하세요.

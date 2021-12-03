@@ -3,18 +3,18 @@ title: Microsoft Azure Maps 개요
 description: Microsoft Azure Maps의 서비스 및 기능으로 무엇이 있으며 애플리케이션에서 어떻게 사용할 수 있는지 알아봅니다.
 author: stevemunk
 ms.author: v-munksteve
-manager: erikland
+manager: jokebeck
 ms.date: 11/29/2021
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 8ecef0c6fe7a3c1f9a21c8412f0ab18483eea40e
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: fe3a1aecd5ad684f8bffe717e6edf4dcf6e1415d
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133364863"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133481084"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -212,7 +212,7 @@ Azure 지도 Power BI 시각적 개체는 지도 위에 있는 공간 데이터�
 
 :::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="비즈니스 데이터를 표시하는 Azure 지도 Power BI 시각적 개체를 사용하여 데스크톱 Power BI":::
 
-자세한 내용은 [Azure Maps Power BI 시각적 개체](power-bi-visual-getting-started.md) 시작 설명서를 참조하세요.
+자세한 내용은 Azure [지도 Power BI 시각적](power-bi-visual-get-started.md) 개체 시작을 참조하세요.
 
 ## <a name="usage"></a>사용
 

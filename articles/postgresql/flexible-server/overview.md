@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 11/30/2021
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 611974e945309a71e86d7919d8c26f6955135983
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.openlocfilehash: 85e7867136cfbccd70c73165d24fff984c7896b7
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2021
-ms.locfileid: "133438349"
+ms.locfileid: "133487704"
 ---
 # <a name="overview---azure-database-for-postgresql---flexible-server"></a>개요 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -65,7 +65,7 @@ Azure Database for PostgreSQL - 유연한 서버는 데이터베이스 관리 �
 
 ## <a name="automatic-backups"></a>자동 백업
 
-유연한 서버 서비스는 자동으로 서버 백업을 만들고 지역 내의 ZRS (영역 중복) 저장소에 저장 합니다. 백업을 통해 백업 보존 기간 내의 특정 지점으로 서버를 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 보존 기간은 선택적으로 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다. 자세한 내용은 [백업](./concepts-backup-restore.md)을 참조하세요.
+유연한 서버 서비스는 자동으로 서버 백업을 만들고 지역 내의 ZRS (영역 중복 저장소)에 저장 합니다. 백업을 통해 백업 보존 기간 내의 특정 지점으로 서버를 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 보존 기간은 선택적으로 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다. 자세한 내용은 [백업](./concepts-backup-restore.md)을 참조하세요.
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>몇 초 이내 성능 및 규모 조정
 

@@ -6,13 +6,13 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/21/2020
-ms.openlocfilehash: db80ae66761e49ce90f25a22f0e74cf8a1300796
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 12/01/2021
+ms.openlocfilehash: 57066be8e76b821b6fd23fa1aceb140fe2710b7c
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98797243"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133483043"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>Azure에서 적절한 PostgreSQL 서버 옵션 선택
 
@@ -29,16 +29,16 @@ Azure를 사용하면 PostgreSQL 서버워크 로드를 호스트된 가상 머�
 
 | **Attribute** | **Postgres on Azure VMs** | **PostgreSQL as PaaS** |
 | ----- | ----- | ----- |
-| <B> 가용성 SLA |- 가용성 집합 99.99% <br> - 단일 VM 99.95% | - 단일 서버 – 99.99% <br> - 유연한 서버 – 미리 보기 중에는 사용할 수 없음 <br> - 하이퍼스케일(Citus) - 99.95%(고가용성이 사용되는 경우)|
-| <B> OS 및 PostgreSQL 패치 | - 고객이 관리 | - 단일 서버 - 자동 <br> - 유연한 서버 – 자동(고객이 관리하는 선택적 창 제공) <br> - 하이퍼스케일(Citus) - 자동 |
-| <B> 고가용성 | - 고객이 고가용성을 설계, 구현, 테스트 및 유지 관리 기능으로 클러스터링, 복제 등이 포함될 수 있음 | - 단일 서버: 기본 제공 <br> - 유연한 서버: 기본 제공 <br> - 하이퍼스케일(Citus): 대기 모드를 사용하여 빌드 |
-| <B> 영역 중복성 | - Azure VM은 서로 다른 가용성 영역에서 실행되도록 설정할 수 있습니다. 온-프레미스 솔루션의 경우 고객이 자체적으로 보조 데이터 센터를 만들고 관리하고 유지 관리해야 합니다. | - 단일 서버: 예 <br> - 유연한 서버: 예 <br> - 하이퍼스케일(Citus): 예 |
-| <B> 하이브리드 시나리오 | - 고객이 관리 |- 단일 서버: 읽기-복제본 <br> - 유연한 서버: 미리 보기 중에는 사용할 수 없음 <br> - 하이퍼스케일(Citus): 예 |
-| <B> 백업 및 복원 | - 고객이 관리 | - 단일 서버: 로컬 및 지역에 대한 사용자 구성을 사용하여 기본 제공 <br> - 유연한 서버: 영역 중복 스토리지의 사용자 구성을 사용하여 기본 제공 <br> - 하이퍼스케일(Citus): 기본 제공 |
-| <B> 데이터베이스 작업 모니터링 | - 고객이 관리 | - 단일 서버, 유연한 서버 및 하이퍼스케일(Citus): 세 가지 옵션 모두 데이터베이스 작업에 대한 경고를 설정하고 임계값에 도달하면 작동하는 기능을 고객에게 제공합니다. |
-| <B> Advanced Threat Protection | - 고객이 직접 이 보호를 구축해야 합니다. |- 단일 서버: 예 <br> - 유연한 서버: 미리 보기 중에는 사용할 수 없음 <br> - 하이퍼스케일(Citus): 예 |
-| <B> 재해 복구 | - 고객이 관리 | - 단일 서버: 지역 중복 백업 및 지역 읽기-복제본 <br> - 유연한 서버: 미리 보기 중에는 사용할 수 없음 <br> - 하이퍼스케일(Citus): 예 |
-| <B> Intelligent Performance | - 고객이 관리 | - 단일 서버: 예 <br> - 유연한 서버: 미리 보기 중에는 사용할 수 없음 <br> - 하이퍼스케일(Citus): 예 |
+| **가용성 SLA** |- [가상 컴퓨터 SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) | - [단일 서버, 유연한 서버 및 Citus (Hyperscale) SLA](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/)|
+| **OS 및 PostgreSQL 패치** | - 고객이 관리 | - 단일 서버 - 자동 <br> - 유연한 서버 – 자동(고객이 관리하는 선택적 창 제공) <br> - 하이퍼스케일(Citus) - 자동 |
+| **고가용성** | - 고객이 고가용성을 설계, 구현, 테스트 및 유지 관리 기능으로 클러스터링, 복제 등이 포함될 수 있음 | - 단일 서버: 기본 제공 <br> - 유연한 서버: 기본 제공 <br> - 하이퍼스케일(Citus): 대기 모드를 사용하여 빌드 |
+| **영역 중복성** | - Azure VM은 서로 다른 가용성 영역에서 실행되도록 설정할 수 있습니다. 온-프레미스 솔루션의 경우 고객이 자체적으로 보조 데이터 센터를 만들고 관리하고 유지 관리해야 합니다. | - 단일 서버: 예 <br> - 유연한 서버: 예 <br> - 하이퍼스케일(Citus): 예 |
+| **하이브리드 시나리오** | - 고객이 관리 |- 단일 서버: 읽기-복제본 <br> - 유연한 서버: 미리 보기 중에는 사용할 수 없음 <br> - 하이퍼스케일(Citus): 예 |
+| **백업 및 복원** | - 고객이 관리 | - 단일 서버: 로컬 및 지역에 대한 사용자 구성을 사용하여 기본 제공 <br> - 유연한 서버: 영역 중복 스토리지의 사용자 구성을 사용하여 기본 제공 <br> - 하이퍼스케일(Citus): 기본 제공 |
+| **데이터베이스 작업 모니터링** | - 고객이 관리 | - 단일 서버, 유연한 서버 및 하이퍼스케일(Citus): 세 가지 옵션 모두 데이터베이스 작업에 대한 경고를 설정하고 임계값에 도달하면 작동하는 기능을 고객에게 제공합니다. |
+| **Advanced Threat Protection** | - 고객이 직접 이 보호를 구축해야 합니다. |- 단일 서버: 예 <br> - 유연한 서버: 미리 보기 중에는 사용할 수 없음 <br> - 하이퍼스케일(Citus): 예 |
+| **재해 복구** | - 고객이 관리 | - 단일 서버: 지역 중복 백업 및 지역 읽기-복제본 <br> - 유연한 서버: 미리 보기 중에는 사용할 수 없음 <br> - 하이퍼스케일(Citus): 예 |
+| **지능형 성능** | - 고객이 관리 | - 단일 서버: 예 <br> - 유연한 서버: 미리 보기 중에는 사용할 수 없음 <br> - 하이퍼스케일(Citus): 예 |
 
 ## <a name="total-cost-of-ownership-tco"></a>TCO(총 소유 비용)
 
@@ -50,7 +50,7 @@ Azure Database for PostgreSQL은 현재 리소스 가격이 다른 여러 계층
 
 Azure Database for PostgreSQL을 선택하면 Microsoft에서 자동으로 데이터베이스 소프트웨어를 구성, 패치 및 업그레이드합니다. 이러한 작업이 자동화되어 있으므로 관리 비용이 줄어듭니다. 또한 Azure Database for PostgreSQL은 [자동화된 백업 링크]() 기능을 제공합니다. 이러한 기능을 사용하여 비용을 크게 절감할 수 있으며, 특히 데이터베이스 수가 많을 경우 그 효과가 큽니다. 반면, PostgreSQL on Azure VMs를 선택하면 PostgreSQL 버전을 선택하여 실행할 수 있습니다. 그러나 프로비저닝된 VM 요금과 데이터, 백업, 모니터링 데이터 및 로그 저장소와 관련된 스토리지 비용 및 사용한 특정 PostgreSQL 라이선스 유형(있는 경우)에 대한 비용을 지불해야 합니다.
 
-Azure Database for PostgreSQL은 서비스의 99.99% SLA 보장을 유지하면서도 모든 종류의 노드 수준 중단에 대한 고가용성을 제공합니다. 그러나 VM 내에 있는 데이터베이스의 고가용성을 유지하려면 PostgreSQL 데이터베이스에서 사용할 수 있는 [스트리밍 복제](https://www.postgresql.org/docs/12/warm-standby.html#STREAMING-REPLICATION) 같은 고가용성 옵션을 사용하세요. 지원되는 고가용성 옵션을 사용하면 추가 SLA가 제공되지 않습니다. 하지만 추가 비용과 관리 오버헤드를 대가로 99.99%보다 높은 데이터베이스 가용성을 달성할 수 있습니다.
+Azure Database for PostgreSQL 단일 서버는 서비스에 대 한 [SLA 보증](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/) 을 계속 유지 하면서 모든 종류의 노드 수준 중단에 대해 영역 수준 (AZ)에서 기본 제공 고가용성을 제공 합니다. 유연한 서버는 영역 중복 구성 없이 [작동 시간 sla](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/) 를 제공 합니다. 그러나 VM 내에 있는 데이터베이스의 고가용성을 유지하려면 PostgreSQL 데이터베이스에서 사용할 수 있는 [스트리밍 복제](https://www.postgresql.org/docs/12/warm-standby.html#STREAMING-REPLICATION) 같은 고가용성 옵션을 사용하세요. 지원되는 고가용성 옵션을 사용하면 추가 SLA가 제공되지 않습니다. 하지만 추가 비용과 관리 오버헤드를 대가로 99.99%보다 높은 데이터베이스 가용성을 달성할 수 있습니다.
 
 가격 책정에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [Azure Database for PostgreSQL 가격 책정](https://azure.microsoft.com/pricing/details/postgresql/server/)

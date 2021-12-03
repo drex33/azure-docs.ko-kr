@@ -6,13 +6,13 @@ ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc, mode-portal
 ms.topic: quickstart
-ms.date: 11/30/2021
-ms.openlocfilehash: fbfec2b81b0007e3b5cbb6bb26a2cc8639e7f741
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.date: 12/01/2021
+ms.openlocfilehash: cc753f8d221ecfa3b894567dadb4858b127b23a6
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/02/2021
-ms.locfileid: "133438729"
+ms.locfileid: "133487089"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 유연한 서버 만들기
 
@@ -58,14 +58,14 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
     암호 |사용자 암호| 서버 관리자 계정의 새 암호입니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).
     위치|사용자와 가장 가까운 지역| 사용자에게 가장 가까운 위치입니다.
     버전|최신 주 버전| 다른 특정 요구 사항이 없는 한 최신 PostgreSQL 주 버전입니다.
-    컴퓨팅 + 스토리지 | **범용**, **4 vCore**, **512GB**, **7일** | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **서버 구성** 을 선택합니다. *범용*, *4 vCore*, *512GB* 및 *7일* 은 **컴퓨팅 계층**, **vCore**, **스토리지** 및 **백업 보존 기간** 에 대한 기본값입니다. 해당 슬라이더를 그대로 두거나 조정할 수 있습니다. 이 가격 책정 계층 선택을 저장하려면 **확인** 을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
+    컴퓨팅 + 스토리지 | **범용**, **4 vCore**, **512GB**, **7일** | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **서버 구성** 을 선택합니다. *범용*, *4 vCore*, *512GB* 및 *7일* 은 **컴퓨팅 계층**, **vCore**, **스토리지** 및 **백업 보존 기간** 에 대한 기본값입니다.  해당 슬라이더를 그대로 두거나 조정할 수 있습니다. <br> <br> 영역 수준 오류 로부터 보호 하기 위해 지역 **중복 백업을** 사용 하 여 서버를 구성 하려면의 확인란을 선택 합니다. 지역 중복 백업은 서버를 만들 때만 구성할 수 있습니다. 이 가격 책정 계층 선택을 저장하려면 **확인** 을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="가격 책정 계층 창":::
+    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier-geo-backup.png" alt-text="가격 책정 계층 창":::
 
     
 5. 네트워킹 구성 옵션
 6. 
-    **네트워킹** 탭에서 서버에 연결할 수 있는 방법을 선택할 수 있습니다. 서버에 연결하기 위해 Azure Database for MySQL 유연한 서버에서 제공하는 두 가지 방법은 다음과 같습니다.
+    **네트워킹** 탭에서 서버에 연결할 수 있는 방법을 선택할 수 있습니다. 유연한 서버 Azure Database for PostgreSQL 서버에 연결 하는 두 가지 방법을 제공 합니다.
    - 퍼블릭 액세스(허용된 IP 주소)
    - 프라이빗 액세스(VNet 통합)
 

@@ -950,6 +950,8 @@
               href: app/usage-flows.md
             - name: 사용량 현황 분석
               href: app/usage-troubleshoot.md
+            - name: HEART Framework
+              href: app/usage-heart.md
         - name: Azure DevOps
           items:
             - name: 릴리스 주석
@@ -1281,7 +1283,7 @@
               href: visualize/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: visualize/view-designer-conversion-tiles.md
-            - name: 예제
+            - name: 예
               href: visualize/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

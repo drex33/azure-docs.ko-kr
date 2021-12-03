@@ -224,6 +224,8 @@ items:
                     href: concepts-data-flow-performance-transformations.md
                   - name: 파이프라인에서 데이터 흐름 사용
                     href: concepts-data-flow-performance-pipelines.md
+                  - name: 메모리 액세스에 최적화 된 계산
+                    href: memory-optimized-compute.md
               - name: Integration Runtime 성능
                 href: concepts-integration-runtime-performance.md
               - name: 데이터 흐름 캔버스 관리
@@ -447,7 +449,7 @@ items:
             href: connector-presto.md
           - name: QuickBooks Online
             href: connector-quickbooks.md
-          - name: REST (영문)
+          - name: REST
             href: connector-rest.md
             displayName: timeout
           - name: Salesforce

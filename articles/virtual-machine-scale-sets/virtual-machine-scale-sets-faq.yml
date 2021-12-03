@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/30/2020
   ms.reviewer: jushiman
   ms.custom: mimckitt
-  ms.openlocfilehash: 38037844a12f268d6942e9e78b821f2ec7ba040e
-  ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+  ms.openlocfilehash: f5b6a72ed0fdde2a75cfacfcc6f2b2263619dde9
+  ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/22/2021
-  ms.locfileid: "114456306"
+  ms.lasthandoff: 12/02/2021
+  ms.locfileid: "133483805"
 title: Azure 가상 머신 확장 집합에 대한 FAQ
 summary: Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 sections:
@@ -514,7 +514,9 @@ sections:
 
       - VM 액세스 확장을 사용하여 암호를 다시 설정합니다. [여기](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)에 설명된 대로 암호 요구 사항을 따라야 합니다.
 
-          다음 PowerShell 예제를 사용합니다.
+      - 확장이 모델에서 암호를 업데이트 하지 않기 때문에 VM 액세스 확장을 사용 하려면 이미지로 다시 설치가 필요 하지 않습니다. 확장은 암호를 암호나 SSH 키 파일에 추가 하는 스크립트를 실행 합니다. 확장은 원래 SSH 키를 제거 하지 않습니다.
+
+          Windows 가상 머신 확장 집합에 대해 다음 PowerShell 예제를 사용 합니다.
 
           ```powershell
           $vmssName = "myvmss"
@@ -526,6 +528,21 @@ sections:
           $publisher = "Microsoft.Compute"
           $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
           $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+          Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+          ```
+
+          Linux 가상 머신 확장 집합에 대해 다음 PowerShell 예제를 사용 합니다.
+
+          ```powershell
+          $vmssName = "myvmss"
+          $vmssResourceGroup = "myvmssrg"
+          $publicConfig = @{"UserName" = "newuser"}
+          $privateConfig = @{"Password" = "********"}
+
+          $extName = "VMAccessForAgent"
+          $publisher = "Microsoft.OSTCExtensions"
+          $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+          $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "1.4" -AutoUpgradeMinorVersion $true
           Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
           ```
 - name: 네트워킹

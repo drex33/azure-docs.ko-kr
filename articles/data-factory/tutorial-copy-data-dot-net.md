@@ -7,12 +7,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 02/18/2021
 ms.author: jianleishen
-ms.openlocfilehash: 6f30ebf8f0f7d5498f46c548b2eede2f555677d9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8ff8e30c0715172af766fdaef45234835f8de96c
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122637708"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133486982"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 
@@ -44,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
 
-이제 원본 블로그와 싱크 SQL 테이블을 만들어서 자습서에서 사용할 Azure Blob 및 Azure SQL Database를 준비합니다.
+이제 원본 Blob 및 싱크 SQL 테이블을 만들어 자습서에 대한 Azure Blob 및 Azure SQL Database 준비합니다.
 
 #### <a name="create-a-source-blob"></a>원본 Blob 만들기
 

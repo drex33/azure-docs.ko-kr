@@ -8,26 +8,21 @@
     - name: 새로운 기능
       displayName: 'version, versions, servicing, information, timeline, support, support date, dates, versioning, policy'
       href: release-notes.md
-    - name: 에이전트 없는 솔루션 아키텍처란
+    - name: 에이전트 없는 솔루션 아키텍처
       displayName: 'deployment, where to deploy'
       href: architecture.md
 - name: 빠른 시작
   expanded: false
   items:
-    - name: 네트워크
-      items:
-        - name: 시스템 필수 구성 요소
-          displayName: 'firewall, proxy, open ports'
-          href: quickstart-system-prerequisites.md
-        - name: Microsoft Defender for IoT 시작
-          displayName: 'getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription'
-          href: getting-started.md
+    - name: IoT 용 Defender 시작
+      displayName: 'getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription'
+      href: getting-started.md
 - name: 자습서
   expanded: false
   items:
     - name: 네트워크
       items:
-        - name: Microsoft Defender for IoT 평가판 설정
+        - name: IoT 평가판 용 Defender 설치
           href: tutorial-onboarding.md
         - name: ClearPass 통합
           href: tutorial-clearpass.md
@@ -45,33 +40,6 @@
           href: tutorial-splunk.md
         - name: ServiceNow 통합
           href: tutorial-servicenow.md
-    - name: 시스템 필수 구성 요소
-      displayName: 'firewall, proxy, open ports'
-      href: quickstart-system-prerequisites.md
-    - name: Microsoft Defender for IoT 시작
-      displayName: 'getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription'
-      href: getting-started.md
-- name: 자습서
-  expanded: false
-  items:
-    - name: Microsoft Defender for IoT 평가판 설정
-      href: tutorial-onboarding.md
-    - name: ClearPass 통합
-      href: tutorial-clearpass.md
-    - name: CyberArk 통합
-      href: tutorial-cyberark.md
-    - name: Forescout 통합
-      href: tutorial-forescout.md
-    - name: Fortinet 통합
-      href: tutorial-fortinet.md
-    - name: Palo Alto 통합
-      href: tutorial-palo-alto.md
-    - name: Qradar 통합
-      href: tutorial-qradar.md
-    - name: Splunk 통합
-      href: tutorial-splunk.md
-    - name: ServiceNow 통합
-      href: tutorial-servicenow.md
 - name: 개념
   items:
     - name: 주요 개념

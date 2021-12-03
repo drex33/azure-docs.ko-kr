@@ -312,7 +312,7 @@ items:
             items:
               - name: 개요
                 href: ./sql-data-warehouse/design-elt-data-loading.md?context=/azure/synapse-analytics/context/context
-              - name: 모범 사례
+              - name: 최선의 구현 방법
                 href: sql/data-loading-best-practices.md
               - name: Columnstore 압축
                 href: sql/data-load-columnstore-compression.md
@@ -891,6 +891,8 @@ items:
                     href: ../data-factory/concepts-data-flow-performance-transformations.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
                   - name: 파이프라인에서 데이터 흐름 사용
                     href: ../data-factory/concepts-data-flow-performance-pipelines.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+                  - name: 메모리 액세스에 최적화 된 계산
+                    href: ../data-factory/memory-optimized-compute.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
               - name: Integration Runtime 성능
                 href: ../data-factory/concepts-integration-runtime-performance.md?context=/azure/synapse-analytics/context/context
               - name: 그래프 관리

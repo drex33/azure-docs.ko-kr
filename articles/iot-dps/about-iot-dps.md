@@ -2,7 +2,7 @@
 title: Microsoft Azure IoT Hub Device Provisioning Service 개요
 description: DPS(Device Provisioning Service) 및 IoT Hub를 사용하여 Azure에서 디바이스 프로비저닝 설명
 author: wesmc7777
-ms.author: v-stharr
+ms.author: wesmc
 ms.date: 11/22/2021
 ms.topic: overview
 ms.service: iot-dps
@@ -11,12 +11,12 @@ manager: lizross
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9df29222f8f979730564317f6e5a4ddc1821dea0
-ms.sourcegitcommit: e9e332a512ed615a3c8ad5a11baa21649f14116d
+ms.openlocfilehash: 260f6bbb7505ddf454f72d8a88b6cbf84047e194
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133098136"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480683"
 ---
 # <a name="what-is-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service란?
 
@@ -33,6 +33,8 @@ IoT Hub에 디바이스를 연결하고 구성하는 데 DPS가 탁월한 선택
 * 대기 시간이 가장 낮은 IoT Hub에 디바이스 연결(지리적 분할)
 * 디바이스의 변경 내용에 따라 다시 프로비전
 * 디바이스를 IoT Hub에 연결하는 데 사용되는 키 롤링(X.509 인증서를 사용하여 연결하는 경우)
+
+중첩된 에지 디바이스(부모/자식 계층 구조)의 프로비전은 현재 DPS에서 지원되지 않습니다.
 
 >[!NOTE]
 >**데이터 상주 고려 사항:**
@@ -192,6 +194,9 @@ DPS의 각 API 호출은 하나의 *작업* 으로 청구됩니다. 여기에는
 ## <a name="related-azure-components"></a>관련 Azure 구성 요소
 
 DPS는 Azure IoT Hub로 디바이스 프로비저닝을 자동화합니다. [IoT Hub](../iot-hub/index.yml)에 대해 자세히 알아보세요.
+
+> [!NOTE]
+> 현재 DPS에서 중첩 된에 지 장치의 프로 비전 (부모/자식 계층)을 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7351e00afe1899a54b309f2ba229487e8f2ef9ec
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 01ad23d157987f821a486298a83aef7fc46dedde
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883404"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480170"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Unity에서 Azure Spatial Anchors를 사용하여 앵커를 만들고 찾는 방법
 
@@ -33,9 +33,9 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 - 클라우드에 업로드합니다.
 - 클라우드 공간 앵커를 찾아 삭제합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 가이드를 완료하려면 다음이 필요합니다.
 
 - [Azure Spatial Anchors 개요](../overview.md)를 자세히 읽었습니다.
 - [5분 빠른 시작](../index.yml) 중 하나를 완료했습니다.
@@ -134,7 +134,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
-[ProcessFrame](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) 메서드에 대해 자세히 알아봅니다.
+[Processframe](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) 메서드에 대해 자세히 알아보세요.
 
 ```csharp
 #if UNITY_ANDROID || UNITY_IOS
@@ -199,7 +199,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
     // you might show content at this anchor for a while, then save when
     // the user confirms placement.
     CloudNativeAnchor cloudNativeAnchor = this.localAnchor.GetComponent<CloudNativeAnchor>();
-    if (cloudNativeAnchor.CloudAnchor == null) { cloudNativeAnchor.NativeToCloud(); }  
+    if (cloudNativeAnchor.CloudAnchor == null) { await cloudNativeAnchor.NativeToCloud(); }  
     CloudSpatialAnchor cloudAnchor = cloudNativeAnchor.CloudAnchor;
     await this.cloudSession.CreateAnchorAsync(cloudAnchor);
     this.feedback = $"Created a cloud anchor with ID={cloudAnchor.Identifier}");
@@ -251,7 +251,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
-[Expiration](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration) 속성에 대해 자세히 알아봅니다.
+[만료](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration) 속성에 대해 자세히 알아보세요.
 
 ```csharp
     cloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
@@ -315,7 +315,7 @@ Azure Spatial Anchors를 사용하면 다양한 디바이스 간에 전 세계 �
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
-[Reset](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) 메서드에 대해 자세히 알아봅니다.
+[Reset](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) 메서드에 대해 자세히 알아보세요.
 
 ```csharp
     this.cloudSession.Reset();

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 10/05/2021
-ms.openlocfilehash: 01b16a8ac28f89f0bb59944bdb790a2fa6cc8e75
-ms.sourcegitcommit: 4cd97e7c960f34cb3f248a0f384956174cdaf19f
+ms.openlocfilehash: d0a3ef0fa658e399813f5e25dcf1e325a19c38ee
+ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2021
-ms.locfileid: "132028556"
+ms.lasthandoff: 12/02/2021
+ms.locfileid: "133480761"
 ---
 # <a name="tutorial-migrate-sql-server-to-sql-server-on-azure-virtual-machine-offline-using-azure-data-studio-with-dms-preview"></a>자습서: DMS(미리 보기)와 함께 Azure Data Studio를 사용하여 SQL Server를 Azure Virtual Machine의 SQL Server로 오프라인 마이그레이션
 
@@ -47,6 +47,9 @@ Azure Data Studio에서 Azure SQL 마이그레이션 확장을 사용하여 최�
     - 대상 Azure SQL Managed Instance 또는 Azure Storage 계정을 포함하는 Azure 리소스 그룹에 대한 소유자 또는 기여자 역할
     - Azure 구독에 대한 소유자 또는 기여자 역할
 * 대상 [Azure Virtual Machine의 SQL Server](../azure-sql/virtual-machines/windows/create-sql-vm-portal.md)를 만듭니다.
+
+    > [!IMPORTANT]
+    > 기존 Azure Virtual Machine이 있는 경우 [전체 관리 모드에서 SQL IaaS 에이전트 확장에](../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md#management-modes)등록해야 합니다.
 * 원본 SQL Server는 연결하는 데 사용되는 로그인이 *sysadmin* 서버 역할의 구성원이거나 `CONTROL SERVER` 권한이 있는지 확인합니다. 
 * 전체 데이터베이스 및 트랜잭션 로그 백업 파일에 대해 다음 스토리지 옵션 중 하나를 사용합니다. 
     - SMB 네트워크 공유 

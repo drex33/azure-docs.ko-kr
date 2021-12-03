@@ -98,6 +98,8 @@
       href: apply-windows-license.md
     - name: 세션 호스트 이미지 사용자 지정
       items:
+        - name: Azure에서 골든 이미지 설정
+          href: set-up-golden-image.md
         - name: 마스터 VHD 이미지 설정
           href: set-up-customize-master-image.md
         - name: 마스터 VHD 이미지에 Office 설치

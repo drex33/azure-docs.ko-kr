@@ -243,7 +243,7 @@ items:
             href: web-sdk-best-practices.md
       - name: Android SDK를 사용하여 개발
         items:
-          - name: Android 지도 컨트롤 시작
+          - name: Android 지도 컨트롤
             href: how-to-use-android-map-control-library.md
           - name: 맵 스타일 변경
             href: set-android-map-styles.md
@@ -279,7 +279,7 @@ items:
             href: android-map-events.md
       - name: iOS SDK를 사용하여 개발
         items:
-          - name: iOS 지도 컨트롤 시작
+          - name: iOS 맵 컨트롤
             href: how-to-use-ios-map-control-library.md
           - name: 지도 스타일 변경
             href: set-map-style-ios-sdk.md
@@ -317,8 +317,8 @@ items:
             href: how-to-use-indoor-module-ios.md
       - name: Power BI에서 Azure Maps 사용
         items:
-          - name: 시작
-            href: power-bi-visual-getting-started.md
+          - name: Azure 지도 Power BI 시각적 개체
+            href: power-bi-visual-get-started.md
           - name: 레이어 이해
             href: power-bi-visual-understanding-layers.md
           - name: 거품형 레이어 추가

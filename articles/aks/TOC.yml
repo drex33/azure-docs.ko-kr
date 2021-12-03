@@ -80,7 +80,8 @@
     - name: 지속 가능한 소프트웨어 엔지니어링
       href: concepts-sustainable-software-engineering.md
     - name: GitOps
-      href: /azure-arc/kubernetes/conceptual-gitops-flux2.md
+      href: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
+      maintainContext: true
     - name: 모범 사례
       items:
         - name: 개요
@@ -447,7 +448,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/aks/
     - name: PowerShell
       href: /powershell/module/az.aks/#aks

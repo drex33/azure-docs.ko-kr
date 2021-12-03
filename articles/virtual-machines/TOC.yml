@@ -742,7 +742,7 @@
               href: ./linux/create-ssh-keys-detailed.md
             - name: 포털에서 SSH 키 만들기 및 관리
               href: ssh-keys-portal.md
-            - name: Azure CLI 사용하여 SSH 키 만들기 및 관리
+            - name: Azure CLI를 사용 하 여 SSH 키 만들기 및 관리
               href: ssh-keys-azure-cli.md
             - name: Linux 또는 macOS의 SSH
               href: ./linux/mac-create-ssh-keys.md
@@ -1704,8 +1704,11 @@
               href: ./linux/scheduled-events.md
               displayname: Scheduled events
             - name: Windows
-              displayName: Scheduled events
-              href: ./windows/scheduled-events.md
+              items:
+                - name: 예약된 이벤트
+                  href: ./windows/scheduled-events.md
+                - name: 예정된 이벤트 모니터링
+                  href: ./windows/scheduled-event-service.md
         - name: VM 추적 및 업데이트
           items:
             - name: Linux

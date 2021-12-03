@@ -58,6 +58,8 @@ items:
             href: concept-best-practices-classification.md
           - name: Automation 모범 사례
             href: concept-best-practices-automation.md
+          - name: 기본 부서의 범위 계정
+            href: concept-default-purview-account.md
       - name: Azure Purview 권한
         href: catalog-permissions.md
       - name: 데이터 맵

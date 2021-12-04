@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/19/2021
+ms.date: 11/30/2021
 ms.custom: devx-track-python, ignite-fall-2021
-ms.openlocfilehash: 4d78081b9af90f18a71e1623d9e19613f8adad05
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: 33746d7e4909c99e740101fff89230b2ddb6582b
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133365512"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542930"
 ---
 # <a name="configure-inbound-and-outbound-network-traffic"></a>인바운드 및 아웃바운드 네트워크 트래픽 구성
 
@@ -40,7 +40,7 @@ ms.locfileid: "133365512"
 다음은이 문서에 나열 된 서비스에서 사용 하는 잘 알려진 포트입니다. 이 문서에서 포트 범위를 사용 하 고이 섹션에 나열 되지 않은 경우에는 서비스에만 적용 되며 사용 되는 항목에 대 한 정보를 게시 하지 못할 수 있습니다.
 
 
-| 포트 | Description |
+| 포트 | 설명 |
 | ----- | ----- | 
 | 80 | 보안 되지 않은 웹 트래픽 (HTTP) |
 | 443 | 보안 웹 트래픽 (HTTPS) |
@@ -280,8 +280,8 @@ API 호출의 결과는 JSON 문서입니다. 다음 코드 조각은이 문서�
 **Azure Machine Learning 컴퓨팅 인스턴스 및 컴퓨팅 클러스터 호스트**
 
 > [!TIP]
-> * __Azure Key Vault__ 에 대 한 호스트는 [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) 플래그를 사용 하 여 작업 영역을 만든 경우에만 필요 합니다.
-> * __계산 인스턴스에__ 대 한 포트 8787 및 18881은 Azure 컴퓨터 작업 영역에 개인 끝점이 있는 경우에만 필요 합니다.
+> * __Azure Key Vault__ 호스트는 hbi_workspace [플래그를](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) 사용하도록 설정된 작업 영역을 만든 경우에만 필요합니다.
+> * __컴퓨팅 인스턴스용__ 포트 8787 및 18881은 Azure Machine 작업 영역에 프라이빗 엔드포인트가 있는 경우에만 필요합니다.
 > * 다음 표에서 `<storage>`를 Azure Machine Learning 작업 영역의 기본 스토리지 계정 이름으로 바꿉니다.
 
 # <a name="azure-public"></a>[Azure 공용](#tab/public)
@@ -291,9 +291,9 @@ API 호출의 결과는 JSON 문서입니다. 다음 코드 조각은이 문서�
 | 컴퓨팅 클러스터/인스턴스 | graph.windows.net | TCP | 443 |
 | 컴퓨팅 인스턴스 | \*.instances.azureml.net | TCP | 443 |
 | 컴퓨팅 인스턴스 | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
-| Microsoft storage 액세스 | \*.blob.core.windows.net | TCP | 443 |
-| Microsoft storage 액세스 | \*.table.core.windows.net | TCP | 443 |
-| Microsoft storage 액세스 | \*.queue.core.windows.net | TCP | 443 |
+| Microsoft 스토리지 액세스 | \*.blob.core.windows.net | TCP | 443 |
+| Microsoft 스토리지 액세스 | \*.table.core.windows.net | TCP | 443 |
+| Microsoft 스토리지 액세스 | \*.queue.core.windows.net | TCP | 443 |
 | 스토리지 계정 | \<storage\>.file.core.windows.net | TCP | 443, 445 |
 | 스토리지 계정 | \<storage\>.blob.core.windows.net | TCP | 443 |
 | Azure Key Vault | \*.vault.azure.net | TCP | 443 |
@@ -305,9 +305,9 @@ API 호출의 결과는 JSON 문서입니다. 다음 코드 조각은이 문서�
 | 컴퓨팅 클러스터/인스턴스 | graph.windows.net | TCP | 443 |
 | 컴퓨팅 인스턴스 | \*.instances.azureml.us | TCP | 443 |
 | 컴퓨팅 인스턴스 | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
-| Microsoft storage 액세스 | \*.blob.core.usgovcloudapi.net | TCP | 443 |
-| Microsoft storage 액세스 | \*.table.core.usgovcloudapi.net | TCP | 443 |
-| Microsoft storage 액세스 | \*.queue.core.usgovcloudapi.net | TCP | 443 |
+| Microsoft 스토리지 액세스 | \*.blob.core.usgovcloudapi.net | TCP | 443 |
+| Microsoft 스토리지 액세스 | \*.table.core.usgovcloudapi.net | TCP | 443 |
+| Microsoft 스토리지 액세스 | \*.queue.core.usgovcloudapi.net | TCP | 443 |
 | 스토리지 계정 | \<storage\>.file.core.usgovcloudapi.net | TCP | 443, 445 |
 | 스토리지 계정 | \<storage\>.blob.core.usgovcloudapi.net | TCP | 443 |
 | Azure Key Vault | \*.vault.usgovcloudapi.net | TCP | 443 |
@@ -319,9 +319,9 @@ API 호출의 결과는 JSON 문서입니다. 다음 코드 조각은이 문서�
 | 컴퓨팅 클러스터/인스턴스 | graph.chinacloudapi.cn | TCP | 443 |
 | 컴퓨팅 인스턴스 |  \*.instances.azureml.cn | TCP | 443 |
 | 컴퓨팅 인스턴스 | \*.instances.azureml.ms | TCP | 443, 8787, 18881 |
-| Microsoft 스토리지 액세스 | \*blob.core.chinacloudapi.cn | TCP | 443 |
-| Microsoft 스토리지 액세스 | \*.table.core.chinacloudapi.cn | TCP | 443 |
-| Microsoft 스토리지 액세스 | \*.queue.core.chinacloudapi.cn | TCP | 443 |
+| Microsoft storage 액세스 | \*blob.core.chinacloudapi.cn | TCP | 443 |
+| Microsoft storage 액세스 | \*.table.core.chinacloudapi.cn | TCP | 443 |
+| Microsoft storage 액세스 | \*.queue.core.chinacloudapi.cn | TCP | 443 |
 | 스토리지 계정 | \<storage\>.file.core.chinacloudapi.cn | TCP | 443, 445 |
 | 스토리지 계정 | \<storage\>.blob.core.chinacloudapi.cn | TCP | 443 |
 | Azure Key Vault | \*.vault.azure.cn | TCP | 443 |
@@ -344,15 +344,19 @@ API 호출의 결과는 JSON 문서입니다. 다음 코드 조각은이 문서�
 
 AKS에 배포된 모델에 대한 액세스 제한에 대한 자세한 내용은 [Azure Kubernetes Service에서 송신 트래픽 제한](../aks/limit-egress-traffic.md)을 참조하세요.
 
-**진단 지원**
+**모니터링, 메트릭 및 진단**
 
-Microsoft 지원 작업 영역에서 발생한 문제를 진단하려면 다음 호스트에 대한 아웃바운드 트래픽을 허용해야 합니다.
+Azure Monitor 및 Application Insights에 대 한 메트릭 및 기타 모니터링 정보의 로깅을 지원 하려면 다음 호스트에 대 한 아웃 바운드 트래픽을 허용 합니다.
+
+> [!NOTE]
+> 이러한 호스트에 기록 되는 정보는 작업 영역에서 실행 하는 문제를 진단 하기 위해 Microsoft 지원 에서도 사용 됩니다.
 
 * **dc.applicationinsights.azure.com**
 * **dc.applicationinsights.microsoft.com**
 * **dc.services.visualstudio.com**
+* **. in.applicationinsights.azure.com**
 
-이러한 호스트에 대한 IP 주소 목록은 [Azure Monitor 사용되는 IP 주소를](../azure-monitor/app/ip-addresses.md)참조하세요.
+이러한 호스트의 IP 주소 목록은 [Azure Monitor에서 사용 하는 ip 주소](../azure-monitor/app/ip-addresses.md)를 참조 하세요.
 
 ### <a name="python-hosts"></a>Python 호스트
 
@@ -388,44 +392,44 @@ Azure Machine Learning에서 Azure Kubernetes Service를 사용하는 경우 다
 * mcr.microsoft.com으로의 __아웃바운드__.
 * AKS 클러스터에 모델을 배포하는 경우 [Azure Kubernetes Service에 ML 모델 배포](how-to-deploy-azure-kubernetes-service.md#connectivity) 문서의 지침을 사용하세요.
 
-### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc 사용하도록 설정된 Kubernetes <a id="arc-kubernetes"></a>
+### <a name="azure-arc-enabled-kubernetes"></a>Azure Arc 사용 Kubernetes <a id="arc-kubernetes"></a>
 
-Azure Arc 사용하도록 설정된 Kubernetes 클러스터는 Azure Arc 연결에 따라 달라집니다. Azure Arc 네트워크 요구 사항을 충족해야 [합니다.](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements)
+Azure Arc 사용 Kubernetes 클러스터는 Azure Arc 연결에 따라 달라 집니다. [Azure Arc 네트워크 요구 사항을](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements)충족 하는지 확인 합니다.
 
-이 섹션의 호스트는 kubernetes 클러스터에 Azure Machine Learning 확장을 배포하고 학습 및 추론 워크로드를 클러스터에 제출하는 데 사용됩니다.
+이 섹션의 호스트는 Kubernetes 클러스터에 Azure Machine Learning 확장을 배포 하 고 교육 및 추론 작업을 클러스터에 제출 하는 데 사용 됩니다.
 
 **Azure Machine Learning 확장 배포**
 
-클러스터에 Azure Machine Learning 확장을 배포할 때 다음 엔드포인트에 대한 아웃바운드 액세스를 사용하도록 설정합니다.
+클러스터에 Azure Machine Learning 확장을 배포할 때 다음 끝점에 대 한 아웃 바운드 액세스를 사용 하도록 설정 합니다.
 
 | 대상 엔드포인트| 포트 | 사용 |
 |--|--|--|
 |  *.data.mcr.microsoft.com| https:443 | Azure CDN(Content Delivery Network)이 지원하는 MCR 스토리지에 필요합니다. |
-| quay.io, *. quay.io | https:443 | Quay.io 레지스트리, AML 확장 구성 요소에 대 한 컨테이너 이미지를 가져오는 데 필요 합니다. |
-| gcr.io| https:443 | Google cloud 리포지토리, AML 확장 구성 요소에 대 한 컨테이너 이미지를 끌어오는 데 필요 |
-| storage.googleapis.com | https:443 | Google cloud storage, gcr 이미지는에 호스트 됩니다. |
-| registry-1.docker.io, production.cloudflare.docker.com  | https:443 | AML 확장 구성 요소에 대 한 컨테이너 이미지를 끌어오는 데 필요한 Docker 허브 레지스트리 |
-| auth.docker.io| https:443 | Docker 허브 레지스트리에 액세스 하는 데 필요한 docker 리포지토리 인증 |
-| *. kusto.windows.net, *. table.core.windows.net, *. queue.core.windows.net | https:443 | Kusto에서 시스템 로그를 업로드 및 분석 하는 데 필요 합니다. |
+| quay.io, *.quay.io | https:443 | AML 확장 구성 요소에 대한 컨테이너 이미지를 끌어오는 데 필요한 Quay.io 레지스트리 |
+| gcr.io| https:443 | Google 클라우드 리포지토리- AML 확장 구성 요소에 대한 컨테이너 이미지를 끌어와야 합니다. |
+| storage.googleapis.com | https:443 | Google 클라우드 스토리지, gcr 이미지가 호스트 |
+| registry-1.docker.io, production.cloudflare.docker.com  | https:443 | Docker 허브 레지스트리- AML 확장 구성 요소에 대한 컨테이너 이미지를 끌어와야 합니다. |
+| auth.docker.io| https:443 | Docker 허브 레지스트리에 액세스하는 데 필요한 Docker 리포지토리 인증 |
+| *.kusto.windows.net, *.table.core.windows.net, *.queue.core.windows.net | https:443 | Kusto에서 시스템 로그를 업로드하고 분석하는 데 필요 |
 
-**작업만 학습**
+**학습 워크로드만**
 
-다음 끝점에 대 한 아웃 바운드 액세스를 사용 하도록 설정 하 여 교육 작업을 클러스터에 제출 합니다.
-
-| 대상 엔드포인트| 포트 | 사용 |
-|--|--|--|
-| pypi.org | https:443 | Python 패키지 인덱스-작업 환경을 초기화 하는 데 사용 되는 pip 패키지를 설치 합니다. |
-| archive.ubuntu.com, security.ubuntu.com, ppa.launchpad.net | http: 80 | 이 주소를 통해 init 컨테이너는 필요한 보안 패치와 업데이트를 다운로드할 수 있습니다. |
-
-**작업 교육 및 추론**
-
-학습 워크 로드에 대 한 끝점 외에도 다음 끝점에 대 한 아웃 바운드 액세스를 사용 하도록 설정 하 여 교육 및 추론 작업을 제출 합니다.
+다음 엔드포인트에 대한 아웃바운드 액세스를 사용하도록 설정하여 학습 워크로드를 클러스터에 제출합니다.
 
 | 대상 엔드포인트| 포트 | 사용 |
 |--|--|--|
-| *.azurecr.io | https:443 | Azure container registry-컨테이너 이미지를 끌어와 학습 또는 유추 작업을 호스트 하는 데 필요 합니다.|
-| *.blob.core.windows.net | https:443 | Azure blob storage, machine learning 프로젝트 스크립트, 컨테이너 이미지 및 작업 로그/메트릭을 인출 하는 데 필요 합니다. |
-| * \<region\> . 작업 영역. api.azureml.ms,  \<region\> . experiments.azureml.net,  \<region\> . api.azureml.ms | https:443 | Azure machine learning 서비스 api는 AML와 통신 하는 데 필요 합니다. |
+| pypi.org | https:443 | 작업 환경을 초기화하는 데 사용되는 pip 패키지를 설치하기 위한 Python 패키지 인덱스 |
+| archive.ubuntu.com, security.ubuntu.com, ppa.launchpad.net | http:80 | 이 주소를 사용하면 init 컨테이너가 필요한 보안 패치 및 업데이트를 다운로드할 수 있습니다. |
+
+**워크로드 학습 및 추론**
+
+학습 워크로드에 대한 엔드포인트 외에도 다음 엔드포인트에 대한 아웃바운드 액세스를 사용하도록 설정하여 학습 및 추론 워크로드를 제출합니다.
+
+| 대상 엔드포인트| 포트 | 사용 |
+|--|--|--|
+| *.azurecr.io | https:443 | 학습 또는 유추 작업을 호스트하기 위해 컨테이너 이미지를 끌어오는 데 필요한 Azure 컨테이너 레지스트리|
+| *.blob.core.windows.net | https:443 | 기계 학습 프로젝트 스크립트, 컨테이너 이미지 및 작업 로그/메트릭을 가져오는 데 필요한 Azure Blob Storage |
+| *.workspace. \<region\> . api.azureml.ms ,  \<region\> .experiments.azureml.net,  \<region\> .api.azureml.ms | https:443 | AML 통신하는 데 필요한 Azure Machine Learning Service API |
 
 ### <a name="visual-studio-code-hosts"></a>Visual Studio Code 호스트
 

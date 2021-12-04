@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
 ms.date: 09/08/2021
 ms.author: radeltch
-ms.openlocfilehash: a2d77f89c859966cf71a1e82e5d5eceaa542b77b
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.openlocfilehash: 883bd0046ea011956c8b529a50aeab7dadd700fb
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133437778"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133539195"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -55,6 +55,7 @@ Azure에는 SLES에 대 한 Pacemaker 클러스터에서 stonith를 설정 하�
   **Azure 공유 디스크를 사용 하는 SBD 장치에 대 한 중요 고려 사항**
 
    - 프리미엄 SSD를 사용 하는 Azure 공유 디스크는 SBD 장치로 지원 됩니다.
+   - Azure 공유 디스크를 사용 하는 SBD 장치는 SLES HA 15 SP01 이상에서 지원 됩니다.
    - Azure premium 공유 디스크를 사용 하는 SBD 장치는 [LRS (로컬 중복 저장소](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) ) 및 [ZRS (영역 중복 저장소)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks)에서 지원 됩니다.
    - 배포-가용성 집합 또는 가용성 영역의 유형에 따라 Azure 공유 디스크에 대 한 적절 한 중복 저장소를 SBD 장치로 선택 합니다.
      - Azure premium 공유 디스크 Premium_LRS (SBD)에 대해 LRS를 사용 하는 장치는 가용성 집합의 배포에 대해서만 지원 됩니다.
@@ -63,7 +64,8 @@ Azure에는 SLES에 대 한 Pacemaker 클러스터에서 stonith를 설정 하�
    - SBD 장치에 사용 되는 Azure 공유 디스크는 클 필요가 없습니다. [Maxshares](../../disks-shared-enable.md#disk-sizes) 값은 공유 디스크를 사용할 수 있는 클러스터 노드 수를 결정 합니다. 예를 들어 SAP ASCS/ERS와 같은 2 개 노드 클러스터에서 SBD 장치에 대해 P1 또는 P2 디스크 크기 SAP HANA를 사용할 수 있습니다.
    - [HSR (hana system replication) 및 pacemaker를 사용 하는 hana 확장](sap-hana-high-availability-scale-out-hsr-suse.md)의 경우 현재 [maxshares](../../disks-shared-enable.md#disk-sizes)의 제한 때문에 복제 사이트별로 최대 4 개의 노드가 있는 클러스터에서 SBD 장치에 Azure 공유 디스크를 사용할 수 있습니다.
    - Pacemaker 클러스터 간에 Azure shared disk SBD 장치를 연결 하지 않는 것이 좋습니다.
-   - Azure 공유 디스크에 대 한 제한 사항에 대 한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](../../disks-shared.md#limitations) 섹션을 참조 하세요.
+   - 여러 Azure shared disk SBD 장치를 사용 하는 경우 VM에 연결할 수 있는 최대 데이터 디스크 수에 대 한 제한을 확인 합니다.
+   - Azure 공유 디스크의 제한 사항에 대 한 자세한 내용은 Azure 공유 디스크 설명서의 [제한 사항](../../disks-shared.md#limitations) 섹션을 참조 하세요.
 
 - Azure fence 에이전트
 
@@ -737,9 +739,9 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
     <pre><code>sudo service corosync restart
     </code></pre>
 
-### <a name="create-stonith-device-on-pacemaker-cluster"></a>Pacemaker 클러스터에서 STONITH 디바이스 만들기
+### <a name="create-stonith-device-on-pacemaker-cluster"></a>Pacemaker 클러스터에서 STONITH 장치 만들기
 
-1. **[1]** SDB 디바이스(iSCSI 대상 서버 또는 Azure 공유 디스크)를 STONITH로 사용하는 경우 다음 명령을 실행합니다. STONITH 디바이스를 사용하도록 설정하고 펜스 지연을 설정합니다.
+1. **[1]** SDB 장치 (iSCSI 대상 서버 또는 Azure 공유 디스크)를 STONITH로 사용 하는 경우 다음 명령을 실행 합니다. STONITH 장치를 사용 하도록 설정 하 고 fence 지연을 설정 합니다.
 
    <pre><code>sudo crm configure property stonith-timeout=144
    sudo crm configure property stonith-enabled=true
@@ -753,7 +755,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
       op monitor interval="600" timeout="15"
    </code></pre>
 
-2. **[1]** Azure 펜스 에이전트를 STONITH로 사용하는 경우 다음 명령을 실행합니다. 두 클러스터 노드에 역할을 할당한 후 클러스터에서 STONITH 디바이스를 구성할 수 있습니다.
+2. **[1]** Azure fence 에이전트를 STONITH로 사용 하는 경우 다음 명령을 실행 합니다. 두 클러스터 노드 모두에 역할을 할당 한 후 클러스터에서 역할을 구성할 수 있습니다.
 
    > [!NOTE]
    > 호스트 이름과 Azure VM 이름이 동일하지 않은 경우 'pcmk_host_map' 옵션은 명령에만 필요합니다. **hostname:vm-name** 형식으로 매핑을 지정합니다.

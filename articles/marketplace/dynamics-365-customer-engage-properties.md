@@ -1,20 +1,20 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제안 속성을 구성합니다.
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제안 속성을 구성합니다.
+title: Dataverse에서 Dynamics 365 앱을 구성하고 Microsoft AppSource(Azure Marketplace)에서 속성을 제공하는 Power Apps.
+description: Dataverse에서 Dynamics 365 앱을 구성하고 Microsoft AppSource(Azure Marketplace)에서 속성을 제공하는 Power Apps.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/20/2021
-ms.openlocfilehash: 4f0b21bd0e3ff8da89606357a2844f8098e6a572
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: 577d6c28c0a4def2ecd133606d376a153e36227d
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864509"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545106"
 ---
-# <a name="configure-dynamics-365-for-customer-engagement--power-apps-offer-properties"></a>Dynamics 365 for Customer Engagement 및 Power Apps 제안 속성 구성
+# <a name="configure-dynamics-365-apps-on-dataverse-and-power-apps-offer-properties"></a>Dataverse 및 Power Apps 제안 속성에서 Dynamics 365 앱 구성
 
 이 페이지에서는 Microsoft AppSource에서 제안을 그룹화하는 데 사용되는 범주와 애플리케이션 버전, 제안을 지원하는 법적 계약을 정의할 수 있습니다.
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/29/2020
-ms.openlocfilehash: 9ea679864d722306b9a7375e732a8ce90d1eed9f
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.date: 12/03/2021
+ms.openlocfilehash: 1ee7f601a5eeb8123c14747bdaa3e78ec5205998
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130069903"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133539916"
 ---
 # <a name="create-or-modify-an-offer"></a>제안 만들기 또는 수정
 
@@ -275,7 +275,7 @@ ms.locfileid: "130069903"
 
 ## <a name="uploading-artifacts"></a>아티팩트 업로드 중
 
-위 예제와 같이 이미지, 로고 등의 아티팩트를 웹의 액세스 가능 위치에 업로드한 후 각각을 PUT 요청에 URI로 포함하여 공유해야 합니다. 시스템은 이러한 파일이 Azure Marketplace 스토리지에 없는 것을 감지하고 다운로드합니다. 결과적으로, 후속 GET 요청은 이러한 파일의 Azure Marketplace 서비스 URL을 반환한다는 것을 알 수 있습니다.
+위 예제와 같이 이미지, 로고 등의 아티팩트를 웹의 액세스 가능 위치에 업로드한 후 각각을 PUT 요청에 URI로 포함하여 공유해야 합니다. 시스템은 이러한 파일이 Azure Marketplace 저장소에 존재 하지 않는 것을 감지 하 고 다운로드 합니다. 결과적으로, 후속 GET 요청은 이러한 파일의 Azure Marketplace 서비스 URL을 반환한다는 것을 알 수 있습니다.
 
 ## <a name="categories-and-industries"></a>범주 및 산업
 
@@ -392,9 +392,9 @@ ms.locfileid: "130069903"
 
 ### <a name="microsoft-appsource-categories"></a>Microsoft AppSource 범주
 
-이러한 범주 및 해당 키는 SaaS, Power BI app, dynamics 365 business central, dynamics 365 for customer engagement 및 작업 제공 유형에 대 한 dynamics 365에 적용 됩니다. 굵은 기울임꼴 항목(예: ***분석***)은 범주이며 표준 텍스트 항목(예: advanced-analytics)은 하위 범주입니다. 공백 또는 대/소문자를 변경하지 말고 정확한 키 값을 사용합니다.
+이러한 범주와 해당 키는 SaaS, Power BI 앱, Dynamics 365 Business Central, Dataverse 및 Power Apps Dynamics 365 앱 및 Dynamics 365 Operations Apps 제안 유형에 적용됩니다. 굵은 기울임꼴 항목(예: ***분석***)은 범주이며 표준 텍스트 항목(예: advanced-analytics)은 하위 범주입니다. 공백 또는 대/소문자를 변경하지 말고 정확한 키 값을 사용합니다.
 
-| 범주 | SaaS 키 | Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation 키 | 앱 키 Power BI |
+| 범주 | SaaS 키 | Dynamics 365 Business Central, Dataverse 및 Power Apps Dynamics 365 앱, Dynamics 365 Operations Apps 키 | 앱 키 Power BI |
 | --- | --- | --- | --- |
 | ***분석** _ | _*_analytics_*_ | _*_분석_*_ | _ *_Analytics_** |
 | 고급 분석 | advanced-analytics | advanced-analytics | advanced-analytics |
@@ -494,9 +494,9 @@ ms.locfileid: "130069903"
 
 ### <a name="microsoft-appsource-industries"></a>Microsoft AppSource 산업
 
-이러한 산업 및 해당 키는 SaaS, Power BI app, dynamics 365 business central, dynamics 365 for customer engagement 및 작업 제공 유형에 대 한 dynamics 365에 적용 됩니다. 굵은 기울임꼴 항목(예: ***자동차***)은 범주이며 표준 텍스트 항목(예: AutomotiveL2)은 하위 범주입니다. 공백 또는 대/소문자를 변경하지 말고 정확한 키 값을 사용합니다.
+이러한 산업 및 해당 키는 SaaS, Power BI 앱, dynamics 365 Business Central, dataverse 및 Power Apps의 dynamics 365 앱 및 dynamics 365 Operations apps 제공 유형에 적용 됩니다. 굵은 기울임꼴 항목(예: ***자동차***)은 범주이며 표준 텍스트 항목(예: AutomotiveL2)은 하위 범주입니다. 공백 또는 대/소문자를 변경하지 말고 정확한 키 값을 사용합니다.
 
-| 업종 | SaaS, Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation 키 | Power BI apps 키 |
+| 업종 | SaaS, dynamics 365 Business Central, dataverse의 dynamics 365 앱 및 Power Apps, dynamics 365 작업 앱 키 | Power BI apps 키 |
 | --- | --- | --- |
 | ***자동차** _ | _*_자동차_*_ | _ *_automotive_** |
 | 자동차 | AutomotiveL2 | AutomotiveL2 |

@@ -4,12 +4,12 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep
-ms.openlocfilehash: 2b28cc742bb981e0db535d39cb0c7fbf027470ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 2cf09eea6a5f311b4bd5ff2d9fd5027969056c77
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83673767"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133540374"
 ---
 ### <a name="identity-tier"></a>ID 계층 
 
@@ -19,4 +19,4 @@ OHS는 애플리케이션 계층에 대한 역방향 프록시 역할을 합니�
 
 이 설정을 사용하면 Azure AD에 이미 로그인한 사용자는 Oracle Identity Cloud Service를 통해 다시 로그인하지 않고도 JD Edwards EnterpriseOne 또는 PeopleSoft 애플리케이션으로 이동할 수 있습니다. 이 솔루션을 배포하는 고객은 단일 자격 증명 세트, 향상된 로그온 환경, 향상된 보안 및 지원 센터 비용 절감을 포함하여 Single Sign-On의 이점을 얻을 수 있습니다.
 
-Azure AD를 사용하여 JD Edwards EnterpriseOne 또는 PeopleSoft에 Single Sign-On을 설정하는 방법에 대한 자세한 내용은 관련 [Oracle 백서](https://cloud.oracle.com/iaas/whitepapers/deploy_peoplesoft_jdedwards_across_oci_azure.pdf)를 참조하세요.
+Azure AD를 사용하여 JD Edwards EnterpriseOne 또는 PeopleSoft에 Single Sign-On을 설정하는 방법에 대한 자세한 내용은 관련 [Oracle 백서](https://www.oracle.com/a/ocom/docs/applications/jdedwards/jde-on-oci-strategy-updates-2020.pdf)를 참조하세요.

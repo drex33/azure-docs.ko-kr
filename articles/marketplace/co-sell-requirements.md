@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 10/21/2021
-ms.openlocfilehash: 09403aa97df2fe0ab451eee3194b1d6e3b239ab2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 12/03/2021
+ms.openlocfilehash: a2f9ee61656f1ae10821610cbdd8d50814c65b6c
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130249441"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133540827"
 ---
 # <a name="co-sell-requirements"></a>공동 판매 요구 사항
 
@@ -26,7 +26,7 @@ ms.locfileid: "130249441"
 | 공동 판매 준비 안 됨 | [공동 판매 준비 상태에 대한 최소 요구 사항](#requirements-for-co-sell-ready-status)을 충족하지 못했습니다. |
 | 공동 판매 준비 | [공동 판매 준비 상태에 대한 모든 요구 사항](#requirements-for-co-sell-ready-status)을 충족했습니다. |
 | Azure IP 공동 판매 인센티브 | [해당 추가 요구 사항](#requirements-for-azure-ip-co-sell-incentive-status) 외에도 공동 판매 준비 요구 사항을 충족했습니다. |
-| Business Applications 공동 판매 인센티브 | 이 상태는 [Microsoft Business Applications ISV 연결 프로그램](business-applications-isv-program.md)의 Dynamics 365 및 Power Apps 제품에 적용되며 [이 상태에 대한 모든 요구 사항](#requirements-for-business-applications-co-sell-incentive-status)을 충족함을 나타냅니다. |
+| Business Applications 공동 판매 인센티브 | 이 상태는 Power Apps [Microsoft Business Applications ISV 커넥트 프로그램](business-applications-isv-program.md) 에서 _Dynamics 365 앱_ 에 적용 되며, [이 상태에 대 한 모든 요구 사항이](#requirements-for-business-applications-co-sell-incentive-status) 충족 되었음을 나타냅니다. |
 |||
 
 ## <a name="requirements-for-co-sell-ready-status"></a>공동 판매 준비 상태에 대한 요구 사항
@@ -49,7 +49,7 @@ ms.locfileid: "130249441"
 
 **Business Applications ISV**:
 
-- Dynamics 365 및 Power Apps(Dynamics 365 Business Central 제외) 솔루션에는 ISV 연결 등록이 필요합니다.
+- dataverse의 dynamics 365 앱 및 Power Apps 및 dynamics 365 Operations apps 솔루션에는 ISV 커넥트 등록이 필요 합니다.
 
 ### <a name="complete-the-co-sell-with-microsoft-tab"></a>Microsoft과 공동 판매 탭 완료
 
@@ -78,7 +78,7 @@ Azure IP 공동 판매 인센티브 상태는 다음 제품 유형에 적용됩�
 
 요구 사항 1 - 다음 사항을 달성합니다.
 
-- _조직 수준_ 에서 지난 12개월 동안 최소 미화 100,000달러의 Azure 소비 수익 임계값을 생성합니다. 이는 Azure 솔루션을 조합하여 얻을 수 있습니다. 상업용 Marketplace에서 제안을 거래할 수 있는 경우 후행 12개월 동안 $100,000 USD의 청구된 수익 임계값을 충족하여 이 요구 사항을 충족할 수 있습니다.
+- _조직 수준_ 에서 지난 12개월 동안 최소 미화 100,000달러의 Azure 소비 수익 임계값을 생성합니다. 이는 Azure 솔루션을 조합하여 얻을 수 있습니다. 제품이 상업적 marketplace에서 불가능 되는 경우이 요구 사항을 충족할 수 있습니다. 여기서는 12 개월 동안의 청구 수익 임계값 $10만 USD를 충족 해야 합니다.
 
 요구 사항 2 - Azure 기반 솔루션에 대한 Microsoft 기술 유효성 검사를 통과합니다.
 - 기술 유효성 검사는 제품의 인프라 중 50% 이상이 Azure에서 반복 가능 IP 코드를 사용하는지 확인해야 합니다. 상업용 마켓플레이스에서 거래할 수 있는 Azure VM 및 Azure 애플리케이션 솔루션은 기본적으로 이 요구 사항을 충족합니다.
@@ -88,7 +88,7 @@ Azure IP 공동 판매 인센티브 상태는 다음 제품 유형에 적용됩�
 
 ## <a name="requirements-for-business-applications-co-sell-incentive-status"></a>Business Applications 공동 판매 인센티브 상태에 대한 요구 사항
 
-이 상태는 ISV 연결 프로그램에 등록된 Dynamics 365 또는 Power Apps (Dynamics 365 Business Central 제외)에서 빌드된 IP 기반 솔루션에 적용됩니다. 하지만 Microsoft 판매자가 사용자와 함께 제품을 공동 판매하려면 제품은 공동 판매 준비 상태(위에 설명함)에 대한 요구 사항도 완료해야 합니다.
+이 상태는 ISV 커넥트 프로그램에 등록 된 Power Apps 및 dynamics 365 앱에서 dynamics 365 앱을 기반으로 하는 IP 기반 솔루션에 적용 됩니다. 하지만 Microsoft 판매자가 사용자와 함께 제품을 공동 판매하려면 제품은 공동 판매 준비 상태(위에 설명함)에 대한 요구 사항도 완료해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

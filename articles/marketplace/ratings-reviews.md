@@ -7,13 +7,13 @@ ms.topic: conceptual
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 11/22/2021
-ms.openlocfilehash: e9154bd1ea46da502cae77b0d6232b801aa167f1
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.date: 12/03/2021
+ms.openlocfilehash: 0a3e024e654ee22978d0cf5a170e4aca57bafce1
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133055996"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545030"
 ---
 # <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>상업적 marketplace 분석의 등급 및 리뷰 대시보드
 
@@ -60,7 +60,7 @@ ms.locfileid: "133055996"
 
 ### <a name="respond-to-a-review"></a>검토에 응답
 
-사용자의 리뷰에 응답할 수 있으며 응답은 Azure Marketplace 또는 AppSource 상점에 표시됩니다. 이 기능은 Azure 애플리케이션, Azure Container, Azure 가상 머신, Dynamics 365 Business Central, Dynamics 365 Customer Engagement & Power Apps, Dynamics 365 Operations, IoT Edge 모듈, 관리형 서비스, Power BI 앱 및 SaaS(Software as a Service)와 같은 제품 유형에 적용됩니다.
+사용자의 리뷰에 응답할 수 있으며 응답은 Azure Marketplace 또는 AppSource 상점에 표시됩니다. 이 기능은 Azure 애플리케이션, azure Container, azure virtual machine, dynamics 365 Business Central, dataverse의 dynamics 365 앱 및 Power Apps, dynamics 365 작업 앱, IoT Edge 모듈, 관리 서비스, Power BI 앱 및 Software as a service와 같은 제품 유형에 적용 됩니다.
 
 리뷰에 응답하려면 다음 단계를 수행합니다.
 

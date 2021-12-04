@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 31d2ceb9d8ae9a93ea15f2bf2f77ed7f05f6021c
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.openlocfilehash: 5e66894bce9775c186945bb3f6b73c4ee408cefb
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132287188"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542670"
 ---
 # <a name="get-started-with-cost-management-for-partners"></a>파트너용 Cost Management 시작
 
@@ -49,7 +49,7 @@ Cost Management 사용할 수 있는 모든 기능은 REST API에서도 사용�
 
 파트너로서 Cost Management 기본적으로 Azure 플랜에 있는 구독에만 사용할 수 있습니다.
 
-Azure Portal Cost Management 사용하도록 설정하려면 고객이 Microsoft 고객 계약 동의했는지 확인하고(고객을 대신하여) 고객을 Azure 플랜으로 전환해야 합니다. Azure 플랜으로 전환되는 구독에 대한 비용만 Cost Management 사용할 수 있습니다.
+Azure Portal Cost Management 사용하도록 설정하려면 고객 대신 Microsoft 고객 계약 대한 고객의 동의를 확인하고 고객을 Azure 플랜으로 전환해야 합니다. Azure 플랜으로 전환되는 구독에 대한 비용만 Cost Management 사용할 수 있습니다.
 
 Cost Management 청구 계정 또는 구독에 대한 읽기 권한이 필요합니다.
 
@@ -79,7 +79,7 @@ Cost Management 청구 계정 또는 구독에 대한 읽기 권한이 필요합
 
 ![통화에 대한 실제 비용 선택을 보여주는 예](./media/get-started-partners/actual-cost-selector.png)
 
-청구 범위에서 [분할상환 비용 보기](quick-acm-cost-analysis.md#customize-cost-views)를 사용하면 예약 기간 동안 예약 인스턴스 분할상환 비용을 볼 수 있습니다.
+청구 범위에서 [분할상환 비용 보기](quick-acm-cost-analysis.md#switch-between-actual-and-amortized-cost)를 사용하면 예약 기간 동안 예약 인스턴스 분할상환 비용을 볼 수 있습니다.
 
 ### <a name="billing-profile-scope"></a>청구 프로필 범위
 
@@ -153,7 +153,7 @@ Azure Portal에서 *파트너 테넌트* 에 로그인하고 **Cost Management +
 
 ## <a name="view-and-enable-all-policies"></a>모든 정책 보기 및 사용
 
-Azure 예약, Azure Marketplace, Azure 요금 보기 및 태그 관리에 대한 정책을 단일 위치에서 보고 변경할 수도 있습니다. 정책 설정은 청구 프로필 아래의 모든 고객에게 적용됩니다.
+또한 단일 위치에서 Azure 예약, Azure Marketplace, Azure 요금 보기 및 태그 관리에 대한 정책을 보고 변경할 수 있습니다. 정책 설정은 청구 프로필 아래의 모든 고객에게 적용됩니다.
 
 정책을 보거나 변경하려면 다음을 수행합니다.
 
@@ -177,7 +177,7 @@ Azure RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>비용 분석에서 비용 분석
 
-파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 특정 고객이나 청구서에 대해 고객 전체의 비용 분석에서 청구된 비용을 검색하고 분석할 수 있습니다. [비용 분석](quick-acm-cost-analysis.md) 보기에서 [보기를 저장](quick-acm-cost-analysis.md#saving-and-sharing-customized-views)할 수도 있습니다.
+파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 특정 고객이나 청구서에 대해 고객 전체의 비용 분석에서 청구된 비용을 검색하고 분석할 수 있습니다. 비용 분석에서 보기를 저장할 수도 있습니다.
 
 고객 테넌트의 구독에 액세스할 수 있는 Azure RBAC 사용자는 고객 테넌트의 구독에 대한 소매 비용을 분석하고, 보기를 저장하고, 데이터를 CSV 및 PNG 파일로 내보낼 수도 있습니다.
 
@@ -240,7 +240,7 @@ Azure RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 
 | unitOfMeasure | 서비스 요금이 청구되는 단위를 식별합니다. 예를 들면 GB와 시간입니다. | 서비스 요금이 청구되는 단위를 식별합니다. 예를 들면 GB, 시간, 10,000초입니다. |
 | pricingCurrency | 단가를 정의하는 통화입니다. | 가격표의 통화입니다.|
 | billingCurrency | 청구되 비용을 정의하는 통화입니다. | 송장의 청구 통화로 정의된 통화입니다. |
-| chargeType | 구매 및 환불과 같은 Cost Management 비용이 나타내는 요금 유형을 정의합니다. | 요금 또는 조정의 유형입니다. 현재 작업에 사용할 수 없습니다. |
+| chargeType | 구매 및 환불과 같은 Cost Management 비용을 나타내는 청구 유형을 정의 합니다. | 요금 또는 조정의 유형입니다. 현재 작업에 사용할 수 없습니다. |
 | costinBillingCurrency | 청구된 통화 단위의 세전 혼합 비용 또는 ExtendedCost입니다. | 해당 없음 |
 | costinPricingCurrency | 가격과의 상관 관계를 위한 가격 책정 통화 단위의 세전 혼합 비용 또는 ExtendedCost입니다. | 해당 없음 |
 | **costinUSD** | USD 단위로 예상된 세전 혼합 비용 또는 ExtendedCost입니다. | 해당 없음 |
@@ -258,7 +258,7 @@ Azure RBAC 범위에서 예약된 인스턴스에 대한 분할상환 보기와 
 
 ## <a name="view-partner-earned-credit-pec-resource-costs"></a>PEC(파트너 획득 크레딧) 리소스 비용 보기
 
-Cost Management에서 파트너는 비용 분석을 사용 하 여 PEC 혜택을 받은 비용을 볼 수 있습니다.
+Cost Management 파트너는 비용 분석을 사용하여 PEC 혜택을 받은 비용을 볼 수 있습니다.
 
 Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + 청구** 를 선택합니다. **Cost Management** 에서 **비용 분석** 을 선택합니다.
 
@@ -272,7 +272,7 @@ Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + �
 
 **PartnerEarnedCreditApplied** 속성이 _False_ 인 경우 관련 비용이 크레딧에 필요한 자격을 충족하지 못합니다. 또는 구매한 서비스가 파트너 획득 크레딧을 받을 자격이 없습니다.
 
-서비스 사용 현황 데이터가 Cost Management에 표시되기까지 일반적으로 8-24시간이 걸립니다. 자세한 내용은 [비용, 사용량 데이터 업데이트 및 보존](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention)을 참조하세요. PEC 크레딧을 Cost Management의 액세스 시간에서 48 시간 이내에 표시 됩니다.
+서비스 사용 현황 데이터가 Cost Management에 표시되기까지 일반적으로 8-24시간이 걸립니다. 자세한 내용은 [비용, 사용량 데이터 업데이트 및 보존](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention)을 참조하세요. PEC 크레딧은 Cost Management 액세스로부터 48시간 이내에 표시됩니다.
 
 
 **그룹화 방법** 옵션을 사용하여 **PartnerEarnedCreditApplied** 속성을 기준으로 그룹화하고 필터링할 수도 있습니다. 이 옵션을 사용하여 PEC가 있거나 없는 비용을 검사할 수 있습니다.
@@ -309,7 +309,7 @@ Azure Portal에서 파트너 테넌트 또는 고객 테넌트에 로그인하�
 
 파트너와 고객은 Cost Management API를 사용할 수 있으며, 일반적인 작업에 대해서는 다음 섹션에 설명되어 있습니다.
 
-### <a name="cost-management-apis---direct-and-indirect-providers"></a>Cost Management Api-직접 및 간접 공급자
+### <a name="cost-management-apis---direct-and-indirect-providers"></a>Cost Management API - 직접 및 간접 공급자
 
 파트너 테넌트의 청구 범위에 액세스할 수 있는 파트너는 다음 API를 사용하여 청구된 비용을 볼 수 있습니다.
 

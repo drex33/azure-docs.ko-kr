@@ -1,20 +1,20 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제품 목록 세부 정보 구성
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제품 목록 세부 정보를 구성합니다.
+title: Microsoft AppSource (Azure Marketplace)에 대 한 Dynamics 365 Operations Apps 제품 목록 세부 정보를 구성 합니다.
+description: Microsoft AppSource (Azure Marketplace)에 대 한 자세한 정보를 제공 하는 Dynamics 365 운영 앱을 구성 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: ab5d827bb69759b5771962440edc2edd835516ce
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: 9496dedd5d0b995bcb7a40636bd58c7bb7f64fd3
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110615477"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545163"
 ---
-# <a name="configure-d365-for-operations-offer-listing-details"></a>Dynamics 365 for Operations 제품 목록 세부 정보 구성
+# <a name="configure-dynamics-365-operations-apps-offer-listing-details"></a>Dynamics 365 Operations Apps 제품 목록 정보 구성
 
 이 페이지에서는 제안 이름, 설명, 링크, 연락처, 로고, 스크린샷 등 제안 세부 정보를 정의할 수 있습니다.
 

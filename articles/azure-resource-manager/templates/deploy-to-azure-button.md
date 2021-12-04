@@ -2,17 +2,17 @@
 title: Azure 단추에 배포
 description: 단추를 사용하여 GitHub 리포지토리에서 Azure Resource Manager 템플릿을 배포합니다.
 ms.topic: conceptual
-ms.date: 05/05/2021
-ms.openlocfilehash: 5074d21867e931560367a6ab62c46e5753f1b00e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: fabfc565693b8bf44c837db31d2f70507a8188a6
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957811"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133543781"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>배포 템플릿을 사용하여 GitHub 리포지토리에서 템플릿 배포
 
-이 문서에서는 **Azure에 배포** 단추를 사용하여 GitHub 리포지토리에서 템플릿을 배포하는 방법을 설명합니다. GitHub 리포지토리의 _README.md_ 파일에 바로 단추를 추가할 수 있습니다. 또는 리포지토리를 참조하는 웹 페이지에 단추를 추가할 수 있습니다.
+이 문서에서는 **Azure에 배포** 단추를 사용하여 GitHub 리포지토리에서 ARM JSON 템플릿을 배포하는 방법을 설명합니다. GitHub 리포지토리의 _README.md_ 파일에 바로 단추를 추가할 수 있습니다. 또는 리포지토리를 참조하는 웹 페이지에 단추를 추가할 수 있습니다. 이 메서드는 [Bicep 파일 를](../bicep/overview.md)지원하지 않습니다.
 
 배포 범위는 템플릿 스키마에 따라 결정됩니다. 자세한 내용은 다음을 참조하세요.
 

@@ -8,15 +8,15 @@ ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 10/21/2021
+ms.date: 12/03/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: c488b3ec12d0aabcfb84b0ebb700eb738e8698e1
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: 7e08e7ed4b99da4af553f0ab3a707f68b3568df0
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131558063"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133540637"
 ---
 # <a name="how-to-create-a-secure-workspace"></a>보안 작업 영역을 만드는 방법
 
@@ -35,10 +35,8 @@ ms.locfileid: "131558063"
 > * Azure Machine Learning 컴퓨팅 클러스터를 만듭니다. 컴퓨팅 클러스터는 __클라우드에서 기계 학습 모델을 학습시킬 때__ 사용됩니다. Azure Container Registry가 VNet 뒤에 있는 구성에서는 Docker 이미지를 빌드하는 데도 사용됩니다.
 > * 점프 상자에 연결하고 Azure Machine Learning 스튜디오를 사용합니다.
 
-환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 'Azure에 배포' 단추를 선택하여 이 자습서의 처음 5단계를 완료할 수도 있습니다. [작업 영역에 연결](#connect-to-the-workspace)부터 계속 읽을 수 있습니다.
-
-[![Azure에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-workspace-vnet%2Fazuredeploy.json)
-[![Azure US Gov에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-workspace-vnet%2Fazuredeploy.json)
+> [!TIP]
+> 보안 작업 영역을 만드는 방법을 보여 주는 템플릿 (Microsoft Bicep 또는 Hashicorp Terraform)을 찾고 있는 경우 [자습서-템플릿을 사용 하 여 보안 작업 영역 만들기](tutorial-create-secure-workspace-template.md)를 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -178,7 +176,7 @@ ms.locfileid: "131558063"
 1. __검토 + 만들기__ 를 선택합니다. 정보가 올바른지 확인한 후 __만들기__ 를 선택합니다.
 
 > [!TIP]
-> 파이프라인에서 [ParallelRunStep을](./tutorial-pipeline-batch-scoring-classification.md) 사용하려는 경우 프라이빗 엔드포인트 대상 **큐** 및 **테이블** 하위 리소스를 구성해야 합니다. ParallelRunStep은 작업 예약 및 디스패치를 위해 후드에서 큐와 테이블을 사용합니다.
+> 파이프라인에서 [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) 를 사용 하려는 경우 전용 끝점 대상 **큐** 및 **테이블** 하위 리소스를 구성 해야 합니다. ParallelRunStep은 작업 예약 및 디스패치를 위해 후드에서 큐와 테이블을 사용합니다.
 
 ## <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
 

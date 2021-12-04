@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 77295f2d47f0645b8d4610af3834f0b8a64ec7a0
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: c1599d9208759d881e1f036dc9cb881e1e9f635e
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130064460"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541055"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Azure 프라이빗 엔드포인트 연결 문제 해결
 
@@ -58,7 +58,7 @@ Azure 프라이빗 엔드포인트는 프라이빗 링크 서비스에 비공개
     
 1. [Azure Monitor](../azure-monitor/overview.md)를 사용하여 데이터가 흐르는지 확인합니다.
 
-    a. 프라이빗 엔드포인트 리소스에서 **모니터** 를 선택합니다.
+    a. 프라이빗 엔드포인트 리소스에서 **메트릭을 선택합니다.**
      - **바이트 입력** 또는 **바이트 출력** 을 선택합니다. 
      - 프라이빗 엔드포인트에 연결하려고 할 때 데이터가 흐르는지 확인합니다. 약 10분 정도 지연될 수 있습니다.
     
@@ -103,9 +103,9 @@ Azure 프라이빗 엔드포인트는 프라이빗 링크 서비스에 비공개
 1. 원본 가상 머신에는 NIC 유효 경로에서 InterfaceEndpoints로 프라이빗 엔드포인트 IP 다음 홉에 대한 경로를 포함해야 합니다. 
 
     a. 원본 VM에서 프라이빗 엔드포인트 경로를 볼 수 없는 경우 다음을 확인합니다. 
-     - 원본 VM과 개인 끝점은 동일한 VNET의 일부입니다. 그렇다면 지원에 문의해야 합니다. 
-     - 원본 VM과 개인 끝점은 서로 직접 피어 링 서로 다른 Vnet의 일부입니다. 그렇다면 지원에 문의해야 합니다.
-     - 원본 VM과 개인 끝점은 서로 직접 피어 링 되지 않는 다른 Vnet의 일부 이며, Vnet 간의 IP 연결을 확인 합니다.
+     - 원본 VM 및 프라이빗 엔드포인트는 동일한 VNET의 일부입니다. 그렇다면 지원에 문의해야 합니다. 
+     - 원본 VM과 프라이빗 엔드포인트는 서로 직접 피어되는 서로 다른 VNET의 일부입니다. 그렇다면 지원에 문의해야 합니다.
+     - 원본 VM과 프라이빗 엔드포인트는 서로 직접 피어되지 않은 서로 다른 VNET의 일부인 다음, VNET 간의 IP 연결을 확인합니다.
 
 1. 연결에서 검증된 결과가 있는 경우 연결 문제는 애플리케이션 계층의 비밀, 토큰 및 암호와 같은 다른 측면과 관련될 수 있습니다.
    - 이 경우 프라이빗 엔드포인트와 연결된 프라이빗 링크 리소스의 구성을 검토합니다. 자세한 내용은 [Azure Private Link 문제 해결 가이드](troubleshoot-private-link-connectivity.md)를 참조하세요.
@@ -120,9 +120,9 @@ Azure 프라이빗 엔드포인트는 프라이빗 링크 서비스에 비공개
       - 다른 원본에서 프라이빗 엔드포인트로 연결합니다. 이렇게 하면 가상 머신 관련 문제를 격리할 수 있습니다. 
       - 프라이빗 엔드포인트와 동일한 가상 네트워크의 일부인 가상 머신에 연결합니다.  
 
-1. 개인 끝점이 Load Balancer 연결 된 [개인 링크 서비스](./troubleshoot-private-link-connectivity.md) 에 연결 된 경우 백 엔드 풀이 정상 상태 인지 확인 합니다. Load Balancer 상태를 수정 하면 개인 끝점에 연결 하는 문제를 해결할 수 있습니다.
+1. 프라이빗 엔드포인트가 Load Balancer 연결된 [Private Link 서비스에](./troubleshoot-private-link-connectivity.md) 연결된 경우 백 엔드 풀이 정상으로 보고되는지 확인합니다. Load Balancer 상태를 수정하면 프라이빗 엔드포인트에 연결하는 문제가 해결됩니다.
 
-    - 다음으로 이동 하 여 관련 리소스, 메트릭 및 정보에 대 한 시각적 다이어그램 또는 [종속성 보기](../azure-monitor/insights/network-insights-overview.md#dependency-view) 를 볼 수 있습니다.
+    - 다음으로 진행하여 관련 리소스, 메트릭 및 인사이트의 시각적 다이어그램 또는 [종속성 보기를](../azure-monitor/insights/network-insights-overview.md#dependency-view) 볼 수 있습니다.
         - Azure Monitor
         - 네트워크
         - 프라이빗 엔드포인트

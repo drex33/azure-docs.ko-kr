@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 12/02/2021
 ms.author: b-hchen
-ms.openlocfilehash: ff773f7dc43938bbd1b14837725688422f4e81a3
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: 2296d68e8d68990a3c112d845a984bb4d26b3a24
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133487381"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545771"
 ---
 # <a name="display-health-status-of-replication-relationship"></a>복제 관계의 상태 표시 
 
@@ -46,7 +46,7 @@ ms.locfileid: "133487381"
             전송 작업이 진행 중이며 후속 전송은 사용하지 않도록 설정됩니다.
     * **복제 일정** – 초기화(기준 복사)가 완료되면 증분 미러링 업데이트가 수행되는 빈도를 표시합니다.
 
-    * **총 진행률** - 현재 전송 작업에 대해 전송된 데이터의 총 크기(바이트)를 표시합니다. 이 크기는 전송된 실제 비트이며 원본 및 대상 볼륨이 보고하는 논리적 공간과 다를 수 있습니다.  
+    * **총 진행률** - 관계의 수명 동안 전송된 누적 바이트의 총 양을 표시합니다. 이 크기는 전송된 실제 비트이며 원본 및 대상 볼륨이 보고하는 논리적 공간과 다를 수 있습니다.  
 
     ![복제 상태](../media/azure-netapp-files/cross-region-replication-health-status.png)
 

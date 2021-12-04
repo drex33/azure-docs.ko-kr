@@ -6,14 +6,14 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.custom: template-tutorial, ignite-fall-2021
-ms.openlocfilehash: 918f2da42a57752db2373e65665804d0a49ad31a
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 287263c867bcd0714b2df3375cc6b6293b9f959a
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131101005"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545600"
 ---
 # <a name="tutorial-create-a-gateway-load-balancer-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 게이트웨이 부하 분산 장치 만들기
 
@@ -22,7 +22,6 @@ Azure Load Balancer는 표준, 기본 및 게이트웨이 SKU로 구성됩니다
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 > [!div class="checklist"]
-> * 미리 보기 기능을 등록합니다.
 > * 가상 네트워크를 만듭니다.
 > * 네트워크 보안 그룹을 만듭니다.
 > * 게이트웨이 부하 분산 장치를 만듭니다.
@@ -38,46 +37,9 @@ Azure Load Balancer는 표준, 기본 및 게이트웨이 SKU로 구성됩니다
 - 기존 공용 표준 SKU Azure Load Balancer 부하 분산 장치 만들기에 대한 자세한 내용은 **[Azure Portal을 사용하여 공용 부하 분산 장치 만들기](quickstart-load-balancer-standard-public-portal.md)** 를 참조하세요.
     - 이 자습서에서는 예제의 부하 분산 장치 이름을 **myLoadBalancer** 로 지정합니다.
 
-## <a name="register-preview-feature"></a>미리 보기 기능 등록
-
-공개 미리 보기의 일부로 공급자를 Azure 구독에 등록해야 합니다. 다음 PowerShell 또는 Azure CLI 예제를 사용하여 구독을 활성화합니다.
-
-### <a name="powershell"></a>PowerShell
-
-[Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature)를 사용하여 **AllowGatewayLoadBalancer** 공급자 기능을 등록합니다.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGatewayLoadBalancer
-
-```
-
-[Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider)를 사용하여 **Microsoft.Network** 리소스 공급자를 등록합니다.
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-[az feature register](/cli/azure/feature#az_feature_register)를 사용하여 **AllowGatewayLoadBalancer** 공급자 기능을 등록합니다.
-
-```azurecli-interactive
-  az feature register \
-    --name AllowGatewayLoadBalancer \
-    --namespace Microsoft.Network
-```
-
-[az provider register](/cli/azure/provider#az_provider_register)를 사용하여 **Microsoft.Network** 리소스 공급자를 등록합니다.
-
-```azurecli-interactive
-  az provider register \
-    --namespace Microsoft.Network
-```
-
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://preview.portal.azure.com](https://preview.portal.azure.com)에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-virtual-network"></a>가상 네트워크 만들기
 
@@ -260,7 +222,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 
 15. **인바운드 규칙** 탭의 **부하 분산 규칙** 에서 **+ 부하 분산 규칙 추가** 를 선택합니다.
 
-16. **부하 분산 규칙 추가** 에서 다음 정보를 입력하거나 선택합니다.
+16. **부하 분산 장치 규칙 추가** 에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |

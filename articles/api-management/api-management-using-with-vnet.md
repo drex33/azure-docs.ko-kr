@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/10/2021
 ms.author: danlep
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 3245e800ea46fa9befe27f18eab1834e5b73716f
-ms.sourcegitcommit: 991268c548dd47e5f7487cd025c7501b9315e477
+ms.openlocfilehash: 4bc0e8df5abdab4ff1c68659acb0f93f71d91469
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133287159"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542816"
 ---
 # <a name="connect-to-a-virtual-network-using-azure-api-management"></a>Azure API Management를 사용하여 가상 네트워크에 연결
 
@@ -39,6 +39,8 @@ Azure API Management는 Azure VNET (가상 네트워크) 내에 배포 하 여 �
 + **API Management 인스턴스.** 자세한 내용은 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 참조하세요.
 
 * API Management 인스턴스와 동일한 지역 및 구독에 있는 **가상 네트워크 및 서브넷** 서브넷은 다른 Azure 리소스를 포함할 수 있습니다.
+
+* 위의 서브넷에 연결 된 **네트워크 보안 그룹** 입니다. API Management에서 내부적으로 사용 되는 부하 분산 장치는 기본적으로 안전 하 고 모든 인바운드 트래픽을 거부 하기 때문에 NSG (네트워크 보안 그룹)는 인바운드 연결을 명시적으로 허용 하는 데 필요 합니다. 보다 엄격한 구성은 아래의 **필수 포트** 를 참조 하세요.
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
@@ -139,24 +141,24 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
 | * / [80], 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management에 대 한 클라이언트 통신 (선택 사항)                     | 외부             |
 | * / 3443                     | 인바운드            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure Portal 및 PowerShell에 대 한 관리 끝점 (선택 사항)         | 외부 및 내부  |
 | * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | **Azure Storage에 대한 종속성**                             | 외부 및 내부  |
-| * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) 및 Azure Key Vault 종속성 (옵션)              | 외부 및 내부  |
+| * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) 및 Azure Key Vault 종속성(선택 사항)              | 외부 및 내부  |
 | * / 1433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL 엔드포인트에 대한 액세스**                           | 외부 및 내부  |
-| * / 443                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureKeyVault                | **Azure Key Vault에 대 한 액세스**                         | 외부 및 내부  |
-| * / 5671, 5672, 443          | 아웃바운드           | TCP                | VIRTUAL_NETWORK/이벤트 허브            | [이벤트 허브 정책](api-management-howto-log-event-hubs.md) 및 모니터링 에이전트에 대 한 로그에 대 한 종속성 (선택 사항) | 외부 및 내부  |
-| * / 445                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | [GIT](api-management-configuration-repository-git.md) 에 대 한 Azure 파일 공유에 대 한 종속성 (선택 사항)                   | 외부 및 내부  |
-| * / 443, 12000                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureCloud            | 상태 및 모니터링 확장 (선택 사항)        | 외부 및 내부  |
-| * / 1886, 443                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | [진단 로그 및 메트릭](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md)및 [Application Insights](api-management-howto-app-insights.md) 게시 (선택 사항)                  | 외부 및 내부  |
-| * / 25, 587, 25028                       | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 전자 메일을 보내기 위해 SMTP 릴레이 커넥트 (선택 사항)                   | 외부 및 내부  |
-| * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 컴퓨터 간 [캐시](api-management-caching-policies.md) 정책에 대 한 Redis 서비스 액세스 (옵션)        | 외부 및 내부  |
-| * / 4290              | 인바운드 및 아웃바운드 | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 컴퓨터 간 [요율 제한](api-management-access-restriction-policies.md#LimitCallRateByKey) 정책의 동기화 카운터 (옵션)        | 외부 및 내부  |
-| */6390                       | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | **Azure 인프라 부하 분산 장치**                          | 외부 및 내부  |
+| * / 443                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureKeyVault                | **Azure Key Vault 액세스**                         | 외부 및 내부  |
+| * / 5671, 5672, 443          | 아웃바운드           | TCP                | VIRTUAL_NETWORK/이벤트 허브            | [이벤트 허브에 로그 정책](api-management-howto-log-event-hubs.md) 및 모니터링 에이전트에 대한 종속성(선택 사항) | 외부 및 내부  |
+| * / 445                      | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | [GIT용](api-management-configuration-repository-git.md) Azure 파일 공유에 대한 종속성(선택 사항)                   | 외부 및 내부  |
+| * / 443, 12000                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureCloud            | 상태 및 모니터링 확장(선택 사항)        | 외부 및 내부  |
+| * / 1886, 443                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | [진단 로그 및 메트릭,](api-management-howto-use-azure-monitor.md) [Resource Health](../service-health/resource-health-overview.md)및 애플리케이션 [Insights](api-management-howto-app-insights.md) 게시(선택 사항)                  | 외부 및 내부  |
+| * / 25, 587, 25028                       | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 인터넷            | 전자 메일을 보내기 위해 SMTP Relay에 커넥트(선택 사항)                   | 외부 및 내부  |
+| * / 6381 - 6383              | 인바운드 및 아웃바운드 | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 머신 간의 [캐시](api-management-caching-policies.md) 정책에 대한 Redis 서비스 액세스(선택 사항)        | 외부 및 내부  |
+| * / 4290              | 인바운드 및 아웃바운드 | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | 머신 간의 [속도 제한](api-management-access-restriction-policies.md#LimitCallRateByKey) 정책에 대한 카운터 동기화(선택 사항)        | 외부 및 내부  |
+| * / 6390                       | 인바운드            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | **Azure 인프라 부하 분산 장치**                          | 외부 및 내부  |
 
 #### <a name="stv1"></a>[stv1](#tab/stv1)
 
 | 소스/대상 포트 | Direction          | 전송 프로토콜 |   [서비스 태그](../virtual-network/network-security-groups-overview.md#service-tags) <br> 원본 / 대상   | 목적(\*)                                                 | VNET 유형 |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / [80], 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management에 대 한 클라이언트 통신 (선택 사항)                     | 외부             |
-| * / 3443                     | 인바운드            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure Portal 및 PowerShell에 대 한 관리 끝점 (선택 사항)       | 외부 및 내부  |
+| * / [80], 443                  | 인바운드            | TCP                | 인터넷 / VIRTUAL_NETWORK            | API Management 클라이언트 통신(선택 사항)                     | 외부             |
+| * / 3443                     | 인바운드            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Azure Portal 및 PowerShell용 관리 엔드포인트(선택 사항)       | 외부 및 내부  |
 | * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / 스토리지             | **Azure Storage에 대한 종속성**                             | 외부 및 내부  |
 | * / 443                  | 아웃바운드           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) 종속성 (옵션)                | 외부 및 내부  |
 | * / 1433                     | 아웃바운드           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL 엔드포인트에 대한 액세스**                           | 외부 및 내부  |
@@ -189,44 +191,44 @@ API Management 서비스 인스턴스가 VNET에 호스트된 경우 다음 표�
   
 ### <a name="regional-service-tags"></a>지역 서비스 태그
 
-Storage, SQL 및 Event Hubs 서비스 태그에 대 한 아웃 바운드 연결을 허용 하는 nsg 규칙은 API Management 인스턴스가 포함 된 지역 (예: Storage)에 해당 하는 태그의 지역 버전을 사용할 수 있습니다. 미국 서 부 지역의 API Management 인스턴스에 대 한 WestUS입니다. 다중 지역 배포에서 각 지역의 NSG는 해당 지역 및 주 지역에 대한 서비스 태그로의 트래픽을 허용해야 합니다.
+Storage, SQL 및 Event Hubs 서비스 태그에 대한 아웃바운드 연결을 허용하는 NSG 규칙은 API Management 인스턴스를 포함하는 지역에 해당하는 해당 태그의 지역 버전(예: Storage)을 사용할 수 있습니다. 미국 서부 지역의 API Management 인스턴스)에 대한 WestUS입니다. 다중 지역 배포에서 각 지역의 NSG는 해당 지역 및 주 지역에 대한 서비스 태그로의 트래픽을 허용해야 합니다.
 
 > [!IMPORTANT]
 > 미국 서부 지역의 Blob 스토리지에 대한 아웃바운드 연결을 허용하여 VNET에서 API Management 인스턴스에 대한 [개발자 포털](api-management-howto-developer-portal.md)을 게시하도록 설정합니다. 예를 들어 NSG 규칙에서 **Storage.WestUS** 서비스 태그를 사용합니다. 현재 모든 API Management 인스턴스에 대한 개발자 포털을 게시하려면 미국 서부 지역의 Blob 스토리지에 대한 연결이 필요합니다.
 
 ### <a name="smtp-relay"></a>SMTP 릴레이  
   
-호스트,,, `smtpi-co1.msn.com` `smtpi-ch1.msn.com` `smtpi-db3.msn.com` `smtpi-sin.msn.com` 및에서 확인 되는 SMTP 릴레이에 대 한 아웃 바운드 네트워크 연결을 허용 합니다. `ies.global.microsoft.com`
+호스트 `smtpi-co1.msn.com` , `smtpi-ch1.msn.com` `smtpi-db3.msn.com` `smtpi-sin.msn.com` 및 에서 확인되는 SMTP Relay에 대한 아웃바운드 네트워크 연결을 허용합니다. `ies.global.microsoft.com`
 
 > [!NOTE]
-> API Management에서 제공 하는 SMTP 릴레이만 인스턴스에서 전자 메일을 보내는 데 사용할 수 있습니다.
+> API Management 제공된 SMTP 릴레이만 인스턴스에서 메일을 보내는 데 사용할 수 있습니다.
 
 ### <a name="developer-portal-captcha"></a>개발자 포털 CAPTCHA 
-호스트 및에서 확인 되는 개발자 포털의 CAPTCHA 아웃 바운드 네트워크 연결을 허용 `client.hip.live.com` 합니다 `partner.hip.live.com` .
+호스트 및 에서 확인되는 개발자 포털의 CAPTCHA에 대한 아웃바운드 네트워크 연결을 `client.hip.live.com` `partner.hip.live.com` 허용합니다.
 
-### <a name="azure-portal-diagnostics"></a>Azure Portal 진단  
+### <a name="azure-portal-diagnostics"></a>진단 Azure Portal  
   VNET 내부에서 API Management 확장을 사용할 때 Azure Portal에서 진단 로그의 흐름을 사용하도록 설정하려면 `port 443`에서 `dc.services.visualstudio.com`에 대한 아웃바운드 액세스가 필요합니다. 이 액세스는 확장을 사용할 때 발생할 수 있는 문제 해결에 도움이 됩니다.
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer  
-  `AZURE_LOAD_BALANCER`하나의 계산 단위도 배포 되므로 SKU에 대 한 서비스 태그의 인바운드 요청을 허용할 필요가 없습니다 `Developer` . 그러나 `AZURE_LOAD_BALANCER`  `Premium` 부하 분산 장치의 상태 프로브 오류로 인해 제어 평면과 데이터 평면에 대 한 모든 인바운드 액세스를 차단 하는 것 처럼 상위 SKU로 확장 하는 경우에는 인바운드가 중요 한 것으로 보입니다.
+  `AZURE_LOAD_BALANCER` `Developer` 하나의 컴퓨팅 단위만 배포되므로 SKU에 대한 서비스 태그의 인바운드 요청을 허용할 필요가 없습니다. 그러나 부하 분산 장치에서 `AZURE_LOAD_BALANCER` 상태 프로브가 실패하면 제어 평면 및 데이터 평면에 대한 모든 인바운드 액세스를 차단하기 때문에 과 같이 더 높은 SKU로 확장할 때 의 인바운드가 **중요해집니다.** `Premium`
 
 ### <a name="application-insights"></a>Application Insights  
-  API Management에서 [Azure 애플리케이션 Insights](api-management-howto-app-insights.md) 모니터링을 사용 하도록 설정한 경우 VNET에서 [원격 분석 끝점](../azure-monitor/app/ip-addresses.md#outgoing-ports) 에 대 한 아웃 바운드 연결을 허용 합니다.
+  [API Management Azure 애플리케이션 Insights](api-management-howto-app-insights.md) 모니터링을 사용하도록 설정한 경우 VNET에서 원격 [분석 엔드포인트에](../azure-monitor/app/ip-addresses.md#outgoing-ports) 대한 아웃바운드 연결을 허용합니다.
 
-### <a name="kms-endpoint"></a>KMS 끝점
+### <a name="kms-endpoint"></a>KMS 엔드포인트
 
-Windows를 실행 하는 가상 머신을 VNET에 추가 하는 경우, 포트 1688의 아웃 바운드 연결을 클라우드의 [KMS 끝점](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution) 으로 허용 합니다. 이 구성은 Windows 활성화를 완료 하기 위해 Azure KMS (키 관리 서비스) 서버에 Windows VM 트래픽을 라우팅합니다.
+Windows 실행하는 가상 머신을 VNET에 추가할 때 포트 1688에서 클라우드의 [KMS 엔드포인트에](/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation#solution) 대한 아웃바운드 연결을 허용합니다. 이 구성은 Windows VM 트래픽을 Azure KMS(키 관리 서비스) 서버로 라우팅하여 Windows 활성화를 완료합니다.
 
-### <a name="force-tunneling-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance"></a>Express 경로 또는 네트워크 가상 어플라이언스를 사용 하 여 온-프레미스 방화벽에 트래픽 강제 터널링  
+### <a name="force-tunneling-traffic-to-on-premises-firewall-using-expressroute-or-network-virtual-appliance"></a>ExpressRoute 또는 네트워크 가상 어플라이언스를 사용하여 온-프레미스 방화벽에 트래픽 강제 터널링  
   일반적으로 자체 기본 경로(0.0.0.0/0)를 구성하고 정의하여 강제로 API Management 위임 서브넷의 모든 트래픽을 온-프레미스 방화벽이나 네트워크 가상 어플라이언스를 통해 흐르게 합니다. 이 트래픽 흐름은 Azure API Management와의 연결을 끊습니다. 그 이유는 아웃바운드 트래픽이 온-프레미스에서 막히거나 다양한 Azure 엔드포인트에서 더 이상 작동하지 않는 인식 불가능한 주소 집합으로 NAT되기 때문입니다. 다음과 같은 몇 가지 방법을 통해 이 문제를 해결할 수 있습니다. 
 
   * API Management 서비스가 배포된 서브넷에서 [서비스 엔드포인트][ServiceEndpoints]를 사용하도록 설정합니다.
       * Azure SQL
       * Azure Storage
       * Azure Event Hub
-      * Azure Key Vault (v2 플랫폼) 
+      * Azure Key Vault(v2 플랫폼) 
   
-     API Management 서브넷에서 이러한 서비스로 직접 끝점을 사용 하도록 설정 하 여 서비스 트래픽에 대 한 최적의 라우팅을 제공 하는 Microsoft Azure 백본 네트워크를 사용할 수 있습니다. 강제 터널링된 API Management에서 서비스 엔드포인트를 사용하는 경우 위의 Azure 서비스 트래픽은 강제 터널링되지 않습니다. 다른 API Management 서비스 종속성 트래픽은 강제 터널링되어 손실되지 않습니다. 손실된 경우 API Management 서비스가 제대로 기능하지 않습니다.
+     API Management 서브넷에서 이러한 서비스로 직접 엔드포인트를 사용하도록 설정하면 Microsoft Azure 백본 네트워크를 사용하여 서비스 트래픽에 대한 최적의 라우팅을 제공할 수 있습니다. 강제 터널링된 API Management에서 서비스 엔드포인트를 사용하는 경우 위의 Azure 서비스 트래픽은 강제 터널링되지 않습니다. 다른 API Management 서비스 종속성 트래픽은 강제 터널링되어 손실되지 않습니다. 손실된 경우 API Management 서비스가 제대로 기능하지 않습니다.
 
   * 인터넷에서 API Management 서비스의 관리 엔드포인트로의 모든 제어 평면 트래픽은 API Management에서 호스트하는 특정 인바운드 IP 세트를 통해 라우팅됩니다. 트래픽이 강제로 터널링되면 응답은 이러한 인바운드 원본 IP에 대칭형으로 다시 매핑되지 않습니다. 이 제한을 해결하려면 다음 사용자 정의 경로([UDR][UDRs])의 대상을 "인터넷"으로 설정하여 트래픽을 Azure로 다시 조정합니다. [컨트롤 플레인 IP 주소](#control-plane-ip-addresses)에 문서화된 컨트롤 플레인 트래픽에 대한 인바운드 IP 세트를 찾습니다.
 
@@ -239,19 +241,19 @@ Windows를 실행 하는 가상 머신을 VNET에 추가 하는 경우, 포트 1
 
 ## <a name="routing"></a>라우팅
 
-+ 부하 분산 된 공용 IP 주소 (VIP)는 VNET 외부의 모든 서비스 끝점 및 리소스에 대 한 액세스를 제공 하도록 예약 되어 있습니다.
++ 부하가 분산된 VIP(공용 IP 주소)는 VNET 외부의 모든 서비스 엔드포인트 및 리소스에 대한 액세스를 제공하도록 예약되어 있습니다.
   + 부하 분산된 공용 IP 주소는 Azure Portal의 **개요/기본 정보** 블레이드에서 확인할 수 있습니다.
-+ 서브넷 IP 범위의 IP 주소 (DIP)는 VNET 내의 리소스에 액세스 하는 데 사용 됩니다.
++ DIP(서브넷 IP 범위)의 IP 주소는 VNET 내의 리소스에 액세스하는 데 사용됩니다.
 
 > [!NOTE]
-> API Management 인스턴스의 VIP 주소는 다음과 같은 경우에 변경 됩니다.
+> API Management 인스턴스의 VIP 주소는 다음과 같은 경우에 변경됩니다.
 > * VNET이 사용하거나 사용하지 않도록 설정됩니다. 
-> * API Management **외부** 에서 **내부** 가상 네트워크 모드로 이동 하거나 그 반대로 이동 합니다.
-> * [영역 중복성](zone-redundancy.md) 설정은 인스턴스 위치에서 사용, 업데이트 또는 사용 하지 않도록 설정 됩니다 (Premium SKU에만 해당).
+> * API Management **외부** 가상 네트워크 모드에서 **내부** 가상 네트워크 모드로 또는 그 반대로 이동됩니다.
+> * [영역 중복](zone-redundancy.md) 설정은 인스턴스의 위치에서 활성화, 업데이트 또는 비활성화됩니다(SKU에만 Premium).
 
-## <a name="control-plane-ip-addresses"></a>제어 평면 IP 주소
+## <a name="control-plane-ip-addresses"></a>컨트롤 플레인 IP 주소
 
-다음 IP 주소는 **Azure 환경** 으로 구분 됩니다. **전역** 으로 표시된 허용되는 인바운드 요청 IP 주소는 **지역** 별 IP 주소와 함께 허용되어야 합니다.  경우에 따라 두 개의 IP 주소가 나열 됩니다.  두 IP 주소를 모두 허용 합니다.
+다음 IP 주소는 **Azure 환경** 으로 나뉩니다. **전역** 으로 표시된 허용되는 인바운드 요청 IP 주소는 **지역** 별 IP 주소와 함께 허용되어야 합니다.  경우에 따라 두 개의 IP 주소가 나열됩니다.  두 IP 주소를 모두 허용합니다.
 
 | **Azure 환경**|   **지역**|  **IP 주소**|
 |-----------------|-------------------------|---------------|

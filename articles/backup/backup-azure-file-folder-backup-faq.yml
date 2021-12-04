@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 04/05/2021
-  ms.openlocfilehash: d4877b7346e9854748f6106ca881732c549e98a1
-  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+  ms.openlocfilehash: 4c4ce5d0de106f6c52ddf183773420e4fa3da9ba
+  ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129271672"
+  ms.lasthandoff: 12/04/2021
+  ms.locfileid: "133539290"
 title: 질문과 대답 - MARS(Microsoft Azure Recovery Services) 에이전트
 summary: >
   이 문서에서는 [Azure Backup](backup-overview.md) 서비스에서 MARS(Microsoft Azure Recovery Services) 에이전트를 사용하여 데이터를 백업하는 것과 관련된 일반적인 질문에 대한 답변입니다.
@@ -100,7 +100,7 @@ sections:
 
       * 자격 증명 모음에 새 이름을 등록하면 첫 번째 작업은 *전체* 백업입니다.
 
-      * 이전 서버 이름으로 자격 증명 모음에 백업된 데이터를 복원해야 하는 경우 옵션을 사용하여 데이터 복구 마법사의 대체 위치로 복원합니다. [자세히 알아보기](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+      * 이전 서버 이름으로 자격 증명 모음에 백업된 데이터를 복원해야 하는 경우 옵션을 사용하여 데이터 복구 마법사의 대체 위치로 복원합니다. [자세한 정보](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
   - question: >
       백업의 최대 파일 경로 길이는 얼마인가요?
     answer: "MARS 에이전트는 NTFS를 사용하며 [Windows API](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths)에 의해 제한되는 파일 경로 길이 사양을 사용합니다. 보호할 파일이 허용된 값보다 길면 상위 폴더 또는 디스크 드라이브를 백업합니다.  \n"
@@ -207,12 +207,9 @@ sections:
   - question: >
       백업에 사용되는 대역폭의 양을 조정하는 방법이 있나요?
     answer: >
-      예, MARS 에이전트의 **속성 변경** 옵션을 사용하여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아보기](backup-windows-with-mars-agent.md#enable-network-throttling).
+      예, MARS 에이전트의 **속성 변경** 옵션을 사용하여 대역폭과 타이밍을 조정할 수 있습니다. [자세한 정보](backup-windows-with-mars-agent.md#enable-network-throttling).
 - name: 복원
   questions:
-  - question: >
-      관리
-    answer: ''
   - question: >
       암호를 잊어버린 경우 복구할 수 있나요?
     answer: "Azure Backup 에이전트에는 복원 중에 백업된 데이터를 해독하기 위한 암호(등록 중에 사용자가 제공)가 필요합니다. 분실된 암호를 처리하기 위한 옵션을 이해하려면 아래 시나리오를 검토하세요.\n\n| 원본 머신 <br> *(백업이 수행된 원본 머신)* | 암호 | 사용 가능한 옵션 |\n| --- | --- | --- |\n| 사용 가능 |실패 |원래 머신(백업이 수행된 머신)을 사용할 수 있고 동일한 Recovery Services 자격 증명 모음에 여전히 등록되어 있는 경우, 다음 [단계](./backup-azure-manage-mars.md#re-generate-passphrase)에 따라 암호를 다시 생성할 수 있습니다.  |\n| 실패 |실패 |데이터를 복구할 수 없거나 데이터를 사용할 수 없음 |\n\n다음 조건을 확인합니다.\n\n* 동일한 원본 머신에서 에이전트를 제거하고 다시 등록할 때\n  * *같은 암호* 를 사용하면 백업된 데이터를 복원할 수 있습니다.\n  * *다른 암호* 를 사용하면 백업된 데이터를 복원할 수 없습니다.\n* *다른 머신* 에 에이전트를 설치할 때\n  * *같은 암호*(원본 머신에서 사용)를 사용하면 백업된 데이터를 복원할 수 있습니다.\n  * *다른 암호* 를 사용하면 백업된 데이터를 복원할 수 없습니다.          \n* 원래 머신이 손상되었지만(MARS 콘솔을 통해 암호를 다시 생성할 수 없음) MARS 에이전트에서 사용하는 원래 스크래치 폴더를 복원하거나 액세스할 수 있는 경우(암호를 잊어버린 경우) 복원할 수 있습니다. 자세한 내용은 고객 지원팀에 문의하세요.\n"

@@ -9,12 +9,12 @@ author: amjads1
 ms.collection: windows
 ms.date: 08/31/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c359df185ea21df52f678ca4f4656e0b4eca1a19
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
-ms.translationtype: HT
+ms.openlocfilehash: 96045704ba2a9406a21bef18dcad976a86cfe978
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663194"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133543508"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -124,7 +124,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | 문자열 |
@@ -271,10 +271,16 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>CLI를 사용하여 두 번 이상 사용자 지정 스크립트를 실행하는 방법
 
+사용자 지정 스크립트 확장 처리기는 *정확히* 동일한 설정이 전달 된 경우 스크립트를 다시 실행 하지 않습니다. 이는 스크립트가 idempotent 되지 않는 경우 예기치 않은 동작을 유발할 수 있는 실수로 인 한 다시 실행을 방지 하기 위한 것입니다. C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension \CustomScriptHandler.log를 확인 하 여 처리기가 다시 실행을 차단 했는지 확인 \<HandlerVersion> 하 고 아래와 같은 경고를 검색할 수 있습니다.
+
+```warning
+Current sequence number, <SequenceNumber>, is not greater than the sequence number of the most recently executed configuration. Exiting...
+```
+
 사용자 지정 스크립트 확장을 두 번 이상 실행하려는 경우 다음 조건에서만 이 작업을 수행할 수 있습니다.
 
 * 확장 **Name** 매개 변수는 확장의 이전 배포와 같습니다.
-* 구성을 업데이트합니다. 그렇지 않으면 명령을 다시 실행할 수 없습니다. 타임스탬프와 같은 명령으로 동적 속성을 추가할 수 있습니다.
+* 구성을 업데이트합니다. 그렇지 않으면 명령을 다시 실행할 수 없습니다. 타임스탬프와 같은 명령으로 동적 속성을 추가할 수 있습니다. 처리기가 구성 설정에서 변경 내용을 검색 하는 경우 스크립트를 다시 실행 하는 것이 명시적으로 고려 됩니다.
 
 또는 [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) 속성을 **true** 로 설정할 수 있습니다.
 

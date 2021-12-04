@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: article
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: language-service-key-phrase, ignite-fall-2021
-ms.openlocfilehash: 72a7d077b5ee7752f7b91a2f5db5e1b5614c4ddd
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: a7ecf2f25712bc6ba85e16b40ad177181b96100d
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131053737"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133540884"
 ---
 # <a name="how-to-use-key-phrase-extraction"></a>키 구 추출을 사용 하는 방법 
 
@@ -25,7 +25,7 @@ ms.locfileid: "131053737"
 이 기능은 문서 컬렉션에서 주요 요소를 신속 하 게 식별 해야 하는 경우에 유용 합니다. 예를 들어 입력 텍스트 "*음식은 맛 있는이 고 직원은 멋져*"는 경우 서비스는 "*음식*" 및 "*훌륭한 직원*"의 주요 항목을 반환 합니다.
 
 > [!TIP]
-> 이 기능을 사용하려면 [빠른 시작 문서](../quickstart.md)에 따라 시작합니다. 코드를 작성할 필요 없이 [Language Studio](../../language-studio.md)를 사용하여 예제 요청을 만들 수도 있습니다.
+> 이 기능을 사용하려면 [빠른 시작 도움말](../quickstart.md)에 따라 시작합니다. 코드를 작성할 필요 없이 [Language Studio](../../language-studio.md)를 사용하여 예제 요청을 만들 수도 있습니다.
 
 
 ## <a name="determine-how-to-process-the-data-optional"></a>데이터 처리 방법 결정(선택 사항)
@@ -55,7 +55,7 @@ API 요청을 보내려면 언어 리소스 끝점 및 키가 필요 합니다.
 
 키 구 추출 기능을 동기적으로 사용 하는 것은 상태 비저장입니다. 계정에 데이터가 저장되지 않으며, 결과가 응답에서 즉시 반환됩니다.
 
-이 기능을 비동기적으로 사용하는 경우 요청이 수집된 시간부터 24시간 동안 API 결과를 사용할 수 있으며 응답에 표시됩니다. 이 기간이 지나면 결과가 제거되고 더 이상 검색할 수 없습니다.
+[!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
 
 
 ## <a name="getting-key-phrase-extraction-results"></a>키 구 추출 결과를 가져오는 중

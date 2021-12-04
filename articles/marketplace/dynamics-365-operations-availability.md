@@ -1,20 +1,20 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제품 가용성 구성
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제품 가용성을 구성합니다.
+title: Microsoft AppSource에서 Dynamics 365 Operations Apps 제공 제공 기능 구성 (Azure Marketplace)
+description: Microsoft AppSource (Azure Marketplace)에서 Dynamics 365 Operations Apps 제공 기능을 구성 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: 68e633c520b828f3cda2f2ba50f3008dccceeb3e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.date: 12/04/2021
+ms.openlocfilehash: e5e2d38111307d0133819b9ab54af5d81b414d46
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483393"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133539689"
 ---
-# <a name="configure-dynamics-365-for-operations-offer-availability"></a>Dynamics 365 for Operations 제품 가용성 구성
+# <a name="configure-dynamics-365-operations-apps-offer-availability"></a>Dynamics 365 Operations Apps 제공 가용성 구성
 
 이 페이지에서는 지역/국가 및 미리 보기 대상을 포함하여 제품을 사용할 수 있는 위치 및 방법을 정의할 수 있습니다.
 

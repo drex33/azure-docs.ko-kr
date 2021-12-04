@@ -6,22 +6,22 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 10/26/2021
-ms.openlocfilehash: 5fde0e1d9dc78c735ae9e889af5fbd889a588540
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.date: 12/03/2021
+ms.openlocfilehash: 92a806a5a89ccd9cd6c67a084b468c0c0519b50b
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131851024"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542062"
 ---
 # <a name="detailed-configuration-for-hosted-test-drives"></a>호스트형 시험 사용의 세부 구성
 
-이 문서에서는 Dynamics 365 for Customer Engagement 및 Power Apps 또는 Dynamics 365 for Operations에 대해 호스트형 시험 사용을 구성하는 방법을 설명합니다.
+이 문서에서는 dataverse에서 dynamics 365 앱에 대해 호스트 된 테스트 드라이브를 구성 하는 방법 및 Power Apps 또는 dynamics 365 작업 앱을 구성 하는 방법을 설명 합니다.
 
 > [!TIP]
-> 상업용 Marketplace에서 시험 구매에 대한 고객의 보기를 보려면 [Azure Marketplace란?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) 및 [Microsoft AppSource 무엇인가요?를 참조하세요.](/marketplace/appsource-overview)
+> 상용 marketplace에서 고객의 시험에서 볼 수 있는 내용을 보려면 [Azure Marketplace 무엇 인가요?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) 및 [Microsoft AppSource](/marketplace/appsource-overview)정의를 참조 하세요.
 
-## <a name="configure-for-dynamics-365-customer-engagement--power-apps"></a>Dynamics 365 Customer Engagement 및 Power Apps에 대한 구성
+## <a name="configure-for-dynamics-365-apps-on-dataverse-and-power-apps"></a>Dataverse에서 Dynamics 365 앱에 대 한 구성 및 Power Apps
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
@@ -29,17 +29,17 @@ ms.locfileid: "131851024"
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)에 로그인합니다.
 2. 위의 링크에 액세스할 수 없는 경우 애플리케이션을 게시하려면 [여기](https://appsource.microsoft.com/partners/list-an-app)에서 요청을 제출해야 합니다. 요청을 검토한 후 게시 프로세스를 시작할 수 있는 권한이 부여됩니다.
-3. 기존 **Dynamics 365 for Customer Engagement 및 Power Apps** 제품을 찾거나 새 **Dynamics 365 for Customer Engagement 및 Power Apps** 제품을 만듭니다.
-4. 제안 **설정** 페이지에서 시험 **사용 확인란을** 선택하고 시험 사용 **유형(아래 글머리** 기호 참조)을 선택한 다음, **초안 저장을** 선택합니다.
+3. **dataverse에서 기존 dynamics 365 앱** 을 찾고, 데이터를 제공 하거나 **Power Apps 하 여 새 dynamics 365 앱** 을 만들 Power Apps.
+4. **제품 설치** 페이지에서 **테스트 드라이브 사용** 확인란을 선택 하 고 **테스트 드라이브의 종류** (아래 글머리 기호 참조)를 선택한 다음 **초안 저장** 을 선택 합니다.
 
-    [!['시험 사용' 확인란을 선택하는 것을 보여 줍니다.](./media/test-drive/enable-test-drive-check-box-workspaces.png)](./media/test-drive/enable-test-drive-check-box-workspaces.png#lightbox)
+    [![' 테스트 드라이브 사용 ' 확인란을 선택 하는 방법을 보여 줍니다.](./media/test-drive/enable-test-drive-check-box-workspaces.png)](./media/test-drive/enable-test-drive-check-box-workspaces.png#lightbox)
 
-    - **시험 사용 유형** – **Microsoft 호스트형(Dynamics 365 for Customer Engagement 및 PowerApps)을 선택합니다.** 이 옵션은 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 Microsoft에서 호스트하고 유지 관리함을 나타냅니다.
+    - **테스트 드라이브의 유형** – **Dataverse에서 Dynamics 365 앱을 선택 하 고 Power Apps** 합니다. 이 옵션은 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 Microsoft에서 호스트하고 유지 관리함을 나타냅니다.
 
 5. [이러한 지침](./test-drive-azure-subscription-setup.md)에 따라 테넌트의 시험 사용 사용자를 프로비저닝/프로비저닝 해제할 수 있는 권한을 Microsoft AppSource에 부여합니다. 이 단계에서는 아래에 나와 있는 **Azure AD 앱 ID** 및 **Azure AD 앱 키** 값을 생성합니다.
-6. **시험판** 기술 구성 페이지에서 이러한 필드를  >   완료합니다.
+6. **Test drive**  >  **기술 구성** 페이지에서 이러한 필드를 완료 합니다.
 
-    [![시험판 기술 구성 페이지를 보여 줍니다.](media/test-drive/technical-config-details-workspaces.png)](media/test-drive/technical-config-details-workspaces.png#lightbox)
+    [![테스트 드라이브 기술 구성 페이지를 보여 줍니다.](media/test-drive/technical-config-details-workspaces.png)](media/test-drive/technical-config-details-workspaces.png#lightbox)
 
     - **최대 동시 시험 사용 수** – 동시에 활성 시험 사용을 실행할 수 있는 동시 사용자 수입니다. 각 사용자는 시험 사용이 활성화된 상태에서 Dynamics 라이선스를 사용하므로 시험 사용 사용자가 사용할 수 있는 Dynamics 라이선스가 충분한지 확인합니다. 권장 수는 3 ~ 5입니다.
     - **시험 사용 기간** - 사용자의 시험 사용이 활성 상태로 유지되는 시간입니다. 시간이 만료되면 사용자는 테넌트에서 프로비저닝 해제됩니다. 앱의 복잡성에 따라 2 ~ 24시간을 권장합니다. 시간이 만료된 후 시험 사용에 다시 액세스하려는 사용자는 언제든지 시험 사용을 또다시 요청할 수 있습니다.
@@ -58,24 +58,24 @@ ms.locfileid: "131851024"
     - **Azure Active Directory 애플리케이션 ID** – 5단계에서 만든 Azure AD(Active Directory) 앱의 ID입니다. 값 예: `53852862-a2ae-4e43-9461-faa49650a096`.
     - **Azure Active Directory 애플리케이션 클라이언트 암호** – 5단계에서 만든 Azure AD 앱에 대한 비밀입니다. 값 예: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=`.
 
-7. **시험판 마켓플레이스 목록** 페이지의 필드를 완료합니다.
+7. **Drive marketplace 목록 테스트** 페이지의 필드를 완료 합니다.
 
-    [Marketplace 목록 세부 정보 페이지를 보여 ![ 줍니다. ](./media/test-drive/marketplace-listing-details-workspaces.png) ](./media/test-drive/marketplace-listing-details-workspaces.png#lightbox)
+    [![Marketplace 목록 세부 정보 페이지를 보여 줍니다. ](./media/test-drive/marketplace-listing-details-workspaces.png) ](./media/test-drive/marketplace-listing-details-workspaces.png#lightbox)
 
-    - **설명** – 시험 사용의 개요입니다. 이 텍스트는 시험 사용을 프로비저닝하는 동안 사용자에게 표시됩니다. 서식이 지정된 콘텐츠(필수)를 제공하려는 경우 이 필드는 HTML을 지원합니다.
-    - **사용자 설명서** – 시험 사용 사용자가 앱을 사용하는 방법을 이해하는 데 도움이 되는 PDF 사용자 설명서입니다(필수).
+    - **설명** – 시험 사용의 개요입니다. 이 텍스트는 시험 사용을 프로비저닝하는 동안 사용자에게 표시됩니다. 서식 있는 콘텐츠를 제공 하려는 경우이 필드는 HTML을 지원 합니다 (필수).
+    - **사용자 수동** – 테스트 드라이브 사용자가 앱을 사용 하는 방법을 이해 하는 데 도움이 되는 PDF 사용자 설명서입니다 (필수).
     - **시험 사용 데모 비디오**: 앱을 소개하는 비디오입니다(선택 사항).
 
 #### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)에 로그인합니다.
 2. 위의 링크에 액세스할 수 없는 경우 애플리케이션을 게시하려면 [여기](https://appsource.microsoft.com/partners/list-an-app)에서 요청을 제출해야 합니다. 요청을 검토한 후 게시 프로세스를 시작할 수 있는 권한이 부여됩니다.
-3. 기존 **Dynamics 365 for Customer Engagement 및 Power Apps** 제품을 찾거나 새 **Dynamics 365 for Customer Engagement 및 Power Apps** 제품을 만듭니다.
+3. **dataverse에서 기존 dynamics 365 앱** 을 찾고, 데이터를 제공 하거나 **Power Apps 하 여 새 dynamics 365 앱** 을 만들 Power Apps.
 4. **시험 사용 지원** 확인란을 선택하고 **시험 사용 유형**(아래 글머리 기호 참조)을 선택한 다음 **저장** 을 선택합니다.
 
     [![‘시험 사용 지원’ 확인란 선택](media/test-drive/enable-test-drive-check-box.png)](media/test-drive/enable-test-drive-check-box.png#lightbox)
 
-    - **시험 사용 유형** – **Microsoft 호스트형(Dynamics 365 for Customer Engagement 및 Power Apps)을 선택합니다.** 이 옵션은 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 Microsoft에서 호스트하고 유지 관리함을 나타냅니다.
+    - **테스트 드라이브의 유형** – **Dataverse에서 Dynamics 365 앱을 선택 하 고 Power Apps** 합니다. 이 옵션은 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 Microsoft에서 호스트하고 유지 관리함을 나타냅니다.
 
 5. [이러한 지침](./test-drive-azure-subscription-setup.md)에 따라 테넌트의 시험 사용 사용자를 프로비저닝/프로비저닝 해제할 수 있는 권한을 Microsoft AppSource에 부여합니다. 이 단계에서는 아래에 나와 있는 **Azure AD 앱 ID** 및 **Azure AD 앱 키** 값을 생성합니다.
 6. **시험 사용 기술 구성** 페이지에서 다음 필드를 완료합니다.
@@ -92,7 +92,7 @@ ms.locfileid: "131851024"
             4. **세부 정보** 를 선택합니다.
             5. **세부 정보** 탭에서 **웹 링크** 를 복사합니다.
 
-                [![TestDrive 캔버스 앱 창을 표시합니다. ](./media/test-drive/testdrive-canvas-app.png) ](./media/test-drive/testdrive-canvas-app.png#lightbox)
+                [![TestDrive Canvas 앱 창을 표시 합니다. ](./media/test-drive/testdrive-canvas-app.png) ](./media/test-drive/testdrive-canvas-app.png#lightbox)
 
     - **인스턴스 웹 API URL**
         - *고객 참여* – Dynamics 365 인스턴스의 웹 API URL입니다. Microsoft Dynamics 365 인스턴스에 로그인하고, **설정** > **사용자 지정** > **개발자 리소스** > **인스턴스 웹 API** 를 선택하고, 주소(URL)를 복사하여 이 값을 검색합니다. 예를 들어 값:
@@ -115,15 +115,15 @@ ms.locfileid: "131851024"
 
 7. 마켓플레이스 목록 세부 정보를 제공합니다. 추가 필수 필드를 보려면 **언어** 를 선택합니다.
 
-    [Marketplace 목록 세부 정보 페이지를 보여 ![ 줍니다. ](./media/test-drive/marketplace-listing-details-workspaces.png) ](./media/test-drive/marketplace-listing-details-workspaces.png#lightbox)
+    [![Marketplace 목록 세부 정보 페이지를 보여 줍니다. ](./media/test-drive/marketplace-listing-details-workspaces.png) ](./media/test-drive/marketplace-listing-details-workspaces.png#lightbox)
 
-    - **설명** – 시험 사용의 개요입니다. 이 텍스트는 시험 사용을 프로비저닝하는 동안 사용자에게 표시됩니다. 서식이 지정된 콘텐츠(필수)를 제공하려는 경우 이 필드는 HTML을 지원합니다.
-    - **사용자 설명서** – 시험 사용 사용자가 앱을 사용하는 방법을 이해하는 데 도움이 되는 PDF 사용자 설명서입니다(필수).
+    - **설명** – 시험 사용의 개요입니다. 이 텍스트는 시험 사용을 프로비저닝하는 동안 사용자에게 표시됩니다. 서식 있는 콘텐츠를 제공 하려는 경우이 필드는 HTML을 지원 합니다 (필수).
+    - **사용자 수동** – 테스트 드라이브 사용자가 앱을 사용 하는 방법을 이해 하는 데 도움이 되는 PDF 사용자 설명서입니다 (필수).
     - **시험 사용 데모 비디오**: 앱을 소개하는 비디오입니다(선택 사항).
 
 ---
 
-## <a name="configure-for-dynamics-365-operations"></a>Dynamics 365 Operations에 대한 구성
+## <a name="dynamics-365-operations-apps"></a>Dynamics 365 운영 앱
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
@@ -131,17 +131,17 @@ ms.locfileid: "131851024"
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)에 로그인합니다.
 2. 위의 링크에 액세스할 수 없는 경우 애플리케이션을 게시하려면 [여기](https://appsource.microsoft.com/partners/list-an-app)에서 요청을 제출해야 합니다. 요청을 검토한 후 게시 프로세스를 시작할 수 있는 권한이 부여됩니다.
-3. 기존 **Dynamics 365 for Operations** 제품을 찾거나 새 **Dynamics 365 for Operations** 제품을 만듭니다.
-4. 제안 **설정** 페이지에서 시험 **사용 확인란을** 선택하고 시험 사용 **유형(아래 글머리** 기호 참조)을 선택한 다음, **초안 저장을** 선택합니다.
+3. 기존 **dynamics 365 작업 앱** 을 찾거나 새 **Dynamics 365 operations apps** 제품을 만듭니다.
+4. **제품 설치** 페이지에서 **테스트 드라이브 사용** 확인란을 선택 하 고 **테스트 드라이브의 종류** (아래 글머리 기호 참조)를 선택한 다음 **초안 저장** 을 선택 합니다.
 
     [![‘시험 사용 지원’ 확인란 선택](media/test-drive/enable-test-drive-check-box-operations-workspaces.png)](media/test-drive/enable-test-drive-check-box-operations-workspaces.png#lightbox)
 
-    - **시험 사용의 유형** – **Dynamics 365 for Operations** 옵션을 선택합니다. 이는 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 Microsoft에서 호스팅하고 유지 관리함을 의미합니다.
+    - **테스트 드라이브의 유형** – **Dynamics 365 작업 앱** 옵션을 선택 합니다. 이는 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 Microsoft에서 호스팅하고 유지 관리함을 의미합니다.
 
 5. [이러한 지침](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md)에 따라 테넌트의 시험 사용 사용자를 프로비저닝/프로비저닝 해제할 수 있는 권한을 Microsoft AppSource에 부여합니다. 이 단계에서는 아래에 나와 있는 **Azure AD 앱 ID** 및 **Azure AD 앱 키** 값을 생성합니다.
-6. **시험판** 기술 구성 페이지에서 이러한 필드를  >    완료합니다.
+6. **Test drive**  >   **기술 구성** 페이지에서 이러한 필드를 완료 합니다.
 
-    [Marketplace 기술 구성 페이지를 보여 ![ 줍니다. ](./media/test-drive/technical-config-details-operations-workspaces.png) ](./media/test-drive/technical-config-details-operations-workspaces.png#lightbox)
+    [![Marketplace 기술 구성 페이지를 보여 줍니다. ](./media/test-drive/technical-config-details-operations-workspaces.png) ](./media/test-drive/technical-config-details-operations-workspaces.png#lightbox)
 
     - **최대 동시 시험 사용 수** – 동시에 활성 시험 사용을 실행할 수 있는 동시 사용자 수입니다. 각 사용자는 시험 사용이 활성화된 상태에서 Dynamics 라이선스를 사용하므로 시험 사용 사용자가 사용할 수 있는 Dynamics 라이선스가 충분한지 확인합니다. 권장 수는 3 ~ 5입니다.
     - **시험 사용 기간** - 사용자의 시험 사용이 활성 상태로 유지되는 시간입니다. 시간이 만료되면 사용자는 테넌트에서 프로비저닝 해제됩니다. 앱의 복잡성에 따라 2 ~ 24시간을 권장합니다. 시간이 만료된 후 시험 사용에 다시 액세스하려는 사용자는 언제든지 시험 사용을 또다시 요청할 수 있습니다.
@@ -155,24 +155,24 @@ ms.locfileid: "131851024"
 
         :::image type="content" source="./media/test-drive/security-config.png" alt-text="보안 구성 페이지":::
 
-7. **시험판 마켓플레이스 목록** 페이지의 필드를 완료합니다.
+7. **Drive marketplace 목록 테스트** 페이지의 필드를 완료 합니다.
 
     [![Marketplace 목록 세부 정보 페이지](media/test-drive/marketplace-listing-details-ops-workspaces.png)](media/test-drive/marketplace-listing-details-workspaces.png#lightbox)
 
-    - **설명** – 시험 사용의 개요입니다. 이 텍스트는 시험 사용을 프로비저닝하는 동안 사용자에게 표시됩니다. 서식이 지정된 콘텐츠(필수)를 제공하려는 경우 이 필드는 HTML을 지원합니다.
-    - **사용자 설명서** – 시험 사용 사용자가 앱을 사용하는 방법을 이해하는 데 도움이 되는 PDF 사용자 설명서입니다(필수).
+    - **설명** – 시험 사용의 개요입니다. 이 텍스트는 시험 사용을 프로비저닝하는 동안 사용자에게 표시됩니다. 서식 있는 콘텐츠를 제공 하려는 경우이 필드는 HTML을 지원 합니다 (필수).
+    - **사용자 수동** – 테스트 드라이브 사용자가 앱을 사용 하는 방법을 이해 하는 데 도움이 되는 PDF 사용자 설명서입니다 (필수).
     - **시험 사용 데모 비디오**: 앱을 소개하는 비디오입니다(선택 사항).
 
 #### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
 1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165507)에 로그인합니다.
 2. 위의 링크에 액세스할 수 없는 경우 애플리케이션을 게시하려면 [여기](https://appsource.microsoft.com/partners/list-an-app)에서 요청을 제출해야 합니다. 요청을 검토한 후 게시 프로세스를 시작할 수 있는 권한이 부여됩니다.
-3. 기존 **Dynamics 365 for Operations** 제품을 찾거나 새 **Dynamics 365 for Operations** 제품을 만듭니다.
+3. 기존 **dynamics 365 작업 앱** 을 찾거나 새 **Dynamics 365 operations apps** 제품을 만듭니다.
 4. **시험 사용 지원** 확인란을 선택하고 **시험 사용 유형**(아래 글머리 기호 참조)을 선택한 다음 **초안 저장** 을 선택합니다.
 
     [![‘시험 사용 지원’ 확인란 선택](media/test-drive/enable-test-drive-check-box-operations.png)](media/test-drive/enable-test-drive-check-box-operations.png#lightbox)
 
-    - **시험 사용의 유형** – **Dynamics 365 for Operations** 옵션을 선택합니다. 이는 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 Microsoft에서 호스팅하고 유지 관리함을 의미합니다.
+    - **테스트 드라이브의 유형** – **Dynamics 365 작업 앱** 옵션을 선택 합니다. 이는 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 Microsoft에서 호스팅하고 유지 관리함을 의미합니다.
 
 5. [이러한 지침](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md)에 따라 테넌트의 시험 사용 사용자를 프로비저닝/프로비저닝 해제할 수 있는 권한을 Microsoft AppSource에 부여합니다. 이 단계에서는 아래에 나와 있는 **Azure AD 앱 ID** 및 **Azure AD 앱 키** 값을 생성합니다.
 6. **시험 사용 기술 구성** 페이지에서 다음 필드를 완료합니다.

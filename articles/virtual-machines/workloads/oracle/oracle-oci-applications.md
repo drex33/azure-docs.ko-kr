@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: kegorman
-ms.openlocfilehash: ac9c699addf996178b1d6aabdf010267bda75964
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 235b6ee4d89f6eaff1d2b91d9b733998123a8d10
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122690071"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133540375"
 ---
 # <a name="architectures-to-deploy-oracle-applications-on-azure"></a>Azure에서 Oracle 애플리케이션을 배포하는 아키텍처
 
@@ -80,7 +80,7 @@ Microsoft 및 Oracle은 고가용성 설정을 권장합니다. Azure의 고가�
 
 ID 계층에는 EBS Asserter VM이 포함됩니다. EBS Asserter를 사용하면 IDCS(Oracle Identity Cloud Service) 및 Azure AD의 ID를 동기화할 수 있습니다. EBS는 SAML 2.0 또는 OpenID Connect와 같은 Single Sign-On 프로토콜을 지원하지 않으므로 EBS Asserter가 필요합니다. EBS Asserter는 IDCS에서 생성된 OpenID Connect 토큰을 사용하고, 유효성을 검사한 다음, EBS에서 사용자에 대한 세션을 생성합니다. 
 
-이 아키텍처에서는 IDCS 통합을 보여 주지만, Azure AD 통합 액세스 및 Single Sign-On은 Oracle Internet Directory 또는 Oracle Unified Directory를 사용하는 Oracle Access Manager를 통해 사용하도록 설정할 수 있습니다. 자세한 내용은 [Deploying Oracle EBS with IDCS Integration(IDCS 통합을 사용하여 Oracle EBS 배포)](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_idcs.pdf) 또는 [Deploying Oracle EBS with OAM Integration(OAM 통합을 사용하여 Oracle EBS 배포)](https://cloud.oracle.com/iaas/whitepapers/deploy_ebusiness_suite_across_oci_azure_sso_oam.pdf) 백서를 참조하세요.
+이 아키텍처에서는 IDCS 통합을 보여 주지만, Azure AD 통합 액세스 및 Single Sign-On은 Oracle Internet Directory 또는 Oracle Unified Directory를 사용하는 Oracle Access Manager를 통해 사용하도록 설정할 수 있습니다. 자세한 내용은 [Deploying Oracle EBS with IDCS Integration(IDCS 통합을 사용하여 Oracle EBS 배포)](https://www.oracle.com/a/ocom/docs/deploy-ebusiness-suite-across-oci-azure-sso-idcs.pdf) 또는 [Deploying Oracle EBS with OAM Integration(OAM 통합을 사용하여 Oracle EBS 배포)](https://www.oracle.com/a/ocom/docs/deploy-ebusiness-suite-across-oci-azure-sso-oam.pdf) 백서를 참조하세요.
 
 고가용성을 위해 EBS Asserter의 중복 서버를 부하 분산 장치가 앞에 있는 여러 가용성 영역에 배포하는 것이 좋습니다.
 

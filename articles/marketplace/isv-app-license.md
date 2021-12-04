@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
-ms.date: 04/30/2021
-ms.openlocfilehash: 7d91cacf68cca5dcff377cf151a004d05b4c3fbc
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: cd476233efa368a3be77bd0351b04e97d6745ba7
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111522"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541093"
 ---
 # <a name="isv-app-license-management"></a>ISV 앱 라이선스 관리
 
 다음 제안 유형에 적용됩니다.
 
-- Dynamics 365 for Customer Engagement 및 Power Apps
+- Dataverse의 Dynamics 365 앱 및 Power Apps
 
 _ISV 앱 라이선스 관리_ 는 Dynamics 365 제품군을 사용하여 솔루션을 빌드하는 ISV(독립 소프트웨어 공급 업체)가 Microsoft에서 제공하는 시스템을 사용하여 솔루션에 대한 라이선스를 관리하고 적용할 수 있도록 합니다. 이 방법을 채택하여 다음을 수행할 수 있습니다.
 
@@ -46,7 +46,7 @@ ISV 앱 라이선스를 관리하려면 다음 사전 준비 사항을 따라야
 
 | 단계 | 세부 정보 |
 | ------------ | ------------- |
-| 1단계 - 제품 만들기 | ISV는 파트너 센터에서 제품을 만들고 Microsoft를 통해 이 제품에 대한 라이선스를 관리하도록 선택합니다. 여기에 제품에 대한 하나 이상의 라이선스 플랜을 정의하는 작업이 포함됩니다. 자세한 정보는 [Microsoft AppSource에서 고객 참여용 Dynamics 365 및 Power Apps 제안 만들기](dynamics-365-customer-engage-offer-setup.md)를 참조하세요. |
+| 1단계 - 제품 만들기 | ISV는 파트너 센터에서 제품을 만들고 Microsoft를 통해 이 제품에 대한 라이선스를 관리하도록 선택합니다. 여기에 제품에 대한 하나 이상의 라이선스 플랜을 정의하는 작업이 포함됩니다. 자세한 내용은 [dataverse에 Dynamics 365 앱 만들기 및 Microsoft AppSource에서 Power Apps 제공](dynamics-365-customer-engage-offer-setup.md)을 참조 하세요. |
 | 2단계: 패키지 업데이트 | ISV는 라이선스 플랜 정보를 메타데이터로 포함하는 제품에 대한 솔루션 패키지를 만들고 Microsoft AppSource에 게시하기 위해 파트너 센터에 업로드합니다. 자세히 알아보려면 [솔루션에 라이선스 메타데이터 추가](/powerapps/developer/data-platform/appendix-add-license-information-to-your-solution)를 참조하세요. |
 | 3단계: 라이선스 구매 | 고객이 AppSource에서 또는 ISV의 웹 사이트에서 직접 ISV의 제품을 검색합니다. 고객은 ISV에서 직접 원하는 플랜에 대한 라이선스를 구매합니다(현재 이러한 제품은 AppSource를 통해 구입할 수 없습니다). |
 | 4단계 - 거래 등록 | ISV는 파트너 센터에서 Microsoft에 구매한 제품을 등록합니다. ISV는 [거래 등록](/partner-center/csp-commercial-marketplace-licensing#register-isv-connect-deal-in-deal-registration)의 일부로 고객이 구입한 각 라이선스 플랜의 유형 및 수량을 지정합니다. |
@@ -78,7 +78,7 @@ ISV 앱 라이선스를 관리하려면 다음 사전 준비 사항을 따라야
 - 모든 AppSource 사용자에게 제품 목록 페이지에 **나에게 연락** 단추와 함께 **지금 가져오기** 단추가 표시되며 제품을 다운로드하고 설치할 수 있습니다.
 - 이 옵션을 선택하지 않으면 AppSource에서 사용자의 테넌트에 솔루션에 대한 라이선스가 한 개 이상 있는지 확인한 후 **지금 가져오기** 단추를 표시합니다. 사용자의 테넌트에 라이선스가 없는 경우 **나에게 연락** 단추만 표시됩니다.
 
-제품을 구성하는 방법에 대한 자세한 내용은 [Dynamics 365 for Customer Engagement 및 Power App 제품을 만드는 방법](dynamics-365-customer-engage-offer-setup.md)을 참조하세요.
+제품을 구성 하는 방법에 대 한 자세한 내용은 [Dataverse에서 Dynamics 365 앱을 만드는 방법 및 Power Apps](dynamics-365-customer-engage-offer-setup.md)을 참조 하세요.
 
 ## <a name="offer-listing-page-on-appsource"></a>AppSource의 제품 목록 페이지
 
@@ -91,4 +91,4 @@ ISV 앱 라이선스를 관리하려면 다음 사전 준비 사항을 따라야
 ## <a name="next-steps"></a>다음 단계
 
 - [Dynamics 365 제품 계획](marketplace-dynamics-365.md)
-- [Dynamics 365 for Customer Engagement 및 Power Apps 제품을 만드는 방법](dynamics-365-customer-engage-offer-setup.md)
+- [dataverse에 Dynamics 365 앱을 만드는 방법 및 Power Apps 제안](dynamics-365-customer-engage-offer-setup.md)

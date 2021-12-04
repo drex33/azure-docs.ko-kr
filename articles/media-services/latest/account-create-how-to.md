@@ -9,15 +9,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/4/2020
+ms.date: 11/29/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7c6486c156cfc9cec9065854c55b2d8e2788fdc0
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
-ms.translationtype: HT
+ms.openlocfilehash: 16f6e5900b7454019a6a35a041cf683dfbb63609
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062568"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544557"
 ---
 # <a name="create-a-media-services-account"></a>Media Services 계정 만들기
 
@@ -27,7 +27,17 @@ Azure에서 암호화, 인코딩, 분석, 관리 및 스트리밍을 시작하�
 
 [!INCLUDE [note 2020-05-01 API](./includes/note-2020-05-01-account-creation.md)]
 
- Azure Portal 또는 CLI를 사용하여 Media Services 계정을 만들 수 있습니다. 사용하려는 방법에 대한 탭을 선택합니다.
+## <a name="prerequisites"></a>사전 요구 사항
+
+Azure 관리 ID 플랫폼에 익숙하지 않은 경우 플랫폼과 ID 유형 간의 차이점을 이해하는 데 시간이 걸릴 수 있습니다.  Media Services 계정 기본 관리 ID 유형은 사용자 관리 ID입니다.
+
+- [Microsoft ID 플랫폼](../../active-directory/develop/app-objects-and-service-principals.md)대해 읽어 읽습니다. 
+- Azure [리소스에 대한 관리 ID에 대해 읽어 읽습니다.](../../active-directory/managed-identities-azure-resources/overview.md)
+- [애플리케이션 및 서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)에 대해 잠시 읽어보는 것이 좋을 수도 있습니다.
+
+## <a name="create-an-account"></a>계정 만들기
+ 
+Azure Portal 또는 CLI를 사용하여 Media Services 계정을 만들 수 있습니다. 사용하려는 방법에 대한 탭을 선택합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,6 +48,12 @@ Azure에서 암호화, 인코딩, 분석, 관리 및 스트리밍을 시작하�
 [!INCLUDE [the media services account and storage account must be in the same subscription](./includes/note-account-storage-same-subscription.md)]
 
 [!INCLUDE [create a media services account in the portal](./includes/task-create-media-services-account-portal.md)]
+
+[!INCLUDE [enable a system-assigned managed identity](./includes/task-create-media-services-system-managed-identity.md)]
+
+[!INCLUDE [add system assigned managed identity in the portal](./includes/task-storage-system-managed-identity-portal.md)]
+
+[!INCLUDE [add encryption to media services account](./includes/task-security-encryption-managed-identity-portal.md)]
 
 ## <a name="cli"></a>[CLI](#tab/cli/)
 
@@ -66,7 +82,3 @@ Media Services 계정을 만들려면 Azure Storage 계정 리소스의 이름�
 [!INCLUDE [Create a Media Services account with CLI](./includes/task-create-media-services-account-cli.md)]
 
 ---
-
-## <a name="next-steps"></a>다음 단계
-
-[파일 스트리밍](stream-files-dotnet-quickstart.md)

@@ -8,16 +8,18 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7688e42175b2b4e35b63979f5df25702f3bb869d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
-ms.translationtype: HT
+ms.openlocfilehash: 8df6f2d495b18bb825f7cb5230d646fa68ef9a62
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90986589"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133540556"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Always On VPN 디바이스 터널 구성
 
 [!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
+
+이 문서는 Always On VPN 디바이스 터널을 구성하는 데 도움이 됩니다. 사용자 터널을 구성하는 방법에 대한 자세한 내용은 [Always On VPN 사용자 터널 구성을 참조하세요.](vpn-gateway-howto-always-on-user-tunnel.md)
 
 ## <a name="configure-the-gateway"></a>게이트웨이 구성
 

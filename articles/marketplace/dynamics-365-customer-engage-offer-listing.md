@@ -1,20 +1,20 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제안 목록 세부 정보를 구성합니다.
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제안 목록 세부 정보를 구성합니다.
+title: Microsoft AppSource (Azure Marketplace)에 대 한 정보를 제공 하는 Dynamics 365 앱을 Dataverse에 구성 하 고 전원 앱 제공
+description: Azure Marketplace (Microsoft AppSource)에 대 한 정보를 제공 하는 Dynamics 365 앱을 Dataverse에 구성 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/20/2021
-ms.openlocfilehash: da0401a8733fc8ecb30b36f748ed87ba380df556
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: 71f09f3481021ecfe1b4ec112fcbdefbd61d62aa
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867429"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133539784"
 ---
-# <a name="configure-dynamics-365-for-customer-engagement--power-apps-offer-listing-details"></a>Dynamics 365 for Customer Engagement 및 Power Apps 제안 목록 세부 정보 구성
+# <a name="configure-dynamics-365-apps-on-dataverse-and-power-app-offer-listing-details"></a>Dataverse에 Dynamics 365 앱 구성 및 Power App 제품 목록 세부 정보
 
 이 페이지에서는 제안 이름, 설명, 링크, 연락처, 로고, 스크린샷 등 제안 세부 정보를 정의할 수 있습니다.
 

@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: 47b3789938035dab9c9094fbc5aba0aa1fc8d8e4
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 41cf6b63b9ff08f5a99057f25dd6cbe4351542de
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132723365"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541283"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 리소스 보호
@@ -32,8 +32,10 @@ VNet(가상 네트워크)을 사용하여 Azure Machine Learning 작업 영역 �
 > * [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 > * [사용자 지정 DNS 사용](how-to-custom-dns.md)
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
+>
+> 보안 작업 영역을 만드는 방법에 대 한 자습서는 [자습서: 보안 작업 영역 만들기](tutorial-create-secure-workspace.md) 또는 [자습서: 템플릿을 사용 하 여 보안 작업 영역 만들기](tutorial-create-secure-workspace-template.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 다음 항목에 익숙하다고 가정합니다.
 + [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)

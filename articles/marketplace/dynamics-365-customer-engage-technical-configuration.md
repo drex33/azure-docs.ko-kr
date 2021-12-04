@@ -1,21 +1,21 @@
 ---
-title: Microsoft AppSource - Azure Marketplace에서 Dynamics 365 for Customer Engagement 및 Power Apps 제품 기술 구성을 설정합니다.
-description: Microsoft AppSource - Azure Marketplace에서 Dynamics 365 for Customer Engagement 및 Power Apps 제품 기술 구성을 설정합니다.
+title: Dataverse에서 Dynamics 365 앱 설정 및 Microsoft AppSource 기술 구성 제공 Power Apps - Azure Marketplace
+description: Dataverse에서 Dynamics 365 앱을 설정하고 Power Apps Microsoft AppSource(Azure Marketplace 기술 구성을 제공합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.custom: references_regions
 author: vamahtan
 ms.author: vamahtan
-ms.date: 06/29/2021
-ms.openlocfilehash: 247c36391826ef427ffe1ed8bcc8f7a8991a44d8
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: ec7b41e5ecbcfe75e98623760d4244570c22e538
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864428"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544061"
 ---
-# <a name="set-up-dynamics-365-for-customer-engagement--power-apps-offer-technical-configuration"></a>Dynamics 365 for Customer Engagement 및 Power Apps 제안 기술 구성 설정
+# <a name="set-up-dynamics-365-apps-on-dataverse-and-power-apps-offer-technical-configuration"></a>Dataverse에서 Dynamics 365 앱 설정 및 기술 구성 제공 Power Apps
 
 이 페이지에서는 제품에 연결하는 데 사용되는 기술 세부 정보를 정의합니다. 이 연결을 통해 제품 구매를 선택하는 고객을 위해 제품을 프로비저닝할 수 있습니다.
 

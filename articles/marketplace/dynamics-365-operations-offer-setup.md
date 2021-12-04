@@ -1,22 +1,22 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제품 만들기
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제품을 만듭니다.
+title: Microsoft AppSource (Azure Marketplace)에서 Dynamics 365 Operations Apps 제품 만들기
+description: Microsoft AppSource (Azure Marketplace)에서 Dynamics 365 Operations Apps 제품을 만듭니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/27/2021
-ms.openlocfilehash: 7b155c07edebf80ee45467829c57024d0ad2845f
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.date: 12/03/2021
+ms.openlocfilehash: 6bec20a7ad5ac50f2ff972146e2bbb5a221372ad
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132552283"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544308"
 ---
-# <a name="create-a-dynamics-365-for-operations-offer"></a>Dynamics 365 for Operations 제품 만들기
+# <a name="create-a-dynamics-365-operations-apps-offer"></a>Dynamics 365 Operations Apps 제품 만들기
 
-이 문서에서는 [Dynamics 365 for Operations](https://dynamics.microsoft.com/finance-and-operations) 제품을 만드는 방법을 설명합니다. 이 제품 유형은 고급 운영, 재무, 제조 및 공급망 관리를 지원하는 ERP(전사적 자원 관리) 서비스입니다. 모든 Dynamics 365 제안은 인증 프로세스를 통과해야 합니다.
+이 문서에서는 [Dynamics 365 Operations Apps](https://dynamics.microsoft.com/finance-and-operations) 제품을 만드는 방법을 설명 합니다. 이 제품 유형은 고급 운영, 재무, 제조 및 공급망 관리를 지원하는 ERP(전사적 자원 관리) 서비스입니다. 모든 Dynamics 365 제안은 인증 프로세스를 통과해야 합니다.
 
 시작하기 전에 [파트너 센터](./create-account.md)에서 상업용 Marketplace 계정을 만들고 상업용 Marketplace 프로그램에 해당 계정이 등록되어 있는지 확인합니다.
 
@@ -36,9 +36,9 @@ ms.locfileid: "132552283"
 
     [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-1. Marketplace 제안 페이지에서 **+ 새 제안**  >  **Dynamics 365를 작업으로** 선택합니다.
+1. Marketplace 제품 페이지에서 **+ 새로 만들기 제공**  >  **Dynamics 365 작업 앱** 을 선택 합니다.
 
-    [![Marketplace 제안 페이지의 '새 제안' 단추 스크린샷은 Dynamics 365 for Operations 제안 유형을 강조 표시합니다. ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png) ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png#lightbox)
+    [![Dynamics 365 Operations Apps 제품 유형을 ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png) 강조 표시 하는 Marketplace 제품 페이지의 ' 새 제품 ' 단추 스크린샷 ](media/dynamics-365/new-offer-dynamics-365-operations-workspaces.png#lightbox)
 
 > [!IMPORTANT]
 > 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
@@ -47,9 +47,9 @@ ms.locfileid: "132552283"
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 1. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
-1. 개요 페이지에서 **+ 새 제품** > **Dynamics 365 for Operations** 를 선택합니다.
+1. 개요 페이지에서 **+ 새로 만들기 제공**  >  **Dynamics 365 작업 앱** 을 선택 합니다.
 
-    :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-operations.png" alt-text="왼쪽 창 메뉴 옵션과 '새 제품' 단추":::
+    :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-operations.png" alt-text="왼쪽 창 메뉴 옵션 및 '새 제품' 단추":::
 
 > [!IMPORTANT]
 > 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
@@ -77,9 +77,9 @@ ms.locfileid: "132552283"
 
 ## <a name="setup-details"></a>설정 정보
 
-**잠재 고객이 이 목록 제안과 상호 작용하도록 하려면 어떻게 해야 할까요?** 에서 **연락처를** 선택합니다.
+**잠재 고객이이 제품을 나열 하는 것과 상호 작용할** 수 있도록 하려면 **연락처** 를 선택 합니다.
 
-CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 수집합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 고객이 제안을 찾은 제안 이름, ID 및 마켓플레이스 원본과 함께 이러한 고객 세부 정보는 구성한 CRM 시스템으로 전송됩니다. CRM을 구성하는 방법에 대한 자세한 내용은 [잠재 고객](#customer-leads)을 참조하세요.
+CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 수집합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 고객이 제품을 찾은 제품 이름, ID 및 marketplace 원본과 함께 이러한 고객 세부 정보는 구성 된 CRM 시스템으로 전송 됩니다. CRM을 구성하는 방법에 대한 자세한 내용은 [잠재 고객](#customer-leads)을 참조하세요.
 
 ## <a name="test-drive"></a>시험 사용
 
@@ -100,7 +100,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 제품은 초기에 표준 계층에 등록됩니다.
 
-제안을 게시하기 전에 [공동 판매 모듈을](https://aka.ms/BizAppsISVProgram)완료합니다.
+제품을 게시 하기 전에 [공동 판매 모듈](https://aka.ms/BizAppsISVProgram)을 완료 합니다.
 
 왼쪽 탐색 메뉴 **속성** 에서 다음 탭을 계속 진행하려면 **초안 저장** 을 선택하세요.
 

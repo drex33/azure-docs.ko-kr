@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 08/20/2021
-ms.openlocfilehash: b5b969a5e390b59e60fb0dee47e2335541532730
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: ead823559f2f14253c1a708d97c76df27bb7b1e8
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633771"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545087"
 ---
 # <a name="publishing-guide-by-offer-type"></a>제품 형식별 게시 가이드
 
@@ -37,7 +37,7 @@ ms.locfileid: "122633771"
 | [**Azure Container**](marketplace-containers.md) | 솔루션이 Kubernetes 기반 Azure Container Service로 프로비저닝된 Docker 컨테이너 이미지인 경우 Azure Container 제품 유형을 사용합니다. |
 | [**Azure Virtual Machine**](marketplace-virtual-machines.md) | 고객과 연결된 구독에 가상 어플라이언스를 배포할 경우 가상 머신 제품 형식을 사용합니다. |
 | [**컨설팅 서비스**](./plan-consulting-service-offer.md) | 컨설팅 서비스는 고객을 서비스와 연결하여 Azure, Dynamics 365 또는 Power Suite 서비스의 사용을 지원하고 확장하는 데 도움이 됩니다.|
-| [**Dynamics 365**](marketplace-dynamics-365.md) | Dynamics 365 Business Central, Dynamics 365 Customer Engagement, Power Apps 및 Finance and Operations 앱을 빌드하거나 확장하는 AppSource 제품을 게시합니다.|
+| [**Dynamics 365**](marketplace-dynamics-365.md) | Dynamics 365 제품을 기반으로 하거나 확장하는 AppSource 제품을 게시합니다.|
 | [**IoT Edge 모듈**](marketplace-iot-edge.md) | Azure IoT Edge 모듈은 IoT Edge가 관리하는 최소 계산 단위이며 Microsoft 서비스(예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션별 코드를 포함할 수 있습니다. |
 | [**관리되는 서비스**](./plan-managed-service-offer.md) | [Azure Lighthouse](../lighthouse/overview.md)를 통해 관리되는 서비스 제품을 만들고 고객이 위임한 구독 또는 리소스 그룹을 관리합니다.|
 | [**Power BI 앱** <br/> **Microsoft 365**](marketplace-dynamics-365.md) | Power BI 및 Microsoft 365를 빌드하거나 확장하는 AppSource 제품을 게시합니다.|

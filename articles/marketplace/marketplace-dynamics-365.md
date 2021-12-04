@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
-ms.openlocfilehash: 0d31c44a5daa21c16cd7c598f407501104dc53c6
-ms.sourcegitcommit: 05c8e50a5df87707b6c687c6d4a2133dc1af6583
+ms.date: 12/03/2021
+ms.openlocfilehash: f2a1edfdcbc8cd13c2705a2178c88121cc99b92a
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2021
-ms.locfileid: "132546313"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541017"
 ---
 # <a name="plan-a-microsoft-dynamics-365-offer"></a>Dynamics 365 제품 플랜
 
@@ -28,8 +28,8 @@ Dynamics 365 제품 유형에 사용할 수 있는 라이선스 옵션은 다음
 
 | 제품 유형 | 목록 옵션 |
 | --- | --- |
-| Dynamics 365 for Operations | 연락처 |
-| Dynamics 365 Customer Engagement 및 Power Apps | 지금 받기<br>지금 받기(무료)<br>평가판(목록)<br>연락처 |
+| Dynamics 365 운영 앱 | 연락처 |
+| Dataverse의 Dynamics 365 앱 및 Power Apps | 지금 받기<br>지금 받기(무료)<br>평가판(목록)<br>연락처 |
 | Dynamics 365 Business Central | 지금 받기(무료)<br>평가판(목록)<br>연락처 |
 |||
 
@@ -40,7 +40,7 @@ Dynamics 365 제품 유형에 사용할 수 있는 라이선스 옵션은 다음
 | 연락처 | CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 수집합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 고객 세부 정보는 제품 이름, ID 및 Marketplace(고객이 제품을 찾은 소스)와 함께 구성된 CRM 시스템으로 전송됩니다. CRM을 구성하는 방법에 대한 자세한 정보는 제품 유형에 있는 **제품 설정** 페이지의 **잠재 고객** 섹션을 참조하세요. |
 | 평가판(목록) | 1개월, 3개월, 6개월 평가판을 고객에게 제공합니다. 평가판을 나열하는 제품은 서비스에 의해 생성, 관리 및 구성되며 Microsoft에서 관리하는 구독을 포함하지 않습니다. |
 | 지금 받기(무료) | 고객에게 평가판으로 제공하는 제품을 나열합니다. |
-| 지금 받기 | 파트너 센터에서 ISV app0 라이선스를 관리할 수 있습니다.<br>현재 다음 제품 유형에만 사용할 수 있습니다.<ul><li>Dynamics 365 for Customer Engagement 및 Power Apps</li></ul><br>이 옵션에 대한 자세한 내용은 [ISV 앱 라이선스 관리](isv-app-license.md)를 참조하세요. |
+| 지금 받기 | 파트너 센터에서 ISV app0 라이선스를 관리할 수 있습니다.<br>현재 다음 제품 유형에만 사용할 수 있습니다.<ul><li>Dataverse의 Dynamics 365 앱 및 Power Apps</li></ul><br>이 옵션에 대한 자세한 내용은 [ISV 앱 라이선스 관리](isv-app-license.md)를 참조하세요. |
 |||
 
 ## <a name="test-drive"></a>시험 사용
@@ -94,7 +94,7 @@ Microsoft에서 지원하는 마케팅 및 영업 채널을 옵트인하도록 �
 
 | 게시 가이드    | 참고  |
 | :------------------- | :-------------------|
-| [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) | Enterprise Edition용으로 빌드하는 경우 먼저 이러한 추가 [게시 프로세스 및 지침](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)을 검토합니다. 제품 유형에는 상거래, 재무, 인적 자원, 프로젝트 작업 및 공급망 관리가 포함됩니다. |
+| [Dynamics 365 운영 앱](./dynamics-365-operations-offer-setup.md) | Enterprise Edition용으로 빌드하는 경우 먼저 이러한 추가 [게시 프로세스 및 지침](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)을 검토합니다. 제품 유형에는 상거래, 재무, 인적 자원, 프로젝트 작업 및 공급망 관리가 포함됩니다. |
 | [Dynamics 365 for Business Central](dynamics-365-business-central-offer-setup.md) | 해당 없음 |
-| [Dynamics 365 for Customer Engagement 및 Power Apps](dynamics-365-customer-engage-offer-setup.md) | 먼저 이러한 추가 [게시 프로세스 및 지침](/dynamics365/customer-engagement/developer/publish-app-appsource)을 검토합니다. 제품 유형에는 고객 서비스, 고객 음성, 프로젝트 작업, 현장 서비스, 마케팅, 혼합 현실, Power Apps, Power Automate, Power Virtual Agents, Project Service Automation 및 판매 등이 있습니다. |
+| [Dataverse 및 Power Apps Dynamics 365 앱](dynamics-365-customer-engage-offer-setup.md) | 먼저 이러한 추가 [게시 프로세스 및 지침](/dynamics365/customer-engagement/developer/publish-app-appsource)을 검토합니다. 제품 유형에는 고객 서비스, 고객 음성, 프로젝트 작업, 현장 서비스, 마케팅, 혼합 현실, Power Apps, Power Automate, Power Virtual Agents, Project Service Automation 및 판매 등이 있습니다. |
 |

@@ -3,12 +3,12 @@ title: Azure CLI를 통해 Azure Managed Disks 복원
 description: Azure CLI를 사용하여 Azure Managed Disks를 복원하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/18/2021
-ms.openlocfilehash: 87ca3597b7ad73aa1ac0ba5cff6c75b5ec880750
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
-ms.translationtype: HT
+ms.openlocfilehash: 6e4c2d6fa2f876f0bced45bc8cf116e7be6db30a
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114287504"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541549"
 ---
 # <a name="restore-azure-managed-disks-using-azure-cli"></a>Azure CLI를 사용하여 Azure Managed Disks 복원
 
@@ -197,7 +197,7 @@ $targetDiskId = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/p
 모든 관련 세부 정보를 사용하여 복원 요청을 준비하려면 [az dataprotection backup-instance restore initialize-for-data-recovery](/cli/azure/dataprotection/backup-instance/restore?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_restore_initialize_for_data_recovery) 명령을 사용합니다.
 
 ```azurecli-interactive
-az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureDisk --restore-location southeastasia --source-datastore OperationalStore --recovery-point-id /subscriptions/62b829ee-7936-40c9-a1c9-47a93f9f3965/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/sarath-vault/backupInstances/clitest-clitest-3165cfe7-a932-11eb-9d24-9cfce85d4fae/recoveryPoints/5081ad8f1e6c4548ae89536d0d45c493 --target-resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/Microsoft.Compute/disks/CLITestDisk2 > restore.json
+az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureDisk --restore-location southeastasia --source-datastore OperationalStore --recovery-point-id 5081ad8f1e6c4548ae89536d0d45c493 --target-resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/Microsoft.Compute/disks/CLITestDisk2 > restore.json
 ```
 
 ```json
@@ -234,7 +234,7 @@ az dataprotection backup-instance validate-for-restore -g testBkpVaultRG --vault
 [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_restore_trigger) 명령을 사용하여 위에서 준비한 요청으로 복원을 트리거합니다.
 
 ```azurecli-interactive
-az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166 --parameters restore.json
+az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166 --restore-request-object restore.json
 ```
 
 ## <a name="tracking-job"></a>작업 추적

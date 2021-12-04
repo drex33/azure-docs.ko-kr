@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: language-service-ner, ignite-fall-2021
-ms.openlocfilehash: cd6901e4ac1650f6739d24697fab5abafe8409a5
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 67fc262c8a898ddc7b2a26852d844ff997a51cf7
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131103190"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542480"
 ---
 # <a name="how-to-use-named-entity-recognitionner"></a>NER (명명 된 엔터티 인식)를 사용 하는 방법
 
@@ -43,7 +43,7 @@ NER 기능은 구조화 되지 않은 텍스트를 평가 하 고, 사용자, �
 
 NER 기능을 동기적으로 사용 하는 것은 상태 비저장입니다. 계정에 데이터가 저장되지 않으며, 결과가 응답에서 즉시 반환됩니다.
 
-이러한 기능을 비동기적으로 사용 하는 경우 요청이 수집 된 시간부터 24 시간 동안 API 결과를 사용할 수 있으며 응답에 표시 됩니다. 이 기간이 지나면 결과가 제거되고 더 이상 검색할 수 없습니다.
+[!INCLUDE [asynchronous-result-availability](../includes/async-result-availability.md)]
 
 API는 지정 된 문서 언어에 대해 [정의 된 엔터티 범주](concepts/named-entity-categories.md) 를 검색 하려고 합니다. 
 

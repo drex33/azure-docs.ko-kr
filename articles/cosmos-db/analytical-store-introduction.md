@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 8c92aa2c1a4801475f9fbbe77271f874fbcb10f9
-ms.sourcegitcommit: 66b6e640e2a294a7fbbdb3309b4829df526d863d
+ms.openlocfilehash: 3ca9f06158fdcb13107c8b27a280dbdf037ea200
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2021
-ms.locfileid: "133367227"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133543335"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -160,6 +160,9 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
   * \t
   * =(등호)
   * "(따옴표)
+
+> [!NOTE]
+> 이 제한에 도달하면 반환되는 Spark 오류 메시지에도 공백이 나열됩니다. 그러나 공백에 대한 특별한 처리를 추가했습니다. 아래 항목에서 자세한 내용을 확인하세요.
  
 * 위에 나열된 문자를 사용하는 속성 이름이 있는 경우 대안은 다음과 같습니다.
    * 이러한 문자를 방지하려면 데이터 모델을 미리 변경합니다.
@@ -168,26 +171,23 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
    * Spark 옵션을 사용하여 `dropColumn` 영향을 받는 열을 무시하고 다른 모든 열을 DataFrame에 로드합니다. 구문은 다음과 같습니다.
 
 ```Python
+# Removing one column:
 df = spark.read\
      .format("cosmos.olap")\
      .option("spark.synapse.linkedService","<your-linked-service-name>")\
      .option("spark.synapse.container","<your-container-name>")\
      .option("spark.synapse.dropColumn","FirstName,LastName")\
+     .load()
+     
+# Removing multiple columns:
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.synapse.dropColumn","FirstName,LastName;StreetName,StreetNumber")\
+     .option("spark.cosmos.dropMultiColumnSeparator", ";")\
      .load()  
 ```
-> [!NOTE]
-> 여러 열을 삭제하려면 순서에 따라 옵션을 더 추가하기만 `dropColumn` 합니다. 예:
-> 
-> ```Python
-> df = spark.read\
->     .format("cosmos.olap")\
->     .option("spark.synapse.linkedService","<your-linked-service-name>")\
->     .option("spark.synapse.container","<your-container-name>")\
->     .option("spark.synapse.dropColumn","FirstName,LastName")\
->     .option("spark.synapse.dropColumn","StreetName,StreetNumber")\
->     .load()  
-> ```
- 
 
 * Azure Synapse Spark는 이제 이름에 공백이 있는 속성을 지원합니다. 이를 위해 Spark 옵션을 사용하여 `allowWhiteSpaceInFieldNames` 영향을 받는 열을 DataFrame에 로드하고 원래 이름을 유지해야 합니다. 구문은 다음과 같습니다.
 
@@ -205,7 +205,7 @@ df = spark.read\
   * 정규식
   * DB 포인터
   * JavaScript
-  * Symbol
+  * 기호
   * MinKey / MaxKey 
 
 * ISO 8601 UTC 표준을 따르는 DateTime 문자열을 사용하는 경우 다음과 같은 동작이 예상됩니다.
@@ -229,9 +229,9 @@ Cosmos DB 계정에서 처음으로 Synapse Link 사용하도록 설정할 때 �
  * 이 옵션은 Synapse Link 사용하도록 **설정되지 않은** 계정에만 유효합니다.
  * 스키마 표현 형식을 잘 정의된 형식에서 전체 충실도로 또는 그 반대로 다시 설정할 수 없습니다.
  * 현재 Azure Cosmos DB API for MongoDB 계정은 이 스키마 표현 변경 가능성과 호환되지 않습니다. 모든 MongoDB 계정에는 항상 전체 충실도 스키마 표현 유형이 있습니다.
- * 현재 이 변경은 Azure Portal 통해 만들 수 없습니다. Azure Portal Synapse LinK를 사용하도록 설정한 모든 데이터베이스 계정에는 기본 스키마 표현 유형인 잘 정의된 스키마가 있습니다.
+ * 현재 이 변경은 Azure Portal 통해 만들 수 없습니다. Azure Portal Synapse LinK를 사용하도록 설정한 모든 데이터베이스 계정에는 기본 스키마 표현 유형과 잘 정의된 스키마가 있습니다.
  
-Azure CLI 또는 PowerShell을 사용하여 계정에서 Synapse Link 사용하도록 설정되는 동시에 스키마 표현 유형을 결정해야 합니다.
+Azure CLI 또는 PowerShell을 사용하여 계정에서 Synapse Link 사용하도록 설정하는 동시에 스키마 표현 유형을 결정해야 합니다.
  
  Azure CLI 사용:
  ```cli
@@ -397,7 +397,7 @@ salary: 1000000
 
 분석 저장소의 데이터는 Azure Synapse Analytics 런타임(Azure Synapse Apache Spark 풀 및 Azure Synapse 서버리스 SQL 풀)에서 수행되는 Azure Synapse Link를 통해서만 액세스할 수 있습니다. 분석 저장소의 데이터에 액세스하는 [가격 책정](https://azure.microsoft.com/pricing/details/synapse-analytics/) 모델에 대한 자세한 내용은 Azure Synapse Analytics 가격 책정 페이지를 참조하세요.
 
-분석 저장소 관점에서 Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록 설정하는 높은 수준의 예상 비용을 얻으려면 [Azure Cosmos DB Capacity Planner를](https://cosmos.azure.com/capacitycalculator/) 사용하여 분석 스토리지 및 쓰기 작업 비용을 예상할 수 있습니다. 분석 읽기 작업 비용은 분석 워크로드 특성에 따라 달라지지만 대략적으로 어림하여 분석 저장소에서 1TB의 데이터를 검사할 경우 대개 13만개의 분석 읽기 작업이 수행되고 결과적으로 $0.065의 비용이 발생합니다.
+분석 저장소 관점에서 Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록 설정하는 높은 수준의 예상 비용을 얻으려면 Azure [Cosmos DB Capacity Planner를](https://cosmos.azure.com/capacitycalculator/) 사용하여 분석 스토리지 및 쓰기 작업 비용을 예상할 수 있습니다. 분석 읽기 작업 비용은 분석 워크로드 특성에 따라 달라지지만 대략적으로 어림하여 분석 저장소에서 1TB의 데이터를 검사할 경우 대개 13만개의 분석 읽기 작업이 수행되고 결과적으로 $0.065의 비용이 발생합니다.
 
 > [!NOTE]
 > 분석 저장소 읽기 작업 추정치는 분석 워크로드의 기능이므로 Cosmos DB 비용 계산기에 포함되지 않습니다. 위의 추정치는 분석 저장소에서 1TB의 데이터를 검사하는 경우에 대한 것이지만 필터를 적용하면 검사되는 데이터 볼륨이 감소합니다. 이 값은 사용량에 따른 가격 책정 모델에서 정확한 분석 읽기 작업 수를 결정합니다. 분석 워크로드의 개념 증명은 분석 읽기 작업에 대한 보다 정밀한 추정치를 제공합니다. 이 예상치에는 Azure Synapse Analytics 비용이 포함되지 않습니다.

@@ -1,22 +1,22 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제품 추가 콘텐츠를 설정합니다
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제품 추가 콘텐츠를 설정합니다.
+title: Dynamics 365 운영 앱 설정 Microsoft AppSource (Azure Marketplace)에서 추가 콘텐츠를 제공 합니다.
+description: Dynamics 365 운영 앱 설정 Microsoft AppSource (Azure Marketplace)에 대 한 추가 콘텐츠를 제공 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/20/2021
-ms.openlocfilehash: a8ebda8f6b6b3737afd45a7a4352ca5e82898885
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: e51fdb0416a0b2ade8f88c6b11820fc9f9ba9142
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110482917"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545068"
 ---
-# <a name="set-up-dynamics-365-for-operations-offer-supplemental-content"></a>Dynamics 365 for Operations 제품 추가 콘텐츠 설정
+# <a name="set-up-dynamics-365-operations-apps-offer-supplemental-content"></a>Dynamics 365 작업 앱 설정 추가 콘텐츠 제공
 
-이 페이지에서 제품의 유효성을 검사하는 데 도움이 되는 추가 정보를 제공할 수 있습니다. 이 정보는 고객에게 표시되거나 Marketplace에 게시되지는 않습니다.
+이 페이지에서는 제안의 유효성을 검사하는 데 도움이 되는 추가 정보를 제공할 수 있습니다. 이 정보는 고객에게 표시되거나 Marketplace에 게시되지는 않습니다.
 
 ## <a name="validation-assets"></a>유효성 검사 자산
 

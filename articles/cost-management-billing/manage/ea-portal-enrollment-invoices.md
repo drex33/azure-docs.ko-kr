@@ -3,18 +3,18 @@ title: Azure 엔터프라이즈 등록 청구서
 description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하고 작업하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/19/2021
+ms.date: 12/03/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: ruturajd
+ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 77f463d34ebd05e39876933d65631371acff1707
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
-ms.translationtype: HT
+ms.openlocfilehash: d420dd5a13a5b762913470bfddb1daee8505a48d
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122539624"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542100"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -43,7 +43,7 @@ ms.locfileid: "122539624"
    **사용 요약** 의 날짜 범위를 변경하려면 페이지의 오른쪽 위에서 **M**(월별)을 **C**(사용자 지정)로 전환하고 사용자 지정 시작 및 종료 날짜를 입력합니다.  
    ![사용자 지정 보기에서 사용 요약 정보를 작성하여 살펴보고 보고서 다운로드](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. 추가 세부 정보를 보려면 그래프에서 보고 싶은 기간 또는 월을 선택합니다.
-   - 이 그래프에는 사용량, 서비스 초과 요금, 별도로 청구된 요금, Azure Marketplace 요금의 자세한 분석 내용과 함께 월별 사용 정보가 표시됩니다.
+   - 이 그래프는 사용 현황 분석, 서비스 초과분, 별도로 청구 된 요금 및 Azure Marketplace 요금에 대 한 분석을 통해 월별 사용량을 보여 줍니다.
    - 선택한 월에서, 그래프 아래의 필드를 사용하여 부서, 계정 및 구독으로 필터링할 수 있습니다.
    - **서비스별 요금** 과 **계층 구조별 요금** 간에 전환할 수 있습니다.
    - 관련 섹션을 확장하여 **Azure 서비스**, **별도 청구 요금** 및 **Azure Marketplace** 의 세부 정보를 봅니다.

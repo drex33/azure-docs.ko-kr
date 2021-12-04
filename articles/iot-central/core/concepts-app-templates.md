@@ -7,12 +7,12 @@ ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 26f9c41b23353343c5533c83db59320698824233
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 39b439133f15b5742181c9fffe2b56a33ecabf8e
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470889"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545752"
 ---
 # <a name="what-are-application-templates"></a>애플리케이션 템플릿이란?
 
@@ -164,28 +164,6 @@ IoT Central 마이크로 주문 처리 센터 애플리케이션 템플릿을 �
 :::image type="content" source="media/concepts-app-templates/MFC-Dashboard.png" alt-text="마이크로 주문 처리 센터":::
 
 자세한 내용은 [마이크로 주문 처리 센터 애플리케이션 템플릿 배포 및 연습](../retail/tutorial-micro-fulfillment-center.md) 자습서를 참조하세요.
-
-## <a name="video-analytics---object-and-motion-detection"></a>비디오 분석 - 개체 및 동작 감지
-
-*IoT Central 비디오 분석 - 개체 및 동작 감지* 애플리케이션 템플릿을 사용하면 인텔리전트 에지 카메라를 사용하여 개체 및 동작을 감지하는 솔루션을 배포, 관리 및 모니터링하는 방법을 신속하게 경험할 수 있습니다.
-
-비디오 분석 애플리케이션은 IoT Edge에서 실행되는 [LVA(live video analytics)](#live-video-analytics) 모듈을 사용합니다. LVA 모듈은 에지 및 클라우드를 포괄하는 인텔리전트 비디오 애플리케이션을 빌드하기 위한 플랫폼을 제공합니다. 플랫폼을 사용하여 개체 및 동작 감지를 통해 비디오 분석 애플리케이션과 같은 IoT 솔루션을 향상시킬 수 있습니다.
-
-애플리케이션 템플릿에는 네 가지 애플리케이션 대시보드가 포함되어 있습니다.
-
-* **시작** 에서는 애플리케이션 템플릿 사용을 시작하는 데 도움이 되는 리소스에 대한 링크를 제공합니다.
-
-- **데모 대시보드** 는 연결된 카메라에서 표시할 수 있는 정보 유형에 대한 설명을 제공합니다.
-- **(샘플) 실제 카메라 관리** 는 시뮬레이션된 카메라를 사용하여 애플리케이션에서 카메라를 관리하는 방법을 보여줍니다.
-- **(샘플) 실제 카메라 모니터** 는 시뮬레이션된 카메라를 사용하여 애플리케이션에서 카메라를 모니터링하는 방법을 보여줍니다.
-
-:::image type="content" source="media/concepts-app-templates/live-video-analytics.png" alt-text="비디오 분석 - 개체 및 동작 감지":::
-
-솔루션을 배포하는 방법에 대한 자세한 내용은 [Azure IoT Central에서 비디오 분석 애플리케이션 만들기](../retail/tutorial-video-analytics-deploy.md) 자습서를 참조하세요.
-
-### <a name="live-video-analytics"></a>라이브 비디오 분석
-
-[라이브 비디오 분석](https://github.com/Azure/live-video-analytics)은 에지 및 클라우드를 포괄하는 인텔리전트 비디오 애플리케이션을 빌드하기 위한 플랫폼을 제공합니다. 이 플랫폼은 라이브 비디오를 캡처, 녹화 및 분석하는 기능과 비디오 또는 비디오 분석일 수 있는 결과를 Azure 서비스에 게시하는 기능을 제공합니다. Azure 서비스는 클라우드 또는 에지에서 실행할 수 있습니다. 이 플랫폼을 사용하여 비디오 분석을 통해 IoT 솔루션을 개선할 수 있습니다.
 
 ## <a name="smart-meter-monitoring"></a>스마트 미터 모니터링
 

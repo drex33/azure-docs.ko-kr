@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: b-hchen
-ms.openlocfilehash: d1865757e3651d6e43b5a5e16540de6337cdb91b
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: bcf8161e8505c9c88b7882be00477decf4ddbb06
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133485118"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544251"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
@@ -46,7 +46,7 @@ Azure NetApp Files에서는 NFS(NFSv3 또는 NFSv4.1), SMB3 또는 이중 프로
 
 ## <a name="best-practice"></a>모범 사례
 
-* 볼륨에 대한 적절한 탑재 지침을 사용하고 있는지 확인합니다.  [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)를 참조하세요.
+* 볼륨에 대한 적절한 탑재 지침을 사용하고 있는지 확인합니다.  [Windows 또는 Linux VM용 볼륨 탑재를 참조하세요.](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 
 * NFS 클라이언트는 Azure NetApp Files 볼륨과 동일한 VNet 또는 피어링 VNet에 있어야 합니다. VNet 외부에서의 연결이 지원되지만 추가 대기 시간이 발생하고 전반적인 성능이 저하됩니다.
 
@@ -139,7 +139,7 @@ Azure NetApp Files에서는 NFS(NFSv3 또는 NFSv4.1), SMB3 또는 이중 프로
 * [NFSv4.1 Kerberos 암호화 구성](configure-kerberos-encryption.md)
 * [Azure NetApp Files용 TLS를 통한 ADDS LDAP 구성](configure-ldap-over-tls.md)
 * [NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성](configure-ldap-extended-groups.md)
-* [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Windows 또는 Linux VM용 볼륨 탑재](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [NFS 볼륨에 대한 내보내기 정책 구성](azure-netapp-files-configure-export-policy.md)
 * [Unix 권한을 구성하고 소유권 모드를 변경](configure-unix-permissions-change-ownership-mode.md)합니다. 
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)

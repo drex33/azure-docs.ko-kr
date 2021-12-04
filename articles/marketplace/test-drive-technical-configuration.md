@@ -4,15 +4,15 @@ description: 시험 사용에 대해 알아봅니다. 시험 사용을 사용하
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/26/2021
+ms.date: 12/03/2021
 author: trkeya
 ms.author: trkeya
-ms.openlocfilehash: 04eab06f0ce8aefa675b89613611c0ec9a93f9b6
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: 226115e7ef5c46d3097008a18ceff208074c2890
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131847359"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544042"
 ---
 # <a name="test-drive-technical-configuration"></a>시험 사용 기술 구성
 
@@ -21,7 +21,7 @@ Microsoft 상업용 Marketplace의 시험 사용 옵션을 사용하면 제품�
 더 이상 제품에 대한 시험 사용을 제공하지 않으려는 경우 **제품 설정** 페이지로 돌아가서 **시험 사용** 확인란의 선택을 취소합니다. 모든 제품 유형에 시험 사용이 가능한 것은 아닙니다.
 
 > [!TIP]
-> 상업용 Marketplace에서 시험 구매에 대한 고객의 보기를 보려면 [Azure Marketplace란?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) 및 [Microsoft AppSource 무엇인가요?를 참조하세요.](/marketplace/appsource-overview)
+> 상업용 Marketplace에서 시험 구매에 대한 고객의 보기를 보려면 [Azure Marketplace란?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) 및 [Microsoft AppSource란?을](/marketplace/appsource-overview)참조하세요.
 
 ## <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 
@@ -29,7 +29,7 @@ Microsoft 상업용 Marketplace의 시험 사용 옵션을 사용하면 제품�
 
 ## <a name="hosted-test-drive"></a>호스트형 시험 사용
 
-Microsoft는 서비스 프로비전 및 프로비전 해제를 호스팅하고 유지 관리하여 시험 사용 설정의 복잡성을 제거할 수 있습니다. 이 유형의 시험 사용에 대한 구성은 시험 사용이 Dynamics 365 Customer Engagement 또는 Dynamics 365 Operations 대상 그룹을 대상으로 하는지 여부에 관계없이 동일합니다.
+Microsoft는 서비스 프로비전 및 프로비전 해제를 호스팅하고 유지 관리하여 시험 사용 설정의 복잡성을 제거할 수 있습니다. 이 유형의 시험 사용 구성은 시험 사용이 Dataverse 및 Power Apps Dynamics 365 Operations Apps 대상에서 Dynamics 365 앱을 대상으로 하는지 여부에 관계없이 동일합니다.
 
 - **최대 동시 시험 사용 수**(필수) – 시험 사용을 동시에 사용할 수 있는 최대 고객 수를 설정합니다. 각 동시 사용자는 시험 사용이 활성화된 상태에서 Dynamics 365 라이선스를 이용하므로 최대 제한 집합을 지원하는 라이선스가 충분한지 확인해야 합니다. 권장 값은 3-5입니다.
 

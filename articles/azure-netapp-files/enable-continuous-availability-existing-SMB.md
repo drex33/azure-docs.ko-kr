@@ -12,18 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 12/02/2021
 ms.author: b-hchen
-ms.openlocfilehash: 49bce2c4f383bf449193b37f446c6dbd42dd0873
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: 5bdf60a10a2775febd6e6ef4930be14bf9ba36c7
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133483387"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545467"
 ---
 # <a name="enable-continuous-availability-on-existing-smb-volumes"></a>기존 SMB 볼륨에서 지속적인 가용성 사용
 
 [새 SMB 볼륨을 만들](azure-netapp-files-create-volumes-smb.md#continuous-availability) 때 SMB CA(지속적인 가용성) 기능을 사용하도록 설정할 수 있습니다. 기존 SMB 볼륨에서 SMB CA를 사용할 수도 있습니다. 이 문서에서는 이 작업을 수행하는 방법을 보여 줍니다.
+
+> [!IMPORTANT]   
+> SMB 지속적인 가용성 기능은 현재 공개 미리 보기로 제공됩니다. **[Azure NetApp Files SMB 지속적인 가용성 공유 공개 미리 보기 대기 목록 제출 페이지](https://aka.ms/anfsmbcasharespreviewsignup)** 를 통해 기능에 액세스하기 위한 대기 목록 요청을 제출해야 합니다. 지속적인 가용성 기능을 사용하기 전에 Azure NetApp Files 팀의 공식 확인 메일을 기다리세요.   
+> 
+> 추가 세부 정보 및 고려 사항은 [**연속 가용성 사용**](azure-netapp-files-create-volumes-smb.md#continuous-availability) 옵션을 참조하세요. 
 
 ## <a name="considerations"></a>고려 사항
 
@@ -41,7 +46,7 @@ ms.locfileid: "133483387"
 4. 나타나는 편집 창에서 **지속적인 가용성 사용** 확인란을 선택합니다.   
     ![지속적인 가용성 사용 옵션을 보여주는 스냅샷.](../media/azure-netapp-files/enable-continuous-availability.png)
 
-4. 기존 SMB 공유에 연결 하는 Windows 시스템을 다시 부팅 합니다.   
+4. 기존 SMB 공유에 연결하는 Windows 시스템을 다시 부팅합니다.   
 
     > [!NOTE]
     > **지속적인 가용성 사용** 옵션만 선택해도 기존 SMB 세션을 계속 사용할 수 있는 것은 아닙니다. 옵션을 선택한 후에는 서버를 다시 부팅하여 변경 내용을 적용해야 합니다.  
@@ -54,7 +59,7 @@ ms.locfileid: "133483387"
  
     최신 PowerShell 버전을 설치해야 할 수 있습니다. 
 
-    서버 이름을 알고 있는 경우 `-ServerName` 매개 변수를 명령과 함께 사용할 수 있습니다. [SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) PowerShell 명령 세부 정보를 참조 하세요.
+    서버 이름을 알고 있는 경우 `-ServerName` 매개 변수를 명령과 함께 사용할 수 있습니다. [Get-SmbConnection](/powershell/module/smbshare/get-smbconnection?view=windowsserver2019-ps&preserve-view=true) PowerShell 명령 세부 정보를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계  
 

@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files에 대 한 NFSv 4.1 도메인 구성 | Microsoft Docs
-description: Azure NetApp Files에서 NFSv 4.1을 사용 하도록 NFSv 4.1 도메인을 구성 하는 방법을 설명 합니다.
+title: Azure NetApp Files | 대한 NFSv4.1 도메인 구성 Microsoft Docs
+description: Azure NetApp Files NFSv4.1을 사용하기 위해 NFSv4.1 도메인을 구성하는 방법에 대해 설명합니다.
 documentationcenter: ''
 author: b-hchen
 manager: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/11/2021
 ms.author: b-hchen
-ms.openlocfilehash: 0efe42bdbd70690d0a07154be0470622f749cffb
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: 84bd599b61920161aacc2a411ddf197a958b51d8
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133486476"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542557"
 ---
-# <a name="configure-nfsv41-domain-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 NFSv 4.1 도메인 구성
+# <a name="configure-nfsv41-domain-for-azure-netapp-files"></a>Azure NetApp Files 대한 NFSv4.1 도메인 구성
 
 NFSv4는 인증 도메인의 개념을 도입합니다. 현재 Azure NetApp Files는 서비스에서 NFS 클라이언트로 루트 전용 사용자 매핑을 지원합니다. Azure NetApp Files에서 NFSv 4.1 기능을 사용하려면 NFS 클라이언트를 업데이트해야 합니다.
 
@@ -35,13 +35,13 @@ NFSv4 도메인은 기본적으로 `localdomain`로 설정되어 있으므로 �
 ## <a name="configure-nfsv41-domain"></a>NFSv4.1 도메인 구성  
 
 1. NFS 클라이언트에서 `/etc/idmapd.conf` 파일을 편집합니다.   
-    줄의 주석 처리를 `#Domain` 제거 합니다. 즉, 줄에서를 제거 하 `#` 고 값을 `localdomain` 다음과 같이 변경 합니다.
+    줄의 압축을 `#Domain` `#` 풀고(즉, 줄에서 을 제거) 다음과 같이 값을 `localdomain` 변경합니다.
 
-    * 볼륨이 LDAP를 사용 하도록 설정 되지 않은 경우를 설정 `Domain = defaultv4iddomain.com` 합니다.
-    * 볼륨이 [LDAP를 사용 하도록](configure-ldap-extended-groups.md)설정 된 경우 `Domain` netapp 계정의 Active Directory 연결에서 구성 된 도메인으로 설정 합니다.
-        예를 들어 `contoso.com` 가 NetApp 계정에서 구성 된 도메인 인 경우를 설정 `Domain = contoso.com` 합니다.
+    * 볼륨이 LDAP에 대해 사용하도록 설정되지 않은 경우 를 `Domain = defaultv4iddomain.com` 설정합니다.
+    * 볼륨이 [LDAP에 대해 사용하도록 설정된](configure-ldap-extended-groups.md)경우 `Domain` 을 NetApp 계정의 Active Directory 연결에 구성된 도메인으로 설정합니다.
+        예를 들어 가 `contoso.com` NetApp 계정에서 구성된 도메인인 경우 를 `Domain = contoso.com` 설정합니다.
 
-    다음 예에서는 변경 전의 초기 구성을 보여 줍니다 `/etc/idmapd.conf` .
+    다음 예제에서는 변경 전에 의 초기 구성을 보여 줍니다. `/etc/idmapd.conf`
 
     ```
     [General]
@@ -55,7 +55,7 @@ NFSv4 도메인은 기본적으로 `localdomain`로 설정되어 있으므로 �
     Nobody-Group = nogroup 
     ```
 
-    다음 예제에서는 *비 LDAP* nfsv 4.1 볼륨의 업데이트 된 구성을 보여 줍니다.
+    다음 예제에서는 *LDAP가 아닌* NFSv4.1 볼륨의 업데이트된 구성을 보여 줍니다.
 
     ```
     [General]
@@ -69,7 +69,7 @@ NFSv4 도메인은 기본적으로 `localdomain`로 설정되어 있으므로 �
     Nobody-Group = nogroup 
     ```
 
-    다음 예제에서는 *LDAP 사용* nfsv 4.1 볼륨의 업데이트 된 구성을 보여 줍니다. 이 예제에서 `contoso.com` 는 NetApp 계정에서 구성 된 도메인입니다.
+    다음 예제에서는 *LDAP 사용* NFSv4.1 볼륨의 업데이트된 구성을 보여 줍니다. 이 예제에서 `contoso.com` 는 NetApp 계정에서 구성된 도메인입니다.
 
     ```
     [General]
@@ -88,7 +88,7 @@ NFSv4 도메인은 기본적으로 `localdomain`로 설정되어 있으므로 �
 4. 호스트(`service rpcbind restart`)에서 `rpcbind` 서비스를 다시 시작하거나 단순히 호스트를 다시 부팅합니다.
 5. 필요에 따라 NFS 볼륨을 탑재합니다.   
 
-    [Windows 또는 Linux 가상 머신의 볼륨 탑재 또는 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)를 참조하세요. 
+    [Windows 또는 Linux VM용 볼륨 탑재를 참조하세요.](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) 
 
 다음 예제에서는 결과로 생성된 사용자/그룹 변경 내용을 보여 줍니다. 
 
@@ -110,6 +110,6 @@ Azure NetApp Files는 NFSv4.1 볼륨의 파일 또는 폴더와 연결된 사용
 
 ## <a name="next-step"></a>다음 단계 
 
-* [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Windows 또는 Linux VM용 볼륨 탑재](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [NFS 볼륨 액세스에 대한 확장 그룹을 사용하여 ADDS LDAP 구성](configure-ldap-extended-groups.md)
 

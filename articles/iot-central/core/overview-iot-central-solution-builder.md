@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 5ceb6950cb5ed581d2efea9a375fee0bf4008952
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
-ms.translationtype: HT
+ms.openlocfilehash: 371c4b5cbe5c8ea037f76f628b063eaa601808ed
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597856"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541949"
 ---
 # <a name="iot-central-solution-builder-guide"></a>IoT Central 솔루션 빌더 가이드
 
@@ -52,6 +52,8 @@ IoT Central에는 운영자가 연결된 디바이스에서 데이터 흐름을 
 - [워크플로를 사용하여 Azure IoT Central 애플리케이션을 다른 클라우드 서비스와 통합](howto-configure-rules-advanced.md)
 - [Stream Analytics, Azure Functions 및 SendGrid를 사용하여 사용자 지정 규칙으로 Azure IoT Central 확장](howto-create-custom-rules.md)
 - [Azure Databricks를 사용하여 사용자 지정 분석으로 Azure IoT Central 확장](howto-create-custom-analytics.md)
+
+IoT Central 애플리케이션에 연결된 IoT Edge 디바이스를 사용하여 [Azure Video Analyzer](../../azure-video-analyzer/video-analyzer-docs/overview.md)와 통합할 수 있습니다. 자세한 내용은 GitHub [Azure Video Analyzer용 Azure IoT Central 게이트웨이 모듈을](https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md) 참조하세요.
 
 ## <a name="apis"></a>API
 

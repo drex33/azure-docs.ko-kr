@@ -7,28 +7,18 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 56eed522dc28b29f24e97a94a03e848d5cf58898
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: d2a3a24ecd560b5040252e57df8eb9881652bad4
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122535624"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133540014"
 ---
 # <a name="upload-metrics-to-azure-monitor"></a>Azure Monitor에 메트릭 업로드
 
 정기적으로 모니터링 메트릭을 내보낸 다음 Azure에 업로드할 수 있습니다. 데이터를 내보내고 업데이트하면 Azure에서 데이터 컨트롤러, SQL Managed Instance 및 PostgreSQL 하이퍼스케일 서버 그룹 리소스가 만들어지고 업데이트됩니다.
-
-
-## <a name="prerequisites"></a>사전 요구 사항
-
-계속 진행하기 전에 필요한 서비스 주체를 만들고 적절한 역할에 할당했는지 확인합니다. 자세한 내용은 다음을 참조하세요.
-* [서비스 주체 만들기](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
-* [서비스 주체에 역할 할당](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
-
-## <a name="upload-metrics"></a>메트릭 업로드
 
 Azure Arc 데이터 서비스를 사용하면 필요에 따라 메트릭을 Azure Monitor에 업로드하여 메트릭을 분석 및 집계하거나, 경고를 생성하거나, 알림을 보내거나, 자동화된 작업을 트리거할 수 있습니다. 
 
@@ -36,38 +26,109 @@ Azure Arc 데이터 서비스를 사용하면 필요에 따라 메트릭을 Azur
 
 Azure Arc 데이터 서비스를 사용하는 여러 사이트가 있는 경우 Azure Monitor를 중앙 위치로 사용하여 사이트 전체에서 모든 로그와 메트릭을 수집할 수 있습니다.
 
-## <a name="set-final-environment-variables-and-confirm"></a>최종 환경 변수 설정 및 확인
+## <a name="upload-metrics-for-azure-arc-data-controller-in-direct-mode"></a>직접 모드에서 Azure Arc 데이터 컨트롤러에 대한 메트릭 **업로드**
+
+**직접** 연결 모드에서 메트릭 업로드는 **자동** 모드에서만 설정할 수 있습니다. 이 메트릭 자동 업로드는 Azure Arc 데이터 컨트롤러를 배포하는 동안 또는 배포 후 설정할 수 있습니다.
+Arc 데이터 서비스 확장 관리 ID는 메트릭을 업로드하는 데 사용됩니다. 관리 ID에는 **모니터링 메트릭 Publisher** 역할이 할당되어 있어야 합니다. 
+
+> [!NOTE]
+> Azure Arc 데이터 컨트롤러 배포 중에 메트릭의 자동 업로드를 사용하지 않도록 설정한 경우 자동 업로드를 사용하도록 설정하기 전에 먼저 Arc 데이터 컨트롤러 확장의 관리 ID를 검색하고 **모니터링 메트릭 Publisher** 역할을 부여해야 합니다. 아래 단계에 따라 관리 ID를 검색하고 필요한 역할을 부여합니다.   
+
+[!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
+
+### <a name="1-retrieve-managed-identity-of-the-arc-data-controller-extension"></a>(1) Arc 데이터 컨트롤러 확장의 관리 ID 검색
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+```powershell
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername> --cluster-type connectedClusters --name <name of extension> | convertFrom-json).identity.principalId
+#Example
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | convertFrom-json).identity.principalId
+```
+
+# <a name="macos--linux"></a>[macOS & Linux](#tab/linux)
+```console
+export MSI_OBJECT_ID=`az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername>  --cluster-type connectedClusters --name <name of extension> | jq '.identity.principalId' | tr -d \"`
+#Example
+export MSI_OBJECT_ID=`az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | jq '.identity.principalId' | tr -d \"`
+```
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+해당 없음
+
+---
+
+### <a name="2-assign-role-to-the-managed-identity"></a>(2) 관리 ID에 역할 할당
+
+아래 명령을 실행하여 **모니터링 메트릭 게시자** 역할을 할당합니다.
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+```powershell
+az role assignment create --assignee $Env:MSI_OBJECT_ID --role 'Monitoring Metrics Publisher' --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
+```
+
+# <a name="macos--linux"></a>[macOS & Linux](#tab/linux)
+```console
+az role assignment create --assignee ${MSI_OBJECT_ID} --role 'Monitoring Metrics Publisher' --scope "/subscriptions/${subscription}/resourceGroups/${resourceGroup}"
+```
+
+# <a name="windows"></a>[Windows](#tab/windows)
+
+해당 없음
+
+---
+
+### <a name="automatic-upload-of-metrics-can-be-enabled-as-follows"></a>메트릭의 자동 업로드는 다음과 같이 사용하도록 설정할 수 있습니다.
+```
+az arcdata dc update --name <name of datacontroller> --resource-group <resource group> --auto-upload-metrics true
+#Example
+az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-metrics true
+```
+
+Azure Monitor 메트릭 자동 업로드를 사용하지 않도록 설정하려면 다음 명령을 실행합니다.
+```
+az arcdata dc update --name <name of datacontroller> --resource-group <resource group> --auto-upload-metrics false
+#Example
+az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-metrics false
+```
+
+## <a name="upload-metrics-for-azure-arc-data-controller-in-indirect-mode"></a>**간접** 모드에서 Azure Arc 데이터 컨트롤러에 대한 업로드 메트릭
+
+**간접** 연결 모드에서는 서비스 주체가 메트릭을 업로드하는 데 사용됩니다.
+
+### <a name="prerequisites"></a>사전 요구 사항
+
+계속 진행하기 전에 필요한 서비스 주체를 만들고 적절한 역할에 할당했는지 확인합니다. 자세한 내용은 다음을 참조하세요.
+* [서비스 주체 만들기](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
+* [서비스 주체에게 역할 할당](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
+
+### <a name="set-environment-variables-and-confirm"></a>환경 변수 설정 및 확인
 
 환경 변수에 SPN 기관 URL을 설정합니다.
 
-::: zone pivot="client-operating-system-windows-command"
-
-```console
-SET SPN_AUTHORITY=https://login.microsoftonline.com
-```
-
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# <a name="macos--linux"></a>[macOS & Linux](#tab/linux)
 
 ```console
 export SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
+# <a name="windows"></a>[Windows](#tab/windows)
+
+```console
+SET SPN_AUTHORITY=https://login.microsoftonline.com
+```
+
+---
 
 원하는 경우 다음과 같이 필요한 모든 환경 변수를 설정했는지 확인합니다.
 
 
-::: zone pivot="client-operating-system-powershell"
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:SPN_TENANT_ID
@@ -77,9 +138,7 @@ $Env:SPN_AUTHORITY
 ```
 
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# <a name="macos--linux"></a>[macOS & Linux](#tab/linux)
 
 ```console
 echo $SPN_TENANT_ID
@@ -88,9 +147,7 @@ echo $SPN_CLIENT_SECRET
 echo $SPN_AUTHORITY
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-windows-command"
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 echo %SPN_TENANT_ID%
@@ -99,13 +156,12 @@ echo %SPN_CLIENT_SECRET%
 echo %SPN_AUTHORITY%
 ```
 
-::: zone-end
+---
 
-## <a name="upload-metrics-to-azure-monitor"></a>Azure Monitor에 메트릭 업로드
+### <a name="upload-metrics-to-azure-monitor"></a>Azure Monitor에 메트릭 업로드
 
 Azure Arc 지원 SQL Managed Instance와 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 메트릭을 업로드하려면 다음 CLI 명령을 실행합니다.
 
-1. `azdata`를 사용하여 데이터 컨트롤러에 로그인합니다.
  
 1. 모든 메트릭을 지정된 파일로 내보냅니다.
 
@@ -113,7 +169,7 @@ Azure Arc 지원 SQL Managed Instance와 Azure Arc 지원 PostgreSQL 하이퍼�
 > `az arcdata dc export` 명령을 사용하여 사용량/결제 정보, 메트릭 및 로그를 내보내려면 현재로서는 SSL 확인을 바이패스해야 합니다.  SSL 확인을 바이패스하라는 메시지가 표시되거나 메시지가 표시되지 않도록 `AZDATA_VERIFY_SSL=no` 환경 변수를 설정할 수 있습니다.  현재 데이터 컨트롤러 내보내기 API에 대한 SSL 인증서를 구성할 수 있는 방법이 없습니다.
 
    ```azurecli
-   az arcdata dc export --type metrics --path metrics.json
+   az arcdata dc export --type metrics --path metrics.json --k8s-namespace arc
    ```
 
 2. Azure Monitor에 메트릭을 업로드합니다.
@@ -131,7 +187,7 @@ Azure Arc 지원 SQL Managed Instance와 Azure Arc 지원 PostgreSQL 하이퍼�
 내보내기 중에 '메트릭 가져오기 실패'를 나타내는 오류가 표시되는 경우 다음 명령을 실행하여 데이터 수집이 `true`로 설정되었는지 확인합니다.
 
 ```azurecli
-az arcdata dc config show
+az arcdata dc config show  --k8s-namespace arc --use-k8s
 ```
 
 '보안 섹션' 아래를 살펴봅니다.
@@ -141,7 +197,6 @@ az arcdata dc config show
       "allowDumps": true,
       "allowNodeMetricsCollection": true,
       "allowPodMetricsCollection": true,
-      "allowRunAsRoot": false
     },
 ```
 
@@ -174,7 +229,7 @@ az arcdata dc config show
 자주 사용하는 텍스트/코드 편집기에서 다음 스크립트를 파일에 추가하고 as .sh(Linux/Mac) 또는 .cmd, .bat, .ps1과 같은 스크립트 실행 파일로 저장합니다.
 
 ```azurecli
-az arcdata dc export --type metrics --path metrics.json --force
+az arcdata dc export --type metrics --path metrics.json --force  --k8s-namespace arc
 az arcdata dc upload --path metrics.json
 ```
 

@@ -1,20 +1,20 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제품 가용성을 구성합니다.
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제품 가용성을 구성합니다.
+title: Dataverse에서 Dynamics 365 앱을 구성하고 Power Apps Microsoft AppSource(Azure Marketplace)에서 가용성을 제공합니다.
+description: Dataverse에서 Dynamics 365 앱을 구성하고 Power Apps Microsoft AppSource(Azure Marketplace)에서 가용성을 제공합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/20/2021
-ms.openlocfilehash: 779b580c38152967d7bbe64bca3455ec304be266
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: d61dfccbb3a36ffc86a53e0f3284264180a679f7
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864662"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544270"
 ---
-# <a name="configure-dynamics-365-for-customer-engagement--power-apps-offer-availability"></a>Dynamics 365 for Customer Engagement 및 Power Apps 제품 가용성 구성
+# <a name="configure-dynamics-365-apps-on-dataverse-and-power-apps-offer-availability"></a>Dataverse에서 Dynamics 365 앱 구성 및 Power Apps 제공 가용성
 
 이 페이지에서는 지역/국가 및 미리 보기 대상을 포함하여 제품을 사용할 수 있는 위치 및 방법을 정의할 수 있습니다.
 
@@ -41,5 +41,5 @@ ms.locfileid: "122864662"
 
 다음 중 하나를 수행합니다.
 
-- Microsoft를 통해 앱 라이선스 관리를 활성화하도록 선택한 경우 [Dynamics 365 for Customer Engagemen 및 Power Apps 계획 만들기](dynamics-365-customer-engage-plans.md)로 이동합니다.
+- Microsoft를 통해 앱 라이선스 관리를 사용하도록 선택한 경우 [Dataverse에서 Dynamics 365 앱 만들기 및 계획 Power Apps.](dynamics-365-customer-engage-plans.md)
 - 그렇지 않으면 [제품 기술 구성 설정](dynamics-365-customer-engage-technical-configuration.md)으로 이동합니다.

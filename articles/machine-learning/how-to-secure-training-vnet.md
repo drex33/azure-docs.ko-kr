@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 11/05/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: ec3a5feefa41a1bd0bb0448321fc87f7e11a55d9
-ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+ms.openlocfilehash: 955ae88004e2f2ee65825d1a2ab60200e0bef00a
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2021
-ms.locfileid: "132136289"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544631"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 학습 환경 보호
 
@@ -32,7 +32,7 @@ ms.locfileid: "132136289"
 > * [사용자 지정 DNS 사용](how-to-custom-dns.md)
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
 >
-> 보안 작업 영역, 컴퓨팅 클러스터 및 컴퓨팅 인스턴스를 만드는 자습서는 [자습서: 보안 작업 영역 만들기](tutorial-create-secure-workspace.md)를 참조하세요.
+> 보안 작업 영역을 만드는 자습서는 [자습서: 보안 작업 영역 만들기](tutorial-create-secure-workspace.md) 또는 [자습서: 템플릿을 사용하여 보안 작업 영역 만들기를](tutorial-create-secure-workspace-template.md)참조하세요.
 
 이 문서에서는 가상 네트워크에서 다음 학습 컴퓨팅 리소스를 보호하는 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -50,7 +50,7 @@ ms.locfileid: "132136289"
 
 + 가상 네트워크 또는 서브넷에 리소스를 배포하려면 사용자 계정에 Azure RBAC(Azure 역할 기반 액세스 제어)에서 다음 작업에 대한 사용 권한이 있어야 합니다.
 
-    - 가상 네트워크 리소스의 "Microsoft.Network/virtualNetworks/*/read" ARM (Azure Resource Manager) 템플릿 배포에는 필요 하지 않습니다.
+    - 가상 네트워크 리소스의 "Microsoft.Network/virtualNetworks/*/read" ARM(Azure Resource Manager) 템플릿 배포에는 필요하지 않습니다.
     - 서브넷 리소스에 대한 "Microsoft.Network/virtualNetworks/subnet/join/action"
 
     네트워킹과 Azure RBAC에 대한 자세한 내용은 [네트워킹 기본 제공 역할](../role-based-access-control/built-in-roles.md#networking)을 참조하세요.
@@ -63,7 +63,7 @@ ms.locfileid: "132136289"
     * 컴퓨팅 클러스터는 동적으로 스케일링될 수 있습니다. 할당되지 않은 IP 주소가 부족하면 클러스터가 부분적으로 할당됩니다.
     * 컴퓨팅 인스턴스에는 IP 주소 하나만 필요합니다.
 
-* [공용 IP 주소](#no-public-ip) (미리 보기 기능) 없이 계산 클러스터 또는 인스턴스를 만들려면 작업 영역에서 개인 끝점을 사용 하 여 VNet에 연결 해야 합니다. 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 개인 끝점 구성](how-to-configure-private-link.md)을 참조 하세요.
+* [공용 IP 주소(미리](#no-public-ip) 보기 기능)가 없는 컴퓨팅 클러스터 또는 인스턴스를 만들려면 작업 영역에서 프라이빗 엔드포인트를 사용하여 VNet에 연결해야 합니다. 자세한 내용은 [Azure Machine Learning 작업 영역에 대한 프라이빗 엔드포인트 구성을 참조하세요.](how-to-configure-private-link.md)
 * 가상 네트워크를 관리할 수 있는 권한을 제한하는 보안 정책이나 잠금이 없는지 확인합니다. 정책이나 잠금을 확인할 때 가상 네트워크에 대한 구독과 리소스 그룹을 모두 확인합니다.
 * 가상 네트워크의 구독 또는 리소스 그룹에 대한 보안 정책이나 잠금이 가상 네트워크를 관리하는 사용자 권한을 제한하는지 확인합니다. 
 * 트래픽을 제한하여 가상 네트워크를 보호하려면 [필수 공용 인터넷 액세스](#required-public-internet-access) 섹션을 참조하세요.
@@ -91,9 +91,9 @@ ms.locfileid: "132136289"
 
 
         > [!TIP]
-        > 계산 클러스터 또는 인스턴스에 공용 IP 주소 (미리 보기 기능)를 사용 하지 않는 경우 이러한 인바운드 NSG 규칙은 필요 하지 않습니다. 
+        > 컴퓨팅 클러스터 또는 인스턴스가 공용 IP 주소(미리 보기 기능)를 사용하지 않는 경우 이러한 인바운드 NSG 규칙은 필요하지 않습니다. 
         
-    * 계산 클러스터 또는 인스턴스의 경우 이제 공용 IP 주소 (미리 보기 기능)를 제거할 수 있습니다. Azure Policy 할당으로 인해 공용 IP 만들기가 금지 된 경우 계산 클러스터 또는 인스턴스의 배포가 성공 합니다.
+    * 컴퓨팅 클러스터 또는 인스턴스의 경우 이제 공용 IP 주소(미리 보기 기능)를 제거할 수 있습니다. Azure Policy 할당으로 인해 공용 IP 생성이 금지된 경우 컴퓨팅 클러스터 또는 인스턴스의 배포가 성공합니다.
 
     * 부하 분산 장치 1개
 
@@ -110,12 +110,12 @@ ms.locfileid: "132136289"
     * __SDK__ 를 사용하려는 경우 스토리지 계정이 다른 서브넷에 있을 수 있습니다.
 
     > [!NOTE]
-    > 작업 영역에 대 한 리소스 인스턴스를 추가 하거나 "신뢰할 수 있는 Microsoft 서비스이 계정에 액세스할 수 있도록 허용" 확인란을 선택 하면 계산에서 통신을 허용 하기에 충분 하지 않습니다.
+    > 작업 영역에 대한 리소스 인스턴스를 추가하거나 "신뢰할 수 있는 Microsoft 서비스 이 계정에 액세스하도록 허용" 확인란을 선택하는 것으로는 컴퓨팅의 통신을 허용하는 데 충분하지 않습니다.
 
 * 작업 영역에서 프라이빗 엔드포인트를 사용하는 경우 가상 네트워크 내부에서만 컴퓨팅 인스턴스에 액세스할 수 있습니다. 사용자 지정 DNS나 호스트 파일을 사용하는 경우 `<instance-name>.<region>.instances.azureml.ms`에 대한 항목을 추가합니다. 이 항목을 작업 영역 프라이빗 엔드포인트의 개인 IP 주소에 매핑합니다. 자세한 내용은 [사용자 지정 DNS](./how-to-custom-dns.md) 문서를 참조하세요.
 * 가상 네트워크 서비스 엔드포인트 정책은 컴퓨팅 클러스터/인스턴스 시스템 스토리지 계정에서 작동하지 않습니다.
 * 스토리지와 컴퓨팅 인스턴스가 다른 지역에 있으면 간헐적인 시간 초과가 표시될 수 있습니다.
-* 작업 영역에 대 한 Azure Container Registry에서 개인 끝점을 사용 하 여 가상 네트워크에 연결 하는 경우 계산 인스턴스에 대해 관리 되는 id를 사용할 수 없습니다. 관리 id를 계산 인스턴스와 함께 사용 하려면 컨테이너 레지스트리를 VNet에 배치 하지 마십시오.
+* 작업 영역의 Azure Container Registry 프라이빗 엔드포인트를 사용하여 가상 네트워크에 연결하는 경우 컴퓨팅 인스턴스에 대한 관리 ID를 사용할 수 없습니다. 컴퓨팅 인스턴스에서 관리 ID를 사용하려면 컨테이너 레지스트리를 VNet에 배치하지 마십시오.
 * 컴퓨팅 인스턴스에서 Jupyter Notebook을 사용하려는 경우:
 
     * websocket 통신을 사용하지 마세요. 네트워크에서 `*.instances.azureml.net` 및 `*.instances.azureml.ms`에 대한 websocket 통신을 허용하는지 확인합니다.
@@ -129,7 +129,7 @@ ms.locfileid: "132136289"
     NSG 규칙 사용, 사용자 정의 경로 및 입출력 요구 사항과 같은 참고 자료는 작업 영역과 다른 지역을 사용하는 경우에 정상적으로 적용됩니다.
 
     > [!WARNING]
-    > __개인 끝점 사용 작업 영역__ 을 사용 하는 경우 다른 지역에서 클러스터를 만드는 것은 __지원 되지 않습니다__.
+    > __프라이빗 엔드포인트 사용 작업 영역을__ 사용하는 경우 다른 지역에 클러스터를 만드는 것은 __지원되지 않습니다.__
 
 ### <a name="azure-databricks"></a>Azure Databricks
 
@@ -148,7 +148,7 @@ ms.locfileid: "132136289"
 
 방화벽 솔루션을 사용하는 방법에 대한 자세한 내용은 [Azure Machine Learning에서 방화벽 사용](how-to-access-azureml-behind-firewall.md)을 참조하세요.
 
-## <a name="compute-clusters"></a><a name="compute-cluster"></a>컴퓨팅 클러스터
+## <a name="compute-clusters"></a><a name="compute-cluster"></a>계산 클러스터
 
 다음 탭을 사용하여 컴퓨팅 클러스터를 만드는 방법을 선택합니다.
 
@@ -167,7 +167,7 @@ ms.locfileid: "132136289"
 
 1. __설정 구성__ 섹션에서 __컴퓨팅 이름__, __가상 네트워크__ 및 __서브넷__ 을 설정합니다.
 
-    :::image type="content" source="media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="스크린샷은 컴퓨팅 이름, 가상 네트워크 및 서브넷 설정을 보여줍니다.":::
+    :::image type="content" source="media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="계산 이름, 가상 네트워크 및 서브넷 설정을 보여 주는 스크린샷":::
 
     > [!TIP]
     > 작업 영역이 프라이빗 엔드포인트를 사용하여 가상 네트워크에 연결하는 경우 __가상 네트워크__ 선택 필드가 회색으로 표시됩니다.
@@ -220,47 +220,47 @@ except ComputeTargetException:
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
-### <a name="no-public-ip-for-compute-clusters-preview"></a><a name="no-public-ip-amlcompute"></a>컴퓨팅 클러스터에 대한 공용 IP 없음(미리 보기)
+### <a name="no-public-ip-for-compute-clusters-preview"></a><a name="no-public-ip-amlcompute"></a>계산 클러스터에 대 한 공용 IP 없음 (미리 보기)
 
-**공용 IP 없음을** 사용하도록 설정하면 컴퓨팅 클러스터는 모든 의존성과의 통신에 공용 IP를 사용하지 않습니다. 대신, 서비스/프라이빗 엔드포인트뿐만 아니라 Azure Private Link 에코시스템을 사용하여 가상 네트워크 내에서만 통신하므로 공용 IP가 완전히 필요하지 않습니다. 공용 IP는 인터넷에서 컴퓨팅 클러스터 노드의 액세스 및 검색 가능성을 제거하므로 심각한 위협 벡터를 제거합니다. **많은** 기업에서 공용 IP 정책을 준수하지 않는 공용 IP 클러스터는 없습니다. 
+**공용 ip를 사용 하지 않도록** 설정 하는 경우 계산 클러스터는 종속성과의 통신에 공용 ip를 사용 하지 않습니다. 대신, Azure 개인 링크 에코 시스템 및 서비스/개인 끝점을 사용 하 여 가상 네트워크 내 에서만 통신 하므로 공용 IP에 대 한 필요성을 완전히 없앨 수 있습니다. 공용 IP 없음 인터넷에서 계산 클러스터 노드의 액세스 및 검색 기능을 제거 하 여 심각한 위협 벡터를 제거 합니다. **공용 ip** 클러스터는 많은 기업에 포함 된 공용 ip 정책을 준수 하지 않습니다. 
 
-**공용 IP가** 사용하도록 설정되지 않은 컴퓨팅 클러스터에는 공용 IP 컴퓨팅 클러스터에 대한 인바운드 통신 요구 사항과 비교하여 공용 인터넷의 **인바운드 통신 요구 사항이 없습니다.** 특히 인바운드 NSG 규칙( `BatchNodeManagement` , `AzureMachineLearning` )은 모두 필요하지 않습니다. VirtualNetwork 원본 및 모든 포트 원본에서 **VirtualNetwork의** 대상 및 대상 포트 **29876, 29877까지의** 인바운드를 허용해야 합니다.
+공용 ip가 사용 하도록 설정 **되지 않은** 계산 클러스터에는 공용 ip 계산 클러스터와 비교 하 여 공용 인터넷에서 **들어오는 인바운드 통신 요구 사항이 없습니다** . 특히 인바운드 NSG 규칙 ( `BatchNodeManagement` , `AzureMachineLearning` )은 필요 하지 않습니다. **VirtualNetwork** 의 원본 및 포트 원본, **VirtualNetwork** 의 대상 및 **29876, 29877** 의 대상 포트에 대 한 인바운드를 허용 해야 합니다.
 
-공용 IP 클러스터는 [Azure Machine Learning](how-to-configure-private-link.md) 작업 영역에 대한 Azure Private Link 종속되지 **않습니다.** **공용 IP가 없는** 컴퓨팅 클러스터에서는 프라이빗 엔드포인트 네트워크 정책 및 프라이빗 링크 서비스 네트워크 정책을 사용하지 않도록 설정해야 합니다. 이러한 요구 사항은 Azure 프라이빗 링크 서비스 및 프라이빗 엔드포인트에서 비롯되며 Azure Machine Learning 구체적이지 않습니다. [Private Link 서비스에 대한 네트워크 정책 사용 안 함의 지침에](../private-link/disable-private-link-service-network-policy.md) 따라 가상 네트워크 서브넷에서 및 매개 `disable-private-endpoint-network-policies` `disable-private-link-service-network-policies` 변수를 설정합니다.
+Azure Machine Learning 작업 영역에 대 한 [Azure 개인 링크](how-to-configure-private-link.md) 에 의존 하는 **공용 IP 클러스터가 없습니다** . **공용 IP가 없는** 계산 클러스터도 개인 끝점 네트워크 정책 및 개인 링크 서비스 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. 이러한 요구 사항은 Azure 개인 링크 서비스 및 개인 끝점에서 제공 되며 Azure Machine Learning 특정 하지 않습니다. [개인 링크 서비스에 대 한 네트워크 정책 사용 안 함](../private-link/disable-private-link-service-network-policy.md) 의 지침에 `disable-private-endpoint-network-policies` 따라 `disable-private-link-service-network-policies` 가상 네트워크 서브넷에서 및 매개 변수를 설정 합니다.
 
-**아웃바운드 연결이** 작동하려면 사용자 정의 경로를 사용하여 Azure Firewall과 같은 송신 방화벽을 설정해야 합니다. 예를 들어 [인바운드/아웃바운드 구성으로](how-to-access-azureml-behind-firewall.md) 설정된 방화벽을 사용하고 컴퓨팅 클러스터가 배포된 서브넷에 경로 테이블을 정의하여 트래픽을 라우팅할 수 있습니다. 경로 테이블 항목은 주소 접두사 0.0.0.0/0으로 방화벽의 개인 IP 주소에 대한 다음 홉을 설정할 수 있습니다.
+**아웃 바운드 연결이** 작동 하려면 사용자 정의 경로를 사용 하 여 Azure 방화벽과 같은 송신 방화벽을 설정 해야 합니다. 예를 들어 [인바운드/아웃 바운드 구성과](how-to-access-azureml-behind-firewall.md) 함께 설정 된 방화벽을 사용 하 고 계산 클러스터가 배포 되는 서브넷에서 경로 테이블을 정의 하 여 트래픽을 라우팅할 수 있습니다. 경로 테이블 항목은 주소 접두사가 0.0.0.0/0 인 방화벽의 개인 IP 주소에 대 한 다음 홉을 설정할 수 있습니다.
 
-클러스터가 배포된 서브넷에서 Azure 컨테이너 레지스트리 및 Azure Storage에 대한 서비스 엔드포인트 또는 프라이빗 엔드포인트를 사용할 수 있습니다.
+클러스터가 배포 된 서브넷에서 Azure container registry 및 Azure storage에 대 한 서비스 끝점 또는 개인 끝점을 사용할 수 있습니다.
 
-스튜디오에서 공용 IP 주소 컴퓨팅 클러스터 없음(미리 보기 기능)을 만들려면 가상 네트워크 섹션에서 **공용 IP** 없음 확인란을 설정합니다.
-ARM 템플릿을 통해 공용 IP 컴퓨팅 클러스터를 만들 수도 없습니다. ARM 템플릿에서 enableNodePublicIP 매개 변수를 false로 설정합니다.
+스튜디오에서 공용 ip 주소 계산 클러스터 (미리 보기 기능)를 만들려면 가상 네트워크 섹션에서 **공용 Ip 없음** 확인란을 선택 합니다.
+ARM 템플릿을 통해 공용 IP 계산 클러스터를 만들 수도 있습니다. ARM 템플릿의 set enableNodePublicIP 매개 변수를 false로 설정 합니다.
 
 [!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
 
 **문제 해결**
 
-* 클러스터를 만드는 동안 이 오류 메시지가 발생하면 "지정된 서브넷에 PrivateLinkServiceNetworkPolicies 또는 PrivateEndpointNetworkEndpoints가 활성화되어 있습니다." 메시지가 표시된 경우 [Private Link 서비스에 대한 네트워크 정책 사용 안 함](../private-link/disable-private-link-service-network-policy.md) 및 프라이빗 [엔드포인트에 대한 네트워크 정책 사용 안 함의](../private-link/disable-private-endpoint-network-policy.md)지침을 따르세요.
+* "지정 된 서브넷이 PrivateLinkServiceNetworkPolicies 또는 PrivateEndpointNetworkEndpoints를 사용 하도록 설정 되었습니다." 클러스터를 만드는 동안이 오류 메시지가 표시 되 면 [개인 링크 서비스에 대 한 네트워크 정책 사용 안 함](../private-link/disable-private-link-service-network-policy.md) 및 [개인 끝점에 대 한 네트워크 정책 사용](../private-link/disable-private-endpoint-network-policy.md)안 함의 지침을 따르세요.
 
-* ACR 또는 Azure Storage 대한 연결 문제로 작업 실행이 실패하는 경우 고객이 서브넷에 ACR 및 Azure Storage 서비스 엔드포인트/프라이빗 엔드포인트를 추가하고 ACR/Azure Storage 서브넷에서의 액세스를 허용하는지 확인합니다.
+* acr 또는 Azure Storage에 대 한 연결 문제로 인해 작업을 실행 하지 못한 경우 고객이 acr 및 Azure Storage 서비스 끝점/개인 끝점을 서브넷에 추가 하 고 acr/Azure Storage에서 서브넷의 액세스를 허용 하는지 확인 합니다.
 
-* 공용 IP 클러스터를 만들지 않았는지 확인하려면 Studio에서 클러스터 세부 정보를 볼 때 리소스 속성 아래에서 공용 IP 속성이 **true로** **설정되지 않은** 것을 볼 수 있습니다.
+* 공용 IP 클러스터가 없는 클러스터를 만들었는지 확인 하려면 스튜디오에서 클러스터 세부 정보를 볼 때 리소스 속성에서 **true** 로 설정 된 **공용 ip가 없음을** 확인 합니다.
 
 ## <a name="compute-instance"></a>컴퓨팅 인스턴스
 
-가상 네트워크에 배포된 컴퓨팅 인스턴스를 만드는 방법에 대한 단계는 [Azure Machine Learning 컴퓨팅 인스턴스 만들기 및 관리를 참조하세요.](how-to-create-manage-compute-instance.md)
+가상 네트워크에 배포 된 계산 인스턴스를 만드는 방법에 대 한 단계는 [Azure Machine Learning 계산 인스턴스 만들기 및 관리](how-to-create-manage-compute-instance.md)를 참조 하세요.
 
-### <a name="no-public-ip-for-compute-instances-preview"></a><a name="no-public-ip"></a>컴퓨팅 인스턴스에 대한 공용 IP 없음(미리 보기)
+### <a name="no-public-ip-for-compute-instances-preview"></a><a name="no-public-ip"></a>계산 인스턴스에 대 한 공용 IP 없음 (미리 보기)
 
-**공용 IP 없음을** 사용하도록 설정하면 컴퓨팅 인스턴스는 모든 의존성과의 통신에 공용 IP를 사용하지 않습니다. 대신, 서비스/프라이빗 엔드포인트뿐만 아니라 Azure Private Link 에코시스템을 사용하여 가상 네트워크 내에서만 통신하므로 공용 IP가 완전히 필요하지 않습니다. 공용 IP는 인터넷에서 컴퓨팅 인스턴스 노드의 액세스 및 검색 가능성을 제거하므로 심각한 위협 벡터를 제거합니다. 또한 컴퓨팅 인스턴스는 패킷 필터링을 수행하여 가상 네트워크 외부의 트래픽을 거부합니다. 공용 IP 인스턴스는 [Azure Machine Learning](how-to-configure-private-link.md) 작업 영역에 대한 Azure Private Link 종속되지 **않습니다.** 
+**공용 ip를 사용 하지 않도록** 설정 하는 경우 compute 인스턴스는 종속성과의 통신에 공용 ip를 사용 하지 않습니다. 대신, Azure 개인 링크 에코 시스템 및 서비스/개인 끝점을 사용 하 여 가상 네트워크 내 에서만 통신 하므로 공용 IP에 대 한 필요성을 완전히 없앨 수 있습니다. 공용 IP 없음 인터넷에서 계산 인스턴스 노드의 액세스 및 검색 기능을 제거 하 여 심각한 위협 벡터를 제거 합니다. 또한 계산 인스턴스는 외부 가상 네트워크에서 트래픽을 거부 하는 패킷 필터링을 수행 합니다. Azure Machine Learning 작업 영역에 대 한 [Azure 개인 링크](how-to-configure-private-link.md) 에 의존 하는 **공용 IP 인스턴스가 없습니다** . 
 
-**아웃바운드 연결이** 작동하려면 사용자 정의 경로를 사용하여 Azure Firewall과 같은 송신 방화벽을 설정해야 합니다. 예를 [들어, 인바운드/아웃바운드 구성으로](how-to-access-azureml-behind-firewall.md) 설정된 방화벽을 사용하고 컴퓨팅 인스턴스가 배포된 서브넷에 경로 테이블을 정의하여 트래픽을 라우팅할 수 있습니다. 경로 테이블 항목은 주소 접두사 0.0.0.0/0으로 방화벽의 개인 IP 주소에 대한 다음 홉을 설정할 수 있습니다.
+**아웃 바운드 연결이** 작동 하려면 사용자 정의 경로를 사용 하 여 Azure 방화벽과 같은 송신 방화벽을 설정 해야 합니다. 예를 들어 [invound/아웃 바운드 구성](how-to-access-azureml-behind-firewall.md) 으로 설정 된 방화벽을 사용 하 고 계산 인스턴스가 배포 되는 서브넷에서 경로 테이블을 정의 하 여 트래픽을 라우팅할 수 있습니다. 경로 테이블 항목은 주소 접두사가 0.0.0.0/0 인 방화벽의 개인 IP 주소에 대 한 다음 홉을 설정할 수 있습니다.
 
-**공용 IP가** 사용하도록 설정되지 않은 컴퓨팅 인스턴스에는 공용 IP 컴퓨팅 인스턴스에 대한 인바운드 통신 요구 사항과 비교하여 공용 인터넷의 **인바운드 통신 요구 사항이 없습니다.** 특히 인바운드 NSG 규칙( `BatchNodeManagement` , `AzureMachineLearning` )은 모두 필요하지 않습니다. **VirtualNetwork** 원본, 모든 포트 원본, **VirtualNetwork의** 대상 및 **29876, 29877, 44224의** 대상 포트에서 인바운드를 허용해야 합니다.
+공용 ip를 사용 **하지 않는** 계산 인스턴스에는 공용 ip 계산 인스턴스와 비교 하 여 공용 인터넷에서 **들어오는 인바운드 통신 요구 사항이 없습니다** . 특히 인바운드 NSG 규칙 ( `BatchNodeManagement` , `AzureMachineLearning` )은 필요 하지 않습니다. 여전히 **VirtualNetwork** 의 원본, 모든 포트 원본, **VirtualNetwork** 의 대상 포트 및 **29876, 29877, 44224** 의 대상 포트에서 인바운드를 허용 해야 합니다.
 
-**공용 IP가 없는** 컴퓨팅 인스턴스에서는 프라이빗 엔드포인트 네트워크 정책 및 프라이빗 링크 서비스 네트워크 정책을 사용하지 않도록 설정해야 합니다. 이러한 요구 사항은 Azure 프라이빗 링크 서비스 및 프라이빗 엔드포인트에서 비롯되며 Azure Machine Learning 구체적이지 않습니다. [Private Link 서비스 원본 IP에 대한 네트워크 정책 사용 안 함의](../private-link/disable-private-link-service-network-policy.md) 지침에 따라 가상 네트워크 서브넷에서 및 매개 `disable-private-endpoint-network-policies` `disable-private-link-service-network-policies` 변수를 설정합니다.
+**공용 IP가 없는** 계산 인스턴스는 또한 개인 끝점 네트워크 정책 및 개인 링크 서비스 네트워크 정책을 사용 하지 않도록 설정 해야 합니다. 이러한 요구 사항은 Azure 개인 링크 서비스 및 개인 끝점에서 제공 되며 Azure Machine Learning 특정 하지 않습니다. [개인 링크 서비스 원본 IP에 대해 네트워크 정책 사용 안 함](../private-link/disable-private-link-service-network-policy.md) 의 지침에 따라 `disable-private-endpoint-network-policies` `disable-private-link-service-network-policies` 가상 네트워크 서브넷에서 및 매개 변수를 설정 합니다.
 
-스튜디오에서 공용 IP 주소 컴퓨팅 인스턴스 없음(미리 보기 기능)을 만들려면 가상 네트워크 섹션에서 **공용 IP** 없음 확인란을 설정합니다.
-ARM 템플릿을 통해 공용 IP 컴퓨팅 인스턴스를 만들 수도 없습니다. ARM 템플릿에서 enableNodePublicIP 매개 변수를 false로 설정합니다.
+스튜디오에서 공용 ip 주소 없음 계산 인스턴스 (미리 보기 기능)를 만들려면 가상 네트워크 섹션에서 **공용 Ip 없음** 확인란을 선택 합니다.
+ARM 템플릿을 통해 공용 IP 계산 인스턴스를 만들 수도 있습니다. ARM 템플릿의 set enableNodePublicIP 매개 변수를 false로 설정 합니다.
 
 다음 단계:
 * [사용자 지정 DNS 사용](how-to-custom-dns.md)

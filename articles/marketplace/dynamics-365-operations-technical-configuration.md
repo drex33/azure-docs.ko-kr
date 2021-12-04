@@ -1,20 +1,20 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제품 기술 구성 설정
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제품 기술 구성을 설정합니다.
+title: Dynamics 365 Operations Apps 설정 Microsoft AppSource 기술 구성 제공(Azure Marketplace)
+description: Dynamics 365 Operations Apps 설정은 Microsoft AppSource(Azure Marketplace)에 대한 기술 구성을 제공합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/20/2021
-ms.openlocfilehash: bd2a371d702ff7f99cd26408cd40329b8c3d7859
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: 72ad1848809d4309317081e5bbfea40ef74b8f77
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111971331"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133539746"
 ---
-# <a name="set-up-dynamics-365-for-operations-offer-technical-configuration"></a>Dynamics 365 for Operations 제품 기술 구성 설정
+# <a name="set-up-dynamics-365-operations-apps-technical-configuration"></a>Dynamics 365 Operations Apps 기술 구성 설정
 
 이 페이지에서는 제품에 연결하는 데 사용되는 기술 세부 정보를 정의합니다. 최종 고객이 제안 구매를 선택하면 이 연결을 통해 최종 고객을 위한 제안을 프로비저닝할 수 있습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "111971331"
 
 ## <a name="release-version"></a>릴리스 버전
 
-이 솔루션이 작동하는 Dynamics 365 for Operations의 버전을 선택합니다.
+이 솔루션이 작동하는 Dynamics 365 Operations Apps 버전을 선택합니다.
 
 왼쪽 탐색 메뉴 **Microsoft와 공동 판매** 에서 다음 탭을 계속 진행하려면 **초안 저장** 을 선택하세요. Microsoft와 공동 판매(선택 사항)를 설정하는 방법에 대한 자세한 내용은 [공동 판매 파트너 참여](./co-sell-overview.md)를 참조하세요. 공동 판매를 설정하지 않거나 완료한 경우 아래 **다음 단계** 를 계속 진행합니다.
 

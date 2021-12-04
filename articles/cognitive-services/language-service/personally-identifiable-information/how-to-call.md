@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: language-service-pii, ignite-fall-2021
-ms.openlocfilehash: f09bc3da8315445788ac5ea153b492f492b645ed
-ms.sourcegitcommit: 6f30424a4ab8dffc4e690086e898ab52bc4da777
+ms.openlocfilehash: 82ea17c6bed476e92003d08694c253b7bd26ac14
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2021
-ms.locfileid: "132901684"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133539362"
 ---
 # <a name="how-to-detect-and-redact-personally-identifying-information-pii"></a>PII (개인 식별 정보)를 검색 하 고 교정 하는 방법
 
@@ -42,7 +42,7 @@ PII 기능은 구조화 되지 않은 텍스트를 평가 하 고, PII (중요 �
 
 PII 검색 기능을 동기적으로 사용 하는 것은 상태 비저장입니다. 계정에 데이터가 저장되지 않으며, 결과가 응답에서 즉시 반환됩니다.
 
-이러한 기능을 비동기적으로 사용 하는 경우 요청이 수집 된 시간부터 48 시간 동안 API 결과를 사용할 수 있으며 응답에 표시 됩니다. 이 기간이 지나면 결과가 제거되고 더 이상 검색할 수 없습니다.
+[!INCLUDE [asynchronous-result-availability](../includes/async-result-availability.md)]
 
 API는 지정 된 문서 언어에 대해 [정의 된 엔터티 범주](concepts/entity-categories.md) 를 검색 하려고 합니다. 검색하고 반환할 엔터티를 지정하려면 적절한 엔터티 범주가 포함된 선택적 `piiCategories` 매개 변수를 사용합니다. 이 매개 변수를 사용하여 문서 언어에 대해 기본적으로 사용되지 않는 엔터티를 검색할 수도 있습니다. 다음 URL 예제는 영어 텍스트로 표시 될 수 있는 프랑스어 드라이버의 라이선스 번호와 기본 영어 엔터티를 검색 합니다.
 

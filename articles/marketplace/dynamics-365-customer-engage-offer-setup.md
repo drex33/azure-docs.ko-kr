@@ -1,22 +1,22 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제안을 만듭니다.
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Customer Engagement 및 Power Apps 제안을 만듭니다.
+title: Dataverse에서 Dynamics 365 앱을 만들고 Microsoft AppSource(Azure Marketplace)에서 Power Apps 제안합니다.
+description: Dataverse에서 Dynamics 365 앱을 만들고 Microsoft AppSource(Azure Marketplace)에서 Power Apps 제안합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/27/2021
-ms.openlocfilehash: 764875272975e6a7698b6dafc452e597c8195000
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.date: 12/03/2021
+ms.openlocfilehash: 3b95ec9484cf476b3c6efe0a23bfda70544c2ef1
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130225702"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544099"
 ---
-# <a name="create-a-dynamics-365-for-customer-engagement--power-apps-offer"></a>Dynamics 365 for Customer Engagement 및 Power Apps 제품 만들기
+# <a name="create-a-dynamics-365-apps-on-dataverse-and-power-apps-offer"></a>Dataverse 및 Power Apps 제안에서 Dynamics 365 앱 만들기
 
-이 문서에서는 Dynamics 365 for Customer Engagement 및 Power Apps 제안을 만드는 방법에 대해 설명합니다. 모든 Dynamics 365 제안은 인증 프로세스를 통과해야 합니다. 평가판 환경을 사용하면 사용자가 솔루션을 라이브 Dynamics 365 환경에 배포할 수 있습니다.
+이 문서에서는 Dataverse 및 Power Apps 제안에 Dynamics 365 앱을 만드는 방법을 설명합니다. 모든 Dynamics 365 제안은 인증 프로세스를 통과해야 합니다. 평가판 환경을 사용하면 사용자가 솔루션을 라이브 Dynamics 365 환경에 배포할 수 있습니다.
 
 시작하기 전에 [파트너 센터](./create-account.md)에서 상업용 Marketplace 계정을 만들고 상업용 Marketplace 프로그램에 해당 계정이 등록되어 있는지 확인합니다.
 
@@ -35,9 +35,9 @@ ms.locfileid: "130225702"
 
     [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-1. Marketplace 제품 페이지에서 **+ New 제공**  >  **Dynamics 365 for Customer Engagement & Power Apps** 를 선택 합니다.
+1. Marketplace 제안 페이지의 Dataverse에서 **+ 새 제안**  >  **Dynamics 365 앱을** 선택하고 를 Power Apps.
 
-    [![고객 Engagement & Power Apps 제안 유형을 선택 하 여 ' 새 제품 ' 단추를 표시 합니다. ](./media/dynamics-365/new-offer-dynamics-365-customer-engagement-workspaces.png) ](./media/dynamics-365/new-offer-dynamics-365-customer-engagement-workspaces.png#lightbox)
+    [![고객 참여 & Power Apps 제안 유형이 선택된 '새 제안' 단추를 표시합니다. ](./media/dynamics-365/new-offer-dynamics-365-customer-engagement-workspaces.png) ](./media/dynamics-365/new-offer-dynamics-365-customer-engagement-workspaces.png#lightbox)
 
 > [!IMPORTANT]
 > 제안을 게시한 후 파트너 센터에서 제안을 편집하면 제안을 다시 게시해야 편집한 내용이 Microsoft AppSource에 표시됩니다. 제안을 변경한 후에는 항상 다시 게시해야 합니다.
@@ -46,7 +46,7 @@ ms.locfileid: "130225702"
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 2. 왼쪽 탐색 메뉴에서 **상업용 Marketplace** > **개요** 를 선택합니다.
-3. 개요 페이지에서 **+ 새 제품** > **Dynamics 365 for Customer Engagement 및 Power Apps** 를 선택합니다.
+3. 개요 페이지에서 +   >  **Dataverse의 새 제안 Dynamics 365 앱을** 선택하고 를 Power Apps.
 
     :::image type="content" source="media/dynamics-365/new-offer-dynamics-365-customer-engagement.png" alt-text="왼쪽 창 메뉴 옵션과 Customer Engagement가 선택된 ‘새 제안’ 단추를 보여 줍니다.":::
 

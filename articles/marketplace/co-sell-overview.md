@@ -7,13 +7,13 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 07/13/2021
-ms.openlocfilehash: 201b6dfce65317f03bf1e97b97a16db3fd8c4c69
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.date: 12/03/2021
+ms.openlocfilehash: 0c8d293c6f4d7151dc1c6b1cdb6de3becfb2277e
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131505786"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544441"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Microsoft 영업 팀 및 파트너와 공동 판매 개요
 
@@ -72,8 +72,8 @@ Azure IP 공동 판매 인센티브 상태는 다음 제품 유형에 적용될 
 
 비즈니스 애플리케이션 공동 판매 인센티브(표준 및 프리미엄) 상태는 다음 제품 유형에 적용될 수 있습니다.
 
-- Dynamics 365 for Customer Engagement 및 Power Apps
-- Dynamics 365 for Operations
+- Dataverse 및 Power Apps Dynamics 365 앱
+- Dynamics 365 Operations Apps
 
 ‘Azure IP 공동 판매 인센티브’ 상태를 달성하는 제품은 다음과 같은 상업용 마켓플레이스 혜택을 얻습니다.
 

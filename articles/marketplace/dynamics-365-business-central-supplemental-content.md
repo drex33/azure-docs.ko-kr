@@ -1,26 +1,26 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Business Central 제품 추가 콘텐츠 설정
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Business Central 제품 추가 콘텐츠를 설정합니다.
+title: Microsoft AppSource Dynamics 365 Business Central 제안 추가 콘텐츠 설정(Azure Marketplace)
+description: Microsoft AppSource(Azure Marketplace)에 Dynamics 365 Business Central 제안 추가 콘텐츠를 설정합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: 5d4c3f0ba24d67edaea6fb223ebe874056c4f9c7
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
-ms.translationtype: HT
+ms.date: 12/04/2021
+ms.openlocfilehash: a687e0e6fb0286658c05d0ce637a2fb554974ebb
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110547745"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544118"
 ---
-# <a name="set-up-dynamics-365-for-business-central-offer-supplemental-content"></a>Dynamics 365 for Business Central 제품 추가 콘텐츠 설정
+# <a name="set-up-dynamics-365-business-central-offer-supplemental-content"></a>Dynamics 365 Business Central 제안 추가 콘텐츠 설정
 
-이 페이지에서 제품의 유효성을 검사하는 데 도움이 되는 추가 정보를 제공할 수 있습니다. 이 정보는 고객에게 표시되거나 마켓플레이스에 게시되지는 않습니다.
+이 페이지에서는 제안의 유효성을 검사하는 데 도움이 되는 추가 정보를 제공할 수 있습니다. 이 정보는 고객에게 표시되거나 마켓플레이스에 게시되지는 않습니다.
 
 ## <a name="target-release"></a>대상 릴리스
 
-솔루션이 대상으로 하는 Microsoft Dynamics Business Central 릴리스인 **현재**, **다음 주** 또는 **다음 부** 를 표시합니다. 이 정보를 사용하여 Microsoft에서 솔루션을 적절하게 테스트할 수 있습니다.
+솔루션이 대상으로 하는 Microsoft Dynamics 365 Business Central 릴리스를 나타냅니다. **현재**, **다음 주**, 또는 다음 **부** 버전. 이 정보를 사용하여 Microsoft에서 솔루션을 적절하게 테스트할 수 있습니다.
 
 ## <a name="supported-editions"></a>지원되는 버전
 

@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 6e020a861294747ce381f4b6ae8d11e0f082d857
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 644bee5fd03c45c7f1854d8867f57d7c7ea60fcc
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132876288"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133551140"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -99,7 +99,7 @@ Azure 스토리지 계정을 만들고 언어 리소스에 연결한 후에는 �
     "metadata": {
         "name": "MyProject",
         "multiLingual": true,
-        "description": "Tryong out custom text classification",
+        "description": "Trying out custom NER",
         "modelType": "Extraction",
         "language": "string",
         "storageInputContainerName": "YOUR-CONTAINER-NAME",

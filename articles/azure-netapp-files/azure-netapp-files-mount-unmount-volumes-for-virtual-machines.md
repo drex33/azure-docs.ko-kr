@@ -1,22 +1,22 @@
 ---
-title: 가상 컴퓨터에 대한 Azure NetApp Files 볼륨 탑재
-description: Azure에서 Windows 가상 머신 또는 Linux 가상 머신에 대한 볼륨을 탑재 또는 탑재 해제하는 방법에 대해 알아봅니다.
+title: 가상 컴퓨터에 대 한 Azure NetApp Files 볼륨 탑재 | Microsoft Docs
+description: Windows 또는 Linux 가상 머신에 대 한 Azure NetApp Files 볼륨을 탑재 하는 방법을 알아봅니다.
 author: b-hchen
 ms.author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
 ms.date: 05/17/2021
-ms.openlocfilehash: 26893746241e35b1934c8814c486f64a7475ffb4
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: d1e569f708a75742913c7e6b7aa927953851f844
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133485099"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133540048"
 ---
-# <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
+# <a name="mount-a-volume-for-windows-or-linux-vms"></a>Windows 또는 Linux vm에 대 한 볼륨 탑재 
 
-필요에 따라 Windows 또는 Linux 가상 머신에 대한 볼륨을 탑재 또는 탑재 해제할 수 있습니다.  Linux 가상 머신에 대한 탑재 지침은 Azure NetApp Files에서 사용할 수 있습니다.  
+Windows 또는 Linux vm (가상 머신)에 대 한 Azure NetApp Files 파일을 탑재할 수 있습니다.  Linux 가상 머신에 대 한 탑재 지침은 Azure NetApxp 파일에서 사용할 수 있습니다.  
 
 ## <a name="requirements"></a>요구 사항 
 

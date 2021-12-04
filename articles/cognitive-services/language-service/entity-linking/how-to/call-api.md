@@ -1,5 +1,5 @@
 ---
-title: API를 연결하는 엔터티를 호출하는 방법
+title: 엔터티 연결 API를 호출하는 방법
 titleSuffix: Azure Cognitive Services
 description: 텍스트에 있는 엔터티를 식별하여 API를 연결하는 엔터티를 연결하는 방법을 알아봅니다.
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-entity-linking, ignite-fall-2021
-ms.openlocfilehash: a7edc27898c1af9fcb8f7bc72698d2d6c3a63e68
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: f4fb0e3c4a8bffca266e8db48e3f5c97a4899bd0
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131052868"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541587"
 ---
 # <a name="how-to-use-entity-linking"></a>엔터티 연결을 사용하는 방법
 
 엔터티 연결 기능을 사용하여 텍스트에서 찾은 엔터티의 ID를 식별하고 구분할 수 있습니다(예:*"Mars"라는* 단어가 행성을 참조하는지 아니면 로마의전을 참조하는지 확인). 기술 자료로 [Wikipedia에](https://www.wikipedia.org/) 대한 링크가 있는 텍스트의 엔터티를 반환합니다.
 
 > [!TIP]
-> 이 기능을 사용하려면 [빠른 시작 문서](../quickstart.md)에 따라 시작합니다. 코드를 작성할 필요 없이 [Language Studio](../../language-studio.md)를 사용하여 예제 요청을 만들 수도 있습니다.
+> 이 기능을 사용하려면 [빠른 시작 도움말](../quickstart.md)에 따라 시작합니다. 코드를 작성할 필요 없이 [Language Studio](../../language-studio.md)를 사용하여 예제 요청을 만들 수도 있습니다.
 
 ## <a name="determine-how-to-process-the-data-optional"></a>데이터 처리 방법 결정(선택 사항)
 
@@ -52,7 +52,7 @@ API 요청을 보내려면 언어 리소스 엔드포인트 및 키가 필요합
 
 엔터티 연결을 동기적으로 사용하는 것은 상태 비지정입니다. 계정에 데이터가 저장되지 않으며, 결과가 응답에서 즉시 반환됩니다.
 
-이 기능을 비동기적으로 사용하는 경우 요청이 수집된 시간부터 24시간 동안 API 결과를 사용할 수 있으며 응답에 표시됩니다. 이 기간이 지나면 결과가 제거되고 더 이상 검색할 수 없습니다.
+[!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
 
 ### <a name="getting-entity-linking-results"></a>엔터티 연결 결과 가져오기  
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: b-hchen
-ms.openlocfilehash: 93545796de1865cfd286cb2b9da2fbd17b08f167
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: 66abe83bf74a9cd303e1fa86104ca5676e0d965b
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133485196"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133543012"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -29,7 +29,7 @@ Azure NetApp Files에서는 NFS(NFSv3 또는 NFSv4.1), SMB3 또는 이중 프로
 
 ## <a name="before-you-begin"></a>시작하기 전에 
 
-* 용량 풀을 설정해야 합니다. [용량 풀 만들기를](azure-netapp-files-set-up-capacity-pool.md)참조 하세요.     
+* 용량 풀을 설정해야 합니다. [용량 풀 만들기를](azure-netapp-files-set-up-capacity-pool.md)참조하세요.     
 * Azure NetApp Files에 서브넷을 위임해야 합니다. [Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)을 참조하세요.
 
 ## <a name="configure-active-directory-connections"></a>Active Directory 연결 구성 
@@ -82,7 +82,7 @@ SMB 볼륨을 만들기 전에 Active Directory 연결을 만들어야 합니다
         ![서브넷 만들기](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
     * **네트워크 기능**  
-        지원 되는 지역에서는 볼륨에 대 한 **기본** 또는 **표준** 네트워크 기능을 사용할지 여부를 지정할 수 있습니다. 자세한 내용은 [볼륨의 네트워크 기능 구성](configure-network-features.md) 및 [Azure NetApp Files 네트워크 계획에 대 한 지침](azure-netapp-files-network-topologies.md) 을 참조 하세요.
+        지원되는 지역에서 볼륨에 **기본** 또는 **표준** 네트워크 기능을 사용할지 여부를 지정할 수 있습니다. 자세한 내용은 [볼륨에 대한 네트워크 기능 구성](configure-network-features.md) 및 Azure NetApp Files 네트워크 계획에 대한 [지침을](azure-netapp-files-network-topologies.md) 참조하세요.
 
     * 볼륨에 기존 스냅샷 정책을 적용하려면 **고급 섹션 표시** 를 클릭하여 확장하고, 스냅샷 경로를 숨길지 여부를 지정하고, 풀 다운 메뉴에서 스냅샷 정책을 선택합니다. 
 
@@ -166,11 +166,11 @@ Windows SMB 클라이언트에서 개체 속성의 **보안** 탭을 사용하�
 
 ## <a name="next-steps"></a>다음 단계  
 
-* [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Windows 또는 Linux 가상 머신용 볼륨 탑재](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files에 대해 TLS를 통한 ADDS LDAP 구성](configure-ldap-over-tls.md) 
 * [기존 SMB 볼륨에서 지속적인 가용성 사용](enable-continuous-availability-existing-SMB.md)
 * [SMB 암호화](azure-netapp-files-smb-performance.md#smb-encryption)
-* [Azure NetApp Files에 대 한 볼륨 오류 문제 해결](troubleshoot-volumes.md)
+* [Azure NetApp Files 볼륨 오류 문제 해결](troubleshoot-volumes.md)
 * [Azure 서비스에 대한 가상 네트워크 통합에 대해 알아보기](../virtual-network/virtual-network-for-azure-services.md)
 * [Azure 명령줄 인터페이스를 사용하여 새 Active Directory 포리스트 설치](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

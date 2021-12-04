@@ -1,22 +1,22 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에 있는 Dynamics 365 Operations 제품의 기능 유효성 검사
-description: Microsoft AppSource(Azure Marketplace)에 있는 Dynamics 365 Operations 제품의 유효성을 기능적으로 검사합니다.
+title: Microsoft AppSource Dynamics 365 Operations Apps의 기능 유효성 검사(Azure Marketplace)
+description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 Operations Apps 제안의 유효성을 기능적으로 검사합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/27/2021
-ms.openlocfilehash: d2e6316485b1ad3676092e6e19dcc4c6b55d5d2b
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 12/03/2021
+ms.openlocfilehash: da55176e051148e0a5b330511d84c361b6889419
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080898"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544327"
 ---
-# <a name="dynamics-365-for-operations-functional-validation"></a>Dynamics 365 for Operations 기능 유효성 검사
+# <a name="dynamics-365-operations-apps-functional-validation"></a>Dynamics 365 Operations Apps 기능 유효성 검사
 
-[파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002)에서 Dynamics 365 for Operations 제품을 게시하려면 두 가지 기능 유효성 검사가 필요합니다.
+[파트너 센터](https://go.microsoft.com/fwlink/?linkid=2166002) Dynamics 365 Operations Apps 제안을 게시하려면 다음 두 가지 기능 유효성 검사가 필요합니다.
 
 - 기본 기능을 보여 주는 Dynamics 365 환경의 데모 비디오를 업로드합니다.
 - 솔루션의 [LCS](https://lcs.dynamics.com/)(Lifecycle Services) 환경을 보여 주는 스크린샷을 제공합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "129080898"
 Microsoft 인증 팀은 비디오와 파일을 검토한 후 솔루션을 승인하거나 다음 단계에 대해 메일을 전송합니다.
 
 > [!NOTE]
-> 만들고 있는 솔루션/제안은 커넥터 인 경우에는 커넥터를 호출 하는 동안 작동 하거나 아래 나열 된 비디오 업로드 옵션 중 하나를 사용 합니다.  
+> 만드는 솔루션/제안이 커넥터 전용인 경우 통화 중에 작동하는 커넥터를 시연하거나 아래에 나열된 비디오 업로드 옵션 중 하나를 사용합니다.  
 
 ### <a name="option-1-30-minute-conference-call"></a>옵션 1: 30분가량의 컨퍼런스 통화
 
@@ -77,7 +77,7 @@ Microsoft 인증 팀은 비디오와 파일을 검토한 후 솔루션을 승인
     1. 데모 비디오 주소 및 스크린샷을 포함하는 텍스트 문서를 만들거나 스크린샷을 별도의 JPG 파일로 저장합니다.
     2. 제품의 **보조 콘텐츠** 탭에 있는 [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165290)에서 .zip 파일에 텍스트와 이미지를 추가합니다.
 
-    [![추가 콘텐츠 페이지에 업로드 되는 zip 파일을 보여 줍니다. ](./media//dynamics-365-operations/supplemental-content-workspaces.png) ](./media//dynamics-365-operations/supplemental-content-workspaces.png#lightbox)
+    [![추가 콘텐츠 페이지에 업로드된 zip 파일을 보여 줍니다. ](./media//dynamics-365-operations/supplemental-content-workspaces.png) ](./media//dynamics-365-operations/supplemental-content-workspaces.png#lightbox)
 
 #### <a name="current-view"></a>[현재 보기](#tab/current-view)
 

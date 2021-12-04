@@ -1,20 +1,20 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제안 속성 구성
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Operations 제안 속성을 구성합니다.
+title: Microsoft AppSource (Azure Marketplace)에서 Dynamics 365 Operations Apps 제품 속성 구성
+description: Microsoft AppSource (Azure Marketplace)에서 Dynamics 365 Operations Apps 제공 속성을 구성 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 07/08/2021
-ms.openlocfilehash: f390f6126ce2e4e780fe98f9aa038b98893b341a
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: 92224a64e5a68a296f619098561baa8d4d7e4003
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113566213"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541150"
 ---
-# <a name="configure-dynamics-365-for-operations-offer-properties"></a>Dynamics 365 for Operations 제안 속성 구성
+# <a name="configure-dynamics-365-operations-apps-offer-properties"></a>Dynamics 365 Operations Apps 제품 속성 구성
 
 이 페이지에서는 Microsoft AppSource에서 제안을 그룹화하는 데 사용되는 범주와 애플리케이션 버전, 제안을 지원하는 법적 계약을 정의할 수 있습니다.
 

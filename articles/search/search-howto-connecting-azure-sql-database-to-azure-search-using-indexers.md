@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/26/2021
-ms.openlocfilehash: 27cebeb9eaff63d9acb7976cac5a8837cca5e702
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
-ms.translationtype: HT
+ms.openlocfilehash: 57c380116f77d5f9750b727b44841fc35c1fd010
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112983287"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545562"
 ---
 # <a name="index-data-from-azure-sql"></a>Azure SQL의 데이터 인덱싱
 
@@ -302,7 +302,9 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
     }
 ```
 
-**softDeleteMarkerValue** 는 문자열이어야 합니다. 실제 값의 문자열 표현을 사용하세요. 예를 들어 삭제된 행이 값 1로 표시된 정수 열이 있는 경우 `"1"`을 사용합니다. 삭제된 행이 부울 true 값으로 표시된 BIT 열이 있는 경우 문자열 리터럴 `True` 또는 `true`를 사용합니다. 대소문자는 상관 없습니다.
+**SoftDeleteMarkerValue** 는 데이터 원본의 JSON 표현에 있는 문자열 이어야 합니다. 실제 값의 문자열 표현을 사용 합니다. 예를 들어 삭제된 행이 값 1로 표시된 정수 열이 있는 경우 `"1"`을 사용합니다. 삭제된 행이 부울 true 값으로 표시된 BIT 열이 있는 경우 문자열 리터럴 `"True"` 또는 `"true"`를 사용합니다. 대소문자는 상관 없습니다.
+
+Azure Portal에서 일시 삭제 정책을 설정 하는 경우 일시 삭제 표식 값 앞뒤에 따옴표를 추가 하지 마세요. 필드 콘텐츠는 이미 문자열로 인식 되며 자동으로 JSON 문자열로 변환 됩니다. 위의 예제에서 `1` 를 입력 `True` 하거나 `true` 포털의 필드에 입력 하면 됩니다.
 
 <a name="TypeMapping"></a>
 

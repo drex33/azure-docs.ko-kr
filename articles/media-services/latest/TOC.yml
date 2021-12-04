@@ -335,12 +335,6 @@
           displayName: 'security, baseline'
         - name: 계정 보안
           items:
-            - name: Microsoft ID 플랫폼이란?
-              href: ../../active-directory/develop/app-objects-and-service-principals.md
-            - name: 애플리케이션 및 서비스 주체란?
-              href: ../../active-directory/develop/app-objects-and-service-principals.md
-            - name: Azure 리소스용 관리 ID란?
-              href: ../../active-directory/managed-identities-azure-resources/overview.md
             - name: Azure RBAC
               href: security-rbac-concept.md
               displayName: 'RBAC, role based access, role based access control, roles, access, secure, security, authorization'
@@ -616,10 +610,8 @@
       items:
         - name: 계정 보안
           items:
-            - name: 포털에서 사용자 할당 관리 ID를 만드는 방법
-              href: ../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md
-            - name: 다른 Azure 리소스에 관리 ID 액세스 권한을 할당하는 방법
-              href: ../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md
+            - name: Media Services 계정 만들기
+              href: account-create-how-to.md
         - name: 네트워크 보안
           items:
             - name: 스트리밍 엔드포인트와 함께 Private Link 사용

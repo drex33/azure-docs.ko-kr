@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 11/22/2021
-ms.openlocfilehash: c878c69b67bf8af40901e67d2ba24567d52ca390
-ms.sourcegitcommit: 56235f8694cc5f88db3afcc8c27ce769ecf455b0
+ms.date: 12/03/2021
+ms.openlocfilehash: 45ca0a4bd2c936345602f6b0483503129328e8e6
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2021
-ms.locfileid: "133071541"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545011"
 ---
 # <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>제품을 검토하고 상업용 Marketplace에 게시하는 방법
 
@@ -57,7 +57,7 @@ ms.locfileid: "133071541"
 
 Azure Marketplace 유효성 검사에 대한 자세한 정보는 [Azure Marketplace 목록 지침](marketplace-criteria-content-validation.md)을 참조하세요.
 
-테스트 지침 및 Microsoft AppSource에서의 최초 게시 완료에 대한 자세한 정보는 [Dynamics 365 Operations 기능 유효성 검사](dynamics-365-operations-validation.md)를 참조하세요.
+지침을 테스트하고 Microsoft AppSource 첫 번째 게시를 완료하는 방법에 대한 자세한 내용은 [Dynamics 365 Operations Apps 기능 유효성 검사를 참조하세요.](dynamics-365-operations-validation.md)
 
 ## <a name="automated-validation-phase"></a>자동화된 유효성 검사 단계
 
@@ -156,7 +156,7 @@ Azure Marketplace 유효성 검사에 대한 자세한 정보는 [Azure Marketpl
 
 다음 스크린샷은 파트너 센터의 상업용 Marketplace 프로그램에 있는 **제품 개요** 페이지를 보여줍니다. 이 페이지에 표시되는 유효성 검사 단계는 제품 유형 및 제품 작성 시 선택한 사항에 따라 다릅니다. 인증 단계는 제품 유형에 따라 미리 보기로 제출하거나 라이브 상태로 제출하는 동안 발생할 수 있습니다.
 
-[파트너 센터 제안에 대한 제안 개요 페이지를 보여 ![ 줍니다. 라이브로 이동 단추 및 미리 보기 링크가 표시됩니다. ](./media/publish-status-publisher-signoff.png) ](./media/publish-status-publisher-signoff.png#lightbox)
+[![파트너 센터의 제품에 대 한 제품 개요 페이지를 보여 줍니다. 라이브 이동 단추와 미리 보기 링크가 표시 됩니다. ](./media/publish-status-publisher-signoff.png) ](./media/publish-status-publisher-signoff.png#lightbox)
 
 ### <a name="previewing-and-approving-your-offer"></a>제품 미리 보기 및 승인
 
@@ -210,12 +210,12 @@ Azure Marketplace 유효성 검사에 대한 자세한 정보는 [Azure Marketpl
 
     [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-1. Marketplace 제안 페이지에서 제안을 선택합니다.
+1. Marketplace 제품 페이지에서 제품을 선택 합니다.
 1. 왼쪽 탐색 메뉴에서 **기록** 탭을 선택합니다. 다음 이벤트(제품에 해당하는 경우)에 대한 세부 정보가 페이지에 제공됩니다.
 
 |이벤트    |설명    |
 |---------|---------------|
-|제품 만들기 완료 | 파트너 센터에서 제품이 만들어졌습니다. 사용자가 상업용 Marketplace **개요** 페이지에서 제안 유형, 제안 ID 및 제안 별칭을 선택했습니다.    |
+|제품 만들기 완료 | 파트너 센터에서 제품이 만들어졌습니다. 사용자가 상업적 marketplace **개요** 페이지에서 제안 유형, 제품 ID 및 제품 별칭을 선택 했습니다.    |
 |플랜 만들기 완료: *플랜 이름*    |사용자가 **플랜 개요** 탭에 플랜 ID와 플랜 이름을 입력하여 새 플랜을 만들었습니다.</br>*이 이벤트는 플랜을 지원하는 제품 유형에만 적용됩니다.* .    |
 |플랜 삭제 완료    |사용자가 **플랜 개요** 페이지에서 **초안 삭제** 를 선택하여 게시되지 않은 초안 계획을 삭제했습니다.</br>*이 이벤트는 플랜을 지원하는 제품 유형에만 적용됩니다.* .    |
 |시작된 플랜 배포 중지: *플랜 이름*    |사용자가 **플랜 개요** 페이지에서 **배포 중단** 을 선택하여 플랜 배포 중지를 시작했습니다.</br>*이 이벤트는 플랜을 지원하는 제품 유형에만 적용됩니다.* .    |

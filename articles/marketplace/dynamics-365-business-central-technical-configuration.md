@@ -1,20 +1,20 @@
 ---
-title: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Business Central 제품 기술 구성 설정
-description: Microsoft AppSource(Azure Marketplace)에서 Dynamics 365 for Business Central 제품 기술 구성을 설정합니다.
+title: Microsoft AppSource (Azure Marketplace)에서 Dynamics 365 Business Central 제품 기술 구성 설정
+description: Microsoft AppSource (Azure Marketplace)에서 Dynamics 365 Business Central 제품 기술 구성을 설정 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
-ms.openlocfilehash: 30e2a34072d5af31ddadd193a4b9f06582828462
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
-ms.translationtype: HT
+ms.date: 12/03/2021
+ms.openlocfilehash: 27fa92eb8c7d0421774d9762bee0a4b6d69e2b93
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955680"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133539878"
 ---
-# <a name="set-up-dynamics-365-for-business-central-offer-technical-configuration"></a>Dynamics 365 for Business Central 제품 기술 구성 설정
+# <a name="set-up-dynamics-365-business-central-offer-technical-configuration"></a>Dynamics 365 Business Central 제품 기술 구성 설정
 
 이 페이지에서는 제품에 연결하는 데 사용되는 기술 세부 정보를 정의합니다. 최종 고객이 제안 구매를 선택하면 이 연결을 통해 최종 고객을 위한 제안을 프로비저닝할 수 있습니다.
 

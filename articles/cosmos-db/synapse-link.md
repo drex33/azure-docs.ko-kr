@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.reviewer: sngun
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: 9047560e15741c82e94ba5b290e63ef39978420b
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: e4e7183e5026050bb5f793334488708064041908
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132870107"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542176"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db"></a>Microsoft Azure Cosmos DB용 Synapse Link란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -117,19 +117,15 @@ Synapse Link는 다음과 같은 경우에 권장됩니다.
 
 * Azure Cosmos DB용 Azure Synapse Link는 SQL API 및 Azure Cosmos DB API for MongoDB에 대해 지원됩니다. Gremlin API, Cassandra API 및 Table API에 대해서는 지원되지 않습니다.
 
-* Synapse Link SQL API 및 MongoDB API 계정 모두에 대해 새 컨테이너에서 사용하도록 설정할 수 있지만 기존 컨테이너는 SQL API에 대해서만 지원됩니다.
+* 현재 Azure Synapse 전용 SQL 풀을 사용하여 Azure Cosmos DB 분석 저장소에 액세스하는 것은 지원되지 않습니다.
 
-* 분석 저장소에서 데이터의 백업 및 복원은 현재 지원되지 않습니다. 이 제한은 주기적 백업 모드와 연속 백업 모드 모두에 적용되며 Cosmos DB 트랜잭션 저장소 데이터에 영향을 미치지 않습니다. 
+* 기존 Cosmos DB 컨테이너에서 Synapse Link 사용하도록 설정하는 것은 SQL API에 대해서만 지원됩니다. SQL API 및 MongoDB API 계정 둘 다에 대해 새 컨테이너에서 Synapse Link 사용하도록 설정할 수 있습니다.
 
-* 동일한 데이터베이스 계정에서 Synapse Link 및 주기적 백업 모드가 공존할 수 있습니다. 트랜잭션 데이터를 정상적으로 백업할 수 있습니다. 보다 크거나 같은 를 사용하는 경우 `transactional TTL` `analytical TTL` 트랜잭션 데이터를 복원하고 분석 저장소를 다시 만들 수 있습니다.
+* 분석 저장소에서 데이터의 백업 및 복원은 현재 지원되지 않습니다. 아래와 같은 일부 시나리오에서 분석 저장소 데이터를 다시 만들 수 있습니다.
+    * Azure Synapse 링크 및 주기적 백업 모드는 동일한 데이터베이스 계정에 공존할 수 있습니다. 이 모드에서는 트랜잭션 저장소 데이터가 자동으로 백업됩니다.              그러나 분석 저장소 데이터는 백업 및 복원에 포함되지 않습니다. 컨테이너에서 보다 크거나 같은 데이터를 사용하는 경우 `transactional TTL` `analytical TTL` 복원된 컨테이너에서 분석 저장소를 사용하도록 설정하여 분석 저장소 데이터를 완전히 다시 만들 수 있습니다. 현재 SQL API에 대해 복원된 컨테이너에만 분석 저장소를 다시 만들 수 있습니다.
+    * 동일한 데이터베이스 계정의 Synapse Link 및 연속 백업 모드(시점=시간 복원) 공존은 지원되지 않습니다. 연속 백업 모드를 사용하도록 설정하면 Synapse Link 설정할 수 없으며 그 반대의 경우도 마찬가지입니다.
 
-* 동일한 데이터베이스 계정에서 Synapse Link 및 연속 백업 모드가 공존하는 것은 지원되지 않습니다. 연속 백업 모드를 사용하도록 설정하면 Synapse Link 설정할 수 없으며 그 반대의 경우도 마찬가지입니다.
-
-* Azure Synapse Dedicated SQL 풀을 사용하여 Azure Cosmos DB 분석 저장소에 액세스하는 것은 현재 지원되지 않습니다.
-
-* Azure Synapse 링크 및 주기적 백업 모드는 동일한 데이터베이스 계정에 공존할 수 있습니다. 그러나 분석 저장소 데이터는 백업 및 복원에 포함되지 않습니다. Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소에 있는 데이터를 자동으로 계속 백업합니다.
-
-* RBAC 및 관리 ID는 현재 지원되지 않습니다.
+* Synapse SQL 서버리스 풀을 사용하여 쿼리하는 경우 RBAC가 지원되지 않습니다. 
 
 
 ## <a name="security"></a>보안

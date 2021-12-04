@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2021
 ms.custom: ignite-fall-2021
-ms.openlocfilehash: 62f972dc0d30b4143baa65e505bc9fd2e6e1ff6c
-ms.sourcegitcommit: 1244a72dbec39ac8cf16bb1799d8c46bde749d47
+ms.openlocfilehash: da9d87235aab0de4bb5844864575c46bd0386633
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2021
-ms.locfileid: "132752318"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542975"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
@@ -27,9 +27,9 @@ ms.locfileid: "132752318"
 
 #### <a name="highlights"></a>주요 항목 
 
-- Speaker Recognition 서비스는 현재 GA(일반 제공)입니다. Speech SDK API는 C++, C#, Java 및 Javascript에서 사용할 수 있습니다. 화자 인식을 사용하면 고유한 음성 특성으로 화자를 정확하게 확인하고 식별할 수 있습니다. 자세한 내용은 [설명서](speaker-recognition-overview.md)를 참조하세요. 
+- Speaker Recognition 서비스는 현재 GA(일반 제공)입니다. Speech SDK API는 C++, C#, Java 및 JavaScript에서 사용할 수 있습니다. 화자 인식을 사용하면 고유한 음성 특성으로 화자를 정확하게 확인하고 식별할 수 있습니다. 자세한 내용은 [설명서](speaker-recognition-overview.md)를 참조하세요. 
 
-- Azure DevOps 및 Github와 함께 Ubuntu 16.04에 대한 지원을 중단했습니다. Ubuntu 16.04는 2021년 4월에 수명이 종료되었습니다. Ubuntu 16.04 워크플로를 Ubuntu 18.04 이상으로 마이그레이션하세요.   
+- Azure DevOps 및 GitHub 함께 Ubuntu 16.04에 대한 지원을 중단했습니다. Ubuntu 16.04는 2021년 4월에 수명이 종료되었습니다. Ubuntu 16.04 워크플로를 Ubuntu 18.04 이상으로 마이그레이션하세요.   
 
 - Linux 이진에서 OpenSSL 연결이 동적으로 변경되었습니다. Linux 이진 크기가 약 50% 감소했습니다. 
 
@@ -43,17 +43,17 @@ ms.locfileid: "132752318"
 
 - **C++**: 고급 패턴 일치를 용이하게 하는 의도 인식을 위한 새로운 API입니다. 여기에는 목록 및 미리 작성된 정수 엔터티뿐만 아니라 의도 및 엔터티를 모델로 그룹화하기 위한 지원이 포함됩니다(설명서, 업데이트 및 샘플은 개발 중이며 조만간 게시될 예정임). 
 
-- **Mac:** GitHub 문제 1244와 관련된 Cocoapod, Python, Java 및 NuGet 패키지에 대한 [ARM64(M1)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1244)기반 실리콘 지원
+- **Mac:** GitHub 문제 1244와 관련된 Cocoapod, Python, Java 및 NuGet 패키지에 대한 [ARM64(M1)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1244)기반 실리콘을 지원합니다.
 
-- **iOS/Mac:** 이제 iOS 및 MacOS 이진이 GitHub 문제 [919와](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/919)관련된 xcframework로 패키지됩니다.
+- **iOS/Mac:** 이제 iOS 및 macOS 이진이 GitHub 문제 [919와](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/919)관련된 xcframework에 패키지됩니다.
 
 - **iOS/Mac:** [GitHub 문제 1171과](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1171)관련된 Mac용 지원 
 
 - **Linux:** CentOS7 Speech [SDK에](speech-sdk.md)대한 새 tar 패키지가 추가되었습니다.
 
-- **Javascript:** VoiceProfile & SpeakerRecognizer API를 async/awaitable로 만들었습니다. 
+- **JavaScript:** VoiceProfile & SpeakerRecognizer API를 async/awaitable로 만들었습니다. 
 
-- **Javascript:** 미국 정부 Azure 지역에 대한 지원이 추가되었습니다. 
+- **JavaScript:** 미국 정부 Azure 지역에 대한 지원이 추가되었습니다. 
 
 - **Windows:** UWP(유니버설 Windows 플랫폼)에서 재생에 대한 지원이 추가되었습니다. 
 
@@ -67,7 +67,7 @@ ms.locfileid: "132752318"
 
 - **코어:** 연결 시도가 실패하면 자동으로 다시 연결합니다. 
 
-- **iOS:** Gstreamer를 사용할 때 불안정성 및 비트코드 빌드 문제로 인해 iOS 패키지에서 오디오 압축을 사용할 수 없습니다. 자세한 내용은 [GitHub 문제 1209를](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1209)통해 사용할 수 있습니다.
+- **iOS:** GStreamer를 사용할 때 불안정성 및 비트코드 빌드 문제로 인해 iOS 패키지에서 오디오 압축을 사용할 수 없습니다. 자세한 내용은 [GitHub 문제 1209를](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1209)통해 사용할 수 있습니다.
 
  
 
@@ -77,18 +77,18 @@ ms.locfileid: "132752318"
 
 - **.NET: .NET** Core 3.1 버전을 사용하도록 샘플이 업데이트되었습니다. 
 
-- **Javascript:** 음성 도우미에 대한 샘플이 추가되었습니다. 
+- **JavaScript:** 음성 도우미에 대한 샘플이 추가되었습니다. 
 
  
 ## <a name="text-to-speech-2021-october-release"></a>Text-to-Speech 2021-10월 릴리스
-**신경망 TTS에 대한 새로운 언어 및 음성 추가**
+**신경망 TTS에 대한 새로운 언어 및 음성이 추가되었습니다.**
 - **49개의 새로운 언어 및 변형이 도입되었습니다.** 49개의 새 로케일로 98개의 새로운 음성이 신경망 TTS 언어 목록에 추가됩니다. Adri in `af-ZA` Afrikaans(남아프리카 공화국), `af-ZA` Afrikaans의 Willem (남아프리카 공화국), `am-ET` 앰하릭의 Mekdes(아랍어), `am-ET` Amharic의 아메하(폴란드), `ar-AE` 아랍어의 Fatima(United United Arabics), `ar-AE` 아랍어의 함메야어(영국령, `ar-BH` 아랍어로 나타남), 아랍어의 Laila(아랍어), 아랍어의 `ar-BH` Ali(아랍어),  `ar-DZ` 아랍어의 Amina(아랍어), `ar-DZ` 아랍어의 Ismael(아랍어), 아랍어로 된 `ar-IQ` 란다(아랍어), 아랍어로 된 `ar-IQ` 카셀(아랍어), 아랍어로 된 `ar-JO` 사나(아랍어), 아랍어로 된 `ar-JO` 자말(아랍어), 아랍어로 된 `ar-KW` 누라(네덜란드), 아랍어로 페이싱된(아랍어), 아랍어로 된 `ar-KW` `ar-LY` 이만(아랍어), 아랍어로 된 `ar-LY` 모나(아랍어), 자말(아랍어), 아랍어로 된 `ar-MA` `ar-MA` 자말(아랍어), `ar-QA` 아랍어로 된 `ar-QA` 모아(아랍어), 모아(아랍어)  Amany in `ar-SY` Arabic (Arabic), Laith in Arabic (Arabic),Reem in Arabic (Arabic(Arabic), Maryam in Arabic (Arabic), Saleh in Arabic (In Arabic( 2016), 2016, 2016, Asilia in English (Asilia in English), 2016 ; 영어 (영어), `ar-SY` `ar-TN` `ar-TN` `ar-YE` `ar-YE` `bn-BD` `bn-BD` `en-KE` `en-KE` 에지엔어 `en-NG` (영어), `en-NG` 영어로 된 에지노어(영어), 영어의 `en-TZ` Imani(영어), `en-TZ` Elimu(영어), Elimu(영어),  스페인어로 된 `es-BO` 에스페인어(스웨덴), 스페인어로 된 `es-BO` Marcelo(스웨덴), 스페인어로 된 `es-CL` Catalina(스웨덴), 스페인어로 된 로렌조(스페인), `es-CL` 스페인어로 된 `es-CR` Maria(에피카), 스페인어로 된 `es-CR` 힌키스(에피카), 스페인어로 된 힌지(에필), 스페인어로 된 `es-CU` `es-CU` 람페어(스페인), 스페인어로 `es-DO` 된 에미니오(에필릭), 스페인어로 된 `es-DO` 에필로(에필릭), `es-EC` 스페인어로 된 `es-EC` Luis(필로), 에타인(2) `es-GQ`  스페인어(적도)의 Javier, `es-GQ` 스페인어로 된 Javier(적도어), 스페인어로 된 `es-GT` Marta(페더), 스페인어로 된 안드르어(페더레이션), `es-GT` `es-HN` 스페인어로 된 카파나(필리스), 스페인어로 된 `es-HN` 요란다어(니카라과), `es-NI` 스페인어로 페더레이션(Nicaragua), 스페인어의 Margarita(스페인어), 스페인어로 된 `es-NI` `es-PA` `es-PA` 카밀라(에필라), 스페인어로 된 `es-PE` `es-PE` Alex(의 Alex), 스페인어로 된 카니나(에메인), 스페인어로 된 `es-PR` 카리아나(2차), `es-PR`  스페인어(스페인), Tania `es-PY` in Spanish(Paraguay), `es-PY` Spanish(Paraguay), Lorena in `es-SV` Spanish(El Spanish), Lorena in `es-SV` Spanish(El In Spanish), Valentina in `es-UY` Spanish(Spanish), Spanish(Spanish), `es-UY` Paola in `es-VE` Spanish(Spanish), Spanish의 `es-VE` Paola(Spanish), Dilara in `fa-IR` Spanish (Spanish), Dilara in Spanish (In Spanish), Farid in `fa-IR` Spanish (Ia), Blessica in 한(Ia), `fil-PH` Ric in Ric `fil-PH` (Ela), `gl-ES`  갈리시아어(스페인), `gl-ES` 갈리시아어의 Roi(스페인), `jv-ID` Javanese의 Siti(스페인), `jv-ID` Javanese의 Dimas(스페인), `km-KH` 크메르어의 S 표시mom(표시), `km-KH` 크메르어의 Piseth(스페인), `my-MM` 버마어의 Nilar(필라), Thiha in `my-MM` 버마어어(스웨덴), Ubax in `so-SO` Ubax `so-SO` in일반어(표시), 뮤즈인 `su-ID` 에브루시어(표시), 순다어의 튜티(덴마크어), `su-ID` 순다어의 자야어(덴마크), `sw-TZ` 스와힐리어의 Rehema(표시), `sw-TZ` 스와힐리어의 Daudi(표시), 2016년 3월 `ta-LK` 타밀어(Sri Sri Sri), 2018년 4월 `ta-LK` 타밀어(스리루), `ta-SG` 타밀어의 Venba(싱가포르), `ta-SG` 타밀어의 `ur-IN` Anbu(싱가포르),Urdu의 `ur-IN` Gul(인도), Urdu(인도), `uz-UZ` Uzbek의 마다니나(유니버크), `uz-UZ` Uzbek의 Sardor(남아프리카 공화국), `zu-ZA` Zulu(남아프리카)의 Thando, `zu-ZA` Zulu(남아프리카)의 3차원입니다.
 
 ## <a name="text-to-speech-2021-september-release"></a>Text-to-Speech 2021-9월 릴리스
 - **의 새 챗봇 `en-US` 음성 영어(미국)**: 챗봇 시나리오에 가장 적합하고 더 간소하게 말하는 여성 성인을 나타내는 챗봇입니다. 
 - **에 대해 추가된 `ja-JP` 새 스타일 일본어 음성 Nanami: 이제 Nanami에서** 채팅, 고객 서비스 및 싱어의 세 가지 새로운 스타일을 사용할 수 있습니다.
-- **과도 발음 개선** 사항: 의 유지, 의 `id-ID` Premwadee, `th-TH` 의 경우 , `da-DK` HoaiMy 및 NamMinh의 경우 `vi-VN`
-- **의 두 가지 `zh-CN` 새로운 음성 중국어(중국어, 중국) 미리 보기:** 2016년 3월 21일, 중국어(중국) : 힌토르 음성 및 고객 서비스 시나리오에 최적화된 2018년 3월 21일의 중국어 &.
+- **전반적인 발음 개선** 사항: 의 유지, 의 `id-ID` Premwadee, `th-TH` 의 경우, 의 경우 `da-DK` HoaiMy 및 NamMinh의 경우 `vi-VN`
+- **의 두 가지 `zh-CN` 새로운 음성 중국어(중국어, 중국) 미리 보기:** 2016년 3월 21일, 중국어(중국) 미리 보기로 제공된 로케어 & 은 음성 및 고객 서비스 시나리오에 최적화되어 있습니다.
 
 ## <a name="text-to-speech-2021-july-release"></a>텍스트 음성 변환 2021년 7월 릴리스
 
@@ -139,7 +139,7 @@ ms.locfileid: "132752318"
 
 **Speech Studio 업데이트**
 
-- **사용자 지정 신경망 음성** 는 동남 아시아를 지원 하도록 확장된 사용자 지정 신경망 음성 학습입니다. 지원을 데이터 업로드 상태 확인을 위한 새로운 기능이 출시되었습니다. 
+- **사용자 지정 신경망 음성** 는 동남 아시아를 지원 하도록 확장된 사용자 지정 신경망 음성 학습입니다. 데이터 업로드 상태 검사를 지원하기 위해 릴리스된 새로운 기능입니다. 
 - **오디오 콘텐츠 만들기** 는 사용자 지정 어휘를 지원하는 새 기능을 릴리스했습니다. 이 기능을 사용하면 사용자가 쉽게 어휘집 파일을 만들고 사용자 지정된 음성 출력에 대한 사용자 지정 발음을 정의할 수 있습니다. 
 
 ## <a name="text-to-speech-2021-may-release"></a>텍스트 음성 변환 2021년 5월 릴리스
@@ -167,8 +167,8 @@ ms.locfileid: "132752318"
 
 #### <a name="new-features"></a>새로운 기능
 
-- **C++/C#** : `SourceLanguageRecognizer` API를 통한 새로운 독립 실행형 단일 샷/시작 시 언어 감지 및 지속적인 언어 감지. 오디오 콘텐츠에서 사용 중인 언어만 감지하려는 경우 이를 수행하는 API입니다. [C + +](https://docs.microsoft.com/cpp/cognitive-services/speech/sourcelanguagerecognizer) 및 [c #](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.sourcelanguagerecognizer)에 대 한 세부 정보를 참조 하세요.
-- **C + +/c #**: 음성 인식 및 번역 인식은 이제 시작 및 연속 언어 id를 모두 지원 하므로 transcribed 또는 번역 되기 전에 어떤 언어를 프로그래밍 방식으로 확인할 수 있습니다. [음성 인식](how-to-automatic-language-detection.md) 및 [음성 번역](get-started-speech-translation.md) 문서를 참조하세요.
+- **C++/C#** : `SourceLanguageRecognizer` API를 통한 새로운 독립 실행형 단일 샷/시작 시 언어 감지 및 지속적인 언어 감지. 오디오 콘텐츠에서 사용 중인 언어만 감지하려는 경우 이를 수행하는 API입니다. [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/sourcelanguagerecognizer) 및 [C#에](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.sourcelanguagerecognizer)대한 세부 정보를 참조하세요.
+- **C++/C#**: 음성 인식 및 번역 인식은 이제 시작 시 및 연속 언어 식별을 모두 지원하므로 번역되거나 번역되기 전에 어떤 언어가 음성인지 프로그래밍 방식으로 확인할 수 있습니다. [음성 인식](how-to-automatic-language-detection.md) 및 [음성 번역](get-started-speech-translation.md) 문서를 참조하세요.
 - **C#** : macOS(x64)에 Unity 지원이 추가되었습니다. 이를 통해 혼합 현실 및 게임에서 음성 인식 및 음성 합성을 사용할 수 있습니다.
 - **Go**: 더 많은 사용 사례에서 음성 합성을 사용할 수 있도록 Go 프로그래밍 언어에 음성 합성/텍스트 음성 변환 지원을 추가했습니다. [빠른 시작](get-started-text-to-speech.md?tabs=windowsinstall&pivots=programming-language-go) 또는 [참조 문서](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go)를 참조하세요.
 - **C++/C#/Java/Python/Objective-C/Go**: 이제 음성 합성기가 `connection` 개체를 지원합니다. 이를 통해 음성 서비스에 대한 연결을 관리하고 모니터링할 수 있으며 특히 사전 연결을 통해 대기 시간을 줄일 수 있습니다. [여기](how-to-lower-speech-synthesis-latency.md) 설명서를 참조하세요.
@@ -285,7 +285,7 @@ ms.locfileid: "132752318"
 - **JavaScript**: 이제 큰 WAV 파일 헤더가 올바르게 구문 분석됩니다(헤더 조각을 512바이트로 확장). 따라서 [GitHub #962 문제](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/962)도 해결됩니다.
 - **JavaScript**: 인식 중지 전에 마이크 스트림이 종료되는 마이크 타이밍 문제가 수정되었으며, 음성 인식이 Firefox에서 작동하지 않는 문제가 해결되었습니다.
 - **JavaScript**: 이제 turnOn이 완료되기 전에 브라우저가 마이크를 강제로 끄더라도 초기화 프라미스가 올바르게 처리됩니다.
-- **JavaScript**: url 종속성을 url 구문 분석으로 대체했습니다. 따라서 [GitHub #264 문제](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/264)도 해결됩니다.
+- **JavaScript**: url 종속성을 url 구문 분석으로 대체 했습니다. 따라서 [GitHub #264 문제](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/264)도 해결됩니다.
 - **Android**: `minifyEnabled`를 true로 설정하면 콜백이 작동하지 않는 문제를 수정했습니다.
 - **C++/C#/Java/Objective-C/Python**: 대기 시간을 줄이기 위해 `TCP_NODELAY`가 TTS의 기본 소켓 IO로 올바르게 설정됩니다.
 - **C++/C#/Java/Python/Objective-C/Go**: 인식을 시작한 직후 인식기가 삭제되었을 때 발생하는 간헐적 충돌을 수정했습니다.
@@ -318,7 +318,7 @@ ms.locfileid: "132752318"
 **사용자 지정 신경망 음성 GA**
 
 사용자 지정 신경망 음성은 2월부터 중국어(북경어, 간체), 영어(오스트레일리아), 영어(인도), 영어(영국), 영어(미국), 프랑스어(캐나다), 프랑스어(프랑스), 독일어(독일), 이탈리아어(이탈리아), 일본어(일본), 한국어(대한민국), 포르투갈어(브라질), 스페인어(멕시코), 스페인어(스페인) 총 13개 언어로 일반 공급됩니다. [사용자 지정 신경망 음성](custom-neural-voice.md)이란 무엇이며 [책임감 있게 사용하는 방법](concepts-guidelines-responsible-deployment-synthetic.md)은 무엇인지 자세히 알아보세요.
-사용자 지정 신경망 음성 기능을 사용하려면 등록이 필요하며 Microsoft는 Microsoft의 자격 기준에 따라 액세스를 제한할 수 있습니다. [제한된 액세스](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)에 대해 자세히 알아보세요.
+사용자 지정 신경망 기능에는 등록이 필요 하며 microsoft는 자격 조건에 따라 액세스를 제한할 수 있습니다. [제한된 액세스](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)에 대해 자세히 알아보세요.
 
 ## <a name="speech-sdk-1150-2021-january-release"></a>Speech SDK 1.15.0: 2021년 1월 릴리스
 

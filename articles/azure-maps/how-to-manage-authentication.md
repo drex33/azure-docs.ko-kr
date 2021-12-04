@@ -2,20 +2,20 @@
 title: Microsoft Azure Maps에서 인증 관리
 titleSuffix: Azure Maps
 description: Azure Maps 인증에 대해 알아봅니다. 어떤 방식을 어떤 시나리오에서 가장 효과적인지 알아봅니다. 포털을 사용하여 인증 설정을 확인하는 방법에 대해 알아봅니다.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/10/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 12/3/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+manager: jokebeck
 custom.ms: subject-rbac-steps
-ms.openlocfilehash: d087daf38c455fd4d87ea571ff5f3a0ab9ad0527
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
-ms.translationtype: HT
+ms.openlocfilehash: 133df02ad4977625a37851dacebec81b7b048bb1
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112454780"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544745"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure Maps의 인증 관리
 
@@ -23,8 +23,8 @@ Azure Maps 계정을 만들면 키와 클라이언트 ID가 생성됩니다. 키
 
 ## <a name="view-authentication-details"></a>인증 정보 보기
 
- >[!IMPORTANT]
- >[공유 키 인증을 사용하여 Azure Maps를 호출](./azure-maps-authentication.md#shared-key-authentication)하는 경우 기본 키를 구독 키로 사용하는 것이 좋습니다. 키 롤링 변경 등의 시나리오에서 보조 키를 사용하는 것이 좋습니다. 자세한 내용은 [Azure Maps의 인증](./azure-maps-authentication.md)을 참조하세요.
+ > [!IMPORTANT]
+ > 공유 키 인증을 사용하여 Azure 지도 호출하는 경우 기본 키를 구독 [키로](./azure-maps-authentication.md#shared-key-authentication) 사용하는 것이 좋습니다. 키 롤링 변경 등의 시나리오에서 보조 키를 사용하는 것이 좋습니다. 자세한 내용은 [Azure Maps로 인증](./azure-maps-authentication.md)을 참조하세요.
 
 Azure Maps 인증 세부 정보를 보려면:
 

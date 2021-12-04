@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 10/26/2021
-ms.openlocfilehash: 9769e52457a65ab3b37135cdbe7d7fdd78e1f1e6
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.date: 12/03/2021
+ms.openlocfilehash: d67bbde26283a8f8863765b8752558672f5e1934
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131853855"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541966"
 ---
 # <a name="what-is-a-test-drive"></a>시험 사용이란?
 
@@ -21,7 +21,7 @@ ms.locfileid: "131853855"
 고객도 시험 사용을 활용할 수 있는 이점이 있습니다. 제품을 먼저 사용해 볼 수 있도록 하면 구매 프로세스의 마찰을 줄일 수 있습니다. 또한 시험 사용은 미리 프로비저닝됩니다. 즉, 고객이 제품을 다운로드하거나 설정하거나 구성할 필요가 없습니다.
 
 > [!TIP]
-> 상용 marketplace에서 고객의 시험에서 볼 수 있는 내용을 보려면 [Azure Marketplace 무엇 인가요?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) 및 [Microsoft AppSource](/marketplace/appsource-overview)정의를 참조 하세요.
+> 상업용 Marketplace에서 시험 구매에 대한 고객의 보기를 보려면 [Azure Marketplace란?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) 및 [Microsoft AppSource란?을](/marketplace/appsource-overview)참조하세요.
 
 ## <a name="how-does-it-work"></a>작동 원리
 
@@ -40,9 +40,9 @@ ms.locfileid: "131853855"
     - SaaS
     - Virtual Machines
 - 호스트형 시험 사용
-    - Dynamics 365 for Business Central(현재 지원되지 않음)
-    - Dynamics 365 for Customer Engagement
-    - Dynamics 365 for Operations
+    - Dynamics 365 Business Central(현재 지원되지 않음)
+    - Dataverse 및 Power Apps Dynamics 365 앱
+    - Dynamics 365 Operations Apps
 - 논리 앱(지원 모드에서만)
 - Power BI
 
@@ -63,8 +63,8 @@ ms.locfileid: "131853855"
 
 호스트형 시험 사용은 Microsoft가 시험 사용 사용자 프로비저닝 및 프로비저닝 해제를 수행하는 서비스를 호스트하고 관리하도록 함으로써 설치의 복잡성이 줄어듭니다. Microsoft AppSource에 대한 제품이 있는 경우 Dynamics AX/CRM 인스턴스를 사용하여 연결하는 시험 사용을 빌드합니다. 사용할 수 있는 AppSource 제품 유형은 다음과 같습니다.
 
-- 영업, 서비스, 프로젝트 서비스 및 현장 서비스와 같은 고객 참여 시스템에 대해 [Dynamics 365 for Customer Engagement 및 Power Apps](dynamics-365-customer-engage-offer-setup.md)를 사용합니다.
-- 재무, 운영, 제조, 공급망 등의 재무 및 운영 엔터프라이즈 리소스 계획 시스템에 대해 [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md)를 사용합니다.
+- 판매, 서비스, 프로젝트 서비스 및 현장 서비스 같은 고객 참여 시스템에 Dataverse 및 Power Apps [Dynamics 365 앱을](dynamics-365-customer-engage-offer-setup.md) 사용합니다.
+- 재무, 운영, 제조, 공급망과 같은 재무 및 운영 엔터프라이즈 리소스 계획 시스템에 [Dynamics 365 Operations Apps를](./dynamics-365-operations-offer-setup.md) 사용합니다.
 
 ### <a name="logic-app-test-drive"></a>논리 앱 시험 사용
 

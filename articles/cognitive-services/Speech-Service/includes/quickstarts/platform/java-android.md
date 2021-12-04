@@ -11,17 +11,14 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.custom: devx-track-java
 ms.author: eur
-ms.openlocfilehash: 2dafa55bca8fa35afaf25d1e6ab2199b8c19a4de
-ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
+ms.openlocfilehash: 94ef62c451877530ffff50b9571b7b2e83542cb0
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131502496"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133551172"
 ---
 이 가이드에서는 Android에 Java용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 이 설치 프로그램은 Speech SDK Maven 패키지 및 Android Studio 3.3을 기반으로 합니다.
-
-> [!NOTE]
-> Speech Devices SDK 및 Roobo 디바이스에 대한 내용은 [Speech Devices SDK](~/articles/cognitive-services/speech-service/speech-devices-sdk.md)를 참조하세요.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 

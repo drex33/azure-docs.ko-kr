@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2021
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 2a58268ac180662d618761854cb317c1ed2914b2
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 7938fdef0ea451f2631756be99325b6362cce091
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132868874"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133543383"
 ---
 # <a name="use-a-virtual-network-with-azure-api-management"></a>Azure API Management 가상 네트워크 사용
 
@@ -22,7 +22,7 @@ Azure VNET(Virtual Network)를 사용하면 액세스를 제어하는 인터넷 
 
 자세한 배포 단계 및 네트워크 구성은 다음을 참조하세요.
 
-* [Azure API Management 사용하여 외부 가상 네트워크에 커넥트.](./api-management-using-with-vnet.md)
+* [Azure API Management 를 사용하여 외부 가상 네트워크에 커넥트.](./api-management-using-with-vnet.md)
 * [Azure API Management 사용하여 내부 가상 네트워크에 커넥트.](./api-management-using-with-internal-vnet.md)
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
@@ -57,6 +57,7 @@ Azure VNET(Virtual Network)를 사용하면 액세스를 제어하는 인터넷 
 * Azure Resource Manager 가상 네트워크가 필요합니다.
 * 가상 네트워크 및 서브넷을 지정하는 것 외에도 표준 SKU [공용 IPv4 주소를](../virtual-network/ip-services/public-ip-addresses.md#sku) 제공해야 합니다.
 * API Management 인스턴스에 연결하는 데 사용되는 서브넷에는 다른 Azure 리소스 종류가 포함될 수 있습니다.
+* 위의 서브넷에 연결된 [네트워크 보안 그룹입니다.](../virtual-network/network-security-groups-overview.md) API Management 내부적으로 사용되는 부하 분산기는 기본적으로 안전하며 모든 인바운드 트래픽을 거부하므로 NSG(네트워크 보안 그룹)는 인바운드 연결을 명시적으로 허용해야 합니다. 
 * API Management 서비스, 가상 네트워크 및 서브넷 및 공용 IP 주소 리소스는 동일한 지역 및 구독에 있어야 합니다.
 * 다중 지역 API Management 배포의 경우 각 위치에 대해 가상 네트워크 리소스를 개별적으로 구성합니다.
 
@@ -93,7 +94,7 @@ API Management IP [주소에](api-management-howto-ip-addresses.md)대해 자세
 
 내부 모드에서는 API Management 엔드포인트 및 기타 필요한 Azure 리소스에 대한 이름 확인이 보장되도록 자체 DNS 솔루션을 제공해야 합니다. Azure 프라이빗 DNS [영역](../dns/private-dns-overview.md)을 구성하는 것이 좋습니다.
 
-자세한 내용은 다음을 참조하십시오. 
+자세한 내용은 다음을 참조하세요. 
 * [Azure 가상 네트워크에서 리소스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).  
 * [Azure 프라이빗 DNS 영역 만들기](../dns/private-dns-getstarted-portal.md)
 
@@ -128,7 +129,7 @@ API Management IP [주소에](api-management-howto-ip-addresses.md)대해 자세
 * [가상 네트워크 질문과 대답](../virtual-network/virtual-networks-faq.md)
 
 가상 네트워크에 커넥트:
-* [Azure API Management 사용하여 외부 가상 네트워크에 커넥트.](./api-management-using-with-vnet.md)
+* [Azure API Management 를 사용하여 외부 가상 네트워크에 커넥트.](./api-management-using-with-vnet.md)
 * [Azure API Management 사용하여 내부 가상 네트워크에 커넥트.](./api-management-using-with-internal-vnet.md)
 
 다음 항목을 검토합니다.

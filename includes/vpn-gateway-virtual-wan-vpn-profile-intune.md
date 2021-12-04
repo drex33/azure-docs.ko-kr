@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6c8f4e902929d6a610dc1f9224ac17b2d3b893d0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 158e78b5f72da7677bfc2ed8257a405a9fd9853e
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "126056833"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133551252"
 ---
 Microsoft Intune을 사용하여 Azure VPN 클라이언트(Windows 10)에 대한 프로필을 배포할 수 있습니다. 이 문서는 사용자 지정 설정을 사용하여 Intune 프로필을 만드는 데 도움을 줍니다.
 
@@ -21,7 +21,7 @@ Microsoft Intune을 사용하여 Azure VPN 클라이언트(Windows 10)에 대한
 >* 이 문서는 인증용으로만 Azure Active Directory를 사용하는 프로필 배포에 적용됩니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 디바이스가 이미 Intune MDM에 등록되어 있습니다.
 * Windows 10용 Azure VPN 클라이언트는 클라이언트 컴퓨터에 이미 배포되어 있습니다.
@@ -31,7 +31,7 @@ Microsoft Intune을 사용하여 Azure VPN 클라이언트(Windows 10)에 대한
 
 다음 단계에서는 다음 설정을 통해 Intune용 사용자 지정 OMA-URI 프로필에 샘플 XML을 사용합니다.
 
-* 자동 연결 켜기
+* [Always On VPN이](../articles/vpn-gateway/vpn-gateway-howto-always-on-user-tunnel.md) 구성됩니다.
 * 신뢰할 수 있는 네트워크 검색이 활성화되었습니다.
 
 지원되는 다른 옵션은 [VPNv2 CSP](/windows/client-management/mdm/vpnv2-csp) 문서를 참조하세요.

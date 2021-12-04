@@ -9,12 +9,12 @@ ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 925638f5efb43dca57b07c1f80cf2a101e2dd4b3
-ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.openlocfilehash: 5c34d80de0adb4a0197646ec0119a16c0b0ef701
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132954622"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542689"
 ---
 # <a name="create-custom-configuration-templates"></a>사용자 지정 구성 템플릿 만들기
 
@@ -29,7 +29,7 @@ az arcdata dc config list
 
 그러나 경우에 따라 요구 사항을 충족하도록 이러한 구성 템플릿을 사용자 지정하고 `--profile-name` 매개 변수를 사용하여 사전 구성된 구성 템플릿을 전달하는 대신 `--path` 매개 변수를 사용하여 사용자 지정된 구성 템플릿을 `az arcdata dc create` 명령에 전달할 수 있습니다.
 
-## <a name="create-customjson-file"></a>custom.json 파일 만들기
+## <a name="create-controljson-file"></a>컨트롤 json 파일 만들기
 
 `az arcdata dc config init`를 실행하여 Kubernetes 클러스터 배포를 기반으로 사전 정의된 설정의 control.json 파일을 시작합니다.
 예를 들어, 현재 작업 디렉터리의 `custom`이라는 하위 디렉터리에 있는 `azure-arc-kubeadm` 템플릿을 기반으로 하는 Kubernetes 클러스터용 템플릿 control.json 파일은 다음과 같이 만들 수 있습니다.
@@ -44,10 +44,10 @@ az arcdata dc config init --source azure-arc-kubeadm --path custom
 템플릿 파일을 만들면 Azure Arc 지원 데이터 컨트롤러 만들기 명령 중에 다음과 같이 파일을 적용할 수 있습니다.
 
 ```azurecli
-az arcdata dc  create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect  --k8s-namespace <namespace> --use-k8s
+az arcdata dc  create --path ./custom --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect  --k8s-namespace <namespace> --use-k8s
 
 #Example:
-#az arcdata dc  create --path ./custom --namespace arc --name arc --subscription <subscription ID> --resource-group my-resource-group --location eastus --connectivity-mode indirect --k8s-namespace <namespace> --use-k8s
+#az arcdata dc  create --path ./custom --name arc --subscription <subscription ID> --resource-group my-resource-group --location eastus --connectivity-mode indirect --k8s-namespace <namespace> --use-k8s
 ```
 
 ## <a name="use-custom-controljson-file-for-deploying-azure-arc-data-controller-using-azure-portal"></a>Azure Portal을 사용하여 Azure Arc 데이터 컨트롤러를 배포하기 위해 사용자 지정 control.json 파일 사용
@@ -58,6 +58,6 @@ Azure Arc 데이터 컨트롤러 만들기 화면에서 사용자 지정 템플�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 직접 연결 모드의 경우: [데이터 컨트롤러 배포 - 직접 연결 모드(필수 조건)](create-data-controller-direct-prerequisites.md)
+* 직접 연결 모드: [데이터 컨트롤러 배포-직접 연결 모드 (필수 구성 요소)](create-data-controller-direct-prerequisites.md)
 
-* 간접 연결 모드의 경우: [CLI를 사용하여 데이터 컨트롤러 만들기](create-data-controller-indirect-cli.md)
+* 간접 연결 모드의 경우: [CLI를 사용 하 여 데이터 컨트롤러 만들기](create-data-controller-indirect-cli.md)

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 07/30/2021
-ms.openlocfilehash: f1f352c93fca84f26516811b0014f6fca549b1cd
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.date: 12/03/2021
+ms.openlocfilehash: bd1401e61220a0756001aeaf510246e16c7c04d7
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668811"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133539935"
 ---
 # <a name="introduction-to-listing-options"></a>목록 옵션 소개
 
@@ -28,8 +28,8 @@ ms.locfileid: "129668811"
 | Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
 | 컨설팅 서비스 |  |  | &#10004; |  |
 | Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004; |
-| Dynamics 365 Customer Engagement 및 Power Apps | &#10004; | &#10004; | &#10004; | &#10004; |
-| Dynamics 365 for Operations | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dataverse의 Dynamics 365 앱 및 Power Apps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 운영 앱 | &#10004; | &#10004; | &#10004; | &#10004; |
 | IoT Edge 모듈 |  |  |  | &#10004; |
 | 관리형 서비스 |  |  |  | &#10004; |
 | Power BI App |  |  |  | &#10004; |
@@ -73,9 +73,9 @@ ms.locfileid: "129668811"
 | Azure 애플리케이션(솔루션 템플릿) | &#10004; |   |   |   |
 | 컨설팅 서비스 |   |   |   |   |
 | Azure 컨테이너 | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
-| Dynamics 365 business central | &#10004; |   |   |   |
-| Dynamics 365 Customer Engagement 및 Power Apps | &#10004; |   |   |   |
-| Dynamics 365 for operations | &#10004; |   |   |   |
+| Dynamics 365 Business Central | &#10004; |   |   |   |
+| Dataverse의 Dynamics 365 앱 및 Power Apps | &#10004; |   |   |   |
+| Dynamics 365 운영 앱 | &#10004; |   |   |   |
 | IoT Edge 모듈 | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
 | 관리형 서비스 |   | &#10004; |   |   |
 | Power BI App | &#10004; |   |   |   |
@@ -141,8 +141,8 @@ ms.locfileid: "129668811"
 | SaaS  | 온라인 상점 모두 | 온라인 상점 모두 | 온라인 상점 모두 |   | 온라인 상점 모두 &#42; |
 | Microsoft 365 앱 | AppSource | AppSource |   |   | AppSource &#42;&#42; |
 | Dynamics 365 Business Central | AppSource | AppSource |   |   |   |
-| Dynamics 365 for Customer Engagements & Power Apps | AppSource | AppSource |   |   |   |
-| Dynamics 365 Operations | AppSource | AppSource |   |   |   |
+| Dataverse의 Dynamics 365 앱 및 Power Apps | AppSource | AppSource |   |   |   |
+| Dynamics 365 운영 앱 | AppSource | AppSource |   |   |   |
 | Power BI App |   |   | AppSource |   |   |
 |||||||
 

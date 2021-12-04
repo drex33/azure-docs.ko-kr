@@ -1,24 +1,24 @@
 ---
 title: 호스트된 시험 사용에 대한 Azure Marketplace 구독 설정
-description: Dynamics 365 for Customer Engagement 및 Dynamics 365 for Operations 시험 사용에 대한 Azure Marketplace 구독을 설정하는 방법을 설명합니다.
+description: dataverse에서 dynamics 365 앱에 대 한 Azure Marketplace 구독을 설정 하 고 Power Apps 및 dynamics 365 Operations apps 테스트 드라이브를 설정 하는 방법을 설명 합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 10/01/2020
-ms.openlocfilehash: 3aa0ddf4a9013d5f64584fbe93a795f6420dc410
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.date: 12/03/2021
+ms.openlocfilehash: d8459eaf3a0a01b4d9538d4115cedf78366cba08
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389956"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542081"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>호스트된 시험 사용에 대한 Azure Marketplace 구독 설정
 
-이 문서에서는 **Dynamics 365 for Customer Engagement & Power Apps** 및 **Dynamics 365 for Operations** 시험 사용을 위한 환경에 대해 Azure Marketplace 구독을 설정하는 방법을 설명합니다.
+이 문서에서는 **dataverse 및 Power Apps** 또는 **dynamics 365 Operations apps** 환경에서 테스트 드라이브에 대 한 Azure Marketplace 구독 및 dynamics 365 앱을 설정 하는 방법을 설명 합니다.
 
-## <a name="set-up-for-dynamics-365-for-customer-engagement--power-apps"></a>Dynamics 365 for Customer Engagement 및 Power Apps 설정
+## <a name="set-up-for-dynamics-365-apps-on-dataverse-and-power-apps"></a>Dataverse에서 Dynamics 365 앱에 대 한 설정 및 Power Apps
 
 1. 관리자 계정으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 오른쪽 위 모서리의 계정 아이콘을 가리켜 Dynamics 365 시험 사용 인스턴스와 연결된 테넌트에 있는지 확인합니다. 올바른 테넌트에 있지 않은 경우 계정 아이콘을 선택하여 올바른 테넌트로 전환합니다.
@@ -100,7 +100,7 @@ ms.locfileid: "129389956"
 
          :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="계정에 로그인.":::
 
-6. 새 보안 그룹을 만들고 캔버스 앱(Power Apps)에 추가합니다. 이 단계는 캔버스 앱(Power Apps) 제품에만 적용됩니다.
+6. 새 보안 그룹을 만들고 캔버스 앱(Power Apps)에 추가합니다. 이 단계는 고객 Engagement의 Dynamics 365에만 적용 되며, PowerApps 앱 옵션을 사용 하는 PowerApps 제품 &.
     1. 새 보안 그룹을 만듭니다.
         1. **Azure Active Directory** 로 이동합니다.
         1. **관리** 에서 **그룹** 을 선택합니다.
@@ -126,7 +126,7 @@ ms.locfileid: "129389956"
             > - 위의 생성된 보안 그룹이 데이터 원본에 액세스할 수 있도록 허용합니다. 예를 들어 SharePoint 데이터 원본입니다.
             > - SharePoint를 열고 보안 그룹과 데이터 테이블을 공유합니다.
 
-7. 방금 만든 Azure 앱을 시험 사용 CRM 인스턴스에 애플리케이션 사용자로 추가합니다. 이 단계는 Dynamics 365 고객 참여 제품에만 적용됩니다.
+7. 방금 만든 Azure 앱을 시험 사용 CRM 인스턴스에 애플리케이션 사용자로 추가합니다. 이 단계는 dataverse의 Dynamics 365 앱 및 Power Apps 제품에만 적용 됩니다.
     1. **CRM 인스턴스** 에 로그인하고 **설정** > **보안** > **사용자** 를 선택합니다.
     2. **애플리케이션 사용자** 로 보기를 변경합니다.
 
@@ -143,7 +143,7 @@ ms.locfileid: "129389956"
     10. **다른 사용자 권한을 대신** 하 여 동작을 사용 하도록 설정 합니다.
     11. 시험 사용을 위해 만든 사용자 지정 보안 역할을 애플리케이션 사용자에게 할당합니다.
 
-## <a name="set-up-for-dynamics-365-for-operations"></a>Dynamics 365 for Operations 설정
+## <a name="set-up-for--dynamics-365-operations-apps"></a>Dynamics 365 작업 앱에 대 한 설정
 
 1. 관리자 계정으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 오른쪽 위 모서리의 계정 아이콘을 가리켜 Dynamics 365 시험 사용 인스턴스와 연결된 테넌트에 있는지 확인합니다. 올바른 테넌트에 있지 않은 경우 계정 아이콘을 선택하여 올바른 테넌트로 전환합니다.
@@ -182,7 +182,7 @@ ms.locfileid: "129389956"
         3. *시험 사용* 과 같은 설명을 입력하고 적절한 기간을 선택합니다. 시험 사용은 이 키가 만료되면 중단됩니다. 이 시점에서 AppSource에 새 키를 생성하고 제공해야 합니다.
         4. **추가** 를 선택하여 Azure 앱 비밀을 생성합니다. 이 블레이드는 나가는 대로 숨겨지므로 이 값을 복사합니다. 이 값은 나중에 시험 사용을 구성할 때 필요합니다.
 
-            :::image type="content" source="./media/test-drive/add-client-secret-operations.png" alt-text="클라이언트 암호 추가를 표시합니다.":::
+            :::image type="content" source="./media/test-drive/add-client-secret-operations.png" alt-text="클라이언트 암호 추가를 표시 합니다.":::
 
 4. 애플리케이션에 서비스 주체 역할을 추가하여 Azure AD 앱이 Azure 테넌트에서 사용자를 제거할 수 있도록 합니다.
     1. 관리 수준 PowerShell 명령 프롬프트를 엽니다.
@@ -194,8 +194,8 @@ ms.locfileid: "129389956"
 
         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="계정에 로그인.":::
 
-5. 이제 앱이 사용자를 관리할 수 있도록 하는 **Dynamics 365 for Operations** 에 위의 앱을 추가합니다.
-    1. **Dynamics 365 for Operations** 인스턴스를 찾습니다.
+5. 이제 **Dynamics 365 운영 앱** 에 위의 앱을 추가 하 여 앱이 사용자를 관리할 수 있도록 합니다.
+    1. **Dynamics 365 작업 앱** 인스턴스를 찾습니다.
     2. 왼쪽 위 모서리에서 삼선 메뉴(햄버거)를 클릭합니다.
     3. **시스템 관리** 를 선택합니다.
     4. **Azure Active Directory 애플리케이션** 을 선택합니다.

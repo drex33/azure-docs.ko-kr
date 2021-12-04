@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 11/05/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: d911f8687d855a46ded542d2ac544471f345a876
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.openlocfilehash: be795e9032256f138b1dab5f21adf80706d5f2fd
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133434922"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133540941"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크에서 Azure Machine Learning 추론 환경 보호
 
@@ -31,6 +31,8 @@ ms.locfileid: "133434922"
 > * [스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 > * [사용자 지정 DNS 사용](how-to-custom-dns.md)
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
+>
+> 보안 작업 영역을 만드는 방법에 대 한 자습서는 [자습서: 보안 작업 영역 만들기](tutorial-create-secure-workspace.md) 또는 [자습서: 템플릿을 사용 하 여 보안 작업 영역 만들기](tutorial-create-secure-workspace-template.md)를 참조 하세요.
 
 이 문서에서는 가상 네트워크에서 다음 추론 리소스를 보호하는 방법을 알아봅니다.
 > [!div class="checklist"]
@@ -62,8 +64,8 @@ ms.locfileid: "133434922"
 
 ### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-* 작업 영역에 프라이빗 __엔드포인트__ 가 있는 경우 Azure Kubernetes Service 클러스터는 작업 영역과 동일한 Azure 지역에 있어야 합니다.
-* 프라이빗 [AKS 클러스터와 함께 공용 FQDN(정규화된 도메인 이름)을](../aks/private-clusters.md) 사용하는 것은 Azure Machine Learning에서 __지원되지 않습니다.__
+* 작업 영역에 __개인 끝점이__ 있는 경우 Azure Kubernetes Service 클러스터는 작업 영역과 동일한 azure 지역에 있어야 합니다.
+* Azure Machine learning [에서는 개인 AKS 클러스터와 함께 공용 FQDN (정규화 된 도메인 이름)](../aks/private-clusters.md) 을 사용할 __수 없습니다__ .
 
 <a id="aksvnet"></a>
 

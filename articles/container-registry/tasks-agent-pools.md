@@ -4,12 +4,12 @@ description: 레지스트리에서 Azure Container Registry 작업을 실행할 
 ms.topic: article
 ms.date: 10/12/2020
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: c8c790e551cd6e31df515a3af9fc0ea835be1ce4
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
-ms.translationtype: HT
+ms.openlocfilehash: acf5e2b66f44fa8bfdc14a029716650ac68f8381
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769672"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541530"
 ---
 # <a name="run-an-acr-task-on-a-dedicated-agent-pool"></a>전용 에이전트 풀에서 ACR 작업 실행
 
@@ -111,7 +111,7 @@ az acr agentpool update \
 ```azurecli
 # Get the subnet ID
 subnetId=$(az network vnet subnet show \
-        --resource-grop myresourcegroup \
+        --resource-group myresourcegroup \
         --vnet-name myvnet \
         --name mysubnetname \
         --query id --output tsv)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c8c4e516b297bb5d4466910bff83859288e0ec89
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
-ms.translationtype: HT
+ms.openlocfilehash: a780f99b4413aadf46826a6b9688314dac36ce87
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110575394"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133543489"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>시나리오: NVA를 통한 트래픽 라우팅
 
@@ -118,6 +118,12 @@ Virtual WAN은 VNet 5,6이 가상 허브에 연결하고 VNet 2 NVA IP를 통해
 2. VNet 2,5,6의 집계된 고정 경로 항목을 허브 1의 기본 경로 테이블에 추가합니다.
 
    :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="예제":::
+   
+   > [!NOTE]
+   > 라우팅을 간소화 하 고 가상 WAN 허브 경로 테이블의 변경 내용을 줄이려면 가상 WAN 허브 (미리 보기)와 함께 새로운 BGP 피어 링을 사용 하는 것이 좋습니다. 자세한 내용은 다음 문서를 참조하세요. 
+   >* [시나리오: 가상 허브를 사용 하는 BGP 피어 링 (미리 보기)](scenario-bgp-peering-hub.md) 
+   >* [가상 허브 (미리 보기)를 사용 하 여 BGP 피어 링을 만드는 방법-Azure Portal](create-bgp-peering-hub-portal.md)
+   >
 
 3. VNet 2의 가상 네트워크 연결에서 VNet 5,6의 고정 경로를 구성합니다. 가상 네트워크 연결을 위한 라우팅 구성을 설정하려면 [가상 허브 라우팅](how-to-virtual-hub-routing.md#routing-configuration)을 참조하세요.
 

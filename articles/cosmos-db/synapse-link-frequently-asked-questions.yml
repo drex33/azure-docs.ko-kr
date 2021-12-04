@@ -8,12 +8,12 @@ metadata:
   ms.topic: conceptual
   ms.date: 11/02/2021
   ms.custom: synapse-cosmos-db
-  ms.openlocfilehash: 0820524698e13e5fe2e73ac3f245232a0a7ac227
-  ms.sourcegitcommit: 838413a8fc8cd53581973472b7832d87c58e3d5f
+  ms.openlocfilehash: 09a5e2c79c55c0590132d84be4894e96a54dee22
+  ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
   ms.translationtype: MT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/10/2021
-  ms.locfileid: "132137220"
+  ms.lasthandoff: 12/04/2021
+  ms.locfileid: "133540029"
 title: Azure Cosmos DB용 Azure Synapse Link에 대한 질문과 대답
 summary: >
   [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -53,18 +53,18 @@ sections:
     answer: >
       아니요, 영향을 주지 않습니다.
   - question: >
-      Azure Cosmos DB 서버리스 계정에서 Synapse Link 사용할 수 있나요?
-    answer: "예, 지원합니다. 그러나 기존 컨테이너는 SQL API 컨테이너 및 Azure CLI 또는 PowerShell을 통해서만 지원됩니다.         \n"
+      서버를 사용 하지 않는 Azure Cosmos DB 계정에서 Synapse 링크를 사용할 수 있나요?
+    answer: "예, SQL API 계정에만 지원 됩니다.         \n"
 - name: Azure Cosmos DB 분석 저장소
   questions:
   - question: >
       기존 컨테이너에서 분석 저장소를 사용하도록 설정할 수 있나요?
     answer: >
-      현재 기존 SQL API 컨테이너에 대해서만 분석 저장소를 사용하도록 설정할 수 있습니다.
+      현재 기존 SQL API 컨테이너에 대해서만 분석 저장소를 사용 하도록 설정할 수 있습니다.
   - question: >
       컨테이너를 만드는 동안 분석 저장소를 사용하도록 설정한 후 내 Azure Cosmos DB 컨테이너에서 사용하지 않도록 설정할 수 있나요?
     answer: >
-      현재 분석 저장소는 Azure Cosmos DB 컨테이너에서 사용하지 않도록 설정될 수 없습니다.
+      현재 Azure Cosmos DB 컨테이너에서는 분석 저장소를 사용 하지 않도록 설정할 수 없습니다.
   - question: >
       처리량이 자동 크기 조정 프로비저닝된 Azure Cosmos DB 컨테이너에 대해 분석 저장소가 지원되나요?
     answer: >
@@ -111,7 +111,7 @@ sections:
       컨테이너의 특정 항목이 [분석을 위해 잘 정의된 스키마](analytical-store-introduction.md#analytical-schema)를 위반하면 해당 항목은 분석 저장소에 포함되지 않습니다. 분석을 위해 잘 정의된 스키마로 인해 차단된 시나리오가 있으면 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 이메일로 도움을 요청하세요.
   - question: >
       분석 저장소의 데이터를 트랜잭션 저장소와 다르게 분할할 수 있나요?
-    answer: "기본적으로 분석 저장소는 분할되지 않습니다.분석 쿼리에 자주 사용되는 필터가 있는 경우 더 나은 쿼리 성능을 위해 이러한 필드를 기반으로 분할하는 옵션이 있습니다. 자세한 내용은 [사용자 지정 분할 소개](custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](configure-custom-partitioning.md) 문서를 참조하세요.  \n"
+    answer: "기본적으로 분석 저장소는 분할 되지 않습니다.분석 쿼리에 자주 사용되는 필터가 있는 경우 더 나은 쿼리 성능을 위해 이러한 필드를 기반으로 분할하는 옵션이 있습니다. 자세한 내용은 [사용자 지정 분할 소개](custom-partitioning-analytical-store.md) 및 [사용자 지정 분할 구성 방법](configure-custom-partitioning.md) 문서를 참조하세요.  \n"
   - question: >
       분석 저장소에서 트랜잭션 데이터가 열 형식으로 변환되는 방식을 사용자 지정하거나 재정의할 수 있나요?
     answer: >

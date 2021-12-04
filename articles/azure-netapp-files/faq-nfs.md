@@ -1,28 +1,28 @@
 ---
-title: Azure NetApp Files | 대한 NFS FAQ Microsoft Docs
-description: Azure NetApp Files NFS 프로토콜에 대한 FAQ(질문과 대답)에 답변합니다.
+title: Azure NetApp Files에 대 한 NFS Faq | Microsoft Docs
+description: Azure NetApp Files의 NFS 프로토콜에 대 한 Faq (질문과 대답)를 표시 합니다.
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: b-hchen
 ms.date: 10/19/2021
-ms.openlocfilehash: 092eb43f2e740abef78834558ca29b0e102ca684
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: fe237848659e69b2c1b8226c29343b426ccac4c4
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133487287"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545374"
 ---
-# <a name="nfs-faqs-for-azure-netapp-files"></a>Azure NetApp Files 대한 NFS FAQ
+# <a name="nfs-faqs-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 NFS Faq
 
-이 문서에서는 Azure NetApp Files NFS 프로토콜에 대한 FAQ(질문과 대답)를 제공합니다.
+이 문서에서는 Azure NetApp Files의 NFS 프로토콜에 대 한 Faq (질문과 대답)에 답변 합니다.
 
 ## <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Azure VM을 시작하거나 다시 부팅할 때 볼륨이 자동으로 탑재되도록 하려고 합니다.  내 호스트를 영구 NFS 볼륨에 대해 구성하려면 어떻게 할까요?
 
 VM 시작 또는 다시 부팅 시 NFS 볼륨이 자동으로 탑재되도록 하려면 항목을 호스트의 `/etc/fstab` 파일에 추가합니다. 
 
-자세한 내용은 [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)를 참조하세요.  
+자세한 내용은 [Windows 또는 Linux 가상 머신에 대 한 볼륨 탑재](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) 를 참조 하세요.  
 
 ## <a name="what-nfs-version-does-azure-netapp-files-support"></a>Azure NetApp Files에서 지원하는 NFS 버전은 무엇인가요?
 
@@ -34,7 +34,7 @@ Azure NetApp Files는 NFSv3 및 NFSv4.1을 지원합니다. NFS 버전 중 하�
 
 ## <a name="can-i-use-the-same-file-path-volume-creation-token-for-multiple-volumes"></a>동일한 파일 경로(볼륨 만들기 토큰)를 여러 볼륨에 사용할 수 있나요?
 
-예, 할 수 있습니다. 그러나 파일 경로는 각 서브넷 내에서 고유해야 합니다.     
+예, 할 수 있습니다. 그러나 파일 경로는 각 서브넷 내에서 고유 해야 합니다.     
 
 ## <a name="when-i-try-to-access-nfs-volumes-through-a-windows-client-why-does-the-client-take-a-long-time-to-search-folders-and-subfolders"></a>Windows 클라이언트를 통해 NFS 볼륨에 액세스하려고 할 때 클라이언트에서 폴더 및 하위 폴더를 검색하는 데 오래 걸리는 이유는 무엇인가요?
 

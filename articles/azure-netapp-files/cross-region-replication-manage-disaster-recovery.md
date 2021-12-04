@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/29/2021
 ms.author: b-hchen
-ms.openlocfilehash: da262ec9f6902f449ebc6e285d3cda64f44f1a4d
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: 86eabaf1cf705f3097964e3ae745c13071dd9d4e
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133481388"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544688"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>지역 간 복제를 사용하여 재해 복구 관리 
 
@@ -99,7 +99,7 @@ ms.locfileid: "133481388"
     a. *대상* 볼륨을 선택합니다. 스토리지 서비스에서 **복제** 를 클릭합니다. 그런 다음, **다시 동기화** 를 클릭합니다.   
     b. 메시지가 표시되면 **예** 를 입력하고 **다시 동기화** 단추를 클릭합니다.
 
-3. [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)의 단계를 수행하여 원본 볼륨을 다시 탑재합니다.  
+3. [Windows 또는 Linux 가상 머신에 대 한 볼륨 탑재](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)의 단계를 수행 하 여 원본 볼륨을 다시 탑재 합니다.  
     이 단계를 통해 클라이언트는 원본 볼륨에 액세스할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계  

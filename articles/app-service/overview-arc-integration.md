@@ -2,13 +2,13 @@
 title: Azure Arc의 App Service
 description: Azure 운영자를 위한 Azure Arc App Service 통합 소개입니다.
 ms.topic: article
-ms.date: 11/02/2021
-ms.openlocfilehash: 74cf4063d92aa5d563df881f2210e2ca5d08543e
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.date: 12/03/2021
+ms.openlocfilehash: b60ea1c7c2a4f1a4de27b93c5f3580189ad16fbe
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131440358"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545798"
 ---
 # <a name="app-service-functions-and-logic-apps-on-azure-arc-preview"></a>Azure Arc의 App Service, Functions 및 Logic Arc(미리 보기)
 
@@ -31,7 +31,7 @@ App Service Kubernetes 환경에는 다음과 같은 공개 미리 보기 제한
 | 제한 사항                                              | 세부 정보                                                                               |
 |---------------------------------------------------------|---------------------------------------------------------------------------------------|
 | 지원되는 Azure 지역                                 | 미국 동부, 서부 유럽                                                                  |
-| 클러스터 네트워킹 요구 사항                          | `LoadBalancer` 서비스 유형을 지원하고 공개적으로 주소를 지정할 수 있는 고정 IP를 제공해야 합니다. |
+| 클러스터 네트워킹 요구 사항                          | 서비스 유형을 지원해야 `LoadBalancer` 합니다. |
 | 클러스터 스토리지 요구 사항                             | 해당하는 경우 코드 기반 앱의 배포 및 빌드를 지원하려면 확장에서 사용할 수 있는 클러스터 연결 스토리지 클래스가 있어야 합니다.                      |
 | 기능: 네트워킹                                     | [사용할 수 없음(클러스터 네트워킹에 따라 다름)](#are-networking-features-supported)      |
 | 기능: 관리되는 ID                             | [사용할 수 없음](#are-managed-identities-supported)                                    |
@@ -127,28 +127,39 @@ ARM64 기반 클러스터는 현재 지원되지 않습니다.
 
 ## <a name="extension-release-notes"></a>확장 릴리스 정보
 
-### <a name="application-services-extension-v-090-may-2021"></a>응용 프로그램 서비스 확장 v 0.9.0 (2021 년 5 월)
+### <a name="application-services-extension-v-090-may-2021"></a>애플리케이션 서비스 확장 v 0.9.0(2021년 5월)
 
-- 응용 프로그램 서비스 확장의 초기 공개 미리 보기 릴리스입니다.
-- 웹, 함수 및 논리 응용 프로그램의 코드 및 컨테이너 기반 배포를 지원 합니다.
-- 웹 응용 프로그램 런타임 지원-.NET 3.1 및 5.0; 노드 JS 12 및 14 Python 3.6, 3.7 및 3.8; PHP 7.3 및 7.4; Ruby 2.5, 2.5.5, 2.6 및 2.6.2 critical; Java SE 8u232, 8u232, 8u232, 11.05, 11.06 및 11.07; Tomcat 8.5, 8.5.41, 8.5.53, 8.5.57, 9.0, 9.0.20, 9.0.33 및 9.0.37.
+- 애플리케이션 서비스 확장의 초기 공개 미리 보기 릴리스입니다.
+- 웹, 함수 및 논리 애플리케이션의 코드 및 컨테이너 기반 배포를 지원합니다.
+- 웹 애플리케이션 런타임 지원 - .NET 3.1 및 5.0; 노드 JS 12 및 14; Python 3.6, 3.7 및 3.8; PHP 7.3 및 7.4; Ruby 2.5, 2.5.5, 2.6 및 2.6.2; Java SE 8u232, 8u242, 8u252, 11.05, 11.06 및 11.07; Tomcat 8.5, 8.5.41, 8.5.53, 8.5.57, 9.0, 9.0.20, 9.0.33 및 9.0.37.
 
-### <a name="application-services-extension-v-0100-november-2021"></a>응용 프로그램 서비스 확장 v 0.10.0 (11 월 2021)
+### <a name="application-services-extension-v-0100-november-2021"></a>애플리케이션 서비스 확장 v 0.10.0(2021년 11월)
 
-확장이 안정적인 버전에 있고 자동 업그레이드-부 버전이 사용으로 설정 된 경우 확장은 자동으로 업그레이드 됩니다.  확장을 최신 버전의 확장으로 수동으로 업그레이드 하려면 아래 명령을 실행할 수 있습니다.
+- Envoy 엔드포인트에 할당하는 데 필요한 미리 할당된 고정 IP 주소에 대한 요구 사항이 제거됨
+- Keda를 v2.4.0으로 업그레이드
+- Envoy를 v1.19.0으로 업그레이드
+- Azure Function 런타임을 v3.3.1로 업그레이드
+- 안정성을 추가하려면 App Controller 및 Envoy 컨트롤러의 기본 복제본 수를 2로 설정합니다.
 
-- 엔보이 끝점에 할당 하는 데 필요한 미리 할당 된 고정 IP 주소에 대 한 요구 사항이 제거 되었습니다.
-- Keda를 v 2.4.0로 업그레이드
-- V 1.19.0로 엔보이 업그레이드
-- Azure Function runtime을 v 3.3.1로 업그레이드
-- App Controller 및 엔보이 컨트롤러의 기본 복제본 수를 2로 설정 하 여 더 많은 안정성 추가
-
-확장이 안정적인 버전에 있고 자동 업그레이드-부 버전이 true로 설정 된 경우 확장은 자동으로 업그레이드 됩니다.  확장을 최신 버전으로 수동으로 업그레이드 하려면 아래 명령을 실행할 수 있습니다.
+확장이 안정적인 버전이고 자동 업그레이드-부 버전이 true로 설정된 경우 확장이 자동으로 업그레이드됩니다.  확장을 최신 버전으로 수동으로 업그레이드하려면 아래 명령을 실행하면 됩니다.
 
 ```azurecli-interactive
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.10.0
 ```
 
+### <a name="application-services-extension-v-0110-december-2021"></a>애플리케이션 서비스 확장 v 0.11.0(2021년 12월)
+
+- Java 및 .NET 웹 애플리케이션에 대한 애플리케이션 Insights 지원 추가
+- .NET 6.0 웹 애플리케이션에 대한 지원이 추가되었습니다.
+- .NET Core 2.0 제거
+- 슬롯 교환 작업 실패와 관련된 해결된 문제
+- Ruby 앱을 만드는 동안 해결된 문제
+
+확장이 안정적인 버전이고 자동 업그레이드-부 버전이 true로 설정된 경우 확장이 자동으로 업그레이드됩니다.  확장을 최신 버전으로 수동으로 업그레이드하려면 아래 명령을 실행하면 됩니다.
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.11.0
+```
 
 ## <a name="next-steps"></a>다음 단계
 

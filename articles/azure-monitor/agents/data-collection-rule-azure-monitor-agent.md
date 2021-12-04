@@ -1,16 +1,16 @@
 ---
-title: Azure Monitor 에이전트를 위한 데이터 수집 구성(미리 보기)
+title: Azure Monitor 에이전트를 위한 데이터 수집 구성
 description: Azure Monitor 에이전트를 사용하여 가상 머신에서 데이터를 수집하는 데이터 수집 규칙을 만드는 방법을 설명합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/16/2021
-ms.openlocfilehash: 26aa625d7ada93c4524276ee195fd279d155e8c8
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 31c7e40e3512723f74c0838f9a947b76c063e263
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710324"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133539328"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent"></a>Azure Monitor 에이전트를 위한 데이터 수집 구성
 

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.openlocfilehash: c0226e8ffdd8445818313d6f21255752dc2e5616
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 12/03/2021
+ms.openlocfilehash: 7518d7942c03553fd2e023e27fa8f9af6775d42a
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083273"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133543221"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -29,15 +29,15 @@ ms.locfileid: "129083273"
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 
-1. 홈페이지에서 **Marketplace 제안** 타일을 선택합니다.
+1. 홈페이지에서 **Marketplace 상품** 타일을 선택합니다.
 
-    [![파트너 센터 홈페이지의 Marketplace 제안 타일을 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+    [ ![파트너 센터 홈페이지에서 보여 주는 Marketplace 제안 타일](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
-1. Marketplace 제안 페이지에서 **+ 새 제안**  >  **Azure 애플리케이션** 선택합니다.
+1. Marketplace 제품 페이지에서 **+ 새 제품**  >  **Azure 애플리케이션** 을 선택 합니다.
 
-    [![Marketplace 제안 페이지의 새 제안 단추를 보여 줍니다. ](./media/create-new-azure-app-offer/new-offer-azure-app-workspaces.png) ](./media/create-new-azure-app-offer/new-offer-azure-app-workspaces.png#lightbox)
+    [![Marketplace 제품 페이지의 새 제품 단추를 보여 줍니다. ](./media/create-new-azure-app-offer/new-offer-azure-app-workspaces.png) ](./media/create-new-azure-app-offer/new-offer-azure-app-workspaces.png#lightbox)
 
-1. 새 **Azure 애플리케이션** 대화 상자에서 **제안 ID** 를 입력합니다. 계정의 각 제품에 대한 고유 식별자입니다. 이 ID는 상업용 마켓플레이스 목록의 URL 및 Azure Resource Manager 템플릿에 표시됩니다(해당하는 경우). 예를 들어, 이 입력란에 test-offer-1을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
+1. **새 Azure 애플리케이션** 대화 상자에서 **제품 ID** 를 입력 합니다. 계정의 각 제품에 대한 고유 식별자입니다. 이 ID는 상업용 마켓플레이스 목록의 URL 및 Azure Resource Manager 템플릿에 표시됩니다(해당하는 경우). 예를 들어, 이 입력란에 test-offer-1을 입력하면 제품 웹 주소가 `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`이 됩니다.
 
      * 계정의 각 제품에는 고유한 제품 ID가 있어야 합니다.
      * 소문자와 숫자만 사용할 수 있습니다. 하이픈 및 밑줄을 포함할 수 있지만 공백은 포함할 수 없으며, 50자로 제한됩니다.
@@ -98,7 +98,7 @@ ms.locfileid: "129083273"
 1. 표시되는 필드를 완성합니다. 자세한 단계는 다음 문서를 참조하세요.
 
    - [Azure 테이블로 잠재 고객을 보내도록 제품 구성](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
-   - [Dynamics 365 Customer Engagement로 잠재 고객을 보내도록 제품 구성](partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement)(이전 명칭: Dynamics CRM Online)
+   - [Dynamics 365 Customer Engagement로 잠재 고객을 보내도록 제품 구성](partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement)
    - [HTTPS 엔드포인트로 잠재 고객을 보내도록 제품 구성](partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
    - [Marketo로 잠재 고객을 보내도록 제품 구성](partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
    - [Salesforce로 잠재 고객을 보내도록 제품 구성](partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)

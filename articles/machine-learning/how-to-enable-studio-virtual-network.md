@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 11/19/2021
 ms.custom: contperf-fy20q4, tracking-python, security
-ms.openlocfilehash: 479d19fe7f2b104d0ab2608bd0c362aae610d219
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 65bbb3a53bd2991fad95eaca512c82baff06ad6b
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132862343"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133540903"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning 스튜디오 사용
 
@@ -55,7 +55,8 @@ ms.locfileid: "132862343"
 > * [보안 유추 환경](how-to-secure-inferencing-vnet.md)
 > * [사용자 지정 DNS 사용](how-to-custom-dns.md)
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
-
+>
+> 보안 작업 영역을 만드는 자습서는 [자습서: 보안 작업 영역 만들기](tutorial-create-secure-workspace.md) 또는 [자습서: 템플릿을 사용하여 보안 작업 영역 만들기를](tutorial-create-secure-workspace-template.md)참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -71,16 +72,16 @@ ms.locfileid: "132862343"
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
 
-* 저장소 계정이 VNet에 있는 경우 studio를 사용할 때 추가 유효성 검사 요구 사항이 있습니다.
+* 스토리지 계정이 VNet에 있는 경우 Studio를 사용할 때 추가 유효성 검사 요구 사항이 있습니다.
 
-    * 저장소 계정에서 __서비스 끝점__ 을 사용 하는 경우 작업 영역 개인 끝점 및 저장소 서비스 끝점이 VNet의 동일한 서브넷에 있어야 합니다.
-    * 저장소 계정에서 __개인 끝점__ 을 사용 하는 경우 작업 영역 개인 끝점 및 저장소 서비스 끝점이 동일한 VNet에 있어야 합니다. 이 경우 다른 서브넷에 있을 수 있습니다.
+    * 스토리지 계정이 서비스 __엔드포인트__ 를 사용하는 경우 작업 영역 프라이빗 엔드포인트 및 스토리지 서비스 엔드포인트는 VNet의 동일한 서브넷에 있어야 합니다.
+    * 스토리지 계정이 프라이빗 __엔드포인트__ 를 사용하는 경우 작업 영역 프라이빗 엔드포인트 및 스토리지 서비스 엔드포인트는 동일한 VNet에 있어야 합니다. 이 경우 서로 다른 서브넷에 있을 수 있습니다.
 
 ### <a name="designer-sample-pipeline"></a>디자이너 샘플 파이프라인
 
-사용자가 디자이너 홈페이지에서 샘플 파이프라인을 실행할 수 없는 알려진 문제가 있습니다. 샘플 파이프라인에서 사용 되는 샘플 데이터 집합은 Azure 글로벌 데이터 집합 이므로 모든 가상 네트워크 환경을 만족할 수 없습니다.
+디자이너 홈페이지에서 사용자가 샘플 파이프라인을 실행할 수 없는 알려진 문제가 있습니다. 샘플 파이프라인에서 사용되는 샘플 데이터 세트는 Azure 글로벌 데이터 세트이며 모든 가상 네트워크 환경을 충족할 수는 없습니다.
 
-이 문제를 해결 하려면 공용 작업 영역을 사용 하 여 샘플 파이프라인을 실행 한 다음 디자이너를 사용 하는 방법을 파악 하 고 샘플 데이터 집합을 가상 네트워크 내 작업 영역의 고유한 데이터 집합으로 바꾸는 것이 좋습니다.
+이 문제를 해결하려면 공용 작업 영역을 사용하여 샘플 파이프라인을 실행하여 디자이너를 사용하는 방법을 파악한 다음, 샘플 데이터 세트를 가상 네트워크 내 작업 영역의 고유한 데이터 세트로 바꿀 수 있습니다.
 
 ## <a name="datastore-azure-storage-account"></a>데이터 저장소: Azure Storage 계정
 
@@ -93,10 +94,10 @@ Azure Blob 및 File Storage에 저장된 데이터에 대한 액세스를 사용
 
     자세한 내용은 [Blob 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 기본 제공 역할을 참조하세요.
 
-1. **스토리지 프라이빗 엔드포인트에 대한 '읽기 권한자' 역할을 작업 영역 관리 ID에 부여합니다**. 저장소 서비스에서 __개인 끝점__ 을 사용 하는 경우 작업 영역의 관리 되는 id **판독기** 에 개인 끝점에 대 한 액세스 권한을 부여 합니다. Azure AD의 작업 영역 관리 id는 Azure Machine Learning 작업 영역 이름과 동일 합니다.
+1. **스토리지 프라이빗 엔드포인트에 대한 '읽기 권한자' 역할을 작업 영역 관리 ID에 부여합니다**. 스토리지 서비스에서 프라이빗 __엔드포인트를__ 사용하는 경우 작업 영역의 관리 ID **읽기** 권한자 액세스 권한을 프라이빗 엔드포인트에 부여합니다. Azure AD에서 작업 영역의 관리 ID는 Azure Machine Learning 작업 영역과 이름이 같습니다.
 
     > [!TIP]
-    > 스토리지 계정에는 여러 개의 프라이빗 엔드포인트가 있을 수 있습니다. 예를 들어 하나의 저장소 계정에는 blob, 파일 및 dfs (Azure Data Lake Storage Gen2)에 대 한 별도의 개인 끝점이 있을 수 있습니다. 이러한 모든 끝점에 관리 되는 id를 추가 합니다.
+    > 스토리지 계정에는 여러 개의 프라이빗 엔드포인트가 있을 수 있습니다. 예를 들어 하나의 스토리지 계정에는 Blob, 파일 및 dfs(Azure Data Lake Storage Gen2)에 대한 별도의 프라이빗 엔드포인트가 있을 수 있습니다. 이러한 모든 엔드포인트에 관리 ID를 추가합니다.
 
     자세한 내용은 [판독기](../role-based-access-control/built-in-roles.md#reader) 기본 제공 역할을 참조하세요.
 
@@ -112,7 +113,7 @@ Azure Blob 및 File Storage에 저장된 데이터에 대한 액세스를 사용
     |작업 영역 기본 Blob 스토리지| 디자이너의 모델 자산을 저장합니다. 디자이너에서 모델을 배포하려면 해당 스토리지 계정에서 관리 ID 인증을 사용하도록 설정합니다. <br> <br> 관리 ID를 사용하도록 구성된 기본이 아닌 데이터 저장소를 사용하는 경우 디자이너 파이프라인을 시각화하고 실행할 수 있습니다. 그러나 기본 데이터 저장소에서 관리 ID를 사용하도록 설정하지 않고 학습된 모델을 배포하려고 하면 어떤 데이터 저장소를 사용 중이든 배포가 실패합니다.|
     |작업 영역 기본 파일 저장소| AutoML 실험 자산을 저장합니다. AutoML 실험을 제출하려면 해당 스토리지 계정에서 관리 ID 인증을 사용하도록 설정합니다. |
 
-1. **관리 ID 인증을 사용하도록 데이터 저장소 구성**. [서비스 엔드포인트](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts) 나 [개인 끝점](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts)을 사용 하 여 가상 네트워크에 Azure storage 계정을 추가한 후 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용 하도록 데이터 저장소를 구성 해야 합니다. 그러면 스튜디오에서 스토리지 계정의 데이터에 액세스할 수 있습니다.
+1. **관리 ID 인증을 사용하도록 데이터 저장소 구성**. [서비스 엔드포인트](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts) 또는 [프라이빗](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts)엔드포인트 를 사용하여 가상 네트워크에 Azure Storage 계정을 추가한 [후에는 관리 ID](../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용하도록 데이터 저장소를 구성해야 합니다. 그러면 스튜디오에서 스토리지 계정의 데이터에 액세스할 수 있습니다.
 
     Azure Machine Learning은 [데이터 저장소](concept-data.md#datastores)를 사용하여 스토리지 계정에 연결합니다. 새 데이터 저장소를 생성할 때 관리 ID 인증을 사용하도록 데이터 저장소를 구성하려면 다음 단계를 따르세요.
 
@@ -126,19 +127,19 @@ Azure Blob 및 File Storage에 저장된 데이터에 대한 액세스를 사용
 
         ![작업 영역 관리 ID를 사용하도록 설정하는 방법을 보여주는 스크린샷](./media/how-to-enable-studio-virtual-network/enable-managed-identity.png)
 
-    이러한 단계는 Azure RBAC를 사용 하 여 새 저장소 서비스에 작업 영역 관리 id를 __판독기__ 로 추가 합니다. __읽기 권한자__ 액세스를 사용하면 작업 영역에서 리소스를 볼 수 있지만 변경할 수는 없습니다.
+    다음 단계에서는 Azure RBAC를 사용하여 작업 영역의 관리 __ID를__ 읽기로 새 스토리지 서비스에 추가합니다. __읽기 권한자__ 액세스를 사용하면 작업 영역에서 리소스를 볼 수 있지만 변경할 수는 없습니다.
 
 ## <a name="datastore-azure-data-lake-storage-gen1"></a>데이터 저장소: Azure Data Lake Storage Gen1 사용
 
-Azure Data Lake Storage Gen1을 데이터 저장소로 사용하는 경우 POSIX 스타일 액세스 제어 목록만 사용할 수 있습니다. 다른 보안 주체와 마찬가지로 리소스에 작업 영역 관리 id 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [Azure Data Lake Storage Gen1의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)를 참조하세요.
+Azure Data Lake Storage Gen1을 데이터 저장소로 사용하는 경우 POSIX 스타일 액세스 제어 목록만 사용할 수 있습니다. 다른 보안 주체와 마찬가지로 리소스에 작업 영역의 관리 ID 액세스를 할당할 수 있습니다. 자세한 내용은 [Azure Data Lake Storage Gen1의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)를 참조하세요.
 
 ## <a name="datastore-azure-data-lake-storage-gen2"></a>데이터 저장소: Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2를 데이터 저장소로 사용하는 경우 Azure RBAC 및 POSIX 스타일 ACL(액세스 제어 목록)을 모두 사용하여 가상 네트워크 내부의 데이터 액세스를 제어할 수 있습니다.
 
-**Azure RBAC를 사용 하려면** 이 문서의 [데이터 저장소: Azure Storage 계정](#datastore-azure-storage-account) 섹션에 나오는 단계를 따르세요. Data Lake Storage Gen2은 Azure Storage을 기반으로 하므로 Azure RBAC를 사용 하는 경우에도 동일한 단계가 적용 됩니다.
+**Azure RBAC를 사용하려면** 이 문서의 [데이터 저장소: Azure Storage 계정](#datastore-azure-storage-account) 섹션의 단계를 따릅니다. Data Lake Storage Gen2는 Azure Storage 기반으로 하므로 Azure RBAC를 사용할 때 동일한 단계가 적용됩니다.
 
-**Acl을 사용 하려면** 다른 보안 주체와 마찬가지로 작업 영역 관리 id에 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [파일 및 디렉터리에 대한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)을 참조하세요.
+**ACL을 사용하려면** 다른 보안 주체와 마찬가지로 작업 영역의 관리 ID에 액세스 권한을 할당할 수 있습니다. 자세한 내용은 [파일 및 디렉터리에 대한 액세스 제어 목록](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)을 참조하세요.
 
 ## <a name="datastore-azure-sql-database"></a>데이터 저장소: Azure SQL 데이터베이스
 

@@ -6,16 +6,16 @@ manager: roshar
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
-ms.date: 11/18/2021
+ms.date: 12/02/2021
 ms.author: kirpas
 ms.subservice: disks
 ms.custom: devx-track-azurepowershell, references_regions, ignite-fall-2021
-ms.openlocfilehash: 475e7276a6fc186bc5ca0fa8314f5b3391af23c0
-ms.sourcegitcommit: 81a1d2f927cf78e82557a85c7efdf17bf07aa642
+ms.openlocfilehash: fd372f1573e4ead205d6ccaa20c4ac135abf0fc6
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2021
-ms.locfileid: "132811715"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133540470"
 ---
 # <a name="how-to-expand-virtual-hard-disks-attached-to-a-windows-virtual-machine"></a>Windows 가상 머신에 연결된 가상 하드 디스크를 확장하는 방법
 
@@ -140,6 +140,11 @@ VM에 원격으로 연결하고 **컴퓨터 관리(또는** **디스크 관리)�
 
 ## <a name="expand-the-volume-in-the-operating-system"></a>운영 체제에서 볼륨 확장
 
+VM의 디스크를 확장한 후에는 OS로 이동하고 볼륨을 확장하여 새 공간을 포함해야 합니다. 파티션을 확장하는 여러 방법이 있습니다. 이 섹션에서는 RDP 연결을 사용하여 VM을 연결하여 [Diskpart 사용](#using-diskpart) 또는 [디스크 관리자 사용을](#using-disk-manager)통해 파티션을 확장하는 방법을 다룹니다.
+
+### <a name="using-diskpart"></a>DiskPart 사용
+
+
 VM의 디스크를 확장한 후에는 OS로 이동하고 볼륨을 확장하여 새 공간을 포함해야 합니다. 파티션을 확장하는 여러 방법이 있습니다. 이 섹션에서는 RDP 연결을 사용하여 VM을 연결하고 **DiskPart** 를 사용하여 파티션을 확장하는 방법을 설명합니다.
 
 1. VM에 대한 RDP 연결을 엽니다.
@@ -152,6 +157,20 @@ VM의 디스크를 확장한 후에는 OS로 이동하고 볼륨을 확장하여
 
 1. **DISKPART** 프롬프트에 `extend [size=<size>]`를 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
 
+### <a name="using-disk-manager"></a>디스크 관리자 사용
+
+1. VM을 사용하여 원격 데스크톱 세션을 시작합니다.
+2. **디스크 관리** 를 엽니다.
+
+    :::image type="content" source="media/expand-os-disk/disk-mgr-1.png" alt-text="디스크 관리를 보여주는 스크린샷.":::
+
+1. 기존 **C:** 드라이브 파티션 -> 볼륨 확장을 마우스 오른쪽 단추로 클릭합니다.
+
+    :::image type="content" source="media/expand-os-disk/disk-mgr-2.png" alt-text="볼륨을 확장하는 방법을 보여주는 스크린샷.":::
+
+1. 업데이트된 용량을 가진 디스크를 볼 수 있어야 하는 단계를 따릅니다.
+
+    :::image type="content" source="media/expand-os-disk/disk-mgr-3.png" alt-text="디스크 관리자의 더 큰 C: 볼륨을 보여주는 스크린샷.":::
 
 ## <a name="next-steps"></a>다음 단계
 

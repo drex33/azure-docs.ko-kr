@@ -4,12 +4,12 @@ description: 여러 다른 Azure 지역의 Azure Container Instances 서비스�
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 13cdd53d345ed983fa4954662d3bb5905ccafbe3
-ms.sourcegitcommit: 8946cfadd89ce8830ebfe358145fd37c0dc4d10e
+ms.openlocfilehash: fcf3f3d5f2e7f4c9b5f070abb1c47cfccd0ef788
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2021
-ms.locfileid: "131843768"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545315"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -35,7 +35,7 @@ ms.locfileid: "131843768"
 | 지역 | 최대 CPU | 최대 메모리(GB) | VNET 최대 CPU | VNET 최대 메모리(GB) | 스토리지(GB) | GPU SKU(미리 보기) | 가용성 영역 지원 |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: | :----: |
 | 오스트레일리아 동부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 | Y |
-| 오스트레일리아 남동부 | 4 | 14 | 해당 없음 | 해당 없음 | 50 | 해당 없음 | N |
+| 오스트레일리아 남동부 | 4 | 14 | N/A | 해당 없음 | 50 | 해당 없음 | N |
 | 브라질 남부 | 4 | 16 | 2 | 8 | 50 | 해당 없음 | Y |
 | 캐나다 중부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 | N |
 | 캐나다 동부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 | N |
@@ -88,7 +88,7 @@ ms.locfileid: "131843768"
 ### <a name="windows-server-2016"></a>Windows Server 2016
 
 > [!NOTE]
-> 1B 및 2B 호스트는 Windows Server 2016에서 더 이상 사용 되지 않습니다. 1B, 2B 및 3B 호스트에 대한 자세한 정보는 [호스트 및 컨테이너 버전 호환성](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility)을 참조하세요.
+> 1B 및 2B 호스트는 Windows Server 2016 사용되지 않습니다. 1B, 2B 및 3B 호스트에 대한 자세한 정보는 [호스트 및 컨테이너 버전 호환성](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility)을 참조하세요.
 
 | 지역 |3B Max CPU | 3B 최대 메모리(GB) | 스토리지(GB) |
 | -------- | :----: | :-----: | :-------: |
@@ -116,7 +116,7 @@ ms.locfileid: "131843768"
 ### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC
 
 > [!NOTE]
-> 1b 및 2b 호스트는 Windows Server 2019 LTSC에서 더 이상 사용 되지 않습니다. 1B, 2B 및 3B 호스트에 대한 자세한 정보는 [호스트 및 컨테이너 버전 호환성](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility)을 참조하세요.
+> 1B 및 2B 호스트는 Windows Server 2019 LTSC에서 더 이상 사용되지 않습니다. 1B, 2B 및 3B 호스트에 대한 자세한 정보는 [호스트 및 컨테이너 버전 호환성](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility)을 참조하세요.
 
 | 지역 | 3B Max CPU | 3B 최대 메모리(GB) | 스토리지(GB) | 가용성 영역 지원 |
 | -------- | :----: | :-----: | :-------: |
@@ -150,4 +150,4 @@ ms.locfileid: "131843768"
 
 
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
-[az-region-support]: /availability-zones/az-region.md#azure-regions-with-availability-zones
+[az-region-support]: /azure/availability-zones/az-overview#regions

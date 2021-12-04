@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 2fb00842b3fb2b4b9794cbc636ceddad52cfb14b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7cf5616eaba863100cedbc7074d2877389976f97
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666025"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544802"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure Storage 준수 제품
 
-조직이 개인 데이터의 수집 및 사용을 제어하는 국가, 지역 및 산업별 요구 사항을 준수할 수 있도록 Microsoft Azure & Azure Storage 모든 클라우드 서비스 공급자의 가장 포괄적인 인증 및 증명 집합을 제공합니다.
+조직에서 개인의 데이터 수집 및 사용을 제어 하는 국가, 지역 및 산업별 요구 사항을 준수 하는 데 도움이 되는 Microsoft Azure & Azure Storage는 클라우드 서비스 공급자의 가장 포괄적인 인증 및 증명 집합을 제공 합니다.
 
 아래에서 Azure Storage의 준수 제품을 검색하여 Azure Storage 서비스 사용 시 서비스를 규제할 수 있습니다. Blobs(ADLS Gen2), Files, Queues, Tables, Disks, Cool Storage, Premium Storage 같은 Azure Storage 제품에 적용 가능합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "128666025"
 - [CSA-STAR-Self-Assessment](https://www.microsoft.com/trustcenter/compliance/csa-self-assessment)
 - [ISO 20000-1:2011](https://www.microsoft.com/TrustCenter/Compliance/ISO-20000-1)
 - [ISO 22301](/compliance/regulatory/offering-iso-22301)
-- [ISO 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)
+- [ISO 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001)
 - [ISO 27017](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)
 - [ISO 27018](https://www.microsoft.com/trustcenter/compliance/iso-iec-27018)
 - [ISO 9001](https://www.microsoft.com/trustcenter/compliance/iso-9001)

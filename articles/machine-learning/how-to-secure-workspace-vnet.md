@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 11/19/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 00aeff6150439b198e33b49478607d8333520814
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: 5b505ee9db26512f9fad8bafb82044d86d9fcb6a
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132868213"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133543679"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용하여 Azure Machine Learning 작업 영역 보호
 
@@ -32,7 +32,7 @@ ms.locfileid: "132868213"
 > * [사용자 지정 DNS 사용](how-to-custom-dns.md)
 > * [방화벽 사용](how-to-access-azureml-behind-firewall.md)
 >
-> 보안 작업 영역을 만드는 자습서는 [자습서: 보안 작업 영역 만들기](tutorial-create-secure-workspace.md)를 참조하세요.
+> 보안 작업 영역을 만드는 방법에 대 한 자습서는 [자습서: 보안 작업 영역 만들기](tutorial-create-secure-workspace.md) 또는 [자습서: 템플릿을 사용 하 여 보안 작업 영역 만들기](tutorial-create-secure-workspace-template.md)를 참조 하세요.
 
 이 문서에서는 가상 네트워크에서 다음 작업 영역 리소스를 사용하는 방법을 알아봅니다.
 > [!div class="checklist"]

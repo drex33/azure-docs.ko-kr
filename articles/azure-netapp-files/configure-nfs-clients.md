@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/22/2021
 ms.author: b-hchen
-ms.openlocfilehash: a35aef1e67201be384ecc7994937107bc8100ec2
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: 399003d0362dc480e027b78e58bc1c6e7a882f8a
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133487419"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545519"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 클라이언트 구성
 
@@ -314,4 +314,4 @@ NFSv4.x에서는 각 클라이언트가 *고유* 문자열로 서버에 대해 �
 
 * [Azure NetApp Files에 대한 NFS 볼륨 만들기](azure-netapp-files-create-volumes.md)
 * [Azure NetApp Files에 대한 이중 프로토콜 볼륨 만들기](create-volumes-dual-protocol.md)
-* [Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) 
+* [Windows 또는 Linux 가상 머신용 볼륨 탑재](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: sample
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
-ms.openlocfilehash: e94918baac4946194e2382c3a336bdd52c510f50
-ms.sourcegitcommit: 0415f4d064530e0d7799fe295f1d8dc003f17202
+ms.openlocfilehash: 7b2cd4200eb5ff93aa8587ce769d5bbb9a80e0d5
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2021
-ms.locfileid: "132713576"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544612"
 ---
 # <a name="how-to-use-sentiment-analysis-and-opinion-mining"></a>방법: 감정 분석 및 오피니언 마이닝 사용 
 
@@ -77,10 +77,11 @@ https://your-resource-name.cognitiveservices.azure.com/text/analytics/v3.1/senti
 
 자세한 내용은 참조 설명서를 참조하세요.
 * [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment)
-* [.NET](/dotnet/api/azure.ai.textanalytics.analyzesentimentaction?view=azure-dotnet#properties)
-* [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics.textanalyticsclient?view=azure-python#analyze-sentiment-documents----kwargs-)
-* [Java](/java/api/com.azure.ai.textanalytics.models.analyzesentimentoptions.setmodelversion?view=azure-java-stable#com_azure_ai_textanalytics_models_AnalyzeSentimentOptions_setModelVersion_java_lang_String_)
-* [JavaScript](/javascript/api/@azure/ai-text-analytics/analyzesentimentoptions?view=azure-node-latest)
+
+* [.NET](/dotnet/api/azure.ai.textanalytics.analyzesentimentaction#properties)
+* [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics.textanalyticsclient#analyze-sentiment-documents----kwargs-)
+* [Java](/java/api/com.azure.ai.textanalytics.models.analyzesentimentoptions.setmodelversion#com_azure_ai_textanalytics_models_AnalyzeSentimentOptions_setModelVersion_java_lang_String_)
+* [JavaScript](/javascript/api/@azure/ai-text-analytics/analyzesentimentoptions)
 
 ### <a name="input-languages"></a>입력 언어
 
@@ -99,7 +100,7 @@ API 요청을 보내려면 언어 리소스 엔드포인트와 키가 필요합�
 
 감정 분석 및 오피니언 마이닝 기능을 동기적으로 사용하는 것은 상태 비저장입니다. 계정에 데이터가 저장되지 않으며, 결과가 응답에서 즉시 반환됩니다.
 
-기능을 비동기식으로 사용하는 경우 API 결과는 요청이 수집된 시점부터 24시간 동안 사용할 수 있으며 응답에 표시됩니다. 이 기간이 지나면 결과가 제거되고 더 이상 검색할 수 없습니다.
+[!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
 
 ## <a name="getting-sentiment-analysis-and-opinion-mining-results"></a>감정 분석 및 오피니언 마이닝 결과 가져오기
 

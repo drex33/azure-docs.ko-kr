@@ -3,12 +3,12 @@ title: 지리적 재해 복구 - Azure Event Hubs| Microsoft Docs
 description: 지리적 지역을 사용하여 장애 조치(Failover)하고 Azure Event Hubs에서 재해 복구를 수행하는 방법
 ms.topic: article
 ms.date: 06/21/2021
-ms.openlocfilehash: 42057f88d76fb0822207ecaf0ece340101c6ec6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
-ms.translationtype: HT
+ms.openlocfilehash: f4cd3d727499111e762b73f51742cc25019b9f07
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122536011"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541378"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - 지리적 재해 복구 
 
@@ -89,7 +89,7 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 1. **Geo-DR(지리적 재해 복구) 별칭** 페이지의 왼쪽 메뉴에서 **공유 액세스 정책** 을 선택하여 별칭에 대한 기본 연결 문자열에 액세스합니다. 기본/보조 네임스페이스에 연결 문자열을 직접 사용하는 대신 이 연결 문자열을 사용합니다. 
 1. 이 **개요** 페이지에서 다음 작업을 수행할 수 있습니다. 
     1. 기본 네임스페이스와 보조 네임스페이스 간의 연결을 끊습니다. 도구 모음에서 **연결 끊기** 를 선택합니다. 
-    1. 보조 네임스페이스에 수동으로 장애 조치합니다. 도구 모음에서 **장애 조치(failover)** 를 선택합니다. 
+    1. 보조 네임스페이스에 수동으로 장애 조치합니다. 도구 모음에서 **장애 조치** 를 선택합니다. 
     
         > [!WARNING]
         > 장애 조치는 보조 네임스페이스를 활성화하고 지리적 재해 복구 페어링에서 기본 네임스페이스를 제거합니다. 새 지리적 재해 복구 쌍을 포함하는 다른 네임스페이스를 만듭니다. 
@@ -114,6 +114,31 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 > 실패 전달 의미 체계만이 지원됩니다. 이 시나리오에서는 새 네임스페이스를 사용하여 장애 조치하고 다시 페어링합니다. 예를 들어 SQL 클러스터에서 장애 복구는 지원되지 않습니다. 
 
 :::image type="content" source="./media/event-hubs-geo-dr/geo2.png" alt-text="장애 조치(failover) 흐름을 보여주는 이미지":::
+
+## <a name="manual-failover"></a>수동 장애 조치(failover)
+이 섹션에서는 Azure Portal, CLI, PowerShell, C# 등을 사용하여 수동으로 장애 조치(fail over)하는 방법을 보여줍니다.
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+1. Azure Portal에서 기본 네임스페이스로 이동합니다.
+1. 왼쪽 메뉴에서 **지역 복구를** 선택합니다.
+1. 보조 네임스페이스에 수동으로 장애 조치합니다. 도구 모음에서 **장애 조치** 를 선택합니다. 
+    
+    > [!WARNING]
+    > 장애 조치는 보조 네임스페이스를 활성화하고 지리적 재해 복구 페어링에서 기본 네임스페이스를 제거합니다. 새 지리적 재해 복구 쌍을 포함하는 다른 네임스페이스를 만듭니다.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/cli)
+[az eventhubs georecovery-alias failover](/cli/azure/eventhubs/georecovery-alias#az_eventhubs_georecovery_alias_fail_over) 명령을 사용합니다.
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+[Set-AzEventHubGeoDRConfigurationFailOver](/powershell/module/az.eventhub/set-azeventhubgeodrconfigurationfailover) cmdlet을 사용합니다. 
+
+# <a name="c"></a>[C#](#tab/csharp)
+[DisasterRecoveryConfigsOperationsExtensions.FailOverAsync](/dotnet/api/microsoft.azure.management.eventhub.disasterrecoveryconfigsoperationsextensions.failoverasync#Microsoft_Azure_Management_EventHub_DisasterRecoveryConfigsOperationsExtensions_FailOverAsync_Microsoft_Azure_Management_EventHub_IDisasterRecoveryConfigsOperations_System_String_System_String_System_String_System_Threading_CancellationToken_) 메서드를 사용합니다. 
+
+이 메서드를 사용하는 샘플 코드는 GitHub [GeoDRClient](https://github.com/Azure/azure-event-hubs/blob/3cb13d5d87385b97121144b0615bec5109415c5a/samples/Management/DotNet/GeoDRClient/GeoDRClient/GeoDisasterRecoveryClient.cs#L137) 샘플을 참조하세요. 
+
+---
 
 ## <a name="management"></a>관리
 

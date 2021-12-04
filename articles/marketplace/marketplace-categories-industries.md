@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 08/20/2021
-ms.openlocfilehash: 8c48f5ec6804996cb65428f2e66199cb30127849
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 12/03/2021
+ms.openlocfilehash: e60200e702d8d280baa5a75c45635876879bb2bb
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124824110"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133542423"
 ---
 # <a name="marketplace-categories-and-industries"></a>마켓플레이스 범주 및 산업
 
@@ -33,8 +33,8 @@ Microsoft AppSource 및 Azure Marketplace는 서로 다른 고객 가상 사용�
 | 관리되는 서비스 | &#x2714; |  |  |
 | SaaS | &#x2714; | &#x2714; | &#x2714; |
 | 컨설팅 서비스    | &#x2714; |   | &#x2714; |
-| Dynamics 365 Customer Engagement 및 Power Apps | | &#x2714; | &#x2714; |
-| Dynamics 365 for Operations | | &#x2714; | &#x2714; |
+| Dataverse 및 Power Apps Dynamics 365 앱 | | &#x2714; | &#x2714; |
+| Dynamics 365 Operations Apps | | &#x2714; | &#x2714; |
 | Dynamics 365 Business Central | | &#x2714; | &#x2714; |
 | Power BI 앱 | | &#x2714; | &#x2714; |
 |

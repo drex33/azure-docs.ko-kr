@@ -7,13 +7,13 @@ ms.topic: how-to
 author: sharath-satish-msft
 ms.author: shsatish
 ms.reviewer: stmummer
-ms.date: 09/27/2021
-ms.openlocfilehash: c01e7d909e3227fe672047bca897bfa9d9978f85
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 12/03/2021
+ms.openlocfilehash: a084b4d36b1cd88d2cd1e91325dd8178cc20ab23
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082152"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133545619"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>상업용 마켓플레이스 제품에 대한 공동 판매 구성
 
@@ -25,8 +25,8 @@ ms.locfileid: "129082152"
 - Azure Container
 - Azure Virtual Machine
 - 컨설팅 서비스
-- Dynamics 365 for Customer Engagement 및 Power Apps
-- Dynamics 365 for operations
+- Dataverse 및 Power Apps Dynamics 365 앱
+- Dynamics 365 Operations Apps
 - Dynamics 365 Business Central
 - IoT Edge 모듈
 - 관리형 서비스
@@ -41,21 +41,21 @@ ms.locfileid: "129082152"
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 
-1. 홈 페이지에서 **Marketplace 제품** 타일을 선택 합니다.
+1. 홈페이지에서 **Marketplace 상품** 타일을 선택합니다.
 
-     [![파트너 센터 홈 페이지를 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+     [![파트너 센터 홈페이지를 보여 줍니다. ](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
     > [!TIP]
-    > **Marketplace 제품** 타일이 표시 되지 않으면 [파트너 센터에서 상용 marketplace 계정을 만들고](create-account.md) 계정이 상업적 marketplace 프로그램에 등록 되어 있는지 확인 합니다.
+    > **Marketplace 제안** 타일이 표시되지 않으면 파트너 센터 상업용 Marketplace 계정을 만들고 계정이 [상업용 Marketplace](create-account.md) 프로그램에 등록되어 있는지 확인합니다.
 
-1. Marketplace 제품 페이지에서 공동 판매 하려는 제품을 선택 합니다.
+1. Marketplace 제품 페이지에서 공동 판매하려는 제안을 선택합니다.
 
     > [!NOTE]
     > 아직 게시되지 않은 새 제품 또는 이미 게시된 제품에 대해 공동 판매를 구성할 수 있습니다.
 
 1. 왼쪽 메뉴에서 **Microsoft와 공동 판매** 를 선택합니다.
 
-    [![Microsoft 페이지와 공동 판매 하는 방법을 보여 줍니다. ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png) ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png#lightbox)
+    [![Microsoft와 공동 판매 페이지를 보여 줍니다. ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png) ](./media/co-sell/co-sell-with-microsoft-tab-workspaces.png#lightbox)
 
 #### <a name="current-view"></a>[현재 보기](#tab/current-view)
 
@@ -105,11 +105,11 @@ ms.locfileid: "129082152"
 
 ### <a name="select-solution-areas"></a>솔루션 영역 선택
 
-솔루션 영역은 사용자 솔루션을 추가로 정의하는 데 도움이 됩니다. 이를 통해 Microsoft 영업팀은 솔루션의 가치 제안을 발견하고 이해할 수 있습니다. 제품에 대해 최대 5 개의 솔루션 영역을 하나 이상 선택 해야 합니다. 각 솔루션 영역에 대해 최대 5 개의 솔루션 하위 영역을 선택할 수 있습니다.
+솔루션 영역은 사용자 솔루션을 추가로 정의하는 데 도움이 됩니다. 이를 통해 Microsoft 영업팀은 솔루션의 가치 제안을 발견하고 이해할 수 있습니다. 제안에 대해 하나 이상의 솔루션 영역을 최대 5개 이상 선택해야 합니다. 각 솔루션 영역에 대해 최대 5개의 솔루션 하위 영역을 추가로 선택할 수 있습니다.
 
-1. **+ 솔루션 영역 추가 (최대 5 개)** 링크를 선택 합니다.
+1. + **솔루션 추가 영역(최대 5개)** 링크를 선택합니다.
 1. 표시되는 드롭다운 목록에서 솔루션 영역을 선택합니다.
-1. 솔루션 하위 영역을 하나 이상 선택 하 고 최대 5 개까지 선택 합니다. 여러 하위 영역을 선택하려면, `Ctrl` 키(Windows) 또는 `Command` 키(macOS)를 사용합니다.
+1. 하나 이상의 솔루션 하위 영역을 5개 이상 선택합니다. 여러 하위 영역을 선택하려면, `Ctrl` 키(Windows) 또는 `Command` 키(macOS)를 사용합니다.
 1. 다른 솔루션 영역을 추가하려면 1~3단계를 반복합니다.
 
 ## <a name="upload-documents"></a>문서 업로드

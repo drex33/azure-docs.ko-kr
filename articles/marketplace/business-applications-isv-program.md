@@ -6,17 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 11/29/2021
-ms.openlocfilehash: ad3afa54c98bc860a8d65da5b854ad46983d427a
-ms.sourcegitcommit: 8152290a8817d0882035f7f3f1fd56b80f87dcda
+ms.date: 12/03/2021
+ms.openlocfilehash: cac4756b5cb59be4a04032ae03fc5af818bda46d
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2021
-ms.locfileid: "133312914"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544194"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft 비즈니스 애플케이션 ISV(Independent Software Vendor) 연결 프로그램 온보딩 가이드
 
-[비즈니스 애플리케이션 ISV 연결 프로그램](https://partner.microsoft.com/solutions/business-applications/isv-overview)은 Dynamics 365 Customer Engagement 및 Power Apps(Dynamics CE 애플리케이션) 또는 Dynamics 365 Finance and Operations(Dynamics Ops 애플리케이션)으로 클라우드 기반의 최신 LOB(기간 업무) 솔루션을 개발하고 있는 ISV(독립 소프트웨어 공급업체)의 성장과 전반적인 성공을 가속화하는 것을 목적으로 합니다.
+[isv 커넥트 Business Applications](https://partner.microsoft.com/solutions/business-applications/isv-overview) 는 isv (독립 소프트웨어 공급 업체)에서 _dynamics 365 365 Power Apps 앱_ 을 사용 하 여 클라우드 기반의 최신 LOB (기간 업무) 솔루션을 구성 하는 데 사용 하는 isv (독립 소프트웨어 공급 업체)의 증가와 전반적인 성공을 가속화 하는 데 목적이 있습니다.
 
 비즈니스 애플리케이션 ISV 연결 프로그램의 기술, 마케팅, 영업 지원 혜택을 모두 등록하고 활용하려면 이 문서의 다음 섹션을 빠짐없이 살펴봅니다.
 
@@ -43,6 +43,8 @@ ISV 연결 프로그램을 위해 계정을 설정하고 관리하려면 [파트
 1. 버전 링크를 선택하고 계약을 확인합니다.
 1. 계약에 동의하고 수락하려면 **계약 수락** 을 선택합니다.
 
+    이 단계를 완료 하려면 Business Applications ISV 커넥트 추 록에 동의 해야 합니다. 이 규약이 옵션으로 표시 되지 않으면 아래 [응용 프로그램 게시 및 인증](#publish-and-certify-your-application) 으로 건너뛰고 먼저 초안 제안을 만드세요. 그런 다음 초안 제안이 있는 경우이 단계로 돌아옵니다. 이번에는 본 계약이 제공 되며 동의할 수 있습니다. 이 시스템을 사용 하려면 인증을 위한 초안 제안을 제출 하기 전에이 단계를 완료 해야 합니다.
+
 ## <a name="set-up-your-billing-information"></a>청구 정보 설정
 
 비즈니스 애플리케이션 ISV 연결 프로그램에 대한 청구 정보를 설정합니다.
@@ -53,7 +55,7 @@ ISV 연결 프로그램을 위해 계정을 설정하고 관리하려면 [파트
 1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165507)에 로그인합니다.
 1. **설정**(기어 아이콘) > **계정 설정** 을 선택합니다.
 1. **조직 프로필** 에서 **청구 프로필** 및 **개발자** 탭을 차례로 선택합니다.
-1. 법적 엔터티에서 채워지는 기본 연락처 및 청구 정보를 검토합니다.
+1. 법적 엔터티에서 채워지는 기본 연락처 및 청구 정보를 검토합니다. 청구서는 전자 메일로 전송 되므로 수신 하는 데 필요한 전자 메일 주소를 지정 해야 합니다.
 1. 변경하려면 **업데이트** 를 선택합니다.
 1. 해당하는 경우 세금 ID/VAT ID 설정을 제공합니다.
 1. 변경 내용을 저장하려면 **업데이트** 를 선택합니다.
@@ -63,12 +65,12 @@ ISV 연결 프로그램을 위해 계정을 설정하고 관리하려면 [파트
 
 ## <a name="publish-and-certify-your-application"></a>애플리케이션 게시 및 인증
 
-위의 단계를 완료한 후 기존 Dynamics 365 CE 및/또는 Dynamics 365 Ops 애플리케이션을 파트너 센터에서 편집하는 것이 가능해집니다. 또한 새 애플리케이션을 만드는 옵션도 있습니다.
+위의 단계를 완료 한 후에는 데이터 메시지 및 Power Apps 및/또는 _Dynamics 365 작업 앱_ _에서 기존 Dynamics 365 앱_ 을 파트너 센터에서 편집할 수 있습니다. 또한 새 애플리케이션을 만드는 옵션도 있습니다.
 
-비즈니스 애플리케이션 ISV 연결 프로그램에서 등록하는 마지막 단계는 기존 애플리케이션을 게시하고 인증하는 것입니다. AppSource에 애플리케이션을 게시하고 인증하려면 다음 중 적절한 링크를 따릅니다.
+비즈니스 애플리케이션 ISV 연결 프로그램에서 등록하는 마지막 단계는 기존 애플리케이션을 게시하고 인증하는 것입니다. Microsoft AppSource에 대 한 응용 프로그램을 만들고, 게시 하 고, 인증 하려면 적절 한 링크를 따르세요.
 
-- [Dynamics 365 Customer Engagement의 경우](/powerapps/developer/common-data-service/publish-app-appsource) 
-- [Dynamics 365 for Finance and Operations의 경우](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+- [Dataverse의 Dynamics 365 앱 및 Power Apps](/powerapps/developer/common-data-service/publish-app-appsource)
+- [Dynamics 365 작업 앱의 경우](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
 > 앱을 AppSource에서 라이브 상태로 유지하기 위해 6개월마다 다시 인증해야 합니다. 자세한 내용은 마켓플레이스 정책 [상업용 Marketplace 인증 정책](/legal/marketplace/certification-policies)을 참조하세요.

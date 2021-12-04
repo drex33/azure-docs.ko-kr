@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021
-ms.openlocfilehash: ff0e05eda8892da799ec7cc450a9e65d6e9065df
-ms.sourcegitcommit: b00a2d931b0d6f1d4ea5d4127f74fc831fb0bca9
+ms.openlocfilehash: be3ba7ab150d5805aa50d02a57b02a56262721fb
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2021
-ms.locfileid: "132875423"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133551193"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -102,7 +102,7 @@ Azure 스토리지 계정을 만들고 언어 리소스에 연결한 후에는 �
     "metadata": {
         "name": "MyProject",
         "multiLingual": true,
-        "description": "Tryong out custom text classification",
+        "description": "Trying out custom text classification",
         "modelType": "multiClassification",
         "language": "string",
         "storageInputContainerName": "YOUR-CONTAINER-NAME",

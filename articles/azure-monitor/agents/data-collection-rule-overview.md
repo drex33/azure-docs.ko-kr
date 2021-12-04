@@ -1,17 +1,17 @@
 ---
-title: Azure Monitor의 데이터 수집 규칙(미리 보기)
+title: Azure Monitor의 데이터 수집 규칙
 description: 콘텐츠 및 구조체를 비롯한 Azure Monitor에서의 DCR(데이터 수집 규칙) 개요와 이를 만들고 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
 ms.custom: references_region
-ms.openlocfilehash: 82f573b18ed8151d594fe16db7a8d45923136fb4
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.openlocfilehash: 7cd41389384ddc940b4d4bb2f73b5ccf50a80c77
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133440052"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133539252"
 ---
 # <a name="data-collection-rules-in-azure-monitor"></a>Azure Monitor의 데이터 수집 규칙
 DCR(데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정의하고 데이터를 보내거나 저장할 위치를 지정합니다. 이 문서에서는 콘텐츠 및 구조체를 포함한 데이터 수집 규칙의 개요와 이를 만들고 사용하는 방법을 설명합니다.

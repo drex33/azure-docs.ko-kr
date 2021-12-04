@@ -5,15 +5,15 @@ services: static-web-apps
 author: manekinekko
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 05/14/2021
+ms.date: 12/03/2021
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: be664a5bf29c95143e7706b2df2b49648959f584
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: da6cd8ac73b615b18dcd0f17ef8c8b0fee171f17
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131013672"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133544783"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-with-azure-functions"></a>Azure Functions를 사용하여 Azure Static Web Apps에 API 추가
 
@@ -28,6 +28,7 @@ Azure Functions에서 제공하는 Azure Static Web Apps에 서버리스 API를 
   - 계정이 없으면 [체험 계정을 만들 수 있습니다](https://azure.microsoft.com/free).
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Visual Studio Code용 [Azure Static Web Apps 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps)
+- Visual Studio Code용 [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 - 프런트 엔드 앱 및 API를 실행하기 위한 [Node.js](https://nodejs.org/download/)
 
 ## <a name="create-the-static-web-app"></a>정적 웹앱 만들기

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: sample
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: language-service-language-detection, ignite-fall-2021
-ms.openlocfilehash: 55584c58ebba3faf3d9517cf65827fd784d331a6
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 88c6f88fa614fb92d98e49d4b34f8c011b63b134
+ms.sourcegitcommit: 1e9139680ca51f55ac965c4dd6dd82bf2fd43675
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131100840"
+ms.lasthandoff: 12/04/2021
+ms.locfileid: "133541568"
 ---
 # <a name="how-to-use-language-detection"></a>언어 감지를 사용하는 방법
 
@@ -54,7 +54,7 @@ ms.locfileid: "131100840"
 
 언어 감지 기능을 동기적으로 사용하는 것은 상태 비저장입니다. 계정에 데이터가 저장되지 않으며, 결과가 응답에서 즉시 반환됩니다.
 
-이 기능을 비동기적으로 사용하는 경우 요청이 수집된 시간부터 24시간 동안 API 결과를 사용할 수 있으며 응답에 표시됩니다. 이 기간이 지나면 결과가 제거되고 더 이상 검색할 수 없습니다.
+[!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
 
 
 ## <a name="getting-language-detection-results"></a>언어 감지 결과 가져오기

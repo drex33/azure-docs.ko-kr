@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/30/2021
-ms.openlocfilehash: 47d200e4b7aa76317077a84652c755c04f49fb18
-ms.sourcegitcommit: 9ef0965834870700468c822ddcafc011881fc2d5
+ms.openlocfilehash: bbe224fc683bc6a72c67dd66d8a272798dc82067
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133480151"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133569379"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 백업 및 복원
 
@@ -21,7 +21,7 @@ ms.locfileid: "133480151"
 
 ## <a name="backup-overview"></a>Backup 개요
 
-유연한 서버는 데이터 파일의 스냅숏 백업을 수행 하 [고 영역에](overview.md#azure-regions)따라 영역 중복 저장소 또는 로컬 중복 저장소에 안전 하 게 저장 합니다. 또한 서버는 트랜잭션 로그 백업을 수행 하 고, WAL 파일을 보관할 준비가 된 시기와 함께 수행 합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7 일 이며 최대 35 일을 저장할 수 있습니다. 모든 백업은 저장된 미사용 데이터에 대한 AES 256비트 암호화를 사용하여 암호화됩니다.
+유연한 서버는 데이터 파일의 스냅숏 백업을 수행 하 [고 영역에](overview.md#azure-regions)따라 영역 중복 저장소 또는 로컬 중복 저장소에 안전 하 게 저장 합니다. 또한 서버는 트랜잭션 로그 백업을 수행 하 고 WAL 파일을 보관할 준비가 되었을 때이를 수행 합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7 일 이며 최대 35 일을 저장할 수 있습니다. 모든 백업은 저장된 미사용 데이터에 대한 AES 256비트 암호화를 사용하여 암호화됩니다.
 
 이러한 백업 파일은 Azure Database for PostgreSQL 유연한 서버 외부에서 서버를 만들 때 내보내거나 사용할 수 없습니다. 이러한 목적을 위해 PostgreSQL tools pg_dump 및 pg_restore/psql.를 사용할 수 있습니다.
 

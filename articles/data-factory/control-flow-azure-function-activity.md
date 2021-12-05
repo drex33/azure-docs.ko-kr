@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 8bb4321372411ea9f26757cf1eb4b2d75f435848
-ms.sourcegitcommit: 5b25f76d0fd0ffb6784a2afab808fa55b3eac07b
+ms.openlocfilehash: d0c0326a892419019beacd084ccd8e759db9f595
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2021
-ms.locfileid: "133517132"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133570632"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Data Factory의 Azure 함수 작업
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,6 +24,21 @@ Azure 함수 작업을 사용하면 Azure Data Factory 또는 Synapse 파이프�
 이 기능에 대한 소개 및 데모는 다음 비디오(8분)를 시청하세요.
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
+
+## <a name="create-an-azure-function-activity-with-ui"></a>UI를 사용하여 Azure 함수 활동 만들기
+
+파이프라인에서 Azure Function 활동을 사용하려면 다음 단계를 완료합니다.
+
+1. 파이프라인 작업 창의 Azure Function 섹션을 확장하고 Azure Function 활동을 파이프라인 캔버스로 끌어 끕다.
+1. 캔버스에서 새 Azure Function 활동을 선택하지 않은 경우 해당 **설정** 탭을 선택하여 세부 정보를 편집합니다.
+
+   :::image type="content" source="media/control-flow-azure-function-activity/azure-function-activity-configuration.png" alt-text="Azure 함수 활동에 대한 UI를 표시합니다.":::
+
+1. Azure Function 연결된 서비스가 아직 정의되지 않은 경우 새로 만들기를 선택하여 새 서비스를 만듭니다.  새 Azure 함수 연결된 서비스 창에서 기존 Azure 함수 앱 URL을 선택하고 함수 키를 제공합니다.
+   
+   :::image type="content" source="media/control-flow-azure-function-activity/new-azure-function-linked-service.png" alt-text="새 Azure Function 연결된 서비스 만들기 창을 표시합니다.":::
+
+1. Azure Function 연결된 서비스를 선택한 후 함수 이름 및 기타 세부 정보를 제공하여 구성을 완료합니다.
 
 ## <a name="azure-function-linked-service"></a>Azure 함수의 연결된 서비스
 
@@ -35,20 +50,20 @@ Azure 함수의 반환 형식은 유효한 `JObject`여야 합니다. ([JArray](
 
 | **속성** | **설명** | **필수** |
 | --- | --- | --- |
-| Type   | type 속성을 다음으로 설정해야 합니다. **AzureFunction** | Yes |
-| 함수 앱 URL | Azure 함수 앱의 URL입니다. 형식은 `https://<accountname>.azurewebsites.net`입니다. 이 URL은 Azure Portal에서 함수 앱을 볼 때 **URL** 섹션 아래에 표시되는 값입니다.  | Yes |
-| 함수 키 | Azure 함수의 액세스 키입니다. 해당 함수의 **관리** 섹션을 클릭하고 **기능 키** 또는 **호스트 키** 를 복사합니다. 자세한 내용은 다음을 참조하세요. [Azure Functions HTTP 트리거 및 바인딩](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | Yes |
+| 형식   | type 속성을 다음으로 설정해야 합니다. **AzureFunction** | 예 |
+| 함수 앱 URL | Azure 함수 앱의 URL입니다. 형식은 `https://<accountname>.azurewebsites.net`입니다. 이 URL은 Azure Portal에서 함수 앱을 볼 때 **URL** 섹션 아래에 표시되는 값입니다.  | 예 |
+| 함수 키 | Azure 함수의 액세스 키입니다. 해당 함수의 **관리** 섹션을 클릭하고 **기능 키** 또는 **호스트 키** 를 복사합니다. 자세한 내용은 다음을 참조하세요. [Azure Functions HTTP 트리거 및 바인딩](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | 예 |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Azure 함수 작업
 
 | **속성**  | **설명** | **허용된 값** | **필수** |
 | --- | --- | --- | --- |
-| Name  | 파이프라인의 작업 이름입니다.  | String | 예 |
+| 이름  | 파이프라인의 작업 이름입니다.  | String | 예 |
 | Type  | 작업의 형식은 'AzureFunctionActivity'입니다. | String | 예 |
 | 연결된 서비스 | 해당하는 Azure 함수 앱에 대한 Azure Function 연결된 서비스입니다.  | 연결된 서비스 참조 | Yes |
 | 함수 이름  | Azure 함수 앱에서 이 작업이 호출하는 함수의 이름입니다. | String | 예 |
-| 메서드  | 함수 호출에 대한 REST API 메서드입니다. | 문자열 지원 형식: ‘GET’, ‘POST’, ‘PUT’   | Yes |
+| 메서드  | 함수 호출에 대한 REST API 메서드입니다. | 문자열 지원 형식: ‘GET’, ‘POST’, ‘PUT’   | 예 |
 | 헤더  | 요청에 전송되는 헤더입니다. 예를 들어 요청에 언어 및 형식을 설정하려면 다음과 같이 씁니다. "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | 문자열(또는 resultType 문자열이 있는 식) | No |
 | 본문  | 함수 api 메서드에 대한 요청과 함께 전송되는 본문  | 문자열(또는 resultType 문자열이 있는 식) 또는 개체   | PUT/POST 메서드에 필요합니다. |
 |   |   |   | |

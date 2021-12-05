@@ -11,42 +11,42 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.date: 09/30/2021
-  ms.openlocfilehash: f9383ccbda8bedef23435b2b909a5025529f28c3
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: 4065b0839df4b3f588c82d141c53c4acdf753e1f
+  ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130226605"
+  ms.lasthandoff: 12/05/2021
+  ms.locfileid: "133569959"
 landingContent:
 - title: 시작하기
   linkLists:
   - linkListType: overview
     links:
     - text: 중앙 집중식 관리란 무엇인가요?
-      url: overview-azure-hybrid-benefit-scope.md?toc=/azure/cost-management-billing/scope-level/toc.json
+      url: overview-azure-hybrid-benefit-scope.md
   - linkListType: tutorial
     links:
     - text: 중앙에서 관리되는 Azure 하이브리드 혜택 최적화
-      url: tutorial-azure-hybrid-benefits-sql.md?toc=/azure/cost-management-billing/scope-level/toc.json
+      url: tutorial-azure-hybrid-benefits-sql.md
   - linkListType: how-to-guide
     links:
     - text: SQL Server 라이선스 할당 만들기
-      url: create-sql-license-assignments.md?toc=/azure/cost-management-billing/scope-level/toc.json
+      url: create-sql-license-assignments.md
 - title: 관리
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 중앙에서 관리되는 Azure 하이브리드 혜택으로 전환
-      url: transition-existing.md?toc=/azure/cost-management-billing/scope-level/toc.json
+      url: transition-existing.md
   - linkListType: reference
     links:
     - text: FAQ
-      url: faq-azure-hybrid-benefit-scope.yml?toc=/azure/cost-management-billing/scope-level/toc.json
+      url: faq-azure-hybrid-benefit-scope.yml
 - title: 자세한 정보
   linkLists:
   - linkListType: concept
     links:
     - text: Azure에서 할당된 라이선스를 적용하는 방법
-      url: manage-licenses-centrally.md?toc=/azure/cost-management-billing/scope-level/toc.json
+      url: manage-licenses-centrally.md
     - text: SQL Server HADR 및 Azure 하이브리드 혜택
-      url: sql-server-hadr-licenses.md?toc=/azure/cost-management-billing/scope-level/toc.json
+      url: sql-server-hadr-licenses.md

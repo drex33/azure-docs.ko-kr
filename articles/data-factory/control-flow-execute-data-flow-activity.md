@@ -9,18 +9,29 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 09/09/2021
-ms.openlocfilehash: c42ba6008f80f3fe625d9716c6a6d62f3fb60d2a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: cfb385432b149fae0720f657228710c324d6569b
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130260287"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133568536"
 ---
 # <a name="data-flow-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Azure Data Factory 및 Azure Synapse Analytics의 데이터 흐름 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 데이터 흐름 작업을 사용하여 매핑 데이터 흐름을 통해 데이터를 변환하고 이동합니다. 데이터 흐름을 처음 접하는 경우 [매핑 데이터 흐름 개요](concepts-data-flow-overview.md)를 참조하세요.
+
+## <a name="create-a-data-flow-activity-with-ui"></a>UI를 사용 하 여 데이터 Flow 작업 만들기
+
+파이프라인에서 데이터 Flow 작업을 사용 하려면 다음 단계를 완료 합니다.
+
+1. 파이프라인 활동 창에서 _데이터 Flow_ 을 검색 하 고 파이프라인 캔버스로 데이터 Flow 활동을 끌어 놓습니다.
+1. 캔버스에서 새 데이터 Flow 작업을 선택 합니다 (아직 선택 하지 않은 경우), 해당 **설정** 탭에서 세부 정보를 편집 합니다.
+
+   :::image type="content" source="media/control-flow-execute-data-flow-activity/data-flow-activity.png" alt-text="데이터 Flow 작업에 대 한 UI를 표시 합니다.":::
+
+1. 기존 데이터 흐름을 선택 하거나 새로 만들기 단추를 사용 하 여 새 흐름을 만듭니다.  구성을 완료 하는 데 필요한 다른 옵션을 선택 합니다.
 
 ## <a name="syntax"></a>구문
 

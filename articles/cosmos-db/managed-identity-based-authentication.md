@@ -9,12 +9,12 @@ ms.date: 07/02/2021
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: f8e97865f1d2d9cd0f9d6caa0e50ec1ab79c8bd4
-ms.sourcegitcommit: 61f87d27e05547f3c22044c6aa42be8f23673256
+ms.openlocfilehash: 7685a2206bc601bcbfaa274c3ddb5730ad504b7e
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2021
-ms.locfileid: "132062494"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133570139"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>시스템 할당 관리 ID를 사용하여 Azure Cosmos DB 데이터에 액세스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -96,10 +96,10 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 이제 Azure Cosmos DB 권한에 **DocumentDB 계정 기여자** 역할이 있는 시스템 할당 관리 ID가 있는 함수 앱이 있습니다. 다음 함수 앱 코드는 Azure Cosmos DB 키를 가져오고 CosmosClient 개체를 만들고 수족관의 온도를 가져온 다음 이를 Azure Cosmos DB에 저장합니다.
 
-이 샘플은 [목록 키 API](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-keys)를 사용하여 Azure Cosmos DB 계정 키에 액세스합니다.
+이 샘플은 [목록 키 API](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/database-accounts/list-keys)를 사용하여 Azure Cosmos DB 계정 키에 액세스합니다.
 
 > [!IMPORTANT] 
-> [Cosmos DB 계정 리더 역할을 할당](#grant-access-to-your-azure-cosmos-account)하려면 [목록 읽기 전용 키 API](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-read-only-keys)를 사용해야 합니다. 이렇게 하면 읽기 전용 키만 채워집니다.
+> [Cosmos DB 계정 리더 역할을 할당](#grant-access-to-your-azure-cosmos-account)하려면 [목록 읽기 전용 키 API](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/database-accounts/list-read-only-keys)를 사용해야 합니다. 이렇게 하면 읽기 전용 키만 채워집니다.
 
 목록 키 API는 `DatabaseAccountListKeysResult` 개체를 반환합니다. 이 유형은 C# 라이브러리에 정의되어 있지 않습니다. 다음 코드에서는 이 클래스의 구현을 보여 줍니다.  
 

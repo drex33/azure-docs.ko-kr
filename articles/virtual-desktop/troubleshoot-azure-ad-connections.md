@@ -8,19 +8,19 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 08/20/2021
 ms.author: helohr
-ms.openlocfilehash: f168c05e5df3421126c94bea7160896fb1b75363
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
-ms.translationtype: HT
+ms.openlocfilehash: 768336f46f16dfe39b6e4c47f556a9a1530f503d
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662275"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133569307"
 ---
 # <a name="connections-to-azure-ad-joined-vms"></a>Azure AD 조인 VM에 연결
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 통해 Azure Virtual Desktop에 적용됩니다.
 
-이 문서를 참조하여 Azure Virtual Desktop에서 Azure AD 조인된 VM에 연결하는 동안 문제를 해결합니다.
+이 문서를 사용 하 여 azure 가상 데스크톱에서 Azure Active Directory (azure AD)에 연결 된 vm에 대 한 연결 문제를 해결할 수 있습니다.
 
 ## <a name="provide-feedback"></a>피드백 제공
 
@@ -32,6 +32,31 @@ ms.locfileid: "122662275"
 
 **귀하의 계정은 이 디바이스를 사용하지 못하도록 구성되어 있습니다. 자세한 내용은 시스템 관리자에게 문의** 하여 사용자 계정에 VM에 대한 [가상 머신 사용자 로그인 역할](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#azure-role-not-assigned)이 부여되었는지 확인해야 합니다. 
 
+### <a name="i-cant-sign-in-even-though-im-using-the-right-credentials"></a>올바른 자격 증명을 사용 하는 경우에도 로그인 할 수 없습니다.
+
+로그인 할 수 없고 자격 증명이 올바르지 않다는 오류 메시지를 받을 수 없는 경우 먼저 올바른 자격 증명을 사용 하 고 있는지 확인 합니다. 오류 메시지를 계속 확인 하는 경우 다음 사항을 확인 합니다.
+
+- 조건부 액세스 정책이 Azure Windows VM 로그인 클라우드 응용 프로그램에 대 한 다단계 인증 요구 사항을 제외 하나요?
+- 각 사용자에 대 한 VM 또는 리소스 그룹에 **가상 컴퓨터 사용자 로그인** RBAC (역할 기반 액세스 제어) 권한을 할당 했습니까? 
+
+이러한 질문 중 하나에 "아니요"로 대답 한 경우 [다단계 인증 사용](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms) 의 지침에 따라 다단계 인증을 다시 구성 합니다.
+
+> [!WARNING] 
+> VM 로그인은 사용자별로 사용 하도록 설정 되거나 Azure AD 다단계 인증을 적용 하는 기능을 지원 하지 않습니다. VM에서 다단계 인증을 사용 하 여 로그인 하려고 하면 로그인 할 수 없고 오류 메시지가 표시 됩니다.
+
+Log Analytics를 통해 Azure AD 로그인 로그에 액세스할 수 있는 경우 다단계 인증을 사용 하도록 설정 하 고 이벤트를 트리거하는 조건부 액세스 정책을 확인할 수 있습니다. 표시 되는 이벤트는 VM에 대 한 비 대화형 사용자 로그인 이벤트입니다. 즉, VM이 Azure AD에 액세스 하는 외부 IP 주소에서 IP 주소를 사용 하는 것으로 나타납니다. 
+
+다음 Kusto 쿼리를 실행 하 여 로그인 로그에 액세스할 수 있습니다.
+
+```kusto
+let UPN = "userupn";
+AADNonInteractiveUserSignInLogs
+| where UserPrincipalName == UPN
+| where AppId == "38aa3b87-a06d-4817-b275-7a316988d93b"
+| project ['Time']=(TimeGenerated), UserPrincipalName, AuthenticationRequirement, ['MFA Result']=ResultDescription, Status, ConditionalAccessPolicies, DeviceDetail, ['Virtual Machine IP']=IPAddress, ['Cloud App']=ResourceDisplayName
+| order by ['Time'] desc
+```
+
 ## <a name="windows-desktop-client"></a>Windows 데스크톱 클라이언트
 
 ### <a name="the-logon-attempt-failed"></a>로그온 시도가 실패함
@@ -41,7 +66,7 @@ Windows 보안 자격 증명 프롬프트에 **로그온 시도 실패** 라는 
 - 세션 호스트 OR과 동일한 Azure AD 테넌트에 Azure AD 조인된 디바이스 또는 하이브리드 Azure AD 조인된 디바이스를 사용 중입니다.
 - 세션 호스트와 동일한 Azure AD 테넌트에 Azure AD 등록된 Windows 10 2004 이상을 실행하는 디바이스를 사용 중입니다.
 - 로컬 PC와 세션 호스트 모두에서 [PKU2U 프로토콜이 사용으로 설정](/windows/security/threat-protection/security-policy-settings/network-security-allow-pku2u-authentication-requests-to-this-computer-to-use-online-identities)됩니다.
-- Azure AD 조인 VM에서 지원되지 않으므로 사용자 계정에 대해 [사용자별 MFA가 사용되지 않습니다](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms).
+- Azure AD에 가입 된 Vm에 대해 지원 되지 않으므로 사용자 [단위 multi-factor authentication은 사용자 계정에 대해 사용 하지 않도록 설정 됩니다](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms) .
 
 ### <a name="the-sign-in-method-youre-trying-to-use-isnt-allowed"></a>사용하려는 로그인 방법은 허용되지 않음
 

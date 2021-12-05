@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: a1398c23adcadaf245bae7271ed91e7d2a6763da
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
-ms.translationtype: HT
+ms.openlocfilehash: 4701cb9396bc38d1b94a624213a579d4bc559241
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756098"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133569132"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기
 
@@ -57,7 +57,7 @@ Windows Virtual Desktop 서비스는 FSLogix 프로필 컨테이너를 권장 �
 FSLogix 소프트웨어를 사용하여 가상 머신을 구성하려면 호스트 풀에 등록된 각 머신에서 다음을 수행합니다.
 
 1. 가상 머신을 만들 때 입력한 자격 증명으로 [가상 머신에 연결](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine)합니다.
-2. 인터넷 브라우저를 시작하고 [이 링크](https://go.microsoft.com/fwlink/?linkid=2084562)로 이동하여 FSLogix 에이전트를 다운로드합니다.
+2. 인터넷 브라우저를 시작하고 [이 링크](https://aka.ms/fslogix_download)로 이동하여 FSLogix 에이전트를 다운로드합니다.
 3. .zip 파일에서 \\\\Win32\\ 릴리스 또는 \\\\X64\\ 릴리스로 이동하고 **FSLogixAppsSetup** 를 실행하여 FSLogix 에이전트를 설치합니다.  FSLogix를 설치하는 방법에 대해 자세히 알아보려면 [FSLogix 다운로드 및 설치](/fslogix/install-ht/)를 참조하세요.
 4. **Program Files** > **FSLogix** > **Apps** 로 이동하여 에이전트가 설치되었는지 확인합니다.
 5. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행합니다. **컴퓨터\\HKEY_LOCAL_MACHINE\\software\\FSLogix** 로 이동합니다.

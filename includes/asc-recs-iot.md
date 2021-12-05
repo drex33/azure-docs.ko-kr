@@ -1,16 +1,16 @@
 ---
 author: memildin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 09/05/2021
+ms.date: 12/04/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 1e6040007e345be6e1b80e7e797daf4b1f3d862a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 72d99d5222103f0e65fb997d93fb9f76c58bb0db
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123536896"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133568687"
 ---
 이 범주에는 **12** 개의 권장 사항이 있습니다.
 

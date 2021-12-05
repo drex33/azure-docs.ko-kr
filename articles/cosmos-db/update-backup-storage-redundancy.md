@@ -4,20 +4,30 @@ description: Azure CLI 및 PowerShell을 사용하여 백업 스토리지 중복
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 12/03/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 5064d834fb55f69a8aed2d99537231c78a3cad3b
-ms.sourcegitcommit: 93c7420c00141af83ed3294923b4826dd4dc6ff2
+ms.openlocfilehash: a6e11767aa9eea12b79dac2a1207c94dddc810b3
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2021
-ms.locfileid: "133437898"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133570759"
 ---
 # <a name="update-backup-storage-redundancy-for-azure-cosmos-db-periodic-backup-accounts"></a>Azure Cosmos DB 정기 백업 계정에 대한 백업 스토리지 중복 업데이트
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 기본적으로 Azure Cosmos DB는 [쌍을 이루는 지역](../availability-zones/cross-region-replication-azure.md)으로 복제되는 지역 중복 [Blob Storage](../storage/common/storage-redundancy.md)에 정기 모드 백업 데이터를 저장합니다. 기본 백업 스토리지 중복성을 재정의할 수 있습니다. 이 문서에서는 Azure CLI 및 PowerShell을 사용하여 백업 스토리지 중복성을 업데이트하는 방법을 설명합니다. 또한 계정에서 Azure 정책을 구성하여 필요한 스토리지 중복성을 적용하는 방법을 보여 줍니다.
+
+## <a name="update-using-azure-portal"></a>Azure Portal 사용하여 업데이트
+
+다음 단계를 사용하여 Azure Portal 백업 스토리지 중복성을 업데이트합니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure Cosmos DB 계정으로 이동합니다.
+
+1. 백업 **& 복원** 창을 열고, 백업 스토리지 중복성을 업데이트하고, **제출을** 선택합니다. 작업을 완료하는 데 몇 분 정도 걸립니다.
+
+   :::image type="content" source="./media/update-backup-storage-redundancy/update-backup-storage-redundancy-portal.png" alt-text="Azure Portal 백업 스토리지 중복성 업데이트":::
 
 ## <a name="update-using-cli"></a>CLI를 사용하여 업데이트
 

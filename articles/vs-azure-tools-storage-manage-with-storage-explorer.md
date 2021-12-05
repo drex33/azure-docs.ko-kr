@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: f08d1c38965121564c21dee7053ae0c152b82814
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.openlocfilehash: 58cf08c8217a86d6b8d68015811c731040a02d74
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131021983"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133570272"
 ---
 # <a name="get-started-with-storage-explorer"></a>Storage Explorer 시작
 
@@ -77,7 +77,6 @@ Storage Explorer는 Azure 리소스에 연결하는 여러 방법을 제공합�
 
 * [Azure에 로그인하여 구독 및 해당 리소스에 액세스](#sign-in-to-azure)
 * [개별 Azure Storage 리소스에 연결](#attach-to-an-individual-resource)
-* [CosmosDB 리소스에 연결](#connect-to-azure-cosmos-db)
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -223,22 +222,6 @@ Storage Explorer는 Azure Storage 에뮬레이터에 연결할 수 있습니다.
 1. **Azure Storage에 연결** 대화 상자의 **리소스 선택** 패널에서 **로컬 스토리지 에뮬레이터** 를 선택합니다.
 1. 연결에 사용할 표시 이름과 사용하려는 각 에뮬레이트된 서비스의 포트 번호를 입력합니다. 서비스에 사용하지 않으려면 해당 포트를 비워 둡니다. **다음** 을 선택합니다.
 1. **요약** 패널에서 연결 정보를 검토합니다. 연결 정보가 올바른 경우 **연결** 을 선택합니다.
-
-### <a name="connect-to-azure-cosmos-db"></a>Azure Cosmos DB에 연결
-
-Storage Explorer는 Azure Cosmos DB 리소스에 대한 연결도 지원합니다.
-
-#### <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>연결 문자열을 사용하여 Azure Cosmos DB 계정에 연결
-
-Azure 구독을 통해 Azure Cosmos DB 계정을 관리하는 대신 연결 문자열을 사용하여 Azure Cosmos DB에 연결할 수 있습니다. 연결하려면 다음 단계를 따릅니다.
-
-1. **EXPLORER** 에서 **로컬 및 연결됨** 을 확장하고 **Cosmos DB 계정** 을 마우스 오른쪽 단추로 클릭한 다음, **Azure Cosmos DB에 연결** 을 선택합니다.
-
-    ![연결 문자열을 사용하여 Azure Cosmos DB에 연결][21]
-
-1. Azure Cosmos DB API를 선택하고 **연결 문자열** 데이터를 입력한 다음, **확인** 을 선택하여 Azure Cosmos DB 계정을 연결합니다. 연결 문자열을 검색하는 방법에 대한 자세한 내용은 [Azure Cosmos 계정 관리](./cosmos-db/how-to-manage-database-account.md)를 참조하세요.
-
-    ![연결 문자열][22]
 
 #### <a name="connect-to-azure-data-lake-store-by-uri"></a>URI로 Azure Data Lake Store에 연결
 

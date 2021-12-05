@@ -8,12 +8,12 @@ ms.date: 11/03/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3161971323ebda6b55ec0fb423089d3115cd9c01
-ms.sourcegitcommit: e41827d894a4aa12cbff62c51393dfc236297e10
+ms.openlocfilehash: b1db0671c1848e9fb1422507702ddd37b5bcc7e9
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2021
-ms.locfileid: "131562127"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133570044"
 ---
 # <a name="restore-an-azure-cosmos-db-account-that-uses-continuous-backup-mode"></a>연속 백업 모드를 사용하는 Azure Cosmos DB 계정 복원
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -50,7 +50,11 @@ Azure Portal을 사용하여 라이브 계정이나 전체 라이브 계정으�
 
 1. 위의 매개 변수를 선택한 후 **제출** 단추를 선택하여 복원을 시작합니다. 복원 비용은 선택한 지역의 데이터 크기와 백업 스토리지 비용을 기반으로 하는 일회성 요금입니다. 자세한 내용은 [가격 책정](continuous-backup-restore-introduction.md#continuous-backup-pricing) 섹션을 참조하세요.
 
-복원 작업이 진행 되는 동안 원본 계정을 삭제 하면 복원 오류가 발생할 수 있습니다.
+복원이 진행 중인 동안 원본 계정을 삭제하면 복원이 실패할 수 있습니다.
+
+### <a name="restorable-timestamp-for-live-accounts"></a>라이브 계정에 대한 복원 가능한 타임스탬프
+
+삭제되지 않은 Azure Cosmos DB 라이브 계정을 복원하려면 항상 컨테이너에 대해 [복원 가능한 최신 타임스탬프를](get-latest-restore-timestamp.md) 식별하는 것이 좋습니다. 그런 다음 이 타임스탬프를 사용하여 계정을 최신 버전으로 복원할 수 있습니다.
 
 ### <a name="use-event-feed-to-identify-the-restore-time"></a><a id="event-feed"></a>이벤트 피드를 사용하여 복원 시간 파악
 
@@ -93,17 +97,17 @@ Azure Portal의 복원 지점 시간을 입력할 때 복원 지점을 파악하
 
 :::image type="content" source="./media/restore-account-continuous-backup/track-restore-operation-status.png" alt-text="&quot; border=&quot;true" lightbox="./media/restore-account-continuous-backup/track-restore-operation-status.png":::작업이 완료되면 복원된 계정의 상태가 생성 중에서 온라인으로 변경됩니다.
 
-### <a name="get-the-restore-details-from-the-restored-account"></a>복원 된 계정에서 복원 세부 정보 가져오기
+### <a name="get-the-restore-details-from-the-restored-account"></a>복원된 계정에서 복원 세부 정보 얻기
 
-복원 작업이 완료 되 면 복원 된 원본 계정 정보 또는 복원 시간을 확인할 수 있습니다.
+복원 작업이 완료된 후 복원한 원본 계정 세부 정보 또는 복원 시간을 확인할 수 있습니다.
 
-Azure Portal에서 복원 정보를 가져오려면 다음 단계를 사용 합니다.
+다음 단계를 사용하여 Azure Portal 복원 세부 정보를 얻을 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/) 에 로그인 하 고 복원 된 계정으로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com/) 로그인하고 복원된 계정으로 이동합니다.
 
-1. **템플릿 내보내기** 창으로 이동 합니다. 복원 된 계정에 해당 하는 JSON 템플릿이 열립니다.
+1. **템플릿 내보내기** 창으로 이동합니다. 복원된 계정에 해당하는 JSON 템플릿이 열립니다.
 
-1. **Resources**  >  **properties**  >  **restoreParameters** 개체는 복원 세부 정보를 포함 합니다. **RestoreTimestampInUtc** 는 계정이 복원 된 시간을 제공 하 고 **databasesToRestore** 는 계정이 복원 된 특정 데이터베이스 및 컨테이너를 표시 합니다.
+1. **resources**  >  **속성**  >  **restoreParameters** 개체에는 복원 세부 정보가 포함됩니다. **restoreTimestampInUtc는** 계정이 복원된 시간을 제공하고 **databasesToRestore는** 계정이 복원된 특정 데이터베이스와 컨테이너를 표시합니다.
 
 ## <a name="restore-an-account-using-azure-powershell"></a><a id="restore-account-powershell"></a>Azure PowerShell을 사용하여 계정 복원
 
@@ -164,9 +168,9 @@ Restore-AzCosmosDBAccount `
 
 ```
 
-### <a name="get-the-restore-details-from-the-restored-account"></a>복원 된 계정에서 복원 세부 정보 가져오기
+### <a name="get-the-restore-details-from-the-restored-account"></a>복원된 계정에서 복원 세부 정보 얻기
 
-모듈을 가져오고 `Az.CosmosDB` 다음 명령을 실행 하 여 복원 세부 정보를 가져옵니다. RestoreTimestamp는 restoreParameters 개체 아래에 있습니다.
+`Az.CosmosDB`모듈을 가져오고 다음 명령을 실행하여 복원 세부 정보를 가져옵니다. restoreTimestamp는 restoreParameters 개체 아래에 있습니다.
 
 ```azurepowershell
 Get-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount 

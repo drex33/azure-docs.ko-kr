@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: ae8311da88ec2598417dd248e12fb044bc9dbf38
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 308e21fba5d36d84116ed9362bd373449b9602e3
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223218"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133570713"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Azure Red Hat OpenShift 지원 정책
 
@@ -39,6 +39,14 @@ Azure Red Hat OpenShift 4 클러스터에 대한 특정 구성은 클러스터�
 ## <a name="supported-virtual-machine-sizes"></a>지원되는 가상 머신 크기
 
 Azure Red Hat OpenShift 4는 다음 가상 머신 크기의 작업자 노드 인스턴스를 지원합니다.
+
+### <a name="master-nodes"></a>마스터 노드
+
+|계열|크기|vCPU|메모리: GiB|
+|-|-|-|-|
+|Dsv3|Standard_D8s_v3|8|32|
+|Dsv3|Standard_D16s_v3|16|64|
+|Dsv3|Standard_D32s_v3|32|128|
 
 ### <a name="general-purpose"></a>범용 가상 컴퓨터
 
@@ -71,16 +79,8 @@ Azure Red Hat OpenShift 4는 다음 가상 머신 크기의 작업자 노드 인
 |Fsv2|Standard_F16s_v2|16|32|
 |Fsv2|Standard_F32s_v2|32|64|
 
-### <a name="master-nodes"></a>마스터 노드
-
-|계열|크기|vCPU|메모리: GiB|
-|-|-|-|-|
-|Dsv3|Standard_D8s_v3|8|32|
-|Dsv3|Standard_D16s_v3|16|64|
-|Dsv3|Standard_D32s_v3|32|128|
-
-### <a name="day-2-worker-node"></a>2일차 작업자 노드
-다음 인스턴스 유형은 머신 세트를 구성하여 2일차 작업으로 지원됩니다. 머신을 만드는 방법에 대한 자세한 내용은 [Azure에서 머신셋 만들기를 참조하세요.](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html)
+### <a name="day-2-worker-node"></a>Day 2 작업자 노드
+다음 인스턴스 유형은 machinesets를 구성 하 여 2 일 작업으로 지원 됩니다. Machineset을 만드는 방법에 대 한 자세한 내용은 [Azure에서 Machineset 만들기](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html)를 참조 하세요.
 
 
 |계열|크기|vCPU|메모리: GiB|

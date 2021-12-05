@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2020
+ms.date: 12/2/2021
 ms.author: allensu
-ms.openlocfilehash: a72eceba85e14e058fa7c8ba2b109009e46e6df3
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 107037e54f62618e6ce7623f6170b402f57401b4
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357450"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133569645"
 ---
 # <a name="azure-load-balancer-floating-ip-configuration"></a>Azure Load Balancer 부동 IP 구성
 
@@ -34,6 +34,42 @@ ms.locfileid: "129357450"
 부동 IP를 사용하도록 설정하면 Azure는 IP 주소 매핑을 백 엔드 인스턴스의 IP 대신 Load Balancer 프런트 엔드의 프런트 엔드 IP 주소로 변경합니다. 
 
 부동 IP가 없으면 Azure는 VM 인스턴스의 IP를 노출합니다. 부동 IP를 사용하도록 설정하면 Load Balancer의 프런트 엔드 IP에 매핑되는 IP 주소가 변경되어 추가적인 유연성이 제공됩니다. [여기](load-balancer-multivip-overview.md)를 참조하세요.
+
+부동 IP는 Azure Portal, REST API, CLI, PowerShell 또는 기타 클라이언트를 통해 Load Balancer 규칙에서 구성할 수 있습니다. 규칙 구성 외에도 부동 IP를 활용하려면 가상 머신의 게스트 OS도 구성해야 합니다.
+
+## <a name="floating-ip-guest-os-configuration"></a>부동 IP 게스트 OS 구성
+백 엔드 풀의 각 VM에 대해, Windows 명령 프롬프트에서 다음 명령을 실행합니다.
+
+VM에 있는 인터페이스 이름 목록을 가져오려면 다음 명령을 입력합니다.
+
+```console
+netsh interface show interface 
+```
+
+VM NIC (Azure 관리형)의 경우, 다음 명령을 입력합니다.
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(interfacename을 이 인터페이스의 이름으로 바꿉니다)
+
+추가한 각 루프백 인터페이스에 대해 다음 명령을 반복합니다.
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(interfacename을 이 루프백 인터페이스의 이름으로 바꿉니다)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(interfacename을 이 루프백 인터페이스의 이름으로 바꿉니다)
+
+> [!IMPORTANT]
+> 루프백 인터페이스에 대한 구성은 게스트 OS 내에서 수행됩니다. 이 구성은 Azure에서 수행하거나 관리하지 않습니다. 이 구성 없이는 규칙이 작동하지 않습니다.
 
 ## <a name="limitations"></a><a name = "limitations"></a>제한 사항
 

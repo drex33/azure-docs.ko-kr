@@ -10,12 +10,12 @@ metadata:
   author: laujan
   ms.author: lajanuar
   ms.date: 11/02/2021
-  ms.openlocfilehash: 908a5f3254c99da37aaabd895504f876bd5a7ace
-  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+  ms.openlocfilehash: db151114a56bad859db6493b5568881415dec658
+  ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/02/2021
-  ms.locfileid: "131026926"
+  ms.lasthandoff: 12/05/2021
+  ms.locfileid: "133569360"
 landingContent:
 - title: Azure Form Recognizer 정보
   linkLists:
@@ -112,7 +112,7 @@ landingContent:
     - text: 레이아웃 모델 사용
       url: quickstarts/try-v3-form-recognizer-studio.md#layout
     - text: 사용자 지정 모델 사용
-      url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
+      url: quickstarts/try-v3-form-recognizer-studio.md#custom-projects
     - text: 청구서 모델 사용
       url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
     - text: 영수증 모델 사용
@@ -182,7 +182,7 @@ landingContent:
     - text: REST API 사용(cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
     - text: Form Recognizer Studio
-      url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
+      url: quickstarts/try-v3-form-recognizer-studio.md#custom-projects
     - text: 샘플 레이블 지정 도구
       url: concept-custom.md#sample-labeling-tool
 - title: 청구서 모델 사용해 보기

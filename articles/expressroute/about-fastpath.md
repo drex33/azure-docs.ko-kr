@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 1fcdeaaee2ebafbfd8e97577ed87a5ef0e545cd5
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 81a4e17952e832cebbb8acf41e1b7a7ffcf6f4e4
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130226398"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133570842"
 ---
 # <a name="about-expressroute-fastpath"></a>ExpressRoute FastPath 정보
 
@@ -49,6 +49,12 @@ FastPath는 대부분의 구성을 지원하지만 다음 기능은 지원하지
 다음 FastPath 기능은 퍼블릭 미리 보기로 제공됩니다.
 
 **VNet 피어링** - FastPath는 ExpressRoute 가상 네트워크 게이트웨이를 무시하고 ExpressRoute에 연결된 가상 네트워크에 피어링된 가상 네트워크에 배포된 VM으로 직접 트래픽을 전송합니다.
+
+**Private Link** - ExpressRoute FastPath를 통해 전송된 Private Link 트래픽은 데이터 경로에서 ExpressRoute 가상 네트워크 게이트웨이를 무시합니다.
+
+> [!NOTE]
+> Private Link 가격은 공개 미리 보기 중에 ExpressRoute FastPath를 통해 전송된 트래픽에 적용되지 않습니다. 가격 책정에 대한 자세한 내용은 [Private Link 가격 책정 페이지를 참조하세요.](https://azure.microsoft.com/pricing/details/private-link/)
+> 
 
 [ExpressRoute FastPath 기능에 등록하는 방법](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview)을 참조하세요.
 

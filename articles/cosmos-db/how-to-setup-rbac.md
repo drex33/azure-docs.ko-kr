@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/21/2021
 ms.author: thweiss
-ms.openlocfilehash: a659b4cdd404e9090fee177d383f26733aa4496b
-ms.sourcegitcommit: 901ea2c2e12c5ed009f642ae8021e27d64d6741e
+ms.openlocfilehash: 0b7dc975dcc75b66d1332cafd84d98c9faea943f
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2021
-ms.locfileid: "132371867"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133570596"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용하여 역할 기반 액세스 제어 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ Azure Cosmos DB 데이터 평면 RBAC는 [Azure RBAC](../role-based-access-contr
 ## <a name="permission-model"></a><a id="permission-model"></a> 권한 모델
 
 > [!IMPORTANT]
-> 이 권한 모델은 데이터 읽기 및 쓰기와 관련된 데이터베이스 작업만 다룹니다. 관리 리소스에 대한 모든 종류의 관리 작업은 *다루지* 않습니다. 예를 들면 다음과 같습니다.
+> 이 사용 권한 모델에는 데이터 읽기 및 쓰기와 관련 된 데이터베이스 작업만 포함 됩니다. 관리 리소스에 대 한 모든 종류의 관리 작업 *은 다루지 않습니다* . 예를 들면 다음과 같습니다.
 > - 데이터베이스 만들기/바꾸기/삭제
 > - 컨테이너 만들기/바꾸기/삭제
 > - 컨테이너 처리량 바꾸기
@@ -48,16 +48,16 @@ Azure Cosmos DB 데이터 평면 RBAC는 [Azure RBAC](../role-based-access-contr
 > - 트리거 만들기/바꾸기/삭제/읽기
 > - 사용자 정의 함수 만들기/바꾸기/삭제/읽기
 >
-> *Azure Cosmos DB 데이터 평면 SDK를 사용하여* Azure AD ID로 관리 작업을 인증할 수 없습니다. 대신 다음 옵션 중 하나를 통해 [Azure RBAC를](role-based-access-control.md) 사용해야 합니다.
+> *Azure Cosmos DB 데이터 평면 SDK를 사용* 하 여 Azure AD id로 관리 작업을 인증할 수 없습니다. 대신 다음 옵션 중 하나를 통해 [AZURE RBAC](role-based-access-control.md) 를 사용 해야 합니다.
 > - [ARM 템플릿(Azure Resource Manager 템플릿)](./sql/manage-with-templates.md)
-> - [스크립트 Azure PowerShell](./sql/manage-with-powershell.md)
-> - [스크립트 Azure CLI](./sql/manage-with-cli.md)
+> - [Azure PowerShell 스크립트](./sql/manage-with-powershell.md)
+> - [Azure CLI 스크립트](./sql/manage-with-cli.md)
 > - 다음에서 사용할 수 있는 Azure 관리 라이브러리:
 >   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
 >   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
 >   
-> 읽기 데이터베이스 및 읽기 컨테이너는 [메타데이터 요청으로 간주됩니다.](#metadata-requests) 다음 섹션에 명시된 대로 이러한 작업에 대한 액세스 권한을 부여할 수 있습니다.
+> 읽기 데이터베이스 및 읽기 컨테이너는 [메타 데이터 요청](#metadata-requests)으로 간주 됩니다. 다음 섹션에 설명 된 대로 이러한 작업에 대 한 액세스 권한을 부여할 수 있습니다.
 
 다음 표에서는 권한 모델에서 제공되는 모든 작업을 보여줍니다.
 
@@ -288,7 +288,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
-[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources/create-update-sql-role-definition)를 참조해 Azure Resource Manager를 사용해 역할 정의를 만드는 예제를 확인하세요.
+[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sql-resources/create-update-sql-role-definition)를 참조해 Azure Resource Manager를 사용해 역할 정의를 만드는 예제를 확인하세요.
 
 ## <a name="create-role-assignments"></a><a id="role-assignments"></a> 역할 할당 만들기
 
@@ -343,7 +343,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
 
-[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources/create-update-sql-role-assignment)를 참조해 Azure Resource Manager 템플릿을 사용하여 역할 할당을 만드는 예제를 확인하세요.
+[이 페이지](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/sql-resources/create-update-sql-role-assignment)를 참조해 Azure Resource Manager 템플릿을 사용하여 역할 할당을 만드는 예제를 확인하세요.
 
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Azure AD로 SDK 초기화
 

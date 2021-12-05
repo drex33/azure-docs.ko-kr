@@ -9,18 +9,36 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/22/2021
 ms.author: jianleishen
-ms.openlocfilehash: 24b303cc93940ee7884a4766ce542aa543ea285e
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: e8dd22beda5e84510b203e815fe69f5b41401136
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083983"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133570388"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory-or-azure-synapse-analytics"></a>Azure Data Factory 또는 Azure Synapse Analytics에서 메타데이터 가져오기 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 메타데이터 가져오기 작업을 사용하여 Azure Data Factory 또는 Synapse 파이프라인에서 데이터의 메타데이터를 검색할 수 있습니다. 조건식에서 메타데이터 가져오기 작업의 출력을 사용하여 유효성 검사를 수행하거나 후속 작업에서 메타데이터를 사용할 수 있습니다.
+
+## <a name="create-a-get-metadata-activity-with-ui"></a>UI를 사용 하 여 메타 데이터 가져오기 작업 만들기
+
+파이프라인에서 Get Metadata 작업을 사용 하려면 다음 단계를 완료 합니다.
+
+1. 파이프라인 활동 창에서 _메타 데이터 가져오기_ 를 검색 하 고 실패 활동을 파이프라인 캔버스로 끕니다.
+1. 캔버스에서 새 메타 데이터 가져오기 작업을 선택 하지 않은 경우 해당 작업을 선택 하 고 해당  **데이터 집합** 탭을 선택 하 여 세부 정보를 편집 합니다.
+1. 데이터 집합을 선택 하거나 새로 만들기 단추를 사용 하 여 새 데이터 집합을 만듭니다.  그런 다음 필터 옵션을 지정 하 고 데이터 집합에 사용할 수 있는 메타 데이터의 열을 추가할 수 있습니다.
+
+   :::image type="content" source="media/control-flow-get-metadata-activity/get-metadata-activity.png" alt-text="메타 데이터 가져오기 작업에 대 한 UI를 표시 합니다.":::
+
+1. 활동의 출력을 다른 활동에 대 한 입력으로 사용 합니다 (예:이 예의 Switch 활동).  다른 작업에서 동적 콘텐츠가 지원 되는 위치에 관계 없이 메타 데이터 작업의 출력을 참조할 수 있습니다.
+
+   :::image type="content" source="media/control-flow-get-metadata-activity/using-metadata-in-another-activity.png" alt-text="메타 데이터 가져오기 작업의 출력을 처리 하기 위해 전환 작업을 추가한 파이프라인을 보여 줍니다.":::
+
+1. 동적 콘텐츠 편집기에서 메타 데이터 가져오기 작업 출력을 선택 하 여 다른 활동에서 참조 합니다.
+
+   :::image type="content" source="media/control-flow-get-metadata-activity/dynamic-content-editor-using-metadata.png" alt-text="동적 콘텐츠로 메타 데이터 가져오기 작업의 출력을 사용 하 여 동적 콘텐츠 편집기를 표시 합니다.":::
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -66,7 +84,7 @@ ms.locfileid: "129083983"
 
 | 커넥터/메타데이터 | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
-| [SQL Server Amazon RDS](connector-amazon-rds-for-sql-server.md) | √ | √ | √ |
+| [Amazon RDS for SQL Server](connector-amazon-rds-for-sql-server.md) | √ | √ | √ |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
 | [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | √ | √ | √ |

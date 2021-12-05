@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: e4f4a7149f522d11a9a77bdeb9b16a0f848cba77
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a0a26a78a03c03922a708df380616ab77c7b31a5
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124776865"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133568638"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Azure NetApp Files 및 AD DS를 사용하여 프로필 컨테이너 만들기
 
@@ -155,7 +155,7 @@ ms.locfileid: "124776865"
 
 이 섹션은 [파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기](create-host-pools-user-profile.md)를 기반으로 합니다.
 
-1. 세션 호스트 VM에서 원격 상태에 있는 동안 [FSLogix 에이전트 .zip 파일을 다운로드](https://go.microsoft.com/fwlink/?linkid=2084562&clcid=0x409)합니다.
+1. 세션 호스트 VM에서 원격 상태에 있는 동안 [FSLogix 에이전트 .zip 파일을 다운로드](https://aka.ms/fslogix/download)합니다.
 
 2. 다운로드한 파일의 압축을 풉니다.
 

@@ -1,16 +1,16 @@
 ---
 author: memildin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 09/05/2021
+ms.date: 12/04/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 578ef03a4f43e54a91af3b24ce77f6e0ac0674cf
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 4997b82cce6304cfd1d1a909274d0fadee95651f
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123646606"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133570899"
 ---
 - [필요한 경우 사용] Azure Cosmos DB 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 합니다.
 - [필요한 경우 사용] Azure Machine Learning 작업 영역은 CMK(고객 관리형 키)를 사용하여 암호화해야 합니다.
@@ -31,9 +31,9 @@ ms.locfileid: "123646606"
 - 키 자격 증명 모음에 제거 방지를 사용하도록 설정해야 함
 - 키 자격 증명 모음에 일시 삭제를 사용하도록 설정해야 함
 - 최소 권한 Linux 기능을 컨테이너에 적용해야 함
-- Redis Cache에 보안 연결만 사용하도록 설정해야 합니다.
 - 컨테이너 AppArmor 프로필의 재정의 또는 비활성화를 제한해야 함
 - 권한 있는 컨테이너를 피해야 함
+- SSL을 통해서만 액세스를 허용 해야 Redis Cache
 - 컨테이너를 루트 사용자로 실행하지 않아야 함
 - Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.
 - Service Fabric 클러스터의 ClusterProtectionLevel 속성을 EncryptAndSign으로 설정해야 합니다.

@@ -3,17 +3,17 @@ title: 로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용
 description: Azurite 오픈 소스 에뮬레이터는 Azure Storage 애플리케이션을 테스트할 수 있는 무료 로컬 환경을 제공합니다.
 author: normesta
 ms.author: normesta
-ms.date: 11/22/2021
+ms.date: 12/03/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 553904e05bc893c739e82c6552a48d40b139392f
-ms.sourcegitcommit: 01b678462a4a390c30463c525432ffbbbe0195cf
+ms.openlocfilehash: 30cdaf899d4ca925ab912ce48bd16724f0e9b242
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2021
-ms.locfileid: "132957339"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133569556"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>로컬 Azure Storage 개발에 Azurite 에뮬레이터 사용
 
@@ -23,36 +23,11 @@ Azurite는 미래의 스토리지 에뮬레이터 플랫폼입니다. Azurite는
 
 Azurite를 로컬 시스템에 설치하고 실행하는 여러 가지 방법이 있습니다. 이러한 탭 중 하나를 선택합니다.
 
-## <a name="install-and-run-azurite"></a>Azurite를 설치하고 실행합니다.
+## <a name="install-azurite"></a>Azurite 설치
 
 ### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Visual Studio에서 Azure 프로젝트(예: **Azure Functions** 프로젝트)를 만듭니다.
-
-![새 Azure Function 프로젝트](media/storage-use-azurite/visual-studio-azure-function-project.png)
-
-**Azure Functions** 프로젝트를 만드는 경우 **Http 트리거** 를 선택해야 합니다. 그런 후 **권한 부여 수준** 드롭다운 목록에서 **익명** 을 선택합니다.
-
-![함수 프로젝트 설정](media/storage-use-azurite/visual-studio-azure-function-project-settings.png)
-
-#### <a name="install-azurite"></a>Azurite 설치
-
-Azurite는 [Visual Studio 2022 미리 보기](https://visualstudio.microsoft.com/vs/preview/)에서 자동으로 사용할 수 있으므로 미리 보기를 설치 하는 경우 수동으로 설치 하 고 Azurite를 수동으로 시작할 필요가 없습니다. 
-
-> [!NOTE] 
-> 이전 버전의 Visual Studio를 실행 하는 경우에는를 수동으로 설치한 후 Azurite를 시작 해야 합니다. 먼저 [Node.js 버전 8.0](https://nodejs.org)이상을 설치 합니다. Npm(노드 패키지 관리자)은 모든 Node.js 설치에 포함되는 패키지 관리 도구입니다. 
->
-> Node.js를 설치한 후 다음 명령을 실행 `npm` 하 여 Azurite를 설치 `npm install -g azurite` 합니다. 그런 후 다음 명령을 사용 하 여 Azurite를 시작 `azurite` 합니다.
-
-### <a name="run-azurite"></a>Azurite 실행
-
-[릴리스 빌드 구성](/visualstudio/debugger/how-to-set-debug-and-release-configurations#change-the-build-configuration)으로 변경하고 프로젝트를 실행합니다.
-
-디버그 빌드 구성을 사용하여 프로젝트를 시작하면 오류가 발생할 수 있습니다. 이는 Visual Studio에서 Visual Studio에 기본 제공되는 레거시 스토리지 에뮬레이터를 시작하려고 할 수 있기 때문입니다. Azurite에서 레거시 스톨리지 에뮬레이터에 필요한 수신 대기 포트를 사용하므로 레거시 에뮬레이터를 시작하려는 시도가 차단됩니다.
-
-다음 이미지는 Azure 함수 프로젝트를 실행할 때 나타나는 명령줄 출력을 보여 줍니다.
-
-![프로젝트를 실행한 후의 명령줄 출력](media/storage-use-azurite/azurite-command-line-output-2.png)
+Azurite는 [Visual Studio 2022 미리 보기](https://visualstudio.microsoft.com/vs/preview/)에서 자동으로 사용할 수 있습니다. 이전 버전의 Visual Studio를 실행 하는 경우 노드 패키지 관리자, dockerhub를 사용 하거나 Azurite github 리포지토리를 복제 하 여 Azurite를 설치 해야 합니다. 
 
 ### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -61,21 +36,6 @@ Visual Studio Code 내에서 **확장** 창을 선택하고, **확장: 마켓플
 ![Visual Studio Code 마켓플레이스](media/storage-use-azurite/azurite-vs-code-extension.png)
 
 브라우저에서 [Visual Studio Code 확장 시장](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite)으로 이동할 수도 있습니다. **설치** 단추를 선택하여 Visual Studio Code를 열고, Azurite 확장 페이지로 직접 이동합니다.
-
-이 확장에서 지원하는 Visual Studio Code 명령은 다음과 같습니다. 명령 팔레트를 열려면 Visual Studio Code에서 F1 키를 누릅니다.
-
-   - **Azurite: Clean** - 모든 Azurite 서비스 지속성 데이터 다시 설정
-   - **Azurite: Clean Blob Service** - Blob service 정리
-   - **Azurite: Clean Queue Service** - 큐 서비스 정리
-   - **Azurite: Clean Queue Service** - Table service 정리
-   - **Azurite: Close** - 모든 Azurite 서비스 닫기
-   - **Azurite: Close Blob Service** - Blob service 닫기
-   - **Azurite: Close Queue Service** - 큐 서비스 닫기
-   - **Azurite: Close Queue Service** - Table service 닫기
-   - **Azurite: Start** - 모든 Azurite 서비스 시작
-   - **Azurite: Start Blob Service** - Blob service 시작
-   - **Azurite: Start Queue Service** - 큐 서비스 시작
-   - **Azurite: Start Queue Service** - Table service 시작
 
 Visual Studio Code 내에서 Azurite를 구성하려면 확장 창을 선택합니다. **Azurite** 에 대한 **관리**(기어) 아이콘을 선택합니다. **확장 설정** 을 선택합니다.
 
@@ -106,8 +66,6 @@ Visual Studio Code 내에서 Azurite를 구성하려면 확장 창을 선택합�
 ```console
 npm install -g azurite
 ```
-
-Azurite가 설치되면 [명령줄에서 Azurite 실행](#run-azurite-from-a-command-line)을 참조하세요.
 
 ### <a name="docker-hub"></a>[Docker Hub](#tab/docker-hub)
 
@@ -160,14 +118,94 @@ npm run build
 npm install -g
 ```
 
-Azurite가 설치되고 빌드되면 [명령줄에서 Azurite 실행](#run-azurite-from-a-command-line)을 참조하세요.
-
 ---
 
-## <a name="run-azurite-from-a-command-line"></a>명령줄에서 Azurite 실행
+## <a name="run-azurite"></a>Azurite 실행
+
+### <a name="visual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+몇 가지 구성의 경우 Azure Functions 또는 ASP.NET 프로젝트가 자동으로 Azurite을 시작 합니다. 다른 모든 프로젝트 형식의 경우 명령줄에서 Azurite를 시작 해야 합니다. 
+
+#### <a name="running-azurite-from-the-command-line"></a>명령줄에서 Azurite 실행
+
+Visual Studio 설치의 extensions 폴더에서 Azurite 실행 파일을 찾을 수 있습니다. 특정 위치는 설치한 Visual Studio 버전에 따라 달라질 수 있습니다. 예를 들어 Windows 컴퓨터 또는 VM (가상 컴퓨터)에 Visual Studio 2022 professional 버전을 설치한 경우이 위치에서 Azurite 실행 파일을 찾을 수 있습니다 `C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\Extensions\Microsoft\Azure Storage Emulator` .  
+
+실행 파일을 실행 한 후 Azurite는 연결을 수신 대기 합니다. 
+
+> [!div class="mx-imgBorder"]
+> ![Azurite 명령줄 출력](media/storage-use-azurite/azurite-command-line-output-vs.png)
+
+#### <a name="running-azurite-from-an-azure-functions-project"></a>Azure Functions 프로젝트에서 Azurite 실행
+
+Visual Studio 2022에서 **Azure Functions** 프로젝트를 만듭니다. 프로젝트를 만들 때 **Storage Emulator** 를 선택 합니다.
+
+> [!div class="mx-imgBorder"]
+> ![Azure Functions 프로젝트의 Storage 에뮬레이터 옵션](media/storage-use-azurite/visual-studio-azure-function-project-settings.png)
+
+프로젝트를 만든 후에는 Azurite가 자동으로 시작 됩니다. 
+
+> [!div class="mx-imgBorder"]
+> ![Azure Functions 프로젝트의 Azurite 명령줄 출력](media/storage-use-azurite/output-window-azure-functions-project.png)
+
+#### <a name="running-azurite-from-an-aspnet-project"></a>ASP.NET 프로젝트에서 Azurite 실행
+
+Visual Studio 2022에서 **ASP.NET Core 웹 앱** 프로젝트를 만듭니다. 그런 다음 **연결된 서비스** 대화 상자를 열고 **서비스 종속성 추가** 를 선택한 다음 **Storage Azurite 에뮬레이터** 를 선택 합니다.
+
+> [!div class="mx-imgBorder"]
+> ![ASP.NET Core 웹 앱 프로젝트의 연결 된 서비스 대화 상자](media/storage-use-azurite/connected-service-storage-emulator.png)
+
+**Storage Azurite 에뮬레이터 구성** 대화 상자에서 **연결 문자열 이름** 필드를로 설정 하 `StorageConnectionString` 고 **마침** 을 선택 합니다.
+
+> [!div class="mx-imgBorder"]
+> ![Storage Azurite 에뮬레이터 구성 대화 상자](media/storage-use-azurite/connection-string-for-azurite-emulator-configuration.png)
+
+구성이 완료 되 면 **닫기** 를 선택 합니다. Azurite 에뮬레이터가 자동으로 시작 됩니다.
+
+> [!div class="mx-imgBorder"]
+> ![ASP.NET 프로젝트의 Azurite 명령줄 출력](media/storage-use-azurite/output-window-asp-net-project.png) 
+
+### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 > [!NOTE]
 > Visual Studio Code 확장만 설치한 경우 명령줄에서 Azurite를 실행할 수 없습니다. 대신 Visual Studio Code 명령 팔레트를 사용합니다.
+
+이 확장에서 지원하는 Visual Studio Code 명령은 다음과 같습니다. 명령 팔레트를 열려면 Visual Studio Code에서 F1 키를 누릅니다.
+
+   - **Azurite: Clean** - 모든 Azurite 서비스 지속성 데이터 다시 설정
+   - **Azurite: Clean Blob Service** - Blob service 정리
+   - **Azurite: Clean Queue Service** - 큐 서비스 정리
+   - **Azurite: Clean Queue Service** - Table service 정리
+   - **Azurite: Close** - 모든 Azurite 서비스 닫기
+   - **Azurite: Close Blob Service** - Blob service 닫기
+   - **Azurite: Close Queue Service** - 큐 서비스 닫기
+   - **Azurite: Close Queue Service** - Table service 닫기
+   - **Azurite: Start** - 모든 Azurite 서비스 시작
+   - **Azurite: Start Blob Service** - Blob service 시작
+   - **Azurite: Start Queue Service** - 큐 서비스 시작
+   - **Azurite: Start Queue Service** - Table service 시작
+
+### <a name="npm"></a>[npm](#tab/npm)
+
+다음 명령을 실행 하 여 Azurite를 시작 합니다.
+
+```console
+azurite --silent --location c:\azurite --debug c:\azurite\debug.log
+```
+
+이 명령은 모든 데이터를 특정 *c:\azurite* 디렉터리에 저장하도록 Azurite에 지시합니다. `--location` 옵션이 생략되면 현재 작업 디렉터리를 사용합니다.
+
+### <a name="docker-hub"></a>[Docker Hub](#tab/docker-hub)
+
+**Blob service만 실행**
+
+```console
+docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite \
+    azurite-blob --blobHost 0.0.0.0 --blobPort 10000
+```
+
+시작할 때 Azurite를 구성하는 방법에 대한 자세한 내용은 [명령줄 옵션](#command-line-options)을 참조하세요.
+
+### <a name="github"></a>[GitHub](#tab/github)
 
 명령줄을 사용하여 즉시 시작하려면 *c:\azurite* 라는 디렉터리를 만들고, 다음 명령을 실행하여 Azurite를 시작합니다.
 
@@ -176,6 +214,8 @@ azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 ```
 
 이 명령은 모든 데이터를 특정 *c:\azurite* 디렉터리에 저장하도록 Azurite에 지시합니다. `--location` 옵션이 생략되면 현재 작업 디렉터리를 사용합니다.
+
+---
 
 ## <a name="command-line-options"></a>명령줄 옵션
 

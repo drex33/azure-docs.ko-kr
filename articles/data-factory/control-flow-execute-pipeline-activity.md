@@ -10,18 +10,29 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 047548a39c16c5f6b6ee3f7d359a8664c87e7062
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e806d324293f2565a51dcd3b0ab1eb1869c1fa15
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128566599"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133571159"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory-and-synapse-analytics"></a>Azure Data Factory 및 Synapse Analytics에서 파이프라인 실행 작업
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 파이프라인 실행 작업을 통해 Data Factory 또는 Synapse 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
+
+## <a name="create-an-execute-pipeline-activity-with-ui"></a>UI를 사용 하 여 파이프라인 실행 작업 만들기
+
+파이프라인에서 파이프라인 실행 작업을 사용 하려면 다음 단계를 완료 합니다.
+
+1. 파이프라인 활동 창에서 _파이프라인_ 을 검색 하 고 파이프라인 실행 작업을 파이프라인 캔버스로 끕니다.
+1. 캔버스에서 새 파이프라인 실행 작업 (선택 되어 있지 않은 경우)을 선택 하 고 해당 **설정** 탭을 선택 하 여 세부 정보를 편집 합니다.
+
+   :::image type="content" source="media/control-flow-execute-pipeline-activity/execute-pipeline-activity.png" alt-text="파이프라인 실행 작업에 대 한 UI를 표시 합니다.":::
+
+1. 기존 파이프라인을 선택 하거나 새로 만들기 단추를 사용 하 여 새 파이프라인을 만듭니다.  다른 옵션을 선택 하 고 구성을 완료 하는 데 필요한 파이프라인에 대 한 매개 변수를 구성 합니다.
 
 ## <a name="syntax"></a>구문
 

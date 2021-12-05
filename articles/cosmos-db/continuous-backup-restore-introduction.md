@@ -8,12 +8,12 @@ ms.date: 11/22/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: 2628d53ba515e7ca8bd9b87469f568c30a1c428e
-ms.sourcegitcommit: fc912bf0540585f44c09c6d63728c05c5dda558b
+ms.openlocfilehash: 157de04166a2a8570a24dfb73f3792ab8863cca4
+ms.sourcegitcommit: b69ce103ff31805cf2002b727670db9452ef8518
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2021
-ms.locfileid: "133129085"
+ms.lasthandoff: 12/05/2021
+ms.locfileid: "133571184"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-in-azure-cosmos-db"></a>Azure Cosmos DB의 특정 시점 복원을 사용한 지속적인 백업
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -28,7 +28,7 @@ Azure Cosmos DB는 추가로 프로비전된 처리량(RU)을 사용하지 않�
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Azure Blob Storage로 Azure Cosmos DB 데이터 백업" lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
-복원에 사용할 수 있는 기간(보존 기간이라고도 함)은 '30일 이전' 또는 '리소스 생성 시점' 중 작은 값입니다. 복원 시점은 보존 기간 내에 모든 타임스탬프가 될 수 있습니다. 강력한 일관성 모드에서 쓰기 지역에서 수행된 백업은 읽기 지역에 비해 최신 상태로 유지됩니다. 읽기 지역은 네트워크 또는 기타 일시적인 문제로 인해 지연할 수 있습니다. 복원을 수행하는 동안 해당 지역의 지정된 리소스에 대해 [복원 가능한 최신 타임스탬프를 가져와](get-latest-restore-timestamp.md) 리소스가 지정된 타임스탬프까지 백업을 수행하고 해당 지역에서 복원할 수 있도록 할 수 있습니다.
+복원에 사용할 수 있는 기간(보존 기간이라고도 함)은 '30일 이전' 또는 '리소스 생성 시점' 중 작은 값입니다. 복원 시점은 보존 기간 내에 모든 타임스탬프가 될 수 있습니다. 강력한 일관성 모드에서 쓰기 지역에서 수행 된 백업은 읽기 지역과 비교할 때 최신 상태입니다. 읽기 영역은 네트워크 또는 기타 일시적인 문제로 인해 지연 될 수 있습니다. 복원을 수행 하는 동안 해당 지역의 지정 된 리소스에 대 한 [최신 복원 가능한 타임 스탬프를 가져와](get-latest-restore-timestamp.md) 해당 지역에서 해당 리소스의 백업을 수행 하 고 해당 지역에서 복원할 수 있습니다.
 
 현재 [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [Azure 명령줄 인터페이스](restore-account-continuous-backup.md#restore-account-cli)(az CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell) 또는 [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template)를 사용하여 특정 시점의 SQL API 또는 MongoDB 콘텐츠용 Azure Cosmos DB 계정을 다른 계정으로 복원할 수 있습니다.
 
@@ -55,6 +55,10 @@ Azure Cosmos DB는 추가로 프로비전된 처리량(RU)을 사용하지 않�
 * 저장 프로시저, 트리거 및 UDF.
 
 복원이 완료된 후에 이러한 구성을 복원된 계정에 추가할 수 있습니다.
+
+## <a name="restorable-timestamp-for-live-accounts"></a>라이브 계정에 대 한 복원 가능한 타임 스탬프
+
+삭제 되지 않은 Azure Cosmos DB 라이브 계정을 복원 하려면 컨테이너의 [최신 복원 가능한 타임 스탬프](get-latest-restore-timestamp.md) 를 항상 확인 하는 것이 가장 좋습니다. 그런 다음이 타임 스탬프를 사용 하 여 계정을 최신 버전으로 복원할 수 있습니다.
 
 ## <a name="restore-scenarios"></a>복원 시나리오
 
@@ -99,24 +103,19 @@ Azure Cosmos DB를 사용하면 지속적인 백업 계정에 대한 복원 권�
 
 * 복원 비용은 복원당 (1000 * 0.15) = $150로 계산됩니다.
 
-## <a name="customer-managed-keys"></a>고객 관리형 키
-
-자세한 내용은 [고객 관리형 키가 연속 백업에 어떤 영향을 주나요?를](./how-to-setup-cmk.md#how-do-customer-managed-keys-affect-continuous-backups) 참조하세요.
-
-- 고객 관리형 키를 관련 백업과 함께 사용할 때 Azure Cosmos DB 계정을 구성하는 방법입니다.
-- 고객 관리형 키는 복원에 어떤 영향을 주나요?
-
 ## <a name="current-limitations"></a>현재 제한 사항
 
 현재 특정 시점 복원 기능에는 다음과 같은 제한 사항이 있습니다.
 
 * 지속적인 백업은 SQL 및 MongoDB에 대한 Azure Cosmos DB API만 지원됩니다. Cassandra, Table 및 Gremlin API는 아직 지원되지 않습니다.
 
+* 고객 관리형 키를 사용하는 계정은 지속적인 백업 사용이 지원되지 않습니다.
+
 * 다중 지역 쓰기 계정은 지원되지 않습니다.
 
-* Azure Synapse 링크 및 주기적 백업 모드는 동일한 데이터베이스 계정에 공존할 수 있습니다. 그러나 분석 저장소 데이터는 백업 및 복원에 포함되지 않습니다. Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소에 있는 데이터를 자동으로 계속 백업합니다.
+* Azure Synapse 링크 및 정기적 백업 모드가 동일한 데이터베이스 계정에 공존할 수 있습니다. 그러나 분석 저장소 데이터는 백업 및 복원에 포함 되지 않습니다. Synapse Link를 사용하도록 설정하면 Azure Cosmos DB는 예약된 백업 간격에 따라 컨테이너의 트랜잭션 저장소에 있는 데이터를 자동으로 계속 백업합니다.
 
-* Azure Synapse 링크 및 연속 백업 모드는 동일한 데이터베이스 계정에 공존할 수 없습니다. 현재 Synapse Link 사용하도록 설정된 데이터베이스 계정은 연속 백업 모드를 사용할 수 없으며 그 반대의 경우도 마찬가지입니다.
+* Azure Synapse 링크 및 연속 백업 모드는 동일한 데이터베이스 계정에 공존할 수 없습니다. 현재 Synapse 링크가 설정 된 데이터베이스 계정은 연속 백업 모드를 사용할 수 없으며 그 반대의 경우도 마찬가지입니다.
 
 * 복원된 계정은 원본 계정이 있는 동일한 지역에 만들어집니다. 원본 계정이 존재하지 않는 지역으로 계정을 복원할 수는 없습니다.
 
@@ -139,7 +138,7 @@ Azure Cosmos DB를 사용하면 지속적인 백업 계정에 대한 복원 권�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli) 또는 [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template)를 사용하여 지속적인 백업을 프로비저닝합니다.
-* SQL 및 MongoDB 계정에 대 한 [최신 복원 가능한 타임 스탬프를 가져옵니다](get-latest-restore-timestamp.md) .
+* SQL 및 MongoDB 계정에 대한 [복원 가능한 최신 타임스탬프를](get-latest-restore-timestamp.md) 얻습니다.
 * [Azure Portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli) 또는 [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template)를 사용하여 지속적인 백업 계정을 복원합니다.
 * [정기 백업에서 연속 백업으로 계정에 마이그레이션](migrate-continuous-backup.md)합니다.
 * 지속적인 백업 모드를 사용하여 데이터를 복원하는 데 필요한 [권한을 관리](continuous-backup-restore-permissions.md)합니다.

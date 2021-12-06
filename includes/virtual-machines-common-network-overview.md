@@ -115,7 +115,7 @@ VM 및 VNet을 계획할 때는 NSG를 [계획](../articles/virtual-network/virt
 
 ## <a name="load-balancers"></a>부하 분산 장치
 
-[Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md)는 애플리케이션에 고가용성 및 네트워크 성능을 제공합니다. 부하 분산 장치는 [들어오는 인터넷 트래픽을 VM에 분산](../articles/load-balancer/load-balancer-internet-overview.md)하거나 [VNet에서 VM 간의 트래픽 균형을 조정](../articles/load-balancer/load-balancer-internal-overview.md)하도록 구성할 수 있습니다. 또한 부하 분산 장치는 온-프레미스 네트워크의 온-프레미스 컴퓨터와 VM 간의 트래픽 균형을 조정하거나 외부 트래픽을 특정 VM으로 전달할 수도 있습니다.
+[Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md)는 애플리케이션에 고가용성 및 네트워크 성능을 제공합니다.  Load Balancer는 [들어오는 인터넷 트래픽을 VM에 분산](../articles/load-balancer/load-balancer-internet-overview.md)하거나 [VNet에서 VM 간의 트래픽 균형을 조정](../articles/load-balancer/load-balancer-internal-overview.md)하도록 구성할 수 있습니다. 또한 Load Balancer는 온-프레미스 네트워크의 온-프레미스 컴퓨터와 VM 간의 트래픽 균형을 조정하거나 외부 트래픽을 특정 VM으로 전달할 수도 있습니다.
 
 부하 분산 장치는 부하 분산 장치의 공용 IP 주소 및 포트와 VM의 개인 IP 주소 및 포트 간에 들어오고 나가는 트래픽을 매핑합니다.
 

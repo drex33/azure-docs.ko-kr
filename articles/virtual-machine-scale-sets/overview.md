@@ -30,7 +30,7 @@ Azure 가상 머신 확장 집합은 많은 VM에서 실행되는 애플리케�
 - **손쉬운 여러 VM 만들기 및 관리**
     - 애플리케이션을 실행하는 VM을 많이 사용하는 경우 환경 전체에서 일관된 구성을 유지해야 합니다. 신뢰할 수 있는 애플리케이션 성능을 위해 VM 크기, 디스크 구성 및 애플리케이션 설치가 모든 VM에서 일치해야 합니다.
     - 확장 집합을 사용하면 동일한 기본 OS 이미지 및 구성에 모든 VM 인스턴스가 만들어집니다. 이 방식을 사용하면 추가 구성 작업 또는 네트워크 관리 없이 수백 개의 VM을 쉽게 관리할 수 있습니다.
-    - 확장 집합은 기본 4계층 트래픽 분산에는 [Azure 부하 분산 장치](../load-balancer/load-balancer-overview.md)를 사용하고, 고급 7계층 트래픽 분산 및 TLS 종료에는 [Azure Application Gateway](../application-gateway/overview.md)를 사용하도록 지원합니다.
+    - 확장 집합은 기본 4계층 트래픽 분산에는 [Azure load balancer](../load-balancer/load-balancer-overview.md)를 사용하고, 고급 7계층 트래픽 분산 및 TLS 종료에는 [Azure Application Gateway](../application-gateway/overview.md)를 사용하도록 지원합니다.
 
 - **고가용성 및 애플리케이션 복원력 제공**
     - 확장 집합은 애플리케이션의 여러 인스턴스를 실행하는 데 사용됩니다. 이러한 VM 인스턴스 중 하나에 문제가 있는 경우, 고객은 중단을 최소화하면서 다른 VM 인스턴스 중 하나를 통해 애플리케이션에 계속 액세스합니다.

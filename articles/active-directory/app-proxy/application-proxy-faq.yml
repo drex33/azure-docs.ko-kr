@@ -39,7 +39,7 @@ sections:
       적어도 Azure AD Premium P1 또는 P2 라이선스가 있으며 Azure AD 애플리케이션 프록시 커넥터가 설치되어 있는지 확인하세요. 첫 번째 커넥터를 성공적으로 설치하면 Azure AD 애플리케이션 프록시 서비스가 자동으로 사용하도록 설정됩니다.
   - question: >
       커넥터 구성
-    answer: ''
+    answer: ' '
   - question: >
       커넥터가 여전히 이전 버전을 사용하고 있으며 최신 버전으로 자동 업그레이드되지 않는 이유는 무엇인가요?
     answer: "이 문제는 업데이트 프로그램 서비스가 올바르게 작동하지 않거나 서비스에서 설치할 수 있는 새 업데이트가 없는 경우에 발생할 수 있습니다.\n\n업데이트 프로그램 서비스가 실행 중이고 이벤트 로그에 기록된 오류가 없는 경우(애플리케이션 및 서비스 로그 -> Microsoft -> AadApplicationProxy -> 업데이트 프로그램 -> 관리자) 업데이트 프로그램 서비스가 정상인 것입니다. \n\n> [!IMPORTANT]\n> 주 버전만 자동 업그레이드용으로 릴리스됩니다. 필요한 경우에만 커넥터를 수동으로 업데이트하는 것이 좋습니다. 예를 들어, 단지 알려진 문제를 해결해야 하거나 새 기능을 사용하기 위해 주 릴리스를 기다릴 수는 없습니다. 새 릴리스, 릴리스 유형(다운로드, 자동 업그레이드), 버그 수정 및 새 기능에 대한 자세한 내용은 [Azure AD 애플리케이션 프록시: 버전 릴리스 기록](./application-proxy-release-version-history.md)을 참조하세요.\n\n커넥터를 수동으로 업그레이드하려면\n\n- 최신 버전의 커넥터를 다운로드합니다. (Azure Portal의 애플리케이션 프록시 아래에서 찾을 수 있습니다. [Azure AD 애플리케이션 프록시: 버전 릴리스 기록](./application-proxy-release-version-history.md)에서 링크를 찾을 수도 있습니다.\n-   설치 관리자가 Azure AD 애플리케이션 프록시 커넥터 서비스를 다시 시작합니다. 일부 경우에는 설치 관리자가 모든 파일을 바꿀 수 없는 경우 서버를 다시 부팅해야 할 수 있습니다. 따라서 업그레이드를 시작하기 전에 모든 애플리케이션을 닫는 것이 좋습니다(예: 이벤트 뷰어).\n-   설치 관리자를 실행합니다. 업그레이드 프로세스가 신속하게 진행되며 자격 증명을 제공할 필요가 없으며 커넥터는 다시 등록되지 않습니다.\n"
@@ -87,7 +87,7 @@ sections:
     answer: "애플리케이션 프록시에는 Windows Server 2012 R2 이상이 필요합니다. 현재 Windows Server 2019용 HTTP2에는 제한이 적용됩니다. Windows Server 2019에서 커넥터를 성공적으로 사용하려면 다음 레지스트리 키를 추가하고 서버를 다시 시작해야 합니다.\n\n```\nHKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\WinHttp\\EnableDefaultHttp2 (DWORD) Value: 0 \n```\n"
   - question: >
       애플리케이션 구성
-    answer: ''
+    answer: ' '
   - question: >
       잘못된 인증서 또는 잘못된 암호에 대한 오류가 발생합니다.
     answer: >
@@ -142,7 +142,7 @@ sections:
       애플리케이션 프록시는 HTTPS 응답에 HTTP Strict-Transport-Security 헤더를 자동으로 추가하지 않지만 게시된 애플리케이션에서 보낸 원래 응답에 이 헤더가 있으면 유지됩니다. 이 기능을 사용하도록 설정하는 방식은 로드맵에 나와 있습니다.
   - question: >
       Windows 통합 인증
-    answer: ''
+    answer: ' '
   - question: >
       KCD(Kerberos 제한 위임)를 설정할 때 PrincipalsAllowedToDelegateToAccount 메서드를 사용해야 하는 경우는 언제인가요?
     answer: >
@@ -167,7 +167,7 @@ sections:
       이 경우 "사용자 계정 이름"으로 대체됩니다. B2B 시나리오에 대한 자세한 내용은 [Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여](../external-identities/hybrid-cloud-to-on-premises.md)를 참조하세요.
   - question: >
       통과 인증
-    answer: ''
+    answer: ' '
   - question: >
       통과 인증에서 게시된 애플리케이션에 대한 조건부 액세스 정책을 사용할 수 있나요?
     answer: >
@@ -177,7 +177,7 @@ sections:
     answer: "아니요, 이 시나리오는 애플리케이션 프록시가 TLS 트래픽을 종료하기 때문에 지원되지 않습니다.  \n"
   - question: >
       원격 데스크톱 게이트웨이 게시
-    answer: ''
+    answer: ' '
   - question: >
       Azure AD 애플리케이션 프록시를 통해 원격 데스크톱 게이트웨이를 게시하려면 어떻게 해야 하나요?
     answer: >
@@ -201,7 +201,7 @@ sections:
     answer: 이 옵션을 사용하면 사용자가 rdp 파일을 다운로드하여 다른 RDP 클라이언트(원격 데스크톱 웹 클라이언트 외부)에서 사용할 수 있습니다. 일반적으로 Microsoft 원격 데스크톱 클라이언트와 같은 다른 RDP 클라이언트는 사전 인증을 기본적으로 처리할 수 없습니다. 이것이 작동하지 않는 이유입니다.
   - question: >
       SharePoint 게시
-    answer: ''
+    answer: ' '
   - question: >
       Azure AD 애플리케이션 프록시을 통해 SharePoint를 게시하려면 어떻게 하나요?
     answer: >
@@ -211,7 +211,7 @@ sections:
     answer: >
       [SharePoint 모바일 앱](/sharepoint/administration/supporting-the-sharepoint-mobile-apps-online-and-on-premises)은 현재 Azure Active Directory 사전 인증을 지원하지 않습니다.
   - question: "AD FS(Active Directory Federation Services) 게시 \n"
-    answer: ''
+    answer: ' '
   - question: >
       Azure AD 애플리케이션 프록시를 AD FS 프록시(예: 웹 애플리케이션 프록시)로 사용할 수 있나요?
     answer: >
@@ -221,7 +221,7 @@ sections:
     answer: "아니요, 지원되지 않습니다.\n         \n"
   - question: >
       WebSocket
-    answer: ''
+    answer: ' '
   - question: >
       WebSocket이 QlikSense 및 원격 데스크톱 웹 클라이언트(HTML5) 이외의 다른 애플리케이션에 대한 작업을 지원하나요?
     answer: >
@@ -231,13 +231,13 @@ sections:
       WAC(Windows 관리 센터)의 기능(Eventlogs, PowerShell 및 원격 데스크톱 서비스)은 현재 Azure AD 애플리케이션 프록시를 통해 작동하지 않습니다.
   - question: >
       링크 변환
-    answer: ''
+    answer: ' '
   - question: >
       링크 변환을 사용하면 성능에 영향을 미치나요?
     answer: "예. 링크 변환은 성능에 영향을 줍니다. 애플리케이션 프록시 서비스는 애플리케이션에서 하드 코드된 링크를 검색한 후 해당 링크를 사용자에게 제공하기 전에 게시된 해당 외부 URL로 바꿉니다. \n\n최상의 성능을 위해 [사용자 지정 도메인](./application-proxy-configure-custom-domain.md)을 구성하여 동일한 내부 및 외부 URL을 사용하는 것이 좋습니다. 사용자 지정 도메인을 사용하는 것이 불가능한 경우에는 모바일에서 내 앱 보안 로그인 확장 또는 Microsoft Edge 브라우저를 사용하여 링크 변환 성능을 향상시킬 수 있습니다. [Azure AD 애플리케이션 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션](./application-proxy-configure-hard-coded-link-translation.md)을 참조하세요.\n"
   - question: >
       와일드카드
-    answer: ''
+    answer: ' '
   - question: >
       와일드카드를 사용하여 동일한 사용자 지정 도메인 이름을 갖지만 HTTP와 HTTPS 중에서 각기 다른 프로토콜을 사용하는 두 애플리케이션을 게시하려면 어떻게 해야 하나요?
     answer: >-

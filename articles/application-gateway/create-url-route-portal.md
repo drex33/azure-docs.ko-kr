@@ -79,7 +79,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다. 
 
     ```azurepowershell
-         $publicSettings = @{ "fileUris&quot; = (,&quot;https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+         $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
         Set-AzVMExtension `
          -ResourceGroupName myResourceGroupAG `

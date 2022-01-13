@@ -7,17 +7,17 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: portal
 ms.workload: identity
-ms.date: 10/09/2019
+ms.date: 11/22/2021
 ms.author: marsma
-ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 8b965d54eab6f979b67382c91e09b23732278732
-ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
+ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api
+ms.openlocfilehash: c90516fb5012774f11463f06ab26f74b0dc5c06c
+ms.sourcegitcommit: 34d047300d800cf6ff7d9dd3e573a0d785f61abc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2021
-ms.locfileid: "131040212"
+ms.lasthandoff: 01/12/2022
+ms.locfileid: "135921472"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -32,116 +32,46 @@ ms.locfileid: "131040212"
 - [JDK(Java Development Kit)](https://openjdk.java.net/) 8 이상
 - [Maven](https://maven.apache.org/)
 
-> [!div renderon="docs"]
-> ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
-> 빠른 시작 애플리케이션을 시작하는 방법에는 기본(옵션 1) 및 수동(옵션 2)이라는 두 가지 방법이 있습니다.
->
-> ### <a name="option-1-register-and-automatically-configure-your-app-and-then-download-the-code-sample"></a>옵션 1: 앱을 등록하고 자동으로 구성한 다음, 코드 샘플을 다운로드합니다.
->
-> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록</a> 빠른 시작 환경으로 이동합니다.
-> 1. 애플리케이션 이름을 입력한 다음, **등록** 을 선택합니다.
-> 1. 포털의 빠른 시작 환경에 있는 지침에 따라 자동으로 구성된 애플리케이션 코드를 다운로드합니다.
->
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
->
-> #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
->
-> 애플리케이션을 등록하고 앱의 등록 정보를 수동으로 추가하려면 다음 단계를 따르세요.
->
-> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
-> 1. **Azure Active Directory** 를 검색하고 선택합니다.
-> 1. **관리** 아래에서 **앱 등록** 을 선택합니다.
-> 1. **새 등록** 을 선택합니다.
-> 1. 애플리케이션의 **이름** 을 입력합니다(예: **java-webapp**). 앱 사용자에게 이 이름이 표시될 수 있습니다. 나중에 이를 변경할 수 있습니다.
-> 1. **등록** 을 선택합니다.
-> 1. **개요** 페이지에서 **애플리케이션(클라이언트) ID** 와 **디렉터리(테넌트) ID** 를 기록해 둡니다. 나중에 이러한 값이 필요합니다.
-> 1. **관리** 에서 **인증** 을 선택합니다.
-> 1. **플랫폼 추가** > **웹** 을 선택합니다.
-> 1. **리디렉션 URI** 섹션에서 `https://localhost:8443/msal4jsample/secure/aad`를 입력합니다.
-> 1. **구성** 을 선택합니다.
-> 1. **웹** 섹션의 **리디렉션 URI** 에서 `https://localhost:8443/msal4jsample/graph/me`를 두 번째 리디렉션 URI로 입력합니다.
-> 1. **관리** 에서 **인증서 및 암호** 를 선택합니다. **클라이언트 비밀** 섹션에서 **새 클라이언트 비밀** 을 선택합니다.
-> 1. 키 설명(예: *앱 비밀*)을 입력하고, 기본 만료를 그대로 유지하고, **추가** 를 선택합니다.
-> 1. 클라이언트 암호의 **값** 을 기록해 둡니다. 나중에 필요합니다.
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
->
-> 이 빠른 시작의 코드 샘플을 사용하려면 다음을 수행합니다.
->
-> 1. 회신 URL `https://localhost:8443/msal4jsample/secure/aad` 및 `https://localhost:8443/msal4jsample/graph/me`를 추가합니다.
-> 1. 클라이언트 암호를 만듭니다.
-> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [이러한 변경 내용 적용]()
->
-> > [!div id="appconfigured" class="alert alert-info"]
-> > ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
+#### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
+
+이 빠른 시작의 코드 샘플을 사용하려면 다음을 수행합니다.
+
+1. 회신 URL `https://localhost:8443/msal4jsample/secure/aad` 및 `https://localhost:8443/msal4jsample/graph/me`를 추가합니다.
+1. 클라이언트 암호를 만듭니다.
+> [!div class="nextstepaction"]
+> [이러한 변경 내용 적용]()
+
+> [!div class="alert alert-info"]
+> ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 
 #### <a name="step-2-download-the-code-sample"></a>2단계: 코드 샘플 다운로드
-> [!div renderon="docs"]
+
+프로젝트를 다운로드하고 드라이브 루트 근처의 폴더로 .zip 파일을 추출합니다. 예를 들면 *C:\Azure-Samples* 입니다.
+
+localhost와 함께 HTTPS를 사용하려면 `server.ssl.key` 속성을 제공합니다. 자체 서명된 인증서를 생성하려면 JRE에 포함된 keytool 유틸리티를 사용합니다.
+
+예를 들면 다음과 같습니다.
+```
+  keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+
+  server.ssl.key-store-type=PKCS12
+  server.ssl.key-store=classpath:keystore.p12
+  server.ssl.key-store-password=password
+  server.ssl.key-alias=testCert
+  ```
+  생성된 키 저장소 파일을 *resources* 폴더에 배치합니다.
+
+> [!div class="sxs-lookup nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
-> [!div class="sxs-lookup" renderon="portal"]
-> 프로젝트를 다운로드하고 드라이브 루트 근처의 폴더로 .zip 파일을 추출합니다. 예를 들면 *C:\Azure-Samples* 입니다.
->
-> localhost와 함께 HTTPS를 사용하려면 `server.ssl.key` 속성을 제공합니다. 자체 서명된 인증서를 생성하려면 JRE에 포함된 keytool 유틸리티를 사용합니다.
->
-> 예를 들면 다음과 같습니다.
->  ```
->   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
->
->   server.ssl.key-store-type=PKCS12
->   server.ssl.key-store=classpath:keystore.p12
->   server.ssl.key-store-password=password
->   server.ssl.key-alias=testCert
->   ```
->   생성된 키 저장소 파일을 *resources* 폴더에 배치합니다.
-
-> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
-> [코드 샘플 다운로드](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
-
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div class="sxs-lookup"]
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 
-> [!div renderon="docs"]
-> #### <a name="step-3-configure-the-code-sample"></a>3단계: 코드 샘플 구성
-> 1. zip 파일을 로컬 폴더에 추출합니다.
-> 1. *선택 사항입니다.* 통합 개발 환경을 사용하는 경우 해당 환경에서 샘플을 엽니다.
-> 1. *application.properties* 파일을 엽니다. 이는 *src/main/resources/* 폴더에서 찾을 수 있습니다. `aad.clientId`, `aad.authority` 및 `aad.secretKey` 필드의 값을 각각 애플리케이션 ID, 테넌트 ID 및 클라이언트 암호 값으로 바꿉니다. 다음과 같은 모양입니다.
->
->    ```file
->    aad.clientId=Enter_the_Application_Id_here
->    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
->    aad.secretKey=Enter_the_Client_Secret_Here
->    aad.redirectUriSignin=https://localhost:8443/msal4jsample/secure/aad
->    aad.redirectUriGraph=https://localhost:8443/msal4jsample/graph/me
->    aad.msGraphEndpointHost="https://graph.microsoft.com/"
->    ```
->    위의 코드에서:
->
->    - `Enter_the_Application_Id_here`는 등록한 애플리케이션의 애플리케이션 ID입니다.
->    - `Enter_the_Client_Secret_Here`는 등록한 애플리케이션의 **인증서 및 비밀** 에서 만든 **클라이언트 암호** 입니다.
->    - `Enter_the_Tenant_Info_Here`는 등록한 애플리케이션의 **디렉터리(테넌트) ID** 값입니다.
-> 1. localhost와 함께 HTTPS를 사용하려면 `server.ssl.key` 속성을 제공합니다. 자체 서명된 인증서를 생성하려면 JRE에 포함된 keytool 유틸리티를 사용합니다.
->
->    예를 들면 다음과 같습니다.
->
->     ```
->      keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
->
->      server.ssl.key-store-type=PKCS12
->      server.ssl.key-store=classpath:keystore.p12
->      server.ssl.key-store-password=password
->      server.ssl.key-alias=testCert
->      ```
->   1. 생성된 키 저장소 파일을 *resources* 폴더에 배치합니다.
+> [!div class="sxs-lookup"]
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-3-run-the-code-sample"></a>3단계: 코드 샘플 실행
-> [!div renderon="docs"]
-> #### <a name="step-4-run-the-code-sample"></a>4단계: 코드 샘플 실행
+#### <a name="step-3-run-the-code-sample"></a>3단계: 코드 샘플 실행
 
 프로젝트를 실행하려면 다음 단계 중 하나를 수행합니다.
 

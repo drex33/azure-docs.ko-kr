@@ -7,86 +7,42 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: portal
 ms.workload: identity
-ms.date: 09/25/2020
+ms.date: 11/22/2021
 ms.author: jmprieur
-ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: 0c648ae229db1ebe6ae50131c23e292c616b2820
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", contperf-fy21q1, mode-other
+ms.openlocfilehash: 734003bb94b0d1ccd4e622b698feeb41120a6041
+ms.sourcegitcommit: 34d047300d800cf6ff7d9dd3e573a0d785f61abc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633491"
+ms.lasthandoff: 01/12/2022
+ms.locfileid: "135919309"
 ---
 # <a name="quickstart-aspnet-web-app-that-signs-in-azure-ad-users"></a>빠른 시작: Azure AD 사용자가 로그인하는 ASP.NET 웹앱
 
 이 빠른 시작에서는 Azure AD(Azure Active Directory) 계정이 있는 사용자가 로그인할 수 있는 ASP.NET 웹 애플리케이션을 보여 주는 코드 샘플을 다운로드하고 실행합니다.
 
-> [!div renderon="docs"]
-> 다음 다이어그램에서는 샘플 앱의 작동 방식을 보여 줍니다.
->
-> ![샘플 앱에서 웹 브라우저, 웹앱 및 Microsoft ID 플랫폼 간의 상호 작용에 대한 다이어그램](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
->
-> ## <a name="prerequisites"></a>필수 구성 요소
->
-> * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
-> * [.NET Framework 4.7.2 이상](https://dotnet.microsoft.com/download/visual-studio-sdks)
->
-> ## <a name="register-and-download-the-app"></a>앱 등록 및 다운로드
-> 애플리케이션 빌드를 시작할 수 있는 두 가지 옵션, 즉 자동 구성 또는 수동 구성이 있습니다.
->
-> ### <a name="automatic-configuration"></a>자동 구성
-> 앱을 자동으로 구성한 다음, 코드 샘플을 다운로드하려면 다음 단계를 수행합니다.
->
-> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">앱 등록을 위한 Azure Portal 페이지</a>로 이동합니다.
-> 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
-> 1. 지침에 따라 한 번의 클릭으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
->
-> ### <a name="manual-configuration"></a>수동 구성
-> 애플리케이션 및 코드 샘플을 수동으로 구성하려면 다음 절차를 사용합니다.
->
-> #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
->
-> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
-> 1. **Azure Active Directory** 를 검색하고 선택합니다.
-> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
-> 1. **이름** 에 대해 애플리케이션 이름을 입력합니다. 예를 들어 **ASPNET-Quickstart** 를 입력합니다. 이 이름은 앱의 사용자에게 표시되며 나중에 변경할 수 있습니다.
-> 1. **리디렉션 URI** 에서 **https://localhost:44368/** 을 추가하고, **등록** 을 선택합니다.
-> 1. **관리** 에서 **인증** 을 선택합니다.
-> 1. **암시적 권한 부여 및 하이브리드 흐름** 섹션에서 **ID 토큰** 을 선택합니다.
-> 1. **저장** 을 선택합니다.
+#### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
+이 빠른 시작의 코드 샘플이 작동하려면 **리디렉션 URI** 에 대해 **https://localhost:44368/** 을 추가합니다.
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
-> 이 빠른 시작의 코드 샘플이 작동하려면 **리디렉션 URI** 에 대해 **https://localhost:44368/** 을 추가합니다.
->
-> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [자동 변경]()
->
-> > [!div id="appconfigured" class="alert alert-info"]
-> > ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이 특성을 사용하여 애플리케이션을 구성합니다.
+> [!div class="nextstepaction"]
+> [자동 변경]()
+
+> [!div class="alert alert-info"]
+> ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이 특성을 사용하여 애플리케이션을 구성합니다.
 
 #### <a name="step-2-download-the-project"></a>2단계: 프로젝트를 다운로드합니다.
 
-> [!div renderon="docs"]
-> [Visual Studio 2019 솔루션 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
-
-> [!div renderon="portal" class="sxs-lookup"]
-> Visual Studio 2019를 사용하여 프로젝트를 실행합니다.
-> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
+Visual Studio 2019를 사용하여 프로젝트를 실행합니다.
+> [!div class="sxs-lookup nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
-> [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
-> 앱의 속성 값을 사용하여 프로젝트를 구성했습니다.
 
-> [!div renderon="docs"]
-> #### <a name="step-3-run-your-visual-studio-project"></a>3단계: Visual Studio 프로젝트 실행
+#### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
+앱의 속성 값을 사용하여 프로젝트를 구성했습니다.
 
 1. .zip 보관 파일의 압축을 루트 폴더에 가까운 로컬 폴더에 풉니다. 예를 들어 파일의 압축을 *C:\Azure-Samples* 에 풉니다.
    
@@ -95,35 +51,17 @@ ms.locfileid: "128633491"
 3. Visual Studio 버전에 따라 마우스 오른쪽 단추로 **AppModelv2-WebApp-OpenIDConnect-DotNet** 프로젝트를 클릭한 다음, **NuGet 패키지 복원** 을 선택해야 할 수도 있습니다.
 4. **보기** > **다른 창** > **패키지 관리자 콘솔** 을 차례로 선택하여 패키지 관리자 콘솔을 엽니다. 그런 다음, `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`을 실행합니다.
 
-> [!div renderon="docs"]
-> 5. *Web.config* 를 편집하고, `ClientId`, `Tenant` 및 `redirectUri` 매개 변수를 다음으로 바꿉니다.
->    ```xml
->    <add key="ClientId" value="Enter_the_Application_Id_here" />
->    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
->    <add key="redirectUri" value="https://localhost:44368/" />
->    ```
->    이 코드의 경우 다음과 같습니다.
->
->    - `Enter_the_Application_Id_here`는 이전에 만든 앱 등록의 애플리케이션(클라이언트) ID입니다. Azure Portal의 **앱 등록** 에 있는 앱의 **개요** 페이지에서 애플리케이션(클라이언트) ID를 확인합니다.
->    - `Enter_the_Tenant_Info_Here`는 다음 옵션 중 하나입니다.
->      - 애플리케이션에서 **내 조직만** 을 지원하는 경우 이 값을 디렉터리(테넌트) ID 또는 테넌트 이름(예: `contoso.onmicrosoft.com`)으로 바꿉니다. Azure Portal의 **앱 등록** 에 있는 앱의 **개요** 페이지에서 디렉터리(테넌트) ID를 확인합니다.
->      - 애플리케이션에서 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꿉니다.
->      - 애플리케이션에서 **모든 Microsoft 계정 사용자** 를 지원하는 경우 이 값을 `common`으로 바꿉니다.
->    - `redirectUri`는 이전에 Azure Portal의 **앱 등록** 에서 입력한 **리디렉션 URI** 입니다.
->
-
-> [!div class="sxs-lookup" renderon="portal"]
-> > [!NOTE]
-> > `Enter_the_Supported_Account_Info_Here`
+> [!NOTE]
+> `Enter_the_Supported_Account_Info_Here`
 
 ## <a name="more-information"></a>자세한 정보
 
 이 섹션에서는 로그인 사용자에 필요한 코드에 대한 개요를 제공합니다. 이 개요는 코드의 작동 방식, 기본 인수의 개념 및 로그인을 기존 ASP.NET 애플리케이션에 추가하는 방법을 이해하는 데 유용할 수 있습니다.
 
-> [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="how-the-sample-works"></a>샘플 작동 방법
->
-> ![샘플 앱에서 웹 브라우저, 웹앱 및 Microsoft ID 플랫폼 간의 상호 작용에 대한 다이어그램](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
+
+### <a name="how-the-sample-works"></a>샘플 작동 방법
+
+![샘플 앱에서 웹 브라우저, 웹앱 및 Microsoft ID 플랫폼 간의 상호 작용에 대한 다이어그램](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 ### <a name="owin-middleware-nuget-packages"></a>OWIN 미들웨어 NuGet 패키지
 

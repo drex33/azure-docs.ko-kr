@@ -7,23 +7,23 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: portal
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 11/22/2021
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: f0b75b49ce36ef4fb3e45b76ace5402dd5c39efe
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", devx-track-js, mode-api
+ms.openlocfilehash: 1076a8b7bcd68c3192e3a67ce737ab50b0ce1c45
+ms.sourcegitcommit: 34d047300d800cf6ff7d9dd3e573a0d785f61abc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131456198"
+ms.lasthandoff: 01/12/2022
+ms.locfileid: "135901143"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>빠른 시작: OpenID Connect를 사용하여 Node.js 웹앱에 로그인 추가
 
 이 빠른 시작에서는 Express와 함께 Node.js를 사용하여 빌드된 웹 애플리케이션에서 OpenID Connect 인증을 설정하는 방법을 보여주는 코드 샘플을 다운로드하고 실행합니다. 샘플은 모든 플랫폼에서 실행되도록 설계되었습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/en/download/).

@@ -7,17 +7,17 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: portal
 ms.workload: identity
-ms.date: 10/05/2020
+ms.date: 01/11/2022
 ms.author: jmprieur
-ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 79557d889e4942c7cb7e4ae849b1da84c12a3712
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", mode-api
+ms.openlocfilehash: 57bcd6562862210be21c17680842de44168c435b
+ms.sourcegitcommit: 04420fb4695bd70408d9854ad5b2af8a9bbfbc64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108748730"
+ms.lasthandoff: 01/15/2022
+ms.locfileid: "136847815"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼으로 보호되는 ASP.NET 웹 API 호출
 
@@ -48,7 +48,7 @@ ms.locfileid: "108748730"
 
 Azure Portal의 **앱 등록** 에 웹 API를 등록합니다.
 
-1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
 1. **Azure Active Directory** 를 찾아서 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
@@ -132,13 +132,23 @@ TodoListClient 앱을 등록하려면 다음 단계를 수행합니다.
 
 1. TodoListClient 프로젝트 루트 폴더에서 *app.config* 파일을 열고 `ida:ClientId` 매개 변수에 애플리케이션 ID 값을 붙여넣습니다.
 
-## <a name="run-your-todolistclient-project"></a>TodoListClient 프로젝트 실행
+## <a name="run-your-projects"></a>프로젝트를 실행합니다.
+
+두 프로젝트를 시작합니다. Visual Studio를 사용하는 경우:
+
+1. Visual Studio 솔루션을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다.
+
+1. **공용 속성** 에서 **시작 프로젝트** 를 선택한 다음 **여러 시작 프로젝트** 를 선택합니다. 
+
+1. 두 프로젝트 모두 작업으로 **시작** 을 선택합니다.
+
+1. 위쪽 화살표를 사용하여 목록의 첫 번째 위치로 이동하여 TodoListService 서비스가 먼저 시작되는지 확인합니다.
 
 TodoListClient 프로젝트를 실행하려면 로그인합니다.
 
-1. F5 키를 눌러 TodoListClient 프로젝트를 엽니다. 프로젝트 페이지가 열립니다.
+1. F5 키를 눌러 프로젝트를 시작합니다. 서비스 페이지와 데스크톱 애플리케이션이 열립니다.
 
-1. 오른쪽 위에서 **로그인** 을 선택한 다음, 애플리케이션을 등록하는 데 사용한 것과 동일한 자격 증명으로 로그인하거나, 동일한 디렉터리에서 사용자로 로그인합니다.
+1. TodoListClient에서 오른쪽 위에 있는 **로그인** 을 선택한 다음, 애플리케이션을 등록하는 데 사용한 것과 동일한 자격 증명으로 로그인하거나, 동일한 디렉터리에서 사용자로 로그인합니다.
 
    처음으로 로그인하는 경우 TodoListService 웹 API에 동의하라는 메시지가 표시될 수 있습니다.
 

@@ -7,18 +7,18 @@ author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: portal
 ms.workload: identity
-ms.date: 09/24/2019
+ms.date: 01/14/2022
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 0ced17e1d994f8a21829bf4913a37deff8e68995
-ms.sourcegitcommit: 677e8acc9a2e8b842e4aef4472599f9264e989e7
+ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:iOS", mode-api
+ms.openlocfilehash: 076218234e3e97a46d981a67aadd3a3f5f496eb4
+ms.sourcegitcommit: 04420fb4695bd70408d9854ad5b2af8a9bbfbc64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2021
-ms.locfileid: "132312080"
+ms.lasthandoff: 01/15/2022
+ms.locfileid: "136848857"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -37,109 +37,62 @@ ms.locfileid: "132312080"
 
 ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-ios/ios-intro.svg)
 
-> [!div renderon="docs"]
-> ## <a name="register-and-download-your-quickstart-app"></a>빠른 시작 앱 등록 및 다운로드
-> 빠른 시작 애플리케이션을 시작하는 옵션은 두 가지가 있습니다.
-> * [기본] [옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드](#option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample)
-> * [수동] [옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성](#option-2-register-and-manually-configure-your-application-and-code-sample)
->
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>옵션 1: 앱을 등록하고 자동 구성한 다음, 코드 샘플 다운로드
-> #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
-> 앱을 등록하려면
-> 1. <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs" target="_blank">Azure Portal - 앱 등록</a> 빠른 시작 환경으로 이동합니다.
-> 1. 애플리케이션 이름을 입력하고 **등록** 을 선택합니다.
-> 1. 지침에 따라 클릭 한 번으로 새 애플리케이션을 다운로드하고 자동으로 구성합니다.
->
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>옵션 2: 애플리케이션 및 코드 샘플을 등록하고 수동으로 구성
->
-> #### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
-> 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
->
-> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
-> 1. **Azure Active Directory** 를 검색하고 선택합니다.
-> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
-> 1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
-> 1. **등록** 을 선택합니다.
-> 1. **관리** 에서 **인증** > **플랫폼 추가** > **iOS** 를 선택합니다.
-> 1. 애플리케이션에 대한 **번들 식별자** 를 입력합니다. 번들 식별자는 애플리케이션을 고유하게 식별하는 고유 문자열(예: `com.<yourname>.identitysample.MSALMacOS`)입니다. 사용하는 값을 기록해 둡니다. iOS 구성은 macOS 애플리케이션에도 적용할 수 있습니다.
-> 1. 이 빠른 시작 후반에 사용할 수 있도록 **구성** 을 선택하고 **MSAL 구성** 세부 정보를 저장합니다.
-> 1. **완료** 를 선택합니다.
+#### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
+이 빠른 시작에 대한 코드 샘플이 작동하려면 인증 broker와 호환되는 **리디렉션 URI** 를 추가합니다.
+> [!div class="nextstepaction"]
+> [자동 변경]()
 
-> [!div renderon="portal" class="sxs-lookup"]
->
-> #### <a name="step-1-configure-your-application"></a>1단계: 애플리케이션 구성
-> 이 빠른 시작에 대한 코드 샘플이 작동하려면 인증 broker와 호환되는 **리디렉션 URI** 를 추가합니다.
-> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [자동 변경]()
->
-> > [!div id="appconfigured" class="alert alert-info"]
-> > ![이미 구성됨](media/quickstart-v2-ios/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
->
-> #### <a name="step-2-download-the-sample-project"></a>2단계: 샘플 프로젝트 다운로드
-> > [!div id="autoupdate_ios" class="nextstepaction"]
-> > [iOS용 코드 샘플 다운로드]()
->
-> > [!div id="autoupdate_macos" class="nextstepaction"]
-> > [macOS용 코드 샘플 다운로드]()
-> [!div renderon="docs"]
-> #### <a name="step-2-download-the-sample-project"></a>2단계: 샘플 프로젝트 다운로드
->
-> - [iOS용 코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
-> - [macOS용 코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)
+> [!div class="alert alert-info"]
+> ![이미 구성됨](media/quickstart-v2-ios/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
+
+#### <a name="step-2-download-the-sample-project"></a>2단계: 샘플 프로젝트 다운로드
+> [!div class="nextstepaction"]
+> [iOS용 코드 샘플 다운로드]()
+
+> [!div class="nextstepaction"]
+> [macOS용 코드 샘플 다운로드]()
 
 #### <a name="step-3-install-dependencies"></a>3단계: 종속성 설치
 
 1. zip 파일의 압축을 풉니다.
 2. 터미널 창에서 다운로드한 코드 샘플이 있는 폴더로 이동하고 `pod install`을 실행하여 최신 MSAL 라이브러리를 설치합니다.
 
-> [!div renderon="portal" class="sxs-lookup"]
-> #### <a name="step-4-your-app-is-configured-and-ready-to-run"></a>4단계: 앱이 구성되었고 실행할 준비가 되었습니다.
-> 앱 속성 값을 사용하여 프로젝트를 구성했고 실행할 준비가 되었습니다.
-> > [!NOTE]
-> > `Enter_the_Supported_Account_Info_Here`
->
-> [!div renderon="docs"]
-> #### <a name="step-4-configure-your-project"></a>4단계: 프로젝트 구성
-> 위의 옵션 1을 선택한 경우 이러한 단계를 건너뛸 수 있습니다.
-> 1. XCode에서 프로젝트를 엽니다.
-> 1. **ViewController.swift** 를 편집하고, 'let kClientID'로 시작하는 줄을 다음 코드 조각으로 바꿉니다. `kClientID` 값은 이 빠른 시작의 앞부분에서 포털에 앱을 등록할 때 저장한 clientID로 업데이트해야 합니다.
->
->    ```swift
->    let kClientID = "Enter_the_Application_Id_Here"
->    ```
+#### <a name="step-4-your-app-is-configured-and-ready-to-run"></a>4단계: 앱이 구성되었고 실행할 준비가 되었습니다.
+앱 속성 값을 사용하여 프로젝트를 구성했고 실행할 준비가 되었습니다.
+> [!NOTE]
+> `Enter_the_Supported_Account_Info_Here`
 
-> 1. [Azure AD 국가별 클라우드](/graph/deployments#app-registration-and-token-service-root-endpoints)에 대한 앱을 빌드하는 경우 'let kGraphEndpoint' 및 'let kAuthority'로 시작하는 줄을 올바른 엔드포인트로 바꿉니다. 글로벌 액세스의 경우 기본값을 사용합니다.
->
->    ```swift
->    let kGraphEndpoint = "https://graph.microsoft.com/"
->    let kAuthority = "https://login.microsoftonline.com/common"
->    ```
+1. [Azure AD 국가별 클라우드](/graph/deployments#app-registration-and-token-service-root-endpoints)에 대한 앱을 빌드하는 경우 'let kGraphEndpoint' 및 'let kAuthority'로 시작하는 줄을 올바른 엔드포인트로 바꿉니다. 글로벌 액세스의 경우 기본값을 사용합니다.
 
-> 1. 다른 엔드포인트는 [여기에](/graph/deployments#app-registration-and-token-service-root-endpoints) 설명되어 있습니다. 예를 들어 Azure AD 독일에서 빠른 시작을 실행하려면 다음을 사용합니다.
->
->    ```swift
->    let kGraphEndpoint = "https://graph.microsoft.de/"
->    let kAuthority = "https://login.microsoftonline.de/common"
->    ```
+   ```swift
+   let kGraphEndpoint = "https://graph.microsoft.com/"
+   let kAuthority = "https://login.microsoftonline.com/common"
+   ```
 
-> 3. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자** 를 입력합니다.
-> 4. 마우스 오른쪽 단추로 **Info.plist** 를 클릭하고, **파일 열기 형식** > **소스 코드** 를 차례로 선택합니다.
-> 5. dict 루트 노드 아래에서 `Enter_the_bundle_Id_Here`를 포털에서 사용한 ***번들 ID*** 로 바꿉니다. 문자열의 `msauth.` 접두사를 확인합니다.
->
->    ```xml
->    <key>CFBundleURLTypes</key>
->    <array>
->       <dict>
->          <key>CFBundleURLSchemes</key>
->          <array>
->             <string>msauth.Enter_the_Bundle_Id_Here</string>
->          </array>
->       </dict>
->    </array>
->    ```
+1. 다른 엔드포인트는 [여기에](/graph/deployments#app-registration-and-token-service-root-endpoints) 설명되어 있습니다. 예를 들어 Azure AD 독일에서 빠른 시작을 실행하려면 다음을 사용합니다.
 
-> 6. 앱을 빌드하고 실행하세요!
+   ```swift
+   let kGraphEndpoint = "https://graph.microsoft.de/"
+   let kAuthority = "https://login.microsoftonline.de/common"
+   ```
+
+3. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자** 를 입력합니다.
+4. 마우스 오른쪽 단추로 **Info.plist** 를 클릭하고, **파일 열기 형식** > **소스 코드** 를 차례로 선택합니다.
+5. dict 루트 노드 아래에서 `Enter_the_bundle_Id_Here`를 포털에서 사용한 ***번들 ID*** 로 바꿉니다. 문자열의 `msauth.` 접두사를 확인합니다.
+
+   ```xml
+   <key>CFBundleURLTypes</key>
+   <array>
+      <dict>
+         <key>CFBundleURLSchemes</key>
+         <array>
+            <string>msauth.Enter_the_Bundle_Id_Here</string>
+         </array>
+      </dict>
+   </array>
+   ```
+
+6. 앱을 빌드하고 실행하세요!
 
 ## <a name="more-information"></a>추가 정보
 

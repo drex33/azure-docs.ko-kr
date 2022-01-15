@@ -7,81 +7,80 @@ author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: portal
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 01/11/2022
 ms.author: jmprieur
-ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: f70c35f55256ef98dd261a13058f1b6ad5330d9f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-core", mode-api
+ms.openlocfilehash: c30b50ae0f5eb92f21232096e032a214ec05e316
+ms.sourcegitcommit: 04420fb4695bd70408d9854ad5b2af8a9bbfbc64
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616805"
+ms.lasthandoff: 01/15/2022
+ms.locfileid: "136846748"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼을 사용하여 ASP.NET Core 웹 API 보호
 
 이 빠른 시작에서는 ASP.NET Core 웹 API 코드 샘플을 다운로드하고 권한있는 계정으로만 리소스 액세스를 제한하는 방식을 검토합니다. 이 샘플은 모든 Azure AD(Azure Active Directory) 조직에서 개인 Microsoft 계정 및 계정의 권한 부여를 지원합니다.
 
-> [!div renderon="docs"]
-> ## <a name="prerequisites"></a>사전 요구 사항
->
-> - 활성 구독이 있는 Azure 계정 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-> - [Azure Active Directory 테넌트](quickstart-create-new-tenant.md)
-> - [.NET Core SDK 3.1+](https://dotnet.microsoft.com/)
-> - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) 또는 [Visual Studio Code](https://code.visualstudio.com/)
->
-> ## <a name="step-1-register-the-application"></a>1단계: 애플리케이션 등록
->
-> 먼저 Azure AD 테넌트에 웹 API를 등록하고 다음 단계를 수행하여 범위를 추가합니다.
->
-> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
-> 1. **Azure Active Directory** 를 검색하고 선택합니다.
-> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
-> 1. **이름** 에 대해 애플리케이션 이름을 입력합니다. 예를 들어 **AspNetCoreWebApi-Quickstart** 를 입력합니다. 이 이름은 앱의 사용자에게 표시되며 나중에 변경할 수 있습니다.
-> 1. **등록** 을 선택합니다.
-> 1. **관리** 에서 **API 표시** > **범위 추가** 를 선택합니다. **애플리케이션 ID URI** 의 경우 **저장 및 계속** 을 선택하여 기본값은 수락한 후, 다음 세부 정보를 입력합니다.
->    - **범위 이름**: `access_as_user`
->    - **동의할 수 있는 사람**: **관리자 및 사용자**
->    - **관리자 동의 표시 이름**: `Access AspNetCoreWebApi-Quickstart`
->    - **관리자 동의 설명**: `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
->    - **사용자 동의 표시 이름**: `Access AspNetCoreWebApi-Quickstart`
->    - **사용자 동의 설명**: `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
->    - **상태**: **Enabled**
-> 1. **범위 추가** 를 선택하여 범위 추가를 완료합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+- 활성 구독이 있는 Azure 계정 [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Azure Active Directory 테넌트](quickstart-create-new-tenant.md)
+- [.NET Core SDK 3.1+](https://dotnet.microsoft.com/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) 또는 [Visual Studio Code](https://code.visualstudio.com/)
+
+## <a name="step-1-register-the-application"></a>1단계: 애플리케이션 등록
+
+먼저 Azure AD 테넌트에 웹 API를 등록하고 다음 단계를 수행하여 범위를 추가합니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
+1. **Azure Active Directory** 를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
+1. **이름** 에 대해 애플리케이션 이름을 입력합니다. 예를 들어 **AspNetCoreWebApi-Quickstart** 를 입력합니다. 이 이름은 앱의 사용자에게 표시되며 나중에 변경할 수 있습니다.
+1. **등록** 을 선택합니다.
+1. **관리** 에서 **API 표시** > **범위 추가** 를 선택합니다. **애플리케이션 ID URI** 의 경우 **저장 및 계속** 을 선택하여 기본값은 수락한 후, 다음 세부 정보를 입력합니다.
+    - **범위 이름**: `access_as_user`
+   - **동의할 수 있는 사람**: **관리자 및 사용자**
+   - **관리자 동의 표시 이름**: `Access AspNetCoreWebApi-Quickstart`
+   - **관리자 동의 설명**: `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
+   - **사용자 동의 표시 이름**: `Access AspNetCoreWebApi-Quickstart`
+   - **사용자 동의 설명**: `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
+   - **상태**: **Enabled**
+1. **범위 추가** 를 선택하여 범위 추가를 완료합니다.
 
 ## <a name="step-2-download-the-aspnet-core-project"></a>2단계: ASP.NET Core 프로젝트 다운로드
 
-> [!div renderon="docs"]
-> GitHub에서 [ASP.NET Core 솔루션을 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip)합니다.
+GitHub에서 [ASP.NET Core 솔루션을 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip)합니다.
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
-> [!div renderon="docs"]
-> ## <a name="step-3-configure-the-aspnet-core-project"></a>3단계: ASP.NET Core 프로젝트 구성
->
-> 이 단계에서는 이전에 만든 앱 등록을 사용하도록 샘플 코드를 구성합니다.
->
-> 1. 드라이브 루트 근처의 폴더로 .zip 보관 파일을 추출합니다. 예를 들어 파일의 압축을 *C:\Azure-Samples* 에 풉니다.
->
->    Windows의 경로 길이 제한으로 인해 발생하는 오류를 방지하려면 보관 파일의 압축을 드라이브 루트에 가까운 디렉터리에 푸는 것이 좋습니다.
->
-> 1. 코드 편집기의 *webapi* 폴더에서 솔루션을 엽니다.
-> 1. *appsettings.json* 파일을 열고, 다음 코드를 수정합니다.
->
->    ```json
->    "ClientId": "Enter_the_Application_Id_here",
->    "TenantId": "Enter_the_Tenant_Info_Here"
->    ```
->
->    - `Enter_the_Application_Id_here`를 Azure Portal에 등록한 애플리케이션의 애플리케이션(클라이언트) ID로 바꿉니다. 앱의 **개요** 페이지에서 애플리케이션(클라이언트) ID를 찾을 수 있습니다.
->    - `Enter_the_Tenant_Info_Here`을 다음 중 하나로 바꿉니다.
->       - 애플리케이션이 **이 조직 디렉터리의 계정만** 을 지원하는 경우 이 값을 디렉터리(테넌트) ID(GUID) 또는 테넌트 이름(예: `contoso.onmicrosoft.com`)으로 바꿉니다. 앱의 **개요** 페이지에서 디렉터리(테넌트) ID를 찾을 수 있습니다.
->       - 애플리케이션에서 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꿉니다.
->       - 애플리케이션에서 **모든 Microsoft 계정 사용자** 를 지원하는 경우 이 값을 `common`으로 둡니다.
->
-> 이 빠른 시작에서는 *appsettings.json* 파일에서 다른 값을 변경하지 마세요.
+
+## <a name="step-3-configure-the-aspnet-core-project"></a>3단계: ASP.NET Core 프로젝트 구성
+
+이 단계에서는 이전에 만든 앱 등록을 사용하도록 샘플 코드를 구성합니다.
+
+1. 드라이브 루트 근처의 폴더로 .zip 보관 파일을 추출합니다. 예를 들어 파일의 압축을 *C:\Azure-Samples* 에 풉니다.
+
+   Windows의 경로 길이 제한으로 인해 발생하는 오류를 방지하려면 보관 파일의 압축을 드라이브 루트에 가까운 디렉터리에 푸는 것이 좋습니다.
+
+1. 코드 편집기의 *webapi* 폴더에서 솔루션을 엽니다.
+1. *appsettings.json* 파일을 열고, 다음 코드를 수정합니다.
+
+   ```json
+   "ClientId": "Enter_the_Application_Id_here",
+   "TenantId": "Enter_the_Tenant_Info_Here"
+   ```
+
+   - `Enter_the_Application_Id_here`를 Azure Portal에 등록한 애플리케이션의 애플리케이션(클라이언트) ID로 바꿉니다. 앱의 **개요** 페이지에서 애플리케이션(클라이언트) ID를 찾을 수 있습니다.
+   - `Enter_the_Tenant_Info_Here`을 다음 중 하나로 바꿉니다.
+      - 애플리케이션이 **이 조직 디렉터리의 계정만** 을 지원하는 경우 이 값을 디렉터리(테넌트) ID(GUID) 또는 테넌트 이름(예: `contoso.onmicrosoft.com`)으로 바꿉니다. 앱의 **개요** 페이지에서 디렉터리(테넌트) ID를 찾을 수 있습니다.
+      - 애플리케이션에서 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꿉니다.
+      - 애플리케이션에서 **모든 Microsoft 계정 사용자** 를 지원하는 경우 이 값을 `common`으로 둡니다.
+
+이 빠른 시작에서는 *appsettings.json* 파일에서 다른 값을 변경하지 마세요.
 
 ## <a name="how-the-sample-works"></a>샘플 작동 방법
 

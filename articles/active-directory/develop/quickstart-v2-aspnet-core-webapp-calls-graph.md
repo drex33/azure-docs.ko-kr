@@ -1,23 +1,23 @@
 ---
 title: '빠른 시작: 사용자를 로그인하고 Microsoft Graph를 호출하는 ASP.NET Core 웹앱 | Azure'
 titleSuffix: Microsoft identity platform
-description: 이 빠른 시작에서는 앱이 Microsoft.Identity.Web을 활용하여 OpenID Connect를 통해 ASP.NET Core 웹앱에서 Microsoft 로그인을 구현하고 Microsoft Graph를 호출하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 앱이 Microsoft.Identity.Web을 사용하여 OpenID Connect를 통해 ASP.NET Core 웹앱에서 Microsoft 로그인을 구현하고 Microsoft Graph를 호출하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: portal
 ms.workload: identity
-ms.date: 05/17/2021
+ms.date: 11/22/2021
 ms.author: jmprieur
-ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 244736501dbd9a996ddb89159f0a7289244e51b1
-ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
+ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:aspnet-core", mode-other
+ms.openlocfilehash: 887a1e072f2ea9325fa1113446c57e5d68dbd691
+ms.sourcegitcommit: 34d047300d800cf6ff7d9dd3e573a0d785f61abc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2021
-ms.locfileid: "131466108"
+ms.lasthandoff: 01/12/2022
+ms.locfileid: "135935301"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>빠른 시작: 사용자를 로그인하고 사용자를 대신하여 Microsoft Graph를 호출하는 ASP.NET Core 웹앱
 
@@ -25,94 +25,31 @@ ms.locfileid: "131466108"
 
 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
-> [!div renderon="docs"]
-> ## <a name="prerequisites"></a>필수 구성 요소
->
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) 또는 [Visual Studio Code](https://code.visualstudio.com/)
-> * [.NET Core SDK 3.1+](https://dotnet.microsoft.com/download)
->
->
-> ## <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
-> 애플리케이션을 등록하고 앱의 등록 정보를 솔루션에 수동으로 추가하려면 다음 단계를 따르세요.
->
-> 1. <a href="https://portal.azure.com/" target="_blank">Azure Portal</a>에 로그인합니다.
-> 1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트로 전환합니다.
-> 1. **Azure Active Directory** 를 검색하고 선택합니다.
-> 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
-> 1. 애플리케이션에 대한 **이름** 을 입력합니다(예: `AspNetCoreWebAppCallsGraph-Quickstart`). 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
-> 1. `https://localhost:44321/signin-oidc`의 **리디렉션 URI** 를 입력합니다.
-> 1. **등록** 을 선택합니다.
-> 1. **관리** 에서 **인증** 을 선택합니다.
-> 1. `https://localhost:44321/signout-oidc`의 **프런트 채널 로그 아웃 URL** 을 입력합니다.
-> 1. **저장** 을 선택합니다.
-> 1. **관리** 아래에서 **인증서 및 비밀** > **클라이언트 암호** > **새 클라이언트 암호** 를 선택합니다.
-> 1. **설명** 을 입력합니다(예: `clientsecret1`).
-> 1. 비밀 만료에 대해 **1년 후** 를 선택합니다.
-> 1. **추가** 를 선택하고 이후 단계에서 사용할 비밀의 **값** 을 즉시 기록합니다. 비밀 값은 *다시 표시되지 않으며*, 어떤 방법으로도 검색할 수 없습니다. 암호와 마찬가지로 안전한 위치에 기록해 둡니다.
+## <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
 
-> [!div class="sxs-lookup" renderon="portal"]
-> ## <a name="step-1-configure-your-application-in-the-azure-portal"></a>1단계: Azure Portal에서 애플리케이션 구성
->
-> 이 빠른 시작의 코드 샘플이 작동하려면 앱 등록에 `https://localhost:44321/signin-oidc`의 **리디렉션 URI** 와 `https://localhost:44321/signout-oidc`의 **프런트 채널 로그아웃 URL** 을 추가합니다.
-> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [자동 변경]()
->
-> > [!div id="appconfigured" class="alert alert-info"]
-> > ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
+이 빠른 시작의 코드 샘플이 작동하려면 앱 등록에 `https://localhost:44321/signin-oidc`의 **리디렉션 URI** 와 `https://localhost:44321/signout-oidc`의 **프런트 채널 로그아웃 URL** 을 추가합니다.
+> [!div class="nextstepaction"]
+> [자동 변경]()
+
+> [!div class="alert alert-info"]
+> ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이러한 특성을 사용하여 애플리케이션을 구성합니다.
 
 ## <a name="step-2-download-the-aspnet-core-project"></a>2단계: ASP.NET Core 프로젝트 다운로드
 
-> [!div renderon="docs"]
-> [ASP.NET Core 솔루션 다운로드](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
+프로젝트를 실행합니다.
 
-> [!div renderon="portal" class="sxs-lookup"]
-> 프로젝트를 실행합니다.
-
-> [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
+> [!div class="nextstepaction"]
 > [코드 샘플 다운로드](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1-callsgraph.zip)
 
 [!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
-> [!div class="sxs-lookup" renderon="portal"]
-> ## <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
->
-> 앱 속성 값을 사용하여 프로젝트를 구성했고 실행할 준비가 되었습니다.
-> [!div class="sxs-lookup" renderon="portal"]
-> > [!NOTE]
-> > `Enter_the_Supported_Account_Info_Here`
-> [!div renderon="docs"]
->
-> ## <a name="step-3-configure-your-aspnet-core-project"></a>3단계: ASP.NET Core 프로젝트 구성
-> 1. 드라이브 루트 근처의 로컬 폴더로 .zip 보관 파일을 추출합니다. 예를 들어 *C:\Azure-Samples* 입니다.
-> 1. Visual Studio 2019에서 솔루션을 엽니다.
-> 1. *appsettings.json* 파일을 열고 다음을 수정합니다.
->
->    ```json
->    "ClientId": "Enter_the_Application_Id_here",
->    "TenantId": "common",
->    "clientSecret": "Enter_the_Client_Secret_Here"
->    ```
->
->    - `Enter_the_Application_Id_here`를 Azure Portal에 등록한 애플리케이션의 **애플리케이션(클라이언트) ID** 로 바꿉니다. 앱의 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 를 찾을 수 있습니다.
->    - `common`을 다음 중 하나로 바꿉니다.
->       - 애플리케이션이 **이 조직 디렉터리의 계정만** 을 지원하는 경우 이 값을 **디렉터리(테넌트) ID**(GUID) 또는 **테넌트 이름**(예: `contoso.onmicrosoft.com`)으로 바꿉니다. 앱의 **개요** 페이지에서 **디렉터리(테넌트) ID** 를 찾을 수 있습니다.
->       - 애플리케이션이 **모든 조직 디렉터리의 계정** 을 지원하는 경우 이 값을 `organizations`로 바꾸세요.
->       - 애플리케이션이 **모든 Microsoft 계정 사용자** 를 지원하는 경우 이 값을 `common`으로 둡니다.
->    - `Enter_the_Client_Secret_Here`를 이전 단계에서 만들고 기록한 **클라이언트 암호** 로 바꿉니다.
->
-> 이 빠른 시작에서는 *appsettings.json* 파일에서 다른 값을 변경하지 마세요.
->
-> ## <a name="step-4-build-and-run-the-application"></a>4단계: 애플리케이션 빌드 및 실행
->
-> **디버그** 메뉴 > **디버깅 시작** 을 선택하거나 `F5` 키를 눌러 Visual Studio에서 앱을 빌드하고 실행합니다.
->
-> 자격 증명을 입력하라는 메시지가 표시되고 앱에 필요한 권한에 동의하라는 메시지가 표시됩니다. 동의 프롬프트에서 **수락** 을 선택합니다.
->
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp-calls-graph/webapp-01-consent.png" alt-text="앱이 > 사용자로부터 요청하는 권한을 보여주는 동의 대화 상자":::
->
-> 요청된 권한에 동의하면 앱에 Azure Active Directory 자격 증명을 사용하여 성공적으로 로그인했음을 표시하고 페이지의 "Api 결과" 섹션에 이메일 주소를 표시합니다. 이는 Microsoft Graph를 사용하여 추출되었습니다.
->
-> :::image type="content" source="media/quickstart-v2-aspnet-core-webapp-calls-graph/webapp-02-signed-in.png" alt-text="실행 중인 웹앱과 로그인한 사용자를 표시하는 웹 브라우저":::
+
+## <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
+
+앱 속성 값을 사용하여 프로젝트를 구성했고 실행할 준비가 되었습니다.
+
+> [!NOTE]
+> `Enter_the_Supported_Account_Info_Here`
 
 ## <a name="about-the-code"></a>코드 정보
 
@@ -127,11 +64,12 @@ ms.locfileid: "131466108"
 *Microsoft.AspNetCore.Authentication* 미들웨어는 호스팅 프로세스가 초기화될 때 실행되는 `Startup` 클래스를 사용합니다.
 
 ```csharp
-  // Get the scopes from the configuration (appsettings.json)
-  var initialScopes = Configuration.GetValue<string>("DownstreamApi:Scopes")?.Split(' ');
 
   public void ConfigureServices(IServiceCollection services)
-  {
+  {  
+    // Get the scopes from the configuration (appsettings.json)
+    var initialScopes = Configuration.GetValue<string>("DownstreamApi:Scopes")?.Split(' ');
+  
       // Add sign-in with Microsoft
       services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
         .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"))

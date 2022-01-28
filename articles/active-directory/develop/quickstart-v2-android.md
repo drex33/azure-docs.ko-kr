@@ -10,14 +10,15 @@ ms.subservice: develop
 ms.topic: portal
 ms.workload: identity
 ms.date: 01/14/2022
+ROBOTS: NOINDEX
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:Android", has-adal-ref, mode-api
-ms.openlocfilehash: 5d6285b173d023cc6a381ddfe9842d620f73da4a
-ms.sourcegitcommit: 04420fb4695bd70408d9854ad5b2af8a9bbfbc64
+ms.openlocfilehash: 3435175903b072ecf4fc402dfb675f702031264a
+ms.sourcegitcommit: 3f20f370425cb7d51a35d0bba4733876170a7795
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2022
-ms.locfileid: "136846350"
+ms.lasthandoff: 01/27/2022
+ms.locfileid: "137804922"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 

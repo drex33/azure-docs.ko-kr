@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: portal
 ms.date: 01/10/2022
+ROBOTS: NOINDEX
 ms.author: marsma
 ms.custom: mode-api
-ms.openlocfilehash: eeb50fc335835dcc2765c894e151f39cccbf25e4
-ms.sourcegitcommit: b55c580fe2bb9fbf275ddf414d547ddde8d71d8a
+ms.openlocfilehash: 86e119de86f9fd9fc6b8efa536de3c627fc4c686
+ms.sourcegitcommit: 3f20f370425cb7d51a35d0bba4733876170a7795
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2022
-ms.locfileid: "136834870"
+ms.lasthandoff: 01/27/2022
+ms.locfileid: "137803896"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-nodejs-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Node.js 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 

@@ -10,14 +10,15 @@ ms.subservice: develop
 ms.topic: portal
 ms.workload: identity
 ms.date: 01/11/2022
+ROBOTS: NOINDEX
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", mode-api
-ms.openlocfilehash: 57bcd6562862210be21c17680842de44168c435b
-ms.sourcegitcommit: 04420fb4695bd70408d9854ad5b2af8a9bbfbc64
+ms.openlocfilehash: b8760a6ede753ea4f1f1b52b89cf6d11ba6ccab8
+ms.sourcegitcommit: 3f20f370425cb7d51a35d0bba4733876170a7795
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2022
-ms.locfileid: "136847815"
+ms.lasthandoff: 01/27/2022
+ms.locfileid: "137805188"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼으로 보호되는 ASP.NET 웹 API 호출
 

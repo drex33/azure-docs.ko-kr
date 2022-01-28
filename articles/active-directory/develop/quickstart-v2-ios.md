@@ -10,15 +10,16 @@ ms.subservice: develop
 ms.topic: portal
 ms.workload: identity
 ms.date: 01/14/2022
+ROBOTS: NOINDEX
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:iOS", mode-api
-ms.openlocfilehash: 076218234e3e97a46d981a67aadd3a3f5f496eb4
-ms.sourcegitcommit: 04420fb4695bd70408d9854ad5b2af8a9bbfbc64
+ms.openlocfilehash: 47c6dcf4ae6b1844051100dbb5b812fcab2bf632
+ms.sourcegitcommit: 3f20f370425cb7d51a35d0bba4733876170a7795
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2022
-ms.locfileid: "136848857"
+ms.lasthandoff: 01/27/2022
+ms.locfileid: "137802273"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
